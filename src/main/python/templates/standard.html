@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
+
+        <title>LWS Financial Demo {% if title %}:{{ title }}{% endif %} </title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="/static/css/app.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+      <script src="/static/assets/js/html5shiv.js"></script>
+      <script src="/static/assets/js/respond.min.js"></script>
+    <![endif]-->
+    {% endblock %}
+</head>
+
+<body>
+<div class="container">
+
+    <div class="page-header">
+        {% block page_header %}<a href="/"><img src="/static/assets/lws-logo.png" border="0"></a><h1>LWS Financial Demo</h1>
+            {% if header_msg %}{{ header_msg }}{% endif %}{% endblock %}</div>
+    <div class="row">
+        <div class="col-md-3">{% block search_box_left %}{% endblock %}</div>
+        <div class="col-md-9">{% block search_box %}
+            <form class="form-inline" role="form" method="POST">
+                <div class="form-group">
+                    <label class="sr-only" for="search_box">Search</label>
+                    <input type="search" class="form-control" size="50" name="search_box" id="search_box" placeholder="{% if the_query %}{{ the_query }}{% else %}Enter Search...{% endif %}">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+        {% endblock %}</div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-3">{% block left_col %}{%  include 'facets.html' %}{% endblock %}</div>
+        <div class="col-md-6">{% block main %}{%  include 'search_results.html' %}{% endblock %}</div>
+        <div class="col-md-3">{% block right_col %}{%  include 'graphs.html' %}{% endblock %}</div>
+    </div>
+</div>
+<!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+</body>
+</html>
