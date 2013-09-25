@@ -13,14 +13,16 @@ twitter_fields = {"batch_id": {"name": "batch_id"},
                   "Content-Type": {"name": "mimeType"},
                   "createdAt": {"name": "dateCreated"},
                   "parsing": {"name": "parsing"},
-                  "retweetCount": {"name": "retweetCount", "ft":"int"}, "source": {"name": "creator"},
+                  "retweetCount": {"name": "retweetCount", "ft":"int", "facet":"true"}, "source": {"name": "creator"},
                   "userId": {"name": "userId", "ft":"long"}, "content_length": {"name": "content_length", "ft":"int"},
-                  "userLang": {"name": "lang", "ft": "string"},
-                  "userLocation": {"name": "userLocation", "ft":"text_en"}, "location": {"name": "location", "ft":"point"},
+                  "userLang": {"name": "lang", "ft": "string", "facet":"true"},
+                  "userLocation": {"name": "userLocation", "ft":"text_en"},
+                  "location": {"name": "location", "ft":"point"},
                   "userName": {"name": "author"},
-                  "userScreenName": {"name": "userScreenName", "ft":"string"}, "isRetweet": {"name": "isRetweet", "ft":"boolean"},
-                  "isRetweetedByMe": {"name": "isRetweetByMe", "ft":"boolean"},
-                  "isFavorited": {"name": "isFavorited", "ft":"boolean"},
+                  "userScreenName": {"name": "userScreenName", "ft":"string"},
+                  "isRetweet": {"name": "isRetweet", "ft":"boolean", "facet":"true"},
+                  "isRetweetedByMe": {"name": "isRetweetByMe", "ft":"boolean", "facet":"true"},
+                  "isFavorited": {"name": "isFavorited", "ft":"boolean", "facet":"true"},
                   "isPossiblySensitive": {"name": "isPossiblySensitive", "ft":"boolean"},
                   "isTruncated": {"name": "isTruncated", "ft":"boolean"},
                   "inReplyToStatusId": {"name": "inReplyToStatusId", "ft":"long"},
@@ -231,7 +233,11 @@ def create_fields(args):
     #Twitter
     for field in twitter_fields:
         if twitter_fields[field] and 'ft' in twitter_fields[field]:
-            fields.create(["indexed=true", "stored=true", "name=" + twitter_fields[field]['name'], "field_type=" + twitter_fields[field]['ft'], "facet=true", "include_in_results=true"])
+            facet = "false"
+            if 'facet' in twitter_fields[field]:
+                facet="true"
+
+            fields.create(["indexed=true", "stored=true", "name=" + twitter_fields[field]['name'], "field_type=" + twitter_fields[field]['ft'], "facet=" + facet, "include_in_results=true"])
 
     #Company info
     #Symbol,Company,Industry,City,State
