@@ -6,10 +6,31 @@
 
 }
 
+#search-header{
+    padding-bottom: 10px;
+}
 .result{
     padding-bottom: 15px;
 }
 
 .historical{
 
+}
+
+.facet-val{
+    margin-left: 15px;
+}
+.range-facet-val{
+    margin-left: 30px;
+}
+
+.facet-fields{
+
+}
+
+.header-title{
+    display: inline;
+    position: relative;
+    left: 100px;
+    top: -20px;
 }

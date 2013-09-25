@@ -1,0 +1,17 @@
+<div class="facet-fields">
+    <div class="odd">Fields</div>
+    {% for facets in the_facets['facet_fields'] %}
+        {% set field = the_facets['facet_fields'][facets] %}
+        {% if field|length > 0 %}
+            <div class="facet-header">{{ facets }}</div>
+            <div class="facet-group">
+            {% for val in field %}
+                {% if loop.index0 % 2 == 0 %}
+                    <div class="facet-val">{{ val }} ({{ field[loop.index0 + 1 ] }})</div>
+                {% endif %} 
+            {% endfor %}
+
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

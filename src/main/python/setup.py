@@ -154,7 +154,7 @@ def index_historical(solr, stocks, id, seriesDir):
             date, open_val, high, low, close, volume, adj_close = line.split(",")
             items["id"] = symbol + date
             items["symbol"] = symbol
-            items["timestamp"] = date + "T00:00:00Z"
+            items["trade_date"] = date + "T00:00:00Z"
             items["open"] = open_val
             items["high"] = high
             items["low"] = low
@@ -265,6 +265,7 @@ def create_fields(args):
 
     #Historical
     create_field("open", "float")
+    create_field("trade_date", "date")
     create_field("high", "float")
     create_field("low", "float")
     create_field("close", "float")

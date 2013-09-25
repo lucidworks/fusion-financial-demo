@@ -2,8 +2,9 @@
     <div><label for="symbol_{{ loopVar.index0 }}">Symbol</label>: <span id="symbol_{{ loopVar.index0 }}">{{ result['symbol'] }}</span></div>
     <div>
         <table class="table table-condensed">
-            <tr><th>Open</th><th>Close</th><th>Volume</th><th>High</th><th>Low</th></tr>
+            <tr><th>Date</th><th>Open</th><th>Close</th><th>Volume</th><th>High</th><th>Low</th></tr>
             <tr>
+                <td>{{ result['trade_date'] }}</td>
                 <td>{{ result['open'] }}</td>
                 <td>{{ result['close'] }}</td>
                 <td>{{ result['volume'] }}</td>

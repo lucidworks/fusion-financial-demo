@@ -40,12 +40,29 @@ def standard(name=None):
         rows = request.args.get('row')
 
     app.logger.info("Query: " + query)
-    kwargs = {"qt": "/lucid", "facet": "true","rows": rows, "fl":"*,score"}
+    kwargs = {"qt": "/lucid", "facet": "true", "rows": rows, "fl":"*,score",
+              "facet.range":["open", "close", "volume"],
+              "facet.range.start":"0",
+              "facet.range.end":"1000",
+              "facet.range.gap":"100",
+              "facet.range.other":"all",
+              "facet.mincount":"0",
+              "f.volume.facet.range.gap":"500000",
+              "f.volume.facet.range.start":"10000",
+              "f.volume.facet.range.end":"5000000",
+              "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
+              "stats":"true",
+              "stats.field":["open", "close","volume"],
+
+        }
     params = {'q': query}
     params.update(kwargs)
     solr_rsp = solr._select(params)
     result = solr.decoder.decode(solr_rsp)
     response = result.get('response') or {}
+    facets = result.get('facet_counts') or {}
+    stats = result.get('stats') or {}
+    #app.logger.info("Facets: " + facets)
     numFound = response.get('numFound', 0)
     result_kwargs = process_solr_rsp(result)
 
@@ -60,6 +77,9 @@ def standard(name=None):
     #
     #app.logger.info("Saw {0} result(s).".format(len(results)))
     return render_template('standard.html', name=name, search_results=results,
+                           raw_response=response,
+                           the_facets=facets,
+                           the_stats=stats,
                            the_query=query, current_page=current_page_number,
                            the_page_count=page_count)
 

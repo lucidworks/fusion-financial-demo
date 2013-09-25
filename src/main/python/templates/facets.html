@@ -1,3 +1,14 @@
 <div class="facet-results" id="facet_results">
 
+    {% for facet_type in the_facets %}
+        {% if  facet_type == "facet_fields" %}
+            {% include 'facet_fields.html' %}
+        {% elif facet_type == 'facet_ranges' %}
+            {% include 'facet_ranges.html' %}
+        {% elif facet_type == "facet_queries" %}
+            {% include 'facet_queries.html' %}
+        {% else %}
+        {% endif %}
+    {% endfor %}
+
 </div>
