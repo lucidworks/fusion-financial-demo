@@ -24,7 +24,7 @@ twitter_fields = {"batch_id": {"name": "batch_id"},
                   "isPossiblySensitive": {"name": "isPossiblySensitive", "ft":"boolean"},
                   "isTruncated": {"name": "isTruncated", "ft":"boolean"},
                   "inReplyToStatusId": {"name": "inReplyToStatusId", "ft":"long"},
-                  "inReplyToScreenName": {"name": "inReplyToStatusScreenName", "ft":"text_en"},
+                  "inReplyToScreenName": {"name": "inReplyToScreenName", "ft":"text_en"},
                   "inReplyToUserId": {"name": "inReplyToUserId", "ft":"long"},
                   "contributor": {"name": "contributor", "ft":"long"}, "placeFullName": {"name": "placeFullName", "ft":"text_en"},
                   "placeCountry": {"name": "placeCountry", "ft":"text_en"},
@@ -352,6 +352,7 @@ def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=No
 
 
 def create_twitter_mappings():
+    print "Creating Twitter Field Mappings"
     mappings = {}
     for field in twitter_fields:
         mappings[field] = twitter_fields[field]['name']

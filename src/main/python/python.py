@@ -40,7 +40,7 @@ def standard(name=None):
         rows = request.args.get('row')
 
     app.logger.info("Query: " + query)
-    kwargs = {"qt": "/lucid", "facet": "true","rows": rows}
+    kwargs = {"qt": "/lucid", "facet": "true","rows": rows, "fl":"*,score"}
     params = {'q': query}
     params.update(kwargs)
     solr_rsp = solr._select(params)
