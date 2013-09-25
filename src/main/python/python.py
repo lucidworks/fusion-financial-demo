@@ -53,7 +53,6 @@ def standard(name=None):
               "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
               "stats":"true",
               "stats.field":["open", "close","volume"],
-
         }
     params = {'q': query}
     params.update(kwargs)
