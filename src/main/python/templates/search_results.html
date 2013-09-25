@@ -13,6 +13,6 @@
     {% endif %}
     </div>
 {% endfor %}
-<div id="search_pagination">{% block pagination %}Page {{ current_page }} of {{ the_page_count }} <a href="next();">Next</a> {% endblock %}</div>
+<div id="search_pagination">{% block pagination %}{% if start > 0 %}<a href="{{ prev_url }}">Prev</a>{% endif %} Page {{ current_page }} of {{ the_page_count }} <a href="{{ next_url }}">Next</a> {% endblock %}</div>
 </div>
 

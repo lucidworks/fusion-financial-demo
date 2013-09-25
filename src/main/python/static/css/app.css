@@ -13,6 +13,9 @@
     padding-bottom: 15px;
 }
 
+.search-result{
+    border-bottom: 1px solid gray;
+}
 .historical{
 
 }
