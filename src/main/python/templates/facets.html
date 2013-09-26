@@ -5,6 +5,8 @@
             {% include 'facet_fields.html' %}
         {% elif facet_type == 'facet_ranges' %}
             {% include 'facet_ranges.html' %}
+        {% elif facet_type == 'facet_pivot' %}
+            {% include 'facet_pivot.html' %}
         {% elif facet_type == "facet_queries" %}
             {% include 'facet_queries.html' %}
         {% else %}

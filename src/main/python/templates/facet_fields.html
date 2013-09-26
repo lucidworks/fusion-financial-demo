@@ -7,10 +7,9 @@
             <div class="facet-group">
             {% for val in field %}
                 {% if loop.index0 % 2 == 0 %}
-                    <div class="facet-val"><a href="">{{ val }}</a> ({{ field[loop.index0 + 1 ] }})</div>
+                    <div class="facet-val"><a href="{{ current_url }}&fq={{ facets }}:{{ val|urlencode }}">{{ val }}</a> ({{ field[loop.index0 + 1 ] }})</div>
                 {% endif %} 
             {% endfor %}
-
             </div>
         {% endif %}
     {% endfor %}

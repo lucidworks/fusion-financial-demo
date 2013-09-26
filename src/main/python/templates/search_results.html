@@ -1,3 +1,4 @@
+{%  include 'filters.html' %}
 <div id="search_results" class="search-results">
 <div id="search-header">{% block search_header %}Showing page {{ current_page }} of {{ the_page_count }}.  Total Results: {{ search_results.hits }} total matches.{% endblock %}</div>
 {% for result in search_results %}

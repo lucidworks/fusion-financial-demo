@@ -5,18 +5,20 @@
         {% set field = the_facets['facet_ranges'][facets] %}
         {% if field|length > 0 %}
             {% set gap = field['gap'] %}
-            <div class="facet-header">{{ facets|title }}</div>
-            {% if field['before'] > 0%}<div class="facet-val">Before ({{ field['before'] }})</div>{% endif %}
+            {% set start = field['start'] %}
+            {% set end = field['end'] %}
+            <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
+            {% if field['before'] > 0%}<div class="facet-val"><a href="{{ current_url }}&fq={{ facets }}:[* TO {{ start - 1 }}]">Before</a> ({{ field['before'] }})</div>{% endif %}
             <div class="facet-val">Between ({{ field['between'] }})</div>
             <div class="facet-group">
             {% for val in field['counts'] %}
                 {% if loop.index0 % 2 == 0 %}
                     {% set upper = val|int + gap - 1 %}
-                    <div class="range-facet-val"><a href="{{ current_url }}">{{ val|int }} - {{ upper|int }}</a> ({{ field['counts'][loop.index0 + 1 ] }})</div>
+                    <div class="range-facet-val"><a href="{{ current_url }}&fq={{ facets }}:[{{ val }} TO {{ upper }}]">{{ val|int }} - {{ upper|int }}</a> ({{ field['counts'][loop.index0 + 1 ] }})</div>
                 {% endif %}
             {% endfor %}
             </div>
-            {% if field['after'] > 0%}<div class="facet-val">After ({{ field['after'] }})</div>{% endif %}
+            {% if field['after'] > 0%}<div class="facet-val"><a href="{{ current_url }}&fq={{ facets }}:[{{ end + 1 }} TO *]">After</a> ({{ field['after'] }})</div>{% endif %}
         {% endif %}
     {% endfor %}
 </div>

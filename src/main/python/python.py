@@ -43,6 +43,9 @@ def standard(name=None):
 
     if request.args.get('start'):
         start = request.args.get('start')
+    fq = None
+    if request.args.get('fq'):
+        fq = request.args.getlist('fq')
 
     app.logger.info("Query: " + query)
     kwargs = {"qt": "/lucid", "facet": "true", "start": start, "fl":"*,score",
@@ -51,14 +54,19 @@ def standard(name=None):
               "facet.range.end":"1000",
               "facet.range.gap":"100",
               "facet.range.other":"all",
-              "facet.mincount":"0",
+              "facet.mincount":"1",
               "f.volume.facet.range.gap":"500000",
               "f.volume.facet.range.start":"10000",
               "f.volume.facet.range.end":"5000000",
               "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
+              "":"",
               "stats":"true",
-              "stats.field":["open", "close","volume"],
+              "stats.field":["open", "close","volume"]
         }
+
+    if fq:
+        kwargs['fq'] = fq
+
     params = {'q': query}
     params.update(kwargs)
     solr_rsp = solr._select(params)
@@ -76,17 +84,34 @@ def standard(name=None):
     current_page_number = int(math.ceil(start/10))
     if page_count > 0:
         current_page_number += 1
+    else:
+        current_page_number = 1
+        page_count = 1
     #page_count = (int) Math.ceil(results_found / (double) results_per_page);
     #current_page_number = (int) Math.ceil(start / (double) results_per_page) + (page_count > 0 ? 1 : 0);
     #
     #app.logger.info("Saw {0} result(s).".format(len(results)))
     next_start = start+10
     prev_start = max(start - 10, 0)
-    current_url = url_for('standard', start=str(start), q=query)
-    next_url = url_for('standard', start=str(next_start), q=query)
-    prev_url = url_for('standard', start=str(prev_start), q=query)
+    filter_urls = {}
+    if fq:
+        i = 0
+        filter_base_url = url_for('standard', start=str(start), q=query)
+        for outer in fq:
+            filter_urls[outer] = filter_base_url
+            for inner in fq:
+                if outer != inner:
+                    app.logger.info("Inner: " + inner)
+                    filter_urls[outer] += "&fq=" + inner
+            i += 1
+
+    current_url = url_for('standard', start=str(start), q=query, fq=fq)
+    next_url = url_for('standard', start=str(next_start), q=query, fq=fq)
+    prev_url = url_for('standard', start=str(prev_start), q=query, fq=fq)
     app.logger.info("Next: " + next_url)
     return render_template('standard.html', name=name, search_results=results,
+                           fq=fq,
+                           filter_urls=filter_urls,
                            raw_response=response,
                            start=start,
                            current_url=current_url,

@@ -4,7 +4,7 @@
     {% for facets in the_facets['facet_queries'] %}
         {% set field = the_facets['facet_queries'][facets] %}
         {% if field|length > 0 %}
-            <div class="facet-header">{{ facets|title }}</div>
+            <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
             <div class="facet-group">
             {% for val in field %}
                 {% if loop.index0 % 2 == 0 %}
