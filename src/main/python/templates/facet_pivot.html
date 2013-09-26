@@ -6,17 +6,17 @@
         {% if field|length > 0 %}
             <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
             <div class="facet-group">
-                <!-- Better way to do this? -->
+                <!-- Better way to do pivot faceting? -->
             {% for val in field %}
                 <div class="pivot-1">{{ val['field'] }}: <a href="{{ current_url }}&fq={{ val['field'] }}:{{ val['value'] }}">{{ val['value'] }}</a> ({{ val['count'] }})
                 {% for pivot in val['pivot'] %}
                     <div>{{ pivot['field'] }}:</div>
-                    <div class="pivot-2"><a href="{{ current_url }}&fq={{ pivot['field'] }}:{{ pivot['value'] }}">{{ pivot['value'] }}</a> ({{ pivot['count'] }})
+                    <div class="pivot-2"><a href="{{ current_url }}&fq={{ val['field'] }}:{{ val['value'] }}&fq={{ pivot['field'] }}:{{ pivot['value'] }}">{{ pivot['value'] }}</a> ({{ pivot['count'] }})
                     {% for nest in pivot['pivot'] %}
                         {% if loop.first %}
                             <div>{{ nest['field'] }}:</div>
                         {% endif %}
-                        <div class="pivot-3" ><a href="{{ current_url }}&fq={{ nest['field'] }}:{{ nest['value'] }}">{{ nest['value'] }}</a> ({{ nest['count'] }})</div>
+                        <div class="pivot-3" ><a href="{{ current_url }}&fq={{ val['field'] }}:{{ val['value'] }}&fq={{ pivot['field'] }}:{{ pivot['value'] }}&fq={{ nest['field'] }}:{{ nest['value'] }}">{{ nest['value'] }}</a> ({{ nest['count'] }})</div>
                     {% endfor %}
                     </div>
                 {% endfor %}

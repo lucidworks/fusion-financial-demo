@@ -28,7 +28,7 @@
 <div class="container">
 
     <div class="page-header">
-        {% block page_header %}<a href="/"><img src="/static/assets/lws-logo.png" border="0"></a><h1 class="header-title">LWS Financial Demo</h1>
+        {% block page_header %}<a href="/"><img src="/static/assets/lws-logo.png" border="0"></a>
             {% if header_msg %}{{ header_msg }}{% endif %}{% endblock %}</div>
     <div class="row">
         <div class="col-md-3">{% block search_box_left %}{% endblock %}</div>
@@ -39,8 +39,10 @@
     <hr/>
     <div class="row">
         <div class="col-md-3">{% block left_col %}{%  include 'facets.html' %}{% endblock %}</div>
-        <div class="col-md-6">{% block main %}{%  include 'search_results.html' %}{% endblock %}</div>
-        <div class="col-md-3">{% block right_col %}{%  include 'stats.html' %}{% endblock %}</div>
+        <div class="col-md-6">{% block main %}{%  include 'stats.html' %}{%  include 'search_results.html' %}{% endblock %}</div>
+        <div class="col-md-3">{% block right_col %}{% if the_facets['facet_pivot'] %}
+    {% include 'facet_pivot.html' %}
+{% endif %}{% endblock %}</div>
     </div>
 </div>
 <!-- /container -->

@@ -1,20 +1,27 @@
 <div id="stats">
+    <label>Summary</label>
     <div id="stats-open">
         {% set stat_fields = the_stats['stats_fields'] %}
-        {% for stat_field in stat_fields %}
-            <div class="stat-field, odd">{{ stat_field|title }}</div>
-            <div class="stat"><label for="min_{{ loop.index0 }}">Min</label>: <span
-                    id="min_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['min']) }}</span></div>
-            <div class="stat"><label for="min_{{ loop.index0 }}">Max</label>: <span
-                    id="min_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['max']) }}</span></div>
-            <div class="stat"><label for="min_{{ loop.index0 }}">Mean</label>: <span
-                    id="min_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['mean']) }}</span></div>
-            <div class="stat"><label for="min_{{ loop.index0 }}">Std. Dev</label>: <span
-                    id="min_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['stddev']) }}</span></div>
-            <div class="stat"><label for="min_{{ loop.index0 }}">Missing</label>: <span
-                    id="min_{{ loop.index0 }}">{{ "%d"|format(stat_fields[stat_field]['missing']) }}</span></div>
-        {% endfor %}
-
+            <table class="table table-condensed">
+                <tr>
+                    <th>Field</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Mean</th>
+                    <th>Std. Dev</th>
+                    <th>Missing</th>
+                </tr>
+                {% for stat_field in stat_fields %}
+                    <tr>
+                        <td>{{ stat_field|title }}</td>
+                        <td><span id="min_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['min']) }}</span></td>
+                        <td><span id="max_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['max']) }}</span></td>
+                        <td><span id="mean_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['mean']) }}</span></td>
+                        <td><span id="stddev_{{ loop.index0 }}">{{ "%.3f"|format(stat_fields[stat_field]['stddev']) }}</span></td>
+                        <td><span id="missing_{{ loop.index0 }}">{{ "%d"|format(stat_fields[stat_field]['missing']) }}</span></td>
+                    </tr>
+                {%  endfor %}
+            </table>
     </div>
-
 </div>
+<hr/>
