@@ -39,7 +39,25 @@
     <hr/>
     <div class="row">
         <div class="col-md-3">{% block left_col %}{%  include 'facets.html' %}{% endblock %}</div>
-        <div class="col-md-6">{% block main %}{%  include 'stats.html' %}{%  include 'search_results.html' %}{% endblock %}</div>
+        <div class="col-md-6">
+        <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="{% if active == "Results" %}active{% endif %}"><a href="{{ current_url }}&active=Results">Results</a></li>
+            <li class="{% if active == "Historical" %}active{% endif %}"><a href="{{ current_url }}&active=Historical">Historical</a></li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+            {% block main %}{% if active == "Historical"%}{%  include 'stats.html' %}{%  include 'group.html' %}{% else %}{%  include 'search_results.html' %}{% endif %}{% endblock %}</div>
         <div class="col-md-3">{% block right_col %}{% if the_facets['facet_pivot'] %}
     {% include 'facet_pivot.html' %}
 {% endif %}{% endblock %}</div>

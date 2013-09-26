@@ -1,0 +1,40 @@
+<div id="search_results" class="search-results">
+    {% for group_val in grouped %}
+        {% set loopVar = loop %}
+        <div>Total Matched: {{ grouped[group_val]['matches'] }}</div>
+        <div class="search-result">
+
+            {% for groups in grouped[group_val]['groups'] %}
+                <div>{{ groups['groupValue'] }}</div>
+                {% for doclist in groups['doclist'] %}
+
+                    {% if doclist == 'docs' %}
+                        <table class="table table-condensed">
+                    <tr>
+                        <th>Date</th>
+                        <th>Open</th>
+                        <th>Close</th>
+                        <th>Volume</th>
+                        <th>High</th>
+                        <th>Low</th>
+                    </tr>
+                    {% for doc in groups['doclist'][doclist] %}
+                        <tr>
+                            <td>{{ doc['trade_date'] }}</td>
+                            <td>{{ doc['open'] }}</td>
+                            <td>{{ doc['close'] }}</td>
+                            <td>{{ doc['volume'] }}</td>
+                            <td>{{ doc['high'] }}</td>
+                            <td>{{ doc['low'] }}</td>
+                        </tr>
+
+                    {% endfor %}
+                    {% endif %}
+
+                {% endfor %}
+                </table>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+</div>

@@ -43,9 +43,24 @@ def standard(name=None):
 
     if request.args.get('start'):
         start = request.args.get('start')
-    fq = None
+    fq = []
     if request.args.get('fq'):
         fq = request.args.getlist('fq')
+    active = "Results"
+    if request.args.get('active'):
+        active = request.args.get('active')
+
+    dsn_results = "data_source_name:HistoricalPrices"
+
+    source_filters = []
+    group = "false"
+    group_field = "symbol"
+    if active == "Results":
+        source_filters.append("-" + dsn_results)
+    else:#Historical, do grouping
+        source_filters.append(dsn_results)
+        group = "true"
+
 
     app.logger.info("Query: " + query)
     kwargs = {"qt": "/lucid", "facet": "true", "start": start, "fl":"*,score",
@@ -64,11 +79,17 @@ def standard(name=None):
               "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
               "":"",
               "stats":"true",
-              "stats.field":["open", "close","volume"]
+              "group":group,
+              "group.field":group_field,
+              "group.limit":10,
+              "group.sort":"trade_date desc",
+              "stats.field":["open", "close","volume"],
+              "fq":source_filters
         }
 
     if fq:
         kwargs['fq'] = fq
+
 
     params = {'q': query}
     params.update(kwargs)
@@ -77,13 +98,14 @@ def standard(name=None):
     response = result.get('response') or {}
     facets = result.get('facet_counts') or {}
     stats = result.get('stats') or {}
+    grouped = result.get("grouped")
     #app.logger.info("Facets: " + facets)
     numFound = response.get('numFound', 0)
     result_kwargs = process_solr_rsp(result)
 
     results = Results(response.get('docs', ()), numFound, **result_kwargs)
     page_count = int(math.ceil(numFound / 10))
-    start = response.get('start')
+    start = response.get('start', 0)
     current_page_number = int(math.ceil(start/10))
     if page_count > 0:
         current_page_number += 1
@@ -114,6 +136,8 @@ def standard(name=None):
     app.logger.info("Next: " + next_url)
     return render_template('standard.html', name=name, search_results=results,
                            fq=fq,
+                           grouped=grouped,
+                           active=active,
                            filter_urls=filter_urls,
                            raw_response=response,
                            start=start,

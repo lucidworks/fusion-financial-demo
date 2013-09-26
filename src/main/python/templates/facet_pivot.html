@@ -10,7 +10,7 @@
             {% for val in field %}
                 <div class="pivot-1">{{ val['field'] }}: <a href="{{ current_url }}&fq={{ val['field'] }}:{{ val['value'] }}">{{ val['value'] }}</a> ({{ val['count'] }})
                 {% for pivot in val['pivot'] %}
-                    <div>{{ pivot['field'] }}:</div>
+                    <div class="pivot-2">{{ pivot['field'] }}:</div>
                     <div class="pivot-2"><a href="{{ current_url }}&fq={{ val['field'] }}:{{ val['value'] }}&fq={{ pivot['field'] }}:{{ pivot['value'] }}">{{ pivot['value'] }}</a> ({{ pivot['count'] }})
                     {% for nest in pivot['pivot'] %}
                         {% if loop.first %}
