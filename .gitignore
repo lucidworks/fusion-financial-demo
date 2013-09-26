@@ -1,2 +1,5 @@
 *.iml
 data/*.csv
+*.pyc
+.DS_Store
+.idea

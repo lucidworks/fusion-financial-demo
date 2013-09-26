@@ -1,0 +1,5 @@
+#Symbol,Company,Industry,City,State
+A,Agilent Technologies Inc,Health Care,Santa Clara, California
+AA,Alcoa Inc,Materials,New York, New York
+AAPL,Apple Inc.,Information Technology,Cupertino, California
+ABC,AmerisourceBergen Corp,Health Care,Chesterbrook, Pennsylvania
