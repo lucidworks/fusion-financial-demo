@@ -72,12 +72,12 @@ def standard(name=None):
               "facet.mincount":"1",
               "f.open.facet.limit":"5",
               "f.close.facet.limit":"5",
+              "f.close.open.limit":"5",
               "f.volume.facet.limit":"5",
               "f.volume.facet.range.gap":"500000",
               "f.volume.facet.range.start":"10000",
               "f.volume.facet.range.end":"5000000",
               "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
-              "":"",
               "stats":"true",
               "group":group,
               "group.field":group_field,
@@ -130,9 +130,11 @@ def standard(name=None):
                     filter_urls[outer] += "&fq=" + inner
             i += 1
 
-    current_url = url_for('standard', start=str(start), q=query, fq=fq)
-    next_url = url_for('standard', start=str(next_start), q=query, fq=fq)
-    prev_url = url_for('standard', start=str(prev_start), q=query, fq=fq)
+    current_url = url_for('standard', start=str(start), q=query, fq=fq, active=active)
+    results_url = url_for('standard', start=str(start), q=query, fq=fq, active="Results")
+    historical_url = url_for('standard', start=str(start), q=query, fq=fq, active="Historical")
+    next_url = url_for('standard', start=str(next_start), q=query, fq=fq, active=active)
+    prev_url = url_for('standard', start=str(prev_start), q=query, fq=fq, active=active)
     app.logger.info("Next: " + next_url)
     return render_template('standard.html', name=name, search_results=results,
                            fq=fq,
@@ -141,7 +143,7 @@ def standard(name=None):
                            filter_urls=filter_urls,
                            raw_response=response,
                            start=start,
-                           current_url=current_url,
+                           current_url=current_url, historical_url=historical_url, results_url=results_url,
                            the_facets=facets,
                            the_stats=stats,
                            the_query=query, current_page=current_page_number,

@@ -213,6 +213,7 @@ def create_historical_ds():
                     "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices", "source_type=Yahoo"])
     data = {
         "mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
+                     "trade_date":"trade_date",
                      "volume": "volume",
                      "adj_close": "adj_close"}}
     rsp = json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
