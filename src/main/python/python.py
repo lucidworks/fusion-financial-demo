@@ -104,9 +104,9 @@ def standard(name=None):
     result_kwargs = process_solr_rsp(result)
 
     results = Results(response.get('docs', ()), numFound, **result_kwargs)
-    page_count = int(math.ceil(numFound / 10))
+    page_count = int(math.ceil(numFound / 10.0))
     start = response.get('start', 0)
-    current_page_number = int(math.ceil(start/10))
+    current_page_number = int(math.ceil(start/10.0))
     if page_count > 0:
         current_page_number += 1
     else:

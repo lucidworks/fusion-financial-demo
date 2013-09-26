@@ -4,7 +4,7 @@
     {% for facets in the_facets['facet_pivot'] %}
         {% set field = the_facets['facet_pivot'][facets] %}
         {% if field|length > 0 %}
-            <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
+            <div class="facet-header">{{ facets|replace('_facet', '' )|replace('attr_', '' )|replace('_', ' ')|title }}</div>
             <div class="facet-group">
                 <!-- Better way to do pivot faceting? -->
             {% for val in field %}
