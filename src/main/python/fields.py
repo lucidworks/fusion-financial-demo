@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
 import sys
-from lweutils import COL_URL, json_http, pretty_json, parse_opts
+from lweutils import json_http, pretty_json, parse_opts
+import lweutils
 
-FIELDS_URL = COL_URL + '/fields'
+FIELDS_URL = lweutils.COL_URL + '/fields'
 
 ##
 def help(args):

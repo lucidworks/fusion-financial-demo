@@ -6,6 +6,7 @@ import pysolr
 
 import ds
 import fields
+import traceback
 
 twitter_fields = {"batch_id": {"name": "batch_id"},
                   "body": {"name": "body"},
@@ -15,7 +16,7 @@ twitter_fields = {"batch_id": {"name": "batch_id"},
                   "parsing": {"name": "parsing"},
                   "retweetCount": {"name": "retweetCount", "ft":"int", "facet":"true"}, "source": {"name": "creator"},
                   "userId": {"name": "userId", "ft":"long"}, "content_length": {"name": "content_length", "ft":"int"},
-                  "userLang": {"name": "lang", "ft": "string", "facet":"true"},
+                  "userLang": {"name": "lang"},
                   "userLocation": {"name": "userLocation", "ft":"text_en"},
                   "location": {"name": "location", "ft":"point"},
                   "userName": {"name": "author"},
@@ -50,15 +51,15 @@ except ImportError:
     except ImportError:
         raise ImportError("No suitable ElementTree implementation was found.")
 
-from lweutils import SOLR_URL, COL_URL, API_URL, COLLECTION, json_http
+import lweutils
 ########### top level actions
 
 def setup(options, args):
-    solr = pysolr.Solr(SOLR_URL, timeout=10)
+    solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
     stocks = load_stocks(options.stocks_file)
 
     if options.collection:
-        create_collection(COLLECTION)
+        create_collection(lweutils.COLLECTION)
     if options.fields:
         create_fields(args)
     if options.twitter:
@@ -113,8 +114,12 @@ def index_stocks(solr, stocks, id):
 
 def create_collection(name):
     data = {"name": name}
-    rsp = json_http(API_URL + "/collections", method='POST', data=data)
-    print "Created New Collection: " + data['name']
+    try:
+        print "Trying: " + name
+        rsp = lweutils.json_http(lweutils.API_URL + "/collections", method='POST', data=data)
+        print "Created New Collection: " + data['name']
+    except Exception as e:
+        traceback.print_exc()
     #TODO: Add in Aggregate RequestHandler capability
 
 
@@ -203,8 +208,9 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
     args.append("filter_track=" + symbols[:len(symbols) - 1])
     id = ds.create(args)
     data = create_twitter_mappings()
-    rsp = json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
-    rsp = json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")
+    print lweutils.COL_URL
+    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
 
 
 def create_historical_ds():
@@ -216,7 +222,7 @@ def create_historical_ds():
                      "trade_date":"trade_date",
                      "volume": "volume",
                      "adj_close": "adj_close"}}
-    rsp = json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
 
@@ -226,12 +232,13 @@ def create_company_ds():
     data = {
         "mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
                      "state": "state"}}
-    rsp = json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
 
 def create_fields(args):
     #Twitter
+    print lweutils.COLLECTION
     for field in twitter_fields:
         if twitter_fields[field] and 'ft' in twitter_fields[field]:
             facet = "false"
@@ -409,17 +416,20 @@ p.add_option("-x", "--index", action="store_true", dest="index") # Index the con
 
 opts, args = p.parse_args()
 action = opts.action
-COLLECTION = opts.collection
-LWS_URL = "http://" + opts.host + ":" + opts.api_port
-API_URL = LWS_URL + "/api"
-SOLR_URL = LWS_URL + "/solr/" + COLLECTION
-COL_URL = API_URL + "/collections/" + COLLECTION
+# TODO: FIX UP ALL THIS HACKY VARIABLE STUFF
+lweutils.COLLECTION = opts.collection
+lweutils.LWS_URL = "http://" + opts.host + ":" + opts.api_port
+lweutils.API_URL = lweutils.LWS_URL + "/api"
+lweutils.SOLR_URL = lweutils.LWS_URL + "/solr/" + lweutils.COLLECTION
+lweutils.COL_URL = lweutils.API_URL + "/collections/" + lweutils.COLLECTION
+fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
+ds.DS_URL = lweutils.COL_URL + '/datasources'
 
 if (opts.ui_host and opts.ui_port):
-    UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
+    lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
 else:
-    UI_URL = "http://" + opts.host + ":8989"
-UI_API_URL = UI_URL + "/api"
+    lweutils.UI_URL = "http://" + opts.host + ":8989"
+lweutils.UI_API_URL = lweutils.UI_URL + "/api"
 
 if opts.all:
     opts.external = True

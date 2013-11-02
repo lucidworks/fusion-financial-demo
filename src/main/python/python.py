@@ -61,9 +61,10 @@ def standard(name=None):
         source_filters.append(dsn_results)
         group = "true"
 
-
+# &facet.date=timestamp&facet.date.start=2013-10-08T14:17:49.04Z&facet.date.end=NOW/DAY%2B1DAY&facet.date.gap=%2B1HOUR
     app.logger.info("Query: " + query)
     kwargs = {"qt": "/lucid", "facet": "true", "start": start, "fl":"*,score",
+            "facet.date":"timestamp", "facet.date.start":"NOW/DAY-1DAY", "facet.date.end":"NOW/DAY+1DAY", "facet.date.gap":"+15MINUTE",
               "facet.range":["open", "close", "volume"],
               "facet.range.start":"0",
               "facet.range.end":"1000",

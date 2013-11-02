@@ -9,7 +9,7 @@
             {% set end = field['end'] %}
             <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
             {% if field['before'] > 0%}<div class="facet-val"><a href="{{ current_url }}&fq={{ facets }}:[* TO {{ start - 1 }}]">Before</a> ({{ field['before'] }})</div>{% endif %}
-            <div class="facet-val">Between ({{ field['between'] }})</div>
+            {% if field['between'] and field['between'] > 0 %}<div class="facet-val">Between ({{ field['between'] }})</div>{% endif %}
             <div class="facet-group">
             {% for val in field['counts'] %}
                 {% if loop.index0 % 2 == 0 %}
