@@ -4,11 +4,25 @@ from flask import url_for
 from flask import render_template
 from flask import request
 import pysolr
+from jinja2 import Environment
 from pysolr import Results
 import math
+import datetime
 
 
 app = Flask(__name__)
+environment = Environment()
+
+@app.template_filter('datetimeformat')
+def datetimeformat(value, format='%d-%m-%Y'):
+    return value.strftime(format)
+
+@app.template_filter('datetimeformatstr')
+def datetimeformatstr(value, format='%d-%m-%Y', input='%Y-%m-%dT%H:%M:%SZ'):
+    #2013-11-20T21:41:34.821Z
+    return datetime.datetime.strptime(value, input).strftime(format)
+
+
 
 
 def process_solr_rsp(solr_rsp):
@@ -64,7 +78,9 @@ def standard(name=None):
 # &facet.date=timestamp&facet.date.start=2013-10-08T14:17:49.04Z&facet.date.end=NOW/DAY%2B1DAY&facet.date.gap=%2B1HOUR
     app.logger.info("Query: " + query)
     kwargs = {"qt": "/lucid", "facet": "true", "start": start, "fl":"*,score",
-            "facet.date":"timestamp", "facet.date.start":"NOW/DAY-1DAY", "facet.date.end":"NOW/DAY+1DAY", "facet.date.gap":"+15MINUTE",
+              # &facet.date=timestamp&facet.date.start=NOW/DAY-1DAY&facet.date.end=NOW/DAY%2B1DAY&facet.date.gap=%2B1HOUR
+            "facet.date":"timestamp", "facet.date.start":"NOW/DAY-30DAY", "facet.date.end":"NOW/DAY+1DAY", "facet.date.gap":"+1DAY",
+            "facet.date.other":"all",
               "facet.range":["open", "close", "volume"],
               "facet.range.start":"0",
               "facet.range.end":"1000",
@@ -78,7 +94,8 @@ def standard(name=None):
               "f.volume.facet.range.gap":"500000",
               "f.volume.facet.range.start":"10000",
               "f.volume.facet.range.end":"5000000",
-              "facet.pivot":["open,close,volume", "attr_username,attr_retweetcount"],
+              "facet.pivot":["open,close,volume", "attr_retweetcount,attr_username"],
+              "sort":"timestamp desc",
               "stats":"true",
               "group":group,
               "group.field":group_field,

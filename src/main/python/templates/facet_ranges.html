@@ -1,4 +1,4 @@
-{% if the_facets['facet_ranges'] %}
+{% if active == "HistoricalPrices" %}{% if the_facets['facet_ranges'] %}
 <div class="facet-ranges">
     <div class="odd">Ranges</div>
     {% for facets in the_facets['facet_ranges'] %}
@@ -22,4 +22,4 @@
         {% endif %}
     {% endfor %}
 </div>
-{% endif %}
+{% endif %}{% endif %}

@@ -1,0 +1,25 @@
+{% if active == "Results" %}{% if the_facets['facet_dates'] %}
+<div class="facet-dates">
+    <div class="odd">Dates</div>
+    {% for facets in the_facets['facet_dates'] %}
+        {% set field = the_facets['facet_dates'][facets] %}
+        {% if field|length > 0 %}
+            {% set gap = field['gap'] %}
+            {% set start = field['start'] %}
+            {% set end = field['end'] %}
+            <div class="facet-header">{{ facets|title|replace('_facet', '' )|replace('_', ' ') }}</div>
+            {% if field['before'] > 0%}<div class="facet-val"><a href="{{ current_url }}&fq={{ facets }}:[* TO {{ start - 1 }}]">Before</a> ({{ field['before'] }})</div>{% endif %}
+            {% if field['between'] and field['between'] > 0 %}<div class="facet-val">Between ({{ field['between'] }})</div>{% endif %}
+            <div class="facet-group">
+            {% for key, val in field.iteritems() %}
+                <div>{% if key != "end" and key != "start" and key != "before" and key != "after" and key != "between" and key != "gap" %}
+                    <div class="range-facet-val">{{ key|datetimeformatstr }} ({{ val}})</div>
+
+                {% endif %}</div>
+            {% endfor %}
+            </div>
+            {% if field['after'] > 0%}<div class="facet-val">After ({{ field['after'] }})</div>{% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}{% endif %}
