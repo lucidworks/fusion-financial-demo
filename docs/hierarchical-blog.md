@@ -64,11 +64,13 @@ The first thing to notice is that we have a simple placeholder div tag named "hi
 From here, it is probably easiest to work from the end of the file back to the start, as the initial request
 to the backend is generated here.  The main thing to notice is the setup of the facet request and the call to jQuery.getJSON(), which
 makes the call to the hierarchical_facets() method on the backend:
-    the_response = jQuery.getJSON(url, request_data, listCats);
+
+   the_response = jQuery.getJSON(url, request_data, listCats);
 
 The last parameter, listCats, is the jQuery call back function which is responsible for rendering the tree and is thus, the logical
 next step in our tour of the Javascript.  In listCats, we take the response from the backend and create our list of
 categories by calling catList() and then render them into the hierarchy with the call:
+
     jQuery('#hierarchy').before(list).prev()
           .find('.expand').click( toggleCat ).css({cursor:'pointer', display:'inline-block', width:'1em'});
 
