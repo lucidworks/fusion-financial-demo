@@ -3,7 +3,7 @@ Easy Hierarchical Faceting with Solr
 
 Visiting two major clients in two days last week, each presented me with the same question: how do we better leverage hierarchical information like taxonomies, file paths, etc.
 in <a href="http://www.lucidworks.com/download">LucidWorks Search (LWS)</a> (and Apache Solr) their applications, such that they could display something like the following image in their UI:
-<img src="hierachical-screen.png"/>
+<img src="hierarchy-screen.png"/>
   Since this is pretty straight forward (much of it is captured already
  on the <a href="http://wiki.apache.org/solr/HierarchicalFaceting">Solr Wiki</a>) and I have both
 the client-side and server side code for this already in a few demos we routinely give here at Lucid, I thought I would write it up as a blog
