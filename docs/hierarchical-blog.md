@@ -20,9 +20,10 @@ named "facet.prefix".  The facet prefix parameter simply filters out any terms i
 your hierarchical content, you need only split up your hierarchy into individual terms and prepend a known prefix onto them that indicates the depth
 of the item.  As an example, let's assume I have the following hierarchies, which can be seen in the sp500List.txt file located in
 <a href="https://github.com/LucidWorks/lws-financial-demo/tree/master/data">https://github.com/LucidWorks/lws-financial-demo/tree/master/data</a>:
-  /Information Technology/Ireland/Dublin
-  /Health Care/California/Santa Clara
-  /Information Technology/California/San Jose
+
+    /Information Technology/Ireland/Dublin
+    /Health Care/California/Santa Clara
+    /Information Technology/California/San Jose
 
 To employ the facet prefix trick, at indexing time, I can simply prepend
 a depth factor onto each split token, e.g. 0/Information Technology; 1/Ireland; 2/Dublin
