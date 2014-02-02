@@ -2,11 +2,11 @@
 
     {% for facet_type in the_facets %}
         {% if  facet_type == "facet_fields" %}
-            {% include 'facet_fields.html' %}
+            {% include 'facet_fields.jinja2' %}
         {% elif facet_type == 'facet_ranges' %}
-            {% include 'facet_ranges.html' %}
+            {% include 'facet_ranges.jinja2' %}
         {% elif facet_type == "facet_queries" %}
-            {% include 'facet_queries.html' %}
+            {% include 'facet_queries.jinja2' %}
         {% else %}
         {% endif %}
     {% endfor %}

@@ -1,15 +1,15 @@
-{%  include 'filters.html' %}
+{%  include 'filters.jinja2' %}
 <div id="search_results" class="search-results">
 <div id="search-header">{% block search_header %}Showing page {{ current_page }} of {{ the_page_count }}.  Total Results: {{ search_results.hits }} total matches.{% endblock %}</div>
 {% for result in search_results %}
     {% set loopVar = loop %}
     <div class="search-result">
     {%  if  result['RESULT_TYPE'] == "HistoricalPrices" %}
-        {%  include 'historical.html' %}
+        {%  include 'historical.jinja2' %}
     {%  elif result['RESULT_TYPE'] == "Twitter_0" %}
-        {%  include 'tweet.html' %}
+        {%  include 'tweet.jinja2' %}
     {%  elif result['RESULT_TYPE'] == "Company" %}
-        {%  include 'company.html' %}
+        {%  include 'company.jinja2' %}
     {% else  %}
     {% endif %}
     </div>

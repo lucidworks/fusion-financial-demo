@@ -8,10 +8,33 @@ from jinja2 import Environment
 from pysolr import Results
 import math
 import datetime
+import re
 
 
 app = Flask(__name__)
 environment = Environment()
+
+FQ_PATTERN = re.compile("f=(\w+)")
+@app.template_filter('split_category_facet')
+def split_category_facet(facet):
+    """
+    Splits an FQ string into it's parts.  FQs look like :
+    {!raw f=depthCategoryNames}2/Movies & Music
+    """
+    #TODO: CHECK if it is splittable first
+    if (facet.find("}") != -1):
+        splits = facet.split("}")
+        match = FQ_PATTERN.search(splits[0])
+        if (match):
+            facet_name = match.group(1)
+        else:
+            print("Couldn't find a facet name")
+            facet_name = "depthCategoryNames"
+        facet_value = splits[1]
+        facet_depth = facet_value.split('/')[0]
+        return facet_name, facet_value, facet_depth
+
+    return facet
 
 @app.template_filter('datetimeformat')
 def datetimeformat(value, format='%d-%m-%Y'):
@@ -43,6 +66,40 @@ def process_solr_rsp(solr_rsp):
         result_kwargs['grouped'] = solr_rsp['grouped']
     return result_kwargs;
 
+@app.route('/hierarchical_facets')
+def hierarchical_facets():
+    #page_results = results
+    # Solr query params
+    solr_params = {
+                  'qt' : '/lucid',
+                  'facet' : 'true',
+                  'rows' : 0,
+                  'facet.field' : 'hierarchy',
+                  'facet.sort' : 'count',
+                  'facet.limit' : '15',
+                  'facet.mincount' : '1',
+                }
+
+    if not request.args:
+        solr_params['q'] = '*:*'
+        solr_params['start'] = 0
+        solr_params['fq'] = []
+    else:
+        args = request.args
+        if args.has_key('q'):
+            solr_params['q'] = args.get('q')
+        else:
+            solr_params['q'] = '*:*'
+        if args.has_key('fq'):
+            print(args.get('fq'))
+            solr_params['fq'] = args.get('fq')
+        if args.has_key('facet.prefix'):
+            solr_params['facet.prefix'] = args.get('facet.prefix')
+        else:
+            solr_params['facet.prefix'] = "0/"
+
+    facet_results = solr._select(solr_params)
+    return facet_results
 
 @app.route('/', methods=['POST', 'GET'])
 def standard(name=None):
@@ -154,7 +211,7 @@ def standard(name=None):
     next_url = url_for('standard', start=str(next_start), q=query, fq=fq, active=active)
     prev_url = url_for('standard', start=str(prev_start), q=query, fq=fq, active=active)
     app.logger.info("Next: " + next_url)
-    return render_template('standard.html', name=name, search_results=results,
+    return render_template('standard.jinja2', name=name, search_results=results,
                            fq=fq,
                            grouped=grouped,
                            active=active,

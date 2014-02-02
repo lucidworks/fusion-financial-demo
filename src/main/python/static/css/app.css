@@ -51,3 +51,30 @@
 .pivot-3{
     padding-left: 10px;
 }
+
+/*Facet Hierarchy*/
+.facet-taxonomy {
+
+}
+
+.catName {
+
+}
+
+.facet-list {
+    list-style: none;
+    padding: 0px;
+    margin-left: 18px;
+}
+
+.depth-1 {
+
+}
+
+.depth-2 {
+    margin-left: 2px;
+}
+
+.depth-3 {
+
+}

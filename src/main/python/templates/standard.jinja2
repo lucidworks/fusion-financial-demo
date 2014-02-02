@@ -15,6 +15,7 @@
 
         <!-- Custom styles for this template -->
         <link href="/static/css/app.css" rel="stylesheet">
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -33,12 +34,12 @@
     <div class="row">
         <div class="col-md-3">{% block search_box_left %}{% endblock %}</div>
         <div class="col-md-9">{% block search_box %}
-            {% include 'search-box.html' %}
+            {% include 'search-box.jinja2' %}
         {% endblock %}</div>
     </div>
     <hr/>
     <div class="row">
-        <div class="col-md-3">{% block left_col %}{%  include 'facets.html' %}{% endblock %}</div>
+        <div class="col-md-3">{% block left_col %}{%  include 'facet_hierarchy.jinja2' %}{%  include 'facets.jinja2' %}{% endblock %}</div>
         <div class="col-md-6">
         <div class="navbar navbar-default">
         <div class="navbar-header">
@@ -57,11 +58,11 @@
 
         </div><!--/.nav-collapse -->
       </div>
-            {% block main %}{% if active == "Historical"%}{%  include 'stats.html' %}{%  include 'group.html' %}{% else %}{%  include 'search_results.html' %}{% endif %}{% endblock %}</div>
+            {% block main %}{% if active == "Historical"%}{%  include 'stats.jinja2' %}{%  include 'group.jinja2' %}{% else %}{%  include 'search_results.jinja2' %}{% endif %}{% endblock %}</div>
         <div class="col-md-3">{% block right_col %}{% if the_facets['facet_pivot'] %}
-    {% include 'facet_pivot.html' %}
+    {% include 'facet_pivot.jinja2' %}
 {% endif %}{% if the_facets['facet_dates'] %}
-    {% include 'facet_dates.html' %}
+    {% include 'facet_dates.jinja2' %}
 {% endif %}{% endblock %}</div>
     </div>
 </div>

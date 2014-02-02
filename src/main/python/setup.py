@@ -108,7 +108,7 @@ def index_stocks(solr, stocks, id):
     for symbol in stocks:
         vals = stocks[symbol]
         items = {"id": symbol, "symbol": symbol, "company": vals[1], "industry": vals[2], "city": vals[3],
-                 "state": vals[4]}
+                 "state": vals[4], "hierarchy": ["1/" + vals[2], "2/" + vals[4], "3/" + vals[3]]} # Start at 1/ for ease integration w/ JS
         add(solr, [items], id, commit=False)
 
 
@@ -215,6 +215,7 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
 
 def create_historical_ds():
     print "Creating DS for Historical"
+    #For 2.7, we will need to change the crawler type to push
     id = ds.create(["name=HistoricalPrices", "type=external", "crawler=lucid.external",
                     "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices", "source_type=Yahoo"])
     data = {
@@ -228,10 +229,11 @@ def create_historical_ds():
 
 def create_company_ds():
     print "Creating DS for Company"
+    #For 2.7, we will need to change the crawler type to push
     id = ds.create(["name=Company", "type=external", "crawler=lucid.external", "source=CSV", "source_type=User"])
     data = {
         "mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
-                     "state": "state"}}
+                     "state": "state", "hierarchy": "hierarchy"}}
     rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
@@ -265,6 +267,9 @@ def create_fields(args):
     fields.create(["indexed=true", "stored=true", "name=city_facet", "field_type=string", "facet=true"])
     fields.create(["indexed=true", "stored=true", "name=city", "field_type=text_en", "copy_fields=city_facet",
                    "include_in_results=true"])
+
+    fields.create(["indexed=true", "stored=true", "name=hierarchy", "field_type=string", "include_in_results=true",
+                   "multi_valued=true"])
 
     fields.create(
         ["indexed=true", "stored=true", "name=state", "field_type=string", "facet=true", "include_in_results=true"])
