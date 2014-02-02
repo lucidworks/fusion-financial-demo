@@ -2,7 +2,9 @@ Easy Hierarchical Faceting with Solr
 ==================
 
 Visiting two major clients in two days last week, each presented me with the same question: how do we better leverage hierarchical information like taxonomies, file paths, etc.
-in <a href="http://www.lucidworks.com/download">LucidWorks Search (LWS)</a> (and Apache Solr).  Since this is pretty straight forward (much of it is captured already
+in <a href="http://www.lucidworks.com/download">LucidWorks Search (LWS)</a> (and Apache Solr) their applications, such that they could display something like the following image in their UI:
+<img src="hierachical-screen.png"/>
+  Since this is pretty straight forward (much of it is captured already
  on the <a href="http://wiki.apache.org/solr/HierarchicalFaceting">Solr Wiki</a>) and I have both
 the client-side and server side code for this already in a few demos we routinely give here at Lucid, I thought I would write it up as a blog
 instead of sending each of them a one-off answer.  I am going to be showing this work in the context of the
@@ -56,7 +58,35 @@ On the client side, it's all in the Javascript, which can be broken down into a 
 some Jinja2 templating (which can easily be transformed to whatever your favorite templating engine is, as I have done this
 several times in the past) glue.  (Forgive me if this isn't the best Javascript you have seen, I'm definitely not a JS expert!)
 
-The code for all of the client side is in the <a href="">facet_hierarchy.jinja2</a> file
+The code for all of the client side is in the <a href="https://github.com/LucidWorks/lws-financial-demo/blob/master/src/main/python/templates/facet_hierarchy.jinja2">facet_hierarchy.jinja2</a> file
 
-The first section of the
+The first thing to notice is that we have a simple placeholder div tag named "hierarchy", which we are going to attach the taxonomy to in the HTML.
+From here, it is probably easiest to work from the end of the file back to the start, as the initial request
+to the backend is generated here.  The main thing to notice is the setup of the facet request and the call to jQuery.getJSON(), which
+makes the call to the hierarchical_facets() method on the backend:
+    the_response = jQuery.getJSON(url, request_data, listCats);
 
+The last parameter, listCats, is the jQuery call back function which is responsible for rendering the tree and is thus, the logical
+next step in our tour of the Javascript.  In listCats, we take the response from the backend and create our list of
+categories by calling catList() and then render them into the hierarchy with the call:
+    jQuery('#hierarchy').before(list).prev()
+          .find('.expand').click( toggleCat ).css({cursor:'pointer', display:'inline-block', width:'1em'});
+
+The catList() method is where the actual HTML is produced (yes, I hate embedded HTML in JS, but for the sake our example, it will do).
+Note, if you are interested in the CSS side of the equation, check out the <a href="https://github.com/LucidWorks/lws-financial-demo/blob/master/src/main/python/static/css/app.css">app.css</a>
+file and the section labeled "facet-hierarchy" for the appropriate CSS settings.
+
+At this point, the last bit of code needed is the functionality to deal with the various clicks (expansions, selection, etc.), which
+are sprinkled throughout the code, but primarily focused in the toggleCat() method.
+
+As you can see, it really is quite easy to add hierarchical facets into your search app through a little bit of indexing trickery
+and some jQuery smarts.
+
+Next Steps
+==================
+
+It wouldn't be code if there wasn't something else we could do here to improve things.  As a next step, I think it would be great
+if someone codified all of this a bit more into the appropriate Solr analysis capabilities and request handler, as well as cleaned up
+my Flask and Javascript.  Using my favorite phrase from my college math days, I'll leave that as an exercise to the reader.  If you do
+take up any of those tasks, feel free to let me know the Solr JIRA issue or to file a Pull Request and I'll see what I can do
+to get it integrated.
