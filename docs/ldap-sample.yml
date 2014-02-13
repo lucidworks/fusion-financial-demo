@@ -1,0 +1,83 @@
+########################################################
+# Warning: Always restart the application after adjusting
+#   your LDAP config, or unpredictable behavior may result.
+########################################################
+# production:
+#   host: localhost
+#   port: 389 # 636 for SSL
+#   attribute: uid
+#   base: dc=xyz,dc=corp,dc=com
+#   # user_query: '$ATTR=$LOGIN' # default query is '$ATTR=$LOGIN', set this if you need something more complex
+#   admin_user: cn=Manager,dc=xyz,dc=corp,dc=com  # If you don't have an admin password, you can disable 
+#   admin_password: secret                        # admin login in the UI "Settings" page
+#   ssl: false
+#   group_base: ou=groups,dc=xyz,dc=corp,dc=com
+#   group_membership_attribute: uniqueMember
+#   group_name_attribute: cn
+#   # group_query: '(&(objectclass=groupOfUniqueNames)($ATTR=$USER))' # default query is '$ATTR=$USER' where $USER is user's DN
+
+# Attribute Definitions 
+#
+# (see below for sample configs)
+# attribute: The attribute of the user object that the system will use to search for the user, 
+#   or assume when constructing an explicit DN via query-less authentication
+# base: Search base for user queries, or suffix appended to attribute+login for queryless authentication
+# user_query: (optional) supplies an arbitrarily complex query if the default user query is not sufficient. 
+#   Variable substitutions:
+#     $ATTR will be substituted with the value of 'attribute' from above
+#     $LOGIN will be substituted with the value the user entered in the loging form in the UI
+#   search is performed using 'base' as a search base
+# admin_user: login to use for searching the directory - not used with query-less authentication
+# admin_password: password to use for searching the directory - not used with query-less authentication
+# ssl: enable/disable SSL
+# group_base: Search base for group queries. Not used with query-less authentication
+# group_membership_attribute: The attribute to look for in the group object that will contain members' user DNs
+# group_name_attribute: The attribute of the group object that the system will use to search for the group
+# group_query: (optional) supplies an arbitrarily complex query if the default gropu query is not sufficient. 
+#   Variable substitutions:
+#     $ATTR will be substituted with the value of 'group_name_attribute' from above
+#     $USER will be substituted with the logged-in user's fully-qualified LDAP DN
+#   search is performed using 'group_base' as a search base
+#   Note: The default query ($ATTR=$USER) does not specify the object type for groups
+#     several different group object types are common, e.g. group, groupOfNames, groupOfUniqueNames.
+#     Therefore, non-group objects may also match if they contain an a matching attribute
+
+# Sample Configurations
+# 
+# Basic Configuration:
+ production:
+   host: localhost
+   port: 1389 # 636 for SSL
+   attribute: uid
+   base: ou=People,dc=grantingersoll,dc=com
+   admin_user: cn=Directory Manager,cn=Root DNs,cn=config
+   admin_password: abc
+   ssl: false
+   group_base: ou=People,dc=grantingersoll,dc=com
+   group_membership_attribute: uid # often this is just 'member'
+   group_name_attribute: ou
+# 
+# Basic Queryless Authentication:
+# Notes:
+#   Disable "Use admin credentials in UI /settings/edit page", and restart
+#   Group lookup is not possible in this mode
+# production:
+#   host: localhost
+#   port: 1389 # 636 for SSL
+#   attribute: uid
+#   base: ou=People,dc=grantingersoll,dc=com
+#   ssl: false
+#   # all other attributes are invalid with queryless authentication
+#   
+# Microsoft ActiveDirectory
+# production:
+#   host: localhost
+#   port: 389 # 636 for SSL
+#   attribute: userPrincipalName # AD uses userPrinciapalName for email address, e.g. fred@domain.com
+#   base: dc=domain,dc=com
+#   admin_user: cn=Manager,dc=corp,dc=com
+#   admin_password: secret
+#   ssl: false
+#   group_base: ou=groups,dc=corp,dc=com
+#   group_membership_attribute: member
+#   group_name_attribute: name
