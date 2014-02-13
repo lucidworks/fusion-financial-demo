@@ -216,8 +216,10 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
 def create_historical_ds():
     print "Creating DS for Historical"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=HistoricalPrices", "type=external", "crawler=lucid.external",
-                    "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices", "source_type=Yahoo"])
+    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=9898"])
+        #           "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices"
+        #, "source_type=Yahoo"
+
     data = {
         "mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
                      "trade_date":"trade_date",
@@ -230,7 +232,8 @@ def create_historical_ds():
 def create_company_ds():
     print "Creating DS for Company"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=Company", "type=external", "crawler=lucid.external", "source=CSV", "source_type=User"])
+    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=9191"])
+     #"source=CSV", "source_type=User"])
     data = {
         "mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
                      "state": "state", "hierarchy": "hierarchy"}}
@@ -360,7 +363,7 @@ def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=No
         query_vars.append('waitSearcher=%s' % str(bool(waitSearcher)).lower())
     if dsId is not None:
         query_vars.append("lucidworks_fields=true")
-        query_vars.append("fm.ds=" + dsId)
+        #query_vars.append("fm.ds=" + dsId)
     if query_vars:
         path = '%s?%s' % (path, '&'.join(query_vars))
 
