@@ -43,17 +43,18 @@ To get started, do the following:
 2. Unzip OpenDS and follow the <a href="https://java.net/projects/opends/pages/2_2_InstallationGuide">Installation instructions</a>.  As part of setup, I had the installer automatically populate the server with 50 users.  Alternatively, you can add your own users.
 3. Setup LWS with LDAP, per http://docs.lucidworks.com/display/lweug/LDAP+Integration.  I've checked in a sample ldap.yml (named ldap-sample.yml) in the docs directory based off of my local OpenDS setup.
     > NOTE: MAKE SURE YOU HAVE AN ADMIN USER SETUP PER THE INSTRUCTIONS BEFORE TURNING ON LDAP IN LWS OTHERWISE YOU WILL NOT BE ABLE TO LOG IN TO THE ADMIN.
-4. Create a Search Filter:
-  1. Log in to the LWS UI
-  2. Select the Finance Collection
-  3. Select the "Access Control" option and add a Filter.  For example:
-    > 1. Name: user10
-    > 1. Users: user.10   //If using auto generated data from OpenDS
-    > 1. Search Filters: symbol:AES  //user.10 may only see info about AES
+    > My settings are:
+    > <img src="./docs/ldap-settings.png">
 5. When starting the python application (python python.py from above) you need to pass in your LDAP URI, etc.:
     > 1. python python.py  --ldap ldap://localhost:1389
     > 1. You may optionally pass in the LDAP root user/password too (the defaults are: cn=Directory Manager,cn=Root DNs,cn=config and 'abc':
     > 1. python python.py  --ldap ldap://localhost:1389 --ldap_user cn=Directory Manager,cn=Root DNs,cn=config --ldap_pass foo
+    > 1. If you have not setup any search filters for any of the users, passing in the --create_filters parameter using the following format:
+        > * --create_filters "rolename=uids=query;uids=query;...uids=query", as in:
+        > * --create_filters "AES=user.10=symbol:AES;bar=user.15=text:bar"
+    > 1. If you wish to create group filters, you will have to do this in the admin
+
+
 
 # Search Time
 
