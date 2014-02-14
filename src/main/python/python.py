@@ -280,6 +280,33 @@ def load_users(baseDN="ou=People,dc=grantingersoll,dc=com"):
         traceback.print_tb(exc_traceback)
 
 
+def create_filters(filters, users):
+    #roles = lweutils.json_http(lweutils.COL_URL + "/roles", method="GET")
+    #for role in roles:
+    #    print role
+
+    #{u'groups': [], u'users': [u'admin'], u'filters': [u'*:*'], u'name': u'DEFAULT'}
+    #{u'groups': [], u'users': [u'user.10'], u'filters': [u'symbol:AES'], u'name': u'user10'}
+    filters_split = filters.split(";")
+    for the_filter in filters_split:
+        print "Applying filter: " + the_filter
+        splits = the_filter.split("=")
+        #curl -H 'Content-type: application/json'
+        # -d '{"name": "ONLY_PUBLIC","groups": ["group1","group2"],"filters": ["status:public"],
+        # "users": ["user1"]}' http://localhost:8888/api/collections/collection1/roles
+        # rolename=uids=query;uids=query
+        the_users = []
+        uids = splits[1].split(",")
+        for uid in uids:
+            the_users.append(uid)
+        data = {"name": splits[0], "users": the_users, "filters": splits[2]}
+        print "Sending Data to:" + lweutils.COL_URL + "/roles"
+        print data
+        result = lweutils.json_http(lweutils.COL_URL + "/roles", method="POST", data=data)
+        print "Result:"
+        print result
+
+
 if __name__ == '__main__':
     p = optparse.OptionParser()
     p.add_option("--api_host", action="store", dest="host", default="localhost")
@@ -289,6 +316,7 @@ if __name__ == '__main__':
     p.add_option("--ldap", action="store", dest="ldap")#Most people are on 389
     p.add_option("--ldapuser", action="store", dest="ldap_user", default="cn=Directory Manager,cn=Root DNs,cn=config")
     p.add_option("--ldappass", action="store", dest="ldap_pass", default="abc")
+    p.add_option("--create_filters", action="store", dest="create_filters")
     p.add_option("--baseDN", action="store", dest="base_dn", default="ou=People,dc=grantingersoll,dc=com")
     p.add_option("--ui_port", action="store", dest="ui_port", default="8989")
     opts, args = p.parse_args()
@@ -296,10 +324,26 @@ if __name__ == '__main__':
     if COLLECTION is None:
         COLLECTION = "Finance"
 
+
     LWS_URL = "http://" + opts.host + ":" + opts.api_port
     API_URL = LWS_URL + "/api"
     SOLR_URL = LWS_URL + "/solr/" + COLLECTION
     COL_URL = API_URL + "/collections/" + COLLECTION
+    lweutils.COLLECTION = COLLECTION
+    lweutils.LWS_URL = LWS_URL
+    lweutils.API_URL = API_URL
+    lweutils.SOLR_URL = SOLR_URL
+    lweutils.COL_URL = COL_URL
+    fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
+    ds.DS_URL = lweutils.COL_URL + '/datasources'
+    print "Coll: " + COLLECTION
+    print " lweutils: " + lweutils.COLLECTION
+    if (opts.ui_host and opts.ui_port):
+        lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
+    else:
+        lweutils.UI_URL = "http://" + opts.host + ":8989"
+    lweutils.UI_API_URL = lweutils.UI_URL + "/api"
+
     users = {}
     if opts.ldap:
         try:
@@ -307,25 +351,17 @@ if __name__ == '__main__':
             the_ldap = ldap.initialize(opts.ldap)
             #the_ldap.simple_bind(opts.ldap_user, opts.ldap_pass)
             users = load_users(opts.base_dn)
+            if opts.create_filters:
+                create_filters(opts.create_filters, users)
+                exit()
+                
         except ldap.LDAPError, e:
             print e
             exc_type, exc_value, exc_traceback = sys.exc_info()
             print "*** init error:"
             traceback.print_tb(exc_traceback)
 
-    lweutils.COLLECTION = opts.collection
-    lweutils.LWS_URL = LWS_URL
-    lweutils.API_URL = API_URL
-    lweutils.SOLR_URL = SOLR_URL
-    lweutils.COL_URL = COL_URL
-    fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
-    ds.DS_URL = lweutils.COL_URL + '/datasources'
 
-    if (opts.ui_host and opts.ui_port):
-        lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
-    else:
-        lweutils.UI_URL = "http://" + opts.host + ":8989"
-    lweutils.UI_API_URL = lweutils.UI_URL + "/api"
 
     solr = pysolr.Solr(SOLR_URL, timeout=10)
     app.debug = True
