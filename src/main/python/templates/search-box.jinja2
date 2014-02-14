@@ -1,8 +1,16 @@
 <form class="form-inline" role="form" method="POST">
     <div class="form-group">
-        <label class="sr-only" for="search_box">Search</label>
         <input type="search" class="form-control" size="50" name="search_box" id="search_box"
                placeholder="{% if the_query %}{{ the_query }}{% else %}Enter Search...{% endif %}">
     </div>
     <button type="submit" class="btn btn-default">Search</button>
+
+    {% if users %}
+    <label for="user">Emulate User:</label>
+    <select id="user" name="user">
+        <option value="none">None</option>
+        {% for user in users%}
+            <option value="{{ user.uid }}" {% if user.uid == the_user %}selected{% endif %}>{{ user.given_name }}</option>
+      {% endfor %}
+    </select>{% endif %}
 </form>
