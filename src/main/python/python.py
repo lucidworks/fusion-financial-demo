@@ -353,7 +353,6 @@ if __name__ == '__main__':
             users = load_users(opts.base_dn)
             if opts.create_filters:
                 create_filters(opts.create_filters, users)
-                exit()
                 
         except ldap.LDAPError, e:
             print e

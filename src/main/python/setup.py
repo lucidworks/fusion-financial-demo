@@ -56,25 +56,27 @@ import lweutils
 
 def setup(options, args):
     solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
+    historical_solr = pysolr.Solr(options.historical_solr, timeout=10)
+    company_solr = pysolr.Solr(options.company_solr, timeout=10)
     stocks = load_stocks(options.stocks_file)
 
-    if options.collection:
+    if options.collection and not options.index:
         create_collection(lweutils.COLLECTION)
-    if options.fields:
+    if options.fields and not options.index:
         create_fields(args)
-    if options.twitter:
+    if options.twitter and not options.index:
         create_twitter_ds(stocks, options.access_token, options.consumer_key, options.consumer_secret,
                           options.token_secret)
     historicalDs = None
     companyDs = None
     if options.external:
-        historicalDs = create_historical_ds()
-        companyDs = create_company_ds()
+        historicalDs = create_historical_ds(options.historical_port)
+        companyDs = create_company_ds(options.company_port)
     if options.index:
         if companyDs == None:
             companyDs = ds.get_id({"name": "Company"})
         if companyDs:
-            index_stocks(solr, stocks, companyDs)
+            index_stocks(company_solr, stocks, companyDs)
         else:
             print "Couldn't find Company DS"
 
@@ -83,7 +85,7 @@ def setup(options, args):
             print "Id: " + str(historicalDs)
         if historicalDs:
             print "Indexing for data source: " + historicalDs
-            index_historical(solr, stocks, historicalDs, options.data_dir)
+            index_historical(historical_solr, stocks, historicalDs, options.data_dir)
             solr.commit()
         else:
             print "Couldn't find Data Source"
@@ -91,7 +93,7 @@ def setup(options, args):
 
 
 def reindex(options, args):
-    solr = pysolr.Solr(SOLR_URL, timeout=10)
+    solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
     stocks = load_stocks(options.stocks_file)
     id = ds.get_id({"name": "HistoricalPrices"})
     if (id):
@@ -213,10 +215,10 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
     rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
 
 
-def create_historical_ds():
+def create_historical_ds(historical_port=9898):
     print "Creating DS for Historical"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=9898"])
+    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port])
         #           "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices"
         #, "source_type=Yahoo"
 
@@ -229,10 +231,10 @@ def create_historical_ds():
     return id
 
 
-def create_company_ds():
+def create_company_ds(company_port=9191):
     print "Creating DS for Company"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=9191"])
+    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port])
      #"source=CSV", "source_type=User"])
     data = {
         "mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
@@ -330,7 +332,7 @@ def add(solr, docs, dsId, commit=True, boost=None, commitWithin=None, waitFlush=
     m = ET.tostring(message, encoding='utf-8')
     # Convert back to Unicode please.
     m = pysolr.force_unicode(m)
-
+    #print "Indexing to: " + dsId
     end_time = time.time()
     #self.log.debug("Built add request of %s docs in %0.2f seconds.", len(message), end_time - start_time)
     return update(solr, m, dsId, commit=commit, waitFlush=waitFlush, waitSearcher=waitSearcher)
@@ -415,6 +417,8 @@ p.add_option("-n", "--action", action="store", dest="action")
 p.add_option("-o", "--velocity_dest", action="store", dest="velocity_dest") # Create the Twitter DS
 p.add_option("--api_port", action="store", dest="api_port", default="8888")
 p.add_option("--ui_port", action="store", dest="ui_port", default="8989")
+p.add_option("--company_port", action="store", dest="company_port", default="9191")
+p.add_option("--historical_port", action="store", dest="historical_port", default="9898")
 p.add_option("-p", "--stocks_file", action="store", dest="stocks_file")
 p.add_option("-s", "--consumer_secret", action="store", dest="consumer_secret")
 p.add_option("-t", "--token_secret", action="store", dest="token_secret")
@@ -432,6 +436,10 @@ lweutils.SOLR_URL = lweutils.LWS_URL + "/solr/" + lweutils.COLLECTION
 lweutils.COL_URL = lweutils.API_URL + "/collections/" + lweutils.COLLECTION
 fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
 ds.DS_URL = lweutils.COL_URL + '/datasources'
+opts.company_solr = "http://" + opts.host + ":" + opts.company_port + "/solr"
+opts.historical_solr = "http://" + opts.host + ":" + opts.historical_port + "/solr"
+print "Co Solr: " + opts.company_solr
+print "Hi Solr: "+ opts.historical_solr
 
 if (opts.ui_host and opts.ui_port):
     lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
