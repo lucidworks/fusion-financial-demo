@@ -60,11 +60,11 @@ def setup(options, args):
     company_solr = pysolr.Solr(options.company_solr, timeout=10)
     stocks = load_stocks(options.stocks_file)
 
-    if options.collection and not options.index:
+    if options.collection and options.create:
         create_collection(lweutils.COLLECTION)
-    if options.fields and not options.index:
+    if options.fields and options.create:
         create_fields(args)
-    if options.twitter and not options.index:
+    if options.twitter and options.create:
         create_twitter_ds(stocks, options.access_token, options.consumer_key, options.consumer_secret,
                           options.token_secret)
     historicalDs = None
@@ -412,7 +412,9 @@ p.add_option("-e", "--external_ds", action="store_true", dest="external") # crea
 p.add_option("-f", "--fields", action="store_true", dest="fields") # add the fields
 p.add_option("--api_host", action="store", dest="host", default="localhost")
 p.add_option("--ui_host", action="store", dest="ui_host", default="localhost")
-p.add_option("-l", "--collection", action="store", dest="collection") #create the collection
+p.add_option("-l", "--collection", action="store", dest="collection") #name the collection
+p.add_option("--create", action="store", dest="create") #create things like collection, etc.
+
 p.add_option("-n", "--action", action="store", dest="action")
 p.add_option("-o", "--velocity_dest", action="store", dest="velocity_dest") # Create the Twitter DS
 p.add_option("--api_port", action="store", dest="api_port", default="8888")
@@ -452,6 +454,7 @@ if opts.all:
     opts.fields = True
     opts.twitter = True
     opts.index = True
+    opts.create = True
 
 if action in ACTIONS:
     ACTIONS[action](opts, args)
