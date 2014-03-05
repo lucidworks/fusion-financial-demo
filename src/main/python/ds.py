@@ -89,7 +89,7 @@ def show(args):
         print_ds(json_http(DS_URL + '/' + i))
 
 ##
-def create(args):
+def create(args, added_data=None):
     """create a datasource"""
 
     data = parse_opts(args)
@@ -99,7 +99,8 @@ def create(args):
         raise Exception("Creating a DataSource requires a type")
     if 'crawler' not in data:
         raise Exception("Creating a DataSource requires a crawler")
-
+    if added_data:
+        data.update(added_data)
     rsp = json_http(DS_URL, method='POST', data=data)
     print "Created New DataSource: "+str(rsp['id'])+" with name: "+data['name']
     return rsp['id']

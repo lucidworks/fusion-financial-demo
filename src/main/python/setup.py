@@ -56,8 +56,6 @@ import lweutils
 
 def setup(options, args):
     solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
-    historical_solr = pysolr.Solr(options.historical_solr, timeout=10)
-    company_solr = pysolr.Solr(options.company_solr, timeout=10)
     stocks = load_stocks(options.stocks_file)
 
     if options.collection and options.create:
@@ -76,6 +74,8 @@ def setup(options, args):
         if companyDs == None:
             companyDs = ds.get_id({"name": "Company"})
         if companyDs:
+            company_solr = pysolr.Solr(options.company_solr, timeout=10)
+            time.sleep(5);
             index_stocks(company_solr, stocks, companyDs)
         else:
             print "Couldn't find Company DS"
@@ -85,6 +85,8 @@ def setup(options, args):
             print "Id: " + str(historicalDs)
         if historicalDs:
             print "Indexing for data source: " + historicalDs
+            historical_solr = pysolr.Solr(options.historical_solr, timeout=10)
+            time.sleep(5);
             index_historical(historical_solr, stocks, historicalDs, options.data_dir)
             solr.commit()
         else:
@@ -218,28 +220,27 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
 def create_historical_ds(historical_port=9898):
     print "Creating DS for Historical"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port])
+    data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
+                     "trade_date":"trade_date",
+                     "volume": "volume",
+                     "adj_close": "adj_close"}}}
+    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port], data)
         #           "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices"
         #, "source_type=Yahoo"
 
-    data = {
-        "mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
-                     "trade_date":"trade_date",
-                     "volume": "volume",
-                     "adj_close": "adj_close"}}
-    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
 
 def create_company_ds(company_port=9191):
     print "Creating DS for Company"
     #For 2.7, we will need to change the crawler type to push
-    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port])
+    mappings = {
+        "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
+                     "state": "state", "hierarchy": "hierarchy"}}}
+    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port], mappings)
      #"source=CSV", "source_type=User"])
-    data = {
-        "mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
-                     "state": "state", "hierarchy": "hierarchy"}}
-    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
 
