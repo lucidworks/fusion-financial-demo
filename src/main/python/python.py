@@ -113,9 +113,10 @@ def standard(name=None):
     query = "*:*"
     start = 0
     user = None
+    sort_criteria = None
+
     if request.method == 'POST' and request.form['search_box']:
         query = request.form['search_box']
-
     else:
         if request.args.get('q'):
             query = request.args.get('q')
@@ -133,6 +134,8 @@ def standard(name=None):
     active = "Results"
     if request.args.get('active'):
         active = request.args.get('active')
+    if request.args.get('sort_criteria'):
+        sort_criteria = request.args.get('sort_criteria')
 
     dsn_results = "data_source_name:HistoricalPrices"
 
@@ -154,14 +157,16 @@ def standard(name=None):
               "f.open.facet.limit": "5", "f.close.facet.limit": "5", "f.close.open.limit": "5",
               "f.volume.facet.limit": "5", "f.volume.facet.range.gap": "500000", "f.volume.facet.range.start": "10000",
               "f.volume.facet.range.end": "5000000",
-              "facet.pivot": ["open,close,volume", "attr_retweetcount,attr_username"], "sort": "timestamp desc",
+              "facet.pivot": ["open,close,volume", "attr_retweetcount,attr_username"],
               "stats": "true", "group": group, "group.field": group_field, "group.limit": 10,
-              "group.sort": "trade_date desc", "stats.field": ["open", "close", "volume"], "fq": source_filters
+              "stats.field": ["open", "close", "volume"], "fq": source_filters
     }
 
     if fq:
         kwargs['fq'] = fq
     #the_role = "DEFAULT"
+    if sort_criteria:
+        kwargs['group.sort'] = sort_criteria + " desc"
 
     if user and user != 'none':
         kwargs['user'] = user
@@ -238,7 +243,7 @@ def standard(name=None):
                            next_url=next_url,
                            prev_url=prev_url,
                            the_page_count=page_count,
-                           users=users)
+                           users=users, sort_criteria=sort_criteria)
 
 
 def load_users(baseDN="ou=People,dc=grantingersoll,dc=com"):
