@@ -1,8 +1,10 @@
 import optparse
 import urllib2
 import time
+import datetime
 
 import pysolr
+
 
 import ds
 import fields
@@ -75,7 +77,7 @@ def setup(options, args):
             companyDs = ds.get_id({"name": "Company"})
         if companyDs:
             company_solr = pysolr.Solr(options.company_solr, timeout=10)
-            time.sleep(5);
+            time.sleep(5)
             index_stocks(company_solr, stocks, companyDs)
         else:
             print "Couldn't find Company DS"
@@ -86,7 +88,7 @@ def setup(options, args):
         if historicalDs:
             print "Indexing for data source: " + historicalDs
             historical_solr = pysolr.Solr(options.historical_solr, timeout=10)
-            time.sleep(5);
+            time.sleep(5)
             index_historical(historical_solr, stocks, historicalDs, options.data_dir)
             solr.commit()
         else:
@@ -142,17 +144,19 @@ def index_historical(solr, stocks, id, seriesDir):
         print "Indexing: " + symbol
         #Get the data
         try:
-            print "Found " + symbol + " in the cache"
             cached = open(seriesDir + "/" + symbol + ".csv")
+            print "Found " + symbol + " in the cache"
             data = cached.read()
         except IOError:
+            print "Downloading " + symbol
+            year = datetime.date.today().year
             response = urllib2.urlopen(
-                "http://ichart.finance.yahoo.com/table.csv?s=" + symbol + "&d=8&e=18&f=2013&g=d&a=8&b=7&c=1984&ignore=.csv")
-            data = response.read();
+                "http://ichart.finance.yahoo.com/table.csv?s=" + symbol + "&f=" + str(year) + "&ignore=.csv")
+            data = response.read()
             output = open(seriesDir + '/' + symbol + ".csv", 'wb')
             output.write(data)
             output.close()
-            time.sleep(1) # sleep so we don't get banned
+            time.sleep(1)  # sleep so we don't get banned
 
         # parse the docs and send to solr
         lines = data.splitlines()
