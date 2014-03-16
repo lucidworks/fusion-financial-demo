@@ -161,6 +161,8 @@ def standard(name=None):
     else:#Historical, do grouping
         source_filters.append(dsn_results)
         group = "true"
+        if sort_criteria == None:
+            sort_criteria = "trade_date"
 
     # &facet.date=timestamp&facet.date.start=2013-10-08T14:17:49.04Z&facet.date.end=NOW/DAY%2B1DAY&facet.date.gap=%2B1HOUR
     app.logger.info("Query: " + query)
@@ -172,7 +174,7 @@ def standard(name=None):
               "f.volume.facet.limit": "5", "f.volume.facet.range.gap": "500000", "f.volume.facet.range.start": "10000",
               "f.volume.facet.range.end": "5000000",
               "facet.pivot": ["open,close,volume", "attr_retweetcount,attr_username"],
-              "stats": "true", "group": group, "group.field": group_field, "group.limit": 50,
+              "stats": "true",
               "stats.field": ["open", "close", "volume"], "fq": source_filters
     }
 
@@ -181,6 +183,11 @@ def standard(name=None):
     #the_role = "DEFAULT"
     if sort_criteria:
         kwargs['group.sort'] = sort_criteria + " desc"
+
+    if active == "Historical":
+        kwargs['group'] = group
+        kwargs['group.field'] = group_field
+        kwargs['group.limit'] = 30
 
     if user and user != 'none':
         kwargs['user'] = user

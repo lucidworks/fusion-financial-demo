@@ -84,14 +84,15 @@
         'facet.prefix': (depth+1)+'/'
       };
 
-      var q = "q={{raw_response['q']}}";
+      var q = "q={{the_query}}";
+    console.log("q: " + q)
       if ( !q || q.length < 2  ) {
           q = "q=*:*";
       }
       if ( fq.length > 0  && q.length <= 0) {
         fq=fq.slice(0,-1);
       }
-      var url = "/hierarchical_facets?"+fq+q
+      var url = "/hierarchical_facets?"+fq+q;
       the_response = jQuery.getJSON(url, request_data, listCats);
     });
   </script>
