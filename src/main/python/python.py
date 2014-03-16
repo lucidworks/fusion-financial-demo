@@ -41,6 +41,20 @@ def split_category_facet(facet):
 
     return facet
 
+@app.template_global()
+def chart_data(doc_list):
+    result = "["
+    count = 0
+    length = len(doc_list)
+    for doc in doc_list:
+        result += '["' + str(doc['trade_date']) + '", "' + str(doc['close']) + '"]'
+        if count < length -1:
+            result += ','
+        count += 1
+    result += "]"
+    return result
+
+
 @app.template_filter('datetimeformat')
 def datetimeformat(value, format='%d-%m-%Y'):
     return value.strftime(format)
@@ -105,6 +119,7 @@ def hierarchical_facets():
 
     facet_results = solr._select(solr_params)
     return facet_results
+
 #path=/select params={hl.fragsize=250&echoParams=all&start=0&q=symbol:AAPL&facet.limit=11&forceElevation=true&role=user10&req_type=main
 # &hl.simple.pre=LUCIDWORKS_HIGHLIGHT_START&hl.simple.post=LUCIDWORKS_HIGHLIGHT_END&json.nl=map&user=user.10&qt=/lucid&wt=ruby&rows=10} hits=0 status=0 QTime=10
 @app.route('/', methods=['POST', 'GET'])
@@ -115,13 +130,13 @@ def standard(name=None):
     user = None
     sort_criteria = None
 
-    if request.method == 'POST' and request.form['search_box']:
+    if request.method == 'POST' and 'search_box' in request.form:
         query = request.form['search_box']
     else:
         if request.args.get('q'):
             query = request.args.get('q')
 
-    if request.method == 'POST' and request.form['user']:
+    if request.method == 'POST' and "user" in request.form:
         user = request.form['user']
     else:
         if request.args.get('user'):
@@ -136,7 +151,6 @@ def standard(name=None):
         active = request.args.get('active')
     if request.args.get('sort_criteria'):
         sort_criteria = request.args.get('sort_criteria')
-
     dsn_results = "data_source_name:HistoricalPrices"
 
     source_filters = []
@@ -158,7 +172,7 @@ def standard(name=None):
               "f.volume.facet.limit": "5", "f.volume.facet.range.gap": "500000", "f.volume.facet.range.start": "10000",
               "f.volume.facet.range.end": "5000000",
               "facet.pivot": ["open,close,volume", "attr_retweetcount,attr_username"],
-              "stats": "true", "group": group, "group.field": group_field, "group.limit": 10,
+              "stats": "true", "group": group, "group.field": group_field, "group.limit": 50,
               "stats.field": ["open", "close", "volume"], "fq": source_filters
     }
 

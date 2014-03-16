@@ -91,7 +91,6 @@
       if ( fq.length > 0  && q.length <= 0) {
         fq=fq.slice(0,-1);
       }
-      console.log("final fq: " + fq);
       var url = "/hierarchical_facets?"+fq+q
       the_response = jQuery.getJSON(url, request_data, listCats);
     });
