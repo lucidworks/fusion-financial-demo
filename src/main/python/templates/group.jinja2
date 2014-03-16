@@ -85,9 +85,9 @@
         <div class="search-result">
 
             {% for groups in grouped[group_val]['groups'] %}
-                <div>{{ groups['groupValue'] }}</div>
+                <div class="header">{{ groups['groupValue'] }}</div>
                 <div class="chart" id="{{ groups['groupValue'] }}_chart"></div>
-                <div class="hist-summary">Summary</div>
+                <div class="header">Summary</div>
 
                 {% if sort_criteria == 'trade_date' %}{% for doclist in groups['doclist'] %}
 
