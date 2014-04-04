@@ -117,7 +117,7 @@ def index_stocks(solr, stocks, id):
         vals = stocks[symbol]
         items = {"id": symbol, "symbol": symbol, "company": vals[1], "industry": vals[2], "city": vals[3],
                  "state": vals[4], "hierarchy": ["1/" + vals[2], "2/" + vals[4], "3/" + vals[3]]} # Start at 1/ for ease integration w/ JS
-        add(solr, [items], id, commit=False)
+        common_finance.add(solr, [items], id, commit=False)
 
 
 
@@ -172,7 +172,7 @@ def index_historical(solr, stocks, id, seriesDir):
             # TODO
             # Precompute buckets into the ranges for the buckets
 
-            add(solr, [items], id, commit=False)
+            common_finance.add(solr, [items], id, commit=False)
             ## Date,Open,High,Low,Close,Volume,Adj Close
             #for r in csv.reader(data, lineterminator='\n'):
             #   print "r: " + str(len(r))
