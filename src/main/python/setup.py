@@ -186,17 +186,17 @@ def index_historical(solr, stocks, id, seriesDir):
 
 
 def create_press_crawler(stock):
-    data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
-                     "trade_date":"trade_date",
-                     "volume": "volume",
-                     "adj_close": "adj_close"}}}
+    #data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
+    #                 "trade_date":"trade_date",
+    #                 "volume": "volume",
+    #                 "adj_close": "adj_close"}}}
     url = "http://finance.yahoo.com/q/p?s=" + stock + "+Press+Releases"
     include_paths = ["http://finance\.yahoo\.com/news/.*", "http://finance\.yahoo\.com/q/p\?s=" + stock + "+Press+Releases"]
     id = ds.create(["name=PressRelease_" + stock, "type=web",
                     "bounds=none",
                     "url=" + url,
                     "crawler=lucid.aperture", "crawl_depth=2", "include_paths=" + include_paths[0],
-                    "include_paths=" + include_paths[1]], data)
+                    "include_paths=" + include_paths[1]])
     rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
     return id
 

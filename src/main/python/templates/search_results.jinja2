@@ -3,14 +3,18 @@
 <div id="search-header">{% block search_header %}Showing page {{ current_page }} of {{ the_page_count }}.  Total Results: {{ search_results.hits }} total matches.{% endblock %}</div>
 {% for result in search_results %}
     {% set loopVar = loop %}
+    {% set rType = result['RESULT_TYPE']|press_release %}
     <div class="search-result">
-    {%  if  result['RESULT_TYPE'] == "HistoricalPrices" %}
+    {%  if  rType == "HistoricalPrices" %}
         {%  include 'historical.jinja2' %}
-    {%  elif result['RESULT_TYPE'] == "Twitter_0" %}
+    {%  elif rType == "Twitter_0" %}
         {%  include 'tweet.jinja2' %}
-    {%  elif result['RESULT_TYPE'] == "Company" %}
+    {%  elif rType == "Company" %}
         {%  include 'company.jinja2' %}
+    {%  elif rType == "PressRelease" %}
+        {%  include 'press.jinja2' %}
     {% else  %}
+        {{ result }}
     {% endif %}
     </div>
 {% endfor %}

@@ -1,0 +1,6 @@
+<div class="result, press, {{ loopVar.cycle('odd', 'even') }}">
+    <div><span id="headline_{{ loopVar.index0 }}" class="headline">{{ result['title'][0] }}</span></div>
+    <div><span id="id_{{ loopVar.index0 }}"><a href="{{ result['id'] }}">{{ result['id'] }}</a></span></div>
+    <div><span id="description_{{ loopVar.index0 }}">{{ result['description']|trim }}</span></div>
+    {#<div><span id="body_{{ loopVar.index0 }}">{{ highlights[result['id']]['body'][0]|trim }}</span></div>#}
+</div>

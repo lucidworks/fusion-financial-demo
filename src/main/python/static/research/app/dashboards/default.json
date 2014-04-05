@@ -1,0 +1,193 @@
+{
+  "title": "SiLK Research Dashboard",
+  "services": {
+    "query": {
+      "idQueue": [
+        1
+      ],
+      "list": {
+        "0": {
+          "query": "*:*",
+          "alias": "",
+          "color": "#7EB26D",
+          "id": 0,
+          "pin": false,
+          "type": "lucene"
+        }
+      },
+      "ids": [
+        0
+      ]
+    },
+    "filter": {
+      "idQueue": [],
+      "list": {
+        "0": {
+          "from": "2014-03-25T12:49:20.000Z",
+          "to": "2014-04-05T13:17:41.132Z",
+          "field": "timestamp",
+          "type": "time",
+          "mandate": "must",
+          "active": true,
+          "alias": "",
+          "id": 0
+        }
+      },
+      "ids": [
+        0
+      ]
+    }
+  },
+  "rows": [
+    {
+      "title": "Options",
+      "height": "50px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "title": "Set time span",
+          "error": "",
+          "span": 4,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "timepicker",
+          "mode": "since",
+          "time_options": [
+            "1h",
+            "24h",
+            "2d",
+            "7d",
+            "30d",
+            "1y",
+            "2y",
+            "5y"
+          ],
+          "timespan": "30d",
+          "timefield": "timestamp",
+          "timeformat": "",
+          "refresh": {
+            "enable": false,
+            "interval": 600,
+            "min": 3
+          },
+          "filter_id": 0,
+          "status": "Stable",
+          "time": {
+            "from": "03/25/2014 08:49:20",
+            "to": "04/05/2014 09:17:41"
+          }
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "query",
+          "loadingEditor": false,
+          "query": "*:*",
+          "pinned": true,
+          "history": [
+            "*:*",
+            "data_source_name:PressRelease_ADBE",
+            "body:AAPL",
+            "AAPL",
+            "$AAPL",
+            "symbol:AAPL"
+          ],
+          "remember": 10,
+          "title": "Search",
+          "def_type": ""
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "filtering",
+          "loadingEditor": false,
+          "title": "Filters"
+        }
+      ]
+    },
+    {
+      "title": "Content",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "table",
+          "loadingEditor": false,
+          "status": "Stable",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&df=message&df=host&df=path&df=type&wt=json&rows=500&fq=timestamp:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T13:17:41.132Z]&sort=score desc",
+            "custom": "&fq=data_source_name:PressRelease_*"
+          },
+          "size": 100,
+          "pages": 5,
+          "offset": 0,
+          "sort": [
+            "score",
+            "desc"
+          ],
+          "group": "default",
+          "style": {
+            "font-size": "9pt"
+          },
+          "overflow": "min-height",
+          "fields": [
+            "title",
+            "id"
+          ],
+          "highlight": [],
+          "sortable": true,
+          "header": true,
+          "paging": true,
+          "field_list": true,
+          "trimFactor": 300,
+          "normTimes": true,
+          "spyable": true,
+          "time_field": "timestamp",
+          "title": "Content"
+        }
+      ]
+    }
+  ],
+  "editable": true,
+  "failover": false,
+  "index": {
+    "interval": "none",
+    "pattern": "[logstash-]YYYY.MM.DD",
+    "default": "NO_TIME_FILTER_OR_INDEX_PATTERN_NOT_MATCHED"
+  },
+  "style": "light",
+  "panel_hints": true,
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": true,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": true,
+    "hide": false
+  },
+  "solr": {
+    "server": "http://localhost:8888/solr/",
+    "core_name": "Finance"
+  }
+}

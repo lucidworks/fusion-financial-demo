@@ -1,8 +1,8 @@
 <!-- TODO: change when field mappings are right -->
 <div class="result, tweet, {{ loopVar.cycle('odd', 'even') }}">
-    <div><label for="username_{{ loopVar.index0 }}">User</label>: <span id="username_{{ loopVar.index0 }}">{{ result['attr_username'][0] }}</span>
+    <div><label for="username_{{ loopVar.index0 }}">User</label>: <span id="username_{{ loopVar.index0 }}">{{ result['username'][0] }}</span>
         <span><label for="timestamp">Timestamp</label>: {{ result['timestamp'] }}</span></div>
-    <div><label for="userloc_{{ loopVar.index0 }}">Location</label>: <span id="userloc_{{ loopVar.index0 }}">{{ result['attr_userlocation'][0] }}</span></div>
-    <div><label for="lang_{{ loopVar.index0 }}">Lang</label>: <span id="lang_{{ loopVar.index0 }}">{{ result['attr_userlang'][0] }}</span> <label for="retweet_{{ loopVar.index0 }}">Retweet Count</label>: <span id="retweet_{{ loopVar.index0 }}">{{ result['attr_retweetcount'][0] }}</span></div>
+    <div><label for="userloc_{{ loopVar.index0 }}">Location</label>: <span id="userloc_{{ loopVar.index0 }}">{{ result['userlocation'][0] }}</span></div>
+    <div><label for="lang_{{ loopVar.index0 }}">Lang</label>: <span id="lang_{{ loopVar.index0 }}">{{ result['userlang'][0] }}</span> <label for="retweet_{{ loopVar.index0 }}">Retweet Count</label>: <span id="retweet_{{ loopVar.index0 }}">{{ result['retweetcount'][0] }}</span></div>
     <div><label for="body_{{ loopVar.index0 }}">Body</label>: <span id="body_{{ loopVar.index0 }}">{{ result['body'][0]|urlize() }}</span></div>
 </div>

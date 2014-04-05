@@ -64,7 +64,11 @@ def datetimeformatstr(value, format='%d-%m-%Y', input='%Y-%m-%dT%H:%M:%SZ'):
     #2013-11-20T21:41:34.821Z
     return datetime.datetime.strptime(value, input).strftime(format)
 
-
+@app.template_filter('press_release')
+def press_release(value):
+    if value.startswith("PressRelease"):
+        return "PressRelease"
+    return value
 
 
 def process_solr_rsp(solr_rsp):
@@ -212,6 +216,7 @@ def standard(name=None):
     facets = result.get('facet_counts') or {}
     stats = result.get('stats') or {}
     grouped = result.get("grouped")
+    highlights = result.get("highlighting")
     #app.logger.info("Facets: " + facets)
     numFound = response.get('numFound', 0)
     result_kwargs = process_solr_rsp(result)
@@ -264,6 +269,7 @@ def standard(name=None):
                            next_url=next_url,
                            prev_url=prev_url,
                            the_page_count=page_count,
+                           highlights=highlights,
                            users=users, sort_criteria=sort_criteria)
 
 
