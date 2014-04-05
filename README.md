@@ -55,8 +55,11 @@ To get started, do the following:
     > 1. If you wish to create group filters, you will have to do this in the admin
 
 
+# SiLK Demo
 
-# Search Time
+Point your browser at http://localhost:5000/static/index.html
+
+# Old Search Interface
 
 1. In the Results tab, in the demo (http://localhost:5000/), when LDAP is enabled, you should see a drop down of users next to the search button.  If you wish to pass in a user's credential, simply select the user from the dropdown, otherwise, select None.
 2. If the user selected has an associated Search Filter setup to it, the results will be filtered appropriately.
