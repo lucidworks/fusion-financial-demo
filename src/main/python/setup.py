@@ -57,6 +57,8 @@ import lweutils
 ########### top level actions
 
 
+
+
 def setup(options, args):
     solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
     stocks = common_finance.load_stocks(options.stocks_file)
@@ -69,6 +71,8 @@ def setup(options, args):
     if options.twitter and options.create:
         create_twitter_ds(stocks, options.access_token, options.consumer_key, options.consumer_secret,
                           options.token_secret)
+    if options.press and options.create:
+        create_press_ds(stocks)
     historicalDs = None
     companyDs = None
     if options.external:
@@ -95,6 +99,7 @@ def setup(options, args):
             solr.commit()
         else:
             print "Couldn't find Data Source"
+
 
 
 
@@ -180,6 +185,30 @@ def index_historical(solr, stocks, id, seriesDir):
             #print date
 
 
+def create_press_crawler(stock):
+    data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
+                     "trade_date":"trade_date",
+                     "volume": "volume",
+                     "adj_close": "adj_close"}}}
+    url = "http://finance.yahoo.com/q/p?s=" + stock + "+Press+Releases"
+    include_paths = ["http://finance\.yahoo\.com/news/.*", "http://finance\.yahoo\.com/q/p\?s=" + stock + "+Press+Releases"]
+    id = ds.create(["name=PressRelease_" + stock, "type=web",
+                    "bounds=none",
+                    "url=" + url,
+                    "crawler=lucid.aperture", "crawl_depth=2", "include_paths=" + include_paths[0],
+                    "include_paths=" + include_paths[1]], data)
+    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
+    return id
+
+
+def create_press_ds(stocks):
+    print "Creating Crawler of Press Release data for all symbols"
+    stock_lists = list(stocks)
+    for stock in stock_lists:
+        create_press_crawler(stock)
+
+
+
 def create_twitter_ds(stocks, access_token, consumer_key, consumer_secret, token_secret):
     print "Creating Twitter Data Source for all symbols"
     # can only do 400 tracks at a time
@@ -209,10 +238,9 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
         #args.append("filter_track=$" + symbol)
         #args.append("filter_track=" + stocks[symbol][1])
     args.append("filter_track=" + symbols[:len(symbols) - 1])
-    id = ds.create(args)
-    data = create_twitter_mappings()
-    print lweutils.COL_URL
-    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    data = {"mapping":create_twitter_mappings()}
+    id = ds.create(args, data)
+    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
 
 
@@ -302,7 +330,6 @@ def create_field(field, type):
 
 
 
-
 def create_twitter_mappings():
     print "Creating Twitter Field Mappings"
     mappings = {}
@@ -352,6 +379,7 @@ p.add_option("-s", "--consumer_secret", action="store", dest="consumer_secret")
 p.add_option("-t", "--token_secret", action="store", dest="token_secret")
 p.add_option("-v", "--velocity_src", action="store", dest="velocity_src") # Create the Twitter DS
 p.add_option("-w", "--twitter_ds", action="store_true", dest="twitter") # Create the Twitter DS
+p.add_option("-r", "--press", action="store_true", dest="press") #
 p.add_option("-x", "--index", action="store_true", dest="index") # Index the content
 
 opts, args = p.parse_args()
@@ -380,6 +408,7 @@ if opts.all:
     opts.fields = True
     opts.twitter = True
     opts.index = True
+    opts.press = True
     opts.create = True
 
 if action in ACTIONS:

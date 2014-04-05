@@ -19,13 +19,11 @@ function (Settings) {
      * @type {String}
      */
     //elasticsearch: "http://"+window.location.hostname+":9200",
-    // TODO:
     elasticsearch: "http://localhost:9200",
 
     // Specify Solr server and core to store the data.
     solr: "http://localhost:8983/solr/",
-    //solr_core: "logstash_logs",
-    solr_core: "logstash1",
+    solr_core: "logstash_logs",
 
     /**
      * The default ES index to use for storing Kibana specific object
@@ -41,21 +39,22 @@ function (Settings) {
      */
     panel_names: [
       'histogram',
-      // 'map',  // TODO
+      'map',
       // 'pie',  // Deprecated, use terms panel instead
       'table',
-      'filtering',  // TODO
+      'filtering',
       'timepicker',
       'text',
       // 'fields',  // Deprecated, table panel now integrates a field selector
-      'hits',  // TODO
+      // 'hits',  // TODO
       // 'dashcontrol',  // Deprecated, moved to nav bar
       'column',
       // 'derivequeries',  // TODO
       // 'trends',  // TODO
       // 'bettermap',  // TODO
       'query',
-      'terms'
+      'terms',
+      // 'dummy'  // Dummy module for testing
     ]
   });
 });

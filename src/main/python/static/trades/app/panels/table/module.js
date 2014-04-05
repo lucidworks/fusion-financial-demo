@@ -250,7 +250,7 @@ function (angular, app, _, kbn, moment) {
       var end_time = new Date(dashboard.current.services.filter.list[0].to).toISOString();
       var fq = '&fq=' + $scope.panel.time_field + ':[' + start_time + '%20TO%20' + end_time + ']';
       var query_size = $scope.panel.size * $scope.panel.pages;
-
+      var df = '&df=message&df=host&df=path&df=type';
       var wt_json = '&wt=json';
       var rows_limit;
       var sorting = '';

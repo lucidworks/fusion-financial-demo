@@ -23,8 +23,8 @@
       "idQueue": [],
       "list": {
         "0": {
-          "from": "2010-03-26T14:49:20.000Z",
-          "to": "2014-03-25T14:49:20.000Z",
+          "from": "2010-03-26T12:49:20.000Z",
+          "to": "2014-03-25T12:49:20.000Z",
           "field": "trade_date",
           "type": "time",
           "mandate": "must",
@@ -49,7 +49,7 @@
         {
           "title": "Set time span",
           "error": "",
-          "span": 6,
+          "span": 4,
           "editable": true,
           "group": [
             "default"
@@ -82,7 +82,7 @@
         },
         {
           "error": false,
-          "span": 6,
+          "span": 4,
           "editable": true,
           "type": "query",
           "loadingEditor": false,
@@ -94,6 +94,14 @@
           ],
           "remember": 10,
           "title": "Search"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "filtering",
+          "loadingEditor": false,
+          "title": "Filters"
         }
       ]
     },
@@ -116,7 +124,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&fl=trade_date open"
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date open"
           },
           "value_field": "open",
           "auto_int": true,
@@ -166,7 +174,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&fl=trade_date close"
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date close"
           },
           "value_field": "close",
           "auto_int": true,
@@ -236,7 +244,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&fl=trade_date volume"
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date volume"
           },
           "title": "Volume",
           "intervals": [
@@ -274,7 +282,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&fl=trade_date high"
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date high"
           },
           "value_field": "high",
           "auto_int": true,
@@ -324,7 +332,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&fl=trade_date low"
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date low"
           },
           "value_field": "low",
           "auto_int": true,
@@ -382,7 +390,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&wt=json&rows=0&fq=trade_date:[2010-03-26T14:49:20.000Z%20TO%202014-03-25T14:49:20.000Z]&facet=true&facet.field=symbol&facet.range=trade_date&facet.range.start=2010-03-26T14:49:20.000Z&facet.range.end=2014-03-25T14:49:20.000Z&facet.range.gap=%2B1DAY&facet.limit=20"
+            "query": "q=*:*&wt=json&rows=0&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&facet=true&facet.field=symbol&facet.range=trade_date&facet.range.start=2010-03-26T12:49:20.000Z&facet.range.end=2014-03-25T12:49:20.000Z&facet.range.gap=%2B1DAY&facet.limit=20"
           },
           "field": "symbol",
           "exclude": [],

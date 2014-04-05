@@ -137,6 +137,7 @@ function (angular, app, _, $, kbn) {
       var end_time = new Date(dashboard.current.services.filter.list[0].to).toISOString();
       var fq = '&fq=' + $scope.panel.time_field + ':[' + start_time + '%20TO%20' + end_time + ']';
       // var query_size = $scope.panel.size * $scope.panel.pages;
+      var df = '&df=message&df=host&df=path&df=type';
       var wt_json = '&wt=json';
       var rows_limit = '&rows=0' // for terms, we do not need the actual response doc, so set rows=0
       var facet_gap = '%2B1DAY';
@@ -171,7 +172,7 @@ function (angular, app, _, $, kbn) {
       }
 
       // Set the panel's query
-      $scope.panel.queries.query = 'q=' + dashboard.current.services.query.list[0].query  + wt_json + rows_limit + fq + facet + filter_fq;
+      $scope.panel.queries.query = 'q=' + dashboard.current.services.query.list[0].query + df + wt_json + rows_limit + fq + facet + filter_fq;
 
       // Set the additional custom query
       if ($scope.panel.queries.custom != null) {
