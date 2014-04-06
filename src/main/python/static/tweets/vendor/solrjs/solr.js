@@ -18477,7 +18477,7 @@
         // TODO: Need to use "for loop" to construct query
         // TODO: Default searching fields should be defined in Solr instead of hard code here.
         // Default fields for searching.
-        // var df = '&df=message&df=host&df=path&df=type';
+        // var df = '';
         // var wt_json = '&wt=json';
         // var rows_limit;
         // var facet_limit;

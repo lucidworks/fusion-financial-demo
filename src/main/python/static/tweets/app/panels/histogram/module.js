@@ -250,7 +250,7 @@ function (angular, app, $, _, kbn, moment, timeSeries) {
       var start_time = new Date(dashboard.current.services.filter.list[0].from).toISOString();
       var end_time = new Date(dashboard.current.services.filter.list[0].to).toISOString();
       var fq = '&fq=' + $scope.panel.time_field + ':[' + start_time + '%20TO%20' + end_time + ']';
-      var df = '&df=message&df=host&df=path&df=type';
+      var df = '';
       var wt_json = '&wt=json';
       var rows_limit = '&rows=0'; // for histogram, we do not need the actual response doc, so set rows=0
       var facet_gap = $scope.sjs.convertFacetGap($scope.panel.interval);

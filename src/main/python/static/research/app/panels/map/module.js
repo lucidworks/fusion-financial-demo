@@ -119,7 +119,7 @@ function (angular, app, _, $) {
       // Get time field from filterSrv, is the time field always at list[0]?
       var time_field = filterSrv.list[0].field;
       var fq = '&fq=' + time_field + ':[' + start_time + '%20TO%20' + end_time + ']';  // Get timefield from filterSrv
-      var df = '&df=message';
+      var df = '';
       var wt_json = '&wt=json';
       var rows_limit = '&rows=0'; // for map module, we don't display results from row, but we use facets.
       // var facet_gap = '%2B1DAY';

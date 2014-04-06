@@ -130,7 +130,7 @@
             "ids": [
               0
             ],
-            "query": "q=*:*&df=message&df=host&df=path&df=type&wt=json&rows=500&fq=timestamp:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T13:17:41.132Z]&sort=score desc",
+            "query": "q=*:*&wt=json&rows=500&fq=timestamp:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T13:17:41.132Z]&sort=score desc",
             "custom": "&fq=data_source_name:PressRelease_*"
           },
           "size": 100,
