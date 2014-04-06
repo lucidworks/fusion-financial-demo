@@ -61,12 +61,3 @@ def pretty_json(data, indent=''):
 
 ##
 
-COLLECTION = get_env('LWE_COLLECTION', 'collection1')
-LWS_URL    = get_env('LWE_URL',        'http://localhost:8888')
-API_URL    = get_env('LWE_API_URL',    LWS_URL + '/api')
-SOLR_URL   = get_env('LWE_SOLR_URL',   LWS_URL + '/solr/' + COLLECTION)
-UI_URL     = get_env('LWE_UI_URL',     'http://localhost:8989')
-
-COL_URL = API_URL + '/collections/' + COLLECTION
-
-UI_API_URL = UI_URL + '/api'

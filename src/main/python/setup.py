@@ -60,11 +60,11 @@ import lweutils
 
 
 def setup(options, args):
-    solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
+    solr = pysolr.Solr(SOLR_URL, timeout=10)
     stocks = common_finance.load_stocks(options.stocks_file)
 
     if options.collection and options.create:
-        create_collection(lweutils.COLLECTION)
+        create_collection(COLLECTION)
         create_collection("kibana-int")
     if options.fields and options.create:
         create_fields(args)
@@ -104,7 +104,7 @@ def setup(options, args):
 
 
 def reindex(options, args):
-    solr = pysolr.Solr(lweutils.SOLR_URL, timeout=10)
+    solr = pysolr.Solr(SOLR_URL, timeout=10)
     stocks = common_finance.load_stocks(options.stocks_file)
     id = ds.get_id({"name": "HistoricalPrices"})
     if (id):
@@ -130,7 +130,7 @@ def create_collection(name):
     data = {"name": name}
     try:
         print "Trying: " + name
-        rsp = lweutils.json_http(lweutils.API_URL + "/collections", method='POST', data=data)
+        rsp = lweutils.json_http(API_URL + "/collections", method='POST', data=data)
         print "Created New Collection: " + data['name']
     except Exception as e:
         traceback.print_exc()
@@ -196,8 +196,8 @@ def create_press_crawler(stock):
                     "bounds=none",
                     "url=" + url,
                     "crawler=lucid.aperture", "crawl_depth=2", "include_paths=" + include_paths[0],
-                    "include_paths=" + include_paths[1]])
-    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
+                    "include_paths=" + include_paths[1]], DS_URL)
+    rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")
     return id
 
 
@@ -239,9 +239,9 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
         #args.append("filter_track=" + stocks[symbol][1])
     args.append("filter_track=" + symbols[:len(symbols) - 1])
     data = {"mapping":create_twitter_mappings()}
-    id = ds.create(args, data)
+    id = ds.create(args, DS_URL, data)
     #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
-    rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/job", method="PUT")
+    rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")
 
 
 def create_historical_ds(historical_port=9898):
@@ -251,11 +251,11 @@ def create_historical_ds(historical_port=9898):
                      "trade_date":"trade_date",
                      "volume": "volume",
                      "adj_close": "adj_close"}}}
-    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port], data)
+    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port], DS_URL, data)
         #           "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices"
         #, "source_type=Yahoo"
 
-    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
 
@@ -265,47 +265,52 @@ def create_company_ds(company_port=9191):
     mappings = {
         "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
                      "state": "state", "hierarchy": "hierarchy"}}}
-    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port], mappings)
+    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port], DS_URL, mappings)
      #"source=CSV", "source_type=User"])
-    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     return id
 
+def create_banana_fields():
+    fields.create(["name=user", "indexed=true", "stored=true", "field_type=string"], BANANA_FIELDS_URL)
+    fields.create(["name=group", "indexed=true", "stored=true", "field_type=string"], BANANA_FIELDS_URL)
+    #fields.create(["name=title", "indexed=true", "stored=true", "field_type=string"], BANANA_FIELDS_URL)
+    fields.create(["name=dashboard", "indexed=false", "stored=true", "field_type=string"], BANANA_FIELDS_URL)
 
 def create_fields(args):
+    create_banana_fields()
     #Twitter
-    print lweutils.COLLECTION
+    print COLLECTION
     for field in twitter_fields:
         if twitter_fields[field] and 'ft' in twitter_fields[field]:
             facet = "false"
             if 'facet' in twitter_fields[field]:
                 facet="true"
-
-            fields.create(["indexed=true", "stored=true", "name=" + twitter_fields[field]['name'], "field_type=" + twitter_fields[field]['ft'], "facet=" + facet, "include_in_results=true"])
+            fields.create(["indexed=true", "stored=true", "name=" + twitter_fields[field]['name'], "field_type=" + twitter_fields[field]['ft'], "facet=" + facet, "include_in_results=true"], FIELDS_URL)
 
     #Company info
     #Symbol,Company,Industry,City,State
-    fields.create(["indexed=true", "stored=true", "name=RESULT_TYPE", "field_type=string", "include_in_results=true"])
-    fields.update(["name=data_source_name", "copy_fields=RESULT_TYPE"])
+    fields.create(["indexed=true", "stored=true", "name=RESULT_TYPE", "field_type=string", "include_in_results=true"], FIELDS_URL)
+    fields.update(["name=data_source_name", "copy_fields=RESULT_TYPE"], FIELDS_URL)
     fields.create(
-        ["indexed=true", "stored=true", "name=symbol", "field_type=string", "facet=true", "include_in_results=true"])
+        ["indexed=true", "stored=true", "name=symbol", "field_type=string", "facet=true", "include_in_results=true"], FIELDS_URL)
 
-    fields.create(["indexed=true", "stored=true", "name=industry_facet", "field_type=string", "facet=true"])
+    fields.create(["indexed=true", "stored=true", "name=industry_facet", "field_type=string", "facet=true"], FIELDS_URL)
     fields.create(["indexed=true", "stored=true", "name=industry", "field_type=text_en", "copy_fields=industry_facet",
-                   "include_in_results=true"])
+                   "include_in_results=true"], FIELDS_URL)
 
-    fields.create(["indexed=true", "stored=true", "name=company_facet", "field_type=string", "facet=true"])
+    fields.create(["indexed=true", "stored=true", "name=company_facet", "field_type=string", "facet=true"], FIELDS_URL)
     fields.create(["indexed=true", "stored=true", "name=company", "field_type=text_en", "copy_fields=company_facet",
-                   "include_in_results=true"])
+                   "include_in_results=true"], FIELDS_URL)
 
-    fields.create(["indexed=true", "stored=true", "name=city_facet", "field_type=string", "facet=true"])
+    fields.create(["indexed=true", "stored=true", "name=city_facet", "field_type=string", "facet=true"], FIELDS_URL)
     fields.create(["indexed=true", "stored=true", "name=city", "field_type=text_en", "copy_fields=city_facet",
-                   "include_in_results=true"])
+                   "include_in_results=true"], FIELDS_URL)
 
     fields.create(["indexed=true", "stored=true", "name=hierarchy", "field_type=string", "include_in_results=true",
-                   "multi_valued=true"])
+                   "multi_valued=true"], FIELDS_URL)
 
     fields.create(
-        ["indexed=true", "stored=true", "name=state", "field_type=string", "facet=true", "include_in_results=true"])
+        ["indexed=true", "stored=true", "name=state", "field_type=string", "facet=true", "include_in_results=true"], FIELDS_URL)
 
 
 
@@ -324,8 +329,8 @@ def create_fields(args):
 
 
 def create_field(field, type):
-    fields.create(["indexed=true", "stored=true", "name=" + field + "_bucket", "field_type=string"])
-    fields.create(["indexed=true", "stored=true", "name=" + field, "field_type=" + type, "include_in_results=true"])
+    fields.create(["indexed=true", "stored=true", "name=" + field + "_bucket", "field_type=string"], FIELDS_URL)
+    fields.create(["indexed=true", "stored=true", "name=" + field, "field_type=" + type, "include_in_results=true"], FIELDS_URL)
 
 
 
@@ -385,13 +390,15 @@ p.add_option("-x", "--index", action="store_true", dest="index") # Index the con
 opts, args = p.parse_args()
 action = opts.action
 # TODO: FIX UP ALL THIS HACKY VARIABLE STUFF
-lweutils.COLLECTION = opts.collection
-lweutils.LWS_URL = "http://" + opts.host + ":" + opts.api_port
-lweutils.API_URL = lweutils.LWS_URL + "/api"
-lweutils.SOLR_URL = lweutils.LWS_URL + "/solr/" + lweutils.COLLECTION
-lweutils.COL_URL = lweutils.API_URL + "/collections/" + lweutils.COLLECTION
-fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
-ds.DS_URL = lweutils.COL_URL + '/datasources'
+COLLECTION = opts.collection
+LWS_URL = "http://" + opts.host + ":" + opts.api_port
+API_URL = LWS_URL + "/api"
+SOLR_URL = LWS_URL + "/solr/" + COLLECTION
+COL_URL = API_URL + "/collections/" + COLLECTION
+FIELDS_URL = COL_URL + '/fields'  #TODO: fix this
+DS_URL = COL_URL + '/datasources'
+BANANA_FIELDS_URL = API_URL + "/collections/" + "kibana-int/fields"
+ds.DS_URL = COL_URL + '/datasources'
 opts.company_solr = "http://" + opts.host + ":" + opts.company_port + "/solr"
 opts.historical_solr = "http://" + opts.host + ":" + opts.historical_port + "/solr"
 print "Co Solr: " + opts.company_solr

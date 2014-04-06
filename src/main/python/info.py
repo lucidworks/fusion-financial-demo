@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-from lweutils import COL_URL, json_http, pretty_json, parse_opts
+from lweutils import json_http, pretty_json, parse_opts
 
 ##
 def help(args):
@@ -12,7 +12,7 @@ def help(args):
 """
 
 ##
-def show(args):
+def show(args, COL_URL):
     """display current collection info"""
 
     label = 'Collection Info'

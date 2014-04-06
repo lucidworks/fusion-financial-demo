@@ -38,13 +38,13 @@ p.add_option("-s", "--sleep", action="store", dest="sleep")
 
 opts, args = p.parse_args()
 
-lweutils.COLLECTION = opts.collection
-lweutils.LWS_URL = "http://" + opts.host + ":" + opts.api_port
-lweutils.API_URL = lweutils.LWS_URL + "/api"
-lweutils.SOLR_URL = lweutils.LWS_URL + "/solr/" + lweutils.COLLECTION
-lweutils.COL_URL = lweutils.API_URL + "/collections/" + lweutils.COLLECTION
-fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
-ds.DS_URL = lweutils.COL_URL + '/datasources'
+COLLECTION = opts.collection
+LWS_URL = "http://" + opts.host + ":" + opts.api_port
+API_URL = LWS_URL + "/api"
+SOLR_URL = LWS_URL + "/solr/" + COLLECTION
+COL_URL = API_URL + "/collections/" + COLLECTION
+FIELDS_URL = COL_URL + '/fields'  #TODO: fix this
+DS_URL = COL_URL + '/datasources'
 
 opts.historical_solr = "http://" + opts.host + ":" + opts.historical_port + "/solr"
 print "Hi Solr: "+ opts.historical_solr

@@ -198,7 +198,7 @@ def standard(name=None):
         # we have a user, let's see what roles they play
         #/api/collections/collection/roles/role
         print "User: " + user
-        roles = lweutils.json_http(lweutils.COL_URL + "/roles", method="GET")
+        roles = lweutils.json_http(COL_URL + "/roles", method="GET")
         #{u'groups': [], u'users': [u'admin'], u'filters': [u'*:*'], u'name': u'DEFAULT'}
         #{u'groups': [], u'users': [u'user.10'], u'filters': [u'symbol:AES'], u'name': u'user10'}
         for role in roles:
@@ -332,9 +332,9 @@ def create_filters(filters, users):
         for uid in uids:
             the_users.append(uid)
         data = {"name": splits[0], "users": the_users, "filters": splits[2]}
-        print "Sending Data to:" + lweutils.COL_URL + "/roles"
+        print "Sending Data to:" + COL_URL + "/roles"
         print data
-        result = lweutils.json_http(lweutils.COL_URL + "/roles", method="POST", data=data)
+        result = lweutils.json_http(COL_URL + "/roles", method="POST", data=data)
         print "Result:"
         print result
 
@@ -361,20 +361,20 @@ if __name__ == '__main__':
     API_URL = LWS_URL + "/api"
     SOLR_URL = LWS_URL + "/solr/" + COLLECTION
     COL_URL = API_URL + "/collections/" + COLLECTION
-    lweutils.COLLECTION = COLLECTION
-    lweutils.LWS_URL = LWS_URL
-    lweutils.API_URL = API_URL
-    lweutils.SOLR_URL = SOLR_URL
-    lweutils.COL_URL = COL_URL
-    fields.FIELDS_URL = lweutils.COL_URL + '/fields'  #TODO: fix this
-    ds.DS_URL = lweutils.COL_URL + '/datasources'
+    COLLECTION = COLLECTION
+    LWS_URL = LWS_URL
+    API_URL = API_URL
+    SOLR_URL = SOLR_URL
+    COL_URL = COL_URL
+    FIELDS_URL = COL_URL + '/fields'  #TODO: fix this
+    ds.DS_URL = COL_URL + '/datasources'
     print "Coll: " + COLLECTION
-    print " lweutils: " + lweutils.COLLECTION
+    print " lweutils: " + COLLECTION
     if (opts.ui_host and opts.ui_port):
-        lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
+        UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
     else:
-        lweutils.UI_URL = "http://" + opts.host + ":8989"
-    lweutils.UI_API_URL = lweutils.UI_URL + "/api"
+        UI_URL = "http://" + opts.host + ":8989"
+    UI_API_URL = UI_URL + "/api"
 
     users = {}
     if opts.ldap:

@@ -93,7 +93,8 @@
             "symbol:AAPL"
           ],
           "remember": 10,
-          "title": "Search"
+          "title": "Search",
+          "def_type": ""
         },
         {
           "error": false,
@@ -160,7 +161,8 @@
             "query_as_alias": false
           },
           "title": "Open",
-          "max_rows": 100000
+          "max_rows": 100000,
+          "group_field": null
         },
         {
           "span": 4,
@@ -210,7 +212,8 @@
             "query_as_alias": false
           },
           "title": "Close",
-          "max_rows": 100000
+          "max_rows": 100000,
+          "group_field": null
         },
         {
           "span": 4,
@@ -259,7 +262,8 @@
             "value_type": "cumulative",
             "query_as_alias": false
           },
-          "max_rows": 100000
+          "max_rows": 100000,
+          "group_field": null
         }
       ]
     },
@@ -318,7 +322,8 @@
             "query_as_alias": false
           },
           "title": "Daily High",
-          "max_rows": 100000
+          "max_rows": 100000,
+          "group_field": null
         },
         {
           "span": 4,
@@ -368,20 +373,12 @@
             "query_as_alias": false
           },
           "title": "Daily Low",
-          "max_rows": 100000
-        }
-      ]
-    },
-    {
-      "title": "Charts",
-      "height": "150px",
-      "editable": true,
-      "collapse": false,
-      "collapsable": true,
-      "panels": [
+          "max_rows": 100000,
+          "group_field": null
+        },
         {
           "error": false,
-          "span": 6,
+          "span": 4,
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
@@ -412,6 +409,14 @@
           "time_field": "trade_date"
         }
       ]
+    },
+    {
+      "title": "Charts",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": []
     }
   ],
   "editable": true,

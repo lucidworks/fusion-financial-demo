@@ -1,12 +1,11 @@
 #!/usr/bin/python
 
-import sys
-from lweutils import COL_URL, json_http, pretty_json, parse_opts
+from lweutils import json_http, pretty_json, parse_opts
 
-DS_URL = COL_URL + '/datasources'
+
 
 ##
-def get_id(opts):
+def get_id(opts, DS_URL):
     """
     Determines the id of the datasource the client is interested in
     either because it was explicitly mentioned, or by looking up the name.
@@ -36,7 +35,7 @@ def get_id(opts):
     return None
 
 ##
-def print_ds(data, indent=''):
+def print_ds(data, DS_URL, indent=''):
     i = str(data['id'])
     dsu = DS_URL + '/' + i
 
@@ -69,7 +68,7 @@ def help(args):
 """
 
 ##
-def show(args):
+def show(args, DS_URL):
     """display current datasources"""
     if 1 < len(args):
         raise Exception("wrong number of args for showing a DataSource")
@@ -89,7 +88,7 @@ def show(args):
         print_ds(json_http(DS_URL + '/' + i))
 
 ##
-def create(args, added_data=None):
+def create(args, DS_URL, added_data=None):
     """create a datasource"""
 
     data = parse_opts(args)
@@ -105,7 +104,7 @@ def create(args, added_data=None):
     print "Created New DataSource: "+str(rsp['id'])+" with name: "+data['name']
     return rsp['id']
 ##
-def update(args):
+def update(args, DS_URL):
     """modify properties of a datasource"""
 
     data = parse_opts(args)
@@ -117,7 +116,7 @@ def update(args):
     print "Updated DataSource #"+i
 
 ##
-def schedule(args):
+def schedule(args, DS_URL):
     """modify the schedule of a datasource"""
 
     data = parse_opts(args)
@@ -129,7 +128,7 @@ def schedule(args):
     print "Updated Schedule of DataSource #"+i
 
 ##
-def status(args):
+def status(args, DS_URL):
     """display status of datasources"""
     if 1 < len(args):
         raise Exception("wrong number of args for showing DataSource status")
@@ -147,7 +146,7 @@ def status(args):
         print "Status of All DataSources: "+url+" => " + pretty_json(data)
 
 ##
-def history(args):
+def history(args, DS_URL):
     """display the indexing history of a datasource"""
 
     if 1 != len(args):
@@ -163,7 +162,7 @@ def history(args):
 
 
 ##
-def delete(args):
+def delete(args, DS_URL):
     """remove a datasource"""
     
     if 1 != len(args):

@@ -4,7 +4,6 @@ import sys
 from lweutils import json_http, pretty_json, parse_opts
 import lweutils
 
-FIELDS_URL = lweutils.COL_URL + '/fields'
 
 ##
 def help(args):
@@ -19,7 +18,7 @@ def help(args):
 """
 
 ##
-def create(args):
+def create(args, FIELDS_URL):
     """create a field"""
 
     data = parse_opts(args)
@@ -28,10 +27,10 @@ def create(args):
             raise Exception("Creating a Field requires a " + arg)
 
     rsp = json_http(FIELDS_URL, method='POST', data=data)
-    print "Created New Field: "+data['name']
+    print "Created New Field: "+data['name'] + " at: " + FIELDS_URL
 
 ##
-def show(args):
+def show(args, FIELDS_URL):
     """display current fields"""
     if 1 < len(args):
         raise Exception("wrong number of args for showing fields")
@@ -55,7 +54,7 @@ def show(args):
                 print "  Field: "+name+": "+url+" => " + pretty_json(field, '  ')
 
 ##
-def update(args):
+def update(args, FIELDS_URL):
     """modify properties of a Field"""
 
     data = parse_opts(args)
@@ -64,11 +63,11 @@ def update(args):
     name = data['name']
     del data['name']
 
-    json_http(FIELDS_URL+"/"+name, method='PUT', data=data)
+    json_http(FIELDS_URL + "/"+name, method='PUT', data=data)
     print "Updated Field: "+name
 
 ##
-def delete(args):
+def delete(args, FIELDS_URL):
     """remove a Field"""
 
     if 1 != len(args):
@@ -78,5 +77,5 @@ def delete(args):
     # be helpful if they get the syntax confused
     if (0 == name.find('name=')): name = name.replace('name=','',1)
 
-    json_http(FIELDS_URL+"/"+name, method='DELETE')
+    json_http(FIELDS_URL +"/"+name, method='DELETE')
     print "Deleted Field: "+name

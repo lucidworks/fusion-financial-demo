@@ -3,7 +3,7 @@
 import sys
 from lweutils import COL_URL, json_http, pretty_json, parse_opts
 
-SETTINGS_URL = COL_URL + '/settings'
+
 
 ##
 def help(args):
@@ -16,7 +16,7 @@ def help(args):
 """
 
 ##
-def show(args):
+def show(args, SETTINGS_URL):
     """display settings """
 
     label = 'Index Settings'
@@ -28,7 +28,7 @@ def show(args):
     print label + ': ' + url + ' => ' + pretty_json(data)
 
 ##
-def update(args):
+def update(args, SETTINGS_URL):
     """modify settings"""
 
     data = parse_opts(args)
