@@ -7,6 +7,9 @@ Simple Financial Demo for LWS that indexes S&amp;P 500 company info, historical 
 
 * Python
 * Python json lib (pip install json)
+* Python ldap lib (pip install python-ldap)
+** You will need gcc installed for this
+* Python httplib2 (pip install httplib2)
 * Pysolr (pip install pysolr)
 * Flask (pip install flask)
 * LWS 2.6 (www.lucidworks.com/download/) and it's system requirements
