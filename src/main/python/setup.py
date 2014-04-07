@@ -238,7 +238,7 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
         #args.append("filter_track=$" + symbol)
         #args.append("filter_track=" + stocks[symbol][1])
     args.append("filter_track=" + symbols[:len(symbols) - 1])
-    data = {"mapping":create_twitter_mappings()}
+    data = {"mapping": create_twitter_mappings()}
     id = ds.create(args, DS_URL, data)
     #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")

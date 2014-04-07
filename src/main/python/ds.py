@@ -101,7 +101,7 @@ def create(args, DS_URL, added_data=None):
     if added_data:
         data.update(added_data)
     rsp = json_http(DS_URL, method='POST', data=data)
-    print "Created New DataSource: "+str(rsp['id'])+" with name: "+data['name']
+    print "Created New DataSource: "+str(rsp['id'])+" with name: "+data['name'] + " at " + DS_URL
     return rsp['id']
 ##
 def update(args, DS_URL):
