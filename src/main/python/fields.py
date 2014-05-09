@@ -22,12 +22,13 @@ def create(args, FIELDS_URL):
     """create a field"""
 
     data = parse_opts(args)
-    for arg in ('name','field_type'):
+    for arg in ('name','type'):
         if arg not in data:
             raise Exception("Creating a Field requires a " + arg)
 
-    rsp = json_http(FIELDS_URL, method='POST', data=data)
-    print "Created New Field: "+data['name'] + " at: " + FIELDS_URL
+    print "Creating new field: "+data['name'] + " at: " + FIELDS_URL + " with data: {0}".format(data)
+    rsp = json_http(FIELDS_URL + "/" + data['name'], method='PUT', data=data)
+    print "Created new field: "+data['name'] + " at: " + FIELDS_URL
 
 ##
 def show(args, FIELDS_URL):
