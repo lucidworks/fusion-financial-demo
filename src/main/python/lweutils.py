@@ -3,6 +3,14 @@ import os
 import json
 import httplib2
 
+import logging
+import sys
+import time
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
 HTTP_CLIENT = httplib2.Http()
 
 ##
@@ -34,9 +42,11 @@ def json_http(url, method='GET', data=None):
     body = None;
     if (data): body = json.dumps(data)
 
+    logger.debug("json_http method={} url={} data={}".format(method, url, data))
     resp, content = HTTP_CLIENT.request(
         url, method=method, body=body, 
         headers={'Content-Type':'application/json'})
+    #logger.debug("json_http resp={} content={}".format(resp, content))
 
     # fail if not status 2xx
     if 0 != str(resp.status).find('2'):
@@ -60,4 +70,8 @@ def pretty_json(data, indent=''):
     return pretty.replace("\n","\n"+indent)
 
 ##
+def sleep_secs(secs, message=""):
+    logger.debug("sleeping {} secs {}".format(secs, message))
+    time.sleep(secs)
+    logger.debug("woken up")
 

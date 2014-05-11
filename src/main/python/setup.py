@@ -1,4 +1,4 @@
-import optparse
+import argparse
 import urllib2
 import time
 import datetime
@@ -6,9 +6,28 @@ import datetime
 import pysolr
 import common_finance
 
-import ds
+import datasource
 import fields
 import traceback
+import logging
+import sys
+
+try:
+    # Prefer lxml, if installed.
+    from lxml import etree as ET
+except ImportError:
+    try:
+        from xml.etree import cElementTree as ET
+    except ImportError:
+        raise ImportError("No suitable ElementTree implementation was found.")
+
+import lweutils
+from lweutils import sleep_secs
+
+
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
 
 twitter_fields = {"batch_id": {"name": "batch_id"},
                   "body": {"name": "body"},
@@ -44,28 +63,20 @@ twitter_fields = {"batch_id": {"name": "batch_id"},
                   "urlDisplay": {"name": "urlDisplay", "ft":"string"}, "tags": {"name": "keywords"},
                   "tagStart": {"name": "tagStart", "ft":"int"}, "tagEnd": {"name": "tagEnd", "ft":"int"},
                   "mediaId": {"name": "mediaId", "ft":"long"}, "mediaUrl": {"name": "mediaUrl", "ft":"string"}}
-try:
-    # Prefer lxml, if installed.
-    from lxml import etree as ET
-except ImportError:
-    try:
-        from xml.etree import cElementTree as ET
-    except ImportError:
-        raise ImportError("No suitable ElementTree implementation was found.")
-
-import lweutils
-########### top level actions
 
 
-
-
-def setup(options, args):
+def command_setup(options):
+    logger.debug("creating PySolr client for {}".format(SOLR_URL))
     solr = pysolr.Solr(SOLR_URL, timeout=10)
-    stocks = common_finance.load_stocks(options.stocks_file)
+    logger.debug("created PySolr client")
 
-    if options.collection and options.create:
-        create_collection(COLLECTION)
-        create_collection("kibana-int")
+    logger.debug("loading stocks from {}".format(options.stocks_file))
+    stocks = common_finance.load_stocks(options.stocks_file)
+    logger.debug("loaded {} stocks: {}".format(len(stocks), stocks))
+
+    create_collection(options.finance_collection)
+    create_collection(options.kibana_collection)
+
     if options.fields and options.create:
         create_fields(args)
     if options.twitter and options.create:
@@ -73,100 +84,152 @@ def setup(options, args):
                           options.token_secret)
     if options.press and options.create:
         create_press_ds(stocks)
-    historicalDs = None
-    companyDs = None
+    historical_data_source = None
+    company_datasource = None
     if options.external:
-        historicalDs = create_historical_ds(options.historical_port)
-        companyDs = create_company_ds(options.company_port)
+        historical_data_source = create_historical_ds(options)
+        company_datasource = create_company_ds(options)
     if options.index:
-        if companyDs == None:
-            companyDs = ds.get_id({"name": "Company"})
-        if companyDs:
-            company_solr = pysolr.Solr(options.company_solr, timeout=10)
-            time.sleep(5)
-            index_stocks(company_solr, stocks, companyDs)
+        if company_datasource == None:
+            company_datasource = datasource_connection.get(options.company_datasource_name)
+        if company_datasource:
+            print "Indexing for data source: " + company_datasource.datasource_id()
+            company_solr = pysolr.Solr(options.company_solr_url, timeout=10)
+            index_stocks(company_solr, stocks, company_datasource)
         else:
-            print "Couldn't find Company DS"
+            print "Couldn't find datasource {}".format(options.company_datasource_name)
 
-        if historicalDs == None:
-            historicalDs = ds.get_id({"name": "HistoricalPrices"})
-            print "Id: " + str(historicalDs)
-        if historicalDs:
-            print "Indexing for data source: " + historicalDs
-            historical_solr = pysolr.Solr(options.historical_solr, timeout=10)
-            time.sleep(5)
-            index_historical(historical_solr, stocks, historicalDs, options.data_dir)
+        if historical_data_source == None:
+            historical_data_source = datasource_connection.get(options.historical_datasource_name)
+        if historical_data_source:
+            print "Indexing for data source: " + historical_data_source.datasource_id()
+            historical_solr = pysolr.Solr(options.historical_solr_url, timeout=10)
+            index_historical(historical_solr, stocks, historical_data_source, options.data_dir)
             solr.commit()
         else:
-            print "Couldn't find Data Source"
+            print "Couldn't find datasource {}".format(options.historical_datasource_name)
 
-
-
-
-def reindex(options, args):
+def command_reindex(options):
     solr = pysolr.Solr(SOLR_URL, timeout=10)
     stocks = common_finance.load_stocks(options.stocks_file)
-    id = ds.get_id({"name": "HistoricalPrices"})
-    if (id):
-        print "Reindexing for data source: " + id
-        index_historical(solr, stocks, id)
+    historical_datasource = datasource_connection.get(options.historical_datasource_name)
+    if (historical_datasource):
+        logger.info("Reindexing for data source: " + historical_datasource.datasource_id())
+        index_historical(solr, stocks, historical_datasource)
     else:
-        print "Couldn't find Data Source"
+        print "Couldn't find datasource {}".format(options.company_datasource_name)
+
+def command_delete(options):
+    delete_datasources()
+    delete_collections(options)
 
 ###############   
 
-def index_stocks(solr, stocks, id):
+def delete_datasources():
+    datasources = datasource_connection.datasources()
+    logger.debug("datasources={}".format(datasources))
+    for datasource in datasources.values():
+        datasource.delete()
+
+def delete_collections(options):
+    my_collections = (options.finance_collection, options.kibana_collection)
+    collections = [ c for c in list_collection_names() if c in my_collections ]
+    for collection_name in collections:
+        delete_collection(collection_name)
+
+def index_stocks(solr, stocks, data_source):
     #Symbol,Company,City,State
-    print "Indexing Company Info"
+    logger.info("Indexing Company Info")
     for symbol in stocks:
         vals = stocks[symbol]
         items = {"id": symbol, "symbol": symbol, "company": vals[1], "industry": vals[2], "city": vals[3],
                  "state": vals[4], "hierarchy": ["1/" + vals[2], "2/" + vals[4], "3/" + vals[3]]} # Start at 1/ for ease integration w/ JS
-        common_finance.add(solr, [items], id, commit=False)
+        common_finance.add(solr, [items], data_source.datasource_id(), commit=False)
 
-
+def collection_exists(name):
+    logger.info("checking for collection: " + name)
+    rsp = lweutils.json_http(API_URL + "/collections", method='GET')
+    logger.debug("collections: {}".format(rsp))
+    for collection in rsp:
+        if 'id' not in collection:
+            logger.error("No id in collection")
+        if collection['id'] == name:
+            logger.debug("collection {} exists".format(name))
+            return True
+    return False
 
 def create_collection(name):
-    data = {"name": name}
-    try:
-        print "Creating New Collection: " + name
-        rsp = lweutils.json_http(API_URL + "/collections/" + name, method='PUT', data=data)
-        print "Created New Collection: " + data['name']
-    except Exception as e:
-        traceback.print_exc()
-    #TODO: Add in Aggregate RequestHandler capability
-    try:
-        print "Enabling dynamic schema for " + name
-        rsp = lweutils.json_http(API_URL + "/collections/{0}/features/dynamicSchema".format(name), method='PUT', data={'enabled':True})
-        print "Enabled dynamic schema for " + name
-    except Exception as e:
-        traceback.print_exc()
-    # TODO why does this not seem to work first time round?
-
-def index_historical(solr, stocks, id, seriesDir):
-    for symbol in stocks:
-        print "Indexing: " + symbol
-        #Get the data
+    if collection_exists(name):
+        logger.info("collection {} already exists".format(name))
+    else:
+        logger.info("Creating New Collection: {}".format(name))
+        data = {"name": name}
         try:
-            cached = open(seriesDir + "/" + symbol + ".csv")
-            print "Found " + symbol + " in the cache"
+            rsp = lweutils.json_http(API_URL + "/collections/" + name, method='PUT', data=data)
+            logger.info("Created New Collection: {}".format(name))
+            # otherwise enable_dynamic_schema will fail saying the schema is immutable
+            sleep_secs(5, "waiting for collection to get created")
+        except Exception as e:
+            traceback.print_exc()
+
+    enable_dynamic_schema(name)
+
+def is_dynamic_schema_enabled(name):
+    rsp = lweutils.json_http(API_URL + "/collections/{}/features".format(name))
+    for feature in rsp:
+        if feature['name'] == 'dynamicSchema':
+            logger.debug("dynamicSchema={}".format(feature['name']))
+            return feature['enabled']
+    return False
+
+def enable_dynamic_schema(name):
+    if is_dynamic_schema_enabled(name):
+        logger.info("dynamicSchema already enabled for collection {}".format(name))
+    else:
+        try:
+            logger.info("Enabling dynamic schema for " + name)
+            rsp = lweutils.json_http(API_URL + "/collections/{0}/features/dynamicSchema".format(name), method='PUT', data={'enabled':True})
+            logger.info("Enabled dynamic schema for " + name)
+            sleep_secs(5, "waiting for the dynamic schema to be enabled")
+        except Exception as e:
+            traceback.print_exc()
+
+def delete_collection(name):
+    logger.info("Deleting Collection: " + name)
+    rsp = lweutils.json_http(API_URL + "/collections/" + name, method='DELETE')
+    logger.debug("Deleted Collection: " + name)
+
+def list_collection_names():
+    rsp = lweutils.json_http(API_URL + "/collections/" , method='GET')
+    collection_names = [ c['id'] for c in rsp ]
+    logger.debug("collection names: {}".format(collection_names))
+    return collection_names
+
+def index_historical(solr, stocks, data_source, seriesDir):
+    for symbol in stocks:
+        logger.info("Indexing: " + symbol)
+        #Get the data
+        csv_path = seriesDir + "/" + symbol + ".csv"
+        try:
+            cached = open(csv_path)
+            logger.debug("Found {} in the cache {}".format(symbol, csv_path))
             data = cached.read()
         except IOError:
-            print "Downloading " + symbol
+            logger.debug("Could not find {} in the cache {}, so downloading".format(symbol, csv_path))
             year = datetime.date.today().year
-            response = urllib2.urlopen(
-                "http://ichart.finance.yahoo.com/table.csv?s=" + symbol + "&f=" + str(year) + "&ignore=.csv")
+            url="http://ichart.finance.yahoo.com/table.csv?s={}&f={}&ignore=.csv".format(symbol, year)
+            response = urllib2.urlopen(url)
             data = response.read()
-            output = open(seriesDir + '/' + symbol + ".csv", 'wb')
+            output = open(csv_path, 'wb')
             output.write(data)
             output.close()
-            time.sleep(1)  # sleep so we don't get banned
+            sleep_secs(1, "so we don't get banned from yahoo")
 
         # parse the docs and send to solr
         lines = data.splitlines()
         lines.pop(0) # pop the first, as it is the list of columns
         for line in lines:
-            #print "l: " + line
+            #logger.debug(l: " + line)
             items = {}
             date, open_val, high, low, close, volume, adj_close = line.split(",")
             items["id"] = symbol + date
@@ -181,47 +244,43 @@ def index_historical(solr, stocks, id, seriesDir):
             # TODO
             # Precompute buckets into the ranges for the buckets
 
-            common_finance.add(solr, [items], id, commit=False)
+            common_finance.add(solr, [items], data_source.datasource_id(), commit=False)
             ## Date,Open,High,Low,Close,Volume,Adj Close
             #for r in csv.reader(data, lineterminator='\n'):
             #   print "r: " + str(len(r))
             #date,open_val,high,low,close,volume,adj_close = r
             #print date
 
-
 def create_press_crawler(stock):
     #data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
     #                 "trade_date":"trade_date",
     #                 "volume": "volume",
     #                 "adj_close": "adj_close"}}}
-    url = "http://finance.yahoo.com/q/p?s=" + stock + "+Press+Releases"
-    include_paths = ["http://finance\.yahoo\.com/news/.*", "http://finance\.yahoo\.com/q/p\?s=" + stock + "+Press+Releases"]
-    id = ds.create(["name=PressRelease_" + stock, "type=web",
-                    "bounds=none",
-                    "url=" + url,
-                    "crawler=lucid.aperture", "crawl_depth=2", "include_paths=" + include_paths[0],
-                    "include_paths=" + include_paths[1]], DS_URL)
-    rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")
-    return id
-
+    url = "http://finance.yahoo.com/q/p?s={}+Press+Releases".format(stock)
+    include_paths = [
+        "http://finance\.yahoo\.com/news/.*",
+        "http://finance\.yahoo\.com/q/p\?s={}+Press+Releases".format(stock)]
+    name="PressRelease_" + stock
+    datasource = datasource_connection.create_web(name=name, start_urls=url, depth=1, include_regexps=include_paths)
+    #rsp = lweutils.json_http(DS_URL + "/datasources/" + id + "/job", method="PUT")
+    datasource.start()
+    return datasource
 
 def create_press_ds(stocks):
-    print "Creating Crawler of Press Release data for all symbols"
+    logger.info("Creating Crawler of Press Release data for all symbols")
     stock_lists = list(stocks)
     for stock in stock_lists:
         create_press_crawler(stock)
 
-
-
 def create_twitter_ds(stocks, access_token, consumer_key, consumer_secret, token_secret):
-    print "Creating Twitter Data Source for all symbols"
+    logger.info("Creating Twitter Data Source for all symbols")
     # can only do 400 tracks at a time
     stock_lists = list(stocks)
     length = len(stock_lists)
     if length > 0:
         steps = max(1, length / 100)
         step = 0
-        print "The steps: " + str(steps) + " len: " + str(length)
+        logger.debug("steps={}, len={}".format(steps, length))
         for i in xrange(steps):
             section = stock_lists[step:step + 100]
             add_twitter(i, section, stocks, access_token, consumer_key, consumer_secret, token_secret)
@@ -232,53 +291,60 @@ def create_twitter_ds(stocks, access_token, consumer_key, consumer_secret, token
 
 
 def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_secret, token_secret):
-    args = ["name=Twitter_" + str(i), "access_token=" + access_token, "consumer_key=" + consumer_key,
-            "consumer_secret=" + consumer_secret,
-            "token_secret=" + token_secret, "type=twitter_stream", "crawler=lucid.twitter.stream", "sleep=10000"]
-    print stock_lists
+    logger.debug("add_twitter #{} {} {}".format(i, stock_lists, stocks))
+    name="Twitter_{}".format(i)
     symbols = ""
     for symbol in stock_lists:
         symbols += "$" + symbol + ", " + stocks[symbol][1] + ", "
         #args.append("filter_track=$" + symbol)
         #args.append("filter_track=" + stocks[symbol][1])
-    args.append("filter_track=" + symbols[:len(symbols) - 1])
-    data = {"mapping": create_twitter_mappings()}
-    id = ds.create(args, DS_URL, data)
-    #rsp = lweutils.json_http(lweutils.COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
-    rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/job", method="PUT")
+    #args.append("filter_track=" + symbols[:len(symbols) - 1])
+    # TODO: what is all that?
 
+    datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
+        consumer_secret=consumer_secret, token_secret=token_secret)
+    datasource.start()
 
-def create_historical_ds(historical_port=9898):
-    print "Creating DS for Historical"
+def create_historical_ds(options):
+    name="Historical"
+    logger.info("Creating DS for {}".format(name))
+    if datasource_connection.get(name) is not None:
+        logger.debug("datasource {} already exists")
+        return
+    logger.debug("no existing datasource {}".format(name))
+
     #For 2.7, we will need to change the crawler type to push
     data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
                      "trade_date":"trade_date",
                      "volume": "volume",
                      "adj_close": "adj_close"}}}
-    id = ds.create(["name=HistoricalPrices", "type=push", "crawler=lucid.push", "port=" + historical_port], DS_URL, data)
-        #           "source=http://finance.yahoo.com/q/hp?s=SYMBOL+Historical+Prices"
-        #, "source_type=Yahoo"
-
+    datasource = datasource_connection.create_push(name=name, port=options['historical_port'])
     #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
-    return id
+    datasource.start()
+    return datasource
 
+def create_company_ds(options):
+    name="Company"
+    logger.info("Creating DS for {}".format(name))
+    if datasource_connection.get(name) is not None:
+        logger.debug("datasource {} already exists")
+        return
+    logger.debug("no existing datasource {}".format(name))
 
-def create_company_ds(company_port=9191):
-    print "Creating DS for Company"
     #For 2.7, we will need to change the crawler type to push
     mappings = {
         "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
                      "state": "state", "hierarchy": "hierarchy"}}}
-    id = ds.create(["name=Company", "type=push", "crawler=lucid.push", "port=" + company_port], DS_URL, mappings)
-     #"source=CSV", "source_type=User"])
+    datasource = datasource_connection.create_push(name=name, port=options['company_port'])
     #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
-    return id
+    datasource.start()
+    return datasource
 
 def create_banana_fields():
-    fields.create(["name=user", "indexed=true", "stored=true", "type=string"], BANANA_FIELDS_URL)
-    fields.create(["name=group", "indexed=true", "stored=true", "type=string"], BANANA_FIELDS_URL)
-    #fields.create(["name=title", "indexed=true", "stored=true", "type=string"], BANANA_FIELDS_URL)
-    fields.create(["name=dashboard", "indexed=false", "stored=true", "type=string"], BANANA_FIELDS_URL)
+    fields.create(["name=user", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
+    fields.create(["name=group", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
+    #fields.create(["name=title", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
+    fields.create(["name=dashboard", "indexed=false", "stored=true", "type=string"], args.kibana_fields_url)
 
 def create_fields(args):
     create_banana_fields()
@@ -304,8 +370,6 @@ def create_fields(args):
 
     fields.create(["indexed=true", "stored=true", "name=state", "type=string"], FIELDS_URL)
 
-
-
     #Historical
     create_field("open", "float")
     create_field("trade_date", "date")
@@ -319,101 +383,88 @@ def create_fields(args):
     create_field("quote_date", "date")
     #create_field("price", "date")   # TODO: huh?
 
-
 def create_field(field, type):
     fields.create(["indexed=true", "stored=true", "name=" + field + "_bucket", "type=string"], FIELDS_URL)
     fields.create(["indexed=true", "stored=true", "name=" + field, "type=" + type], FIELDS_URL)
 
-
-
-
-def create_twitter_mappings():
-    print "Creating Twitter Field Mappings"
-    mappings = {}
-    for field in twitter_fields:
-        mappings[field] = twitter_fields[field]['name']
-    return {"mappings": mappings}
-
-    ##
-def help(solr, options, args):
-        """display the list of commands"""
-        print """Usage: setup.py {cmd} [k1=v1 k2=v2 ...]
- Commands...
-  help     => prints this help
-  setup    => Setup all the fields and import all the data
-  add      => Add a new Ticker symbol
-"""
-
-ACTIONS = {
-        'help': help,
-        'setup': setup,
-    }
-
 #########################################
 
+p = argparse.ArgumentParser(description='Setup Apollo Financial Demo.')
 
-p = optparse.OptionParser()
-p.add_option("-a", "--access_token", action="store", dest="access_token")
-p.add_option("-A", "--all", action="store_true", dest="all")
-p.add_option("-c", "--consumer_key", action="store", dest="consumer_key")
-p.add_option("-d", "--data_dir", action="store", dest="data_dir")
-p.add_option("-e", "--external_ds", action="store_true", dest="external") # create the external ds
+p.add_argument("--twitter", action='store_true',
+    help="create the twitter datasource")
+p.add_argument("--access_token")
+p.add_argument("--consumer_key")
+p.add_argument("--consumer_secret")
+p.add_argument("--token_secret")
 
-p.add_option("-f", "--fields", action="store_true", dest="fields") # add the fields
-p.add_option("--api_host", action="store", dest="host", default="localhost")
-p.add_option("--ui_host", action="store", dest="ui_host", default="localhost")
-p.add_option("--solr_host", action="store", dest="solr_host", default="localhost")
-p.add_option("-l", "--collection", action="store", dest="collection") #name the collection
-p.add_option("--create", action="store", dest="create") #create things like collection, etc.
+p.add_argument("--data_dir")
 
-p.add_option("-n", "--action", action="store", dest="action")
-p.add_option("-o", "--velocity_dest", action="store", dest="velocity_dest") # Create the Twitter DS
-p.add_option("--api_port", action="store", dest="api_port", default="8888")
-p.add_option("--ui_port", action="store", dest="ui_port", default="8989")
-p.add_option("--solr_port", action="store", dest="solr_port", default="8989")
-p.add_option("--company_port", action="store", dest="company_port", default="9191")
-p.add_option("--historical_port", action="store", dest="historical_port", default="9898")
-p.add_option("-p", "--stocks_file", action="store", dest="stocks_file")
-p.add_option("-s", "--consumer_secret", action="store", dest="consumer_secret")
-p.add_option("-t", "--token_secret", action="store", dest="token_secret")
-p.add_option("-v", "--velocity_src", action="store", dest="velocity_src") # Create the Twitter DS
-p.add_option("-w", "--twitter_ds", action="store_true", dest="twitter") # Create the Twitter DS
-p.add_option("-r", "--press", action="store_true", dest="press") #
-p.add_option("-x", "--index", action="store_true", dest="index") # Index the content
+p.add_argument("--api_host", dest="host", default="localhost")
+p.add_argument("--api_port", type=int, dest="api_port", default="8888")
 
-opts, args = p.parse_args()
-action = opts.action
+p.add_argument("--ui_host", dest="ui_host", default="localhost")
+p.add_argument("--ui_port", type=int, dest="ui_port", default="8989")
+
+p.add_argument("--solr_host", dest="solr_host", default="localhost")
+p.add_argument("--solr_port", type=int, dest="solr_port", default="8989")
+
+p.add_argument("--connectors_host", default="localhost")
+p.add_argument("--connectors_port", type=int, dest="connectors_port", default="8984")
+
+p.add_argument("--external", action='store_true',
+    help="create the external datasource")
+p.add_argument("--fields", action='store_true',
+    help="create the fields")
+
+p.add_argument("--finance-collection", metavar="name", default="Finance")
+p.add_argument("--kibana-collection", metavar="name", default="kibana-int")
+p.add_argument("--company_datasource_name", default="Company")
+p.add_argument("--historical_datasource_name", default="HistoricalPrices")
+
+p.add_argument("--create", action='store_true', dest="create")
+p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'help'])
+
+p.add_argument("--company_port", type=int, dest="company_port", default="9191",
+    metavar="port",
+    help="connectors solr update handler port for Company datasource")
+p.add_argument("--historical_port", type=int, dest="historical_port", default="9898",
+    help="connectors solr update handler port for History datasource",
+    metavar="port")
+
+p.add_argument("--stocks_file", type=file)
+p.add_argument("--velocity_src", action='store_true')
+p.add_argument("--velocity_dest", action='store_true')
+
+p.add_argument("--press", action='store_true')
+p.add_argument("--index", action='store_true', help="index the content")
+
+args = p.parse_args()
+
 # TODO: FIX UP ALL THIS HACKY VARIABLE STUFF
-COLLECTION = opts.collection
-LWS_URL = "http://" + opts.host + ":" + opts.api_port + "/lucid"
+COLLECTION = args.finance_collection
+LWS_URL = "http://{}:{}/lucid".format(args.host, args.api_port)
 API_URL = LWS_URL + "/api/v1"
-SOLR_URL = "http://" + opts.solr_host + ":" + opts.solr_port + "/solr/" + COLLECTION
+SOLR_URL = "http://{}:{}/solr/{}".format(args.solr_host, args.solr_port, COLLECTION)
 COL_URL = API_URL + "/collections/" + COLLECTION
 FIELDS_URL = SOLR_URL + "/schema/fields"
-DS_URL = COL_URL + '/datasources'
-BANANA_FIELDS_URL = "http://" + opts.solr_host + ":" + opts.solr_port + "/solr/kibana-int/schema/fields"
-ds.DS_URL = COL_URL + '/datasources'
-opts.company_solr = "http://" + opts.host + ":" + opts.company_port + "/solr"
-opts.historical_solr = "http://" + opts.host + ":" + opts.historical_port + "/solr"
-print "Company Solr: " + opts.company_solr
-print "Historical Solr: "+ opts.historical_solr
 
-if (opts.ui_host and opts.ui_port):
-    lweutils.UI_URL = "http://" + opts.ui_host + ":" + opts.ui_port
-else:
-    lweutils.UI_URL = "http://" + opts.host + ":8989"
+CONNECTORS_URL = "http://{}:{}/connectors/api/v1/connectors".format(args.connectors_host, args.connectors_port)
+
+args.kibana_fields_url = "http://{}:{}/solr/kibana-int/schema/fields".format(args.solr_host, args.solr_port)
+args.company_solr_url = "http://{}:{}/solr".format(args.host, args.company_port)
+args.historical_solr_url = "http://{}:{}/solr".format(args.host, args.historical_port)
+
+lweutils.UI_URL = "http://{}:{}".format(args.ui_host, args.ui_port)
 lweutils.UI_API_URL = lweutils.UI_URL + "/lucid/api/v1"
 
-if opts.all:
-    opts.external = True
-    opts.fields = True
-    opts.twitter = True
-    opts.index = True
-    opts.press = True
-    opts.create = True
+logger.debug("creating datasource connection {}".format(CONNECTORS_URL))
+datasource_connection = datasource.DataSourceConnection(CONNECTORS_URL)
+logger.debug("created datasource connection")
 
-if action in ACTIONS:
-    ACTIONS[action](opts, args)
-else:
-    raise Exception(action + " is not a valid action")
-
+if args.action is None:
+    args.action = ['setup']
+for action in args.action:
+    func = "command_" + action
+    logger.debug("running {}".format(func))
+    vars()[func](args)

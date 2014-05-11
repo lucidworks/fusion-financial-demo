@@ -24,7 +24,7 @@ import lweutils
 
 def load_stocks(file):
     stocks = {}
-    for line in open(file):
+    for line in file:
         if line.startswith("#") == False:
             vals = line.split(",")
             symbol = vals[0]
