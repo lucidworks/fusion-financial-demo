@@ -123,6 +123,9 @@ def command_delete(options):
     delete_datasources()
     delete_collections(options)
 
+def command_help(options):
+    p.print_help()
+
 ###############   
 
 def delete_datasources():
@@ -393,37 +396,52 @@ p = argparse.ArgumentParser(description='Setup Apollo Financial Demo.')
 
 p.add_argument("--twitter", action='store_true',
     help="create the twitter datasource")
-p.add_argument("--access_token")
-p.add_argument("--consumer_key")
-p.add_argument("--consumer_secret")
-p.add_argument("--token_secret")
+p.add_argument("--access_token", metavar="token", help="Twitter access token")
+p.add_argument("--consumer_key", metavar="key", help="Twitter consumer key")
+p.add_argument("--consumer_secret", metavar="secret", help="Twitter consumer secret")
+p.add_argument("--token_secret", metavar="token", help="Twitter token secret")
 
-p.add_argument("--data_dir")
+p.add_argument("--data_dir", metavar="dir", default="../../../data",
+    help="historical data directory (default: ../../../data)")
 
-p.add_argument("--api_host", dest="host", default="localhost")
-p.add_argument("--api_port", type=int, dest="api_port", default="8888")
+p.add_argument("--api_host", metavar="host", dest="host", default="localhost",
+    help="Apollo backend API host (default: localhost)")
+p.add_argument("--api_port", type=int, metavar="port", dest="api_port", default="8765",
+    help="Apollo backend API port (default: 8765)")
 
-p.add_argument("--ui_host", dest="ui_host", default="localhost")
-p.add_argument("--ui_port", type=int, dest="ui_port", default="8989")
+p.add_argument("--ui_host", metavar="host", dest="ui_host", default="localhost",
+    help="UI host (default: localhost)") # TODO: is this Apollo-admin or something else?
+p.add_argument("--ui_port", type=int, metavar="port", dest="ui_port", default="8989",
+    help="UI host (default: 8989)") # TODO: is this Apollo-admin or something else?
 
-p.add_argument("--solr_host", dest="solr_host", default="localhost")
-p.add_argument("--solr_port", type=int, dest="solr_port", default="8989")
+p.add_argument("--solr_host", metavar="host", dest="solr_host", default="localhost",
+    help="Solr host (default: localhost)")
+p.add_argument("--solr_port", type=int, metavar="port", dest="solr_port", default="8989",
+    help="Solr port (default: 8989)")
 
-p.add_argument("--connectors_host", default="localhost")
-p.add_argument("--connectors_port", type=int, dest="connectors_port", default="8984")
+p.add_argument("--connectors_host", metavar="host", default="localhost",
+    help="Connectors host (default: localhost)")
+p.add_argument("--connectors_port", type=int, metavar="port", dest="connectors_port", default="8984",
+    help="Connectors port (default: 8984)")
 
 p.add_argument("--external", action='store_true',
     help="create the external datasource")
 p.add_argument("--fields", action='store_true',
     help="create the fields")
 
-p.add_argument("--finance-collection", metavar="name", default="Finance")
-p.add_argument("--kibana-collection", metavar="name", default="kibana-int")
-p.add_argument("--company_datasource_name", default="Company")
-p.add_argument("--historical_datasource_name", default="HistoricalPrices")
+p.add_argument("--finance-collection", metavar="name", default="Finance",
+    help="name of the financia collection (default: Finance)")
+p.add_argument("--kibana-collection", metavar="name", default="kibana-int",
+    help="name of the Kibana collection (default: kibana-int)")
+p.add_argument("--company_datasource_name", metavar="name", default="Company",
+    help="name of the company datasource (default: Company)")
+p.add_argument("--historical_datasource_name", metavar="name", default="HistoricalPrices",
+    help="name of the historical datasource (default: HistoricalPrices)")
 
-p.add_argument("--create", action='store_true', dest="create")
-p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'help'])
+p.add_argument("--create", action='store_true', dest="create",
+    help="create collections and datasources")
+p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'help'],
+    help="the main action (default: setup)")
 
 p.add_argument("--company_port", type=int, dest="company_port", default="9191",
     metavar="port",
@@ -432,11 +450,11 @@ p.add_argument("--historical_port", type=int, dest="historical_port", default="9
     help="connectors solr update handler port for History datasource",
     metavar="port")
 
-p.add_argument("--stocks_file", type=file)
-p.add_argument("--velocity_src", action='store_true')
-p.add_argument("--velocity_dest", action='store_true')
+p.add_argument("--stocks_file", type=file, metavar="file",
+    default="../../../data/sp500List-30.txt",
+    help="filename of the stocks file")
 
-p.add_argument("--press", action='store_true')
+p.add_argument("--press", action='store_true', help="create press crawler")
 p.add_argument("--index", action='store_true', help="index the content")
 
 args = p.parse_args()
