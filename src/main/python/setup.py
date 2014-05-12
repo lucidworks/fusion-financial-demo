@@ -321,7 +321,7 @@ def create_historical_ds(options):
                      "trade_date":"trade_date",
                      "volume": "volume",
                      "adj_close": "adj_close"}}}
-    datasource = datasource_connection.create_push(name=name, port=options['historical_port'])
+    datasource = datasource_connection.create_push(name=name, port=options.historical_port)
     #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     datasource.start()
     return datasource
@@ -338,7 +338,7 @@ def create_company_ds(options):
     mappings = {
         "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
                      "state": "state", "hierarchy": "hierarchy"}}}
-    datasource = datasource_connection.create_push(name=name, port=options['company_port'])
+    datasource = datasource_connection.create_push(name=name, port=options.company_port)
     #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     datasource.start()
     return datasource
