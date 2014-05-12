@@ -7,6 +7,7 @@ import pysolr
 import common_finance
 
 import datasource
+#import ds
 import fields
 import traceback
 import logging
@@ -126,7 +127,7 @@ def command_delete(options):
 def command_help(options):
     p.print_help()
 
-###############   
+###############
 
 def delete_datasources():
     datasources = datasource_connection.datasources()
@@ -175,25 +176,26 @@ def create_collection(name):
         except Exception as e:
             traceback.print_exc()
 
-    enable_dynamic_schema(name)
+    enable_feature(name, "dynamicSchema")
+    enable_feature(name, "signals")
 
-def is_dynamic_schema_enabled(name):
-    rsp = lweutils.json_http(API_URL + "/collections/{}/features".format(name))
+def is_feature_enabled(coll_name, feature_name):
+    rsp = lweutils.json_http(API_URL + "/collections/{}/features".format(coll_name))
     for feature in rsp:
-        if feature['name'] == 'dynamicSchema':
-            logger.debug("dynamicSchema={}".format(feature['name']))
+        if feature['name'] == feature_name:
+            logger.debug("{}={}".format(feature_name, feature['name']))
             return feature['enabled']
     return False
 
-def enable_dynamic_schema(name):
-    if is_dynamic_schema_enabled(name):
-        logger.info("dynamicSchema already enabled for collection {}".format(name))
+def enable_feature(name, feature_name):
+    if is_feature_enabled(name, feature_name):
+        logger.info("{} already enabled for collection {}".format(feature_name, name))
     else:
         try:
-            logger.info("Enabling dynamic schema for " + name)
-            rsp = lweutils.json_http(API_URL + "/collections/{0}/features/dynamicSchema".format(name), method='PUT', data={'enabled':True})
-            logger.info("Enabled dynamic schema for " + name)
-            sleep_secs(5, "waiting for the dynamic schema to be enabled")
+            logger.info("Enabling "+ feature_name+" for " + name)
+            rsp = lweutils.json_http(API_URL + "/collections/{0}/features/{1}".format(name, feature_name), method='PUT', data={'enabled':True})
+            logger.info("Enabled "+ feature_name+" for " + name)
+            sleep_secs(5, "waiting for the "+ feature_name+" to be enabled")
         except Exception as e:
             traceback.print_exc()
 

@@ -73,6 +73,7 @@ def add(solr, docs, dsId, commit=True, boost=None, commitWithin=None, waitFlush=
     return update(solr, m, dsId, commit=commit, waitFlush=waitFlush, waitSearcher=waitSearcher)
 
 
+# TODO: change me to use the indexing pipeline.
 def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=None, waitSearcher=None):
     """
     Posts the given xml message to http://<self.url>/update and
