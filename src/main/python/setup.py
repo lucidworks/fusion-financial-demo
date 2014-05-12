@@ -122,6 +122,7 @@ def command_reindex(options):
 
 def command_delete(options):
     delete_datasources()
+    delete_jobs()
     delete_collections(options)
 
 def command_help(options):
@@ -202,6 +203,24 @@ def delete_collection(name):
     logger.info("Deleting Collection: " + name)
     rsp = lweutils.json_http(API_URL + "/collections/" + name, method='DELETE')
     logger.debug("Deleted Collection: " + name)
+    sleep_secs(5, "waiting for collection to be deleted")
+    logger.info("Checking Collection: " + name)
+    rsp = lweutils.json_http(API_URL + "/collections/" + name)
+    if rsp != None and 'id' in rsp:
+        logger.ERROR("Failed to delete Collection: " + name)
+
+def delete_jobs():
+    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/")
+    for job in rsp:
+        delete_job(job['id'])
+
+def delete_job(name):
+    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name)
+    if 'id' not in rsp:
+        logger.debug("no job {}".format(name))
+        return
+    logger.debug("deleting job {}".format(name))
+    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name, method='DELETE')
 
 def list_collection_names():
     rsp = lweutils.json_http(API_URL + "/collections/" , method='GET')
