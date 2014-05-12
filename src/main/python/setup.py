@@ -369,14 +369,25 @@ def define_historical_pipeline():
             fields=['open', 'trade_date', 'high', 'low', 'close', 'volume', 'adj_close']
             for field in fields:
                 mappings.append({ "source": field, "target": field, "operation": "copy" })
+
+            add_connector_mappings(mappings) # TODO: HACK. I should not have to worry about this
             stage['mappings'] = mappings
             stage['renameUnknown'] = False
+
+    insert_debug_stage(result)
+    logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
     lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
     return pipeline_name
 
+def add_connector_mappings(mappings):
+    mappings.append({ "source": "document_fetching_time", "target": "document_fetching_time_s", "operation": "move" })
+    mappings.append({ "source": "parse_time", "target": "parse_time_s", "operation": "move" })
+    mappings.append({ "source": "parsing", "target": "parse_s", "operation": "move" })
+    mappings.append({ "source": "/(data_source.*)/", "target": "$1_s", "operation": "move" })
+
 # temp hack
 def command_foo(options):
-    define_historical_pipeline();
+    define_company_pipeline();
 
 def create_company_ds(options):
     name=options.company_datasource_name
@@ -414,12 +425,28 @@ def define_company_pipeline():
     for stage in result['stages']:
         if stage['id'] == 'conn_mapping':
             mappings = stage['mappings']
-            mappings.append({ "source": "document_fetching_time", "target": "document_fetching_time_s", "operation": "move" })
-            mappings.append({ "source": "/(data_source.*)/", "target": "$1_s", "operation": "move" })
+            add_connector_mappings(mappings) # TODO: HACK. I should not have to worry about this
+            stage['mappings'] = mappings
             stage['renameUnknown'] = False
-    logger.debug("saving pipeline '{}'".format(pipeline_name))
+
+    insert_debug_stage(result)
+
+    logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
     lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
     return pipeline_name
+
+def insert_debug_stage(data):
+    # create a detailed logging stage, and insert it before the solr-index stage
+    debug_stage = {
+        'id': 'index_debugging',
+        'type': 'logging',
+        'detailed': True
+    }
+    solr_stage_indexes = [ i for i,j in enumerate(data['stages']) if j['type'] == 'solr-index' ]
+    if len(solr_stage_indexes) == 0:
+        logger.debug("No solr-index stage found")
+    solr_stage_index = solr_stage_indexes[0]
+    data['stages'].insert(solr_stage_index, debug_stage)
 
 def create_banana_fields(args):
     args.kibana_fields.create("user")
