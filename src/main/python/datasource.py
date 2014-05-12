@@ -46,6 +46,7 @@ class DataSourceConnection:
     def _datasource_http(self, data, method='POST'):
         # HACK: the connectors API doesn't return JSON for this call, but a bare datasource id.
         # So we can't use json_http, and call by hand.
+        # This is fixed in https://github.com/LucidWorks/connectors/commit/a665278b777e9d3886a242d459f21f55cea1a97d
         url=self.datasources_url
         logger.info("Creating New DataSource: {} to {}: {}".format(method, url, data))
         http = httplib2.Http()
@@ -61,7 +62,13 @@ class DataSourceConnection:
                 pass
             message = "{} {} => {}\n{}".format(method, url, resp.status, err)
             raise Exception(message)
-        datasource_id = content
+        if len(content) > 1 and content[0] == '[':
+            # Oh, we did get json. See comment above
+            logger.error("FIX _datasource_http to use json_http instead of calling by hand")
+            datasource_data = json.loads(content)
+            datasource_id = datasource_data['id']
+        else:
+            datasource_id = content
         logger.info("Created New DataSource: {}".format(datasource_id))
         sleep_secs(5, "waiting for the datasource to get created")
         datasource = self.get(datasource_id)
