@@ -210,17 +210,18 @@ def delete_collection(name):
         logger.ERROR("Failed to delete Collection: " + name)
 
 def delete_jobs():
+    """delete jobs in the connector."""
     rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/")
-    for job in rsp:
-        delete_job(job['id'])
-
-def delete_job(name):
-    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name)
-    if 'id' not in rsp:
-        logger.debug("no job {}".format(name))
+    if rsp is None:
+        logger.debug("no jobs")
         return
-    logger.debug("deleting job {}".format(name))
-    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name, method='DELETE')
+    for job in rsp:
+        name = job['id']
+        if 'state' in job and job['state'] != 'STOPPED':
+            logger.debug("stopping job {}".format(name))
+            rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name, method='DELETE')
+        # delete the history too.
+        rsp = lweutils.json_http(HISTORY_URL + "/connectors/items/" + name, method='DELETE')
 
 def list_collection_names():
     rsp = lweutils.json_http(API_URL + "/collections/" , method='GET')
@@ -492,6 +493,7 @@ COL_URL = API_URL + "/collections/" + COLLECTION
 FIELDS_URL = SOLR_URL + "/schema/fields"
 
 CONNECTORS_URL = "http://{}:{}/connectors/api/v1/connectors".format(args.connectors_host, args.connectors_port)
+HISTORY_URL = "http://{}:{}/connectors/api/v1/history".format(args.connectors_host, args.connectors_port)
 
 args.kibana_fields_url = "http://{}:{}/solr/kibana-int/schema/fields".format(args.solr_host, args.solr_port)
 args.company_solr_url = "http://{}:{}/solr".format(args.host, args.company_port)
