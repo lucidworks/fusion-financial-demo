@@ -416,8 +416,8 @@ p.add_argument("--ui_port", type=int, metavar="port", dest="ui_port", default="8
 
 p.add_argument("--solr_host", metavar="host", dest="solr_host", default="localhost",
     help="Solr host (default: localhost)")
-p.add_argument("--solr_port", type=int, metavar="port", dest="solr_port", default="8989",
-    help="Solr port (default: 8989)")
+p.add_argument("--solr_port", type=int, metavar="port", dest="solr_port", default="8983",
+    help="Solr port (default: 8983)")
 
 p.add_argument("--connectors_host", metavar="host", default="localhost",
     help="Connectors host (default: localhost)")
