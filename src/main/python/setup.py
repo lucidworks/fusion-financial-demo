@@ -124,6 +124,7 @@ def command_delete(options):
     delete_datasources()
     delete_jobs()
     delete_collections(options)
+    # TODO: delete_pipelines (but only mine!)
 
 def command_help(options):
     p.print_help()
@@ -204,10 +205,6 @@ def delete_collection(name):
     rsp = lweutils.json_http(API_URL + "/collections/" + name, method='DELETE')
     logger.debug("Deleted Collection: " + name)
     sleep_secs(5, "waiting for collection to be deleted")
-    logger.info("Checking Collection: " + name)
-    rsp = lweutils.json_http(API_URL + "/collections/" + name)
-    if rsp != None and 'id' in rsp:
-        logger.ERROR("Failed to delete Collection: " + name)
 
 def delete_jobs():
     """delete jobs in the connector."""
@@ -342,9 +339,37 @@ def create_historical_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    datasource = datasource_connection.create_push(name=name, port=options.historical_port)
+    pipeline_name = define_historical_pipeline()
+
+    datasource = datasource_connection.create_push(name=name, pipeline=pipeline_name,
+        collection=options.finance_collection, port=options.historical_port)
     datasource.start()
     return datasource
+
+def define_historical_pipeline():
+    pipeline_name = "historical"
+    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
+    if existing is not None:
+        logger.debug("pipeline {} already exists".format(pipeline_name))
+        return pipeline_name
+
+    default_solr_pipeline='conn_solr'
+    result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
+    result['id'] = pipeline_name
+    for stage in result['stages']:
+        if stage['id'] == 'conn_mapping':
+            mappings = []
+            fields=['open', 'trade_date', 'high', 'low', 'close', 'volume', 'adj_close']
+            for field in fields:
+                mappings.append({ "source": field, "target": field, "operation": "copy" })
+            stage['mappings'] = mappings
+            stage['renameUnknown'] = False
+    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    return pipeline_name
+
+# temp hack
+def command_foo(options):
+    define_historical_pipeline();
 
 def create_company_ds(options):
     name=options.company_datasource_name
@@ -354,9 +379,28 @@ def create_company_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    datasource = datasource_connection.create_push(name=name, port=options.company_port)
+    pipeline_name = define_company_pipeline()
+
+    datasource = datasource_connection.create_push(name=name, pipeline=pipeline_name,
+        collection=options.finance_collection, port=options.company_port)
     datasource.start()
     return datasource
+
+def define_company_pipeline():
+    pipeline_name = "company"
+    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
+    if existing is not None:
+        logger.debug("pipeline {} already exists".format(pipeline_name))
+        return pipeline_name
+
+    default_solr_pipeline='conn_solr'
+    result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
+    result['id'] = pipeline_name
+    for stage in result['stages']:
+        if stage['id'] == 'conn_mapping':
+            stage['renameUnknown'] = False
+    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    return pipeline_name
 
 def create_banana_fields():
     fields.create(["name=user", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
@@ -454,7 +498,7 @@ p.add_argument("--historical_datasource_name", metavar="name", default="Historic
 
 p.add_argument("--create", action='store_true', dest="create",
     help="create collections and datasources")
-p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'reindex', 'help'],
+p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'reindex', 'foo', 'help'],
     help="the main action (default: setup)")
 
 p.add_argument("--company_port", type=int, dest="company_port", default="9191",
@@ -483,6 +527,7 @@ FIELDS_URL = SOLR_URL + "/schema/fields"
 
 CONNECTORS_URL = "http://{}:{}/connectors/api/v1/connectors".format(args.connectors_host, args.connectors_port)
 HISTORY_URL = "http://{}:{}/connectors/api/v1/history".format(args.connectors_host, args.connectors_port)
+PIPELINE_URL = "http://{}:{}/connectors/api/v1/index-pipelines".format(args.connectors_host, args.connectors_port)
 
 args.kibana_fields_url = "http://{}:{}/solr/kibana-int/schema/fields".format(args.solr_host, args.solr_port)
 args.company_solr_url = "http://{}:{}/solr".format(args.host, args.company_port)
