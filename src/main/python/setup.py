@@ -93,21 +93,21 @@ def command_setup(options):
         if company_datasource == None:
             company_datasource = datasource_connection.get(options.company_datasource_name)
         if company_datasource:
-            print "Indexing for data source: " + company_datasource.datasource_id()
+            logger.info("Indexing for data source {}".format(company_datasource.datasource_id()))
             company_solr = pysolr.Solr(options.company_solr_url, timeout=10)
             index_stocks(company_solr, stocks, company_datasource)
         else:
-            print "Couldn't find datasource {}".format(options.company_datasource_name)
+            logger.error("Couldn't find datasource {}".format(options.company_datasource_name))
 
         if historical_data_source == None:
             historical_data_source = datasource_connection.get(options.historical_datasource_name)
         if historical_data_source:
-            print "Indexing for data source: " + historical_data_source.datasource_id()
+            logger.info("Indexing for data source {}".format(historical_data_source.datasource_id()))
             historical_solr = pysolr.Solr(options.historical_solr_url, timeout=10)
             index_historical(historical_solr, stocks, historical_data_source, options.data_dir)
-            solr.commit()
         else:
-            print "Couldn't find datasource {}".format(options.historical_datasource_name)
+            logger.error("Couldn't find datasource {}".format(options.historical_datasource_name))
+        solr.commit()
 
 def command_reindex(options):
     solr = pysolr.Solr(SOLR_URL, timeout=10)
@@ -117,7 +117,7 @@ def command_reindex(options):
         logger.info("Reindexing for data source: " + historical_datasource.datasource_id())
         index_historical(solr, stocks, historical_datasource)
     else:
-        print "Couldn't find datasource {}".format(options.company_datasource_name)
+        logger.error("Couldn't find datasource {}".format(options.company_datasource_name))
 
 def command_delete(options):
     delete_datasources()
@@ -253,6 +253,7 @@ def index_historical(solr, stocks, data_source, seriesDir):
             #   print "r: " + str(len(r))
             #date,open_val,high,low,close,volume,adj_close = r
             #print date
+    solr.commit()
 
 def create_press_crawler(stock):
     #data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
@@ -309,10 +310,10 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
     datasource.start()
 
 def create_historical_ds(options):
-    name="Historical"
+    name=options.historical_datasource_name
     logger.info("Creating DS for {}".format(name))
     if datasource_connection.get(name) is not None:
-        logger.debug("datasource {} already exists")
+        logger.debug("datasource {} already exists".format(name))
         return
     logger.debug("no existing datasource {}".format(name))
 
@@ -327,10 +328,10 @@ def create_historical_ds(options):
     return datasource
 
 def create_company_ds(options):
-    name="Company"
+    name=options.company_datasource_name
     logger.info("Creating DS for {}".format(name))
     if datasource_connection.get(name) is not None:
-        logger.debug("datasource {} already exists")
+        logger.debug("datasource {} already exists".format(name))
         return
     logger.debug("no existing datasource {}".format(name))
 
@@ -352,7 +353,6 @@ def create_banana_fields():
 def create_fields(args):
     create_banana_fields()
     #Twitter
-    print COLLECTION
 
     #Company info
     #Symbol,Company,Industry,City,State
@@ -440,7 +440,7 @@ p.add_argument("--historical_datasource_name", metavar="name", default="Historic
 
 p.add_argument("--create", action='store_true', dest="create",
     help="create collections and datasources")
-p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'help'],
+p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'reindex', 'help'],
     help="the main action (default: setup)")
 
 p.add_argument("--company_port", type=int, dest="company_port", default="9191",
