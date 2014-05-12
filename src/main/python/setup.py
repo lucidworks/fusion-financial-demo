@@ -342,13 +342,7 @@ def create_historical_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    #For 2.7, we will need to change the crawler type to push
-    data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
-                     "trade_date":"trade_date",
-                     "volume": "volume",
-                     "adj_close": "adj_close"}}}
     datasource = datasource_connection.create_push(name=name, port=options.historical_port)
-    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     datasource.start()
     return datasource
 
@@ -360,12 +354,7 @@ def create_company_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    #For 2.7, we will need to change the crawler type to push
-    mappings = {
-        "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
-                     "state": "state", "hierarchy": "hierarchy"}}}
     datasource = datasource_connection.create_push(name=name, port=options.company_port)
-    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
     datasource.start()
     return datasource
 
