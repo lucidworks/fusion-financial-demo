@@ -169,16 +169,29 @@ class DataSource:
     def db(self):
         return json_http("{}/db".format(self.my_url()))
 
-    def start(self):
+    def is_running(self):
         result = json_http("{}/{}".format(self.connection.get_jobs_url(), self.datasource_id()), method='GET')
         if result is not None:
             logger.debug("job status: {}".format(result))
             if 'running' in result and result['running']:
-                logger.info("job {} already running".format(self.datasource_id))
-                return
+                return True
+        return False
+
+    def start(self):
+        if self.is_running():
+            logger.info("job {} already running".format(self.datasource_id))
+            return
         logger.debug("starting job {}".format(self.datasource_id))
         json_http("{}/{}".format(self.connection.get_jobs_url(), self.datasource_id()), method='POST')
         sleep_secs(5, "waiting for the datasource to get started")
+
+    def stop(self):
+        if not self.is_running():
+            logger.info("job {} not running".format(self.datasource_id))
+            return
+        logger.debug("stopping job {}".format(self.datasource_id))
+        json_http("{}/{}".format(self.connection.get_jobs_url(), self.datasource_id()), method='DELETE')
+        sleep_secs(5, "waiting for the datasource to stop")
 
     def dump(self):
         print "Data Source #{}: ".format(self.datasource_id())
@@ -186,6 +199,7 @@ class DataSource:
         print "DB: {}: ".format(pprint.pformat(self.db(), 2))
 
     def delete(self):
+        self.stop()
         print "deleting dataSource: DELETE to {}".format(self.my_url())
         response = json_http(self.my_url(), method='DELETE')
         print "deleted dataSource"
