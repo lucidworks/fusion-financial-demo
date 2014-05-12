@@ -11,6 +11,7 @@ import fields
 import traceback
 import logging
 import sys
+import os
 
 try:
     # Prefer lxml, if installed.
@@ -208,25 +209,29 @@ def list_collection_names():
     logger.debug("collection names: {}".format(collection_names))
     return collection_names
 
+def get_stock_data(seriesDir, symbol):
+    csv_path = seriesDir + "/" + symbol + ".csv"
+    if os.path.exists(csv_path):
+        cached = open(csv_path)
+        logger.debug("Found {} in the cache {}".format(symbol, csv_path))
+        data = cached.read()
+    else:
+        logger.debug("Could not find {} in the cache {}, so downloading".format(symbol, csv_path))
+        year = datetime.date.today().year
+        url="http://ichart.finance.yahoo.com/table.csv?s={}&f={}&ignore=.csv".format(symbol, year)
+        response = urllib2.urlopen(url)
+        data = response.read()
+        output = open(csv_path, 'wb')
+        output.write(data)
+        output.close()
+        sleep_secs(1, "so we don't get banned from yahoo")
+    return data
+
 def index_historical(solr, stocks, data_source, seriesDir):
     for symbol in stocks:
         logger.info("Indexing: " + symbol)
-        #Get the data
-        csv_path = seriesDir + "/" + symbol + ".csv"
-        try:
-            cached = open(csv_path)
-            logger.debug("Found {} in the cache {}".format(symbol, csv_path))
-            data = cached.read()
-        except IOError:
-            logger.debug("Could not find {} in the cache {}, so downloading".format(symbol, csv_path))
-            year = datetime.date.today().year
-            url="http://ichart.finance.yahoo.com/table.csv?s={}&f={}&ignore=.csv".format(symbol, year)
-            response = urllib2.urlopen(url)
-            data = response.read()
-            output = open(csv_path, 'wb')
-            output.write(data)
-            output.close()
-            sleep_secs(1, "so we don't get banned from yahoo")
+
+        data = get_stock_data(seriesDir, symbol)
 
         # parse the docs and send to solr
         lines = data.splitlines()
