@@ -81,6 +81,8 @@ class DataSourceConnection:
         """create a web datasource."""
         if start_urls is None:
             raise ValueError("start_urls must not be None")
+        if pipeline is None:
+            raise ValueError("pipeline must not be None")
         found = self.get(name)
         if found is not None:
             logger.debug("connector {} already exists".format(name))
@@ -101,9 +103,13 @@ class DataSourceConnection:
 
         return self._datasource_http(data)
 
-    def create_push(self, name=None, pipeline="conn_solr", port=0, data=None):
+    def create_push(self, name=None, pipeline="conn_solr", collection=None, port=0, data=None):
         if port == 0:
             raise ValueError("port cannot be 0")
+        if collection is None:
+            raise ValueError("collection can not be None")
+        if pipeline is None:
+            raise ValueError("pipeline must not be None")
         found = self.get(name)
         if found is not None:
             logger.debug("connector {} already exists", name)
@@ -114,6 +120,7 @@ class DataSourceConnection:
             'type': 'push',
             'pipeline': pipeline,
             'properties': {
+                'collection': collection,
                 'port': port
             }
         }

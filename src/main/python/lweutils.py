@@ -46,7 +46,7 @@ def json_http(url, method='GET', data=None):
     resp, content = HTTP_CLIENT.request(
         url, method=method, body=body, 
         headers={'Content-Type':'application/json'})
-    #logger.debug("json_http resp={} content={}".format(resp, content))
+    logger.debug("json_http resp={} content={}".format(resp, content))
 
     # fail if not status 2xx
     if 0 != str(resp.status).find('2'):
