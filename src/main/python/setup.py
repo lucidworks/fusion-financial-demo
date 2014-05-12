@@ -1,4 +1,5 @@
 import argparse
+import httplib2
 import urllib2
 import time
 import datetime
@@ -124,7 +125,7 @@ def command_delete(options):
     delete_datasources()
     delete_jobs()
     delete_collections(options)
-    # TODO: delete_pipelines (but only mine!)
+    delete_pipelines(options)
 
 def command_help(options):
     p.print_help()
@@ -142,6 +143,12 @@ def delete_collections(options):
     collections = [ c for c in list_collection_names() if c in my_collections ]
     for collection_name in collections:
         delete_collection(collection_name)
+
+def delete_pipelines(options):
+    pipelines = lweutils.json_http(PIPELINE_URL)
+    for pipeline in pipelines:
+        if pipeline['id'] in ['company', 'historical']:  # TODO: get this from somewhere
+            lweutils.json_http(PIPELINE_URL + "/" + pipeline['id'], method='DELETE')
 
 def index_stocks(solr, stocks, data_source):
     #Symbol,Company,City,State
@@ -347,9 +354,9 @@ def create_historical_ds(options):
     return datasource
 
 def define_historical_pipeline():
+    """define historical pipeline. Example with explicitly defined fields"""
     pipeline_name = "historical"
-    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
-    if existing is not None:
+    if find_pipeline(pipeline_name) is not None:
         logger.debug("pipeline {} already exists".format(pipeline_name))
         return pipeline_name
 
@@ -364,7 +371,7 @@ def define_historical_pipeline():
                 mappings.append({ "source": field, "target": field, "operation": "copy" })
             stage['mappings'] = mappings
             stage['renameUnknown'] = False
-    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
     return pipeline_name
 
 # temp hack
@@ -386,67 +393,78 @@ def create_company_ds(options):
     datasource.start()
     return datasource
 
+def find_pipeline(name):
+    pipelines = lweutils.json_http(PIPELINE_URL)
+    for pipeline in pipelines:
+        if 'id' in pipeline and pipeline['id'] == name:
+            return pipeline
+    return None
+
 def define_company_pipeline():
+    """define company pipeline. Example with ehr... some defined fields"""
     pipeline_name = "company"
-    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
-    if existing is not None:
+    if find_pipeline(pipeline_name) is not None:
         logger.debug("pipeline {} already exists".format(pipeline_name))
         return pipeline_name
 
     default_solr_pipeline='conn_solr'
+    logger.debug("getting default pipeline '{}' to use as a template".format(default_solr_pipeline))
     result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
     result['id'] = pipeline_name
     for stage in result['stages']:
         if stage['id'] == 'conn_mapping':
+            mappings = stage['mappings']
+            mappings.append({ "source": "document_fetching_time", "target": "document_fetching_time_s", "operation": "move" })
+            mappings.append({ "source": "/(data_source.*)/", "target": "$1_s", "operation": "move" })
             stage['renameUnknown'] = False
-    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    logger.debug("saving pipeline '{}'".format(pipeline_name))
+    lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
     return pipeline_name
 
-def create_banana_fields():
-    fields.create(["name=user", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
-    fields.create(["name=group", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
-    #fields.create(["name=title", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
-    fields.create(["name=dashboard", "indexed=false", "stored=true", "type=string"], args.kibana_fields_url)
+def create_banana_fields(args):
+    args.kibana_fields.create("user")
+    args.kibana_fields.create("group")
+    args.kibana_fields.create("dashboard", indexed=False)
 
 def create_fields(args):
-    create_banana_fields()
+    create_banana_fields(args)
     #Twitter
 
     #Company info
     #Symbol,Company,Industry,City,State
-    fields.create(["indexed=true", "stored=true", "name=RESULT_TYPE", "type=string"], FIELDS_URL)
-    fields.update(["name=data_source_name", "copyFields=RESULT_TYPE", "type=string"], FIELDS_URL)
-    fields.create(["indexed=true", "stored=true", "name=symbol", "type=string"], FIELDS_URL)
+    args.finance_fields.create("RESULT_TYPE")
+    args.finance_fields.create("data_source_name", copy_fields="RESULT_TYPE")
+    args.finance_fields.create("symbol")
 
-    fields.create(["indexed=true", "stored=true", "name=industry_facet", "type=string"], FIELDS_URL)
-    fields.create(["indexed=true", "stored=true", "name=industry", "type=text_en", "copyFields=industry_facet"], FIELDS_URL)
+    args.finance_fields.create("industry_facet")
+    args.finance_fields.create("industry", "type=text_en", copy_fields="industry_facet")
 
-    fields.create(["indexed=true", "stored=true", "name=company_facet", "type=string"], FIELDS_URL)
-    fields.create(["indexed=true", "stored=true", "name=company", "type=text_en", "copyFields=company_facet"], FIELDS_URL)
+    args.finance_fields.create("company_facet", type="string")
+    args.finance_fields.create("company", "type=text_en", copy_fields="company_facet")
 
-    fields.create(["indexed=true", "stored=true", "name=city_facet", "type=string"], FIELDS_URL)
-    fields.create(["indexed=true", "stored=true", "name=city", "type=text_en", "copyFields=city_facet"], FIELDS_URL)
+    args.finance_fields.create("city_facet")
+    args.finance_fields.create("city", type="text_en", copy_fields="city_facet")
 
-    fields.create(["indexed=true", "stored=true", "name=hierarchy", "type=string", "multiValued=true"], FIELDS_URL)
+    args.finance_fields.create("hierarchy", multi_valued=True)
 
-    fields.create(["indexed=true", "stored=true", "name=state", "type=string"], FIELDS_URL)
+    args.finance_fields.create("state")
 
     #Historical
-    create_field("open", "float")
-    create_field("trade_date", "date")
-    create_field("high", "float")
-    create_field("low", "float")
-    create_field("close", "float")
-    create_field("volume", "long")
-    create_field("adj_close", "float")
+    create_bucket_field(args, "open", "float")
+    create_bucket_field(args, "trade_date", "date")
+    create_bucket_field(args, "high", "float")
+    create_bucket_field(args, "low", "float")
+    create_bucket_field(args, "close", "float")
+    create_bucket_field(args, "volume", "long")
+    create_bucket_field(args, "adj_close", "float")
 
     #Intra Day
-    create_field("quote_date", "date")
-    #create_field("price", "date")   # TODO: huh?
+    create_bucket_field(args, "quote_date", "date")
+    #create_bucket_field(args, "price", "date")   # TODO: huh?
 
-def create_field(field, type):
-    fields.create(["indexed=true", "stored=true", "name=" + field + "_bucket", "type=string"], FIELDS_URL)
-    fields.create(["indexed=true", "stored=true", "name=" + field, "type=" + type], FIELDS_URL)
+def create_bucket_field(args, field, type):
+    args.finance_fields.create(field + "_bucket")
+    args.finance_fields.create(field, type=type)
 
 #########################################
 
@@ -539,6 +557,10 @@ lweutils.UI_API_URL = lweutils.UI_URL + "/lucid/api/v1"
 logger.debug("creating datasource connection {}".format(CONNECTORS_URL))
 datasource_connection = datasource.DataSourceConnection(CONNECTORS_URL)
 logger.debug("created datasource connection")
+
+# TODO: these should be member variables on an object, not args
+args.finance_fields = fields.FieldsConnection("http://{}:{}/solr/{}/schema/fields".format(args.solr_host, args.solr_port, args.finance_collection))
+args.kibana_fields = fields.FieldsConnection("http://{}:{}/solr/{}/schema/fields".format(args.solr_host, args.solr_port, args.kibana_collection))
 
 if args.action is None:
     args.action = ['setup']
