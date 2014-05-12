@@ -12,6 +12,7 @@ import fields
 import traceback
 import logging
 import sys
+import os
 
 try:
     # Prefer lxml, if installed.
@@ -122,7 +123,9 @@ def command_reindex(options):
 
 def command_delete(options):
     delete_datasources()
+    delete_jobs()
     delete_collections(options)
+    # TODO: delete_pipelines (but only mine!)
 
 def command_help(options):
     p.print_help()
@@ -203,6 +206,21 @@ def delete_collection(name):
     logger.info("Deleting Collection: " + name)
     rsp = lweutils.json_http(API_URL + "/collections/" + name, method='DELETE')
     logger.debug("Deleted Collection: " + name)
+    sleep_secs(5, "waiting for collection to be deleted")
+
+def delete_jobs():
+    """delete jobs in the connector."""
+    rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/")
+    if rsp is None:
+        logger.debug("no jobs")
+        return
+    for job in rsp:
+        name = job['id']
+        if 'state' in job and job['state'] != 'STOPPED':
+            logger.debug("stopping job {}".format(name))
+            rsp = lweutils.json_http(CONNECTORS_URL + "/jobs/" + name, method='DELETE')
+        # delete the history too.
+        rsp = lweutils.json_http(HISTORY_URL + "/connectors/items/" + name, method='DELETE')
 
 def list_collection_names():
     rsp = lweutils.json_http(API_URL + "/collections/" , method='GET')
@@ -210,25 +228,29 @@ def list_collection_names():
     logger.debug("collection names: {}".format(collection_names))
     return collection_names
 
+def get_stock_data(seriesDir, symbol):
+    csv_path = seriesDir + "/" + symbol + ".csv"
+    if os.path.exists(csv_path):
+        cached = open(csv_path)
+        logger.debug("Found {} in the cache {}".format(symbol, csv_path))
+        data = cached.read()
+    else:
+        logger.debug("Could not find {} in the cache {}, so downloading".format(symbol, csv_path))
+        year = datetime.date.today().year
+        url="http://ichart.finance.yahoo.com/table.csv?s={}&f={}&ignore=.csv".format(symbol, year)
+        response = urllib2.urlopen(url)
+        data = response.read()
+        output = open(csv_path, 'wb')
+        output.write(data)
+        output.close()
+        sleep_secs(1, "so we don't get banned from yahoo")
+    return data
+
 def index_historical(solr, stocks, data_source, seriesDir):
     for symbol in stocks:
         logger.info("Indexing: " + symbol)
-        #Get the data
-        csv_path = seriesDir + "/" + symbol + ".csv"
-        try:
-            cached = open(csv_path)
-            logger.debug("Found {} in the cache {}".format(symbol, csv_path))
-            data = cached.read()
-        except IOError:
-            logger.debug("Could not find {} in the cache {}, so downloading".format(symbol, csv_path))
-            year = datetime.date.today().year
-            url="http://ichart.finance.yahoo.com/table.csv?s={}&f={}&ignore=.csv".format(symbol, year)
-            response = urllib2.urlopen(url)
-            data = response.read()
-            output = open(csv_path, 'wb')
-            output.write(data)
-            output.close()
-            sleep_secs(1, "so we don't get banned from yahoo")
+
+        data = get_stock_data(seriesDir, symbol)
 
         # parse the docs and send to solr
         lines = data.splitlines()
@@ -319,15 +341,37 @@ def create_historical_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    #For 2.7, we will need to change the crawler type to push
-    data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
-                     "trade_date":"trade_date",
-                     "volume": "volume",
-                     "adj_close": "adj_close"}}}
-    datasource = datasource_connection.create_push(name=name, port=options.historical_port)
-    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    pipeline_name = define_historical_pipeline()
+
+    datasource = datasource_connection.create_push(name=name, pipeline=pipeline_name,
+        collection=options.finance_collection, port=options.historical_port)
     datasource.start()
     return datasource
+
+def define_historical_pipeline():
+    pipeline_name = "historical"
+    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
+    if existing is not None:
+        logger.debug("pipeline {} already exists".format(pipeline_name))
+        return pipeline_name
+
+    default_solr_pipeline='conn_solr'
+    result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
+    result['id'] = pipeline_name
+    for stage in result['stages']:
+        if stage['id'] == 'conn_mapping':
+            mappings = []
+            fields=['open', 'trade_date', 'high', 'low', 'close', 'volume', 'adj_close']
+            for field in fields:
+                mappings.append({ "source": field, "target": field, "operation": "copy" })
+            stage['mappings'] = mappings
+            stage['renameUnknown'] = False
+    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    return pipeline_name
+
+# temp hack
+def command_foo(options):
+    define_historical_pipeline();
 
 def create_company_ds(options):
     name=options.company_datasource_name
@@ -337,14 +381,28 @@ def create_company_ds(options):
         return
     logger.debug("no existing datasource {}".format(name))
 
-    #For 2.7, we will need to change the crawler type to push
-    mappings = {
-        "mapping": {"mappings": {"symbol": "symbol", "company": "company", "industry": "industry", "city": "city",
-                     "state": "state", "hierarchy": "hierarchy"}}}
-    datasource = datasource_connection.create_push(name=name, port=options.company_port)
-    #rsp = lweutils.json_http(COL_URL + "/datasources/" + id + "/mapping", method="PUT", data=data)
+    pipeline_name = define_company_pipeline()
+
+    datasource = datasource_connection.create_push(name=name, pipeline=pipeline_name,
+        collection=options.finance_collection, port=options.company_port)
     datasource.start()
     return datasource
+
+def define_company_pipeline():
+    pipeline_name = "company"
+    existing = lweutils.json_http(PIPELINE_URL + "/" + pipeline_name)
+    if existing is not None:
+        logger.debug("pipeline {} already exists".format(pipeline_name))
+        return pipeline_name
+
+    default_solr_pipeline='conn_solr'
+    result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
+    result['id'] = pipeline_name
+    for stage in result['stages']:
+        if stage['id'] == 'conn_mapping':
+            stage['renameUnknown'] = False
+    lweutils.json_http(PIPELINE_URL, method='POST', data=result)
+    return pipeline_name
 
 def create_banana_fields():
     fields.create(["name=user", "indexed=true", "stored=true", "type=string"], args.kibana_fields_url)
@@ -442,7 +500,7 @@ p.add_argument("--historical_datasource_name", metavar="name", default="Historic
 
 p.add_argument("--create", action='store_true', dest="create",
     help="create collections and datasources")
-p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'reindex', 'help'],
+p.add_argument("--action", action='append', dest="action", choices=['setup', 'delete', 'reindex', 'foo', 'help'],
     help="the main action (default: setup)")
 
 p.add_argument("--company_port", type=int, dest="company_port", default="9191",
@@ -470,6 +528,8 @@ COL_URL = API_URL + "/collections/" + COLLECTION
 FIELDS_URL = SOLR_URL + "/schema/fields"
 
 CONNECTORS_URL = "http://{}:{}/connectors/api/v1/connectors".format(args.connectors_host, args.connectors_port)
+HISTORY_URL = "http://{}:{}/connectors/api/v1/history".format(args.connectors_host, args.connectors_port)
+PIPELINE_URL = "http://{}:{}/connectors/api/v1/index-pipelines".format(args.connectors_host, args.connectors_port)
 
 args.kibana_fields_url = "http://{}:{}/solr/kibana-int/schema/fields".format(args.solr_host, args.solr_port)
 args.company_solr_url = "http://{}:{}/solr".format(args.host, args.company_port)
