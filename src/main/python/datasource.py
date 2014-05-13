@@ -127,7 +127,7 @@ class DataSourceConnection:
         }
         return self._datasource_http(data)
 
-    def create_twitter(self, name=None, pipeline="conn_solr", access_token=None, consumer_key=None, consumer_secret=None,
+    def create_twitter(self, name=None, pipeline="conn_solr", collection=None, access_token=None, consumer_key=None, consumer_secret=None,
         token_secret=None, sleep=10000, data=None):
         """create a twitter datasource."""
         if name is None:
@@ -140,6 +140,8 @@ class DataSourceConnection:
             raise ValueError("consumer_secret must not be None")
         if token_secret is None:
             raise ValueError("token_secret must not be None")
+        if collection is None:
+            raise ValueError("collection can not be None")
         found = self.get(name)
         if found is not None:
             logger.debug("connector {} already exists".format(name))
@@ -150,6 +152,7 @@ class DataSourceConnection:
             'type': 'twitter_stream',
             'pipeline': pipeline,
             'properties': {
+                "collection" : collection,
                 "access_token": access_token, 
                 "consumer_key": consumer_key,
                 "consumer_secret": consumer_secret,

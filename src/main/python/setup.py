@@ -83,7 +83,7 @@ def command_setup(options):
     if options.fields and options.create:
         create_fields(args)
     if options.twitter and options.create:
-        create_twitter_ds(stocks, options.access_token, options.consumer_key, options.consumer_secret,
+        create_twitter_ds(stocks, options.finance_collection, options.access_token, options.consumer_key, options.consumer_secret,
                           options.token_secret)
     if options.press and options.create:
         create_press_ds(stocks)
@@ -307,8 +307,12 @@ def create_press_ds(stocks):
     for stock in stock_lists:
         create_press_crawler(stock)
 
-def create_twitter_ds(stocks, access_token, consumer_key, consumer_secret, token_secret):
+def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_secret, token_secret):
     logger.info("Creating Twitter Data Source for all symbols")
+
+    # I don't know if this is really necessary yet
+    # pipeline_name = define_twitter_pipeline()
+
     # can only do 400 tracks at a time
     stock_lists = list(stocks)
     length = len(stock_lists)
@@ -318,14 +322,14 @@ def create_twitter_ds(stocks, access_token, consumer_key, consumer_secret, token
         logger.debug("steps={}, len={}".format(steps, length))
         for i in xrange(steps):
             section = stock_lists[step:step + 100]
-            add_twitter(i, section, stocks, access_token, consumer_key, consumer_secret, token_secret)
+            add_twitter(collection, i, section, stocks, access_token, consumer_key, consumer_secret, token_secret)
             step += 101
         if step < length:
             section = stock_lists[step + 1:]
-            add_twitter(i, section, stocks, access_token, consumer_key, consumer_secret, token_secret)
+            add_twitter(collection, i, section, stocks, access_token, consumer_key, consumer_secret, token_secret)
 
 
-def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_secret, token_secret):
+def add_twitter(collection, i, stock_lists, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug("add_twitter #{} {} {}".format(i, stock_lists, stocks))
     name="Twitter_{}".format(i)
     symbols = ""
@@ -337,7 +341,7 @@ def add_twitter(i, stock_lists, stocks, access_token, consumer_key, consumer_sec
     # TODO: what is all that?
 
     datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
-        consumer_secret=consumer_secret, token_secret=token_secret)
+        consumer_secret=consumer_secret, token_secret=token_secret, collection=collection)
     datasource.start()
 
 def create_historical_ds(options):
@@ -376,6 +380,22 @@ def define_historical_pipeline():
             stage['mappings'] = mappings
             stage['renameUnknown'] = False
 
+    insert_debug_stage(result)
+    logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
+    lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
+    return pipeline_name
+
+
+def define_twitter_pipeline():
+    """define twitter pipeline. Uses the default field-mapping stage. """
+    pipeline_name = "twitter"
+    if find_pipeline(pipeline_name) is not None:
+        logger.debug("pipeline {} already exists".format(pipeline_name))
+        return pipeline_name
+
+    default_solr_pipeline='conn_solr'
+    result = lweutils.json_http(PIPELINE_URL + "/" + default_solr_pipeline) # copy and modify this default one
+    result['id'] = pipeline_name
     insert_debug_stage(result)
     logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
     lweutils.json_http(PIPELINE_URL + "/" + pipeline_name, method='PUT', data=result)
