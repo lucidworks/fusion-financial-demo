@@ -1,5 +1,5 @@
 {
-  "title": "SiLK Social Finance Dashboard",
+  "title": "Social",
   "services": {
     "query": {
       "idQueue": [
@@ -24,7 +24,7 @@
       "list": {
         "0": {
           "from": "2014-03-25T12:49:20.000Z",
-          "to": "2014-04-05T12:59:44.662Z",
+          "to": "2014-05-13T14:55:46.108Z",
           "field": "dateCreated",
           "type": "time",
           "mandate": "must",
@@ -78,7 +78,7 @@
           "status": "Stable",
           "time": {
             "from": "03/25/2014 08:49:20",
-            "to": "04/05/2014 08:59:44"
+            "to": "05/13/2014 10:55:46"
           }
         },
         {
@@ -128,7 +128,7 @@
             "ids": [
               0
             ],
-            "query": "q=body:AAPL&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T12:59:44.662Z]&facet=true&facet.field=userScreenName_s&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z&facet.range.end=2014-04-05T12:59:44.662Z&facet.range.gap=%2B1DAY&facet.limit=20",
+            "query": "q=*:*&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&facet=true&facet.field=userScreenName_s&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z&facet.range.end=2014-05-13T14:55:46.108Z&facet.range.gap=%2B1DAY&facet.limit=20",
             "custom": ""
           },
           "field": "userScreenName_s",
@@ -151,7 +151,7 @@
           "title": "Author"
         },
         {
-          "span": 4,
+          "span": 2,
           "editable": true,
           "type": "histogram",
           "loadingEditor": false,
@@ -162,7 +162,7 @@
             "ids": [
               0
             ],
-            "query": "q=body:AAPL&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T12:59:44.662Z]&facet=true&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z/DAY&facet.range.end=2014-04-05T12:59:44.662Z%2B1DAY/DAY&facet.range.gap=%2B3HOUR",
+            "query": "q=*:*&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&facet=true&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z/DAY&facet.range.end=2014-05-13T14:55:46.108Z%2B1DAY/DAY&facet.range.gap=%2B12HOUR",
             "custom": ""
           },
           "max_rows": 100000,
@@ -170,7 +170,7 @@
           "group_field": null,
           "auto_int": true,
           "resolution": 100,
-          "interval": "3h",
+          "interval": "12h",
           "intervals": [
             "auto",
             "1s",
@@ -205,11 +205,12 @@
             "value_type": "cumulative",
             "query_as_alias": false
           },
-          "title": "Tweets"
+          "title": "Tweets",
+          "lines_smooth": false
         },
         {
           "error": false,
-          "span": 4,
+          "span": 2,
           "editable": true,
           "type": "terms",
           "loadingEditor": false,
@@ -218,7 +219,7 @@
             "ids": [
               0
             ],
-            "query": "q=body:AAPL&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T12:59:44.662Z]&facet=true&facet.field=lang&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z&facet.range.end=2014-04-05T12:59:44.662Z&facet.range.gap=%2B1DAY&facet.limit=20",
+            "query": "q=*:*&wt=json&rows=0&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&facet=true&facet.field=lang&facet.range=dateCreated&facet.range.start=2014-03-25T12:49:20.000Z&facet.range.end=2014-05-13T14:55:46.108Z&facet.range.gap=%2B1DAY&facet.limit=20",
             "custom": ""
           },
           "field": "lang",
@@ -235,10 +236,36 @@
           "labels": true,
           "arrangement": "horizontal",
           "chart": "pie",
-          "counter_pos": "above",
+          "counter_pos": "none",
           "spyable": true,
           "time_field": "dateCreated",
           "title": "Languages"
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&rows=0&facet=true&facet.field=placeCountry_t&facet.limit=100",
+            "custom": ""
+          },
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 100,
+          "exclude": [],
+          "spyable": true,
+          "index_limit": 0,
+          "title": "Country",
+          "field": "placeCountry_t"
         }
       ]
     },
@@ -261,8 +288,9 @@
             "ids": [
               0
             ],
-            "query": "q=body:AAPL&wt=json&rows=500&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-04-05T12:59:44.662Z]&sort=dateCreated desc",
-            "custom": ""
+            "query": "q=*:*&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&sort=dateCreated desc&rows=500&wt=json",
+            "custom": "",
+            "basic_query": "q=*:*&fq=dateCreated:[2014-03-25T12:49:20.000Z%20TO%202014-05-13T14:55:46.108Z]&sort=dateCreated desc&rows=500"
           },
           "size": 100,
           "pages": 5,
@@ -289,9 +317,18 @@
           "normTimes": true,
           "spyable": true,
           "time_field": "dateCreated",
-          "title": "Content"
+          "title": "Content",
+          "saveOption": "json"
         }
       ]
+    },
+    {
+      "title": "Maps",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": []
     }
   ],
   "editable": true,
@@ -315,10 +352,19 @@
     "load_elasticsearch": true,
     "load_elasticsearch_size": 20,
     "load_local": true,
-    "hide": false
+    "hide": false,
+    "dropdown_collections": false
   },
   "solr": {
     "server": "http://localhost:3334/solr/",
-    "core_name": "Finance"
+    "core_name": "Finance",
+    "core_list": [
+      "Finance",
+      "LucidWorksLogs",
+      "citibike",
+      "collection1",
+      "kibana-int",
+      "quickstart"
+    ]
   }
 }
