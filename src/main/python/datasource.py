@@ -4,7 +4,6 @@ import json
 import logging
 import pprint
 import sys
-import httplib2
 
 from lweutils import json_http, pretty_json, sleep_secs
 
@@ -47,34 +46,11 @@ class DataSourceConnection:
         return None
 
     def _datasource_http(self, data, method='POST'):
-        # HACK: the connectors API doesn't return JSON for this call, but a bare datasource id.
-        # So we can't use json_http, and call by hand.
-        # This is fixed in
-        # https://github.com/LucidWorks/connectors/commit/a665278b777e9d3886a242d459f21f55cea1a97d
         url = self.datasources_url
         logger.info(
             'Creating New DataSource: {} to {}: {}'.format(method, url, data))
-        http = httplib2.Http()
-        resp, content = http.request(url, method=method, body=json.dumps(data),
-                                     headers={'Content-Type': 'application/json'})
-        logger.debug('response: {}'.format(resp))
-        if 0 != str(resp.status).find('2'):
-            err = content
-            try:
-                err = pretty_json(json.loads(content))
-            except:
-                # IGNORE, use the raw error instead
-                pass
-            message = '{} {} => {}\n{}'.format(method, url, resp.status, err)
-            raise Exception(message)
-        if len(content) > 1 and (content[0] == '[' or content[0] == '{'):
-            # Oh, we did get json. See comment above
-            logger.error(
-                'FIX _datasource_http to use json_http instead of calling by hand')
-            datasource_data = json.loads(content)
-            datasource_id = datasource_data['id']
-        else:
-            datasource_id = content
+        datasource_data = json_http(url, method=method, data=data)
+        datasource_id = datasource_data['id']
         logger.info('Created New DataSource: {}'.format(datasource_id))
         sleep_secs(5, 'waiting for the datasource to get created')
         datasource = self.get(datasource_id)
