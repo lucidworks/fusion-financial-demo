@@ -141,7 +141,7 @@ class DataSourceConnection:
         if token_secret is None:
             raise ValueError("token_secret must not be None")
         if collection is None:
-            raise ValueError("collection can not be None")
+            raise ValueError("collection must not be None")
         found = self.get(name)
         if found is not None:
             logger.debug("connector {} already exists".format(name))
