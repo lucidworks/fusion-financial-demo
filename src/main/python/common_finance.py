@@ -20,8 +20,6 @@ except ImportError:
 
 import lweutils
 
-
-
 def load_stocks(file):
     stocks = {}
     for line in file:
@@ -72,7 +70,6 @@ def add(solr, docs, dsId, commit=True, boost=None, commitWithin=None, waitFlush=
     #self.log.debug("Built add request of %s docs in %0.2f seconds.", len(message), end_time - start_time)
     return update(solr, m, dsId, commit=commit, waitFlush=waitFlush, waitSearcher=waitSearcher)
 
-
 # TODO: change me to use the indexing pipeline.
 def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=None, waitSearcher=None):
     """
@@ -99,9 +96,11 @@ def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=No
 
     if waitSearcher is not None:
         query_vars.append('waitSearcher=%s' % str(bool(waitSearcher)).lower())
+
     if dsId is not None:
         query_vars.append("lucidworks_fields=true")
         #query_vars.append("fm.ds=" + dsId)
+
     if query_vars:
         path = '%s?%s' % (path, '&'.join(query_vars))
 
