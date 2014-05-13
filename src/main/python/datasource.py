@@ -39,6 +39,7 @@ class DataSourceConnection:
     def get(self, datasource_id):
         """lookup a specific data source by id."""
         for ds_id, ds in self.datasources().iteritems():
+            logger.debug("iterating: found {}, {}".format(ds_id, ds))
             if datasource_id == ds_id:
                 return ds
         return None
@@ -73,7 +74,7 @@ class DataSourceConnection:
         sleep_secs(5, "waiting for the datasource to get created")
         datasource = self.get(datasource_id)
         if datasource is None:
-            raise ValueError("cannot find datasource {} even though it was created")
+            raise ValueError("cannot find datasource {} even though it was created".format(datasource_id))
         logger.debug("datasource created: {}".format(datasource))
         return datasource
 
