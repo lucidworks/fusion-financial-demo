@@ -63,7 +63,7 @@ class DataSourceConnection:
                 pass
             message = "{} {} => {}\n{}".format(method, url, resp.status, err)
             raise Exception(message)
-        if len(content) > 1 and content[0] == '[':
+        if len(content) > 1 and (content[0] == '[' or content[0] == '{'):
             # Oh, we did get json. See comment above
             logger.error("FIX _datasource_http to use json_http instead of calling by hand")
             datasource_data = json.loads(content)
