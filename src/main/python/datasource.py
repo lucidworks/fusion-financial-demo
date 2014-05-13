@@ -82,6 +82,9 @@ class DataSourceConnection:
                 'c.startURIs': start_urls,
                 'c.depth': depth,
                 'c.restrictToTree': restrictToTree,
+#                'f.userAgentName': 'apollocrawler/0.1',
+#                'f.userAgentEmail': 'apollo-crawler@lucidworks.com',
+#                'f.userAgentWebAddr': 'http://www.lucidworks.com/',
             }
         }
         if include_regexps is not None:
