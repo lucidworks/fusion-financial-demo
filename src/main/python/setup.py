@@ -336,6 +336,8 @@ def create_press_crawler(options, stock):
     url = 'http://finance.yahoo.com/q/p?s={}+Press+Releases'.format(stock)
     include_paths = [
         'http://finance\.yahoo\.com/news/.*',
+        'http://m\.yahoo\.com/.*',
+        'https://m\.yahoo\.com/.*',
         'http://finance\.yahoo\.com/q/p\?s={}+Press+Releases'.format(stock)]
     name = 'PressRelease_' + stock
     datasource = datasource_connection.create_web(
