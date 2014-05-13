@@ -1,0 +1,449 @@
+{
+  "title": "SiLK Trading Dashboard",
+  "services": {
+    "query": {
+      "idQueue": [
+        1
+      ],
+      "list": {
+        "0": {
+          "query": "*:*",
+          "alias": "",
+          "color": "#7EB26D",
+          "id": 0,
+          "pin": false,
+          "type": "lucene"
+        }
+      },
+      "ids": [
+        0
+      ]
+    },
+    "filter": {
+      "idQueue": [],
+      "list": {
+        "0": {
+          "from": "2010-03-26T12:49:20.000Z",
+          "to": "2014-03-25T12:49:20.000Z",
+          "field": "trade_date",
+          "type": "time",
+          "mandate": "must",
+          "active": true,
+          "alias": "",
+          "id": 0
+        }
+      },
+      "ids": [
+        0
+      ]
+    }
+  },
+  "rows": [
+    {
+      "title": "Options",
+      "height": "50px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "title": "Set time span",
+          "error": "",
+          "span": 4,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "timepicker",
+          "mode": "absolute",
+          "time_options": [
+            "24h",
+            "2d",
+            "7d",
+            "30d",
+            "1y",
+            "2y",
+            "5y"
+          ],
+          "timespan": "1y",
+          "timefield": "trade_date",
+          "timeformat": "",
+          "refresh": {
+            "enable": false,
+            "interval": 600,
+            "min": 3
+          },
+          "filter_id": 0,
+          "status": "Stable",
+          "time": {
+            "from": "03/26/2010 08:49:20",
+            "to": "03/25/2014 08:49:20"
+          }
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "query",
+          "loadingEditor": false,
+          "query": "*:*",
+          "pinned": true,
+          "history": [
+            "*:*",
+            "symbol:AAPL"
+          ],
+          "remember": 10,
+          "title": "Search",
+          "def_type": ""
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "filtering",
+          "loadingEditor": false,
+          "title": "Filters"
+        }
+      ]
+    },
+    {
+      "title": "Charts",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "values",
+          "time_field": "trade_date",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date open"
+          },
+          "value_field": "open",
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "7d",
+          "intervals": [
+            "auto",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "fill": 0,
+          "linewidth": 3,
+          "timezone": "browser",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "options": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "title": "Open",
+          "max_rows": 100000,
+          "group_field": null
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "values",
+          "time_field": "trade_date",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date close"
+          },
+          "value_field": "close",
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "7d",
+          "intervals": [
+            "auto",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "fill": 0,
+          "linewidth": 3,
+          "timezone": "browser",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "options": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "title": "Close",
+          "max_rows": 100000,
+          "group_field": null
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "group": [
+            "default"
+          ],
+          "type": "histogram",
+          "mode": "values",
+          "time_field": "trade_date",
+          "value_field": "volume",
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "7d",
+          "fill": 3,
+          "linewidth": 3,
+          "timezone": "browser",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date volume"
+          },
+          "title": "Volume",
+          "intervals": [
+            "auto",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "options": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "max_rows": 100000,
+          "group_field": null
+        }
+      ]
+    },
+    {
+      "title": "Charts",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": [
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "values",
+          "time_field": "trade_date",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date high"
+          },
+          "value_field": "high",
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "7d",
+          "intervals": [
+            "auto",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "fill": 0,
+          "linewidth": 3,
+          "timezone": "browser",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "options": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "title": "Daily High",
+          "max_rows": 100000,
+          "group_field": null
+        },
+        {
+          "span": 4,
+          "editable": true,
+          "type": "histogram",
+          "loadingEditor": false,
+          "mode": "values",
+          "time_field": "trade_date",
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=100000&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&fl=trade_date low"
+          },
+          "value_field": "low",
+          "auto_int": true,
+          "resolution": 100,
+          "interval": "7d",
+          "intervals": [
+            "auto",
+            "1h",
+            "3h",
+            "12h",
+            "1d",
+            "1w",
+            "1M",
+            "1y"
+          ],
+          "fill": 0,
+          "linewidth": 3,
+          "timezone": "browser",
+          "spyable": true,
+          "zoomlinks": true,
+          "bars": true,
+          "stack": true,
+          "points": false,
+          "lines": false,
+          "legend": true,
+          "x-axis": true,
+          "y-axis": true,
+          "percentage": false,
+          "interactive": true,
+          "options": true,
+          "tooltip": {
+            "value_type": "cumulative",
+            "query_as_alias": false
+          },
+          "title": "Daily Low",
+          "max_rows": 100000,
+          "group_field": null
+        },
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "terms",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&rows=0&fq=trade_date:[2010-03-26T12:49:20.000Z%20TO%202014-03-25T12:49:20.000Z]&facet=true&facet.field=symbol&facet.range=trade_date&facet.range.start=2010-03-26T12:49:20.000Z&facet.range.end=2014-03-25T12:49:20.000Z&facet.range.gap=%2B1DAY&facet.limit=20"
+          },
+          "field": "symbol",
+          "exclude": [],
+          "missing": true,
+          "other": true,
+          "size": 20,
+          "order": "count",
+          "style": {
+            "font-size": "10pt"
+          },
+          "donut": true,
+          "tilt": true,
+          "labels": false,
+          "arrangement": "horizontal",
+          "chart": "pie",
+          "counter_pos": "none",
+          "spyable": true,
+          "title": "Historical Prices/Symbol",
+          "time_field": "trade_date"
+        }
+      ]
+    },
+    {
+      "title": "Charts",
+      "height": "150px",
+      "editable": true,
+      "collapse": false,
+      "collapsable": true,
+      "panels": []
+    }
+  ],
+  "editable": true,
+  "failover": false,
+  "index": {
+    "interval": "none",
+    "pattern": "[logstash-]YYYY.MM.DD",
+    "default": "NO_TIME_FILTER_OR_INDEX_PATTERN_NOT_MATCHED"
+  },
+  "style": "light",
+  "panel_hints": true,
+  "loader": {
+    "save_gist": false,
+    "save_elasticsearch": true,
+    "save_local": true,
+    "save_default": true,
+    "save_temp": true,
+    "save_temp_ttl_enable": true,
+    "save_temp_ttl": "30d",
+    "load_gist": true,
+    "load_elasticsearch": true,
+    "load_elasticsearch_size": 20,
+    "load_local": true,
+    "hide": false
+  },
+  "solr": {
+    "server": "http://localhost:3334/solr/",
+    "core_name": "Finance"
+  }
+}
