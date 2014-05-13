@@ -62,11 +62,26 @@ To get started, do the following:
 
 Point your browser at http://localhost:5000/static/index.html
 
+# New SiLK Demo
+
+Install node:
+
+    brew install node
+
+Install dependencies:
+
+    npm install
+
+Run the server:
+
+    node server.js
+
+Point your browser http://localhost:3334/#/dashboard
+
 # Old Search Interface
 
 1. In the Results tab, in the demo (http://localhost:5000/), when LDAP is enabled, you should see a drop down of users next to the search button.  If you wish to pass in a user's credential, simply select the user from the dropdown, otherwise, select None.
 2. If the user selected has an associated Search Filter setup to it, the results will be filtered appropriately.
-
 
 
 
