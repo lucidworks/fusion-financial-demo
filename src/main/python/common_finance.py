@@ -16,18 +16,20 @@ except ImportError:
     try:
         from xml.etree import cElementTree as ET
     except ImportError:
-        raise ImportError("No suitable ElementTree implementation was found.")
+        raise ImportError('No suitable ElementTree implementation was found.')
 
 import lweutils
+
 
 def load_stocks(file):
     stocks = {}
     for line in file:
-        if line.startswith("#") == False:
-            vals = line.split(",")
+        if line.startswith('#') == False:
+            vals = line.split(',')
             symbol = vals[0]
             stocks[symbol] = vals
     return stocks
+
 
 def add(solr, docs, dsId, commit=True, boost=None, commitWithin=None, waitFlush=None, waitSearcher=None):
     """
@@ -65,12 +67,12 @@ def add(solr, docs, dsId, commit=True, boost=None, commitWithin=None, waitFlush=
     m = ET.tostring(message, encoding='utf-8')
     # Convert back to Unicode please.
     m = pysolr.force_unicode(m)
-    #print "Indexing to: " + dsId
+    #self.log.debug("Indexing to: " + dsId)
     end_time = time.time()
     #self.log.debug("Built add request of %s docs in %0.2f seconds.", len(message), end_time - start_time)
     return update(solr, m, dsId, commit=commit, waitFlush=waitFlush, waitSearcher=waitSearcher)
 
-# TODO: change me to use the indexing pipeline.
+
 def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=None, waitSearcher=None):
     """
     Posts the given xml message to http://<self.url>/update and
@@ -98,7 +100,7 @@ def update(solr, message, dsId, clean_ctrl_chars=True, commit=True, waitFlush=No
         query_vars.append('waitSearcher=%s' % str(bool(waitSearcher)).lower())
 
     if dsId is not None:
-        query_vars.append("lucidworks_fields=true")
+        query_vars.append('lucidworks_fields=true')
         #query_vars.append("fm.ds=" + dsId)
 
     if query_vars:

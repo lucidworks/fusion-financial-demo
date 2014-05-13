@@ -13,13 +13,13 @@ logger.setLevel(logging.DEBUG)
 
 HTTP_CLIENT = httplib2.Http()
 
-##
+
 def get_env(key, default=None):
     if key in os.environ:
         return os.environ[key]
     return default
 
-##
+
 def parse_opts(args):
     data = {}
     for arg in args:
@@ -37,16 +37,17 @@ def parse_opts(args):
     return data
 
 
-##
 def json_http(url, method='GET', data=None):
-    body = None;
-    if (data): body = json.dumps(data)
+    body = None
+    if (data):
+        body = json.dumps(data)
 
-    logger.debug("json_http method={} url={} data={}".format(method, url, data))
+    logger.debug(
+        'json_http method={} url={} data={}'.format(method, url, data))
     resp, content = HTTP_CLIENT.request(
-        url, method=method, body=body, 
-        headers={'Content-Type':'application/json'})
-    logger.debug("json_http resp={} content={}".format(resp, content))
+        url, method=method, body=body,
+        headers={'Content-Type': 'application/json'})
+    logger.debug('json_http resp={} content={}'.format(resp, content))
 
     # fail if not status 2xx
     if 0 != str(resp.status).find('2'):
@@ -56,22 +57,23 @@ def json_http(url, method='GET', data=None):
         except:
             # IGNORE, use the raw error instead
             pass
-        raise Exception(method+' '+url+' => '+str(resp.status)+"\n"+err)
+        raise Exception(
+            method + ' ' + url + ' => ' + str(resp.status) + '\n' + err)
 
-    if 204 == resp.status: return None
+    if 204 == resp.status:
+        return None
     if content:
         return json.loads(content)
     else:
         return None
 
-##
+
 def pretty_json(data, indent=''):
-    pretty = json.dumps(data,indent=2)
-    return pretty.replace("\n","\n"+indent)
+    pretty = json.dumps(data, indent=2)
+    return pretty.replace('\n', '\n' + indent)
 
-##
-def sleep_secs(secs, message=""):
-    logger.debug("sleeping {} secs {}".format(secs, message))
+
+def sleep_secs(secs, message=''):
+    logger.debug('sleeping {} secs {}'.format(secs, message))
     time.sleep(secs)
-    logger.debug("woken up")
-
+    logger.debug('woken up')

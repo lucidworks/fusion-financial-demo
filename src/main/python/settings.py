@@ -4,10 +4,8 @@ import sys
 from lweutils import COL_URL, json_http, pretty_json, parse_opts
 
 
-
-##
 def help(args):
-    """display the list of commands"""
+    """display the list of commands."""
     print """Usage: settings.py {cmd} [k1[=v1] k2[=v2] ...]
  Commands...
   help     => prints this help
@@ -15,44 +13,42 @@ def help(args):
   update   => update some settings; takes key=val args
 """
 
-##
+
 def show(args, SETTINGS_URL):
-    """display settings """
+    """display settings."""
 
     label = 'Index Settings'
     url = SETTINGS_URL
-    if (0 < len(args)): 
+    if (0 < len(args)):
         label += ' (' + ', '.join(args) + ')'
         url += '/' + ','.join(args)
     data = json_http(url)
     print label + ': ' + url + ' => ' + pretty_json(data)
 
-##
+
 def update(args, SETTINGS_URL):
-    """modify settings"""
+    """modify settings."""
 
     data = parse_opts(args)
     json_http(SETTINGS_URL, method='PUT', data=data)
-    print "Updated Settings"
+    print 'Updated Settings'
 
 
 ACTIONS = {
-    'help' : help,
-    'show' : show,
-    'update' : update,
+    'help': help,
+    'show': show,
+    'update': update,
 }
 
 #########################################
 
-
-# toss the program name
-sys.argv.pop(0)
+sys.argv.pop(0)  # toss the program name
 
 action = 'help'
-if 0 < len(sys.argv): action = sys.argv.pop(0).lower()
+if 0 < len(sys.argv):
+    action = sys.argv.pop(0).lower()
 
-if action in ACTIONS: 
+if action in ACTIONS:
     ACTIONS[action](sys.argv)
 else:
-    raise Exception(action+" is not a valid action")
-
+    raise Exception(action + ' is not a valid action')
