@@ -84,10 +84,12 @@ class DataSourceConnection:
         logger.debug('datasource created: {}'.format(datasource))
         return datasource
 
-    def create_web(self, name=None, pipeline='conn_solr', depth=0, connector='lucid.anda', start_urls=None, restrictToTree=False, include_regexps=None):
+    def create_web(self, name=None, pipeline='conn_solr', collection=None, depth=0, connector='lucid.anda', start_urls=None, restrictToTree=False, include_regexps=None):
         """create a web datasource."""
         if start_urls is None:
             raise ValueError('start_urls must not be None')
+        if collection is None:
+            raise ValueError('collection can not be None')
         if pipeline is None:
             raise ValueError('pipeline must not be None')
         found = self.get(name)
@@ -100,6 +102,7 @@ class DataSourceConnection:
             'type': 'web',
             'pipeline': pipeline,
             'properties': {
+                'collection': collection,
                 'c.startURIs': start_urls,
                 'c.depth': depth,
                 'c.restrictToTree': restrictToTree,

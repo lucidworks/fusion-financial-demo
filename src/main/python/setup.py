@@ -86,7 +86,7 @@ def command_setup(options):
         create_twitter_ds(stocks, options.finance_collection, options.access_token, options.consumer_key, options.consumer_secret,
                           options.token_secret)
     if options.press and options.create:
-        create_press_ds(stocks)
+        create_press_ds(options, stocks)
     historical_data_source = None
     company_datasource = None
     if options.external:
@@ -328,7 +328,7 @@ def index_historical(solr, stocks, data_source, seriesDir):
     solr.commit()
 
 
-def create_press_crawler(stock):
+def create_press_crawler(options, stock):
     # data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
     #                 "trade_date":"trade_date",
     #                 "volume": "volume",
@@ -339,17 +339,17 @@ def create_press_crawler(stock):
         'http://finance\.yahoo\.com/q/p\?s={}+Press+Releases'.format(stock)]
     name = 'PressRelease_' + stock
     datasource = datasource_connection.create_web(
-        name=name, start_urls=url, depth=1, include_regexps=include_paths)
+        name=name, collection=options.finance_collection, start_urls=url, depth=1, include_regexps=include_paths)
     #rsp = lweutils.json_http(DS_URL + "/datasources/" + id + "/job", method="PUT")
     datasource.start()
     return datasource
 
 
-def create_press_ds(stocks):
+def create_press_ds(options, stocks):
     logger.info('Creating Crawler of Press Release data for all symbols')
     stock_lists = list(stocks)
     for stock in stock_lists:
-        create_press_crawler(stock)
+        create_press_crawler(options, stock)
 
 
 def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_secret, token_secret):
