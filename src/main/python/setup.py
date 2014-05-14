@@ -166,7 +166,7 @@ def delete_pipelines(options):
     pipelines = lweutils.json_http(PIPELINE_URL)
     for pipeline in pipelines:
         # TODO: get this from somewhere
-        if pipeline['id'] in ['company', 'historical']:
+        if pipeline['id'] in ['company', 'historical', 'twitter']:
             lweutils.json_http(
                 PIPELINE_URL + '/' + pipeline['id'], method='DELETE')
 
@@ -358,7 +358,7 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
     logger.info('Creating Twitter Data Source for all symbols')
 
     # I don't know if this is really necessary yet
-    # pipeline_name = define_twitter_pipeline()
+    pipeline_name = define_twitter_pipeline()
 
     # can only do 400 tracks at a time
     stock_lists = list(stocks)
@@ -369,16 +369,16 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
         logger.debug('steps={}, len={}'.format(steps, length))
         for i in xrange(steps):
             section = stock_lists[step:step + 100]
-            add_twitter(collection, i, section, stocks, access_token,
+            add_twitter(collection, i, section, pipeline_name, stocks, access_token,
                         consumer_key, consumer_secret, token_secret)
             step += 101
         if step < length:
             section = stock_lists[step + 1:]
-            add_twitter(collection, i, section, stocks, access_token,
+            add_twitter(collection, i, section, pipeline_name, stocks, access_token,
                         consumer_key, consumer_secret, token_secret)
 
 
-def add_twitter(collection, i, stock_lists, stocks, access_token, consumer_key, consumer_secret, token_secret):
+def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug('add_twitter #{} {} {}'.format(i, stock_lists, stocks))
     name = 'Twitter_{}'.format(i)
     symbols = ''
@@ -390,7 +390,8 @@ def add_twitter(collection, i, stock_lists, stocks, access_token, consumer_key, 
     # TODO: what is all that?
 
     datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
-                                                      consumer_secret=consumer_secret, token_secret=token_secret, collection=collection)
+                                                      pipeline=pipeline_name, consumer_secret=consumer_secret,
+                                                      token_secret=token_secret, collection=collection)
     datasource.start()
 
 
@@ -449,8 +450,6 @@ def define_historical_pipeline():
 def define_twitter_pipeline():
     """define twitter pipeline.
 
-    Uses the default field-mapping stage.
-
     """
     pipeline_name = 'twitter'
     if find_pipeline(pipeline_name) is not None:
@@ -461,6 +460,33 @@ def define_twitter_pipeline():
     # copy and modify this default one
     result = lweutils.json_http(PIPELINE_URL + '/' + default_solr_pipeline)
     result['id'] = pipeline_name
+
+    for stage in result['stages']:
+       if stage['id'] == 'conn_mapping':
+           mappings = []
+           # a lot of default twitter fields should be multivalued, but aren't. TODO: file a Jira & fix
+           mappings.append({'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'})
+           mappings.append({'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'})
+           mappings.append({'source': 'userMentionEnd_i', 'target': 'userMentionEnd_is', 'operation': 'move'})
+           mappings.append({'source': 'userMentionScreenName_t', 'target': 'userMentionScreenName_txt', 'operation': 'move'})
+           mappings.append({'source': 'userMentionName_t', 'target': 'userMentionName_txt', 'operation': 'move'})
+           mappings.append({'source': 'tagStart_i', 'target': 'tagStart_is', 'operation': 'move'})
+           mappings.append({'source': 'tagEnd_i', 'target': 'tagEnd_is', 'operation': 'move'})
+           mappings.append({'source': 'tagText_s', 'target': 'tagText_ss', 'operation': 'move'})
+           mappings.append({'source': 'tagText', 'target': 'tagText_ss', 'operation': 'move'})
+           mappings.append({'source': 'placeCountry_t', 'target': 'placeCountry_txt', 'operation': 'move'})
+           mappings.append({'source': 'url_s', 'target': 'url_ss', 'operation': 'move'})
+           mappings.append({'source': 'url', 'target': 'url_ss', 'operation': 'move'})
+           mappings.append({'source': 'urlExpanded', 'target': 'urlExpanded_ss', 'operation': 'move'})
+           mappings.append({'source': 'urlExpanded_s', 'target': 'urlExpanded_ss', 'operation': 'move'})
+           mappings.append({'source': 'urlDisplay', 'target': 'urlDisplay_ss', 'operation': 'move'})
+           mappings.append({'source': 'urlDisplay_s', 'target': 'urlDisplay_ss', 'operation': 'move'})
+
+           add_connector_mappings(mappings)
+           stage['mappings'] = mappings
+           stage['renameUnknown'] = True
+           logger.debug("setting field_mapping stage {}".format(stage))
+
     insert_debug_stage(result)
     logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
     lweutils.json_http(
