@@ -416,7 +416,37 @@
       "editable": true,
       "collapse": false,
       "collapsable": true,
-      "panels": []
+      "panels": [
+        {
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "map",
+          "loadingEditor": false,
+          "queries": {
+            "mode": "all",
+            "ids": [
+              0
+            ],
+            "query": "q=*:*&wt=json&false&rows=0&facet=true&facet.field=placeCountry_txt&facet.limit=100",
+            "custom": "&fq=data_source_pipeline_s:\"twitter\""
+          },
+          "map": "world",
+          "colors": [
+            "#A0E2E2",
+            "#265656"
+          ],
+          "size": 100,
+          "exclude": [],
+          "spyable": true,
+          "index_limit": 0,
+          "field": "placeCountry_txt",
+          "title": "Twitter Mentions by Country"
+        }
+
+
+
+      ]
     }
   ],
   "editable": true,

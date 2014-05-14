@@ -176,8 +176,13 @@ def index_stocks(solr, stocks, data_source):
     logger.info('Indexing Company Info')
     for symbol in stocks:
         vals = stocks[symbol]
-        items = {'id': symbol, 'symbol': symbol, 'company': vals[1], 'industry': vals[2], 'city': vals[3],
+        try:
+            items = {'id': symbol, 'symbol': symbol, 'company': vals[1], 'industry': vals[2], 'city': vals[3],
                  'state': vals[4], 'hierarchy': ['1/' + vals[2], '2/' + vals[4], '3/' + vals[3]]}  # Start at 1/ for ease integration w/ JS
+        except Exception as e:
+            logger.error("Error while parsing stock {} with values {}".format(symbol, vals))
+            traceback.print_exc()
+
         common_finance.add(
             solr, [items], data_source.datasource_id(), commit=False)
 

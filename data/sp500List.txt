@@ -23,10 +23,12 @@ AIV,Apartment Investment & Mgmt,Financials,Denver, Colorado
 AIZ,Assurant Inc,Financials,New York, New York
 AKAM,Akamai Technologies Inc,Information Technology,Cambridge, Massachusetts
 ALL,Allstate Corp,Financials,Northfield Township, Illinois
+ALLE,Allegion,Industrials,Building Products	Dublin, Ireland
 ALTR,Altera Corp,Information Technology,San Jose, California
 ALXN,Alexion Pharmaceuticals,Health Care,Cheshire, Connecticut
 AMAT,Applied Materials Inc,Information Technology,Santa Clara, California
 AMD,Advanced Micro Devices,Information Technology,Sunnyvale, California
+AME,Ametek,Industrials,Electrical Components and Equipment,Berwyn, Pennsylvania
 AMGN,Amgen Inc,Health Care,Thousand Oaks, California
 AMP,Ameriprise Financial,Financials,Minneapolis, Minnesota
 AMT,American Tower Corp A,Financials,Boston, Massachusetts
@@ -336,7 +338,6 @@ NUE,Nucor Corp.,Materials,Charlotte, North Carolina
 NVDA,Nvidia Corporation,Information Technology,Santa Clara, California
 NWL,Newell Rubbermaid Co.,Consumer Discretionary,Sandy Springs, Georgia
 NWSA,News Corporation,Consumer Discretionary,New York, New York
-NYX,NYSE Euronext,Financials,New York, New York
 OI,Owens-Illinois Inc,Materials,Perrysburg, Ohio
 OKE,ONEOK,Utilities,Tulsa, Oklahoma
 OMC,Omnicom Group,Consumer Discretionary,New York, New York
@@ -351,7 +352,6 @@ PCG,PG&E Corp.,Utilities,San Francisco, California
 PCL,Plum Creek Timber Co.,Financials,Seattle, Washington
 PCLN,Priceline.com Inc,Industrials,Norwalk, Connecticut
 PCP,Precision Castparts,Industrials,Portland, Oregon
-PCS,MetroPCS Communications Inc.,Telecommunications Services,Richardson, Texas
 PDCO,Patterson Companies,Health Care,St. Paul, Minnesota
 PEG,Public Serv. Enterprise Inc.,Utilities,Newark, New Jersey
 PEP,PepsiCo Inc.,Consumer Staples,Purchase, New York
