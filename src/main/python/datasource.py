@@ -116,7 +116,7 @@ class DataSourceConnection:
         return self._datasource_http(data)
 
     def create_twitter(self, name=None, pipeline='conn_solr', collection=None, access_token=None, consumer_key=None, consumer_secret=None,
-                       token_secret=None, sleep=10000, data=None):
+                       token_secret=None, sleep=10000, filters=None, data=None):
         """create a twitter datasource."""
         if name is None:
             raise ValueError('name must not be None')
@@ -134,6 +134,7 @@ class DataSourceConnection:
         if found is not None:
             logger.debug('connector {} already exists'.format(name))
             return found
+
         data = {
             'id': name,
             'connector': 'lucid.twitter.stream',
@@ -147,6 +148,8 @@ class DataSourceConnection:
                 'token_secret': token_secret
             }
         }
+        if filters is not None:
+            data['properties']['filter_track'] = filters
 
         return self._datasource_http(data)
 
