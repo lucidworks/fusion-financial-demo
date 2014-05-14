@@ -24,7 +24,7 @@ function (Settings) {
 
     // Specify Solr server and core to store the data.
     solr: "http://localhost:3334/solr/",
-    solr_core: "logstash_logs",
+    solr_core: "Finance",
 
     /**
      * The default Solr index to use for storing Banana specific object

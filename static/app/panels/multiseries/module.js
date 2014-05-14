@@ -46,11 +46,11 @@ define([
                 custom: ''
             },
             size: 1000,
-            field: 'date',
-            xAxis: 'Date',
-            yAxis: 'Rates',
-            fl : 'open,high,low,close',
-            rightAxis: 'volume',
+            field: '',
+            xAxis: '',
+            yAxis: '',
+            fl : '',
+            rightAxis: '',
             spyable: true
         };
 
