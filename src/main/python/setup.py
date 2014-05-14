@@ -341,7 +341,7 @@ def create_press_crawler(options, stock):
         'http://finance\.yahoo\.com/q/p\?s={}+Press+Releases'.format(stock)]
     name = 'PressRelease_' + stock
     datasource = datasource_connection.create_web(
-        name=name, collection=options.finance_collection, start_urls=url, depth=1, include_regexps=include_paths)
+        name=name, collection=options.finance_collection, start_urls=[url], depth=1, include_regexps=include_paths)
     #rsp = lweutils.json_http(DS_URL + "/datasources/" + id + "/job", method="PUT")
     datasource.start()
     return datasource
@@ -381,17 +381,15 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
 def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug('add_twitter #{} {} {}'.format(i, stock_lists, stocks))
     name = 'Twitter_{}'.format(i)
-    symbols = ''
+    filters = []
     for symbol in stock_lists:
-        symbols += '$' + symbol + ', ' + stocks[symbol][1] + ', '
-        #args.append("filter_track=$" + symbol)
-        #args.append("filter_track=" + stocks[symbol][1])
-    #args.append("filter_track=" + symbols[:len(symbols) - 1])
-    # TODO: what is all that?
+        filters.append('${}'.format(symbol))
+        company_name = stocks[symbol][1]
+        filters.append(company_name)
 
     datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
                                                       pipeline=pipeline_name, consumer_secret=consumer_secret,
-                                                      token_secret=token_secret, collection=collection)
+                                                      token_secret=token_secret, collection=collection, filters=filters)
     datasource.start()
 
 
