@@ -479,6 +479,8 @@ def define_twitter_pipeline():
            mappings.append({'source': 'urlExpanded_s', 'target': 'urlExpanded_ss', 'operation': 'move'})
            mappings.append({'source': 'urlDisplay', 'target': 'urlDisplay_ss', 'operation': 'move'})
            mappings.append({'source': 'urlDisplay_s', 'target': 'urlDisplay_ss', 'operation': 'move'})
+           mappings.append({'source': 'mediaUrl', 'target': 'mediaUrl_ss', 'operation': 'move'})
+           mappings.append({'source': 'mediaUrl_s', 'target': 'mediaUrl_ss', 'operation': 'move'})
 
            add_connector_mappings(mappings)
            stage['mappings'] = mappings
