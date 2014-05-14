@@ -16,7 +16,7 @@ app.set('port', 3334);
 
 
 app.use('/solr', function(req, res) {
-	var url = "http://localhost:8983/solr" + req.url;
+	var url = "http://localhost:8098/solr" + req.url;
 	console.log('Proxying to ' + url);
 	req.pipe(request({
 		    "url": url,

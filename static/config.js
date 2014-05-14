@@ -23,7 +23,7 @@ function (Settings) {
     elasticsearch: "http://localhost:9200",
 
     // Specify Solr server and core to store the data.
-    solr: "http://localhost:8983/solr/",
+    solr: "http://localhost:3334/solr/",
     solr_core: "logstash_logs",
 
     /**
