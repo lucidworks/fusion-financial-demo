@@ -10,13 +10,25 @@ var path = require('path');
 var httpProxy = require('http-proxy');
 var proxy = httpProxy.createProxyServer({});
 
-app.set('port', 3334);
-
 //app.use(app.router);
-
+var baseUrl = "http://localhost:8983/solr";
+var port = 3334;
+if (process.argv.length > 0){
+    process.argv.forEach(function (val, index, array) {
+        console.log(index + ': ' + val);
+        if (val.indexOf("--port") != -1){
+            port = parseInt(process.argv[index + 1]);
+            console.log("port: " + port);
+        } else if (val.indexOf("--solr") != -1){
+            baseUrl = process.argv[index + 1];
+        }
+    });
+}
+console.log("Listening on port: " + port + " and proxying to base URL: " + baseUrl);
+app.set('port', port);
 
 app.use('/solr', function(req, res) {
-	var url = "http://localhost:8983/solr" + req.url;
+	var url = baseUrl + req.url;
 	console.log('Proxying to ' + url);
 	req.pipe(request({
 		    "url": url,
