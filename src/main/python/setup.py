@@ -464,7 +464,7 @@ def define_twitter_pipeline():
     for stage in result['stages']:
        if stage['id'] == 'conn_mapping':
            mappings = []
-           # a lot of default twitter fields should be multivalued, but aren't. TODO: file a Jira & fix
+           # a lot of default twitter fields should be multivalued, but aren't. Jira: CONN-281
            mappings.append({'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'})
            mappings.append({'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'})
            mappings.append({'source': 'userMentionEnd_i', 'target': 'userMentionEnd_is', 'operation': 'move'})
