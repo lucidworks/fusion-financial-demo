@@ -81,7 +81,6 @@ CAH,Cardinal Health Inc.,Health Care,Dublin, Ohio
 CAM,Cameron International Corp.,Energy,Houston, Texas
 CAT,Caterpillar Inc.,Industrials,Peoria, Illinois
 CB,Chubb Corp.,Financials,Warren, New Jersey
-CBE,Cooper Industries,Industrials,Houston, Texas
 CBG,CBRE Group,Financials,Los Angeles, California
 CBS,CBS Corp.,Consumer Discretionary,New York, New York
 CCE,Coca-Cola Enterprises,Consumer Staples,Atlanta, Georgia
