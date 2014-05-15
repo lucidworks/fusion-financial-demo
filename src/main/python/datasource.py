@@ -213,7 +213,7 @@ class DataSource:
     def delete(self):
         self.stop()
         print 'deleting dataSource: DELETE to {}'.format(self.my_url())
-        response = json_http(self.my_url(), method='DELETE')
+        response = json_http(self.my_url() + '?force=true', method='DELETE')
         print 'deleted dataSource'
 
 # TODO: update, schedule, status, history
