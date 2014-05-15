@@ -1,87 +1,109 @@
-LucidWorks Search Financial Demo
-==================
+Apollo Financial Demo
+=====================
 
-Simple Financial Demo for LWS that indexes S&amp;P 500 company info, historical stock prices and Twitter feeds
+Simple Financial Demo for Apollo that indexes S&amp;P 500 company info,
+historical stock prices and Twitter feeds. The data is loaded into Apollo
+with [Python](https://www.python.org) scripts.
+
+The demo includes a trading dashboard application based on
+[LucidWorks SiLK](http://www.lucidworks.com/lucidworks-silk/),
+which is based on [Banana](https://github.com/LucidWorks/banana), a Solr port of Kibana 3.
 
 # Pre-requisites
 
-* Python
-* Python json lib (pip install json)
-* Python ldap lib (pip install python-ldap)
-** You will need gcc installed for this
-* Python httplib2 (pip install httplib2)
-* Pysolr (pip install pysolr)
-* Flask (pip install flask)
-* LWS 2.6 (www.lucidworks.com/download/) and it's system requirements
-* Twitter API authorization (see http://docs.lucidworks.com/display/lweug/Twitter+Stream+Data+Sources and http://dev.twitter.com)
- * You will need your access key, consumer key and related tokens
+## For the data loading script
 
-# Caveats
-	Only tested on OS X
+* Python (I used 2.7.6)
+* Python json lib (`pip install json`)
+* Python ldap lib (`pip install python-ldap`). You will need gcc installed for this
+* Python httplib2 (`pip install httplib2`)
+* Pysolr (`pip install pysolr`)
+* LucidWorks Apollo and its system requirements (Java 7)
+* Twitter API authorization (see
+[lucidworks docs](http://docs.lucidworks.com/display/lweug/Twitter+Stream+Data+Sources) and
+[Twitter's developer documentation](http://dev.twitter.com)
+ * You will need your API key, API Secret, Access token, Access token secret
+
+## For the dashboard application
+
+* [Node.js](http://nodejs.org). (`brew install node`)
+* project dependencies (`npm install`)
+
+
+### Caveats
+
+Only tested on OS X, against Apollo on Linux.
 
 Getting Started
 =================
 
-1. Install LWS 2.6 and wait for it to start
-2. Clone this project: git clone git@github.com:LucidWorks/lws-financial-demo.git
-3. cd src/main/python
-4. python setup.py -n setup -a TWITTER_ACCESS_TOKEN -c TWITTER_CONSUMER_KEY -s TWITTER_CONSUMER_SECRET -t TWITTER_ACCESS_TOKEN_SECRET -p ../../../data/sp500List-30.txt -A -l Finance --data_dir ../../../data
- 1. This will setup collections, fields and data for the companies in the file sp500List-30.txt
- 2. The company file list should be comma-separated list of the form: Symbol,Company,Industry,City,State
-5. python python.py
-5. Browse to http://localhost:5000/
+Install Apollo, and run its solr, apollo and connectors in separate windows:
 
-Adding Security
-=================
+    cd /opt/lucidworks/apollo
+    ./bin/run-solr.sh
+    ./bin/run.sh
+    ./bin/run-connectors.sh
 
-If you wish to simulate filtering content and controlling access to the Admin via an LDAP server, you can either hook this demo into your
-  own LDAP system or setup one.  For the purposes of the demo, we are going to setup a local LDAP server using <a href="https://opends.java.net">OpenDS</a>, a
-  freely available, Java-based LDAP server.  While OpenDS is not actively maintained, it's capabilities are sufficient for demo purposes and local testing.
+Clone this project:
 
-# Setup
+    git clone --branch apollo git@github.com:LucidWorks/lws-financial-demo.git
 
-To get started, do the following:
+Load the data (adjust the APOLLO_HOST and Twitter details for your environment):
 
-1. Download OpenDS.  For the purposes of the demo, we used version <a href="https://java.net/projects/opends/downloads/download/promoted-builds/2.2.0/OpenDS-2.2.0.zip">2.2</a>
-2. Unzip OpenDS and follow the <a href="https://java.net/projects/opends/pages/2_2_InstallationGuide">Installation instructions</a>.  As part of setup, I had the installer automatically populate the server with 50 users.  Alternatively, you can add your own users.
-3. Setup LWS with LDAP, per http://docs.lucidworks.com/display/lweug/LDAP+Integration.  I've checked in a sample ldap.yml (named ldap-sample.yml) in the docs directory based off of my local OpenDS setup.
-    > NOTE: MAKE SURE YOU HAVE AN ADMIN USER SETUP PER THE INSTRUCTIONS BEFORE TURNING ON LDAP IN LWS OTHERWISE YOU WILL NOT BE ABLE TO LOG IN TO THE ADMIN.
-    > My settings are:
-    > <img src="./docs/ldap-settings.png">
-5. When starting the python application (python python.py from above) you need to pass in your LDAP URI, etc.:
-    > 1. python python.py  --ldap ldap://localhost:1389
-    > 1. You may optionally pass in the LDAP root user/password too (the defaults are: cn=Directory Manager,cn=Root DNs,cn=config and 'abc':
-    > 1. python python.py  --ldap ldap://localhost:1389 --ldap_user cn=Directory Manager,cn=Root DNs,cn=config --ldap_pass foo
-    > 1. If you have not setup any search filters for any of the users, passing in the --create_filters parameter using the following format:
-        > * --create_filters "rolename=uids=query;uids=query;...uids=query", as in:
-        > * --create_filters "AES=user.10=symbol:AES;bar=user.15=text:bar"
-    > 1. If you wish to create group filters, you will have to do this in the admin
+    cd src/main/python
+    APOLLO_HOST=192.168.0.106
+    python setup.py \
+      --access_token="$TWITTER_ACCESS_TOKEN" \
+      --consumer_key="$TWITTER_CONSUMER_KEY" \
+      --consumer_secret="$TWITTER_CONSUMER_SECRET" \
+      --token_secret="$TWITTER_ACCESS_TOKEN_SECRET" \
+      --stocks_file=../../../data/sp500List-30.txt \
+      --data_dir=../../../data \
+      --api_host=$APOLLO_HOST \
+      --ui_host=$APOLLO_HOST \
+      --ui_port=8181 \
+      --solr_host=$APOLLO_HOST \
+      --connectors_host=$APOLLO_HOST \
+      --create --external --fields \
+      --index --press --twitter
 
+This will setup collections, fields and data for the companies listed in the file sp500List-30.txt
 
-# SiLK Demo
+Modify the `server.js` file to point to your Apollo host. Start the dashboard:
 
-Point your browser at http://localhost:5000/static/index.html
-
-# New SiLK Demo
-
-Install node:
-
-    brew install node
-
-Install dependencies:
-
-    npm install
-
-Run the server:
-
+    npm install   # only needed once
     node server.js
 
-Point your browser http://localhost:3334/#/dashboard
+Point your browser to [http://localhost:3334/#/dashboard](http://localhost:3334/#/dashboard)
 
-# Old Search Interface
+Things to Try
+=============
 
-1. In the Results tab, in the demo (http://localhost:5000/), when LDAP is enabled, you should see a drop down of users next to the search button.  If you wish to pass in a user's credential, simply select the user from the dropdown, otherwise, select None.
-2. If the user selected has an associated Search Filter setup to it, the results will be filtered appropriately.
+In the dashboard, hover over the color wheel at the bottom right, showing the stock symbol.
+Click on a stock, note how that produces an extra "filter" box at the top right, and note
+how the graphs update accordingly.
+
+In Solr, do searches for:
+
+    data_source_s:company
+    data_source_s:historical
+    data_source_s:Twitter_0
+    data_Source_s:PressRelease_AAPL
+
+In Apollo, point a browser at (replace IP address with your Apollo host):
+
+    http://192.168.0.106:8984/connectors/api/v1/index-pipelines
+    http://192.168.0.106:8984/connectors/api/v1/index-pipelines/historical
+    http://192.168.0.106:8984/connectors/api/v1/connectors/datasources/
+    http://192.168.0.106:8984/connectors/api/v1/connectors/datasources/PressRelease_AAPL
 
 
+Developing
+==========
 
+If you're working on the python code, run the above command with "--action=delete"
+to destroy all collections, datasources and pipelines, so that you can run the script
+again with a clean slate.
+IMPORTANT: this will destroy ALL datasources, even those not added by this script.
+
+You can use ../../../data/sp500List-1.txt to load a single stock (Apple).
