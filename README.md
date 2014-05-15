@@ -80,7 +80,7 @@ Things to Try
 =============
 
 In the dashboard, hover over the color wheel at the bottom right, showing the stock symbol.
-Click on a stock, note how that produces an extra "filter" box at the top right, and note
+Click on a stock, note how that produces an extra "terms:must" box at the top right, and note
 how the graphs update accordingly.
 
 In Solr, do searches for:
@@ -101,9 +101,9 @@ In Apollo, point a browser at (replace IP address with your Apollo host):
 Developing
 ==========
 
-If you're working on the python code, run the above command with "--action=delete"
+If you're working on the python code, run the above command with `--action=delete`
 to destroy all collections, datasources and pipelines, so that you can run the script
 again with a clean slate.
 IMPORTANT: this will destroy ALL datasources, even those not added by this script.
 
-You can use ../../../data/sp500List-1.txt to load a single stock (Apple).
+You can use `../../../data/sp500List-1.txt` to load a single stock (Apple).
