@@ -279,7 +279,6 @@ LO,Lorillard Inc.,Consumer Staples,Greensboro, North Carolina
 LOW,Lowe's Cos.,Consumer Discretionary,Mooresville, North Carolina
 LRCX,Lam Research,Information Technology,Fremont, California
 LSI,LSI Corporation,Information Technology,Milpitas, California
-LTD,Limited Brands Inc.,Consumer Discretionary,Columbus, Ohio
 LUK,Leucadia National Corp.,Financials,New York, New York
 LUV,Southwest Airlines,Industrials,Dallas, Texas
 LYB,LyondellBasell,Materials,Rotterdam, Netherlands
