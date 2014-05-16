@@ -26,8 +26,8 @@ def load_stocks(file):
     for line in file:
         if line.startswith('#') == False:
             vals = line.split(',')
-            symbol = vals[0]
-            stocks[symbol] = vals
+            symbol = vals[0].strip()
+            stocks[symbol] = [ v.strip() for v in vals ]
     return stocks
 
 
