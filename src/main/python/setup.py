@@ -34,43 +34,6 @@ logger.setLevel(logging.DEBUG)
 
 class DemoSetup:
 
-    twitter_fields = {'batch_id': {'name': 'batch_id'},
-                      'body': {'name': 'body'},
-                      'Content-Encoding': {'name': 'characterSet'},
-                      'Content-Type': {'name': 'mimeType'},
-                      'createdAt': {'name': 'dateCreated'},
-                      'parsing': {'name': 'parsing'},
-                      'retweetCount': {'name': 'retweetCount', 'ft': 'int'}, 'source': {'name': 'creator'},
-                      'userId': {'name': 'userId', 'ft': 'long'}, 'content_length': {'name': 'content_length', 'ft': 'int'},
-                      'userLang': {'name': 'lang'},
-                      'userLocation': {'name': 'userLocation', 'ft': 'text_en'},
-                      'location': {'name': 'location', 'ft': 'point'},
-                      'userName': {'name': 'author'},
-                      'userScreenName': {'name': 'userScreenName', 'ft': 'string'},
-                      'isRetweet': {'name': 'isRetweet', 'ft': 'boolean'},
-                      'isRetweetedByMe': {'name': 'isRetweetByMe', 'ft': 'boolean'},
-                      'isFavorited': {'name': 'isFavorited', 'ft': 'boolean'},
-                      'isPossiblySensitive': {'name': 'isPossiblySensitive', 'ft': 'boolean'},
-                      'isTruncated': {'name': 'isTruncated', 'ft': 'boolean'},
-                      'inReplyToStatusId': {'name': 'inReplyToStatusId', 'ft': 'long'},
-                      'inReplyToScreenName': {'name': 'inReplyToScreenName', 'ft': 'text_en'},
-                      'inReplyToUserId': {'name': 'inReplyToUserId', 'ft': 'long'},
-                      'contributor': {'name': 'contributor', 'ft': 'long'},
-                      'placeFullName': {'name': 'placeFullName', 'ft': 'text_en'},
-                      'placeCountry': {'name': 'placeCountry', 'ft': 'text_en'},
-                      'placeAddress': {'name': 'placeAddress', 'ft': 'text_en'},
-                      'placeType': {'name': 'placeType', 'ft': 'text_en'},
-                      'placeURL': {'name': 'placeUrl', 'ft': 'string'},
-                      'placeId': {'name': 'placeId', 'ft': 'string'}, 'placeName': {'name': 'placeName', 'ft': 'text_en'},
-                      'userMentionName': {'name': 'userMentionName', 'ft': 'text_en'},
-                      'userMentionScreenName': {'name': 'userMentionScreenName', 'ft': 'text_en'},
-                      'userMentionStart': {'name': 'userMentionStart', 'ft': 'int'},
-                      'userMentionEnd': {'name': 'userMentionEnd', 'ft': 'int'}, 'url': {'name': 'url'},
-                      'urlExpanded': {'name': 'urlExpanded', 'ft': 'string'},
-                      'urlDisplay': {'name': 'urlDisplay', 'ft': 'string'}, 'tags': {'name': 'keywords'},
-                      'tagStart': {'name': 'tagStart', 'ft': 'int'}, 'tagEnd': {'name': 'tagEnd', 'ft': 'int'},
-                      'mediaId': {'name': 'mediaId', 'ft': 'long'}, 'mediaUrl': {'name': 'mediaUrl', 'ft': 'string'}}
-
     def command_setup(self):
 
         self.load_stocks()
@@ -595,8 +558,6 @@ class DemoSetup:
         data['stages'].insert(solr_stage_index, debug_stage)
 
     def create_fields(self):
-        # Twitter
-
         # Company info
         # Symbol,Company,Industry,City,State
         self.finance_fields.create('RESULT_TYPE')
