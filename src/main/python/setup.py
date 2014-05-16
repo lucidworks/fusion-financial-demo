@@ -77,7 +77,6 @@ class DemoSetup:
         self.get_solr()
 
         self.create_collection(self.args.finance_collection)
-        self.create_collection(self.args.kibana_collection)
 
         if self.args.fields and self.args.create:
             self.create_fields()
@@ -595,11 +594,6 @@ class DemoSetup:
         solr_stage_index = solr_stage_indexes[0]
         data['stages'].insert(solr_stage_index, debug_stage)
 
-    def create_banana_fields(self):
-        self.kibana_fields.create('user')
-        self.kibana_fields.create('group')
-        self.kibana_fields.create('dashboard', indexed=False)
-
     def create_fields(self):
         self.create_banana_fields()
         # Twitter
@@ -684,8 +678,6 @@ class DemoSetup:
 
         self.p.add_argument('--finance-collection', metavar='name', default='Finance',
                             help='name of the financia collection (default: Finance)')
-        self.p.add_argument('--kibana-collection', metavar='name', default='kibana-int',
-                            help='name of the Kibana collection (default: kibana-int)')
         self.p.add_argument('--company_datasource_name', metavar='name', default='Company',
                             help='name of the company datasource (default: Company)')
         self.p.add_argument('--historical_datasource_name', metavar='name', default='HistoricalPrices',
@@ -735,10 +727,8 @@ class DemoSetup:
 
         self.finance_fields = fields.FieldsConnection(
             'http://{}:{}/solr/{}/schema/fields'.format(self.args.solr_host, self.args.solr_port, self.args.finance_collection))
-        self.kibana_fields = fields.FieldsConnection(
-            'http://{}:{}/solr/{}/schema/fields'.format(self.args.solr_host, self.args.solr_port, self.args.kibana_collection))
 
-        self.collections = (self.args.finance_collection, self.args.kibana_collection)
+        self.collections = (self.args.finance_collection)
         self.datasource_names = (self.args.company_datasource_name, self.args.historical_datasource_name)
 
         if self.args.actions is None or len(self.args.actions) == 0:
