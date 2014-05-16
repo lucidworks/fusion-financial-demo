@@ -8,7 +8,7 @@ import pysolr
 import common_finance
 
 import datasource
-#import ds
+# import ds
 import fields
 import traceback
 import logging
@@ -53,9 +53,11 @@ twitter_fields = {'batch_id': {'name': 'batch_id'},
                   'inReplyToStatusId': {'name': 'inReplyToStatusId', 'ft': 'long'},
                   'inReplyToScreenName': {'name': 'inReplyToScreenName', 'ft': 'text_en'},
                   'inReplyToUserId': {'name': 'inReplyToUserId', 'ft': 'long'},
-                  'contributor': {'name': 'contributor', 'ft': 'long'}, 'placeFullName': {'name': 'placeFullName', 'ft': 'text_en'},
+                  'contributor': {'name': 'contributor', 'ft': 'long'},
+                  'placeFullName': {'name': 'placeFullName', 'ft': 'text_en'},
                   'placeCountry': {'name': 'placeCountry', 'ft': 'text_en'},
-                  'placeAddress': {'name': 'placeAddress', 'ft': 'text_en'}, 'placeType': {'name': 'placeType', 'ft': 'text_en'},
+                  'placeAddress': {'name': 'placeAddress', 'ft': 'text_en'},
+                  'placeType': {'name': 'placeType', 'ft': 'text_en'},
                   'placeURL': {'name': 'placeUrl', 'ft': 'string'},
                   'placeId': {'name': 'placeId', 'ft': 'string'}, 'placeName': {'name': 'placeName', 'ft': 'text_en'},
                   'userMentionName': {'name': 'userMentionName', 'ft': 'text_en'},
@@ -363,7 +365,7 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
     logger.info('Creating Twitter Data Source for all symbols')
 
     # I don't know if this is really necessary yet
-    pipeline_name = define_twitter_pipeline()
+    pipeline_name = define_twitter_pipeline(stocks)
 
     # can only do 400 tracks at a time
     stock_lists = list(stocks)
@@ -383,14 +385,26 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
                         consumer_key, consumer_secret, token_secret)
 
 
+def should_track(company_name):
+    # there are a couple company names we don't want to track; they're too common.
+    if company_name.lower() == 'ball' or company_name.lower() == 'ppl':
+        return False
+    else:
+        return True
+
+
+
 def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug('add_twitter #{} {} {}'.format(i, stock_lists, stocks))
     name = 'Twitter_{}'.format(i)
     filters = []
     for symbol in stock_lists:
-        filters.append('${}'.format(symbol))
-        company_name = stocks[symbol][1]
-        filters.append(company_name)
+        if len(symbol) > 1:
+            # there are some one-letter stock symbols that are kind of useless to search on
+            filters.append('${}'.format(symbol))
+        company_name = clean_company_name(stocks[symbol][1])
+        if should_track(company_name):
+            filters.append(company_name)
 
     datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
                                                       pipeline=pipeline_name, consumer_secret=consumer_secret,
@@ -450,52 +464,78 @@ def define_historical_pipeline():
     return pipeline_name
 
 
-def define_twitter_pipeline():
-    """define twitter pipeline.
+def clean_company_name(name):
+    """Strips things like "Corp" and "Inc" from the company names, hopefully resulting in a more normal name that might
+    appear in news articles or Twitter feeds.
+    No, it isn't pretty. Feel free to rewrite it in some more Pythonic way if you feel so inclined.
+    """
+    return name.replace('& Co.', '').replace('& Co', '').replace(' Corp.', '').replace(' Co.', '').replace(' Cos.', '')\
+        .replace(' Inc.', '').replace(' Inc', '').replace(' Int\'l.', '').replace(' Svc.Gp.', '').replace(' Corp', '')\
+        .replace(' Groups.', '').replace(' Group', '').replace(' Ltd.', '').replace(' plc', '')
+
+
+def define_twitter_pipeline(stocks):
+    """define twitter pipeline. This is a custom pipeline, not based on the default one.
 
     """
+    ticker_symbols = list(stocks)
+    company_names = [clean_company_name(s[1]) for s in stocks.values()]
+
     pipeline_name = 'twitter'
     if find_pipeline(pipeline_name) is not None:
         logger.debug('pipeline {} already exists'.format(pipeline_name))
         return pipeline_name
 
-    default_solr_pipeline = 'conn_solr'
-    # copy and modify this default one
-    result = lweutils.json_http(PIPELINE_URL + '/' + default_solr_pipeline)
-    result['id'] = pipeline_name
-
-    for stage in result['stages']:
-       if stage['id'] == 'conn_mapping':
-           mappings = []
-           # a lot of default twitter fields should be multivalued, but aren't. Jira: CONN-281
-           mappings.append({'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'})
-           mappings.append({'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'})
-           mappings.append({'source': 'userMentionEnd_i', 'target': 'userMentionEnd_is', 'operation': 'move'})
-           mappings.append({'source': 'userMentionScreenName_t', 'target': 'userMentionScreenName_txt', 'operation': 'move'})
-           mappings.append({'source': 'userMentionName_t', 'target': 'userMentionName_txt', 'operation': 'move'})
-           mappings.append({'source': 'tagStart_i', 'target': 'tagStart_is', 'operation': 'move'})
-           mappings.append({'source': 'tagEnd_i', 'target': 'tagEnd_is', 'operation': 'move'})
-           mappings.append({'source': 'tagText_s', 'target': 'tagText_ss', 'operation': 'move'})
-           mappings.append({'source': 'tagText', 'target': 'tagText_ss', 'operation': 'move'})
-           mappings.append({'source': 'placeCountry_t', 'target': 'placeCountry_txt', 'operation': 'move'})
-           mappings.append({'source': 'url_s', 'target': 'url_ss', 'operation': 'move'})
-           mappings.append({'source': 'url', 'target': 'url_ss', 'operation': 'move'})
-           mappings.append({'source': 'urlExpanded', 'target': 'urlExpanded_ss', 'operation': 'move'})
-           mappings.append({'source': 'urlExpanded_s', 'target': 'urlExpanded_ss', 'operation': 'move'})
-           mappings.append({'source': 'urlDisplay', 'target': 'urlDisplay_ss', 'operation': 'move'})
-           mappings.append({'source': 'urlDisplay_s', 'target': 'urlDisplay_ss', 'operation': 'move'})
-           mappings.append({'source': 'mediaUrl', 'target': 'mediaUrl_ss', 'operation': 'move'})
-           mappings.append({'source': 'mediaUrl_s', 'target': 'mediaUrl_ss', 'operation': 'move'})
-
-           add_connector_mappings(mappings)
-           stage['mappings'] = mappings
-           stage['renameUnknown'] = True
-           logger.debug("setting field_mapping stage {}".format(stage))
-
-    insert_debug_stage(result)
-    logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
+    pipeline = {'id': pipeline_name,
+                'stages': [
+                    {'type': 'logging', 'detailed': True},
+                    {'type': 'lookup-extractor',
+                     'rules': [
+                         {'source': ['tweet'],
+                          'target': "named_entities_ss",
+                          'case-sensitive': True,
+                          'entity-types' : {},
+                          'additional-entities': {'symbol': ticker_symbols}},
+                         {'source': ['tweet'],
+                          'target': "named_entities_ss",
+                          'case-sensitive': False,
+                          'entity-types' : {},
+                          'additional-entities': {'company_name': company_names}}
+                     ]},
+                    {'type': 'field-mapping',
+                     'renameUnknown': True,
+                     'mappings': [
+                         {'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'},
+                         {'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'},
+                         {'source': 'userMentionEnd_i', 'target': 'userMentionEnd_is', 'operation': 'move'},
+                         {'source': 'userMentionScreenName_t', 'target': 'userMentionScreenName_txt',
+                          'operation': 'move'},
+                         {'source': 'userMentionName_t', 'target': 'userMentionName_txt', 'operation': 'move'},
+                         {'source': 'tagStart_i', 'target': 'tagStart_is', 'operation': 'move'},
+                         {'source': 'tagEnd_i', 'target': 'tagEnd_is', 'operation': 'move'},
+                         {'source': 'tagText_s', 'target': 'tagText_ss', 'operation': 'move'},
+                         {'source': 'tagText', 'target': 'tagText_ss', 'operation': 'move'},
+                         {'source': 'placeCountry_t', 'target': 'placeCountry_txt', 'operation': 'move'},
+                         {'source': 'url_s', 'target': 'url_ss', 'operation': 'move'},
+                         {'source': 'url', 'target': 'url_ss', 'operation': 'move'},
+                         {'source': 'urlExpanded', 'target': 'urlExpanded_ss', 'operation': 'move'},
+                         {'source': 'urlExpanded_s', 'target': 'urlExpanded_ss', 'operation': 'move'},
+                         {'source': 'urlDisplay', 'target': 'urlDisplay_ss', 'operation': 'move'},
+                         {'source': 'urlDisplay_s', 'target': 'urlDisplay_ss', 'operation': 'move'},
+                         {'source': 'mediaUrl', 'target': 'mediaUrl_ss', 'operation': 'move'},
+                         {'source': 'mediaUrl_s', 'target': 'mediaUrl_ss', 'operation': 'move'},
+                         {'source': 'document_fetching_time', 'target': 'document_fetching_time_s',
+                          'operation': 'move'},
+                         {'source': 'parse_time', 'target': 'parse_time_s', 'operation': 'move'},
+                         {'source': 'parsing', 'target': 'parse_s', 'operation': 'move'},
+                         {'source': '/(data_source.*)/', 'target': '$1_s', 'operation': 'move'},
+                     ]},
+                    #{'type': 'logging', 'detailed': True},
+                    {"type": "solr-index"}
+                ]}
+    logger.debug("saving pipeline '{}': {}".format(pipeline_name, pipeline))
     lweutils.json_http(
-        PIPELINE_URL + '/' + pipeline_name, method='PUT', data=result)
+        PIPELINE_URL + '/' + pipeline_name, method='PUT', data=pipeline)
     return pipeline_name
 
 
