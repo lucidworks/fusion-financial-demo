@@ -180,9 +180,10 @@ def index_stocks(solr, stocks, data_source):
         vals = stocks[symbol]
         try:
             items = {'id': symbol, 'symbol': symbol, 'company': vals[1], 'industry': vals[2], 'city': vals[3],
-                 'state': vals[4], 'hierarchy': ['1/' + vals[2], '2/' + vals[4], '3/' + vals[3]]}  # Start at 1/ for ease integration w/ JS
+                     'state': vals[4], 'hierarchy': ['1/' + vals[2], '2/' + vals[4], '3/' + vals[3]]}  # Start at 1/ for ease integration w/ JS
         except Exception as e:
-            logger.error("Error while parsing stock {} with values {}".format(symbol, vals))
+            logger.error(
+                'Error while parsing stock {} with values {}'.format(symbol, vals))
             traceback.print_exc()
 
         common_finance.add(
@@ -386,12 +387,12 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
 
 
 def should_track(company_name):
-    # there are a couple company names we don't want to track; they're too common.
+    # there are a couple company names we don't want to track; they're too
+    # common.
     if company_name.lower() == 'ball' or company_name.lower() == 'ppl':
         return False
     else:
         return True
-
 
 
 def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
@@ -400,7 +401,8 @@ def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token,
     filters = []
     for symbol in stock_lists:
         if len(symbol) > 1:
-            # there are some one-letter stock symbols that are kind of useless to search on
+            # there are some one-letter stock symbols that are kind of useless
+            # to search on
             filters.append('${}'.format(symbol))
         company_name = clean_company_name(stocks[symbol][1])
         if should_track(company_name):
@@ -465,9 +467,13 @@ def define_historical_pipeline():
 
 
 def clean_company_name(name):
-    """Strips things like "Corp" and "Inc" from the company names, hopefully resulting in a more normal name that might
-    appear in news articles or Twitter feeds.
-    No, it isn't pretty. Feel free to rewrite it in some more Pythonic way if you feel so inclined.
+    """Strips things like "Corp" and "Inc" from the company names, hopefully
+    resulting in a more normal name that might appear in news articles or
+    Twitter feeds.
+
+    No, it isn't pretty. Feel free to rewrite it in some more Pythonic
+    way if you feel so inclined.
+
     """
     return name.replace('& Co.', '').replace('& Co', '').replace(' Corp.', '').replace(' Co.', '').replace(' Cos.', '')\
         .replace(' Inc.', '').replace(' Inc', '').replace(' Int\'l.', '').replace(' Svc.Gp.', '').replace(' Corp', '')\
@@ -475,7 +481,9 @@ def clean_company_name(name):
 
 
 def define_twitter_pipeline(stocks):
-    """define twitter pipeline. This is a custom pipeline, not based on the default one.
+    """define twitter pipeline.
+
+    This is a custom pipeline, not based on the default one.
 
     """
     ticker_symbols = list(stocks)
@@ -492,14 +500,14 @@ def define_twitter_pipeline(stocks):
                     {'type': 'lookup-extractor',
                      'rules': [
                          {'source': ['tweet'],
-                          'target': "named_entities_ss",
+                          'target': 'named_entities_ss',
                           'case-sensitive': True,
-                          'entity-types' : {},
+                          'entity-types': {},
                           'additional-entities': {'symbol': ticker_symbols}},
                          {'source': ['tweet'],
-                          'target': "named_entities_ss",
+                          'target': 'named_entities_ss',
                           'case-sensitive': False,
-                          'entity-types' : {},
+                          'entity-types': {},
                           'additional-entities': {'company_name': company_names}}
                      ]},
                     {'type': 'field-mapping',
@@ -531,7 +539,7 @@ def define_twitter_pipeline(stocks):
                          {'source': '/(data_source.*)/', 'target': '$1_s', 'operation': 'move'},
                      ]},
                     #{'type': 'logging', 'detailed': True},
-                    {"type": "solr-index"}
+                    {'type': 'solr-index'}
                 ]}
     logger.debug("saving pipeline '{}': {}".format(pipeline_name, pipeline))
     lweutils.json_http(
