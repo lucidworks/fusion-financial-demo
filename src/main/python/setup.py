@@ -377,11 +377,6 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
         add_twitter(collection, i, sublist, pipeline_name, stocks, access_token,
                     consumer_key, consumer_secret, token_secret)
 
-def should_track(company_name):
-    # there are a couple company names we don't want to track; they're too
-    # common.
-    return company_name.lower() not in ['ball', 'ppl']
-
 def add_twitter(collection, i, stock_list, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug('add_twitter #{} {}'.format(i, stock_list))
     name = 'Twitter_{}'.format(i)
@@ -392,7 +387,7 @@ def add_twitter(collection, i, stock_list, pipeline_name, stocks, access_token, 
             # to search on
             filters.append('${}'.format(symbol))
         company_name = clean_company_name(stocks[symbol][1])
-        if should_track(company_name):
+        if company_name.lower() not in ['ball', 'ppl']:  # do not track these; too common
             filters.append(company_name)
 
     datasource = datasource_connection.create_twitter(name=name, access_token=access_token, consumer_key=consumer_key,
