@@ -71,7 +71,6 @@ class DemoSetup:
                       'tagStart': {'name': 'tagStart', 'ft': 'int'}, 'tagEnd': {'name': 'tagEnd', 'ft': 'int'},
                       'mediaId': {'name': 'mediaId', 'ft': 'long'}, 'mediaUrl': {'name': 'mediaUrl', 'ft': 'string'}}
 
-
     def command_setup(self):
 
         self.load_stocks()
@@ -132,25 +131,23 @@ class DemoSetup:
             logger.error(
                 "Couldn't find datasource {}".format(self.args.company_datasource_name))
 
-
     def command_delete(self):
         self.delete_datasources()
         self.delete_jobs()
         self.delete_collections()
         self.delete_pipelines()
 
-
     def command_help(self):
         self.p.print_help()
 
     def load_stocks(self):
-        """Load the stocks from the stocklist"""
+        """Load the stocks from the stocklist."""
         logger.debug('loading stocks from {}'.format(self.args.stocks_file))
         self.stocks = common_finance.load_stocks(self.args.stocks_file)
         logger.debug('loaded {} stocks: {}'.format(len(self.stocks), self.stocks))
 
     def get_solr(self):
-        """Get the solr client"""
+        """Get the solr client."""
         if not hasattr(self, 'solr'):
             logger.debug('creating PySolr client for {}'.format(self.solr_url))
             self.solr = pysolr.Solr(self.solr_url, timeout=10)
@@ -180,7 +177,6 @@ class DemoSetup:
                 lweutils.json_http(
                     self.pipeline_url + '/' + pipeline['id'], method='DELETE')
 
-
     def index_stocks(self, solr, data_source):
         # Symbol,Company,City,State
         logger.info('Indexing Company Info')
@@ -197,7 +193,6 @@ class DemoSetup:
             common_finance.add(
                 solr, [items], data_source.datasource_id(), commit=False)
 
-
     def collection_exists(self, name):
         logger.info('checking for collection: ' + name)
         rsp = lweutils.json_http(self.api_url + '/collections', method='GET')
@@ -209,7 +204,6 @@ class DemoSetup:
                 logger.debug('collection {} exists'.format(name))
                 return True
         return False
-
 
     def create_collection(self, name):
         if self.collection_exists(name):
@@ -230,7 +224,6 @@ class DemoSetup:
         self.enable_feature(name, 'dynamicSchema')
         self.enable_feature(name, 'signals')
 
-
     def is_feature_enabled(self, coll_name, feature_name):
         rsp = lweutils.json_http(
             self.api_url + '/collections/{}/features'.format(coll_name))
@@ -239,7 +232,6 @@ class DemoSetup:
                 logger.debug('{}={}'.format(feature_name, feature['name']))
                 return feature['enabled']
         return False
-
 
     def enable_feature(self, name, feature_name):
         if self.is_feature_enabled(name, feature_name):
@@ -255,13 +247,11 @@ class DemoSetup:
             except Exception as e:
                 traceback.print_exc()
 
-
     def delete_collection(self, name):
         logger.info('Deleting Collection: ' + name)
         rsp = lweutils.json_http(self.api_url + '/collections/' + name, method='DELETE')
         logger.debug('Deleted Collection: ' + name)
         sleep_secs(5, 'waiting for collection to be deleted')
-
 
     def delete_jobs(self):
         """delete jobs in the connector."""
@@ -279,15 +269,13 @@ class DemoSetup:
             rsp = lweutils.json_http(
                 self.historical_url + '/connectors/items/' + name, method='DELETE')
 
-
     def list_collection_names(self):
         rsp = lweutils.json_http(self.api_url + '/collections/', method='GET')
         collection_names = [c['id'] for c in rsp]
         logger.debug('collection names: {}'.format(collection_names))
         return collection_names
 
-
-    def get_stock_data(self,seriesDir, symbol):
+    def get_stock_data(self, seriesDir, symbol):
         csv_path = seriesDir + '/' + symbol + '.csv'
         if os.path.exists(csv_path):
             cached = open(csv_path)
@@ -306,7 +294,6 @@ class DemoSetup:
             output.close()
             sleep_secs(1, "so we don't get banned from yahoo")
         return data
-
 
     def index_historical(self, solr, data_source, seriesDir):
         for symbol in self.stocks.keys():
@@ -343,7 +330,6 @@ class DemoSetup:
                 # print date
         solr.commit()
 
-
     def create_press_crawler(self, stock):
         # data = {"mapping": {"mappings": {"symbol": "symbol", "open": "open", "high": "high", "low": "low", "close": "close",
         #                 "trade_date":"trade_date",
@@ -362,12 +348,10 @@ class DemoSetup:
         datasource.start()
         return datasource
 
-
     def create_press_ds(self):
         logger.info('Creating Crawler of Press Release data for all symbols')
         for stock in self.stocks.keys():
             self.create_press_crawler(stock)
-
 
     def create_twitter_ds(self):
         logger.info('Creating Twitter Data Source for all symbols')
@@ -392,7 +376,8 @@ class DemoSetup:
                 # to search on
                 filters.append('${}'.format(symbol))
             company_name = self.clean_company_name(self.stocks[symbol][1])
-            if company_name.lower() not in ['ball', 'ppl']:  # do not track these; too common
+            # add company names, except commone ones
+            if company_name.lower() not in ['ball', 'ppl']:
                 filters.append(company_name)
 
         datasource = self.datasource_connection.create_twitter(name=name,
@@ -405,7 +390,6 @@ class DemoSetup:
             token_secret=self.args.twitter_token_secret)
         datasource.start()
 
-
     def create_historical_ds(self):
         name = self.args.historical_datasource_name
         logger.info('Creating DS for {}'.format(name))
@@ -417,10 +401,10 @@ class DemoSetup:
         pipeline_name = self.define_historical_pipeline()
 
         datasource = self.datasource_connection.create_push(name=name, pipeline=pipeline_name,
-                                                       collection=self.args.finance_collection, port=self.args.historical_port)
+                                                            collection=self.args.finance_collection,
+                                                            port=self.args.historical_port)
         datasource.start()
         return datasource
-
 
     def define_historical_pipeline(self):
         """define historical pipeline.
@@ -457,11 +441,10 @@ class DemoSetup:
             self.pipeline_url + '/' + pipeline_name, method='PUT', data=result)
         return pipeline_name
 
-
     def clean_company_name(self, name):
-        """Strips things like "Corp" and "Inc" from the company names, hopefully
-        resulting in a more normal name that might appear in news articles or
-        Twitter feeds.
+        """Strips things like "Corp" and "Inc" from the company names,
+        hopefully resulting in a more normal name that might appear in news
+        articles or Twitter feeds.
         """
         return re.sub(r' (& Co\.?|Corp\.?|Co\.|Cos\.|Groups?\.?|Inc\.?|Intl\.?|Svc\.Gp\.|Ltd\.?|plc\.?)',
                       '', name)
@@ -532,7 +515,6 @@ class DemoSetup:
             self.pipeline_url + '/' + pipeline_name, method='PUT', data=pipeline)
         return pipeline_name
 
-
     def add_connector_mappings(self, mappings):
         mappings.append({'source': 'document_fetching_time',
                          'target': 'document_fetching_time_s', 'operation': 'move'})
@@ -554,10 +536,10 @@ class DemoSetup:
         pipeline_name = self.define_company_pipeline()
 
         datasource = self.datasource_connection.create_push(name=name, pipeline=pipeline_name,
-                                                       collection=self.args.finance_collection, port=self.args.company_port)
+                                                            collection=self.args.finance_collection,
+                                                            port=self.args.company_port)
         datasource.start()
         return datasource
-
 
     def find_pipeline(self, name):
         pipelines = lweutils.json_http(self.pipeline_url)
@@ -565,7 +547,6 @@ class DemoSetup:
             if 'id' in pipeline and pipeline['id'] == name:
                 return pipeline
         return None
-
 
     def define_company_pipeline(self,):
         """define company pipeline.
@@ -599,7 +580,6 @@ class DemoSetup:
             self.pipeline_url + '/' + pipeline_name, method='PUT', data=result)
         return pipeline_name
 
-
     def insert_debug_stage(self, data):
         # create a detailed logging stage, and insert it before the solr-index
         # stage
@@ -615,12 +595,10 @@ class DemoSetup:
         solr_stage_index = solr_stage_indexes[0]
         data['stages'].insert(solr_stage_index, debug_stage)
 
-
     def create_banana_fields(self):
         self.kibana_fields.create('user')
         self.kibana_fields.create('group')
         self.kibana_fields.create('dashboard', indexed=False)
-
 
     def create_fields(self):
         self.create_banana_fields()
@@ -661,7 +639,6 @@ class DemoSetup:
         self.create_bucket_field('quote_date', 'date')
         # create_bucket_field("price", "date")   # TODO: huh?
 
-
     def create_bucket_field(self, field, type):
         self.finance_fields.create(field + '_bucket')
         self.finance_fields.create(field, type=type)
@@ -670,7 +647,7 @@ class DemoSetup:
         self.p = argparse.ArgumentParser(description='Setup Apollo Financial Demo.')
 
         self.p.add_argument('--twitter', action='store_true',
-                       help='create the twitter datasource')
+                            help='create the twitter datasource')
         self.p.add_argument('--access_token', metavar='token', dest='twitter_access_token', help='Twitter access token')
         self.p.add_argument('--consumer_key', metavar='key', dest='twitter_consumer_key', help='Twitter consumer key')
         self.p.add_argument(
@@ -678,58 +655,58 @@ class DemoSetup:
         self.p.add_argument('--token_secret', metavar='token', dest='twitter_token_secret', help='Twitter token secret')
 
         self.p.add_argument('--data_dir', metavar='dir', default='../../../data',
-                       help='historical data directory (default: ../../../data)')
+                            help='historical data directory (default: ../../../data)')
 
         self.p.add_argument('--api_host', metavar='host', dest='host', default='localhost',
-                       help='Apollo backend API host (default: localhost)')
+                            help='Apollo backend API host (default: localhost)')
         self.p.add_argument('--api_port', type=int, metavar='port', dest='api_port', default='8765',
-                       help='Apollo backend API port (default: 8765)')
+                            help='Apollo backend API port (default: 8765)')
 
         self.p.add_argument('--ui_host', metavar='host', dest='ui_host', default='localhost',
-                       help='UI host (default: localhost)')  # TODO: is this Apollo-admin or something else?
+                            help='UI host (default: localhost)')  # TODO: is this Apollo-admin or something else?
         self.p.add_argument('--ui_port', type=int, metavar='port', dest='ui_port', default='8989',
-                       help='UI host (default: 8989)')  # TODO: is this Apollo-admin or something else?
+                            help='UI host (default: 8989)')  # TODO: is this Apollo-admin or something else?
 
         self.p.add_argument('--solr_host', metavar='host', dest='solr_host', default='localhost',
-                       help='Solr host (default: localhost)')
+                            help='Solr host (default: localhost)')
         self.p.add_argument('--solr_port', type=int, metavar='port', dest='solr_port', default='8983',
-                       help='Solr port (default: 8983)')
+                            help='Solr port (default: 8983)')
 
         self.p.add_argument('--connectors_host', metavar='host', default='localhost',
-                       help='Connectors host (default: localhost)')
+                            help='Connectors host (default: localhost)')
         self.p.add_argument('--connectors_port', type=int, metavar='port', dest='connectors_port', default='8984',
-                       help='Connectors port (default: 8984)')
+                            help='Connectors port (default: 8984)')
 
         self.p.add_argument('--external', action='store_true',
-                       help='create the external datasource')
+                            help='create the external datasource')
         self.p.add_argument('--fields', action='store_true',
-                       help='create the fields')
+                            help='create the fields')
 
         self.p.add_argument('--finance-collection', metavar='name', default='Finance',
-                       help='name of the financia collection (default: Finance)')
+                            help='name of the financia collection (default: Finance)')
         self.p.add_argument('--kibana-collection', metavar='name', default='kibana-int',
-                       help='name of the Kibana collection (default: kibana-int)')
+                            help='name of the Kibana collection (default: kibana-int)')
         self.p.add_argument('--company_datasource_name', metavar='name', default='Company',
-                       help='name of the company datasource (default: Company)')
+                            help='name of the company datasource (default: Company)')
         self.p.add_argument('--historical_datasource_name', metavar='name', default='HistoricalPrices',
-                       help='name of the historical datasource (default: HistoricalPrices)')
+                            help='name of the historical datasource (default: HistoricalPrices)')
 
         self.p.add_argument('--create', action='store_true', dest='create',
-                       help='create collections and datasources')
+                            help='create collections and datasources')
         self.p.add_argument('--action', action='append', dest='actions',
                             choices=['setup', 'delete', 'reindex', 'help'],
-                       help='the main action (default: setup)')
+                            help='the main action (default: setup)')
 
         self.p.add_argument('--company_port', type=int, dest='company_port', default='9191',
-                       metavar='port',
-                       help='connectors solr update handler port for Company datasource')
+                            metavar='port',
+                            help='connectors solr update handler port for Company datasource')
         self.p.add_argument('--historical_port', type=int, dest='historical_port', default='9898',
-                       help='connectors solr update handler port for History datasource',
-                       metavar='port')
+                            help='connectors solr update handler port for History datasource',
+                            metavar='port')
 
         self.p.add_argument('--stocks_file', type=file, metavar='file',
-                       default='../../../data/sp500List-30.txt',
-                       help='filename of the stocks file')
+                            default='../../../data/sp500List-30.txt',
+                            help='filename of the stocks file')
 
         self.p.add_argument('--press', action='store_true', help='create press crawler')
         self.p.add_argument('--index', action='store_true', help='index the content')
@@ -768,7 +745,8 @@ class DemoSetup:
             self.args.actions = ['setup']
 
     def run(self):
-        """Invoke the command specific by the action argument, e.g. command_setup()."""
+        """Invoke the command specific by the action argument, e.g.:
+        command_setup()."""
         for action in self.args.actions:
             func_name = 'command_' + action
             logger.debug('running {}'.format(func_name))
