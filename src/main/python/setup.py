@@ -73,7 +73,7 @@ class DemoSetup:
                 historical_solr = pysolr.Solr(
                     self.historical_solr_url, timeout=10)
                 self.index_historical(
-                    historical_solr, historical_data_source, self.args.data_dir)
+                    historical_solr, historical_data_source)
             else:
                 logger.error("Couldn't find datasource {}".format(
                     self.args.historical_datasource_name))
@@ -87,7 +87,7 @@ class DemoSetup:
         if historical_datasource:
             logger.info(
                 'Reindexing for data source: ' + historical_datasource.datasource_id())
-            index_historical(solr, historical_datasource)
+            self.index_historical(self.solr, historical_datasource)
         else:
             logger.error(
                 "Couldn't find datasource {}".format(self.args.company_datasource_name))
@@ -139,18 +139,25 @@ class DemoSetup:
                     self.pipeline_url + '/' + pipeline['id'], method='DELETE')
 
     def index_stocks(self, solr, data_source):
-        # Symbol,Company,City,State
         logger.info('Indexing Company Info')
         for symbol in self.stocks.keys():
-            vals = self.stocks[symbol]
+            (sym, company_name, industry, city, state) = self.stocks[symbol]
             try:
-                items = {'id': symbol, 'symbol': symbol, 'company': vals[1], 'industry': vals[2], 'city': vals[3],
-                         'state': vals[4], 'hierarchy': ['1/' + vals[2], '2/' + vals[4], '3/' + vals[3]]}  # Start at 1/ for ease integration w/ JS
+                items = {'id': symbol,
+                         'symbol': symbol,
+                         'company': company_name,
+                         'industry': industry,
+                         'city': city,
+                         'state': state,
+                         'hierarchy': [
+                             '1/' + industry,
+                             '2/' + state,
+                             '3/' + city]}  # Start at 1/ for ease integration w/ JS
             except Exception as e:
                 logger.error(
                     'Error while parsing stock {} with values {}'.format(symbol, vals))
                 traceback.print_exc()
-
+            logger.debug("adding to solr: {}".format(items))
             common_finance.add(
                 solr, [items], data_source.datasource_id(), commit=False)
 
@@ -256,11 +263,11 @@ class DemoSetup:
             sleep_secs(1, "so we don't get banned from yahoo")
         return data
 
-    def index_historical(self, solr, data_source, seriesDir):
+    def index_historical(self, solr, data_source):
         for symbol in self.stocks.keys():
             logger.info('Indexing: ' + symbol)
 
-            data = self.get_stock_data(seriesDir, symbol)
+            data = self.get_stock_data(self.args.data_dir, symbol)
 
             # parse the docs and send to solr
             lines = data.splitlines()
