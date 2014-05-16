@@ -380,11 +380,7 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
 def should_track(company_name):
     # there are a couple company names we don't want to track; they're too
     # common.
-    if company_name.lower() == 'ball' or company_name.lower() == 'ppl':
-        return False
-    else:
-        return True
-
+    return company_name.lower() not in ['ball', 'ppl']
 
 def add_twitter(collection, i, stock_list, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
     logger.debug('add_twitter #{} {}'.format(i, stock_list))
