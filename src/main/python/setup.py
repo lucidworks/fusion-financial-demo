@@ -14,6 +14,7 @@ import traceback
 import logging
 import sys
 import os
+import re
 
 try:
     # Prefer lxml, if installed.
@@ -470,15 +471,9 @@ def clean_company_name(name):
     """Strips things like "Corp" and "Inc" from the company names, hopefully
     resulting in a more normal name that might appear in news articles or
     Twitter feeds.
-
-    No, it isn't pretty. Feel free to rewrite it in some more Pythonic
-    way if you feel so inclined.
-
     """
-    return name.replace('& Co.', '').replace('& Co', '').replace(' Corp.', '').replace(' Co.', '').replace(' Cos.', '')\
-        .replace(' Inc.', '').replace(' Inc', '').replace(' Int\'l.', '').replace(' Svc.Gp.', '').replace(' Corp', '')\
-        .replace(' Groups.', '').replace(' Group', '').replace(' Ltd.', '').replace(' plc', '')
-
+    return re.sub(r' (& Co\.?|Corp\.?|Co\.|Cos\.|Groups?\.?|Inc\.?|Intl\.?|Svc\.Gp\.|Ltd\.?|plc\.?)',
+                  '', name)
 
 def define_twitter_pipeline(stocks):
     """define twitter pipeline.
