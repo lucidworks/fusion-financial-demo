@@ -398,7 +398,6 @@ class DemoSetup:
                     mappings.append(
                         {'source': field, 'target': field, 'operation': 'copy'})
 
-                # TODO: HACK. I should not have to worry about this
                 self.add_connector_mappings(mappings)
                 stage['mappings'] = mappings
                 stage['renameUnknown'] = False
@@ -486,6 +485,12 @@ class DemoSetup:
         return pipeline_name
 
     def add_connector_mappings(self, mappings):
+        """Add mappings for fields added by connectors framework itself.
+
+        TODO: Connectors should do something sensible by default so that
+        I don't need to worry about this.
+
+        """
         mappings.append({'source': 'document_fetching_time',
                          'target': 'document_fetching_time_s', 'operation': 'move'})
         mappings.append(
@@ -538,7 +543,6 @@ class DemoSetup:
         for stage in result['stages']:
             if stage['id'] == 'conn_mapping':
                 mappings = stage['mappings']
-                # TODO: HACK. I should not have to worry about this
                 self.add_connector_mappings(mappings)
                 stage['mappings'] = mappings
                 stage['renameUnknown'] = False
