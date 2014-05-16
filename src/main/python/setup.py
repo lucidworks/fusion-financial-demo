@@ -595,7 +595,6 @@ class DemoSetup:
         data['stages'].insert(solr_stage_index, debug_stage)
 
     def create_fields(self):
-        self.create_banana_fields()
         # Twitter
 
         # Company info
