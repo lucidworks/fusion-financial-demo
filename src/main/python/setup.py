@@ -143,7 +143,6 @@ class DemoSetup:
         for symbol in self.stocks.keys():
             try:
                 (sym, company_name, industry, city, state) = self.stocks[symbol]
-                state = state.strip()
                 items = {'id': symbol,
                          'symbol': symbol,
                          'company': company_name,
