@@ -472,7 +472,9 @@ def clean_company_name(name):
     resulting in a more normal name that might appear in news articles or
     Twitter feeds.
     """
-    return re.sub(r' (& Co\.?|Corp\.?|Co\.|Cos\.|Groups?\.?|Inc\.?|Intl\.?|Svc\.Gp\.|Ltd\.?|plc\.?)',
+    if re.match(r'(Coach .*|PPL.*)', name):
+        return name
+    return re.sub(r' (& Co\.?$|Corp\.?$|Co\.$|Cos\.$|Groups?\.?$|Inc\.?$|Intl\.?$|Svc\.Gp\.$|Ltd\.?$|plc\.?$)',
                   '', name)
 
 def define_twitter_pipeline(stocks):
