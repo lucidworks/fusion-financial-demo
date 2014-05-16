@@ -369,23 +369,13 @@ def create_twitter_ds(stocks, collection, access_token, consumer_key, consumer_s
     # I don't know if this is really necessary yet
     pipeline_name = define_twitter_pipeline(stocks)
 
-    # can only do 400 tracks at a time
-    stock_lists = list(stocks)
-    length = len(stock_lists)
-    if length > 0:
-        steps = max(1, length / 100)
-        step = 0
-        logger.debug('steps={}, len={}'.format(steps, length))
-        for i in xrange(steps):
-            section = stock_lists[step:step + 100]
-            add_twitter(collection, i, section, pipeline_name, stocks, access_token,
-                        consumer_key, consumer_secret, token_secret)
-            step += 101
-        if step < length:
-            section = stock_lists[step + 1:]
-            add_twitter(collection, i, section, pipeline_name, stocks, access_token,
-                        consumer_key, consumer_secret, token_secret)
-
+    # can only do 100 tracks at a time, so split the stock list into sublists
+    stock_symbols = stocks.keys()
+    sublist_max=100
+    sublists = [stock_symbols[x:x+sublist_max] for x in xrange(0, len(stock_symbols), sublist_max)]
+    for i, sublist in enumerate(sublists):
+        add_twitter(collection, i, sublist, pipeline_name, stocks, access_token,
+                    consumer_key, consumer_secret, token_secret)
 
 def should_track(company_name):
     # there are a couple company names we don't want to track; they're too
@@ -396,11 +386,11 @@ def should_track(company_name):
         return True
 
 
-def add_twitter(collection, i, stock_lists, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
-    logger.debug('add_twitter #{} {} {}'.format(i, stock_lists, stocks))
+def add_twitter(collection, i, stock_list, pipeline_name, stocks, access_token, consumer_key, consumer_secret, token_secret):
+    logger.debug('add_twitter #{} {}'.format(i, stock_list))
     name = 'Twitter_{}'.format(i)
     filters = []
-    for symbol in stock_lists:
+    for symbol in stock_list:
         if len(symbol) > 1:
             # there are some one-letter stock symbols that are kind of useless
             # to search on
