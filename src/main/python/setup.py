@@ -542,6 +542,11 @@ class DemoSetup:
                 self.add_connector_mappings(mappings)
                 stage['mappings'] = mappings
                 stage['renameUnknown'] = False
+            elif stage['id'] == 'conn_multivalue_resolver':
+                # set the strategy to DEFAULT, because the default is PICK_LAST,
+                # which means multiValued fields like "hierarchy" lose all but
+                # the last value
+                stage['typeStrategy'] = { 'string': 'DEFAULT' }
 
         self.insert_debug_stage(result)
 
