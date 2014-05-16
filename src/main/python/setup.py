@@ -8,7 +8,6 @@ import pysolr
 import common_finance
 
 import datasource
-# import ds
 import fields
 import traceback
 import logging
