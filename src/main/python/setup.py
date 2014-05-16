@@ -392,8 +392,7 @@ class DemoSetup:
                 # to search on
                 filters.append('${}'.format(symbol))
             company_name = self.clean_company_name(self.stocks[symbol][1])
-            if company_name.lower() not in ['ball', 'ppl']:  # do not track these; too common
-                filters.append(company_name)
+            filters.append(company_name)
 
         datasource = self.datasource_connection.create_twitter(name=name,
             collection=self.args.finance_collection,
@@ -463,9 +462,9 @@ class DemoSetup:
         resulting in a more normal name that might appear in news articles or
         Twitter feeds.
         """
-        if re.match(r'(Coach .*|PPL.*)', name):
+        if re.match(r'(Coach .*|PPL.*|Ball.*)', name):
             return name
-        return re.sub(r' (& Co\.?|Corp\.?|Co\.|Cos\.|Groups?\.?|Inc\.?|Intl\.?|Svc\.Gp\.|Ltd\.?|plc\.?)',
+        return re.sub(r' (& Co\.?$|Corp\.?$|Co\. Inc\.$|Co\.$|Cos\.$|Groups?\.?$|Inc\.?$|Intl\.?$|Svc\.Gp\.$|Ltd\.?$|plc\.?$)',
                       '', name)
 
     def define_twitter_pipeline(self):
