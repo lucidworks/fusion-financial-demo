@@ -141,8 +141,9 @@ class DemoSetup:
     def index_stocks(self, solr, data_source):
         logger.info('Indexing Company Info')
         for symbol in self.stocks.keys():
-            (sym, company_name, industry, city, state) = self.stocks[symbol]
             try:
+                (sym, company_name, industry, city, state) = self.stocks[symbol]
+                state = state.strip()
                 items = {'id': symbol,
                          'symbol': symbol,
                          'company': company_name,
@@ -155,7 +156,7 @@ class DemoSetup:
                              '3/' + city]}  # Start at 1/ for ease integration w/ JS
             except Exception as e:
                 logger.error(
-                    'Error while parsing stock {} with values {}'.format(symbol, vals))
+                    'Error while parsing stock {} with values {}'.format(symbol, self.stocks[symbol]))
                 traceback.print_exc()
             logger.debug("adding to solr: {}".format(items))
             common_finance.add(
@@ -310,6 +311,7 @@ class DemoSetup:
             'https://m\.yahoo\.com/.*',
             'http://finance\.yahoo\.com/q/p\?s={}+Press+Releases'.format(stock)]
         name = 'PressRelease_' + stock
+
         datasource = self.datasource_connection.create_web(
             name=name, collection=self.args.finance_collection, start_urls=[url], depth=1, include_regexps=include_paths)
         #rsp = lweutils.json_http(DS_URL + "/datasources/" + id + "/job", method="PUT")

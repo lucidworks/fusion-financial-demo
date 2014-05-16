@@ -1,10 +1,10 @@
 #Symbol,Company,Industry,City,State,URL
-A,Agilent Technologies Inc,Health Care,Santa Clara, California,http://www.agilent.com
-AA,Alcoa Inc,Materials,New York, New York,http://www.alcoa.com
-AAPL,Apple Inc.,Information Technology,Cupertino, California,http://www.apple.com
-ABC,AmerisourceBergen Corp,Health Care,Chesterbrook, Pennsylvania,http://www.amerisourcebergen.com/
-ABT,Abbott Laboratories,Health Care,North Chicago, Illinois,http://www.abbott.com/
-ACE,ACE Limited,Financials,Zurich, Switzerland,http://www.acegroup.com/
+A,Agilent Technologies Inc,Health Care,Santa Clara, California
+AA,Alcoa Inc,Materials,New York, New York
+AAPL,Apple Inc.,Information Technology,Cupertino, California
+ABC,AmerisourceBergen Corp,Health Care,Chesterbrook, Pennsylvania
+ABT,Abbott Laboratories,Health Care,North Chicago, Illinois
+ACE,ACE Limited,Financials,Zurich, Switzerland
 ACN,Accenture,Information Technology,Dublin, Ireland
 ADBE,Adobe Systems Inc,Information Technology,San Jose, California
 ADI,Analog Devices Inc,Information Technology,Norwood, Massachusetts
