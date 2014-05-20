@@ -399,7 +399,7 @@ class DemoSetup:
 
                 self.add_connector_mappings(mappings)
                 stage['mappings'] = mappings
-                stage['renameUnknown'] = False
+                stage['unmapped'] = None
 
         self.insert_debug_stage(result)
         logger.debug("saving pipeline '{}': {}".format(pipeline_name, result))
@@ -448,7 +448,7 @@ class DemoSetup:
                               'additional-entities': {'company_name': company_names}}
                          ]},
                         {'type': 'field-mapping',
-                         'renameUnknown': True,
+                         'unmapped': {'source': '/(.*)/', 'target': '$1_ss', 'operation': 'move'},
                          'mappings': [
                              {'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'},
                              {'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'},
@@ -544,7 +544,7 @@ class DemoSetup:
                 mappings = stage['mappings']
                 self.add_connector_mappings(mappings)
                 stage['mappings'] = mappings
-                stage['renameUnknown'] = False
+                stage['unmapped'] = None
             elif stage['id'] == 'conn_multivalue_resolver':
                 # set the strategy to DEFAULT, because the default is PICK_LAST,
                 # which means multiValued fields like "hierarchy" lose all but
