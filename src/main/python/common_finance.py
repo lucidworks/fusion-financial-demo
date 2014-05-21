@@ -6,7 +6,6 @@ import datetime
 import pysolr
 import common_finance
 
-import ds
 import fields
 import traceback
 try:
