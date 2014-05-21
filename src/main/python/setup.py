@@ -632,11 +632,6 @@ class DemoSetup:
         self.p.add_argument('--api_port', type=int, metavar='port', dest='api_port', default='8765',
                             help='Apollo backend API port (default: 8765)')
 
-        self.p.add_argument('--ui_host', metavar='host', dest='ui_host', default='localhost',
-                            help='UI host (default: localhost)')  # TODO: is this Apollo-admin or something else?
-        self.p.add_argument('--ui_port', type=int, metavar='port', dest='ui_port', default='8989',
-                            help='UI host (default: 8989)')  # TODO: is this Apollo-admin or something else?
-
         self.p.add_argument('--solr_host', metavar='host', dest='solr_host', default='localhost',
                             help='Solr host (default: localhost)')
         self.p.add_argument('--solr_port', type=int, metavar='port', dest='solr_port', default='8983',
