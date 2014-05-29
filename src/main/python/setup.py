@@ -495,6 +495,8 @@ class DemoSetup:
         mappings.append(
             {'source': 'parse_time', 'target': 'parse_time_s', 'operation': 'move'})
         mappings.append(
+            {'source': 'parsing_time', 'target': 'parsing_time_s', 'operation': 'move'})
+        mappings.append(
             {'source': 'parsing', 'target': 'parse_s', 'operation': 'move'})
         mappings.append(
             {'source': '/(data_source.*)/', 'target': '$1_s', 'operation': 'move'})
