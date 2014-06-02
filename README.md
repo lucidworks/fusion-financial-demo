@@ -67,11 +67,22 @@ Load the data (adjust the APOLLO_HOST and Twitter details for your environment):
       --create --external --fields \
       --index --press --twitter
 
-This will setup collections, fields and data for the companies listed in the file sp500List-30.txt
+(appear to no longer be valid: `--ui_host=$APOLLO_HOST \` and `--ui_port=8181 \`)
 
-Modify the `server.js` file to point to your Apollo host. Start the dashboard:
+This will setup collections, fields and data for the companies listed in the file `sp500List-30.txt`
+
+Modify the `server.js` file in the main directory to point to your Apollo host.  The default is:
+
+    var baseUrl = "http://localhost:8983/solr";
+
+Do One-Time Setup:
 
     npm install   # only needed once
+
+If you see the warning `npm WARN package.json LucidWorksFinanceDemo@0.0.1 No repository field.` this can [be ignored] [1].
+
+Start the dashboard:
+   
     node server.js
 
 Point your browser to [http://localhost:3334/#/dashboard](http://localhost:3334/#/dashboard)
@@ -107,3 +118,6 @@ again with a clean slate.
 IMPORTANT: this will destroy ALL datasources, even those not added by this script.
 
 You can use `../../../data/sp500List-1.txt` to load a single stock (Apple).
+
+
+[1]: http://stackoverflow.com/questions/16827858/npm-warn-package-json
