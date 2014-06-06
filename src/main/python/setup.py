@@ -431,53 +431,37 @@ class DemoSetup:
             logger.debug('pipeline {} already exists'.format(pipeline_name))
             return pipeline_name
 
-        pipeline = {'id': pipeline_name,
-                    'stages': [
-                        {'type': 'logging', 'detailed': True},
-                        {'type': 'lookup-extractor',
-                         'rules': [
-                             {'source': ['tweet'],
-                              'target': 'named_entities_ss',
-                              'case-sensitive': True,
-                              'entity-types': {},
-                              'additional-entities': {'symbol': ticker_symbols}},
-                             {'source': ['tweet'],
-                              'target': 'named_entities_ss',
-                              'case-sensitive': False,
-                              'entity-types': {},
-                              'additional-entities': {'company_name': company_names}}
-                         ]},
-                        {'type': 'field-mapping',
-                         'unmapped': {'source': '/(.*)/', 'target': '$1_ss', 'operation': 'move'},
-                         'mappings': [
-                             {'source': 'mimeType', 'target': 'mimeType_ss', 'operation': 'move'},
-                             {'source': 'userMentionStart_i', 'target': 'userMentionStart_is', 'operation': 'move'},
-                             {'source': 'userMentionEnd_i', 'target': 'userMentionEnd_is', 'operation': 'move'},
-                             {'source': 'userMentionScreenName_t', 'target': 'userMentionScreenName_txt',
-                              'operation': 'move'},
-                             {'source': 'userMentionName_t', 'target': 'userMentionName_txt', 'operation': 'move'},
-                             {'source': 'tagStart_i', 'target': 'tagStart_is', 'operation': 'move'},
-                             {'source': 'tagEnd_i', 'target': 'tagEnd_is', 'operation': 'move'},
-                             {'source': 'tagText_s', 'target': 'tagText_ss', 'operation': 'move'},
-                             {'source': 'tagText', 'target': 'tagText_ss', 'operation': 'move'},
-                             {'source': 'placeCountry_t', 'target': 'placeCountry_txt', 'operation': 'move'},
-                             {'source': 'url_s', 'target': 'url_ss', 'operation': 'move'},
-                             {'source': 'url', 'target': 'url_ss', 'operation': 'move'},
-                             {'source': 'urlExpanded', 'target': 'urlExpanded_ss', 'operation': 'move'},
-                             {'source': 'urlExpanded_s', 'target': 'urlExpanded_ss', 'operation': 'move'},
-                             {'source': 'urlDisplay', 'target': 'urlDisplay_ss', 'operation': 'move'},
-                             {'source': 'urlDisplay_s', 'target': 'urlDisplay_ss', 'operation': 'move'},
-                             {'source': 'mediaUrl', 'target': 'mediaUrl_ss', 'operation': 'move'},
-                             {'source': 'mediaUrl_s', 'target': 'mediaUrl_ss', 'operation': 'move'},
-                             {'source': 'document_fetching_time', 'target': 'document_fetching_time_s',
-                              'operation': 'move'},
-                             {'source': 'parse_time', 'target': 'parse_time_s', 'operation': 'move'},
-                             {'source': 'parsing', 'target': 'parse_s', 'operation': 'move'},
-                             {'source': '/(data_source.*)/', 'target': '$1_s', 'operation': 'move'},
-                         ]},
-                        #{'type': 'logging', 'detailed': True},
-                        {'type': 'solr-index'}
-                    ]}
+        default_solr_pipeline = 'conn_solr'
+        # copy and modify this default one
+        result = lweutils.json_http(self.pipeline_url + '/' + default_solr_pipeline)
+        result['id'] = pipeline_name
+
+        pipeline_stages = [
+            {
+                'type': 'lookup-extractor',
+                'rules': [
+                    {
+                        'source': ['tweet'],
+                        'target': 'named_entities_ss',
+                        'case-sensitive': True,
+                        'entity-types': {},
+                        'additional-entities': {'symbol': ticker_symbols}
+                    },
+                    {
+                        'source': ['tweet'],
+                        'target': 'named_entities_ss',
+                        'case-sensitive': False,
+                        'entity-types': {},
+                        'additional-entities': {'company_name': company_names}
+                    }
+                ]
+            }]
+
+        # nlp stages go first and all other stages come next.
+        for each_stage in result['stages']:
+            pipeline_stages.append(each_stage)
+        result['stages'] = pipeline_stages
+
         logger.debug("saving pipeline '{}': {}".format(pipeline_name, pipeline))
         lweutils.json_http(
             self.pipeline_url + '/' + pipeline_name, method='PUT', data=pipeline)
