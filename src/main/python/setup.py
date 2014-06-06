@@ -433,8 +433,8 @@ class DemoSetup:
 
         default_solr_pipeline = 'conn_solr'
         # copy and modify this default one
-        result = lweutils.json_http(self.pipeline_url + '/' + default_solr_pipeline)
-        result['id'] = pipeline_name
+        pipeline = lweutils.json_http(self.pipeline_url + '/' + default_solr_pipeline)
+        pipeline['id'] = pipeline_name
 
         pipeline_stages = [
             {
@@ -458,9 +458,9 @@ class DemoSetup:
             }]
 
         # nlp stages go first and all other stages come next.
-        for each_stage in result['stages']:
+        for each_stage in pipeline['stages']:
             pipeline_stages.append(each_stage)
-        result['stages'] = pipeline_stages
+        pipeline['stages'] = pipeline_stages
 
         logger.debug("saving pipeline '{}': {}".format(pipeline_name, pipeline))
         lweutils.json_http(
