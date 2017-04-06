@@ -1,0 +1,1708 @@
+<!-- OUTER WRAPPER -->
+<div class="tk-stl-outerwrapper kitchensink">
+
+    <layout:include file="demo/includes/header.html"></layout:include>
+
+    <!-- CONTENT -->
+    <div id="content" class="tk-rgrid-g tk-stl-row-offcanvas tk-stl-row-offcanvas-left tk-stl-bg-paper">
+
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-4 tk-stl-blocksidebar-light tk-stl-sidebar-offcanvas-left">
+            <layout:include file="demo/includes/sidebar.html"></layout:include>
+        </div>
+
+        <!-- CONTENT > MAIN -->
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-3-4 xtk-stl-childborder tk-stl-bg-white">
+            <div class="tk-bl-content">
+                <div class="tk-rgrid-box">
+
+                    <h1>Kitchen Sink</h1>
+
+					<h2>Grid System</h2>
+					<p>Twigkit uses a response 24 column grid system. The column widths are specified using a ratio of 24ths.</p>
+					<p>For example at the attribute <code>sm="1-3"</code> to the <code>layout:block</code> tag to set the width to 1/3 of the container width on small screens.</p>
+					<p>By default <code>layout:blocks</code> will be 100% width.</p>
+					<br>
+
+					<layout:grid styling="text-white">
+						<layout:block xs="1"><layout:box styling="bg-raspberry-dark">1 (Default)</layout:box></layout:block>
+						<layout:block xs="23-24"><layout:box styling="bg-raspberry">23-24</layout:box></layout:block>
+						<layout:block xs="7-8"><layout:box styling="bg-raspberry-light">7-8</layout:box></layout:block>
+						<layout:block xs="5-6"><layout:box styling="bg-strawberry-light">5-6</layout:box></layout:block>
+						<layout:block xs="4-5"><layout:box styling="bg-strawberry">4-5</layout:box></layout:block>
+						<layout:block xs="3-4"><layout:box styling="bg-strawberry-dark">3-4</layout:box></layout:block>
+						<layout:block xs="2-3"><layout:box styling="bg-carrot">2-3</layout:box></layout:block>
+						<layout:block xs="1-2"><layout:box styling="bg-carrot-light">1-2</layout:box></layout:block>
+					</layout:grid>
+
+					<br><hr>
+
+					<h2>Grid Breakpoints</h2>
+					<p>Widths can be specified for each of the xs, sm, md, lg, and xl breakpoints individually.</p>
+					<br>
+
+					<layout:grid styling="text-white">
+						<layout:block xs="1">
+							<layout:box styling="bg-sunflower">Always full width</layout:box>
+						</layout:block>
+						<layout:grid>
+							<layout:block xl="1-3" md="1-2">
+								<layout:box styling="bg-pumpkin-light">xl=1-3, md=1-2</layout:box>
+							</layout:block>
+							<layout:block xl="1-3" md="1-2">
+								<layout:box styling="bg-pumpkin">xl=1-3, md=1-2</layout:box>
+							</layout:block>
+							<layout:block xl="1-3" md="1">
+								<layout:box styling="bg-pumpkin-dark">xl=1-3, md=1</layout:box>
+							</layout:block>
+						</layout:grid>
+					</layout:grid>
+
+					<br>
+					<hr>
+
+					<h2>Grid Offsets</h2>
+					<p>An offset attribute can be used to push the <code>layout:block</code> to the right, leaving an empty space</p>
+					<br>
+
+					<layout:grid styling="text-white">
+						<layout:block xs="1">
+							<layout:box styling="bg-mint">Always full width</layout:box>
+						</layout:block>
+						<layout:grid>
+							<layout:block xl="1-3" md="1-2">
+								<layout:box styling="bg-mint-light">xl=1-3, md=1-2</layout:box>
+							</layout:block>
+							<layout:block xl="1-3" md="1-2" xl-offset="1-3">
+								<layout:box styling="bg-mint">xl=1-3 xl-offset=1-3, md=1-2</layout:box>
+							</layout:block>
+						</layout:grid>
+						<layout:grid>
+							<layout:block xs="1-2" xs-offset="1-4" sm-offset="1-2" md-offset="0">
+								<layout:box styling="bg-aqua">No offset md and above</layout:box>
+							</layout:block>
+						</layout:grid>
+                        <layout:grid>
+                            <layout:block xs="1-2" sm-offset="1-4">
+                                <layout:box styling="bg-aqua-dark">Offset at sm and above</layout:box>
+                            </layout:block>
+                        </layout:grid>
+					</layout:grid>
+
+					<br>
+					<hr>
+
+                    <!-- ALIGNMENT LAYOUTS -->
+                    <h2>Alignment Layouts</h2>
+                    <p>These three starter templates help create full width / partially centered / centered pages:</p>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-centered-01.html" target="_blank">Full Width</a>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-centered-02.html" target="_blank">Hybrid</a>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-centered-03.html" target="_blank">Centered</a>
+                    <hr/>
+
+                    <!-- PAGE LAYOUTS -->
+                    <h2>Page Layouts</h2>
+                    <a class="tk-stl-button tk-stl-button-small tk-stl-button-disabled" href="/#/ks-dashboard.html" target="_blank">Dashboard</a>
+                    <a class="tk-stl-button tk-stl-button-small tk-stl-button-disabled" href="/#/ks-detail.html" target="_blank">Detail Page</a>
+                    <hr/>
+
+                    <!-- SEARCH LAYOUTS -->
+                    <h2>Search Page Orientation</h2>
+                    <p>Arrange search filters to the left or right of results. With associated (optional) offcanvas:</p>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-search-01.html" target="_blank">Filters / Results</a>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-search-02.html" target="_blank">Results / Filters</a>
+                    <hr/>
+
+                    <!-- SIDEBAR LAYOUTS -->
+                    <h2>Sidebar Options</h2>
+                    <p>Modifier classes to add full bleed backgrounds, bordered category headings etc to filter lists:</p>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/ks-sidebar.html" target="_blank">Sidebar Options</a>
+                    <hr/>
+
+                    <h2>Typography + Icons</h2>
+                    <a class="tk-stl-button tk-stl-button-small" href="/#/CSS.html">Typography</a>
+                    <hr>
+
+                    <!-- FORMS -->
+                    <h2>Forms + Labels</h2>
+                    <a href="/#/forms.html" class="tk-stl-button tk-stl-button-small">Forms</a>
+                    <hr>
+
+                    <!-- UTILITIES -->
+                    <h2>Utility Classes</h2>
+                    <a href="/#/utilities.html" class="tk-stl-button tk-stl-button-small">Utilities</a>
+                    <hr>
+
+                    <!-- TABS + SORTOPTIONS -->
+                    <h2>Tabs + Sort Options</h2>
+                    <ol class="tabs tk-stl-tabs">
+                        <li class="all-customers active">
+                            <span class="label">All Customers</span>
+                        </li>
+                        <li class="banking">
+                          <span class="label">
+                              <a href="#">Banking</a>
+                          </span>
+                        </li>
+                        <li class="credit-cards">
+                          <span class="label">
+                              <a href="#">Credit Cards</a>
+                          </span>
+                        </li>
+                        <li class="insurance">
+                          <span class="label">
+                              <a href="#">Insurance</a>
+                          </span>
+                        </li>
+                        <li class="investing">
+                          <span class="label">
+                              <a href="#">Investing</a>
+                          </span>
+                        </li>
+                    </ol>
+                    <div class="tk-rgrid-g tk-stl-sortoptions-wrapper">
+                        <div class="tk-rgrid-u-3-8 tk-rgrid-u-sm-1-2">
+                            <div class="tk-rgrid-box pl0em">
+                                <div class="response-statistics">
+                                    <span class="tk-stl-hidemedium">Showing </span>1-25 of 123,456
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tk-rgrid-u-5-8 tk-rgrid-u-sm-1-2">
+                            <div class="tk-rgrid-box pr0em">
+                                <ul class="tk-stl-sortoptions right clearfix">
+                                    <li>
+                                        <a href="#"><span class="tk-stl-hidemedium">View as </span><em>List</em>
+                                            <span class="caret"></span></a>
+                                        <div class="tk-stl-sortoptions-group"><!-- .show -->
+                                            <ul>
+                                                <li class="active"><a href="#">List</a></li>
+                                                <li><a href="#">Grid</a></li>
+                                                <li><a href="#">Table</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><span class="tk-stl-hidemedium">Per page </span><em>25</em>
+                                        <span class="caret"></span></a>
+                                        <div class="tk-stl-sortoptions-group"><!-- .show -->
+                                            <ul>
+                                                <li class="active"><a href="#">25</a></li>
+                                                <li><a href="#">100</a></li>
+                                                <li><a href="#">All</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#"><span
+                                            class="tk-stl-hidemedium">Sort by </span><em>Relevance</em> <span
+                                            class="caret"></span></a>
+                                        <div class="tk-stl-sortoptions-group"><!-- .show -->
+                                            <ul>
+                                                <li class="active"><a href="#">Relevance</a></li>
+                                                <li><a href="#">Date</a></li>
+                                                <li><a href="#">Time</a></li>
+                                                <li class="divider"></li>
+                                                <li class="active"><a href="#">Ascending</a></li>
+                                                <li><a href="#">Descending</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <!-- FACET CAPSULES -->
+                    <h2>Selected Facets</h2>
+                    <ol class="breadcrumb-list tk-stl-breadcrumb-capsules">
+                        <li class="breadcrumb first">
+                            <a href="?">Brazil</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Thailand</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Russia</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Syria</a>
+                        </li>
+                        <li class="breadcrumb clearall last">
+                            <a href="?">Clear all</a>
+                        </li>
+                    </ol>
+                    <!-- FACET CAPSULES X-AFTER -->
+                    <h3>Selected Facets x-after</h3>
+                    <ol class="breadcrumb-list tk-stl-breadcrumb-capsules tk-stl-breadcrumb-capsules-xlast">
+                        <li class="breadcrumb first">
+                            <a href="?">Brazil</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Thailand</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Russia</a>
+                        </li>
+                        <li class="breadcrumb">
+                            <a href="?">Syria</a>
+                        </li>
+                        <li class="breadcrumb clearall last">
+                            <a href="?">Clear all</a>
+                        </li>
+                    </ol>
+                    <!-- CATEGORY GROUPED FACET CAPSULES -->
+                    <h3>Categorised Facets</h3>
+                    <div class="tk-stl-breadcrumb-capsules-categorygroup-wrapper">
+                        <ol class="breadcrumb-list tk-stl-breadcrumb-capsules-categorygroup">
+                            <li class="breadcrumb-group">
+                                <ol class="breadcrumb-list">
+                                    <li class="breadcrumb remove-group">
+                                        <a href="#">Country</a>
+                                    </li>
+                                    <li class="breadcrumb">
+                                        <a href="#">Brazil</a>
+                                    </li>
+                                    <li class="breadcrumb">
+                                        <a href="#">Thailand</a>
+                                    </li>
+                                    <li class="breadcrumb">
+                                        <a href="#">Russia</a>
+                                    </li>
+                                    <li class="breadcrumb last">
+                                        <a href="#">Syria</a>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="breadcrumb-group">
+                                <ol class="breadcrumb-list">
+                                    <li class="breadcrumb remove-group">
+                                        <a href="#">Population</a>
+                                    </li>
+                                    <li class="breadcrumb categories last">
+                                        <a href="#">4-5 Million</a>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="breadcrumb-group">
+                                <ol class="breadcrumb-list">
+                                    <li class="breadcrumb clearall last">
+                                        <a href="#">Clear all</a>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                    <hr/>
+
+                    <!-- TAGS -->
+                    <h2>Tags</h2>
+                    <ol class="tag-list tk-stl-tag-capsules tk-stl-tag-capsules-gradient">
+                        <li class="tag first">
+                            <a href="#">Police</a>
+                        </li>
+                        <li class="tag">
+                            <a href="#">Martial Arts</a>
+                        </li>
+                        <li class="tag">
+                            <a href="#">Comedy</a>
+                        </li>
+                        <li class="tag">
+                            <a href="#">Corruption</a>
+                        </li>
+                        <li class="tag last">
+                            <a href="#">Action</a>
+                        </li>
+                    </ol>
+                    <!-- CATEGORY GROUPED TAG CAPSULES -->
+                    <h3>Categorised Tags</h3>
+                    <div class="tk-stl-tag-capsules-categorygroup-wrapper">
+                        <ol class="tag-list tk-stl-tag-capsules-categorygroup">
+                            <li class="tag-group">
+                                <ol class="tag-list">
+                                    <li class="tag title-group">
+                                        Genres
+                                    </li>
+                                    <li class="tag">
+                                        <a href="#">Comedy</a>
+                                    </li>
+                                    <li class="tag">
+                                        <a href="#">Martial Arts</a>
+                                    </li>
+                                    <li class="tag last">
+                                        <a href="#">Action</a>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li class="tag-group">
+                                <ol class="tag-list">
+                                    <li class="tag title-group">
+                                        Themes
+                                    </li>
+                                    <li class="tag">
+                                        <a href="#">Corruption</a>
+                                    </li>
+                                    <li class="tag last">
+                                        <a href="#">Police</a>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                    <hr/>
+
+                    <!-- RESULTS LIST -->
+                    <h2>Results List</h2>
+                    <p><a href="/#/result-lists.html">Result lists demo page</a></p>
+                    <hr>
+
+                    <!-- PAGINATION -->
+                    <h2>Pagination Left / Centered / Right</h2>
+                    <div class="tk-stl-pagination-wrapper tk-stl-pagination-wrapper-left">
+                        <nav class="tk-bl-controls">
+                            <ol class="pagination tk-stl-pagination-arrows">
+                                <li class="page prev">
+                                    <a href="?&amp;p=2">previous</a>
+                                </li>
+                                <li class="page active">1</li>
+                                <li class="page">
+                                    <a href="?&amp;p=2">2</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=3">3</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=4">4</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=5">5</a>
+                                </li>
+                                <li class="page next">
+                                    <a href="?&amp;p=2">next</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="tk-stl-pagination-wrapper tk-stl-pagination-wrapper-center">
+                        <nav class="tk-bl-controls">
+                            <ol class="pagination tk-stl-pagination-arrows">
+                                <li class="page prev">
+                                    <a href="?&amp;p=2">previous</a>
+                                </li>
+                                <li class="page active">1</li>
+                                <li class="page">
+                                    <a href="?&amp;p=2">2</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=3">3</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=4">4</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=5">5</a>
+                                </li>
+                                <li class="page next">
+                                    <a href="?&amp;p=2">next</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="tk-stl-pagination-wrapper tk-stl-pagination-wrapper-right">
+                        <nav class="tk-bl-controls">
+                            <ol class="pagination tk-stl-pagination-arrows">
+                                <li class="page prev">
+                                    <a href="?&amp;p=2">previous</a>
+                                </li>
+                                <li class="page active">1</li>
+                                <li class="page">
+                                    <a href="?&amp;p=2">2</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=3">3</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=4">4</a>
+                                </li>
+                                <li class="page">
+                                    <a href="?&amp;p=5">5</a>
+                                </li>
+                                <li class="page next">
+                                    <a href="?&amp;p=2">next</a>
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <hr/>
+
+                    <!-- INTERRUPTOR -->
+                    <h2>Interruptor</h2>
+                    <div class="tk-stl-interruptor">
+                        <h4>I'm an Interruptor</h4>
+                        <p>Interruptors are smaller than banners, but larger than alertboxes.<br/>
+                            They're about drawing your attention to a CTA of some sort.</p>
+                        <p><a class="tk-stl-button tk-stl-button-small tk-stl-button-disabled">Button</a></p>
+                    </div>
+
+                    <!-- ALERTBOX -->
+                    <h2>Alert Box</h2>
+                    <div class="tk-stl-alertbox">
+                        Did you mean the shop <a href="#">kitchensinks.co.uk</a>?
+                        <a href="" class="close">×</a>
+                    </div>
+                    <div class="tk-stl-alertbox tk-stl-alertbox-secondary">
+                        Something you can probably ignore has happened.
+                        <a href="" class="close">×</a>
+                    </div>
+                    <div class="tk-stl-alertbox tk-stl-alertbox-negative">
+                        Something bad has happened.
+                        <a href="" class="close">×</a>
+                    </div>
+                    <div class="tk-stl-alertbox tk-stl-alertbox-warning">
+                        Something slightly worrying has happened.
+                        <a href="" class="close">×</a>
+                    </div>
+                    <div class="tk-stl-alertbox tk-stl-alertbox-positive">
+                        Something good has happened.
+                        <a href="" class="close">×</a>
+                    </div>
+                    <hr/>
+
+                    <!-- COMPARISON TABLE -->
+                    <h2>Comparison Tables</h2>
+                    <p>Different options for displaying tables on small screens. In terms of css, examples 1 and 2 are identical. Example 3 stacks, so is perhaps unsuitable for comparisons. Example 4 is more of a hybrid that is in line with our original sketches. Examples three and four both rely on <em>data-title</em> for the labels.</p>
+                    <div class="tk-stl-alertbox">
+                        <strong>Note:</strong> Tested in latest Chrome, FireFox, Safari and Opera. IE10 and above works. IE9 should be possible with some effort.
+                    </div>
+                    <hr/>
+
+                    <h3>Table</h3>
+                    <div class="tbl-wrapper">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Henson Pictures</th>
+                                <th>Sony Pictures</th>
+                                <th>Warner Bros.</th>
+                                <th>Walt Disney Studios</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>URL</td>
+                                <td><a href="#">henson.com</a></td>
+                                <td><a href="#">sonypictures.com</a></td>
+                                <td><a href="#">warnerbros.com</a></td><td><a href="#">disney.com</a></td></tr>
+                            <tr>
+                                <td>CEO</td>
+                                <td>Brian Henson</td>
+                                <td>Thomas Rothman</td>
+                                <td>Kevin Tsujihara</td>
+                                <td>Alan Horn</td>
+                            </tr>
+                            <tr>
+                                <td>Headquarters</td>
+                                <td>Los Angeles, California</td>
+                                <td>Culver City, California</td>
+                                <td>Burbank, California</td>
+                                <td>Burbank, California</td>
+                            </tr>
+                            <tr>
+                                <td>Founded</td>
+                                <td>November 20, 1958</td>
+                                <td>August 7, 1991</td>
+                                <td>April 4, 1923</td>
+                                <td>November 05, 1936</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr/>
+
+                    <h3>1 &mdash; Vertical Comparison</h3>
+                    <div class="tbl-wrapper tbl-compare">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Henson Pictures</th>
+                                <th>Sony Pictures</th>
+                                <th>Warner Bros.</th>
+                                <th>Walt Disney Studios</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>URL</td>
+                                <td><a href="#">henson.com</a></td>
+                                <td><a href="#">sonypictures.com</a></td>
+                                <td><a href="#">warnerbros.com</a></td><td><a href="#">disney.com</a></td></tr>
+                            <tr>
+                                <td>CEO</td>
+                                <td>Brian Henson</td>
+                                <td>Thomas Rothman</td>
+                                <td>Kevin Tsujihara</td>
+                                <td>Alan Horn</td>
+                            </tr>
+                            <tr>
+                                <td>Headquarters</td>
+                                <td>Los Angeles, California</td>
+                                <td>Culver City, California</td>
+                                <td>Burbank, California</td>
+                                <td>Burbank, California</td>
+                            </tr>
+                            <tr>
+                                <td>Founded</td>
+                                <td>November 20, 1958</td>
+                                <td>August 7, 1991</td>
+                                <td>April 4, 1923</td>
+                                <td>November 05, 1936</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>2 &mdash; Horizontal Comparison</h3>
+                    <div class="tbl-wrapper tbl-compare">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>CEO</th>
+                                <th>Headquarters</th>
+                                <th>Founded</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Henson Pictures</td>
+                                <td><a href="#">henson.com</a></td>
+                                <td>Brian Henson</td>
+                                <td>Los Angeles, California</td>
+                                <td>November 20, 1958</td>
+                            </tr>
+                            <tr>
+                                <td>Sony Pictures</td>
+                                <td><a href="#">sonypictures.com</a></td>
+                                <td>Thomas Rothman</td>
+                                <td>Culver City, California, United States</td>
+                                <td>August 7, 1991</td>
+                            </tr>
+                            <tr>
+                                <td>Warner Bros.</td>
+                                <td><a href="#">warnerbros.com</a></td>
+                                <td>Kevin Tsujihara</td>
+                                <td>Burbank, California</td>
+                                <td>April 4, 1923</td>
+                            </tr>
+                            <tr>
+                                <td>Walt Disney Studios</td>
+                                <td><a href="#">disney.com</a></td>
+                                <td>Alan Horn</td>
+                                <td>Burbank, California</td>
+                                <td>November 05, 1936</td>
+                            </tr>
+                            <tr>
+                                <td>Universal Studios</td>
+                                <td><a href="#">universalstudios.com</a></td>
+                                <td>Ronald Meyer</td>
+                                <td>Universal City, California</td>
+                                <td>April 10, 1912</td>
+                            </tr>
+                            <tr>
+                                <td>United Artists</td>
+                                <td><a href="#">uamg.com</a></td>
+                                <td>Mark Burnett</td>
+                                <td>Beverly Hills, California</td>
+                                <td>February 5, 1919</td>
+                            </tr>
+                            <tr>
+                                <td>Metro-Goldwyn-Mayer</td>
+                                <td><a href="#">mgm.com</a></td>
+                                <td>Gary Barber</td>
+                                <td>Los Angeles, California</td>
+                                <td>April 17, 1924</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr/>
+
+                    <h3>3 &mdash; Stacked</h3>
+                    <div class="tbl-wrapper tbl-stacked">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>CEO</th>
+                                <th>Headquarters</th>
+                                <th>Founded</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td data-title="Name">Henson Pictures</td>
+                                <td data-title="URL"><a href="#">henson.com</a></td>
+                                <td data-title="CEO">Brian Henson</td>
+                                <td data-title="Headquarters">Los Angeles, California</td>
+                                <td data-title="Founded">November 20, 1958</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">Sony Pictures</td>
+                                <td data-title="URL"><a href="#">sonypictures.com</a></td>
+                                <td data-title="CEO">Thomas Rothman</td>
+                                <td data-title="Headquarters">Culver City, California, United States</td>
+                                <td data-title="Founded">August 7, 1991</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">Warner Bros.</td>
+                                <td data-title="URL"><a href="#">warnerbros.com</a></td>
+                                <td data-title="CEO">Kevin Tsujihara</td>
+                                <td data-title="Headquarters">Burbank, California</td>
+                                <td data-title="Founded">April 4, 1923</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">Walt Disney Studios</td>
+                                <td data-title="URL"><a href="#">disney.com</a></td>
+                                <td data-title="CEO">Alan Horn</td>
+                                <td data-title="Headquarters">Burbank, California</td>
+                                <td data-title="Founded">November 05, 1936</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">Universal Studios</td>
+                                <td data-title="URL"><a href="#">universalstudios.com</a></td>
+                                <td data-title="CEO">Ronald Meyer</td>
+                                <td data-title="Headquarters">Universal City, California</td>
+                                <td data-title="Founded">April 10, 1912</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">United Artists</td>
+                                <td data-title="URL"><a href="#">uamg.com</a></td>
+                                <td data-title="CEO">Mark Burnett</td>
+                                <td data-title="Headquarters">Beverly Hills, California</td>
+                                <td data-title="Founded">February 5, 1919</td>
+                            </tr>
+                            <tr>
+                                <td data-title="Name">Metro-Goldwyn-Mayer</td>
+                                <td data-title="URL"><a href="#">mgm.com</a></td>
+                                <td data-title="CEO">Gary Barber</td>
+                                <td data-title="Headquarters">Los Angeles, California</td>
+                                <td data-title="Founded">April 17, 1924</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr/>
+
+                    <h3>4 &mdash; Stacked Comparison</h3>
+                    <div class="tbl-wrapper tbl-stacked-compare">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Henson Pictures</th>
+                                <th>Sony Pictures</th>
+                                <th>Warner Bros.</th>
+                                <th>Walt Disney Studios</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>URL</td>
+                                <td data-title="Henson Pictures"><a href="#">henson.com</a></td>
+                                <td data-title="Sony Pictures"><a href="#">sonypictures.com</a></td>
+                                <td data-title="Warner Bros."><a href="#">warnerbros.com</a></td>
+                                <td data-title="Walt Disney Studios"><a href="#">disney.com</a></td>
+                            </tr>
+                            <tr>
+                                <td>CEO</td>
+                                <td data-title="Henson Pictures">Brian Henson</td>
+                                <td data-title="Sony Pictures">Thomas Rothman</td>
+                                <td data-title="Warner Bros.">Kevin Tsujihara</td>
+                                <td data-title="Walt Disney Studios">Alan Horn</td>
+                            </tr>
+                            <tr>
+                                <td>Headquarters</td>
+                                <td data-title="Henson Pictures">Los Angeles, California</td>
+                                <td data-title="Sony Pictures">Culver City, California</td>
+                                <td data-title="Warner Bros.">Burbank, California</td>
+                                <td data-title="Walt Disney Studios">Burbank, California</td>
+                            </tr>
+                            <tr>
+                                <td>Founded</td>
+                                <td data-title="Henson Pictures">November 20, 1958</td>
+                                <td data-title="Sony Pictures">August 7, 1991</td>
+                                <td data-title="Warner Bros.">April 4, 1923</td>
+                                <td data-title="Walt Disney Studios">November 05, 1936</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr/>
+
+                    <h3>5 &mdash; Combination Comparison</h3>
+                    <div class="tbl-wrapper tbl-combo-compare">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>CEO</th>
+                                <th>Headquarters</th>
+                                <th>Founded</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Henson Pictures</td>
+                                <td data-title="URL"><a href="#">henson.com</a></td>
+                                <td data-title="CEO">Brian Henson</td>
+                                <td data-title="Headquarters">Los Angeles, California</td>
+                                <td data-title="Founded">November 20, 1958</td>
+                            </tr>
+                            <tr>
+                                <td>Sony Pictures</td>
+                                <td data-title="URL"><a href="#">sonypictures.com</a></td>
+                                <td data-title="CEO">Thomas Rothman</td>
+                                <td data-title="Headquarters">Culver City, California, United States</td>
+                                <td data-title="Founded">August 7, 1991</td>
+                            </tr>
+                            <tr>
+                                <td>Warner Bros.</td>
+                                <td data-title="URL"><a href="#">warnerbros.com</a></td>
+                                <td data-title="CEO">Kevin Tsujihara</td>
+                                <td data-title="Headquarters">Burbank, California</td>
+                                <td data-title="Founded">April 4, 1923</td>
+                            </tr>
+                            <tr>
+                                <td>Walt Disney Studios</td>
+                                <td data-title="URL"><a href="#">disney.com</a></td>
+                                <td data-title="CEO">Alan Horn</td>
+                                <td data-title="Headquarters">Burbank, California</td>
+                                <td data-title="Founded">November 05, 1936</td>
+                            </tr>
+                            <tr>
+                                <td>Universal Studios</td>
+                                <td data-title="URL"><a href="#">universalstudios.com</a></td>
+                                <td data-title="CEO">Ronald Meyer</td>
+                                <td data-title="Headquarters">Universal City, California</td>
+                                <td data-title="Founded">April 10, 1912</td>
+                            </tr>
+                            <tr>
+                                <td>United Artists</td>
+                                <td data-title="URL"><a href="#">uamg.com</a></td>
+                                <td data-title="CEO">Mark Burnett</td>
+                                <td data-title="Headquarters">Beverly Hills, California</td>
+                                <td data-title="Founded">February 5, 1919</td>
+                            </tr>
+                            <tr>
+                                <td>Metro-Goldwyn-Mayer</td>
+                                <td data-title="URL"><a href="#">mgm.com</a></td>
+                                <td data-title="CEO">Gary Barber</td>
+                                <td data-title="Headquarters">Los Angeles, California</td>
+                                <td data-title="Founded">April 17, 1924</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr/>
+
+                    <h1>Cards</h1>
+
+                    <h2>Basic Card</h2>
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <ol class="result-list tk-stl-cards-md-3 tk-stl-cards-sm-2">
+                                <li class="result first tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="#">Police Story</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>The Police Story film series comprises six Hong Kong crime-action
+                                            films, directed by Jackie Chan, Stanley Tong and Benny Chan,
+                                            produced by Raymond Chow, Leonard Ho, Jackie Chan, Barbie Tung and Solon So.
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="#">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="http://www.imdb.com/">Armour of God 2: Operation Condor</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Armour of God II: Operation Condor is a 1991 Hong Kong action-comedy
+                                            film written and directed by Jackie Chan, who also starred in the
+                                            lead role. It is the sequel to the 1986's Armour of God...</p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="http://www.imdb.com/title/tt0089374/">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result last tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">Drunken Master</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Drunken Master is a 1978 Hong Kong martial arts film directed by
+                                            Yuen Woo-ping, and starring Jackie Chan, Yuen Siu-tien, and Hwang
+                                            Jang Lee. The film was a success at the Hong Kong box office, earning...
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">https://www.youtube.com/watch?v=74OBuMA2qEk</a></p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <hr/>
+
+                    <!-- CARDS + IMAGES -->
+                    <h2>Cards + Images</h2>
+
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <ol class="result-list tk-stl-cards-md-3 tk-stl-cards-sm-2">
+                                <li class="result first tk-stl-card">
+                                    <div class=" tk-stl-image">
+                                        <img src="http://1.bp.blogspot.com/_rg0fvKnE3d0/TQfYw7jMBfI/AAAAAAAAA4I/bJbupOE66Nk/s576/Tom_Lagatta.jpg" alt="">
+                                    </div>
+                                    <div class="tk-stl-content">
+                                        <div class=" tk-stl-title">
+                                            <p><a href="http://www.imdb.com/">Police Story</a></p>
+                                        </div>
+                                        <div class="tk-stl-description">
+                                            <p>The Police Story film series comprises six Hong Kong crime-action
+                                                films, directed by Jackie Chan, Stanley Tong and Benny Chan,
+                                                produced by Raymond Chow, Leonard Ho, Jackie Chan, Barbie Tung and Solon So.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tk-stl-footer">
+                                        <div class="tk-stl-url">
+                                            <p><a href="#">http://www.imdb.com/title/tt0089374/</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-card">
+                                    <div class=" tk-stl-header">
+                                        <p>Armour of God 2</p>
+                                    </div>
+                                    <div class="tk-stl-content">
+                                        <div class=" tk-stl-title">
+                                            <p><a href="http://www.imdb.com/">Armour of God 2: Operation Condor</a></p>
+                                        </div>
+                                        <div class=" tk-stl-description">
+                                            <p>Armour of God II: Operation Condor is a 1991 Hong Kong action-comedy.</p>
+                                        </div>
+                                    </div>
+                                    <div class="tk-stl-footer">
+                                        <div class=" tk-stl-url">
+                                            <p><a href="http://www.imdb.com/title/tt0089374/">http://www.imdb.com/title/tt0089374/</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="result last tk-stl-card">
+                                    <div class=" tk-stl-image">
+                                        <img src="http://2.bp.blogspot.com/_rg0fvKnE3d0/TOFzCobE1II/AAAAAAAAA3k/Gq5HT6KN2q0/s576/Freemanhr-764650.jpg" alt="">
+                                    </div>
+                                    <div class="tk-stl-content">
+                                        <div class=" tk-stl-title">
+                                            <p><a href="http://www.imdb.com/">Drunken Master</a></p>
+                                        </div>
+                                        <div class=" tk-stl-description">
+                                            <p>Drunken Master is a 1978 Hong Kong martial arts film directed by
+                                                Yuen Woo-ping, and starring Jackie Chan, Yuen Siu-tien, and Hwang
+                                                Jang Lee. The film was a success at the Hong Kong box office, earning...
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="tk-stl-footer">
+                                        <div class="tk-stl-url">
+                                            <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">https://www.youtube.com/watch?v=74OBuMA2qEk</a></p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <h2>Comments List</h2>
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <h3 class="tk-stl-dividing-header">Comments</h3>
+                            <ol class="tk-stl-comment-list">
+                                <li class="tk-stl-comment">
+                                    <a class="avatar">
+                                        <img src="http://1.bp.blogspot.com/_rg0fvKnE3d0/TQfYw7jMBfI/AAAAAAAAA4I/bJbupOE66Nk/s576/Tom_Lagatta.jpg" alt="">
+                                    </a>
+                                    <div class="content">
+                                        <a href="" class="author">Paul</a>
+                                        <div class="metadata">
+                                            <span class="date">03/08/2016 at 5:42PM</span>
+                                        </div>
+                                        <p class="message">Who doesn't love Police Academy?!</p>
+                                        <div class="actions">
+                                            <a class="reply">Reply</a>
+                                            <a class="delete">Delete</a>
+                                        </div>
+                                    </div>
+                                    <ol class="tk-stl-comment-list">
+                                        <li class="tk-stl-comment">
+                                            <a class="avatar">
+                                                <img src="http://2.bp.blogspot.com/_rg0fvKnE3d0/TOFzCobE1II/AAAAAAAAA3k/Gq5HT6KN2q0/s576/Freemanhr-764650.jpg" alt="">
+                                            </a>
+                                            <div class="content">
+                                                <a href="" class="author">John</a>
+                                                <div class="metadata">
+                                                    <span class="date">03/08/2016 at 5:42PM</span>
+                                                </div>
+                                                <p class="message">Look at me! I'm nested!</p>
+                                                <div class="actions">
+                                                    <a class="reply">Reply</a>
+                                                </div>
+                                            </div>
+                                            <ol class="tk-stl-comment-list">
+                                                <li class="tk-stl-comment">
+                                                    <a class="avatar">
+                                                        <img src="http://2.bp.blogspot.com/_rg0fvKnE3d0/TQy2pUKqwgI/AAAAAAAAA4Q/bAeGIt9iIws/s576/MarkKeatley_AUG2010.jpg" alt="">
+                                                    </a>
+                                                    <div class="content">
+                                                        <a href="" class="author">Ethan</a>
+                                                        <div class="metadata">
+                                                            <span class="date">03/08/2016 at 5:42PM</span>
+                                                        </div>
+                                                        <p class="message">I'm nested even further.</p>
+                                                        <div class="actions">
+                                                            <a class="reply">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ol>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li class="tk-stl-comment">
+                                    <a class="avatar default">
+                                        <!--<img src="http://dvd.box.sk/newsimg/dvdmov/max1375743336-potlaccd-cover.jpg" alt="">-->
+                                    </a>
+                                    <div class="content">
+                                        <a href="" class="author">Matt</a>
+                                        <div class="metadata">
+                                            <span class="date">03/08/2016 at 5:42PM</span>
+                                        </div>
+                                        <p class="message">I have a default avatar and a long message. <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad adipisci delectus dolore, dolorem facere facilis hic impedit iste laboriosam maiores nulla perspiciatis placeat praesentium quia quis repellat rerum ullam.</p>
+                                        <div class="actions">
+                                            <a class="reply">Reply</a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="tk-stl-comment">
+                                    <a class="avatar">
+                                        <img src="http://cdn29.us3.fansshare.com/images/armourofgod/armour-of-god-operation-condor-movie-1928812372.jpg" alt="">
+                                    </a>
+                                    <div class="content">
+                                        <a href="" class="author">Steve</a>
+                                        <div class="metadata">
+                                            <span class="date">03/08/2016 at 5:42PM</span>
+                                        </div>
+                                        <p class="message">Great job!</p>
+                                        <div class="actions">
+                                            <a class="reply">Reply</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+
+                            <!-- Comment Form -->
+                            <div class="tk-rgrid-u-1 tk-rgrid-u-sm-3-4 tk-rgrid-u-md-1-2">
+                                <div class="tk-stl-comment-form">
+                                    <textarea placeholder="Reply..."></textarea>
+                                    <button class="tk-stl-button">Add Comment</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h2>Social Search</h2>
+                    <div class="tk-rgrid-u-20-24 tk-rgrid-u-md-1-2">
+                        <div class="tk-rgrid-box pl0em">
+
+                            <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-social-search">
+                                <input type="text" placeholder="people, places, documents">
+
+                                <i class="icon-heart"></i>
+                                <i class="icon-bookmark"></i>
+
+                                <div class="tk-stl-saved-searches">
+                                    <p class="title">Saved Searches</p>
+                                    <div class="tk-rgrid-g">
+                                        <div class="tk-rgrid-u-2-3">
+                                            <input type="text" placeholder="Search name" class="tk-stl-input-1">
+                                        </div>
+                                        <div class="tk-rgrid-u-1-3">
+                                            <button class="tk-stl-button tk-stl-input-1">Save</button>
+                                        </div>
+                                    </div>
+
+                                    <ul>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Google</a></p>
+                                                <span class="metadata">17/06/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Apple</a></p>
+                                                <span class="metadata">23/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Microsoft</a></p>
+                                                <span class="metadata">11/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Lenovo</a></p>
+                                                <span class="metadata">07/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">IBM</a></p>
+                                                <span class="metadata">17/06/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Hewlett-Packard</a></p>
+                                                <span class="metadata">23/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">ASUS</a></p>
+                                                <span class="metadata">11/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">AMD</a></p>
+                                                <span class="metadata">07/05/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tk-stl-bookmarks-list">
+                                    <p class="title">Bookmarks</p>
+                                    <ul>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Google bookmark</a></p>
+                                                <span class="metadata">17/06/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Apple bookmark</a></p>
+                                                <span class="metadata">17/06/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="content">
+                                                <p><a href="#">Microsoft bookmark</a></p>
+                                                <span class="metadata">17/06/2016</span>
+                                                <span class="delete">&times;</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="label">
+                                    <button class="tk-stl-button">Search</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tk-rgrid-u-20-24 tk-rgrid-u-md-1-2">
+                        <div class="tk-rgrid-box pl0em">
+
+                            <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-social-search">
+                                <input type="text" placeholder="people, places, documents">
+
+                                <i class="icon-heart"></i>
+                                <i class="icon-bookmark"></i>
+
+                                <div class="tk-stl-saved-searches">
+                                    <p class="title">Saved Searches</p>
+                                    <div class="tk-rgrid-g">
+                                        <div class="tk-rgrid-u-2-3">
+                                            <input type="text" placeholder="Search name" class="tk-stl-input-1">
+                                        </div>
+                                        <div class="tk-rgrid-u-1-3">
+                                            <button class="tk-stl-button tk-stl-input-1">Save</button>
+                                        </div>
+                                    </div>
+
+                                    <ul>
+                                        <li>
+                                            <div class="content">
+                                                <p class="empty">You don't have any saved searches yet.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="tk-stl-bookmarks-list">
+                                    <p class="title">Bookmarks</p>
+                                    <ul>
+                                        <li>
+                                            <div class="content">
+                                                <p class="empty">You don't have any bookmarks yet.</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="label">
+                                    <button class="tk-stl-button">Search</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h2>Bookmark List</h2>
+                    <div class="tk-stl-bookmarks-list">
+                        <p class="title">Bookmarks</p>
+                        <ul>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Google bookmark</a></p>
+                                    <span class="metadata">17/06/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Apple bookmark</a></p>
+                                    <span class="metadata">17/06/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Microsoft bookmark</a></p>
+                                    <span class="metadata">17/06/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <h2>Saved Searches</h2>
+                    <div class="tk-stl-saved-searches">
+                        <p class="title">Saved Searches</p>
+                        <form>
+                            <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-input-1">
+                                <input type="text" placeholder="Search name">
+                                <div class="label">
+                                    <button class="tk-stl-button">Save</button>
+                                </div>
+                            </div>
+                        </form>
+
+
+                        <ul>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Google</a></p>
+                                    <span class="metadata">17/06/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Apple</a></p>
+                                    <span class="metadata">23/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Microsoft</a></p>
+                                    <span class="metadata">11/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Lenovo</a></p>
+                                    <span class="metadata">07/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">IBM</a></p>
+                                    <span class="metadata">17/06/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">Hewlett-Packard</a></p>
+                                    <span class="metadata">23/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">ASUS</a></p>
+                                    <span class="metadata">11/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content">
+                                    <p><a href="#">AMD</a></p>
+                                    <span class="metadata">07/05/2016</span>
+                                    <span class="delete">&times;</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <hr>
+
+                    <h3>Modals &amp; Alerts</h3>
+
+                    <!-- Modal -->
+                    <button class="tk-stl-button" data-toggle="modal" data-target="#modal-1">Show Modal</button>
+
+                    <div class="tk-stl-modal-wrapper" id="modal-1">
+                        <div class="tk-stl-modal tk-rgrid-u-1 tk-rgrid-u-sm-1-2 tk-rgrid-u-md-1-3">
+                            <div class="tk-stl-modal-header">Modal Header <span class="close">&times;</span></div>
+                            <div class="tk-stl-modal-content">
+                                <h4>Modal Content</h4>
+                                <p>The modal size can be set using the grid classes.</p>
+                                <br><br>
+                            </div>
+                            <div class="tk-stl-modal-footer">Modal Footer</div>
+                        </div>
+                    </div>
+
+                    <!-- Alert -->
+                    <button class="tk-stl-button" data-toggle="modal" data-target="#alert-1">Alert!</button>
+
+                    <div class="tk-stl-modal-wrapper" id="alert-1">
+                        <div class="tk-stl-modal">
+                            <div class="tk-stl-modal-content">
+                                <h4>This is an alert</h4>
+                                <p>By default the modal fits the contents.</p>
+                            </div>
+                            <div class="tk-stl-modal-footer">
+                                <button class="tk-stl-button right close">OK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h3>Loading Icons <span class="code-icon" data-code="#loading-icon-code"></span></h3>
+
+                    <layout:grid>
+                        <layout:block>
+                            <widget:spinner></widget:spinner>
+                        </layout:block>
+                    </layout:grid>
+
+                    <hr>
+
+                    <h3>Notifications</h3>
+                    <button class="tk-stl-button" data-notify="I'm a notification.">Notify</button>
+
+                    <hr>
+
+                    <h3>Timeline</h3>
+
+                    <!-- Timeline -->
+                    <layout:grid>
+                        <layout:block>
+                                <!-- Entry -->
+                                <div styling="timeline-entry">
+                                    <layout:grid>
+                                        <layout:block medium="7-24" large="1-3" styling="timeline-time">
+                                            <layout:box padding-right="2">
+                                                <h2>October 26, 2016</h2>
+                                                <h4>1:22pm &ndash; 1:37pm</h4>
+                                            </layout:box>
+                                        </layout:block>
+                                        <layout:block medium="17-24" large="14-24" styling="timeline-content">
+                                            <layout:box padding-left="2">
+                                                <div styling="panel text-left">
+                                                    <h3>Lot Shipped</h3>
+                                                    <p>From: Warehouse 3, Row 6, Level -2</p>
+                                                    <p>To: XY Distribution Pharma, Texas</p>
+                                                    <p>Docket Ref: dsg246475g</p>
+                                                </div>
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+                                </div>
+                                <!-- Entry -->
+                                <div styling="timeline-entry">
+                                    <layout:grid>
+                                        <layout:block medium="7-24" large="1-3" styling="timeline-time">
+                                            <layout:box padding-right="2">
+                                                <h2>October 25, 2016</h2>
+                                                <h4>3:22pm &ndash; 8:22am</h4>
+                                            </layout:box>
+                                        </layout:block>
+                                        <layout:block medium="17-24" large="14-24" styling="timeline-content">
+                                            <layout:box padding-left="2">
+                                                <div styling="panel text-left">
+                                                    <h3>Lot Shipped</h3>
+                                                    <p>From: Warehouse 3, Row 6, Level -2</p>
+                                                    <p>To: XY Distribution Pharma, Texas</p>
+                                                    <p>Docket Ref: dsg246475g</p>
+                                                </div>
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+                                </div>
+                                <!-- Entry -->
+                                <div styling="timeline-entry">
+                                    <layout:grid>
+                                        <layout:block medium="7-24" large="1-3" styling="timeline-time">
+                                            <layout:box padding-right="2">
+                                                <h2>October 19, 2016</h2>
+                                                <h4>1:55am &ndash; 5:08am</h4>
+                                            </layout:box>
+                                        </layout:block>
+                                        <layout:block medium="17-24" large="14-24" styling="timeline-content">
+                                            <layout:box padding-left="2">
+                                                <div styling="panel text-left">
+                                                    <h3>Lot Shipped</h3>
+                                                    <p>From: Warehouse 3, Row 6, Level -2</p>
+                                                    <p>To: XY Distribution Pharma, Texas</p>
+                                                    <p>Docket Ref: dsg246475g</p>
+                                                </div>
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+                                </div>
+                        </layout:block>
+                    </layout:grid>
+
+                    <!-- <h4>Horizontal</h4> -->
+                    <!--<div class="tk-stl-timeline-container fade-left fade-right">-->
+                    <!--     <ul class="tk-stl-timeline horizontal">
+
+                            <li class="time-slot">
+                                <div class="milestone">
+                                    2012
+                                </div>
+                                <div class="events">
+                                    <div class="entry">
+                                        <div class="content">Miro is born</div>
+                                        <div class="metadata">08 January</div>
+                                    </div>
+                                    <div class="entry">
+                                        <div class="content">Theo's birthday</div>
+                                        <div class="metadata">19 February</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="time-slot">
+                                <div class="milestone">
+                                    2013
+                                </div>
+                                <div class="events">
+                                    <div class="entry">
+                                        <div class="content">Theo has a sore tooth which gets infected, again.</div>
+                                        <div class="metadata">10 May</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="time-slot">
+                                <div class="milestone">
+                                    2014
+                                </div>
+                                <div class="events">
+                                    <div class="entry">
+                                        <div class="content">A routine trip to the dentist reveals problems.</div>
+                                        <div class="metadata">14 June</div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul> -->
+                    <!--</div>-->
+
+<!--                         <hr>
+-->
+                    <!-- <h4>Vertical</h4>
+                    <ul class="tk-stl-timeline vertical">
+
+                        <li class="time-slot">
+                            <div class="milestone">
+                                July
+                            </div>
+                            <div class="events">
+                                <div class="entry">
+                                    <div class="content">Miro is born</div>
+                                    <div class="metadata">8th</div>
+                                </div>
+                                <div class="entry">
+                                    <div class="content">Theo's birthday</div>
+                                    <div class="metadata">19th</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="time-slot">
+                            <div class="milestone">
+                                August
+                            </div>
+                            <div class="events">
+                                <div class="entry">
+                                    <div class="content">Theo has a sore tooth which gets infected, again.</div>
+                                    <div class="metadata">10th</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="time-slot">
+                            <div class="milestone">
+                                September
+                            </div>
+                            <div class="events">
+                                <div class="entry">
+                                    <div class="content">A routine trip to the dentist reveals problems.</div>
+                                    <div class="metadata">14th</div>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul> -->
+
+                    <hr>
+
+                    <h3>Progress Bars</h3>
+                    <h4>Horizontal</h4>
+                    <div class="tk-rgrid-box pt0em">
+                        <p class="tk-stl-label">Default</p>
+                        <div class="tk-stl-progress-bar">
+                            <div class="tk-stl-progress-bar-fill" style="width: 66%"></div>
+                        </div>
+
+                        <br>
+
+                        <p class="tk-stl-label">Thin</p>
+                        <div class="tk-stl-progress-bar tk-stl-thin">
+                            <div class="tk-stl-progress-bar-fill" style="width: 45%"></div>
+                        </div>
+
+                        <br>
+
+                        <p class="tk-stl-label">The colour classes can be used for styling</p>
+                        <div class="tk-stl-progress-bar">
+                            <div class="tk-stl-progress-bar-fill tk-stl-bg-sunflower" style="width: 33%"></div>
+                        </div>
+
+                        <br>
+                    </div>
+
+
+                    <h4>Radial</h4>
+                    <layout:grid>
+                        <layout:block sm="1-2">
+                            <progress:radial percentage="33"></progress:radial>
+                        </layout:block>
+                        <layout:block sm="1-2">
+                            <progress:radial percentage="88" fill-class="tk-stl-bg-raspberry" percentage-class="tk-stl-text-raspberry"></progress:radial>
+                        </layout:block>
+                    </layout:grid>
+
+                    <hr>
+
+                    <h3>File Hierarchy</h3>
+
+                    <div class="tk-stl-file-hierarchy">
+                        <div class="columns">
+                            <div class="column">
+                                <ul>
+                                    <li><span class="control">Select All</span> <input type="checkbox"></li>
+                                    <li class="active"><i class="icon-folder-open"></i> Cars <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> Boats <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> Planes <input type="checkbox"></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <ul>
+                                    <li><span class="control">Select All</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Audi</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">BMW</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Chevy</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Citroen</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Fiat</span> <input type="checkbox"></li>
+                                    <li class="active"><i class="icon-folder-open"></i> <span class="label">Ford</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Peugeot</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Seat</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Subaru</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Toyota</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Vauxhall</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> <span class="label">Volvo</span> <input type="checkbox"></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <ul>
+                                    <li><span class="control">Select All</span> <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> Anglia <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> GT <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> Falcon <input type="checkbox"></li>
+                                    <li><i class="icon-folder"></i> KA <input type="checkbox"></li>
+                                    <li class="active"><i class="icon-folder-open"></i> Mondeo <input type="checkbox"></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <ul>
+                                    <li>1992</li>
+                                    <li>1996</li>
+                                    <li>2000</li>
+                                    <li>2006</li>
+                                    <li>2012</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <h3>Checkbox Switches</h3>
+
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <h5>Switch Styles</h5>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Default</span>
+                            <input class="tk-stl-checkbox-switch" id="switch1" type="checkbox">
+                            <label for="switch1"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Square</span>
+                            <input class="tk-stl-checkbox-switch" id="switch2" type="checkbox">
+                            <label class="tk-stl-square" for="switch2"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Flat</span>
+                            <input class="tk-stl-checkbox-switch" id="switch3" type="checkbox">
+                            <label class="tk-stl-flat" for="switch3"></label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <h5>Colors</h5>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Primary Color (Default)</span>
+                            <input class="tk-stl-checkbox-switch" id="switch4" type="checkbox">
+                            <label for="switch4"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Positive</span>
+                            <input class="tk-stl-checkbox-switch" id="switch5" type="checkbox">
+                            <label class="tk-stl-positive" for="switch5"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Negative</span>
+                            <input class="tk-stl-checkbox-switch" id="switch6" type="checkbox">
+                            <label class="tk-stl-negative" for="switch6"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Warning</span>
+                            <input class="tk-stl-checkbox-switch" id="switch8" type="checkbox">
+                            <label class="tk-stl-warning" for="switch8"></label>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Info</span>
+                            <input class="tk-stl-checkbox-switch" id="switch10" type="checkbox">
+                            <label class="tk-stl-info" for="switch10"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Secondary</span>
+                            <input class="tk-stl-checkbox-switch" id="switch11" type="checkbox">
+                            <label class="tk-stl-secondary" for="switch11"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Tertiary</span>
+                            <input class="tk-stl-checkbox-switch" id="switch12" type="checkbox">
+                            <label class="tk-stl-tertiary" for="switch12"></label>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <h5>Size classes can also be used</h5>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Tiny</span>
+                            <input class="tk-stl-checkbox-switch" id="switch13" type="checkbox">
+                            <label class="tk-stl-tiny" for="switch13"></label>
+                        </div>
+                        <div class="tk-rgrid-u-1-4">
+                            <span class="tk-stl-label">Massive</span>
+                            <input class="tk-stl-checkbox-switch" id="switch14" type="checkbox">
+                            <label class="tk-stl-massive" for="switch14"></label>
+                        </div>
+                    </div>
+
+
+                    <hr>
+                    <p class="tk-stl-textcenter"><a class="scrollup" href="#">back to top</a></p>
+                    <hr/>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

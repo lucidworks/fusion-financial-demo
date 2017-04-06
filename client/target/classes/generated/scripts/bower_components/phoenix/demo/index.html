@@ -1,0 +1,129 @@
+<!doctype html>
+<html class="no-js">
+<head>
+	<base href="/" />
+	<meta charset="utf-8">
+	<title>Phoenix - Twigkit</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link href="styles/phoenix.all.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="styles/demo.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body ng-app="phoenix">
+
+<!-- All views are loaded here -->
+<ui-view></ui-view>
+
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+		integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+		crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-touch/angular-touch.min.js"></script>
+<script type="text/javascript" src="../bower_components/lightning/dist/lightning.min.js"></script>
+<script type="text/javascript" src="javascript/app.js"></script>
+
+<script>
+	$(function() {
+
+		$('body').on('click', '.scrollup', function(){
+			$("html, body").animate({ scrollTop: 0 }, 1200);
+			return false;
+		});
+
+		$('body').on('click', '[data-toggle="offcanvas"]', function () {
+			$( $(this).data('target') ).toggleClass('active');
+		});
+
+		// tk-stl-sortoptions-group
+		$('body').on('click', '.tk-stl-sortoptions li', function (e) {
+			e.preventDefault();
+			$('.tk-stl-sortoptions-group', this).toggleClass('show') ;
+		});
+
+		// nav bar group
+		$('body').on('click', '.tk-stl-navbar-item-group', function (e) {
+			$('.tk-stl-navbar-item-group-list', this).toggleClass('show');
+		});
+
+		// social search
+		$('body').on('click', '.tk-stl-social-search .icon-heart', function () {
+			$(this).siblings('.tk-stl-saved-searches').toggleClass('show');
+		});
+
+		$('body').on('click', '.tk-stl-social-search .icon-bookmark', function () {
+			$(this).siblings('.tk-stl-bookmarks-list').toggleClass('show');
+		});
+
+		// Modals
+		$('body').on('click', '[data-toggle="modal"]', function (e) {
+			e.preventDefault();
+			$( $(this).data('target') ).toggleClass('show');
+		});
+
+		$('body').on('click', ".tk-stl-modal-wrapper", function () {
+			$(this).removeClass('show');
+		});
+
+		$('body').on('click', ".tk-stl-modal .close", function () {
+			$(this).parents(".tk-stl-modal-wrapper").removeClass('show');
+		});
+
+		$('body').on('click', ".tk-stl-modal", function (e) {
+			e.stopPropagation();
+		});
+
+		// notifications
+		$('body').on('click', "[data-notify]", function (e) {
+			e.preventDefault();
+
+			// check for container
+			var container = $('.tk-stl-notifications');
+
+			if (container.length === 0) {
+				var container = $('<div class="tk-stl-notifications"></div>');
+				container.appendTo('body');
+			}
+
+			var notification = '<div class="tk-stl-basic-card tk-stl-fade in">' + $(this).data('notify') + '</div>';
+
+			$(notification).show(300).appendTo(container);
+
+			setTimeout(function () {
+				$(".tk-stl-notifications > div:first-child").hide(300);
+			}, 2000);
+
+		});
+
+		// Auto escape code examples
+		function escapeHtml(unsafe) {
+			return unsafe
+					.replace(/&/g, "&amp;")
+					.replace(/</g, "&lt;")
+					.replace(/>/g, "&gt;")
+					.replace(/"/g, "&quot;")
+					.replace(/'/g, "&#039;");
+		}
+
+		$('pre code').each(function() {
+			$(this).html( escapeHtml($(this).html()));
+		});
+
+
+		// Code example toggling
+		$('body').on('click', '.code-icon[data-code]', function () {
+			$( $(this).data('code') ).slideToggle();
+		});
+	});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!-- Set the page title -->
+
+<helper:title title="Twigkit"></helper:title>
+
+<!-- HEADER -->
+<layout:grid styling="header bg-primary">
+
+  <!-- HEADER > LOGO  3/24 width on medium screen, 100% width on small screens-->
+
+  <layout:block tiny="4-24" medium="3-24">
+    <layout:box>
+      <!--search:offcanvas-toggle target="#sidebar"></search:offcanvas-toggle-->
+    </layout:box>
+  </layout:block>
+
+  <layout:block medium="3-24" styling="hide-xs hide-sm">
+    <layout:box padding-top="2">
+      <div>
+        <a href="./#/home" styling="text-white"><img src="./assets/Images/Header-Bar/DijiHub-Logo210x56.png" alt="Twigkit"></a>
+      </div>
+    </layout:box>
+  </layout:block>
+  <!-- HEADER > SEARCH BOX -->
+  <layout:block tiny="20-24" medium="1-2" style="z-index:102">
+    <layout:box padding-top="2">
+      <!-- Add a 400ms delay before auto-submitting query -->
+      <search:box placeholder="Search..." class="searchbox" action="search">
+        <!--query:suggestions
+                completion-service="services.suggestions.fusionsignalsaggr"
+                action="search/">
+        </query:suggestions-->
+        <!--query:suggestions
+                completion-service="services.suggestions.solr"
+                action="search" show="5">
+        </query:suggestions-->
+
+        <instant:result-list platform="ecomm_aggr_platform" response="typeahead_response">
+          <search:result>
+            <a ng-href="/#/search?q={{result.fields.query_s.val | actualValue}}" class="link">
+
+              <search:field name="query_s" label="" styling="label-inline" url="/#/search?q={{result.fields.query_s.val | actualValue}}"></search:field>
+            </a>
+          </search:result>
+        </instant:result-list>
+
+        <!--instant:result-list platform="platform" response="response">
+          <search:result>
+            <a ng-href="/#/search?q={{result.fields.id.val | actualValue}}" class="link">
+
+              <search:field name="id" label="" styling="label-inline" url="/#/search?q={{result.fields.id.val | actualValue}}"></search:field>
+            </a>
+          </search:result>
+        </instant:result-list-->
+      </search:box>
+    </layout:box>
+  </layout:block>
+  <layout:block medium="3-24" styling="hide-xs hide-sm">
+      <div style="300px; padding-top:35px">
+        <div style="float:left">
+          <image src="./assets/Images/Header-Bar/user-icon-34x33.png"></image>
+        </div>
+        <div style="float:left; padding-left:10px">
+          <a href="/login"><strong>Welcome, {{ user }}!</strong></a>
+        </div>
+      </div>
+
+  </layout:block>
+</layout:grid>
+
+
+<layout:grid styling="header bg-secondary">
+  <layout:block styling="hide-xs text-right">
+    <ul class="custom-topnav">
+      <li><a href="/#/home">Home</a></li>
+      <li><a href="/#/search?q=flash sale">Sales</a></li>
+      <li><a href="/#/compare">Recommended For You (NYI)</a></li>
+      <li><a href="/#/search?q=deal of the day">Deal of the Day</a></li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">About Dijihub</a>
+        <div class="dropdown-content">
+          <a href="/#/compare">Compare (NYI)</a>
+          <a href="/#/userrecs">Users vs. Recommendations (NYI)</a>
+        </div>
+      </li>
+    </ul>
+  </layout:block>
+</layout:grid>
+
+<div class="header-image"></div>
+

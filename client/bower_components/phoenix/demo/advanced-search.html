@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+	<title>Advanced Search - Phoenix</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link href="styles/phoenix.all.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<!-- OUTER WRAPPER -->
+<div class="tk-stl-outerwrapper kitchensink">
+
+	<!-- HEADER -->
+	<div id="header" class="tk-rgrid-g tk-stl-header tk-stl-bg-white">
+
+		<!-- Logo -->
+		<div class="tk-stl-hidemedium tk-rgrid-u-md-3-24">
+			<div class="tk-rgrid-box">
+				<!-- logo -->
+				<div class="tk-header-logo">
+					<a href="/">Logo <img src="assets/logo.png" width="32" alt=""></a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- NAVBAR -->
+	<div class="tk-rgrid-g tk-stl-bg-charcoal">
+		<div class="tk-rgrid-u-1">
+			<ul class="tk-stl-navbar">
+				<li class="tk-stl-navbar-item active">
+					<a href="kitchen-sink.html">
+						<span class="label">All</span>
+					</a>
+				</li>
+				<li class="tk-stl-navbar-item tk-stl-navbar-item-group">
+					<a href="#">
+						<span class="label">Demo Pages </span>
+						<span class="caret"></span>
+					</a>
+					<div class="tk-stl-navbar-item-group-list"><!-- .show -->
+						<ul>
+							<li class="tk-stl-navbar-item-group-list-item"><a href="result-lists.html">Result Lists</a></li>
+							<li class="tk-stl-navbar-item-group-list-item"><a href="ks-offcanvas.html">Off-canvas</a></li>
+							<li class="tk-stl-navbar-item-group-list-item"><a href="grid.html">Grid</a></li>
+							<li class="tk-stl-navbar-item-group-list-item"><a href="headers.html">Headers</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="tk-stl-navbar-item last">
+					<a href="CSS.html">
+						<span class="label">CSS</span>
+					</a>
+				</li>
+				<li class="tk-stl-navbar-item last">
+					<a href="kitchen-sink.html">
+						<span class="label">Components</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="tk-rgrid-u-md-3-5 tk-rgrid-u-offset-md-1-5">
+		<div class="tk-stl-centercontent">
+			<div class="tk-stl-centercontent-inner">
+
+				<div class="tk-rgrid-box">
+					<div class="tk-header-search-area">
+						<form class="tk-stl-form tk-rgrid-g tk-stl-labelled-input tk-stl-label-right">
+							<div class="tk-rgrid-u-2-3">
+
+								<div class="tk-stl-advanced-search">
+									<div class="highlight-wrapper">
+										<div type="text" class="input highlighted-search-input" contenteditable="true">
+											<span class="keyword">from: Twigkit</span>
+											<span class="keyword-incomplete">after:</span>
+											<span class="keyword">contains: string</span>
+										</div>
+									</div>
+									<div class="suggestions">
+										<p class="simple-search-suggestion">Search for "Twigkit" <span class="right icon-search"></span></p>
+										<ul class="keyword-list">
+											<legend>Keywords</legend>
+											<li><em>from: </em>channel</li>
+											<li><em>from: </em>date</li>
+											<li><em>after: </em>today</li>
+										</ul>
+										<ul class="search-suggestions">
+											<legend>Suggestions</legend>
+											<li><em>Twigkit</em> document 1</li>
+											<li>profile for <em>Twigkit</em></li>
+											<li><em>Twigkit</em>-logo.png</li>
+										</ul>
+										<ul class="other-keywords">
+											<legend>Other keywords</legend>
+											<li><em>before:</em> date</li>
+											<li><em>on:</em> date</li>
+											<li><em>contains:</em> text</li>
+											<li><em>has:</em> field</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="tk-rgrid-u-1-3 label">
+								<button type="submit" class="tk-stl-button tk-stl-button">Search</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	</div>
+
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<script>
+	$(function() {
+		$('.tk-stl-advanced-search .input').on('input', function () {
+			var value = $(this).html();
+			console.log(value);
+
+			if (value == 'from:') {
+				$(this).html('<em class="keyword">from:</em>');
+			}
+		});
+	});
+</script>
+</body>
+</html>

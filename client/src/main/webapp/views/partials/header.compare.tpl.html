@@ -1,0 +1,35 @@
+<!-- Set the page title -->
+
+<helper:title title="Twigkit"></helper:title>
+
+<!-- HEADER -->
+<layout:grid styling="header bg-primary">
+
+    <!-- HEADER > LOGO  3/24 width on medium screen, 100% width on small screens-->
+    <layout:block medium="3-24" styling="hide-xs hide-sm">
+        <layout:box padding-top="0.75">
+            <div class="tk-header-logo">
+                <a href="./" styling="text-white"><img src="./assets/logo.png" alt="Twigkit"></a>
+            </div>
+        </layout:box>
+    </layout:block>
+
+    <layout:block tiny="4-24" medium="3-24">
+        <layout:box>
+            <!-- Add a toggle button for small screens to show the facet list -->
+            <search:offcanvas-toggle target="#sidebar"></search:offcanvas-toggle>
+        </layout:box>
+    </layout:block>
+
+    <!-- HEADER > SEARCH BOX -->
+    <layout:block tiny="20-24" medium="1-2">
+        <layout:box>
+
+            <!-- Add a 400ms delay before auto-submitting query -->
+            <search:box placeholder="Search..." class="searchbox" action="compare">
+            </search:box>
+
+        </layout:box>
+    </layout:block>
+
+</layout:grid>

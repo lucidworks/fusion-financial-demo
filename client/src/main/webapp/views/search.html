@@ -1,0 +1,166 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+
+<!--typeahead config -->
+<search:platform var="ecomm_aggr_platform" conf="platforms.fusion.ecomm.ecommtypeaheadaggr"></search:platform>
+<search:query var="typeahead_query" parameters='*' results-per-page="12"></search:query>
+<search:response var="typeahead_response" platform="ecomm_aggr_platform" query="typeahead_query">
+	<widget:spinner></widget:spinner>
+</search:response>
+
+<search:platform var="platform" conf="platforms.fusion.ecomm.ecomm_query_profile"></search:platform>
+
+<search:query var="query" parameters='q' results-per-page="12"></search:query>
+
+<search:response var="response" platform="platform" query="query">
+	<widget:spinner></widget:spinner>
+</search:response>
+
+<!--related searches config-->
+<search:platform var="related_queries_platform" conf="platforms.fusion.ecomm.ecomm_query_query_recs"></search:platform>
+<search:query var="related_query" parameters='q' max-results="4" results-per-page="4"></search:query>
+<search:response var="related_queries" platform="related_queries_platform" query="related_query" >
+	<widget:spinner></widget:spinner>
+</search:response>
+
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<!-- Include the header from another file -->
+<!--layout:include file="views/partials/header.tpl.html"></layout:include-->
+<ng-include src="'views/partials/header.tpl.html'"></ng-include>
+<!-- Create variables for view -->
+<helper-set var="search_query" value="response.query.val"></helper-set>
+
+<!-- CONTENT - Wrap the contend in a grid -->
+<div class="tk-stl-outerwrapper">
+	<div class="tk-stl-centercontent ecomm-bg-grey" style="width:100%">
+		<layout:grid styling="row-offcanvas">
+			<!-- Animate the content when a response is received -->
+			<div class="search-float ecomm-bg-white">
+
+				<layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+
+					<!-- Split the page into a sidebar and a result list -->
+					<!-- CONTENT > SIDEBAR -->
+					<layout:block medium="1-3" large="1-4" drawer="left" id="sidebar" styling="bg-sidebar">
+						<layout:sidebar>
+						
+							<!-- List facets -->
+							<search:facet-list response="response" styling="shadow" facet-names="type=Type,department=Department,regularPrice=Reg. Price">
+
+								<search:facet facet-name="regularPrice" collapsible="true">
+                                    <widget:slider response="response" facet-name="regularPrice" query="query" ></widget:slider>
+								</search:facet>
+								
+								<search:facet max-characters="25" show="8" collapsible="true" show-more="8" select="checkbox"></search:facet>
+							</search:facet-list>
+						</layout:sidebar>
+					</layout:block>
+
+					<!-- CONTENT > RESULTS -->
+					<layout:block medium="2-3" large="3-4">
+
+						<layout:box padding-top="0">
+							<layout:content >
+								<div ng-if="related_queries.results.length > 0" >
+									Related Searches:
+									<search:result-list response="related_queries" style="width:auto;display:inline;">
+										<search:result style="width:auto;display:inline-block;">
+											<search:field name="otherItemId"
+																		ng-if="(result | field:'otherItemId' | actual) != ($parent.$parent.response.query.val | actual)"
+																		label="" styling="label-inline" url="#/search?q={{result | field:'otherItemId' | actual}}"></search:field>
+										</search:result>
+									</search:result-list>
+									</div>
+							</layout:content>
+							<!-- SORT OPTIONS -->
+							<layout:grid styling="sortoptions-wrapper">
+								<layout:block tiny="3-8" small="1-3">
+									<search:response-statistics response="response"></search:response-statistics>
+								</layout:block>
+							</layout:grid>
+
+							<!-- ALL RESULTS WRAPPER -->
+							<layout:block>
+								<layout:grid>
+
+									<!-- APP RESULTS CARD LIST -->
+									<layout:block>
+										<layout:grid>
+											<layout:block>
+
+												<!-- SELECTED FACETS -->
+												<search:breadcrumbs show-query="false" response="response" group-by-field="true"></search:breadcrumbs>
+
+												<layout:box padding-top="0" padding-left="0" padding-right="0">
+
+													<!-- Breadcrumb Control Bar -->
+													<!-- search:tabs response="response" field-name="data_source" all-label="All" styling="tabs" platform="platform" query="query" tabs="Google Drive,People,Sharepoint,Website,Windows Share"></search:tabs-->
+
+													<!-- Toggle charts -->
+													<toggle:panes id="incidents-panes">
+														<toggle:pane>
+
+															<chart:display response="response" type="pie" color="#143C5A,#0D1A31,#16A0B7,#5FDEC0,#50BFBE,#579FB2,#617F9B,#64617D,#5C465C,#5AB358" facet-name="Conditions" query="query" title="Conditions">
+
+																<chart:export file-name="Conditions"></chart:export>
+																<chart:credit text="twigkit.com" href="http://www.twigkit.com"></chart:credit>
+
+															</chart:display>
+
+														</toggle:pane>
+													</toggle:panes>
+												</layout:box>
+
+												<!-- Search Results - infinte scrolling -->
+
+												<div ng-if="isBanner" style="padding-bottom:10px;text-align:center;">
+													<p ng-bind-html="bannerData"></p>
+												</div>
+												<search:result-list response="response" styling="cards-md-1" infinite-scrolling="true" platform="platform" query="query">
+													<search:result styling="basic-card card-emphasis">
+														<layout:grid>
+															<layout:block medium="1-5" large="1-8">
+																<media:image result="result" field-name="image" image-service-url="" styling="squarecrop"></media:image>
+															</layout:block>
+															<layout:block medium="4-5" large="7-8">
+																<search:field name="name" styling="title" url="/#/productdetail?id={{result.id}}&f=id%5B%22{{result.id}}%22%5D%5B%22{{result.id}}%22%5D&"></search:field>
+																<!-- search:field name="id" styling="dividing-header title" action="productdetail" query="${query}"></search:field -->
+																<search:field name="regularPrice" label="" styling="title dividing-header" prefix="$"></search:field>
+
+																<search:field name="shortDescription" label=""></search:field>
+															</layout:block>
+														</layout:grid>
+													</search:result>
+												</search:result-list>
+
+											</layout:block>
+										</layout:grid>
+
+										<!-- No results message -->
+										<search:no-results response="response">
+											<h2 class="zero-results" styling="text-center">Sorry, there are no results that match your search criteria.</h2>
+											<p class="zero-results" styling="text-center">If you've checked your spelling, try using more general keywords.</p>
+										</search:no-results>
+
+										<!-- Uncomment to add pagination -->
+										<!--<search:pagination response="response" max-pages="3"></search:pagination>-->
+
+									</layout:block>
+
+								</layout:grid>
+							</layout:block>
+
+						</layout:box>
+					</layout:block>
+
+				</layout:animate>
+			</div>
+		</layout:grid>
+	</div>
+</div>

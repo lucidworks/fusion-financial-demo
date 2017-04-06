@@ -1,0 +1,199 @@
+// ---------------------------------------------------------
+// Theme: Custom
+// ---------------------------------------------------------
+
+// For all options see bower_components/phoenix/dist/settings.less
+
+// Default theme colours
+@color-primary: #ededed;
+@color-secondary: #1f81cc;
+@color-tertiary: #16A0B7;
+@button-color: @color-tertiary;
+
+@primary-bg-color: @color-white;
+@primary-bg-color-contrast: @color-grey-7;
+@secondary-bg-color: @color-white;
+@secondary-bg-color-contrast: @color-grey-7;
+
+// Links
+@link-color: @color-tertiary;
+@link-color-secondary: #5AB358;
+@link-hover-decoration: none;
+
+// Hierarchical Arrow Colour
+@arrow-color: #b3b3b3;
+
+// Custom CSS
+.tk-header-logo img {
+  height: 35px;
+}
+
+// Ecomm Color Styles
+.ecomm-bg-grey {
+    background-color:#ededed;
+}
+
+.ecomm-bg-white {
+    background-color:#fff;
+}
+
+
+// Ecomm Header Styling
+.header-image {
+    background-image: url(../../assets/Images/Top-Promo/Top-promo-image-1812x431.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:431px;
+}
+
+// Ecomm Styling
+.home-grid-control {
+    padding: 2em 10em;
+}
+
+.detail-grid-control {
+    padding: 2em 2em 0em 0em;
+}
+
+.home-float-top {
+    margin-top:-450px;
+    background-color:#fff;
+    z-index:101;
+    width:100%
+}
+
+.home-float-bottom {
+    margin-top:-115px;
+    margin-bottom:-250px;
+    background-color:#fff;
+    z-index:101;
+    width:100%;
+}
+
+.detail-float {
+    margin-top:-450px;
+        margin-bottom:-250px;
+    background-color:#fff;
+    z-index:101;
+    width:100%
+}
+
+.search-float {
+    margin-top:-400px;
+    z-index:101;
+    width:100%;
+}
+
+
+
+@media (max-width:1200px) {
+   .grid-control {
+     padding: 1em 1em;
+   }
+   .home-float {
+       margin-top:-350px;
+       background-color:#fff;
+       z-index:101;
+   }
+}
+
+// Ecomm Footer Styling
+.footer-image {
+    background-image: url(../../assets/Images/Bottom-Promo/Bottom-Promo-Image-1812x393.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:393px;
+}
+
+.ecomm-footer {
+    z-index:100;
+    bottom:0;
+    width:100%;
+}
+
+.home-banner-image {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    z-index:103;
+    padding-bottom:20px;
+}
+
+.home-card {
+    height:250px;
+}
+
+.home-card-content {
+    text-align:center;
+    height:150px;
+}
+
+.home-card-content img {
+vertical-align: middle;
+     max-height:150px;
+      width: auto;
+      height: auto;
+}
+
+.card-image-assist {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.custom-topnav {
+    list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width:100%;
+        margin-left:250px;
+}
+
+.custom-topnav li {
+    float: left;
+}
+
+.custom-topnav li a, .dropbtn {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+}
+
+.custom-topnav li a:hover, .dropdown:hover .dropbtn {
+    background-color: #EDEDEC;
+}
+
+.custom-topnav li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1f81cc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 110;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #1f81cc}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+//[class*="tk-rgrid-u"] {
+//  border: red 1px solid;
+//}
+

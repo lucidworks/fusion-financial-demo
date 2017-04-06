@@ -1,0 +1,255 @@
+<!-- OUTER WRAPPER -->
+<div class="tk-stl-outerwrapper kitchensink">
+
+    <layout:include file="demo/includes/header.html"></layout:include>
+
+    <!-- CONTENT -->
+    <div id="content" class="tk-rgrid-g tk-stl-row-offcanvas tk-stl-row-offcanvas-left tk-stl-bg-lbgrey">
+
+        <!-- CONTENT > SIDEBAR -->
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-4 tk-stl-blocksidebar-light tk-stl-sidebar-offcanvas-left">
+            <div class="tk-rgrid-box">
+                <aside class="tk-bl-sidebar">
+                    <ul class="facet-list">
+                        <li class="facet first">
+                            <h3 class="facet-title">Region</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Australia</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">South America</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">UK</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">USA</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li class="facet">
+                            <h3 class="facet-title">Town</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Cambridge</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">Oxford</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">London</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">Rio De Janeiro</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li class="facet">
+                            <h3 class="facet-title">Status</h3>
+                            <form class="filter-list-form" method="GET">
+                                <ol class="filter-list">
+                                    <li class="filter">
+                                        <label class="label" title="closed">
+                                            <input type="checkbox" class="checkbox" name="f"
+                                                   value="status[&quot;closed&quot;][&quot;closed&quot;]*">
+                                            Town
+                                        </label>
+                                            <span class="metadata">
+                                                <span class="count">1</span>
+                                            </span>
+                                    </li>
+                                    <li class="filter last f-5">
+                                        <label class="label" title="open">
+                                            <input type="checkbox" class="checkbox" name="f"
+                                                   value="status[&quot;open&quot;][&quot;open&quot;]*">
+                                            City
+                                        </label>
+                                            <span class="metadata">
+                                                <span class="count">1</span>
+                                            </span>
+                                    </li>
+                                </ol>
+                                <input type="hidden" name="rpp" value="20">
+                                <input type="submit" value="Apply Filters" class="submit" style="display:none;">
+                            </form>
+                        </li>
+
+                        <li class="facet last">
+                            <h3 class="facet-title">Continent</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Europe</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">Africa</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">South America</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">Asia</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- CONTENT > MAIN -->
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-3-4 xtk-stl-childborder tk-stl-bg-white">
+            <div class="tk-bl-content">
+                <div class="tk-rgrid-box">
+
+                    <!-- FORMS -->
+                    <h1>Responsive Result Cards</h1>
+
+                    <hr>
+
+                    <div class="tk-rgrid-g">
+                        <div class="tk-rgrid-u-1">
+                            <ol class="result-list tk-stl-cards-sm-2 tk-stl-cards-md-3 tk-stl-cards-lg-5">
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="#">Police Story</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>The Police Story film series comprises six Hong Kong crime-action
+                                            films, directed by Jackie Chan, Stanley Tong and Benny Chan,
+                                            produced by Raymond Chow, Leonard Ho, Jackie Chan, Barbie Tung and Solon So.
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="#">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="http://www.imdb.com/">Armour of God 2: Operation Condor</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Armour of God II: Operation Condor is a 1991 Hong Kong action-comedy
+                                            film written and directed by Jackie Chan, who also starred in the
+                                            lead role. It is the sequel to the 1986's Armour of God...</p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="http://www.imdb.com/title/tt0089374/">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">Drunken Master</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Drunken Master is a 1978 Hong Kong martial arts film directed by
+                                            Yuen Woo-ping, and starring Jackie Chan, Yuen Siu-tien, and Hwang
+                                            Jang Lee. The film was a success at the Hong Kong box office, earning...
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">https://www.youtube.com/watch?v=74OBuMA2qEk</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="#">Police Story</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>The Police Story film series comprises six Hong Kong crime-action
+                                            films, directed by Jackie Chan, Stanley Tong and Benny Chan,
+                                            produced by Raymond Chow, Leonard Ho, Jackie Chan, Barbie Tung and Solon So.
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="#">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="http://www.imdb.com/">Armour of God 2: Operation Condor</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Armour of God II: Operation Condor is a 1991 Hong Kong action-comedy
+                                            film written and directed by Jackie Chan, who also starred in the
+                                            lead role. It is the sequel to the 1986's Armour of God...</p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="http://www.imdb.com/title/tt0089374/">http://www.imdb.com/title/tt0089374/</a></p>
+                                    </div>
+                                </li>
+                                <li class="result tk-stl-basic-card">
+                                    <div class=" tk-stl-title">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">Drunken Master</a></p>
+                                    </div>
+                                    <div class=" tk-stl-description">
+                                        <p>Drunken Master is a 1978 Hong Kong martial arts film directed by
+                                            Yuen Woo-ping, and starring Jackie Chan, Yuen Siu-tien, and Hwang
+                                            Jang Lee. The film was a success at the Hong Kong box office, earning...
+                                        </p>
+                                    </div>
+                                    <div class=" tk-stl-url">
+                                        <p><a href="https://www.youtube.com/watch?v=74OBuMA2qEk">https://www.youtube.com/watch?v=74OBuMA2qEk</a></p>
+                                    </div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

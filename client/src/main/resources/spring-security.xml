@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+    xmlns="http://www.springframework.org/schema/security"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:http="http://www.springframework.org/schema/security"
+    xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+
+    <http pattern="/styles/**" security="none"/>
+    <http pattern="/assets/**" security="none"/>
+    <http pattern="/javascript/**" security="none"/>
+    <http pattern="/wro/**" security="none"/>
+    <http pattern="/favicon.ico" security="none"/>
+
+    <http use-expressions="true" disable-url-rewriting="true">
+        <intercept-url pattern="/login/" access="isAnonymous()"/>
+        <intercept-url pattern="/twigkit/resources/**" access="isAnonymous() or isAuthenticated()"/>
+        <intercept-url pattern="/wro/**" access="isAnonymous() or isAuthenticated()"/>
+        <intercept-url pattern="/**" access="isAuthenticated()"/>
+
+        <!--or isAnonymous()-->
+        <form-login login-page="/login/" username-parameter="j_username" password-parameter="j_password" login-processing-url="/j_spring_security_check" authentication-failure-url="/login?login_error=1"/>
+        <http-basic/>
+        <logout logout-url="/logout/" logout-success-url="/j_spring_security_logout"/>
+        <csrf disabled="true"/>
+    </http>
+
+    <!-- Fusion authentication provider -->
+    <beans:bean id="fusionAuthenticationProvider" class="twigkit.security.fusion.FusionAuthenticationProvider"/>
+
+    <!-- Authentication manager configuration -->
+    <authentication-manager>
+        <authentication-provider ref="fusionAuthenticationProvider"/>
+    </authentication-manager>
+
+    <!--
+        Authentication manager
+    -->
+    <!-- <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="user" password="user" authorities="USER"/>
+                <user name="admin" password="admin" authorities="USER,ADMIN"/>
+                <user name="X31299" password="connect@ccount1" authorities="USER,ADMIN"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager> -->
+
+</beans:beans>

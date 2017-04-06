@@ -1,4 +1,0 @@
-{% if fq%}<div id="filters"><label>Filters</label>: {% for filter in filter_urls %}
-    {{ filter }} <a href="{{ filter_urls[filter] }}">X</a>{% if loop.last == False %},{% endif %}
-{% endfor %}
-</div>{% endif %}

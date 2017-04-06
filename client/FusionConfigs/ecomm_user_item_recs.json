@@ -1,0 +1,83 @@
+{
+  "id": "ecomm_user_item_recs",
+  "stages": [
+    {
+      "type": "set-params",
+      "id": "ayyennuwu3gpbvs4i",
+      "params": [
+        {
+          "key": "userId",
+          "value": "d29defb34dff9e253b65ffc859e6dd47f0e71cf2",
+          "policy": "append"
+        }
+      ],
+      "skip": true,
+      "label": "set-params"
+    },
+    {
+      "type": "javascript-query",
+      "id": "yhymh2jnbnwylow29",
+      "script": "var userId = request.getFirstParam('userId');\nif (userId != '*:*' && userId != '*') {\n  request.putSingleParam('userId',userId);\n} ",
+      "skip": false,
+      "label": "User Query Recs: Prepare sub-query"
+    },
+    {
+      "type": "sub-query",
+      "id": "afj3v4bx6kcj2rcnmi",
+      "key": "ecomm_user_query_recs",
+      "collection": "ecommerce_signals_recs",
+      "handler": "select",
+      "method": "GET",
+      "parentParams": [
+        "userId"
+      ],
+      "rollupKeys": [
+
+      ],
+      "params": [
+        {
+          "key": "rows",
+          "value": "100"
+        },
+        {
+          "key": "sort",
+          "value": "weight desc"
+        },
+        {
+          "key": "q",
+          "value": "*:*"
+        },
+        {
+          "key": "fq",
+          "value": "{!field f=userId v=$userId}"
+        }
+      ],
+      "headers": [
+
+      ],
+      "skip": false,
+      "label": "User Query Recs: Retrieve"
+    },
+    {
+      "type": "javascript-query",
+      "id": "o955xthuwcjjug14i",
+      "script": "var recs_data = ctx.getProperty('ecomm_user_query_recs');\nvar orig_q = request.getFirstParam('q');\nvar boost_list = \"\"\n\nfor(var recs_index=0; recs_index < recs_data.response.docs.size(); recs_index++) {\n  \trequest.putSingleParam('recs','on');\n\tvar rec = recs_data.response.docs[recs_index];\n\n\tboost_list += \"id\" + ':' + rec.itemId + '^=' + 100*(recs_data.response.docs.size() - recs_index) + ' ';\n}\nrequest.putSingleParam('orig_q',orig_q);\nrequest.putSingleParam('orig_score','query({!edismax v=$orig_q})');\nrequest.putSingleParam('orig_scaled','scale($orig_score,1,99)');\nrequest.putSingleParam('boost_list',boost_list);\nrequest.putSingleParam('q','({!lucene v=$boost_list}) (-({!lucene v=$boost_list}) {!frange l=1 v=$orig_scaled})');\n",
+      "skip": false,
+      "label": "User Query Recs: Process"
+    },
+    {
+      "type": "solr-query",
+      "id": "d6rwvmmudhadcxr",
+      "allowedRequestHandlers": [
+
+      ],
+      "httpMethod": "POST",
+      "allowFederatedSearch": false,
+      "skip": false,
+      "label": "solr-query"
+    }
+  ],
+  "properties": {
+
+  }
+}

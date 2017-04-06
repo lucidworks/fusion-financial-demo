@@ -1,0 +1,408 @@
+<!-- OUTER WRAPPER -->
+<div class="tk-stl-outerwrapper kitchensink">
+
+    <layout:include file="demo/includes/header.html"></layout:include>
+
+    <!-- CONTENT -->
+    <div id="content" class="tk-rgrid-g tk-stl-row-offcanvas tk-stl-row-offcanvas-left tk-stl-bg-lbgrey">
+
+        <!-- CONTENT > SIDEBAR -->
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-4 tk-stl-blocksidebar-light tk-stl-sidebar-offcanvas-left">
+            <div class="tk-rgrid-box">
+                <aside class="tk-bl-sidebar">
+                    <ul class="facet-list">
+                        <li class="facet first">
+                            <h3 class="facet-title">Region</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Australia</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">South America</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">UK</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">USA</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li class="facet">
+                            <h3 class="facet-title">Town</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Cambridge</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">Oxford</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">London</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">Rio De Janeiro</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                        <li class="facet">
+                            <h3 class="facet-title">Status</h3>
+                            <form class="filter-list-form" method="GET">
+                                <ol class="filter-list">
+                                    <li class="filter">
+                                        <label class="label" title="closed">
+                                            <input type="checkbox" class="checkbox" name="f" value="status[&quot;closed&quot;][&quot;closed&quot;]*">
+                                            Town
+                                        </label>
+                                            <span class="metadata">
+                                                <span class="count">1</span>
+                                            </span>
+                                    </li>
+                                    <li class="filter last f-5">
+                                        <label class="label" title="open">
+                                            <input type="checkbox" class="checkbox" name="f" value="status[&quot;open&quot;][&quot;open&quot;]*">
+                                            City
+                                        </label>
+                                            <span class="metadata">
+                                                <span class="count">1</span>
+                                            </span>
+                                    </li>
+                                </ol>
+                                <input type="hidden" name="rpp" value="20">
+                                <input type="submit" value="Apply Filters" class="submit" style="display:none;">
+                            </form>
+                        </li>
+
+                        <li class="facet last">
+                            <h3 class="facet-title">Continent</h3>
+                            <ol class="filter-list">
+                                <li class="filter first f-10">
+                                    <a href="#" class="label" title="Australia">Europe</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="USA">Africa</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter f-10">
+                                    <a href="#" class="label" title="uk">South America</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+
+                                <li class="filter last f-10">
+                                    <a href="#" class="label" title="usa">Asia</a>
+                                         <span class="metadata">
+                                             <span class="count">1</span>
+                                         </span>
+                                </li>
+                            </ol>
+                        </li>
+
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <!-- CONTENT > MAIN -->
+        <div class="tk-rgrid-u-1 tk-rgrid-u-md-3-4 xtk-stl-childborder tk-stl-bg-white">
+            <div class="tk-bl-content">
+                <div class="tk-rgrid-box">
+
+                    <!-- FORMS -->
+                    <h1>Forms &amp; Inputs</h1>
+
+                    <hr>
+                    <form class="tk-stl-form">
+                        <fieldset>
+                            <legend>A compact inline form (Default)</legend>
+
+                            <input type="email" placeholder="Email">
+                            <input type="password" placeholder="Password">
+
+                            <label for="remember">
+                                <input id="remember" type="checkbox"> Remember me
+                            </label>
+
+                            <button type="submit" class="tk-stl-button">Sign in</button>
+                        </fieldset>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form tk-stl-form-stacked">
+                        <fieldset>
+                            <legend>A Stacked Form</legend>
+
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="Email">
+
+                            <label for="password">Password</label>
+                            <input id="password" type="password" placeholder="Password">
+
+                            <label for="state">State</label>
+                            <select id="state">
+                                <option>AL</option>
+                                <option>CA</option>
+                                <option>IL</option>
+                            </select>
+
+                            <label for="remember" class="pure-checkbox">
+                                <input id="remember" type="checkbox"> Remember me
+                            </label>
+
+                            <button type="submit" class="tk-stl-button">Sign in</button>
+                        </fieldset>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form tk-stl-form-aligned">
+                        <fieldset>
+                            <legend>Aligned Form</legend>
+                            <div class="tk-stl-control-group">
+                                <label for="name">Username</label>
+                                <input id="name" type="text" placeholder="Username">
+                            </div>
+
+                            <div class="tk-stl-control-group">
+                                <label for="password">Password</label>
+                                <input id="password" type="password" placeholder="Password">
+                            </div>
+
+                            <div class="tk-stl-control-group">
+                                <label for="email">Email Address</label>
+                                <input id="email" type="email" placeholder="Email Address">
+                            </div>
+
+                            <div class="tk-stl-control-group">
+                                <label for="foo">Supercalifragilistic Label</label>
+                                <input id="foo" type="text" placeholder="Enter something here...">
+                            </div>
+
+                            <div class="tk-stl-controls">
+                                <label for="cb" class="tk-stl-checkbox">
+                                    <input id="cb" type="checkbox"> I've read the terms and conditions
+                                </label>
+
+                                <button type="submit" class="tk-stl-button pure-button-primary">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form tk-stl-form-stacked">
+                        <fieldset>
+                            <legend>Multi Column Form (Using Grid)</legend>
+
+                            <div class="tk-rgrid-g">
+                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-3">
+                                    <label for="first-name">First Name</label>
+                                    <input id="first-name" class="tk-rgrid-u-23-24" type="text">
+                                </div>
+
+                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-3">
+                                    <label for="last-name">Last Name</label>
+                                    <input id="last-name" class="tk-rgrid-u-23-24" type="text">
+                                </div>
+
+                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-3">
+                                    <label for="email">E-Mail</label>
+                                    <input id="email" class="tk-rgrid-u-23-24" type="email" required>
+                                </div>
+
+                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-3">
+                                    <label for="city">City</label>
+                                    <input id="city" class="tk-rgrid-u-23-24" type="text">
+                                </div>
+
+                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-1-3">
+                                    <label for="state">State</label>
+                                    <select id="state" class="tk-stl-input-1-2">
+                                        <option>AL</option>
+                                        <option>CA</option>
+                                        <option>IL</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label for="terms" class="tk-stl-checkbox">
+                                <input id="terms" type="checkbox"> I've read the terms and conditions
+                            </label>
+
+                            <button type="submit" class="tk-stl-button">Submit</button>
+                        </fieldset>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form">
+                        <legend>Grouped Inputs</legend>
+
+                        <fieldset class="tk-stl-group">
+                            <input type="text" class="tk-stl-input-1-2" placeholder="Username">
+                            <input type="text" class="tk-stl-input-1-2" placeholder="Password">
+                            <input type="email" class="tk-stl-input-1-2" placeholder="Email">
+                        </fieldset>
+
+                        <fieldset class="tk-stl-group">
+                            <input type="text" class="tk-stl-input-1-2" placeholder="A title">
+                            <textarea class="tk-stl-input-1-2" placeholder="Textareas work too"></textarea>
+                        </fieldset>
+
+                        <button type="submit" class="tk-stl-button tk-stl-input-1-2">Sign in</button>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form">
+                        <legend>Input Sizing</legend>
+                        <input class="tk-stl-input-1" type="text" placeholder=".tk-stl-input-1"><br>
+                        <input class="tk-stl-input-2-3" type="text" placeholder=".tk-stl-input-2-3"><br>
+                        <input class="tk-stl-input-1-2" type="text" placeholder=".tk-stl-input-1-2"><br>
+                        <input class="tk-stl-input-1-3" type="text" placeholder=".tk-stl-input-1-3"><br>
+                        <input class="tk-stl-input-1-4" type="text" placeholder=".tk-stl-input-1-4"><br>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form">
+                        <legend>Rounded Inputs</legend>
+                        <input type="text" class="tk-stl-input-rounded">
+                        <button type="submit" class="tk-stl-button">Search</button>
+                    </form>
+
+                    <br>
+
+                    <form class="tk-stl-form">
+                        <legend>Checkboxes and Radio Buttons</legend>
+                        <label for="option-one" class="tk-stl-checkbox">
+                            <input id="option-one" type="checkbox" value="">
+                            Here's option one.
+                        </label>
+
+                        <label for="option-two" class="tk-stl-radio">
+                            <input id="option-two" type="radio" name="optionsRadios" value="option1" checked>
+                            Here's a radio button. You can choose this one..
+                        </label>
+
+                        <label for="option-three" class="tk-stl-radio">
+                            <input id="option-three" type="radio" name="optionsRadios" value="option2">
+                            ..Or this one!
+                        </label>
+
+                        <h4>Checkboxes that can be styled</h4>
+                        <input id="check1" type="checkbox" class="tk-stl-styled-checkbox">
+                        <label for="check1">Some label text</label>
+                    </form>
+
+                    <hr>
+
+                    <h2>Labelled Inputs</h2>
+
+                    <p>Left Label</p>
+                    <div class="tk-stl-labelled-input">
+                        <div class="label grey">
+                            <span class="content">http://</span></div>
+                        <input type="text" placeholder="twigkit.com">
+                    </div>
+
+                    <p>Right Label</p>
+                    <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-input-1-3">
+                        <input type="text" placeholder="Find something">
+                        <div class="label grey">
+                            <button class="tk-stl-button">Search</button>
+                        </div>
+                    </div>
+
+                    <p>Both</p>
+                    <div class="tk-stl-labelled-input tk-stl-label-right">
+                        <div class="label basic">
+                            <span class="content">&pound;</span>
+                        </div>
+                        <input type="text" placeholder="30">
+                        <div class="label basic">
+                            <span class="content">.00</span>
+                        </div>
+                    </div>
+
+
+                    <h2>Input Sizes</h2>
+
+                    <p>Tiny</p>
+                    <input type="text" class="tk-stl-xs" placeholder=".tk-stl-xs">
+
+                    <p>Small</p>
+                    <div class="tk-stl-labelled-input tk-stl-sm">
+                        <div class="label grey">
+                            <span class="content">http://</span></div>
+                        <input type="text" placeholder="twigkit.com">
+                    </div>
+
+                    <p>Large</p>
+                    <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-md">
+                        <div class="label grey">
+                            <span class="content">&pound;</span>
+                        </div>
+                        <input type="text" placeholder=".tk-stl-md">
+                        <div class="label basic">
+                            <span class="content">.00</span>
+                        </div>
+                    </div>
+
+                    <p>Huge</p>
+                    <input type="text" class="tk-stl-lg" placeholder=".tk-stl-lg">
+
+                    <p>Massive</p>
+                    <div class="tk-stl-labelled-input tk-stl-label-right tk-stl-xl">
+                        <input type="text" placeholder=".tk-stl-xl">
+
+                        <div class="label grey">
+                            <button class="tk-stl-button">Search</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
