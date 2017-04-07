@@ -1,20 +1,12 @@
-LucidWorks Search Financial Demo
+Lucidworks Fusion Financial Demo
 ==================
 
-Simple Financial Demo for LWS that indexes S&amp;P 500 company info, historical stock prices and Twitter feeds
+Simple Financial Demo for LWS that indexes S&P 500 company info and historical stock price information.
 
 # Pre-requisites
 
-* Python
-* Python json lib (pip install json)
-* Python ldap lib (pip install python-ldap)
-** You will need gcc installed for this
-* Python httplib2 (pip install httplib2)
-* Pysolr (pip install pysolr)
-* Flask (pip install flask)
-* LWS 2.6 (www.lucidworks.com/download/) and it's system requirements
-* Twitter API authorization (see http://docs.lucidworks.com/display/lweug/Twitter+Stream+Data+Sources and http://dev.twitter.com)
- * You will need your access key, consumer key and related tokens
+* Fusion 3.0.1 or later
+* A Twigkit development/production license.  See http://twigkit.com 
 
 # Caveats
 	Only tested on OS X
@@ -22,51 +14,10 @@ Simple Financial Demo for LWS that indexes S&amp;P 500 company info, historical 
 Getting Started
 =================
 
-1. Install LWS 2.6 and wait for it to start
-2. Clone this project: git clone git@github.com:LucidWorks/lws-financial-demo.git
-3. cd src/main/python
-4. python setup.py -n setup -a TWITTER_ACCESS_TOKEN -c TWITTER_CONSUMER_KEY -s TWITTER_CONSUMER_SECRET -t TWITTER_ACCESS_TOKEN_SECRET -p ../../../data/sp500List-30.txt -A -l Finance --data_dir ../../../data
- 1. This will setup collections, fields and data for the companies in the file sp500List-30.txt
- 2. The company file list should be comma-separated list of the form: Symbol,Company,Industry,City,State
-5. python python.py
-5. Browse to http://localhost:5000/
-
-Adding Security
-=================
-
-If you wish to simulate filtering content and controlling access to the Admin via an LDAP server, you can either hook this demo into your
-  own LDAP system or setup one.  For the purposes of the demo, we are going to setup a local LDAP server using <a href="https://opends.java.net">OpenDS</a>, a
-  freely available, Java-based LDAP server.  While OpenDS is not actively maintained, it's capabilities are sufficient for demo purposes and local testing.
-
-# Setup
-
-To get started, do the following:
-
-1. Download OpenDS.  For the purposes of the demo, we used version <a href="https://java.net/projects/opends/downloads/download/promoted-builds/2.2.0/OpenDS-2.2.0.zip">2.2</a>
-2. Unzip OpenDS and follow the <a href="https://java.net/projects/opends/pages/2_2_InstallationGuide">Installation instructions</a>.  As part of setup, I had the installer automatically populate the server with 50 users.  Alternatively, you can add your own users.
-3. Setup LWS with LDAP, per http://docs.lucidworks.com/display/lweug/LDAP+Integration.  I've checked in a sample ldap.yml (named ldap-sample.yml) in the docs directory based off of my local OpenDS setup.
-    > NOTE: MAKE SURE YOU HAVE AN ADMIN USER SETUP PER THE INSTRUCTIONS BEFORE TURNING ON LDAP IN LWS OTHERWISE YOU WILL NOT BE ABLE TO LOG IN TO THE ADMIN.
-    > My settings are:
-    > <img src="./docs/ldap-settings.png">
-5. When starting the python application (python python.py from above) you need to pass in your LDAP URI, etc.:
-    > 1. python python.py  --ldap ldap://localhost:1389
-    > 1. You may optionally pass in the LDAP root user/password too (the defaults are: cn=Directory Manager,cn=Root DNs,cn=config and 'abc':
-    > 1. python python.py  --ldap ldap://localhost:1389 --ldap_user cn=Directory Manager,cn=Root DNs,cn=config --ldap_pass foo
-    > 1. If you have not setup any search filters for any of the users, passing in the --create_filters parameter using the following format:
-        > * --create_filters "rolename=uids=query;uids=query;...uids=query", as in:
-        > * --create_filters "AES=user.10=symbol:AES;bar=user.15=text:bar"
-    > 1. If you wish to create group filters, you will have to do this in the admin
-
-
-# SiLK Demo
-
-Point your browser at http://localhost:5000/static/index.html
-
-# Old Search Interface
-
-1. In the Results tab, in the demo (http://localhost:5000/), when LDAP is enabled, you should see a drop down of users next to the search button.  If you wish to pass in a user's credential, simply select the user from the dropdown, otherwise, select None.
-2. If the user selected has an associated Search Filter setup to it, the results will be filtered appropriately.
-
-
-
+1. Install Fusion 3.0.1
+1. Clone this project: git clone git@github.com:LucidWorks/fusion-financial-demo.git
+1. Import the setup/fusion-config.json file into Fusion.  See https://doc.lucidworks.com/fusion/3.0/REST_API_Reference/Objects-API.html#object-export-and-import
+1. Setup the S&P 500 datasource to load up one of the files in data/sp as a "File Upload Datasource".  TODO: MORE DETAILS HERE
+1. In the Fusion Admin UI, run the "start-crawlers" datasource to kick off indexing of the various sources. 
+1. Start up the UI and browse to http://localhost:8080
 
