@@ -1,0 +1,2712 @@
+{
+  "objects": {
+    "collections": [
+      {
+        "id": "finance",
+        "createdAt": "2017-04-04T18:53:51.024Z",
+        "searchClusterId": "default",
+        "commitWithin": 10000,
+        "solrParams": {
+          "name": "finance",
+          "numShards": 1,
+          "replicationFactor": 1
+        },
+        "type": "DATA",
+        "metadata": {}
+      }
+    ],
+    "indexPipelines": [
+      {
+        "id": "_system",
+        "stages": [
+          {
+            "type": "solr-index",
+            "id": "solr-system",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": true,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "solr-system"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_system"
+        }
+      },
+      {
+        "id": "metadata_normalization",
+        "stages": [
+          {
+            "type": "tika-parser",
+            "id": "conn_tika",
+            "includeImages": true,
+            "flattenCompound": false,
+            "addFailedDocs": true,
+            "addOriginalContent": false,
+            "contentField": "_raw_content_",
+            "contentEncoding": "binary",
+            "returnXml": false,
+            "keepOriginalStructure": false,
+            "extractHtmlLinks": true,
+            "extractOtherLinks": false,
+            "includeContentTypes": [],
+            "excludeContentTypes": [],
+            "zipBombCompressionRatio": 200,
+            "skip": false,
+            "label": "tika-parser",
+            "secretSourceStageId": "conn_tika"
+          },
+          {
+            "type": "field-mapping",
+            "id": "conn_mapping",
+            "mappings": [
+              {
+                "source": "Content-Encoding",
+                "target": "contentEncoding_s",
+                "operation": "move"
+              },
+              {
+                "source": "Character-Set",
+                "target": "characterSet_s",
+                "operation": "move"
+              },
+              {
+                "source": "Content-Length",
+                "target": "contentLength_l",
+                "operation": "move"
+              },
+              {
+                "source": "FileSize",
+                "target": "fileSize_l",
+                "operation": "move"
+              },
+              {
+                "source": "FileName",
+                "target": "fileName_s",
+                "operation": "move"
+              },
+              {
+                "source": "Content-Type",
+                "target": "mimeType_s",
+                "operation": "move"
+              },
+              {
+                "source": "MimeType",
+                "target": "mimeType_s",
+                "operation": "move"
+              },
+              {
+                "source": "Title",
+                "target": "title",
+                "operation": "move"
+              },
+              {
+                "source": "Description",
+                "target": "description",
+                "operation": "move"
+              },
+              {
+                "source": "Subject",
+                "target": "subject",
+                "operation": "move"
+              },
+              {
+                "source": "created",
+                "target": "dateCreated_dt",
+                "operation": "move"
+              },
+              {
+                "source": "ContentCreated",
+                "target": "dateCreated_dt",
+                "operation": "move"
+              },
+              {
+                "source": "meta:creation_date",
+                "target": "dateCreated_dt",
+                "operation": "move"
+              },
+              {
+                "source": "Creation-Date",
+                "target": "dateCreated_dt",
+                "operation": "move"
+              },
+              {
+                "source": "date",
+                "target": "dateCreated_dt",
+                "operation": "move"
+              },
+              {
+                "source": "Author",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "meta:author",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "Contributor",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "LastModifiedBy",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "Last-Author",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "fullname",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "meta:last-author",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "Last-Modified",
+                "target": "last_modified",
+                "operation": "move"
+              },
+              {
+                "source": "fileLastModified",
+                "target": "last_modified",
+                "operation": "move"
+              },
+              {
+                "source": "ContentLastModified",
+                "target": "last_modified",
+                "operation": "move"
+              },
+              {
+                "source": "Last-Save-Date",
+                "target": "last_modified",
+                "operation": "move"
+              },
+              {
+                "source": "fullText",
+                "target": "content_txt",
+                "operation": "move"
+              },
+              {
+                "source": "plainTextContent",
+                "target": "content_txt",
+                "operation": "move"
+              },
+              {
+                "source": "plainTextMessageContent",
+                "target": "content_txt",
+                "operation": "move"
+              },
+              {
+                "source": "body",
+                "target": "content_txt",
+                "operation": "move"
+              },
+              {
+                "source": "content",
+                "target": "content_txt",
+                "operation": "move"
+              },
+              {
+                "source": "keyword",
+                "target": "keywords",
+                "operation": "move"
+              },
+              {
+                "source": "Keywords",
+                "target": "keywords",
+                "operation": "move"
+              },
+              {
+                "source": "messageSubject",
+                "target": "title",
+                "operation": "move"
+              },
+              {
+                "source": "name",
+                "target": "title",
+                "operation": "move"
+              },
+              {
+                "source": "Page-Count",
+                "target": "pageCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "PageCount",
+                "target": "pageCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "Slide-Count",
+                "target": "pageCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "Slides",
+                "target": "pageCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "xmpTPg:NPages",
+                "target": "pageCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "parsing_time",
+                "target": "parsing_time_l",
+                "operation": "move"
+              },
+              {
+                "source": "parsing",
+                "target": "parsing_s",
+                "operation": "move"
+              },
+              {
+                "source": "Comments",
+                "target": "comments",
+                "operation": "move"
+              },
+              {
+                "source": "resourceName",
+                "target": "resourcename_s",
+                "operation": "move"
+              },
+              {
+                "source": "resource_name",
+                "target": "resourcename_s",
+                "operation": "move"
+              },
+              {
+                "source": "Content-Location",
+                "target": "url",
+                "operation": "move"
+              },
+              {
+                "source": "meta:character-count",
+                "target": "character-count_i",
+                "operation": "move"
+              },
+              {
+                "source": "Word-Count",
+                "target": "wordCount_i",
+                "operation": "move"
+              },
+              {
+                "source": "type",
+                "target": "type_s",
+                "operation": "move"
+              },
+              {
+                "source": "X-Parsed-By",
+                "target": "xParsedBy_ss",
+                "operation": "move"
+              },
+              {
+                "source": "body.links.anchor",
+                "target": "body_links_anchor_ss",
+                "operation": "move"
+              },
+              {
+                "source": "body.links.params.alt",
+                "target": "body_links_params_alt_ss",
+                "operation": "move"
+              },
+              {
+                "source": "body.links.params.type",
+                "target": "body_links_params_type_ss",
+                "operation": "move"
+              },
+              {
+                "source": "body.links.title",
+                "target": "body_links_title_ss",
+                "operation": "move"
+              },
+              {
+                "source": "body.links.targetUri",
+                "target": "body_links_targetUri_ss",
+                "operation": "move"
+              },
+              {
+                "source": "Brightness Value",
+                "target": "Brightness_Value_ss",
+                "operation": "move"
+              },
+              {
+                "source": "svn:eol-style",
+                "target": "svn_eol_style_s",
+                "operation": "move"
+              },
+              {
+                "source": "svn:keywords",
+                "target": "svn_keywords",
+                "operation": "move"
+              },
+              {
+                "source": "svn:last-author",
+                "target": "author",
+                "operation": "move"
+              },
+              {
+                "source": "svn:last-change-date",
+                "target": "last_modified",
+                "operation": "move"
+              },
+              {
+                "source": "svn:last-change-revision",
+                "target": "svn_last_change_revision_s",
+                "operation": "move"
+              },
+              {
+                "source": "svn:mergeinfo",
+                "target": "svn_mergeinfo_txt",
+                "operation": "move"
+              },
+              {
+                "source": "svn:mime-type",
+                "target": "svn_mime_type_ss",
+                "operation": "move"
+              },
+              {
+                "source": "/(.*)_[isltbfd]s?/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_txt/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_en/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_dts?/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_t[ilfd]/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_p/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_c/",
+                "operation": "keep"
+              },
+              {
+                "source": "/(.*)_coordinate/",
+                "operation": "keep"
+              },
+              {
+                "source": "/attr_(.*)/",
+                "operation": "keep"
+              },
+              {
+                "source": "/random_(.*)/",
+                "operation": "keep"
+              },
+              {
+                "source": "/ignored_(.*)/",
+                "operation": "keep"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "conn_mapping"
+          },
+          {
+            "type": "lang-detect",
+            "id": "conn_language_detection",
+            "source": [
+              "content",
+              "title"
+            ],
+            "outputType": "document",
+            "outputKey": "languages",
+            "documentPostfix": "_lang",
+            "skip": false,
+            "label": "lang-detect",
+            "secretSourceStageId": "conn_language_detection"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "dyn-mapping-default",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "dyn-mapping-default"
+          },
+          {
+            "type": "solr-index",
+            "id": "solr-default",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "unmapped": {
+              "source": "/(^.*)$/",
+              "target": "$1_txt",
+              "operation": "move"
+            },
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "solr-default"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "metadata_normalization"
+        }
+      },
+      {
+        "id": "stock-press-release",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "16b71a98-d3ac-4a2f-afde-112ec8417b91",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "16b71a98-d3ac-4a2f-afde-112ec8417b91"
+          },
+          {
+            "type": "solr-index",
+            "id": "02a19bf5-7017-4433-a8e2-cb617c74a289",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "02a19bf5-7017-4433-a8e2-cb617c74a289"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "stock-press-release"
+        }
+      },
+      {
+        "id": "stock-history",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "093db091-c395-4ee6-ac32-ee936134f98c",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "093db091-c395-4ee6-ac32-ee936134f98c"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "20640330-74c1-4567-828a-74624f7480a9",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "20640330-74c1-4567-828a-74624f7480a9"
+          },
+          {
+            "type": "solr-index",
+            "id": "40dea4a0-b7af-487f-8ddb-b9e1870105d0",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "40dea4a0-b7af-487f-8ddb-b9e1870105d0"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "stock-history"
+        }
+      },
+      {
+        "id": "_signals_ingest",
+        "stages": [
+          {
+            "type": "signal-formatter",
+            "id": "ingest-signals",
+            "flatten": true,
+            "allowedTypes": [],
+            "undefinedType": "general",
+            "timestampLocale": "en-US",
+            "skip": false,
+            "label": "signal-formatter",
+            "secretSourceStageId": "ingest-signals"
+          },
+          {
+            "type": "field-mapping",
+            "id": "mapping-signals",
+            "mappings": [
+              {
+                "source": "type",
+                "target": "type_s",
+                "operation": "move"
+              },
+              {
+                "source": "flag",
+                "target": "flag_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.flag",
+                "target": "flag_s",
+                "operation": "move"
+              },
+              {
+                "source": "timestamp",
+                "target": "timestamp_tdt",
+                "operation": "move"
+              },
+              {
+                "source": "params.count",
+                "target": "count_i",
+                "operation": "move"
+              },
+              {
+                "source": "params.weight",
+                "target": "weight_d",
+                "operation": "move"
+              },
+              {
+                "source": "params.query",
+                "target": "query_s",
+                "operation": "copy"
+              },
+              {
+                "source": "params.query",
+                "target": "query_t",
+                "operation": "move"
+              },
+              {
+                "source": "params.docId",
+                "target": "doc_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.userId",
+                "target": "user_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.sessionId",
+                "target": "session_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.filterQueries",
+                "target": "filters_s",
+                "operation": "move"
+              },
+              {
+                "source": "/params\\.(.*)(?<!_.{1,2})$/",
+                "target": "params.$1_s",
+                "operation": "move"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "mapping-signals"
+          },
+          {
+            "type": "solr-index",
+            "id": "solr-system",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": true,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "solr-system"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_signals_ingest"
+        }
+      },
+      {
+        "id": "_lw_iwb_tmp_171040",
+        "stages": [
+          {
+            "type": "indexing-rpc",
+            "id": "dz5ayj46vg4wh4cxr",
+            "mappingRules": [],
+            "debug": true,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
+              "method": "post",
+              "queryParams": {},
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 5,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc-press-release",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "dz5ayj46vg4wh4cxr"
+          },
+          {
+            "type": "indexing-rpc",
+            "id": "wr45zwb3gbw4xtj4i",
+            "mappingRules": [],
+            "debug": true,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
+              "method": "post",
+              "queryParams": {},
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "entity": "{     \"id\": \"${Symbol}-historical\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-history\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"Anda\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 0,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 1,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Lucidworks-Anda/2.0\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": -1,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 5,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "wr45zwb3gbw4xtj4i"
+          },
+          {
+            "type": "field-mapping",
+            "id": "177a165d-1b57-4354-b5fe-c6a19af21936",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "177a165d-1b57-4354-b5fe-c6a19af21936"
+          },
+          {
+            "type": "solr-index",
+            "id": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da"
+          }
+        ],
+        "properties": {
+          "sourceId": "finance-default",
+          "lastModified": "1491578324115",
+          "forSimulation": "true",
+          "secretSourcePipelineId": "_lw_iwb_tmp_171040"
+        }
+      },
+      {
+        "id": "finance-default",
+        "stages": [
+          {
+            "type": "indexing-rpc",
+            "id": "dz5ayj46vg4wh4cxr",
+            "mappingRules": [],
+            "debug": true,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
+              "method": "post",
+              "queryParams": {},
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 5,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc-press-release",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "dz5ayj46vg4wh4cxr"
+          },
+          {
+            "type": "indexing-rpc",
+            "id": "wr45zwb3gbw4xtj4i",
+            "mappingRules": [],
+            "debug": true,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
+              "method": "post",
+              "queryParams": {},
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "entity": "{     \"id\": \"${Symbol}-historical\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-history\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"Anda\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 0,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 1,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Lucidworks-Anda/2.0\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": -1,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 5,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "wr45zwb3gbw4xtj4i"
+          },
+          {
+            "type": "field-mapping",
+            "id": "177a165d-1b57-4354-b5fe-c6a19af21936",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "177a165d-1b57-4354-b5fe-c6a19af21936"
+          },
+          {
+            "type": "solr-index",
+            "id": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "finance-default"
+        }
+      },
+      {
+        "id": "start-crawlers",
+        "stages": [
+          {
+            "type": "indexing-rpc",
+            "id": "scjn6egzi7r7c4bo6r",
+            "mappingRules": [],
+            "debug": false,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/jobs/${Symbol}-press-release",
+              "method": "post",
+              "queryParams": {},
+              "headers": {}
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "secretSourceStageId": "scjn6egzi7r7c4bo6r"
+          },
+          {
+            "type": "indexing-rpc",
+            "id": "d53ppjq83ct2zkt9",
+            "mappingRules": [],
+            "debug": false,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/jobs/${Symbol}-historical",
+              "method": "post",
+              "queryParams": {},
+              "headers": {}
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "secretSourceStageId": "d53ppjq83ct2zkt9"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "start-crawlers"
+        }
+      },
+      {
+        "id": "delete-datasources",
+        "stages": [
+          {
+            "type": "indexing-rpc",
+            "id": "u1ivk8x0dmoq1tt9",
+            "mappingRules": [],
+            "debug": false,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources/${Symbol}-press-release",
+              "method": "delete",
+              "queryParams": {},
+              "headers": {}
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "u1ivk8x0dmoq1tt9"
+          },
+          {
+            "type": "indexing-rpc",
+            "id": "5sgugoe8l8v8fflxr",
+            "mappingRules": [],
+            "debug": false,
+            "params": {
+              "uri": "http://localhost:8984/connectors/v1/connectors/datasources/${Symbol}-historical",
+              "method": "delete",
+              "queryParams": {},
+              "headers": {}
+            },
+            "hasNoSideEffects": false,
+            "skip": false,
+            "label": "indexing-rpc",
+            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
+            "secretSourceStageId": "5sgugoe8l8v8fflxr"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "delete-datasources"
+        }
+      },
+      {
+        "id": "_lw_iwb_tmp_624828",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "6d342a9e-7308-45c8-b1b5-547bd8f7ca3f",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "6d342a9e-7308-45c8-b1b5-547bd8f7ca3f"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "da14f8f9-4b90-4cf1-a1a4-d0ccdc069dc6",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "da14f8f9-4b90-4cf1-a1a4-d0ccdc069dc6"
+          },
+          {
+            "type": "solr-index",
+            "id": "cd7029ea-6f46-4a31-93f1-8c2724ce8807",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "cd7029ea-6f46-4a31-93f1-8c2724ce8807"
+          }
+        ],
+        "properties": {
+          "sourceId": "lenovo-default",
+          "lastModified": "1491501524791",
+          "forSimulation": "true",
+          "secretSourcePipelineId": "_lw_iwb_tmp_624828"
+        }
+      }
+    ],
+    "queryPipelines": [
+      {
+        "id": "related-items",
+        "stages": [
+          {
+            "type": "more-like-this",
+            "id": "4c88c22a-8a56-467b-a880-c1ab8e473e30",
+            "moreLikeThisFields": [],
+            "useQueryParser": true,
+            "mindf": 2,
+            "maxdf": 10000,
+            "minwl": 3,
+            "docId": "id",
+            "skip": false,
+            "label": "more-like-this",
+            "secretSourceStageId": "4c88c22a-8a56-467b-a880-c1ab8e473e30"
+          },
+          {
+            "type": "solr-query",
+            "id": "e84accac-cf60-4f56-b78e-dde21d5d73b8",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "e84accac-cf60-4f56-b78e-dde21d5d73b8"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "related-items"
+        }
+      },
+      {
+        "id": "_lw_qwb_tmp_7068800785178783",
+        "stages": [
+          {
+            "type": "recommendation",
+            "id": "02a1c268-628b-4ca3-bd29-099f968a78d9",
+            "numRecommendations": 10,
+            "numSignals": 100,
+            "aggrType": "*",
+            "boostId": "id",
+            "skip": false,
+            "label": "recommendation",
+            "secretSourceStageId": "02a1c268-628b-4ca3-bd29-099f968a78d9"
+          },
+          {
+            "type": "search-fields",
+            "id": "3599d04c-a52f-4fb4-bfc6-0f1128501c49",
+            "rows": 10,
+            "start": 0,
+            "queryFields": [],
+            "returnFields": [
+              "*",
+              "score"
+            ],
+            "skip": false,
+            "label": "search-fields",
+            "secretSourceStageId": "3599d04c-a52f-4fb4-bfc6-0f1128501c49"
+          },
+          {
+            "type": "facet",
+            "id": "336146f1-2304-4a73-a43e-6aedcc6fdfd9",
+            "fieldFacets": [
+              {
+                "field": "_lw_data_source_s",
+                "minCount": 1,
+                "missing": false
+              }
+            ],
+            "skip": false,
+            "label": "facet",
+            "secretSourceStageId": "336146f1-2304-4a73-a43e-6aedcc6fdfd9",
+            "properties": {
+              "autoCreated": true
+            }
+          },
+          {
+            "type": "solr-query",
+            "id": "3ed1b2e8-06fe-4f62-a564-3a697ee16672",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "3ed1b2e8-06fe-4f62-a564-3a697ee16672"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_lw_qwb_tmp_7068800785178783"
+        }
+      },
+      {
+        "id": "_system",
+        "stages": [
+          {
+            "type": "solr-query",
+            "id": "3c3043f5-978d-46fa-bb88-59992e8277bf",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "3c3043f5-978d-46fa-bb88-59992e8277bf"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_system"
+        }
+      },
+      {
+        "id": "finance-default",
+        "stages": [
+          {
+            "type": "recommendation",
+            "id": "02a1c268-628b-4ca3-bd29-099f968a78d9",
+            "numRecommendations": 10,
+            "numSignals": 100,
+            "aggrType": "*",
+            "boostId": "id",
+            "skip": false,
+            "label": "recommendation",
+            "secretSourceStageId": "02a1c268-628b-4ca3-bd29-099f968a78d9"
+          },
+          {
+            "type": "search-fields",
+            "id": "3599d04c-a52f-4fb4-bfc6-0f1128501c49",
+            "rows": 10,
+            "start": 0,
+            "queryFields": [],
+            "returnFields": [
+              "*",
+              "score"
+            ],
+            "skip": false,
+            "label": "search-fields",
+            "secretSourceStageId": "3599d04c-a52f-4fb4-bfc6-0f1128501c49"
+          },
+          {
+            "type": "facet",
+            "id": "336146f1-2304-4a73-a43e-6aedcc6fdfd9",
+            "fieldFacets": [
+              {
+                "field": "_lw_data_source_s",
+                "minCount": 1,
+                "missing": false
+              }
+            ],
+            "skip": false,
+            "label": "facet",
+            "secretSourceStageId": "336146f1-2304-4a73-a43e-6aedcc6fdfd9",
+            "properties": {
+              "autoCreated": true
+            }
+          },
+          {
+            "type": "solr-query",
+            "id": "3ed1b2e8-06fe-4f62-a564-3a697ee16672",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "3ed1b2e8-06fe-4f62-a564-3a697ee16672"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "finance-default"
+        }
+      }
+    ],
+    "searchClusters": [
+      {
+        "id": "default",
+        "connectString": "localhost:9983/lwfusion/3.0.1/solr",
+        "zkClientTimeout": 30000,
+        "zkConnectTimeout": 60000,
+        "cloud": true,
+        "bufferFlushInterval": 1000,
+        "bufferSize": 100,
+        "concurrency": 10,
+        "validateCluster": true
+      }
+    ],
+    "schedules": [
+      {
+        "id": "hourlyMetricsRollup-gauges",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.240Z",
+        "startTime": "2017-04-04T15:04:16.240Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-gauges",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "dailyMetricsRollup-meters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.327Z",
+        "startTime": "2017-04-04T15:04:16.327Z",
+        "repeatUnit": "DAY",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/dailyMetricsRollup-meters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "dailyMetricsRollup-timers",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.341Z",
+        "startTime": "2017-04-04T15:04:16.341Z",
+        "repeatUnit": "DAY",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/dailyMetricsRollup-timers",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "dailyMetricsRollup-histograms",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.314Z",
+        "startTime": "2017-04-04T15:04:16.314Z",
+        "repeatUnit": "DAY",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/dailyMetricsRollup-histograms",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "dailyMetricsRollup-gauges",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.300Z",
+        "startTime": "2017-04-04T15:04:16.300Z",
+        "repeatUnit": "DAY",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/dailyMetricsRollup-gauges",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-timers",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.272Z",
+        "startTime": "2017-04-04T15:04:16.272Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-timers",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-counters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.228Z",
+        "startTime": "2017-04-04T15:04:16.228Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-counters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-meters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.259Z",
+        "startTime": "2017-04-04T15:04:16.259Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-meters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "delete-old-logs",
+        "creatorType": "system",
+        "creatorId": "DefaultLogCleanupScheduleRegistrar",
+        "createTime": "2017-04-04T15:00:19.659Z",
+        "startTime": "2017-04-04T15:00:19.659Z",
+        "repeatUnit": "MONTH",
+        "interval": 1,
+        "active": true,
+        "callParams": {
+          "uri": "solr://logs/update",
+          "method": "get",
+          "queryParams": {
+            "wt": "json",
+            "stream.body": "<delete><query>timestamp_tdt:[* TO NOW-30DAYS] OR timestamp_dt:[* TO NOW-30DAYS]</query></delete>"
+          },
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-histograms",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.250Z",
+        "startTime": "2017-04-04T15:04:16.250Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-histograms",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "delete-old-metrics",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.358Z",
+        "startTime": "2017-04-04T15:04:16.358Z",
+        "repeatUnit": "WEEK",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "solr://system_metrics/update",
+          "method": "get",
+          "queryParams": {
+            "wt": "json",
+            "stream.body": "<delete><query>timestamp_tdt:[* TO NOW-13MONTHS]</query></delete>"
+          },
+          "headers": {}
+        }
+      },
+      {
+        "id": "dailyMetricsRollup-counters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.285Z",
+        "startTime": "2017-04-04T15:04:16.285Z",
+        "repeatUnit": "DAY",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/dailyMetricsRollup-counters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "delete-old-audit-logs",
+        "creatorType": "system",
+        "creatorId": "DefaultAuditLogCleanupScheduleRegistrar",
+        "createTime": "2017-04-04T15:00:37.813Z",
+        "startTime": "2017-04-04T15:00:37.813Z",
+        "repeatUnit": "MONTH",
+        "interval": 1,
+        "active": true,
+        "callParams": {
+          "uri": "solr://audit_logs/update",
+          "method": "get",
+          "queryParams": {
+            "wt": "json",
+            "stream.body": "<delete><query>timestamp_tdt:[* TO NOW-30DAYS] OR timestamp_dt:[* TO NOW-30DAYS]</query></delete>"
+          },
+          "headers": {}
+        }
+      }
+    ],
+    "aggregations": [
+      {
+        "id": "hourlyMetricsRollup-gauges",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "gauge"
+        ],
+        "selectQuery": "value_d:*",
+        "timeRange": "[NOW-1MONTH TO NOW-1DAY]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "value_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "value_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "value_d"
+            ],
+            "targetField": "mean_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "count",
+            "sourceFields": [
+              "value_d"
+            ],
+            "targetField": "count_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "value_d"
+            ],
+            "targetField": "sum_d",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "dailyMetricsRollup-meters",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "meter"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-13MONTHS TO NOW-1MONTH]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_mean_rate_d"
+            ],
+            "targetField": "mean_mean_rate_d",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "click-signals-default",
+        "groupingFields": [
+          "query_s",
+          "doc_id_s",
+          "filters_s"
+        ],
+        "signalTypes": [
+          "click"
+        ],
+        "selectQuery": "*:*",
+        "outputPipeline": "_system",
+        "rollupPipeline": "_system",
+        "rollupAggregator": "click",
+        "aggregator": "click",
+        "sourceRemove": false,
+        "sourceCatchup": true,
+        "outputRollup": true,
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "dailyMetricsRollup-gauges",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "gauge"
+        ],
+        "selectQuery": "value_d:*",
+        "timeRange": "[NOW-13MONTHS TO NOW-1MONTH]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "expr",
+            "sourceFields": [
+              "mean_d",
+              "count_d",
+              "sum_d"
+            ],
+            "targetField": "mean_d",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "associative",
+                "value": "true"
+              },
+              {
+                "key": "expr",
+                "value": "sum_d / count_d"
+              }
+            ]
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_d"
+            ],
+            "targetField": "count_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "sum_d"
+            ],
+            "targetField": "sum_d",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "dailyMetricsRollup-histograms",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "histogram"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-13MONTHS TO NOW-1MONTH]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p50_d"
+            ],
+            "targetField": "p50_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p75_d"
+            ],
+            "targetField": "p75_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p98_d"
+            ],
+            "targetField": "p98_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p99_d"
+            ],
+            "targetField": "p99_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p999_d"
+            ],
+            "targetField": "p999_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_mean_rate_d"
+            ],
+            "targetField": "mean_mean_rate_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_mean_duration_d"
+            ],
+            "targetField": "mean_mean_duration_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "quantiles_ds"
+            ],
+            "targetField": "quantiles_ds",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "quantiles_ls"
+            ],
+            "targetField": "quantiles_ls",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "dailyMetricsRollup-timers",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "timer"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-13MONTHS TO NOW-1MONTH]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p50_d"
+            ],
+            "targetField": "p50_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p75_d"
+            ],
+            "targetField": "p75_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p98_d"
+            ],
+            "targetField": "p98_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p99_d"
+            ],
+            "targetField": "p99_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p999_d"
+            ],
+            "targetField": "p999_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_mean_rate_d"
+            ],
+            "targetField": "mean_mean_rate_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_mean_duration_d"
+            ],
+            "targetField": "mean_mean_duration_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "quantiles_ds"
+            ],
+            "targetField": "quantiles_ds",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "quantiles_ls"
+            ],
+            "targetField": "quantiles_ls",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "hourlyMetricsRollup-timers",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "timer"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-1MONTH TO NOW-1DAY]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_rate_d"
+            ],
+            "targetField": "mean_mean_rate_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_d"
+            ],
+            "targetField": "mean_mean_duration_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p50_d"
+            ],
+            "targetField": "p50_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p75_d"
+            ],
+            "targetField": "p75_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p98_d"
+            ],
+            "targetField": "p98_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p99_d"
+            ],
+            "targetField": "p99_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p999_d"
+            ],
+            "targetField": "p999_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "values_ds"
+            ],
+            "targetField": "quantiles_ds",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "values_ls"
+            ],
+            "targetField": "quantiles_ls",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "histogram",
+            "sourceFields": [
+              "values_ds"
+            ],
+            "targetField": "histogram_ds",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "histogram",
+            "sourceFields": [
+              "values_ls"
+            ],
+            "targetField": "histogram_ls",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "hourlyMetricsRollup-counters",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "counter"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-1MONTH TO NOW-1DAY]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "hourlyMetricsRollup-meters",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "meter"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-1MONTH TO NOW-1DAY]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_rate_d"
+            ],
+            "targetField": "mean_mean_rate_d",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "hourlyMetricsRollup-histograms",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "histogram"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-1MONTH TO NOW-1DAY]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "min",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "mean_d"
+            ],
+            "targetField": "mean_mean_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p50_d"
+            ],
+            "targetField": "p50_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p75_d"
+            ],
+            "targetField": "p75_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p98_d"
+            ],
+            "targetField": "p98_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p99_d"
+            ],
+            "targetField": "p99_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "mean",
+            "sourceFields": [
+              "p999_d"
+            ],
+            "targetField": "p999_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "values_ds"
+            ],
+            "targetField": "quantiles_ds",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "quantiles",
+            "sourceFields": [
+              "values_ls"
+            ],
+            "targetField": "quantiles_ls",
+            "mapper": false,
+            "parameters": [
+              {
+                "key": "multiValued",
+                "value": "true"
+              }
+            ]
+          },
+          {
+            "type": "histogram",
+            "sourceFields": [
+              "values_ds"
+            ],
+            "targetField": "histogram_ds",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "histogram",
+            "sourceFields": [
+              "values_ls"
+            ],
+            "targetField": "histogram_ls",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      },
+      {
+        "id": "dailyMetricsRollup-counters",
+        "groupingFields": [
+          "name_s",
+          "server_s"
+        ],
+        "signalTypes": [
+          "counter"
+        ],
+        "selectQuery": "*:*",
+        "timeRange": "[NOW-13MONTHS TO NOW-1MONTH]",
+        "outputPipeline": "default",
+        "outputCollection": "system_metrics",
+        "sourceRemove": true,
+        "sourceCatchup": false,
+        "outputRollup": false,
+        "aggregates": [
+          {
+            "type": "max",
+            "sourceFields": [
+              "max_d"
+            ],
+            "targetField": "max_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "min",
+            "sourceFields": [
+              "min_d"
+            ],
+            "targetField": "min_d",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "max",
+            "sourceFields": [
+              "count_l"
+            ],
+            "targetField": "count_l",
+            "mapper": false,
+            "parameters": []
+          },
+          {
+            "type": "sum",
+            "sourceFields": [
+              "count_increment_l"
+            ],
+            "targetField": "count_increment_l",
+            "mapper": false,
+            "parameters": []
+          }
+        ],
+        "statsFields": [
+          "aggr_count_i",
+          "count_i",
+          "position_i",
+          "weight_d"
+        ]
+      }
+    ],
+    "features": {
+      "finance": [
+        {
+          "name": "partitionByTime",
+          "collectionId": "finance",
+          "params": {},
+          "enabled": false
+        },
+        {
+          "name": "signals",
+          "collectionId": "finance",
+          "params": {},
+          "enabled": false
+        },
+        {
+          "name": "dynamicSchema",
+          "collectionId": "finance",
+          "params": {},
+          "enabled": false
+        },
+        {
+          "name": "searchLogs",
+          "collectionId": "finance",
+          "params": {},
+          "enabled": false
+        }
+      ]
+    },
+    "indexProfiles": {
+      "finance": {
+        "default": "finance-default"
+      }
+    },
+    "queryProfiles": {
+      "finance": {
+        "default": "finance-default"
+      }
+    },
+    "parsers": [
+      {
+        "id": "sp_500_list_30_csv-finance",
+        "enableMediaTypeDetection": true,
+        "maxParserDepth": 16,
+        "parserStages": [
+          {
+            "type": "archive",
+            "label": "archive",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "f6561ece-5a07-4807-9847-33c09f6ca4cc",
+            "alwaysDetect": true,
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "csv",
+            "label": "csv",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
+            "charset": "detect",
+            "ignoreBOM": false,
+            "autoDetect": true,
+            "hasHeaders": true,
+            "headers": [],
+            "fillValue": "<FILL>",
+            "trimWhitespace": true,
+            "skipEmptyLines": true,
+            "includeRowNumber": true,
+            "commentHandling": "ignore",
+            "maxRowLength": 10485760,
+            "maxNumColumns": 1000,
+            "maxColumnChars": 10485760,
+            "columnHandling": "default",
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "json",
+            "label": "json",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "ae55c5df-e46a-458a-b32c-0610f6800e14",
+            "splitArrays": true,
+            "includePath": false,
+            "mappings": [],
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "text",
+            "label": "text",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "385ffc66-6ff1-4076-a21b-5d5305042ae1",
+            "charset": "detect",
+            "ignoreBOM": false,
+            "maxLength": 1048576,
+            "maxLineLength": 1048576,
+            "outputField": "body",
+            "splitLines": false,
+            "skipEmptyLines": false,
+            "skipHeaderLines": 0,
+            "trimWhitespace": false,
+            "commentHandling": "include",
+            "comment": "#",
+            "commentField": "comment",
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "tika",
+            "label": "tika",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "fb7ccfe4-bbcd-41c4-bec1-97f38af82ec5",
+            "includeImages": false,
+            "flattenCompound": true,
+            "addFailedDocs": false,
+            "addOriginalContent": false,
+            "contentEncoding": "binary",
+            "returnXml": false,
+            "keepOriginalStructure": false,
+            "extractHtmlLinks": false,
+            "extractOtherLinks": false,
+            "excludeContentTypes": [],
+            "zipBombCompressionRatio": 200,
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "fallback",
+            "label": "fallback",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "40da3e13-8a50-4d9d-b335-bf972ad118ee",
+            "metadataOnly": false,
+            "maxBytesToKeep": 1048576,
+            "inheritMediaTypes": true
+          }
+        ],
+        "properties": {
+          "sourceId": "default",
+          "forSimulation": true,
+          "lastModified": 1491578325457
+        }
+      },
+      {
+        "id": "_lw_iwb_tmp_442551",
+        "enableMediaTypeDetection": true,
+        "maxParserDepth": 16,
+        "parserStages": [
+          {
+            "type": "archive",
+            "label": "archive",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "f6561ece-5a07-4807-9847-33c09f6ca4cc",
+            "alwaysDetect": true,
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "csv",
+            "label": "csv",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
+            "charset": "detect",
+            "ignoreBOM": false,
+            "autoDetect": true,
+            "hasHeaders": true,
+            "headers": [],
+            "fillValue": "<FILL>",
+            "trimWhitespace": true,
+            "skipEmptyLines": true,
+            "includeRowNumber": true,
+            "commentHandling": "ignore",
+            "maxRowLength": 10485760,
+            "maxNumColumns": 1000,
+            "maxColumnChars": 10485760,
+            "columnHandling": "default",
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "json",
+            "label": "json",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "ae55c5df-e46a-458a-b32c-0610f6800e14",
+            "splitArrays": true,
+            "includePath": false,
+            "mappings": [],
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "text",
+            "label": "text",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "385ffc66-6ff1-4076-a21b-5d5305042ae1",
+            "charset": "detect",
+            "ignoreBOM": false,
+            "maxLength": 1048576,
+            "maxLineLength": 1048576,
+            "outputField": "body",
+            "splitLines": false,
+            "skipEmptyLines": false,
+            "skipHeaderLines": 0,
+            "trimWhitespace": false,
+            "commentHandling": "include",
+            "comment": "#",
+            "commentField": "comment",
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "tika",
+            "label": "tika",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "fb7ccfe4-bbcd-41c4-bec1-97f38af82ec5",
+            "includeImages": false,
+            "flattenCompound": true,
+            "addFailedDocs": false,
+            "addOriginalContent": false,
+            "contentEncoding": "binary",
+            "returnXml": false,
+            "keepOriginalStructure": false,
+            "extractHtmlLinks": false,
+            "extractOtherLinks": false,
+            "excludeContentTypes": [],
+            "zipBombCompressionRatio": 200,
+            "inheritMediaTypes": true
+          },
+          {
+            "type": "fallback",
+            "label": "fallback",
+            "enabled": true,
+            "mediaTypes": [],
+            "pathPatterns": [],
+            "errorHandling": "mark",
+            "id": "40da3e13-8a50-4d9d-b335-bf972ad118ee",
+            "metadataOnly": false,
+            "maxBytesToKeep": 1048576,
+            "inheritMediaTypes": true
+          }
+        ],
+        "properties": {
+          "sourceId": "default",
+          "forSimulation": true,
+          "lastModified": 1491502905940
+        }
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "sp_500_list_30_csv-finance",
+        "created": "2017-04-06T18:21:45.795Z",
+        "modified": "2017-04-06T18:21:45.795Z",
+        "connector": "lucid.fileupload",
+        "type": "fileupload",
+        "pipeline": "finance-default",
+        "parserId": "sp_500_list_30_csv-finance",
+        "properties": {
+          "mediaType": "application/octet-stream",
+          "collection": "finance",
+          "fileId": "sp500List-30.csv"
+        }
+      },
+      {
+        "id": "delete-crawlers",
+        "created": "2017-04-06T21:47:59.095Z",
+        "modified": "2017-04-06T21:47:59.095Z",
+        "connector": "lucid.fileupload",
+        "type": "fileupload",
+        "pipeline": "delete-datasources",
+        "parserId": "default",
+        "properties": {
+          "mediaType": "application/octet-stream",
+          "collection": "finance",
+          "fileId": "sp500List-30.csv"
+        }
+      },
+      {
+        "id": "start-crawlers",
+        "created": "2017-04-07T15:30:19.275Z",
+        "modified": "2017-04-07T15:30:19.275Z",
+        "connector": "lucid.fileupload",
+        "type": "fileupload",
+        "pipeline": "start-crawlers",
+        "parserId": "default",
+        "properties": {
+          "mediaType": "application/octet-stream",
+          "collection": "finance",
+          "fileId": "sp500List-30.csv"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "formatVersion": "1",
+    "exportedBy": "7f17604b-6a29-41ce-b2bb-4c0b30b08ab7",
+    "exportedDate": "2017-04-07T15:30:40.820Z",
+    "fusionVersion": "3.0.1",
+    "fusionGuid": "33768982-ade4-4c9a-98be-7ad7bd520040"
+  }
+}

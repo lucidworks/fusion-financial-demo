@@ -1,0 +1,121 @@
+{
+    "id": "${Symbol}-historical",
+    "created": "2017-04-06T19:46:13.133Z",
+    "modified": "2017-04-06T19:46:13.133Z",
+    "connector": "lucid.anda",
+    "type": "web",
+    "pipeline": "stock-history",
+    "parserId": "default",
+    "properties": {
+      "refreshOlderThan": -1,
+      "emitThreads": 5,
+      "diagnosticMode": false,
+      "f.appendTrailingSlashToLinks": false,
+      "refreshErrors": false,
+      "restrictToTreeIgnoredHostPrefixes": [
+        "www."
+      ],
+      "dedupeSaveSignature": false,
+      "crawlDBType": "in-memory",
+      "delete": true,
+      "initial_mapping": {
+        "mappings": [
+          {
+            "source": "charSet",
+            "target": "charSet_s",
+            "operation": "move"
+          },
+          {
+            "source": "fetchedDate",
+            "target": "fetchedDate_dt",
+            "operation": "move"
+          },
+          {
+            "source": "lastModified",
+            "target": "lastModified_dt",
+            "operation": "move"
+          },
+          {
+            "source": "signature",
+            "target": "dedupeSignature_s",
+            "operation": "move"
+          },
+          {
+            "source": "contentSignature",
+            "target": "signature_s",
+            "operation": "move"
+          },
+          {
+            "source": "length",
+            "target": "length_l",
+            "operation": "move"
+          },
+          {
+            "source": "mimeType",
+            "target": "mimeType_s",
+            "operation": "move"
+          },
+          {
+            "source": "parent",
+            "target": "parent_s",
+            "operation": "move"
+          },
+          {
+            "source": "owner",
+            "target": "owner_s",
+            "operation": "move"
+          },
+          {
+            "source": "group",
+            "target": "group_s",
+            "operation": "move"
+          }
+        ],
+        "reservedFieldsMappingAllowed": false,
+        "skip": false,
+        "id": "Anda",
+        "label": "field-mapping",
+        "type": "field-mapping"
+      },
+      "f.discardLinkURLQueries": false,
+      "fetchDelayMS": 0,
+      "f.respectMetaEquivRedirects": false,
+      "restrictToTreeUseHostAndPath": false,
+      "refreshAll": true,
+      "f.defaultMIMEType": "application/octet-stream",
+      "f.filteringRootTags": [
+        "body",
+        "head"
+      ],
+      "startLinks": [
+        "http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv"
+      ],
+      "failFastOnStartLinkFailure": true,
+      "f.timeoutMS": 10000,
+      "restrictToTreeAllowSubdomains": false,
+      "maxItems": 1,
+      "trackEmbeddedIDs": true,
+      "f.scrapeLinksBeforeFiltering": false,
+      "dedupe": false,
+      "chunkSize": 50,
+      "f.allowAllCertificates": false,
+      "f.obeyRobotsDelay": true,
+      "collection": "finance",
+      "deleteErrorsAfter": -1,
+      "f.userAgentName": "Lucidworks-Anda/2.0",
+      "forceRefresh": false,
+      "retryEmit": true,
+      "depth": -1,
+      "f.obeyRobots": true,
+      "f.cookieSpec": "browser-compatibility",
+      "f.maxSizeBytes": 41943040,
+      "refreshStartLinks": false,
+      "aliasExpiration": 1,
+      "fetchDelayMSPerHost": true,
+      "fetchThreads": 5,
+      "indexCrawlDBToSolr": false,
+      "restrictToTree": true,
+      "retainOutlinks": true,
+      "f.defaultCharSet": "UTF-8"
+    }
+  }
