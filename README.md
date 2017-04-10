@@ -18,9 +18,13 @@ Getting Started
 1. Clone this project: git clone git@github.com:LucidWorks/fusion-financial-demo.git
 1. Import the setup/fusion-config.json file into Fusion.  See https://doc.lucidworks.com/fusion/3.0/REST_API_Reference/Objects-API.html#object-export-and-import
   1. In the Admin UI, you can load up the config under the Devops-Import Menu.
+1. Copy and paste the contents of ```setup/schema.xml``` into the ```finance``` collection's Solr Config->managed schema option, so as to import the proper schema.
 1. Run the "index-s-and-p" crawler first.  This will index the metadata about the S&P 500 companies AND will create 2 additional crawlers PER company
 1. In the Fusion Admin UI, run the "start-crawlers" datasource to kick off indexing of the various sources. 
 1. TODO: Start up the UI and browse to http://localhost:8080
+
+NOTE: if you want to try with a smaller number of companies, you can use the CSV files in https://github.com/lucidworks/fusion-financial-demo/tree/master/data/sp/sample
+interchangeably with the currently configured one in index-s-and-p by changing the start URL appropriately.
 
 
 Development Notes
