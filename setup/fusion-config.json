@@ -17,6 +17,45 @@
     ],
     "indexPipelines": [
       {
+        "id": "default",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "e7fbd499-e11e-4a63-9528-2d8d196fa5ef",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "e7fbd499-e11e-4a63-9528-2d8d196fa5ef"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "4b2405cb-b091-4bf4-bd94-2d78fd4c62a9",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "4b2405cb-b091-4bf4-bd94-2d78fd4c62a9"
+          },
+          {
+            "type": "solr-index",
+            "id": "06ceeb08-c164-4631-8722-e9e200c6a104",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "06ceeb08-c164-4631-8722-e9e200c6a104"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "default"
+        }
+      },
+      {
         "id": "_system",
         "stages": [
           {
@@ -646,77 +685,6 @@
         }
       },
       {
-        "id": "_lw_iwb_tmp_171040",
-        "stages": [
-          {
-            "type": "indexing-rpc",
-            "id": "dz5ayj46vg4wh4cxr",
-            "mappingRules": [],
-            "debug": true,
-            "params": {
-              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
-              "method": "post",
-              "queryParams": {},
-              "headers": {
-                "Content-Type": "application/json"
-              },
-              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 5,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
-            },
-            "hasNoSideEffects": false,
-            "skip": false,
-            "label": "indexing-rpc-press-release",
-            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
-            "secretSourceStageId": "dz5ayj46vg4wh4cxr"
-          },
-          {
-            "type": "indexing-rpc",
-            "id": "wr45zwb3gbw4xtj4i",
-            "mappingRules": [],
-            "debug": true,
-            "params": {
-              "uri": "http://localhost:8984/connectors/v1/connectors/datasources",
-              "method": "post",
-              "queryParams": {},
-              "headers": {
-                "Content-Type": "application/json"
-              },
-              "entity": "{     \"id\": \"${Symbol}-historical\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-history\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"Anda\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 0,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 1,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Lucidworks-Anda/2.0\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": -1,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 5,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
-            },
-            "hasNoSideEffects": false,
-            "skip": false,
-            "label": "indexing-rpc",
-            "condition": "doc.getFirstFieldValue(\"Symbol\") != null",
-            "secretSourceStageId": "wr45zwb3gbw4xtj4i"
-          },
-          {
-            "type": "field-mapping",
-            "id": "177a165d-1b57-4354-b5fe-c6a19af21936",
-            "mappings": [],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "177a165d-1b57-4354-b5fe-c6a19af21936"
-          },
-          {
-            "type": "solr-index",
-            "id": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": false,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "8edcabc0-56cf-4a1d-9822-2596fd5ac6da"
-          }
-        ],
-        "properties": {
-          "sourceId": "finance-default",
-          "lastModified": "1491578324115",
-          "forSimulation": "true",
-          "secretSourcePipelineId": "_lw_iwb_tmp_171040"
-        }
-      },
-      {
         "id": "finance-default",
         "stages": [
           {
@@ -731,7 +699,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 5,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
+              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 1,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
             },
             "hasNoSideEffects": false,
             "skip": false,
@@ -751,7 +719,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "entity": "{     \"id\": \"${Symbol}-historical\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-history\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"Anda\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 0,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 1,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Lucidworks-Anda/2.0\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": -1,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 5,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
+              "entity": "{     \"id\": \"${Symbol}-historical\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-history\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"Anda\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 0,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://ichart.finance.yahoo.com/table.csv?s=${Symbol}&ignore=.csv\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 1,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Lucidworks-Anda/2.0\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": -1,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 1,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
             },
             "hasNoSideEffects": false,
             "skip": false,
@@ -865,48 +833,6 @@
         "properties": {
           "secretSourcePipelineId": "delete-datasources"
         }
-      },
-      {
-        "id": "_lw_iwb_tmp_624828",
-        "stages": [
-          {
-            "type": "field-mapping",
-            "id": "6d342a9e-7308-45c8-b1b5-547bd8f7ca3f",
-            "mappings": [],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "6d342a9e-7308-45c8-b1b5-547bd8f7ca3f"
-          },
-          {
-            "type": "solr-dynamic-field-name-mapping",
-            "id": "da14f8f9-4b90-4cf1-a1a4-d0ccdc069dc6",
-            "duplicateSingleValuedFields": false,
-            "fieldsToExclude": [],
-            "advancedTextFieldsIndexing": true,
-            "maxTextLengthForAdvancedIndexing": 100,
-            "skip": false,
-            "label": "solr-dynamic-field-name-mapping",
-            "secretSourceStageId": "da14f8f9-4b90-4cf1-a1a4-d0ccdc069dc6"
-          },
-          {
-            "type": "solr-index",
-            "id": "cd7029ea-6f46-4a31-93f1-8c2724ce8807",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": false,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "cd7029ea-6f46-4a31-93f1-8c2724ce8807"
-          }
-        ],
-        "properties": {
-          "sourceId": "lenovo-default",
-          "lastModified": "1491501524791",
-          "forSimulation": "true",
-          "secretSourcePipelineId": "_lw_iwb_tmp_624828"
-        }
       }
     ],
     "queryPipelines": [
@@ -942,7 +868,7 @@
         }
       },
       {
-        "id": "_lw_qwb_tmp_7068800785178783",
+        "id": "_lw_qwb_tmp_8277767728350967",
         "stages": [
           {
             "type": "recommendation",
@@ -998,7 +924,60 @@
           }
         ],
         "properties": {
-          "secretSourcePipelineId": "_lw_qwb_tmp_7068800785178783"
+          "lastModified": "1491832316",
+          "forSimulation": "true",
+          "secretSourcePipelineId": "_lw_qwb_tmp_8277767728350967"
+        }
+      },
+      {
+        "id": "default",
+        "stages": [
+          {
+            "type": "recommendation",
+            "id": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7",
+            "numRecommendations": 10,
+            "numSignals": 100,
+            "aggrType": "*",
+            "boostId": "id",
+            "skip": false,
+            "label": "recommendation",
+            "secretSourceStageId": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7"
+          },
+          {
+            "type": "search-fields",
+            "id": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed",
+            "rows": 10,
+            "start": 0,
+            "queryFields": [],
+            "returnFields": [
+              "*",
+              "score"
+            ],
+            "skip": false,
+            "label": "search-fields",
+            "secretSourceStageId": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed"
+          },
+          {
+            "type": "facet",
+            "id": "b007f67b-f627-4130-9763-1bc9bead2eaa",
+            "fieldFacets": [],
+            "skip": false,
+            "label": "facet",
+            "secretSourceStageId": "b007f67b-f627-4130-9763-1bc9bead2eaa"
+          },
+          {
+            "type": "solr-query",
+            "id": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "default"
         }
       },
       {
@@ -1127,6 +1106,22 @@
         }
       },
       {
+        "id": "click-signals-default",
+        "creatorType": "system",
+        "creatorId": "SignalResource_$$_jvstb9b_a",
+        "createTime": "2017-04-10T13:54:24.158Z",
+        "startTime": "2017-04-10T13:54:24.158Z",
+        "repeatUnit": "MINUTE",
+        "interval": 2,
+        "active": true,
+        "callParams": {
+          "uri": "service://aggregator/jobs/default_signals/click-signals-default",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
         "id": "dailyMetricsRollup-timers",
         "creatorType": "system",
         "creatorId": "MetricSchedulesRegistrar",
@@ -1187,57 +1182,6 @@
           "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-timers",
           "method": "post",
           "queryParams": {},
-          "headers": {}
-        }
-      },
-      {
-        "id": "hourlyMetricsRollup-counters",
-        "creatorType": "system",
-        "creatorId": "MetricSchedulesRegistrar",
-        "createTime": "2017-04-04T15:04:16.228Z",
-        "startTime": "2017-04-04T15:04:16.228Z",
-        "repeatUnit": "HOUR",
-        "interval": 1,
-        "active": false,
-        "callParams": {
-          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-counters",
-          "method": "post",
-          "queryParams": {},
-          "headers": {}
-        }
-      },
-      {
-        "id": "hourlyMetricsRollup-meters",
-        "creatorType": "system",
-        "creatorId": "MetricSchedulesRegistrar",
-        "createTime": "2017-04-04T15:04:16.259Z",
-        "startTime": "2017-04-04T15:04:16.259Z",
-        "repeatUnit": "HOUR",
-        "interval": 1,
-        "active": false,
-        "callParams": {
-          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-meters",
-          "method": "post",
-          "queryParams": {},
-          "headers": {}
-        }
-      },
-      {
-        "id": "delete-old-logs",
-        "creatorType": "system",
-        "creatorId": "DefaultLogCleanupScheduleRegistrar",
-        "createTime": "2017-04-04T15:00:19.659Z",
-        "startTime": "2017-04-04T15:00:19.659Z",
-        "repeatUnit": "MONTH",
-        "interval": 1,
-        "active": true,
-        "callParams": {
-          "uri": "solr://logs/update",
-          "method": "get",
-          "queryParams": {
-            "wt": "json",
-            "stream.body": "<delete><query>timestamp_tdt:[* TO NOW-30DAYS] OR timestamp_dt:[* TO NOW-30DAYS]</query></delete>"
-          },
           "headers": {}
         }
       },
@@ -1303,6 +1247,57 @@
         "active": true,
         "callParams": {
           "uri": "solr://audit_logs/update",
+          "method": "get",
+          "queryParams": {
+            "wt": "json",
+            "stream.body": "<delete><query>timestamp_tdt:[* TO NOW-30DAYS] OR timestamp_dt:[* TO NOW-30DAYS]</query></delete>"
+          },
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-counters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.228Z",
+        "startTime": "2017-04-04T15:04:16.228Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-counters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "hourlyMetricsRollup-meters",
+        "creatorType": "system",
+        "creatorId": "MetricSchedulesRegistrar",
+        "createTime": "2017-04-04T15:04:16.259Z",
+        "startTime": "2017-04-04T15:04:16.259Z",
+        "repeatUnit": "HOUR",
+        "interval": 1,
+        "active": false,
+        "callParams": {
+          "uri": "service://aggregator/jobs/system_metrics/hourlyMetricsRollup-meters",
+          "method": "post",
+          "queryParams": {},
+          "headers": {}
+        }
+      },
+      {
+        "id": "delete-old-logs",
+        "creatorType": "system",
+        "creatorId": "DefaultLogCleanupScheduleRegistrar",
+        "createTime": "2017-04-04T15:00:19.659Z",
+        "startTime": "2017-04-04T15:00:19.659Z",
+        "repeatUnit": "MONTH",
+        "interval": 1,
+        "active": true,
+        "callParams": {
+          "uri": "solr://logs/update",
           "method": "get",
           "queryParams": {
             "wt": "json",
@@ -2427,29 +2422,21 @@
     },
     "parsers": [
       {
-        "id": "sp_500_list_30_csv-finance",
+        "id": "index-s-and-p",
         "enableMediaTypeDetection": true,
         "maxParserDepth": 16,
         "parserStages": [
           {
-            "type": "archive",
-            "label": "archive",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "f6561ece-5a07-4807-9847-33c09f6ca4cc",
-            "alwaysDetect": true,
-            "inheritMediaTypes": true
-          },
-          {
             "type": "csv",
             "label": "csv",
             "enabled": true,
-            "mediaTypes": [],
+            "mediaTypes": [
+              "text/csv",
+              "text/plain"
+            ],
             "pathPatterns": [],
             "errorHandling": "mark",
-            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
+            "id": "r96kf6xjeyihk6gvi",
             "charset": "detect",
             "ignoreBOM": false,
             "autoDetect": true,
@@ -2465,103 +2452,27 @@
             "maxColumnChars": 10485760,
             "columnHandling": "default",
             "inheritMediaTypes": true
-          },
-          {
-            "type": "json",
-            "label": "json",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "ae55c5df-e46a-458a-b32c-0610f6800e14",
-            "splitArrays": true,
-            "includePath": false,
-            "mappings": [],
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "text",
-            "label": "text",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "385ffc66-6ff1-4076-a21b-5d5305042ae1",
-            "charset": "detect",
-            "ignoreBOM": false,
-            "maxLength": 1048576,
-            "maxLineLength": 1048576,
-            "outputField": "body",
-            "splitLines": false,
-            "skipEmptyLines": false,
-            "skipHeaderLines": 0,
-            "trimWhitespace": false,
-            "commentHandling": "include",
-            "comment": "#",
-            "commentField": "comment",
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "tika",
-            "label": "tika",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "fb7ccfe4-bbcd-41c4-bec1-97f38af82ec5",
-            "includeImages": false,
-            "flattenCompound": true,
-            "addFailedDocs": false,
-            "addOriginalContent": false,
-            "contentEncoding": "binary",
-            "returnXml": false,
-            "keepOriginalStructure": false,
-            "extractHtmlLinks": false,
-            "extractOtherLinks": false,
-            "excludeContentTypes": [],
-            "zipBombCompressionRatio": 200,
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "fallback",
-            "label": "fallback",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "40da3e13-8a50-4d9d-b335-bf972ad118ee",
-            "metadataOnly": false,
-            "maxBytesToKeep": 1048576,
-            "inheritMediaTypes": true
           }
         ],
         "properties": {
-          "sourceId": "default",
+          "sourceId": "index-s-and-p",
           "forSimulation": true,
-          "lastModified": 1491578325457
+          "lastModified": 1491837218192
         }
       },
       {
-        "id": "_lw_iwb_tmp_442551",
+        "id": "start-crawlers",
         "enableMediaTypeDetection": true,
         "maxParserDepth": 16,
         "parserStages": [
           {
-            "type": "archive",
-            "label": "archive",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "f6561ece-5a07-4807-9847-33c09f6ca4cc",
-            "alwaysDetect": true,
-            "inheritMediaTypes": true
-          },
-          {
             "type": "csv",
             "label": "csv",
             "enabled": true,
-            "mediaTypes": [],
+            "mediaTypes": [
+              "text/plain",
+              "text/csv"
+            ],
             "pathPatterns": [],
             "errorHandling": "mark",
             "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
@@ -2580,124 +2491,421 @@
             "maxColumnChars": 10485760,
             "columnHandling": "default",
             "inheritMediaTypes": true
-          },
+          }
+        ],
+        "properties": {
+          "sourceId": "default",
+          "forSimulation": true,
+          "lastModified": 1491836430556
+        }
+      },
+      {
+        "id": "delete-datasources",
+        "enableMediaTypeDetection": true,
+        "maxParserDepth": 16,
+        "parserStages": [
           {
-            "type": "json",
-            "label": "json",
+            "type": "csv",
+            "label": "csv",
             "enabled": true,
-            "mediaTypes": [],
+            "mediaTypes": [
+              "text/plain",
+              "text/csv"
+            ],
             "pathPatterns": [],
             "errorHandling": "mark",
-            "id": "ae55c5df-e46a-458a-b32c-0610f6800e14",
-            "splitArrays": true,
-            "includePath": false,
-            "mappings": [],
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "text",
-            "label": "text",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "385ffc66-6ff1-4076-a21b-5d5305042ae1",
+            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
             "charset": "detect",
             "ignoreBOM": false,
-            "maxLength": 1048576,
-            "maxLineLength": 1048576,
-            "outputField": "body",
-            "splitLines": false,
-            "skipEmptyLines": false,
-            "skipHeaderLines": 0,
-            "trimWhitespace": false,
-            "commentHandling": "include",
-            "comment": "#",
-            "commentField": "comment",
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "tika",
-            "label": "tika",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "fb7ccfe4-bbcd-41c4-bec1-97f38af82ec5",
-            "includeImages": false,
-            "flattenCompound": true,
-            "addFailedDocs": false,
-            "addOriginalContent": false,
-            "contentEncoding": "binary",
-            "returnXml": false,
-            "keepOriginalStructure": false,
-            "extractHtmlLinks": false,
-            "extractOtherLinks": false,
-            "excludeContentTypes": [],
-            "zipBombCompressionRatio": 200,
-            "inheritMediaTypes": true
-          },
-          {
-            "type": "fallback",
-            "label": "fallback",
-            "enabled": true,
-            "mediaTypes": [],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "40da3e13-8a50-4d9d-b335-bf972ad118ee",
-            "metadataOnly": false,
-            "maxBytesToKeep": 1048576,
+            "autoDetect": true,
+            "hasHeaders": true,
+            "headers": [],
+            "fillValue": "<FILL>",
+            "trimWhitespace": true,
+            "skipEmptyLines": true,
+            "includeRowNumber": true,
+            "commentHandling": "ignore",
+            "maxRowLength": 10485760,
+            "maxNumColumns": 1000,
+            "maxColumnChars": 10485760,
+            "columnHandling": "default",
             "inheritMediaTypes": true
           }
         ],
         "properties": {
           "sourceId": "default",
           "forSimulation": true,
-          "lastModified": 1491502905940
+          "lastModified": 1491836072893
         }
       }
     ],
     "dataSources": [
       {
-        "id": "sp_500_list_30_csv-finance",
-        "created": "2017-04-06T18:21:45.795Z",
-        "modified": "2017-04-06T18:21:45.795Z",
-        "connector": "lucid.fileupload",
-        "type": "fileupload",
+        "id": "index-s-and-p",
+        "created": "2017-04-07T18:34:50.115Z",
+        "modified": "2017-04-07T18:34:50.115Z",
+        "connector": "lucid.anda",
+        "type": "web",
         "pipeline": "finance-default",
-        "parserId": "sp_500_list_30_csv-finance",
+        "parserId": "index-s-and-p",
         "properties": {
-          "mediaType": "application/octet-stream",
+          "refreshOlderThan": -1,
+          "emitThreads": 5,
+          "f.appendTrailingSlashToLinks": false,
+          "diagnosticMode": false,
+          "refreshErrors": false,
+          "restrictToTreeIgnoredHostPrefixes": [
+            "www."
+          ],
+          "dedupeSaveSignature": false,
+          "crawlDBType": "in-memory",
+          "delete": true,
+          "initial_mapping": {
+            "mappings": [
+              {
+                "source": "charSet",
+                "target": "charSet_s",
+                "operation": "move"
+              },
+              {
+                "source": "fetchedDate",
+                "target": "fetchedDate_dt",
+                "operation": "move"
+              },
+              {
+                "source": "lastModified",
+                "target": "lastModified_dt",
+                "operation": "move"
+              },
+              {
+                "source": "signature",
+                "target": "dedupeSignature_s",
+                "operation": "move"
+              },
+              {
+                "source": "contentSignature",
+                "target": "signature_s",
+                "operation": "move"
+              },
+              {
+                "source": "length",
+                "target": "length_l",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType_s",
+                "target": "text/csv",
+                "operation": "set"
+              },
+              {
+                "source": "parent",
+                "target": "parent_s",
+                "operation": "move"
+              },
+              {
+                "source": "owner",
+                "target": "owner_s",
+                "operation": "move"
+              },
+              {
+                "source": "group",
+                "target": "group_s",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType",
+                "target": "text/csv",
+                "operation": "set"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "id": "FromMap",
+            "label": "field-mapping",
+            "type": "field-mapping"
+          },
+          "f.discardLinkURLQueries": false,
+          "fetchDelayMS": 0,
+          "f.respectMetaEquivRedirects": false,
+          "restrictToTreeUseHostAndPath": false,
+          "refreshAll": true,
+          "f.defaultMIMEType": "text/csv",
+          "f.filteringRootTags": [
+            "body",
+            "head"
+          ],
+          "startLinks": [
+            "https://raw.githubusercontent.com/lucidworks/fusion-financial-demo/master/data/sp/full/sandp500.csv"
+          ],
+          "failFastOnStartLinkFailure": true,
+          "f.timeoutMS": 10000,
+          "restrictToTreeAllowSubdomains": false,
+          "maxItems": 1,
+          "dedupe": false,
+          "chunkSize": 50,
+          "f.scrapeLinksBeforeFiltering": false,
+          "trackEmbeddedIDs": true,
+          "f.allowAllCertificates": false,
+          "f.obeyRobotsDelay": true,
           "collection": "finance",
-          "fileId": "sp500List-30.csv"
-        }
-      },
-      {
-        "id": "delete-crawlers",
-        "created": "2017-04-06T21:47:59.095Z",
-        "modified": "2017-04-06T21:47:59.095Z",
-        "connector": "lucid.fileupload",
-        "type": "fileupload",
-        "pipeline": "delete-datasources",
-        "parserId": "default",
-        "properties": {
-          "mediaType": "application/octet-stream",
-          "collection": "finance",
-          "fileId": "sp500List-30.csv"
+          "deleteErrorsAfter": -1,
+          "f.userAgentName": "Lucidworks-Anda/2.0",
+          "forceRefresh": false,
+          "retryEmit": true,
+          "depth": -1,
+          "f.obeyRobots": true,
+          "f.cookieSpec": "browser-compatibility",
+          "f.maxSizeBytes": 4194304,
+          "refreshStartLinks": false,
+          "aliasExpiration": 1,
+          "fetchDelayMSPerHost": true,
+          "fetchThreads": 5,
+          "indexCrawlDBToSolr": false,
+          "restrictToTree": true,
+          "retainOutlinks": true,
+          "f.defaultCharSet": "UTF-8"
         }
       },
       {
         "id": "start-crawlers",
-        "created": "2017-04-07T15:30:19.275Z",
-        "modified": "2017-04-07T15:30:19.275Z",
-        "connector": "lucid.fileupload",
-        "type": "fileupload",
+        "created": "2017-04-07T18:33:18.771Z",
+        "modified": "2017-04-07T18:33:18.771Z",
+        "connector": "lucid.anda",
+        "type": "web",
         "pipeline": "start-crawlers",
-        "parserId": "default",
+        "parserId": "start-crawlers",
         "properties": {
-          "mediaType": "application/octet-stream",
+          "refreshOlderThan": -1,
+          "emitThreads": 5,
+          "f.appendTrailingSlashToLinks": false,
+          "diagnosticMode": false,
+          "refreshErrors": false,
+          "restrictToTreeIgnoredHostPrefixes": [
+            "www."
+          ],
+          "dedupeSaveSignature": false,
+          "crawlDBType": "in-memory",
+          "delete": true,
+          "initial_mapping": {
+            "mappings": [
+              {
+                "source": "charSet",
+                "target": "charSet_s",
+                "operation": "move"
+              },
+              {
+                "source": "fetchedDate",
+                "target": "fetchedDate_dt",
+                "operation": "move"
+              },
+              {
+                "source": "lastModified",
+                "target": "lastModified_dt",
+                "operation": "move"
+              },
+              {
+                "source": "signature",
+                "target": "dedupeSignature_s",
+                "operation": "move"
+              },
+              {
+                "source": "contentSignature",
+                "target": "signature_s",
+                "operation": "move"
+              },
+              {
+                "source": "length",
+                "target": "length_l",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType",
+                "target": "mimeType_s",
+                "operation": "move"
+              },
+              {
+                "source": "parent",
+                "target": "parent_s",
+                "operation": "move"
+              },
+              {
+                "source": "owner",
+                "target": "owner_s",
+                "operation": "move"
+              },
+              {
+                "source": "group",
+                "target": "group_s",
+                "operation": "move"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "id": "FromMap",
+            "label": "field-mapping",
+            "type": "field-mapping"
+          },
+          "f.discardLinkURLQueries": false,
+          "fetchDelayMS": 0,
+          "f.respectMetaEquivRedirects": false,
+          "restrictToTreeUseHostAndPath": false,
+          "refreshAll": true,
+          "f.defaultMIMEType": "application/octet-stream",
+          "f.filteringRootTags": [
+            "body",
+            "head"
+          ],
+          "startLinks": [
+            "https://raw.githubusercontent.com/lucidworks/fusion-financial-demo/master/data/sp/full/sandp500.csv"
+          ],
+          "failFastOnStartLinkFailure": true,
+          "f.timeoutMS": 10000,
+          "restrictToTreeAllowSubdomains": false,
+          "maxItems": 1,
+          "dedupe": false,
+          "chunkSize": 50,
+          "f.scrapeLinksBeforeFiltering": false,
+          "trackEmbeddedIDs": true,
+          "f.allowAllCertificates": false,
+          "f.obeyRobotsDelay": true,
           "collection": "finance",
-          "fileId": "sp500List-30.csv"
+          "deleteErrorsAfter": -1,
+          "f.userAgentName": "Lucidworks-Anda/2.0",
+          "forceRefresh": false,
+          "retryEmit": true,
+          "depth": -1,
+          "f.obeyRobots": true,
+          "f.cookieSpec": "browser-compatibility",
+          "f.maxSizeBytes": 4194304,
+          "refreshStartLinks": false,
+          "aliasExpiration": 1,
+          "fetchDelayMSPerHost": true,
+          "fetchThreads": 5,
+          "indexCrawlDBToSolr": false,
+          "restrictToTree": true,
+          "retainOutlinks": true,
+          "f.defaultCharSet": "UTF-8"
+        }
+      },
+      {
+        "id": "delete-datasources",
+        "created": "2017-04-07T18:32:44.169Z",
+        "modified": "2017-04-07T18:32:44.169Z",
+        "connector": "lucid.anda",
+        "type": "web",
+        "pipeline": "delete-datasources",
+        "parserId": "delete-datasources",
+        "properties": {
+          "refreshOlderThan": -1,
+          "emitThreads": 5,
+          "f.appendTrailingSlashToLinks": false,
+          "diagnosticMode": false,
+          "refreshErrors": false,
+          "restrictToTreeIgnoredHostPrefixes": [
+            "www."
+          ],
+          "dedupeSaveSignature": false,
+          "crawlDBType": "in-memory",
+          "delete": true,
+          "initial_mapping": {
+            "mappings": [
+              {
+                "source": "charSet",
+                "target": "charSet_s",
+                "operation": "move"
+              },
+              {
+                "source": "fetchedDate",
+                "target": "fetchedDate_dt",
+                "operation": "move"
+              },
+              {
+                "source": "lastModified",
+                "target": "lastModified_dt",
+                "operation": "move"
+              },
+              {
+                "source": "signature",
+                "target": "dedupeSignature_s",
+                "operation": "move"
+              },
+              {
+                "source": "contentSignature",
+                "target": "signature_s",
+                "operation": "move"
+              },
+              {
+                "source": "length",
+                "target": "length_l",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType",
+                "target": "mimeType_s",
+                "operation": "move"
+              },
+              {
+                "source": "parent",
+                "target": "parent_s",
+                "operation": "move"
+              },
+              {
+                "source": "owner",
+                "target": "owner_s",
+                "operation": "move"
+              },
+              {
+                "source": "group",
+                "target": "group_s",
+                "operation": "move"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "id": "FromMap",
+            "label": "field-mapping",
+            "type": "field-mapping"
+          },
+          "f.discardLinkURLQueries": false,
+          "fetchDelayMS": 0,
+          "f.respectMetaEquivRedirects": false,
+          "restrictToTreeUseHostAndPath": false,
+          "refreshAll": true,
+          "f.defaultMIMEType": "application/octet-stream",
+          "f.filteringRootTags": [
+            "body",
+            "head"
+          ],
+          "startLinks": [
+            "https://raw.githubusercontent.com/lucidworks/fusion-financial-demo/master/data/sp/full/sandp500.csv"
+          ],
+          "failFastOnStartLinkFailure": true,
+          "f.timeoutMS": 10000,
+          "restrictToTreeAllowSubdomains": false,
+          "maxItems": 1,
+          "dedupe": false,
+          "chunkSize": 50,
+          "f.scrapeLinksBeforeFiltering": false,
+          "trackEmbeddedIDs": true,
+          "f.allowAllCertificates": false,
+          "f.obeyRobotsDelay": true,
+          "collection": "finance",
+          "deleteErrorsAfter": -1,
+          "f.userAgentName": "Lucidworks-Anda/2.0",
+          "forceRefresh": false,
+          "retryEmit": true,
+          "depth": -1,
+          "f.obeyRobots": true,
+          "f.cookieSpec": "browser-compatibility",
+          "f.maxSizeBytes": 4194304,
+          "refreshStartLinks": false,
+          "aliasExpiration": 1,
+          "fetchDelayMSPerHost": true,
+          "fetchThreads": 5,
+          "indexCrawlDBToSolr": false,
+          "restrictToTree": true,
+          "retainOutlinks": true,
+          "f.defaultCharSet": "UTF-8"
         }
       }
     ]
@@ -2705,7 +2913,7 @@
   "metadata": {
     "formatVersion": "1",
     "exportedBy": "7f17604b-6a29-41ce-b2bb-4c0b30b08ab7",
-    "exportedDate": "2017-04-07T15:30:40.820Z",
+    "exportedDate": "2017-04-10T15:39:25.156Z",
     "fusionVersion": "3.0.1",
     "fusionGuid": "33768982-ade4-4c9a-98be-7ad7bd520040"
   }

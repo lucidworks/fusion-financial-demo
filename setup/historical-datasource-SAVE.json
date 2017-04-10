@@ -112,7 +112,7 @@
       "refreshStartLinks": false,
       "aliasExpiration": 1,
       "fetchDelayMSPerHost": true,
-      "fetchThreads": 5,
+      "fetchThreads": 1,
       "indexCrawlDBToSolr": false,
       "restrictToTree": true,
       "retainOutlinks": true,
