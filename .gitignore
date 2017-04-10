@@ -1,3 +1,5 @@
+client/node_modules
+client/bower_components
 client/target
 *.iml
 data/*.csv
