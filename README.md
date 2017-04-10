@@ -23,7 +23,7 @@ Getting Started
 1. TODO: Start up the UI and browse to http://localhost:8080
 
 
-Developmgpoent Notes
+Development Notes
 =================
 
 1. ```historical-datasource-SAVE.json``` and ```press-release-datasource-SAVE.json``` are convenience files for configuring the REST Stage Entity.  You do not need to do
