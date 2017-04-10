@@ -19,7 +19,7 @@ Getting Started
 1. Import the setup/fusion-config.json file into Fusion.  See https://doc.lucidworks.com/fusion/3.0/REST_API_Reference/Objects-API.html#object-export-and-import
   1. In the Admin UI, you can load up the config under the Devops-Import Menu.
 1. Run the "index-s-and-p" crawler first.  This will index the metadata about the S&P 500 companies AND will create 2 additional crawlers PER company
-1. TODO: In the Fusion Admin UI, run the "start-crawlers" datasource to kick off indexing of the various sources. 
+1. In the Fusion Admin UI, run the "start-crawlers" datasource to kick off indexing of the various sources. 
 1. TODO: Start up the UI and browse to http://localhost:8080
 
 
