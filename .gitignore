@@ -1,3 +1,4 @@
+client/target
 *.iml
 data/*.csv
 *.pyc
