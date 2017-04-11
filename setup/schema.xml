@@ -396,7 +396,7 @@
   <fieldType class="solr.TrieIntField" docValues="true" multiValued="true" name="tints" positionIncrementGap="0" precisionStep="8"/>
   <fieldType class="solr.TrieLongField" docValues="true" name="tlong" positionIncrementGap="0" precisionStep="8"/>
   <fieldType class="solr.TrieLongField" docValues="true" multiValued="true" name="tlongs" positionIncrementGap="0" precisionStep="8"/>
-  <field name="Adj_Close" type="tdoubles" indexed="true" stored="true" multiValued="false"/>
+  <field name="Adj_Close" type="tdouble" indexed="true" stored="true" multiValued="false"/>
   <field indexed="true" multiValued="false" name="City" required="false" stored="true" type="text_en"/>
   <field name="Close" type="tdouble" indexed="true" stored="true" multiValued="false"/>
   <field indexed="true"  multiValued="false" name="Company" required="false" stored="true" type="text_en"/>

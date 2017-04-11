@@ -3,31 +3,26 @@
 <!-- -------------------------------------------- -->
 
 <!--typeahead config -->
-<search:platform var="ecomm_aggr_platform" conf="platforms.fusion.ecomm.ecommtypeaheadaggr"></search:platform>
-<search:query var="typeahead_query" parameters='*' results-per-page="12"></search:query>
-<search:response var="typeahead_response" platform="ecomm_aggr_platform" query="typeahead_query">
-    <widget:spinner></widget:spinner>
-</search:response>
+
 
 <!-- Home Page Platform Configs -->
-<search:platform var="platform" conf="platforms.fusion.ecomm.ecomm_user_item_recs"></search:platform>
-<search:platform var="flashsaleplatform" conf="platforms.fusion.ecomm.ecomm_home_page"></search:platform>
+<search:platform var="banner" conf="platforms.fusion.finance.finance_home_page_banner"></search:platform>
+<search:platform var="latestNews" conf="platforms.fusion.finance.finance_latest_news"></search:platform>
+
 
 <search:query var="referenceQuery" parameters='*'></search:query>
 <helper:set var="myText" value="'3eee9ed2f449642c68d403ce94b300ec71234603'"></helper:set>
 
-<search:query var="query" parameters='*' results-per-page="6" ng-if="root.userId != ''">
-    <!--query:custom name="userId" value="dc1618c0d937f32f4a330c9fcc4d1bc45177b53e"></query:custom-->
-    <query:custom name="userId" value="{{$root.userId}}"></query:custom>
+<search:query var="banner" parameters='-' results-per-page="6" modified-query="banner">
 </search:query>
-<search:query var="flashsale" parameters='-' results-per-page="6" modified-query="flash sale">
-</search:query>
-
-<search:response var="flashsaleresponse" platform="flashsaleplatform" query="flashsale">
+<search:response var="bannerResponse" platform="banner" query="banner">
     <widget:spinner></widget:spinner>
 </search:response>
 
-<search:response var="response" platform="platform" query="query" ng-if="root.userId != ''">
+
+<search:query var="latestNews" parameters='-' results-per-page="6" modified-query="*">
+</search:query>
+<search:response var="latestNewsResponse" platform="latestNews" query="latestNews">
     <widget:spinner></widget:spinner>
 </search:response>
 
