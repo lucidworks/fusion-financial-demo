@@ -17,25 +17,6 @@
     ],
     "indexPipelines": [
       {
-        "id": "_system",
-        "stages": [
-          {
-            "type": "solr-index",
-            "id": "solr-system",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": true,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "solr-system"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "_system"
-        }
-      },
-      {
         "id": "default",
         "stages": [
           {
@@ -72,6 +53,25 @@
         ],
         "properties": {
           "secretSourcePipelineId": "default"
+        }
+      },
+      {
+        "id": "_system",
+        "stages": [
+          {
+            "type": "solr-index",
+            "id": "solr-system",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": true,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "solr-system"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_system"
         }
       },
       {
@@ -513,52 +513,13 @@
         }
       },
       {
-        "id": "stock-history",
-        "stages": [
-          {
-            "type": "field-mapping",
-            "id": "093db091-c395-4ee6-ac32-ee936134f98c",
-            "mappings": [],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "093db091-c395-4ee6-ac32-ee936134f98c"
-          },
-          {
-            "type": "solr-dynamic-field-name-mapping",
-            "id": "20640330-74c1-4567-828a-74624f7480a9",
-            "duplicateSingleValuedFields": false,
-            "fieldsToExclude": [],
-            "advancedTextFieldsIndexing": true,
-            "maxTextLengthForAdvancedIndexing": 100,
-            "skip": false,
-            "label": "solr-dynamic-field-name-mapping",
-            "secretSourceStageId": "20640330-74c1-4567-828a-74624f7480a9"
-          },
-          {
-            "type": "solr-index",
-            "id": "40dea4a0-b7af-487f-8ddb-b9e1870105d0",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": false,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "40dea4a0-b7af-487f-8ddb-b9e1870105d0"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "stock-history"
-        }
-      },
-      {
         "id": "stock-press-release",
         "stages": [
           {
             "type": "date-parsing",
             "id": "5sk",
             "sourceFields": [
-              "time_datetime_"
+              "time[datetime]"
             ],
             "dateFormats": [
               "MMM dd, YYYY"
@@ -596,6 +557,45 @@
         ],
         "properties": {
           "secretSourcePipelineId": "stock-press-release"
+        }
+      },
+      {
+        "id": "stock-history",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "093db091-c395-4ee6-ac32-ee936134f98c",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "093db091-c395-4ee6-ac32-ee936134f98c"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "20640330-74c1-4567-828a-74624f7480a9",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "20640330-74c1-4567-828a-74624f7480a9"
+          },
+          {
+            "type": "solr-index",
+            "id": "40dea4a0-b7af-487f-8ddb-b9e1870105d0",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "40dea4a0-b7af-487f-8ddb-b9e1870105d0"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "stock-history"
         }
       },
       {
@@ -922,7 +922,7 @@
               "headers": {
                 "Content-Type": "application/json"
               },
-              "entity": "{   \"id\": \"${Symbol}-press-release\",   \"created\": \"2017-04-06T19:46:13.133Z\",   \"modified\": \"2017-04-06T19:46:13.133Z\",   \"connector\": \"lucid.anda\",   \"type\": \"web\",   \"pipeline\": \"stock-press-release\",   \"parserId\": \"default\",   \"properties\": {     \"refreshOlderThan\": -1,     \"emitThreads\": 5,     \"diagnosticMode\": false,     \"f.appendTrailingSlashToLinks\": false,     \"refreshErrors\": false,     \"restrictToTreeIgnoredHostPrefixes\": [       \"www.\"     ],     \"dedupeSaveSignature\": false,     \"crawlDBType\": \"in-memory\",     \"delete\": true,     \"initial_mapping\": {       \"mappings\": [         {           \"source\": \"charSet\",           \"target\": \"charSet_s\",           \"operation\": \"move\"         },         {           \"source\": \"fetchedDate\",           \"target\": \"fetchedDate_dt\",           \"operation\": \"move\"         },         {           \"source\": \"lastModified\",           \"target\": \"lastModified_dt\",           \"operation\": \"move\"         },         {           \"source\": \"signature\",           \"target\": \"dedupeSignature_s\",           \"operation\": \"move\"         },         {           \"source\": \"contentSignature\",           \"target\": \"signature_s\",           \"operation\": \"move\"         },         {           \"source\": \"length\",           \"target\": \"length_l\",           \"operation\": \"move\"         },         {           \"source\": \"mimeType\",           \"target\": \"mimeType_s\",           \"operation\": \"move\"         },         {           \"source\": \"parent\",           \"target\": \"parent_s\",           \"operation\": \"move\"         },         {           \"source\": \"owner\",           \"target\": \"owner_s\",           \"operation\": \"move\"         },         {           \"source\": \"group\",           \"target\": \"group_s\",           \"operation\": \"move\"         }       ],       \"reservedFieldsMappingAllowed\": false,       \"skip\": false,       \"id\": \"FromMap\",       \"label\": \"field-mapping\",       \"type\": \"field-mapping\"     },     \"f.discardLinkURLQueries\": false,     \"fetchDelayMS\": 10,     \"f.respectMetaEquivRedirects\": false,     \"restrictToTreeUseHostAndPath\": false,     \"refreshAll\": true,     \"f.defaultMIMEType\": \"application/octet-stream\",     \"f.filteringRootTags\": [       \"body\",       \"head\"     ],     \"startLinks\": [       \"http://finance.yahoo.com/quote/${Symbol}\"     ],     \"failFastOnStartLinkFailure\": true,     \"f.timeoutMS\": 10000,     \"restrictToTreeAllowSubdomains\": false,     \"maxItems\": 50,     \"trackEmbeddedIDs\": true,     \"f.scrapeLinksBeforeFiltering\": false,     \"dedupe\": false,     \"chunkSize\": 50,     \"includeRegexes\": [       \"http://finance.yahoo.com/news/.*\",       \"http://finance.yahoo.com/quote/${Symbol}.*\"     ],     \"f.allowAllCertificates\": false,     \"f.obeyRobotsDelay\": true,     \"collection\": \"finance\",     \"deleteErrorsAfter\": -1,     \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",     \"forceRefresh\": false,     \"retryEmit\": true,     \"depth\": 2,     \"f.obeyRobots\": true,     \"f.cookieSpec\": \"browser-compatibility\",     \"f.maxSizeBytes\": 41943040,     \"refreshStartLinks\": false,     \"aliasExpiration\": 1,     \"fetchDelayMSPerHost\": true,     \"fetchThreads\": 1,     \"indexCrawlDBToSolr\": false,     \"restrictToTree\": true,     \"retainOutlinks\": true,     \"f.defaultCharSet\": \"UTF-8\"   } }"
+              "entity": "{     \"id\": \"${Symbol}-press-release\",     \"created\": \"2017-04-06T19:46:13.133Z\",     \"modified\": \"2017-04-06T19:46:13.133Z\",     \"connector\": \"lucid.anda\",     \"type\": \"web\",     \"pipeline\": \"stock-press-release\",     \"parserId\": \"default\",     \"properties\": {       \"refreshOlderThan\": -1,       \"emitThreads\": 5,       \"diagnosticMode\": false,       \"f.appendTrailingSlashToLinks\": false,       \"f.selectorFields\": [         \"time[datetime]\"       ],       \"refreshErrors\": false,       \"restrictToTreeIgnoredHostPrefixes\": [         \"www.\"       ],       \"dedupeSaveSignature\": false,       \"crawlDBType\": \"in-memory\",       \"delete\": true,       \"initial_mapping\": {         \"mappings\": [           {             \"source\": \"charSet\",             \"target\": \"charSet_s\",             \"operation\": \"move\"           },           {             \"source\": \"fetchedDate\",             \"target\": \"fetchedDate_dt\",             \"operation\": \"move\"           },           {             \"source\": \"lastModified\",             \"target\": \"lastModified_dt\",             \"operation\": \"move\"           },           {             \"source\": \"signature\",             \"target\": \"dedupeSignature_s\",             \"operation\": \"move\"           },           {             \"source\": \"contentSignature\",             \"target\": \"signature_s\",             \"operation\": \"move\"           },           {             \"source\": \"length\",             \"target\": \"length_l\",             \"operation\": \"move\"           },           {             \"source\": \"mimeType\",             \"target\": \"mimeType_s\",             \"operation\": \"move\"           },           {             \"source\": \"parent\",             \"target\": \"parent_s\",             \"operation\": \"move\"           },           {             \"source\": \"owner\",             \"target\": \"owner_s\",             \"operation\": \"move\"           },           {             \"source\": \"group\",             \"target\": \"group_s\",             \"operation\": \"move\"           }         ],         \"reservedFieldsMappingAllowed\": false,         \"skip\": false,         \"id\": \"FromMap\",         \"label\": \"field-mapping\",         \"type\": \"field-mapping\"       },       \"f.discardLinkURLQueries\": false,       \"fetchDelayMS\": 10,       \"f.respectMetaEquivRedirects\": false,       \"restrictToTreeUseHostAndPath\": false,       \"refreshAll\": true,       \"f.defaultMIMEType\": \"application/octet-stream\",       \"f.filteringRootTags\": [         \"body\",         \"head\"       ],       \"startLinks\": [         \"http://finance.yahoo.com/quote/${Symbol}\"       ],       \"failFastOnStartLinkFailure\": true,       \"f.timeoutMS\": 10000,       \"restrictToTreeAllowSubdomains\": false,       \"maxItems\": 50,       \"trackEmbeddedIDs\": true,       \"f.scrapeLinksBeforeFiltering\": false,       \"dedupe\": false,       \"chunkSize\": 50,       \"includeRegexes\": [         \"http://finance.yahoo.com/news/.*\",         \"http://finance.yahoo.com/quote/${Symbol}.*\"       ],       \"f.allowAllCertificates\": false,       \"f.obeyRobotsDelay\": true,       \"collection\": \"finance\",       \"deleteErrorsAfter\": -1,       \"f.userAgentName\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36\",       \"forceRefresh\": false,       \"retryEmit\": true,       \"depth\": 2,       \"f.obeyRobots\": true,       \"f.cookieSpec\": \"browser-compatibility\",       \"f.maxSizeBytes\": 41943040,       \"refreshStartLinks\": false,       \"aliasExpiration\": 1,       \"fetchDelayMSPerHost\": true,       \"fetchThreads\": 1,       \"indexCrawlDBToSolr\": false,       \"restrictToTree\": true,       \"retainOutlinks\": true,       \"f.defaultCharSet\": \"UTF-8\"     }   }"
             },
             "hasNoSideEffects": false,
             "skip": false,
@@ -1091,127 +1091,7 @@
         }
       },
       {
-        "id": "system_blobs-default",
-        "stages": [
-          {
-            "type": "recommendation",
-            "id": "7f407367-dca3-4848-be95-d5362867e7a1",
-            "numRecommendations": 10,
-            "numSignals": 100,
-            "aggrType": "*",
-            "boostId": "id",
-            "skip": false,
-            "label": "recommendation",
-            "secretSourceStageId": "7f407367-dca3-4848-be95-d5362867e7a1"
-          },
-          {
-            "type": "search-fields",
-            "id": "e50a349d-6275-43ac-badd-4a543319a96f",
-            "rows": 10,
-            "start": 0,
-            "queryFields": [],
-            "returnFields": [
-              "*",
-              "score"
-            ],
-            "skip": false,
-            "label": "search-fields",
-            "secretSourceStageId": "e50a349d-6275-43ac-badd-4a543319a96f"
-          },
-          {
-            "type": "facet",
-            "id": "d8c7dcac-d51f-453c-b90d-7a5dc1a64614",
-            "fieldFacets": [],
-            "skip": false,
-            "label": "facet",
-            "secretSourceStageId": "d8c7dcac-d51f-453c-b90d-7a5dc1a64614"
-          },
-          {
-            "type": "solr-query",
-            "id": "d8aae231-06fc-4ff6-823e-7d336fdda066",
-            "allowedRequestHandlers": [],
-            "httpMethod": "POST",
-            "allowFederatedSearch": false,
-            "skip": false,
-            "label": "solr-query",
-            "secretSourceStageId": "d8aae231-06fc-4ff6-823e-7d336fdda066"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "system_blobs-default"
-        }
-      },
-      {
-        "id": "_system",
-        "stages": [
-          {
-            "type": "solr-query",
-            "id": "3c3043f5-978d-46fa-bb88-59992e8277bf",
-            "allowedRequestHandlers": [],
-            "httpMethod": "POST",
-            "allowFederatedSearch": false,
-            "skip": false,
-            "label": "solr-query",
-            "secretSourceStageId": "3c3043f5-978d-46fa-bb88-59992e8277bf"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "_system"
-        }
-      },
-      {
-        "id": "default",
-        "stages": [
-          {
-            "type": "recommendation",
-            "id": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7",
-            "numRecommendations": 10,
-            "numSignals": 100,
-            "aggrType": "*",
-            "boostId": "id",
-            "skip": false,
-            "label": "recommendation",
-            "secretSourceStageId": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7"
-          },
-          {
-            "type": "search-fields",
-            "id": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed",
-            "rows": 10,
-            "start": 0,
-            "queryFields": [],
-            "returnFields": [
-              "*",
-              "score"
-            ],
-            "skip": false,
-            "label": "search-fields",
-            "secretSourceStageId": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed"
-          },
-          {
-            "type": "facet",
-            "id": "b007f67b-f627-4130-9763-1bc9bead2eaa",
-            "fieldFacets": [],
-            "skip": false,
-            "label": "facet",
-            "secretSourceStageId": "b007f67b-f627-4130-9763-1bc9bead2eaa"
-          },
-          {
-            "type": "solr-query",
-            "id": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b",
-            "allowedRequestHandlers": [],
-            "httpMethod": "POST",
-            "allowFederatedSearch": false,
-            "skip": false,
-            "label": "solr-query",
-            "secretSourceStageId": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "default"
-        }
-      },
-      {
-        "id": "_lw_qwb_tmp_13434718786343374",
+        "id": "_lw_qwb_tmp_31281141169527905",
         "stages": [
           {
             "type": "recommendation",
@@ -1267,9 +1147,78 @@
           }
         ],
         "properties": {
-          "lastModified": "1492168937",
+          "lastModified": "1492172101",
           "forSimulation": "true",
-          "secretSourcePipelineId": "_lw_qwb_tmp_13434718786343374"
+          "secretSourcePipelineId": "_lw_qwb_tmp_31281141169527905"
+        }
+      },
+      {
+        "id": "default",
+        "stages": [
+          {
+            "type": "recommendation",
+            "id": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7",
+            "numRecommendations": 10,
+            "numSignals": 100,
+            "aggrType": "*",
+            "boostId": "id",
+            "skip": false,
+            "label": "recommendation",
+            "secretSourceStageId": "4d840c93-f8fb-4c0b-aa90-c1a0e86d24d7"
+          },
+          {
+            "type": "search-fields",
+            "id": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed",
+            "rows": 10,
+            "start": 0,
+            "queryFields": [],
+            "returnFields": [
+              "*",
+              "score"
+            ],
+            "skip": false,
+            "label": "search-fields",
+            "secretSourceStageId": "92f0f3a0-05d0-4f4a-832d-919fba9ee4ed"
+          },
+          {
+            "type": "facet",
+            "id": "b007f67b-f627-4130-9763-1bc9bead2eaa",
+            "fieldFacets": [],
+            "skip": false,
+            "label": "facet",
+            "secretSourceStageId": "b007f67b-f627-4130-9763-1bc9bead2eaa"
+          },
+          {
+            "type": "solr-query",
+            "id": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "6dc7116d-a31a-48dd-853a-d0cb178b9e6b"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "default"
+        }
+      },
+      {
+        "id": "_system",
+        "stages": [
+          {
+            "type": "solr-query",
+            "id": "3c3043f5-978d-46fa-bb88-59992e8277bf",
+            "allowedRequestHandlers": [],
+            "httpMethod": "POST",
+            "allowFederatedSearch": false,
+            "skip": false,
+            "label": "solr-query",
+            "secretSourceStageId": "3c3043f5-978d-46fa-bb88-59992e8277bf"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_system"
         }
       },
       {
@@ -2844,86 +2793,8 @@
         ],
         "properties": {
           "sourceId": "index-s-and-p",
-          "forSimulation": true,
+          "forSimulation": false,
           "lastModified": 1491837218192
-        }
-      },
-      {
-        "id": "start-crawlers",
-        "enableMediaTypeDetection": true,
-        "maxParserDepth": 16,
-        "parserStages": [
-          {
-            "type": "csv",
-            "label": "csv",
-            "enabled": true,
-            "mediaTypes": [
-              "text/plain",
-              "text/csv"
-            ],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
-            "charset": "detect",
-            "ignoreBOM": false,
-            "autoDetect": true,
-            "hasHeaders": true,
-            "headers": [],
-            "fillValue": "<FILL>",
-            "trimWhitespace": true,
-            "skipEmptyLines": true,
-            "includeRowNumber": true,
-            "commentHandling": "ignore",
-            "maxRowLength": 10485760,
-            "maxNumColumns": 1000,
-            "maxColumnChars": 10485760,
-            "columnHandling": "default",
-            "inheritMediaTypes": true
-          }
-        ],
-        "properties": {
-          "sourceId": "default",
-          "forSimulation": true,
-          "lastModified": 1491836430556
-        }
-      },
-      {
-        "id": "delete-datasources",
-        "enableMediaTypeDetection": true,
-        "maxParserDepth": 16,
-        "parserStages": [
-          {
-            "type": "csv",
-            "label": "csv",
-            "enabled": true,
-            "mediaTypes": [
-              "text/plain",
-              "text/csv"
-            ],
-            "pathPatterns": [],
-            "errorHandling": "mark",
-            "id": "4bf2d7f0-bbb9-46c8-a3ac-78933a197a04",
-            "charset": "detect",
-            "ignoreBOM": false,
-            "autoDetect": true,
-            "hasHeaders": true,
-            "headers": [],
-            "fillValue": "<FILL>",
-            "trimWhitespace": true,
-            "skipEmptyLines": true,
-            "includeRowNumber": true,
-            "commentHandling": "ignore",
-            "maxRowLength": 10485760,
-            "maxNumColumns": 1000,
-            "maxColumnChars": 10485760,
-            "columnHandling": "default",
-            "inheritMediaTypes": true
-          }
-        ],
-        "properties": {
-          "sourceId": "default",
-          "forSimulation": true,
-          "lastModified": 1491836072893
         }
       }
     ],
@@ -3187,7 +3058,7 @@
         "connector": "lucid.anda",
         "type": "web",
         "pipeline": "start-crawlers",
-        "parserId": "start-crawlers",
+        "parserId": "index-s-and-p",
         "properties": {
           "refreshOlderThan": -1,
           "emitThreads": 5,
@@ -3308,7 +3179,7 @@
         "connector": "lucid.anda",
         "type": "web",
         "pipeline": "delete-datasources",
-        "parserId": "delete-datasources",
+        "parserId": "index-s-and-p",
         "properties": {
           "refreshOlderThan": -1,
           "emitThreads": 5,
@@ -3427,7 +3298,7 @@
   "metadata": {
     "formatVersion": "1",
     "exportedBy": "7f17604b-6a29-41ce-b2bb-4c0b30b08ab7",
-    "exportedDate": "2017-04-14T11:24:15.528Z",
+    "exportedDate": "2017-04-14T16:18:59.640Z",
     "fusionVersion": "3.0.1",
     "fusionGuid": "33768982-ade4-4c9a-98be-7ad7bd520040"
   }

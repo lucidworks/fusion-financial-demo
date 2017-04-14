@@ -1,0 +1,115 @@
+{
+  "add-field": [
+    {
+      "name": "Adj_Close",
+      "type": "tdouble",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "City",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Close",
+      "type": "tdouble",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "Company",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Date",
+      "type": "tdate",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "High",
+      "type": "tdouble",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "Industry",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Low",
+      "type": "tdouble",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "Open",
+      "type": "tdoubles",
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "State",
+      "type": "string",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Symbol",
+      "type": "string",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Volume",
+      "type": "tlong",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    },
+    {
+      "name": "_lw_file_md5",
+      "type": "strings"
+    },
+    {
+      "name": "_lw_file_modified",
+      "type": "tdates"
+    },
+    {
+      "name": "_lw_file_name",
+      "type": "strings"
+    },
+    {
+      "name": "_lw_file_size",
+      "type": "tlongs"
+    },
+    {
+      "name": "time_datetime_",
+      "type": "tdate",
+      "multiValued": false,
+      "indexed": true,
+      "stored": true
+    }
+  ]
+}
