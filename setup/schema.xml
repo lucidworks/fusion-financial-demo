@@ -401,6 +401,7 @@
   <field name="Close" type="tdouble" indexed="true" stored="true" multiValued="false"/>
   <field indexed="true"  multiValued="false" name="Company" required="false" stored="true" type="text_en"/>
   <field name="Date" type="tdate" indexed="true" stored="true"  multiValued="false"/>
+  <field name="time_date_" type="tdate" indexed="true" stored="true"  multiValued="false"/>
   <field name="High" type="tdouble" indexed="true" stored="true"  multiValued="false"/>
   <field indexed="true" multiValued="false" name="Industry" required="false" stored="true" type="text_en"/>
   <field name="Low" type="tdouble" multiValued="false" indexed="true" stored="true"/>
