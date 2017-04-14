@@ -82,6 +82,22 @@
       "stored": true
     },
     {
+      "name": "responseValue",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "body",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
       "name": "Volume",
       "type": "tlong",
       "multiValued": false,

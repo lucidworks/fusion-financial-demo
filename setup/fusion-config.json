@@ -535,202 +535,9 @@
             "secretSourceStageId": "5sk"
           },
           {
-            "type": "field-mapping",
-            "id": "16b71a98-d3ac-4a2f-afde-112ec8417b91",
-            "mappings": [],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "16b71a98-d3ac-4a2f-afde-112ec8417b91"
-          },
-          {
-            "type": "solr-index",
-            "id": "02a19bf5-7017-4433-a8e2-cb617c74a289",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": false,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "02a19bf5-7017-4433-a8e2-cb617c74a289"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "stock-press-release"
-        }
-      },
-      {
-        "id": "stock-history",
-        "stages": [
-          {
-            "type": "field-mapping",
-            "id": "093db091-c395-4ee6-ac32-ee936134f98c",
-            "mappings": [],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "093db091-c395-4ee6-ac32-ee936134f98c"
-          },
-          {
-            "type": "solr-dynamic-field-name-mapping",
-            "id": "20640330-74c1-4567-828a-74624f7480a9",
-            "duplicateSingleValuedFields": false,
-            "fieldsToExclude": [],
-            "advancedTextFieldsIndexing": true,
-            "maxTextLengthForAdvancedIndexing": 100,
-            "skip": false,
-            "label": "solr-dynamic-field-name-mapping",
-            "secretSourceStageId": "20640330-74c1-4567-828a-74624f7480a9"
-          },
-          {
-            "type": "solr-index",
-            "id": "40dea4a0-b7af-487f-8ddb-b9e1870105d0",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": false,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "40dea4a0-b7af-487f-8ddb-b9e1870105d0"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "stock-history"
-        }
-      },
-      {
-        "id": "_signals_ingest",
-        "stages": [
-          {
-            "type": "signal-formatter",
-            "id": "ingest-signals",
-            "flatten": true,
-            "allowedTypes": [],
-            "undefinedType": "general",
-            "timestampLocale": "en-US",
-            "skip": false,
-            "label": "signal-formatter",
-            "secretSourceStageId": "ingest-signals"
-          },
-          {
-            "type": "field-mapping",
-            "id": "mapping-signals",
-            "mappings": [
-              {
-                "source": "type",
-                "target": "type_s",
-                "operation": "move"
-              },
-              {
-                "source": "flag",
-                "target": "flag_s",
-                "operation": "move"
-              },
-              {
-                "source": "params.flag",
-                "target": "flag_s",
-                "operation": "move"
-              },
-              {
-                "source": "timestamp",
-                "target": "timestamp_tdt",
-                "operation": "move"
-              },
-              {
-                "source": "params.count",
-                "target": "count_i",
-                "operation": "move"
-              },
-              {
-                "source": "params.weight",
-                "target": "weight_d",
-                "operation": "move"
-              },
-              {
-                "source": "params.query",
-                "target": "query_s",
-                "operation": "copy"
-              },
-              {
-                "source": "params.query",
-                "target": "query_t",
-                "operation": "move"
-              },
-              {
-                "source": "params.docId",
-                "target": "doc_id_s",
-                "operation": "move"
-              },
-              {
-                "source": "params.userId",
-                "target": "user_id_s",
-                "operation": "move"
-              },
-              {
-                "source": "params.sessionId",
-                "target": "session_id_s",
-                "operation": "move"
-              },
-              {
-                "source": "params.filterQueries",
-                "target": "filters_s",
-                "operation": "move"
-              },
-              {
-                "source": "/params\\.(.*)(?<!_.{1,2})$/",
-                "target": "params.$1_s",
-                "operation": "move"
-              }
-            ],
-            "reservedFieldsMappingAllowed": false,
-            "skip": false,
-            "label": "field-mapping",
-            "secretSourceStageId": "mapping-signals"
-          },
-          {
-            "type": "solr-index",
-            "id": "solr-system",
-            "enforceSchema": true,
-            "dateFormats": [],
-            "params": [],
-            "bufferDocsForSolr": true,
-            "skip": false,
-            "label": "solr-index",
-            "secretSourceStageId": "solr-system"
-          }
-        ],
-        "properties": {
-          "secretSourcePipelineId": "_signals_ingest"
-        }
-      },
-      {
-        "id": "TRIT-ALL-PAYLOAD",
-        "stages": [
-          {
-            "type": "tika-parser",
-            "id": "yqw5pr93zpu2qpvi",
-            "includeImages": false,
-            "flattenCompound": true,
-            "addFailedDocs": false,
-            "addOriginalContent": true,
-            "contentField": "_raw_content_",
-            "contentEncoding": "binary",
-            "returnXml": false,
-            "keepOriginalStructure": false,
-            "extractHtmlLinks": true,
-            "extractOtherLinks": false,
-            "includeContentTypes": [],
-            "excludeContentTypes": [],
-            "zipBombCompressionRatio": 200,
-            "skip": false,
-            "label": "tika-parser",
-            "secretSourceStageId": "yqw5pr93zpu2qpvi",
-            "csvParsing": true
-          },
-          {
             "type": "javascript-index",
             "id": "x2grdv2o4w4hg2e29",
-            "script": "function(doc) {\n  if (doc.getId() !== null && doc.getFirstFieldValue(\"Content-Type\").equals(\"application/pdf\")) {\n    var CALAIS_URL = \"http://54.88.199.223:8080/tag/rs/enrich\";\n    var client = org.apache.http.impl.client.HttpClientBuilder.create().setUserAgent(\"Calais Rest Client\").build();\n    var inContentType = \"application/pdf\";\n    var outContentType = \"application/json\";\n\n    try {\n      var method = new org.apache.http.client.methods.HttpPost(CALAIS_URL);\n\n      // Set mandatory parameters\n      method.setHeader(\"X-AG-Access-Token\", null);\n\n      // Set input content type\n      method.setHeader(\"Content-Type\", inContentType);\n\n      // Set response/output format\n      method.setHeader(\"outputformat\", outContentType);\n\n      var bytes = doc.getContent();\n      var entity = new org.apache.http.entity.ByteArrayEntity(bytes);\n\n      method.setEntity(entity);\n\n      try {\n        var httpResponse = client.execute(method);\n\n        var returnCode = httpResponse.getStatusLine().getStatusCode();\n        if (returnCode == org.apache.http.HttpStatus.SC_NOT_IMPLEMENTED) {\n          logger.info(\"********* The Post method is not implemented by this URI\");\n\t\t\tlogger.info(\"********* Here is the response: \" + httpResponse.toString());\n          // still consume the response body\n          logger.info(\"response: \"+ httpResponse.toString());\n        } else if (returnCode == org.apache.http.HttpStatus.SC_OK) {\n          logger.info(\"********* Response: OK\" );\n          logger.info(\"********* Here is the response: \" + httpResponse.toString());\n\n          var inputStream = httpResponse.getEntity().getContent();\n\n          var inputStreamReader = new java.io.InputStreamReader(inputStream);\n          var bufferedReader = new java.io.BufferedReader(inputStreamReader);\n          var response = \"\";\n          var line = \"\";\n          while((line = bufferedReader.readLine()) != null) {\n            response += line;\n          }\n\n          logger.info(\"response entity: \" + response);\n          doc.addField('version', 'v1');\n        } else {\n          logger.info(\"***** File post failed: \" + input);\n          logger.info(\"***** Got code: \" + returnCode);\n          logger.info(\"***** response: \"+ httpResponse.toString());\n          doc.addField('version', 'untagged');\n        }\n\n        doc.addField(\"returnCode\", returnCode);\n        doc.addField(\"responseValue\", response);\n      } catch (e) {\n        logger.info(e.message);\n      } finally {\n        method.releaseConnection();\n      }\n    } catch (e) {\n        logger.info(e.message);\n    }\n  }\n\n  return doc;\n}\n",
+            "script": "function(doc) {\n  if (doc.getId() !== null && doc.getFirstFieldValue(\"Content-Type\").equals(\"application/pdf\")) {\n    var CALAIS_URL = \"http://34.203.123.232:8080/tag/rs/enrich\";\n    var client = org.apache.http.impl.client.HttpClientBuilder.create().setUserAgent(\"Calais Rest Client\").build();\n    var inContentType = \"application/pdf\";\n    var outContentType = \"application/json\";\n\n    try {\n      var method = new org.apache.http.client.methods.HttpPost(CALAIS_URL);\n\n      // Set mandatory parameters\n      method.setHeader(\"X-AG-Access-Token\", null);\n\n      // Set input content type\n      method.setHeader(\"Content-Type\", inContentType);\n\n      // Set response/output format\n      method.setHeader(\"outputformat\", outContentType);\n\n      var bytes = doc.getContent();\n      var entity = new org.apache.http.entity.ByteArrayEntity(bytes);\n\n      method.setEntity(entity);\n\n      try {\n        var httpResponse = client.execute(method);\n\n        var returnCode = httpResponse.getStatusLine().getStatusCode();\n        if (returnCode == org.apache.http.HttpStatus.SC_NOT_IMPLEMENTED) {\n          logger.info(\"********* The Post method is not implemented by this URI\");\n\t\t\tlogger.info(\"********* Here is the response: \" + httpResponse.toString());\n          // still consume the response body\n          logger.info(\"response: \"+ httpResponse.toString());\n        } else if (returnCode == org.apache.http.HttpStatus.SC_OK) {\n          logger.info(\"********* Response: OK\" );\n          logger.info(\"********* Here is the response: \" + httpResponse.toString());\n\n          var inputStream = httpResponse.getEntity().getContent();\n\n          var inputStreamReader = new java.io.InputStreamReader(inputStream);\n          var bufferedReader = new java.io.BufferedReader(inputStreamReader);\n          var response = \"\";\n          var line = \"\";\n          while((line = bufferedReader.readLine()) != null) {\n            response += line;\n          }\n\n          logger.info(\"response entity: \" + response);\n          doc.addField('version', 'v1');\n        } else {\n          logger.info(\"***** File post failed: \" + input);\n          logger.info(\"***** Got code: \" + returnCode);\n          logger.info(\"***** response: \"+ httpResponse.toString());\n          doc.addField('version', 'untagged');\n        }\n\n        doc.addField(\"returnCode\", returnCode);\n        doc.addField(\"responseValue\", response);\n      } catch (e) {\n        logger.info(e.message);\n      } finally {\n        method.releaseConnection();\n      }\n    } catch (e) {\n        logger.info(e.message);\n    }\n  }\n\n  return doc;\n}\n",
             "skip": false,
             "label": "TRIT-PDF-CONNECT",
             "condition": "",
@@ -893,18 +700,162 @@
           },
           {
             "type": "solr-index",
-            "id": "77fcf2a6-50fb-43c1-8b62-184b5954c934",
+            "id": "02a19bf5-7017-4433-a8e2-cb617c74a289",
             "enforceSchema": true,
             "dateFormats": [],
             "params": [],
             "bufferDocsForSolr": false,
             "skip": false,
             "label": "solr-index",
-            "secretSourceStageId": "77fcf2a6-50fb-43c1-8b62-184b5954c934"
+            "secretSourceStageId": "02a19bf5-7017-4433-a8e2-cb617c74a289"
           }
         ],
         "properties": {
-          "secretSourcePipelineId": "TRIT-ALL-PAYLOAD"
+          "secretSourcePipelineId": "stock-press-release"
+        }
+      },
+      {
+        "id": "stock-history",
+        "stages": [
+          {
+            "type": "field-mapping",
+            "id": "093db091-c395-4ee6-ac32-ee936134f98c",
+            "mappings": [],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "093db091-c395-4ee6-ac32-ee936134f98c"
+          },
+          {
+            "type": "solr-dynamic-field-name-mapping",
+            "id": "20640330-74c1-4567-828a-74624f7480a9",
+            "duplicateSingleValuedFields": false,
+            "fieldsToExclude": [],
+            "advancedTextFieldsIndexing": true,
+            "maxTextLengthForAdvancedIndexing": 100,
+            "skip": false,
+            "label": "solr-dynamic-field-name-mapping",
+            "secretSourceStageId": "20640330-74c1-4567-828a-74624f7480a9"
+          },
+          {
+            "type": "solr-index",
+            "id": "40dea4a0-b7af-487f-8ddb-b9e1870105d0",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": false,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "40dea4a0-b7af-487f-8ddb-b9e1870105d0"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "stock-history"
+        }
+      },
+      {
+        "id": "_signals_ingest",
+        "stages": [
+          {
+            "type": "signal-formatter",
+            "id": "ingest-signals",
+            "flatten": true,
+            "allowedTypes": [],
+            "undefinedType": "general",
+            "timestampLocale": "en-US",
+            "skip": false,
+            "label": "signal-formatter",
+            "secretSourceStageId": "ingest-signals"
+          },
+          {
+            "type": "field-mapping",
+            "id": "mapping-signals",
+            "mappings": [
+              {
+                "source": "type",
+                "target": "type_s",
+                "operation": "move"
+              },
+              {
+                "source": "flag",
+                "target": "flag_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.flag",
+                "target": "flag_s",
+                "operation": "move"
+              },
+              {
+                "source": "timestamp",
+                "target": "timestamp_tdt",
+                "operation": "move"
+              },
+              {
+                "source": "params.count",
+                "target": "count_i",
+                "operation": "move"
+              },
+              {
+                "source": "params.weight",
+                "target": "weight_d",
+                "operation": "move"
+              },
+              {
+                "source": "params.query",
+                "target": "query_s",
+                "operation": "copy"
+              },
+              {
+                "source": "params.query",
+                "target": "query_t",
+                "operation": "move"
+              },
+              {
+                "source": "params.docId",
+                "target": "doc_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.userId",
+                "target": "user_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.sessionId",
+                "target": "session_id_s",
+                "operation": "move"
+              },
+              {
+                "source": "params.filterQueries",
+                "target": "filters_s",
+                "operation": "move"
+              },
+              {
+                "source": "/params\\.(.*)(?<!_.{1,2})$/",
+                "target": "params.$1_s",
+                "operation": "move"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "label": "field-mapping",
+            "secretSourceStageId": "mapping-signals"
+          },
+          {
+            "type": "solr-index",
+            "id": "solr-system",
+            "enforceSchema": true,
+            "dateFormats": [],
+            "params": [],
+            "bufferDocsForSolr": true,
+            "skip": false,
+            "label": "solr-index",
+            "secretSourceStageId": "solr-system"
+          }
+        ],
+        "properties": {
+          "secretSourcePipelineId": "_signals_ingest"
         }
       },
       {
