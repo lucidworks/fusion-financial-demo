@@ -16,6 +16,14 @@
       "stored": true
     },
     {
+      "name": "City_facet",
+      "type": "string",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
       "name": "Close",
       "type": "tdouble",
       "multiValued": false,
@@ -47,6 +55,14 @@
     {
       "name": "Industry",
       "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "Industry_facet",
+      "type": "string",
       "multiValued": false,
       "indexed": true,
       "required": false,
@@ -126,6 +142,16 @@
       "multiValued": false,
       "indexed": true,
       "stored": true
+    }
+  ],
+  "add-copy-field": [
+    {
+      "source": "City",
+      "dest": "City_s"
+    },
+    {
+      "source": "Industry",
+      "dest": "Industry_facet"
     }
   ]
 }
