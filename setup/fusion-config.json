@@ -3232,6 +3232,132 @@
         }
       },
       {
+        "id": "index-s-and-p-100",
+        "created": "2017-04-07T18:34:50.115Z",
+        "modified": "2017-04-07T18:34:50.115Z",
+        "connector": "lucid.anda",
+        "type": "web",
+        "pipeline": "finance-default",
+        "parserId": "index-s-and-p",
+        "properties": {
+          "refreshOlderThan": -1,
+          "emitThreads": 5,
+          "f.appendTrailingSlashToLinks": false,
+          "diagnosticMode": false,
+          "refreshErrors": false,
+          "restrictToTreeIgnoredHostPrefixes": [
+            "www."
+          ],
+          "dedupeSaveSignature": false,
+          "crawlDBType": "in-memory",
+          "delete": true,
+          "initial_mapping": {
+            "mappings": [
+              {
+                "source": "charSet",
+                "target": "charSet_s",
+                "operation": "move"
+              },
+              {
+                "source": "fetchedDate",
+                "target": "fetchedDate_dt",
+                "operation": "move"
+              },
+              {
+                "source": "lastModified",
+                "target": "lastModified_dt",
+                "operation": "move"
+              },
+              {
+                "source": "signature",
+                "target": "dedupeSignature_s",
+                "operation": "move"
+              },
+              {
+                "source": "contentSignature",
+                "target": "signature_s",
+                "operation": "move"
+              },
+              {
+                "source": "length",
+                "target": "length_l",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType_s",
+                "target": "text/csv",
+                "operation": "set"
+              },
+              {
+                "source": "parent",
+                "target": "parent_s",
+                "operation": "move"
+              },
+              {
+                "source": "owner",
+                "target": "owner_s",
+                "operation": "move"
+              },
+              {
+                "source": "group",
+                "target": "group_s",
+                "operation": "move"
+              },
+              {
+                "source": "mimeType",
+                "target": "text/csv",
+                "operation": "set"
+              }
+            ],
+            "reservedFieldsMappingAllowed": false,
+            "skip": false,
+            "id": "FromMap",
+            "label": "field-mapping",
+            "type": "field-mapping"
+          },
+          "f.discardLinkURLQueries": false,
+          "fetchDelayMS": 0,
+          "f.respectMetaEquivRedirects": false,
+          "restrictToTreeUseHostAndPath": false,
+          "refreshAll": true,
+          "f.defaultMIMEType": "text/csv",
+          "f.filteringRootTags": [
+            "body",
+            "head"
+          ],
+          "startLinks": [
+            "https://raw.githubusercontent.com/lucidworks/fusion-financial-demo/master/data/sp/sample/sp500List-100.csv"
+          ],
+          "failFastOnStartLinkFailure": true,
+          "f.timeoutMS": 10000,
+          "restrictToTreeAllowSubdomains": false,
+          "maxItems": 1,
+          "dedupe": false,
+          "chunkSize": 50,
+          "f.scrapeLinksBeforeFiltering": false,
+          "trackEmbeddedIDs": true,
+          "f.allowAllCertificates": false,
+          "f.obeyRobotsDelay": true,
+          "collection": "finance",
+          "deleteErrorsAfter": -1,
+          "f.userAgentName": "Lucidworks-Anda/2.0",
+          "forceRefresh": false,
+          "retryEmit": true,
+          "depth": -1,
+          "f.obeyRobots": true,
+          "f.cookieSpec": "browser-compatibility",
+          "f.maxSizeBytes": 4194304,
+          "refreshStartLinks": false,
+          "aliasExpiration": 1,
+          "fetchDelayMSPerHost": true,
+          "fetchThreads": 5,
+          "indexCrawlDBToSolr": false,
+          "restrictToTree": true,
+          "retainOutlinks": true,
+          "f.defaultCharSet": "UTF-8"
+        }
+      },
+      {
         "id": "index-s-and-p",
         "created": "2017-04-07T18:34:50.115Z",
         "modified": "2017-04-07T18:34:50.115Z",
