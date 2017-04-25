@@ -114,6 +114,30 @@
       "stored": true
     },
     {
+      "name": "title",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "description",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
+      "name": "news_keywords",
+      "type": "text_en",
+      "multiValued": false,
+      "indexed": true,
+      "required": false,
+      "stored": true
+    },
+    {
       "name": "Volume",
       "type": "tlong",
       "multiValued": false,
