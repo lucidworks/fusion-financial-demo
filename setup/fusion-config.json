@@ -1617,8 +1617,21 @@
             "id": "5550c833-bc59-4bb2-98e7-b30b33b2d555",
             "rows": 10,
             "start": 0,
-            "sort": "time_datetime_ desc",
-            "queryFields": [],
+            "sort": "",
+            "queryFields": [
+              {
+                "field": "title",
+                "boost": 10
+              },
+              {
+                "field": "description",
+                "boost": 5
+              },
+              {
+                "field": "body",
+                "boost": 2
+              }
+            ],
             "returnFields": [
               "*",
               "score"
@@ -1670,6 +1683,30 @@
             "skip": false,
             "label": "facet",
             "secretSourceStageId": "b71dd608-9721-43bb-abdf-35023e94212d"
+          },
+          {
+            "type": "set-params",
+            "id": "gfi",
+            "params": [
+              {
+                "key": "sort",
+                "value": "time_datetime_ desc",
+                "policy": "default"
+              },
+              {
+                "key": "ps",
+                "value": "10",
+                "policy": "append"
+              },
+              {
+                "key": "pf",
+                "value": "title^10 description^5",
+                "policy": "append"
+              }
+            ],
+            "skip": false,
+            "label": "set-params",
+            "secretSourceStageId": "gfi"
           },
           {
             "type": "solr-query",
