@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>Finance</artifactId>
+    <packaging>${packaging.type}</packaging>
+    <version>4.1.0-1.0.1</version>
+
+    <parent>
+        <groupId>twigkit</groupId>
+        <artifactId>twigkit.app.js</artifactId>
+        <version>4.1.0</version>
+    </parent>
+
+    <!-- Override parent POM properties -->
+    <properties>
+
+        <!-- We first truncate the list of frontend modules to include before copying -->
+        <frontend.modules>${project.build.directory}/wro4j_dependencies</frontend.modules>
+
+    </properties>
+
+    <!-- Set the build name -->
+    <build>
+        <finalName>${project.name}</finalName>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>2.5</version>
+                <executions>
+                    <execution>
+                        <id>pre-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration combine.self="override">
+                            <filesets>
+                                <fileset>
+                                    <!-- Clean project artifacts -->
+                                    <directory>${project.basedir}/dist</directory>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </fileset>
+                                <fileset>
+                                    <!-- Clean WRO JavaScript dependencies -->
+                                    <directory>${project.basedir}/node_modules</directory>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </fileset>
+                                <fileset>
+                                    <!-- Clean WebPack JavaScript dependencies -->
+                                    <directory>${project.basedir}/src/main/webapp/search/node_modules</directory>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- ======================================================= -->
+            <!-- Run `npm install` to install JavaScript dependencies      -->
+            <!-- ======================================================= -->
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <!-- WRO JavaScript install -->
+                    <execution>
+                        <id>npm-wro-install</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>${basedir}</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Search Install -->
+                    <execution>
+                        <id>npm-search-install</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>${project.basedir}/src/main/webapp/search</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- Search Build -->
+                    <execution>
+                        <id>npm-search-build</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>${project.basedir}/src/main/webapp/search</workingDirectory>
+                            <arguments>
+                                <argument>run</argument>
+                                <argument>build</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <!-- ======================================================= -->
+            <!-- Copy those Node modules we actually need for wro4j      -->
+            <!-- ======================================================= -->
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.7</version>
+                <executions>
+
+                    <!-- Copy NPM components -->
+                    <execution>
+                        <id>copy-npm-resources-for-wro4j</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${frontend.modules}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${basedir}/node_modules</directory>
+                                    <includes>
+                                        <include>/appkit-ui/dist/less/**</include>
+                                        <include>/angular/angular.js</include>
+                                        <include>/angular-resource/angular-resource.js</include>
+                                        <include>/angular-touch/angular-touch.js</include>
+                                        <include>/angular-animate/angular-animate.js</include>
+                                        <include>/angular-cookies/angular-cookies.js</include>
+                                        <include>/angular-sanitize/angular-sanitize.js</include>
+                                        <include>/appkit-ui/dist/js/lightning.min.js</include>
+                                        <include>/angular-ui-router/release/angular-ui-router.js</include>
+                                        <include>/angular-resizable/src/angular-resizable.js</include>
+                                        <include>/appkit-ui/dist/less/phoenix.all.less</include>
+                                        <include>/highlightjs/styles/agate.css</include>
+                                        <include>/ng-file-upload/dist/ng-file-upload.js</include>
+                                        <include>/angular-multi-step-form/dist/browser/angular-multi-step-form.min.js</include>
+                                        <include>/telemark/dist/telemark.min.js</include>
+                                        <include>/telemark/dist/telemark-html-plugin.min.js</include>
+                                        <include>/highlightjs/highlight.pack.js</include>
+                                        <include>/angular-highlightjs/build/angular-highlightjs.js</include>
+                                        <include>/xml-formatter/browser/xml-formatter.js</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.0</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                        <configuration>
+                            <append>true</append>
+                            <destFile>${jacoco.reportPath}</destFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                        <phase>test</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- ======================================================= -->
+            <!-- WAR plugin - overridden to exclude node_modules         -->
+            <!-- ======================================================= -->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <warSourceExcludes>**/node_modules/**</warSourceExcludes>
+                </configuration>
+            </plugin>
+
+            <!-- ========================================================= -->
+            <!-- Assembly plugin to build project zip for inclusion in war -->
+            <!-- ========================================================= -->
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/assembly/zip-src-project-template.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>package-template-project</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <finalName>search-app-project</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <outputDirectory>${project.basedir}/dist</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- =================================================================== -->
+        <!-- fusion-war profile builds a war file that can be deployed to Fusion -->
+        <!-- =================================================================== -->
+
+        <profile>
+            <id>fusion-war</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <build>
+                <finalName>${project.name}</finalName>
+                <plugins>
+                    <!-- ======================================================= -->
+                    <!-- Pre-compile web resources at build time                 -->
+                    <!-- ======================================================= -->
+
+                    <plugin>
+                        <groupId>ro.isdc.wro4j</groupId>
+                        <artifactId>wro4j-maven-plugin</artifactId>
+                        <version>1.8.0</version>
+                        <executions>
+                            <execution>
+                                <phase>generate-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <minimize>true</minimize>
+                            <contextFolder>${basedir}/src/main/webapp/</contextFolder>
+                            <destinationFolder>${project.build.directory}/${project.build.finalName}/static/</destinationFolder>
+                            <wroManagerFactory>twigkit.ui.js.wro4j.buildtime.BuildtimeWroManagerFactory</wroManagerFactory>
+                            <ignoreMissingResources>true</ignoreMissingResources>
+                        </configuration>
+                    </plugin>
+
+                    <!-- ======================================================= -->
+                    <!-- Copying static resources                                -->
+                    <!-- ======================================================= -->
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+                            <!-- Copy license file -->
+                            <execution>
+                                <id>copy-license-into-war</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.basedir}</directory>
+                                            <includes>
+                                                <include>twigkit.lic</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
+        <!-- ================================================== -->
+        <!-- standalone profile builds an Appkit standalone app -->
+        <!-- ================================================== -->
+
+        <profile>
+            <id>standalone</id>
+
+            <properties>
+                <!-- Where exploded WAR gets written to -->
+                <app.war.dir>${project.basedir}/dist/${project.name}-standalone/build</app.war.dir>
+            </properties>
+
+            <build>
+                <plugins>
+
+                    <!-- ======================================================= -->
+                    <!-- WAR plugin to create an exploded WAR of the standalone  -->
+                    <!-- ======================================================= -->
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>2.6</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>exploded</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <webappDirectory>${app.war.dir}</webappDirectory>
+                            <warSourceExcludes>**/node_modules/**</warSourceExcludes>
+                        </configuration>
+                    </plugin>
+
+                    <!-- ======================================================= -->
+                    <!-- Remove embedded Tomcat libs from exploded WAR           -->
+                    <!-- ======================================================= -->
+
+                    <plugin>
+                        <artifactId>maven-clean-plugin</artifactId>
+                        <version>2.5</version>
+                        <executions>
+                            <execution>
+                                <id>remove-unwanted-files-from-exploded-war</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                                <configuration>
+                                    <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                                    <filesets>
+                                        <fileset>
+                                            <directory>${app.war.dir}/WEB-INF</directory>
+                                            <includes>
+                                                <include>lib/tomcat-*</include>
+                                                <include>classes/standalone/</include>
+                                                <include>classes/standalone.properties</include>
+                                            </includes>
+                                        </fileset>
+                                    </filesets>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- ======================================================= -->
+                    <!-- Copying resources pre and post exploded WAR creation    -->
+                    <!-- ======================================================= -->
+
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.7</version>
+                        <executions>
+
+                            <!-- Copy NPM components -->
+                            <execution>
+                                <id>copy-js-npm-resources-for-war</id>
+                                <phase>prepare-package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>target/classes/generated/lib</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${frontend.modules}</directory>
+                                            <includes>
+                                                <include>**</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+
+                            <!-- Copy license file -->
+                            <execution>
+                                <id>copy-license-into-war</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${app.war.dir}/WEB-INF/classes</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>${project.basedir}</directory>
+                                            <includes>
+                                                <include>twigkit.lic</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <repositories>
+        <repository>
+            <id>twigkit.com</id>
+            <name>Twigkit</name>
+            <url>http://twigkit.jfrog.io/twigkit/repo</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Logger implementation -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>janino</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.janino</groupId>
+            <artifactId>commons-compiler</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+
+        <!-- Logging bridging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.9</version>
+        </dependency>
+
+        <!-- Servlet APIs -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Twigkit adapters -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.fusion</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Security Provider-->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.security.provider.fusion</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Fusion Signals Tracking -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.activity.tracker</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.message.service.fusion.producer</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Twigkit web services -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.webservices</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Twigkit workflow module -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.workflow</artifactId>
+            <version>${project.parent.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-analyzers-common</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-highlighter</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.lucene</groupId>
+                    <artifactId>lucene-queryparser</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Twigkit Media services -->
+        <dependency>
+            <groupId>twigkit</groupId>
+            <artifactId>twigkit.media</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!-- Response cache header filter -->
+        <dependency>
+            <groupId>com.samaxes.filter</groupId>
+            <artifactId>cachefilter</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>1.19.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-grizzly2</artifactId>
+            <version>1.19.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,8 +1,7 @@
-client/node_modules
-client/bower_components
-client/target
-*.iml
-data/*.csv
-*.pyc
 .DS_Store
-.idea
+target
+/dist
+password_file.json
+myenv.sh
+demo-starter-master.zip
+archive

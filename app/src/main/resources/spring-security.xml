@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+        xmlns="http://www.springframework.org/schema/security"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:beans="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:http="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+
+    <http pattern="/styles/**" security="none"/>
+    <http pattern="/assets/**" security="none"/>
+    <http pattern="/javascript/**" security="none"/>
+    <http pattern="/wro/**" security="none"/>
+    <http pattern="/setup/**" security="none"/>
+    <http pattern="/favicon.ico" security="none"/>
+    <http pattern="/static/**" security="none"/>
+
+    <http pattern="/twigkit/api/setup/**" security="none"/>
+    <http pattern="/twigkit/api/app/**" security="none"/>
+
+    <!-- Requests to /apps/** should be authenticated by the Fusion Admin authentication service -->
+    <http pattern="/apps/**" use-expressions="true" disable-url-rewriting="true" entry-point-ref="fusionAdminAuthenticationEntryPoint">
+        <request-cache ref="authenticationRequestCache" />
+        <intercept-url pattern="/apps/**" access="isAuthenticated()"/>
+        <http-basic/>
+        <!-- Check if the user is already authenticated by inspecting incoming HTTP headers from the Fusion Proxy -->
+        <custom-filter position="PRE_AUTH_FILTER" ref="preAuthenticatedFilter" />
+        <csrf disabled="true"/>
+    </http>
+
+    <!-- Custom authentication entry point that cares of redirecting the user to the Fusion Admin Authentication-->
+    <beans:bean id="fusionAdminAuthenticationEntryPoint" class="twigkit.app.auth.SetupAuthenticationRedirectEntryPoint">
+        <beans:constructor-arg value="/admin/login"/>
+    </beans:bean>
+
+    <http use-expressions="true" disable-url-rewriting="true" entry-point-ref="authenticationEntryPoint">
+        <http-basic/>
+        <request-cache ref="authenticationRequestCache" />
+        <intercept-url pattern="/login/" access="isAnonymous()"/>
+        <intercept-url pattern="/login" access="isAnonymous()"/>
+        <intercept-url pattern="/twigkit/resources/**" access="isAnonymous() or isAuthenticated()"/>
+        <intercept-url pattern="/wro/**" access="isAnonymous() or isAuthenticated()"/>
+        <intercept-url pattern="/**" access="isAuthenticated()"/>
+
+        <!-- Check if the user is already authenticated by inspecting incoming HTTP headers from the Fusion Proxy -->
+        <custom-filter position="PRE_AUTH_FILTER" ref="preAuthenticatedFilter" />
+
+        <!--or isAnonymous()-->
+        <form-login login-page="/login/"
+                    username-parameter="j_username"
+                    password-parameter="j_password"
+                    login-processing-url="/j_spring_security_check"
+                    authentication-failure-handler-ref="retain_username_failure_handler"
+                    authentication-success-handler-ref="login_success_handler"
+                    default-target-url="/"
+        />
+        <logout logout-url="/logout/" logout-success-url="/"/>
+        <csrf disabled="true"/>
+        <headers>
+            <frame-options policy="SAMEORIGIN" />
+        </headers>
+    </http>
+
+    <beans:bean id="login_success_handler"
+                class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler"/>
+
+    <!-- Default 403 for services (AJAX requests), redirect to login page for everything else -->
+    <beans:bean id="nonAjaxRequestMatcher" class="twigkit.security.springsecurity.matchers.NonAjaxRequestMatcher" />
+
+    <beans:bean id="loginUrlAuthenticationEntryPoint"
+                class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:constructor-arg value="/login/" />
+    </beans:bean>
+
+    <beans:bean id="ajaxAuthenticationEntryPoint"
+                class="org.springframework.security.web.authentication.Http403ForbiddenEntryPoint" />
+
+    <beans:bean id="authenticationRequestCache"
+                class="org.springframework.security.web.savedrequest.HttpSessionRequestCache">
+        <beans:property name="requestMatcher" ref="nonAjaxRequestMatcher" />
+    </beans:bean>
+
+    <beans:bean id="authenticationEntryPoint"
+                class="org.springframework.security.web.authentication.DelegatingAuthenticationEntryPoint">
+        <beans:constructor-arg>
+            <beans:map>
+                <beans:entry key-ref="nonAjaxRequestMatcher" value-ref="loginUrlAuthenticationEntryPoint" />
+            </beans:map>
+        </beans:constructor-arg>
+        <beans:property name="defaultEntryPoint" ref="ajaxAuthenticationEntryPoint" />
+    </beans:bean>
+
+    <beans:bean id="retain_username_failure_handler"
+                class="twigkit.security.springsecurity.handler.RetainUsernameAuthenticationFailureHandler">
+        <beans:constructor-arg value="/login/?access=denied"/>
+    </beans:bean>
+
+    <!-- Fusion header pre-authenticated authentication provider -->
+    <beans:bean id="preAuthenticatedProvider" class="twigkit.security.header.HeaderPreAuthenticationProvider"/>
+
+    <!-- Fusion header pre-authenticated authentication filter -->
+    <beans:bean id="preAuthenticatedFilter" class="twigkit.security.header.HeaderPreAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager" />
+    </beans:bean>
+
+    <!-- Fusion authentication provider -->
+    <beans:bean id="fusionAuthenticationProvider" class="twigkit.security.fusion.FusionAuthenticationProvider"/>
+
+    <!-- Authentication manager configuration - attempt to authenticate in the order given -->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider ref="preAuthenticatedProvider"/>
+        <authentication-provider ref="fusionAuthenticationProvider"/>
+    </authentication-manager>
+
+</beans:beans>

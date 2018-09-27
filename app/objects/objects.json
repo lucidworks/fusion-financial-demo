@@ -1,0 +1,1338 @@
+{
+  "objects" : {
+    "collections" : [ {
+      "id" : "Finance_signals",
+      "createdAt" : "2018-09-18T16:49:45.668Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_signals",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2,
+        "configTemplate" : "solr/conf/insights.zip"
+      },
+      "type" : "SIGNALS",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance",
+      "createdAt" : "2018-09-18T16:49:40.924Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_signals_aggr",
+      "createdAt" : "2018-09-18T16:49:49.872Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_signals_aggr",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2
+      },
+      "type" : "SIGNALS_AGGREGATION",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    } ],
+    "indexPipelines" : [ {
+      "id" : "sp500",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "979c08de-b2c9-4347-9683-76b7be15316e",
+        "mappings" : [ {
+          "source" : "source_s",
+          "target" : "Companies",
+          "operation" : "set"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "979c08de-b2c9-4347-9683-76b7be15316e"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "d5167606-5dd0-4c00-9131-1ad159a44f1a",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d5167606-5dd0-4c00-9131-1ad159a44f1a"
+      }, {
+        "type" : "solr-index",
+        "id" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "sp500"
+      }
+    }, {
+      "id" : "Finance",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "f287f9ef-16c0-4579-b1b5-d3b06f5076f3",
+        "mappings" : [ ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f287f9ef-16c0-4579-b1b5-d3b06f5076f3"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "46801769-18ef-4118-a42b-c3f8058c029a",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "46801769-18ef-4118-a42b-c3f8058c029a"
+      }, {
+        "type" : "solr-index",
+        "id" : "019f493d-2cce-43d7-a274-ea3da4f8ef75",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "019f493d-2cce-43d7-a274-ea3da4f8ef75"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance"
+      }
+    }, {
+      "id" : "sp500-historical",
+      "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "7zq",
+        "script" : "function(doc) {\n  var docs = [];\n\n  logger.info('FOOO2');\n  if (doc !== null && doc.getId() && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    \n    if (ticker === 'AAPL') {\n      logger.info('FOO: calling for apple');\n    } else {\n      return doc;\n    }\n    \n    var entityUtils = Packages.org.apache.http.util.EntityUtils;\n    var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n    var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/chart';\n    var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n    var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n    logger.info('FOOO: ' + response);\n    for (var i = 0; i < response.length; i++) {\n      logger.info('FOOO1');\n      var price_record = response[i];\n      var newDoc = new com.lucidworks.apollo.common.pipeline.PipelineDocument('historical_price_' + ticker + '_' + price_record.date);\n      newDoc.addField('_lw_data_source_s', doc.getFirstFieldValue('_lw_data_source_s'));\n      newDoc.addField('ticker', ticker);\n      newDoc.addField('date', price_record.date);\n      newDoc.addField('open', price_record.open);\n      newDoc.addField('high', price_record.high);\n      newDoc.addField('low', price_record.low);\n      newDoc.addField('close', price_record.close);\n      newDoc.addField('volume', price_record.volume);\n      newDoc.addField('unadjustedVolume', price_record.unadjusted_volume);\n      newDoc.addField('change', price_record.change);\n      newDoc.addField('changePercent', price_record.change_percent);\n      newDoc.addField('vwap', price_record.vwap);\n      docs.push(newDoc);\n    }\n  }\n  return docs;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Get Historical Prices",
+        "licensed" : true,
+        "secretSourceStageId" : "7zq"
+      }, {
+        "type" : "field-mapping",
+        "id" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd",
+        "mappings" : [ ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c"
+      }, {
+        "type" : "solr-index",
+        "id" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "sp500-historical"
+      }
+    } ],
+    "queryPipelines" : [ {
+      "id" : "Finance",
+      "stages" : [ {
+        "type" : "recommendation",
+        "id" : "028c6535-2b71-4dd9-96bc-74e461609b28",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "028c6535-2b71-4dd9-96bc-74e461609b28"
+      }, {
+        "type" : "search-fields",
+        "id" : "7719952e-b229-49b5-ae42-f958f13ed445",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "7719952e-b229-49b5-ae42-f958f13ed445"
+      }, {
+        "type" : "facet",
+        "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34"
+      }, {
+        "type" : "solr-query",
+        "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance"
+      }
+    } ],
+    "features" : {
+      "Finance_signals" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_signals",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "Finance" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "Finance_signals_aggr" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_signals_aggr",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ]
+    },
+    "indexProfiles" : [ {
+      "id" : "Finance",
+      "indexPipeline" : "Finance",
+      "collection" : "Finance",
+      "parser" : "Finance",
+      "params" : [ ]
+    } ],
+    "queryProfiles" : [ {
+      "id" : "Finance",
+      "queryPipeline" : "Finance",
+      "collection" : "Finance",
+      "searchHandler" : "/select"
+    } ],
+    "parsers" : [ {
+      "id" : "sp500",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
+        "errorHandling" : "mark",
+        "id" : "6c204381-72e8-4960-b927-d0ed246e474c",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ]
+    }, {
+      "id" : "Finance",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "archive",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "44a1557b-f069-4e0b-bd94-84ade7261729",
+        "alwaysDetect" : true,
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "0acede47-ef8a-414a-8e51-f811f68ccfe7",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "json",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "178fd9b2-a413-4632-b9b6-248c7c29f8dd",
+        "splitArrays" : true,
+        "includePath" : false,
+        "mappings" : [ ],
+        "listHandling" : "multivalued",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "xml",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "152e6268-210b-4b26-a307-4dc2a9de7612",
+        "rootPaths" : [ "/" ],
+        "maxSize" : 65536,
+        "listHandling" : "multivalued",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "html",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "a735805c-4381-43fe-ac0d-7bb0efc58476",
+        "charset" : "detect",
+        "mappings" : [ ],
+        "keepParent" : true,
+        "extractHtmlLinks" : false,
+        "extractBodyText" : true,
+        "metatagsPrefix" : "",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "text",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "1f8407ae-c6ec-49d3-b3c7-ef7c3e2e2616",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "maxLength" : 1048576,
+        "maxLineLength" : 1048576,
+        "outputField" : "body",
+        "splitLines" : false,
+        "skipEmptyLines" : false,
+        "skipHeaderLines" : 0,
+        "trimWhitespace" : false,
+        "commentHandling" : "include",
+        "comment" : "#",
+        "commentField" : "comment",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "tika",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "5c71fe84-dadc-4e0e-90bf-501102a51b0d",
+        "includeImages" : false,
+        "flattenCompound" : true,
+        "addFailedDocs" : false,
+        "addOriginalContent" : false,
+        "contentEncoding" : "binary",
+        "returnXml" : false,
+        "keepOriginalStructure" : false,
+        "extractHtmlLinks" : false,
+        "extractOtherLinks" : false,
+        "excludeContentTypes" : [ ],
+        "zipBombCompressionRatio" : 200,
+        "zipBombMaxDepth" : 200,
+        "zipBombMaxPackageEntryDepth" : 20,
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      }, {
+        "type" : "fallback",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "9964ee3c-5b5f-438e-84fb-942314b0c5ad",
+        "metadataOnly" : false,
+        "maxBytesToKeep" : 1048576,
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ]
+    }, {
+      "id" : "sp500-historical",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
+        "errorHandling" : "mark",
+        "id" : "29243299-36d4-42ac-adce-ad49f75210bc",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    } ],
+    "objectGroups" : [ {
+      "id" : "d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "name" : "signals-Finance",
+      "isSystem" : true,
+      "description" : "Collection 'Finance' objects for signals support"
+    } ],
+    "links" : [ {
+      "subject" : "datasource:sp500",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:cnn",
+      "object" : "index-pipeline:Finance",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:Finance",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-profile:Finance",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500-historical",
+      "object" : "parser:sp500-historical",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "app:Finance",
+      "object" : "group:_shared",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
+      "object" : "query-pipeline:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:sp500-historical",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500-historical",
+      "object" : "index-pipeline:sp500-historical",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:cnn",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:cnn",
+      "object" : "parser:Finance",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "spark:Finance_head_tail",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "spark:Finance_click_signals_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "collection:Finance_signals_aggr",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "appkit:Finance",
+      "object" : "blob:webapps/Finance.war",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "appkit:Finance",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:sp500",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "spark:Finance_user_item_preferences_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:cnn",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500",
+      "object" : "index-pipeline:sp500",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:sp500",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500",
+      "object" : "parser:sp500",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance",
+      "object" : "query-pipeline:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-profile:Finance",
+      "object" : "index-pipeline:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:sp500-historical",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500-historical",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "spark:Finance_session_rollup",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
+      "object" : "index-pipeline:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "spark:Finance_user_query_history_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
+      "object" : "collection:Finance_signals",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-profile:Finance",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:sp500-historical",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    } ],
+    "jobs" : [ {
+      "resource" : "spark:Finance_head_tail",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-09-19T16:49:55.863Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_user_query_history_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-09-18T17:08:55.698Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_click_signals_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 15,
+        "timeUnit" : "minute",
+        "startTime" : "2018-09-18T17:04:55.310Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_user_item_preferences_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-09-18T17:06:55.572Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_session_rollup",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 15,
+        "timeUnit" : "minute",
+        "startTime" : "2018-09-18T17:04:55.420Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    } ],
+    "sparkJobs" : [ {
+      "type" : "sql_template",
+      "id" : "Finance_click_signals_aggregation",
+      "inputCollection" : "Finance_signals",
+      "outputCollection" : "Finance_signals_aggr",
+      "sql" : "WITH sigs_with_filters AS (\n   SELECT c.query as query,\n          c.doc_id,\n          q.filters_s as filters,\n          c.type,\n          c.ref_time,\n          c.count_i,\n          c.timestamp_tdt,\n          c.weight_d\n     FROM ${inputCollection} c\n LEFT JOIN (SELECT id, filters_s FROM ${inputCollection} WHERE type='response') q ON q.id = c.fusion_query_id\n    WHERE c.type IN (${signalTypes})\n ), signal_type_groups AS (\n     SELECT SUM(count_i) AS typed_aggr_count_i,\n            query,\n            doc_id,\n            type,\n            filters,\n            time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n       FROM sigs_with_filters\n   GROUP BY doc_id, query, filters, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          query AS query_s,\n          query AS query_t,\n          doc_id AS doc_id_s,\n          filters AS filters_s,\n          SPLIT(filters, ' \\\\$ ') AS filters_ss,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY query, doc_id, filters",
+      "rollupSql" : "SELECT query_s,\n          query_s as query_t,\n          doc_id_s,\n          filters_s,\n          first(aggr_type_s) AS aggr_type_s,\n          SPLIT(filters_s, ' \\\\$ ') AS filters_ss,\n          SUM(weight_d) AS weight_d,\n          SUM(aggr_count_i) AS aggr_count_i\n     FROM Finance_signals_aggr\n GROUP BY query_s, doc_id_s, filters_s",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      }, {
+        "key" : "optimizeOutput",
+        "value" : "4"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each query / item combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used to boost documents at query time using the boosting stage."
+    }, {
+      "type" : "headTailAnalysis",
+      "id" : "Finance_head_tail",
+      "randomSeed" : 1234,
+      "trainingCollection" : "Finance_signals",
+      "outputCollection" : "Finance_signals_aggr",
+      "overwriteOutput" : true,
+      "trainingDataFilterQuery" : "type:click OR type:response",
+      "fieldToVectorize" : "query",
+      "trainingDataFrameConfigOptions" : { },
+      "analyzerConfigQuery" : "{ \"analyzers\": [ { \"name\": \"StdTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"standard\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"englishminimalstem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"StdTokLowerStem\" } ]}",
+      "countField" : "count_i",
+      "mainType" : "click",
+      "filterType" : "response",
+      "signalTypeField" : "type",
+      "minCountMain" : 1,
+      "minCountFilter" : 20,
+      "queryLenThreshold" : 2,
+      "userHead" : -1.0,
+      "userTail" : -1.0,
+      "topQ" : [ 100.0, 0.01 ],
+      "trafficPerc" : [ 0.25, 0.5, 0.75 ],
+      "lastTraffic" : [ 0.01 ],
+      "trafficCount" : [ 5.0 ],
+      "overlapThreshold" : 4,
+      "lenScale" : 6,
+      "overlapNumBoost" : 10.0,
+      "headQueryCntBoost" : 1.0,
+      "tailRewrite" : true,
+      "dataFormat" : "solr",
+      "trainingDataSamplingFraction" : 1.0,
+      "stopwordsList" : [ ]
+    }, {
+      "type" : "sql_template",
+      "id" : "Finance_user_query_history_aggregation",
+      "inputCollection" : "Finance_signals",
+      "outputCollection" : "Finance_signals_aggr",
+      "sql" : "WITH signal_type_groups AS (\n    SELECT SUM(count_i) AS typed_aggr_count_i,\n           user_id,\n           query,\n           type,\n           time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n      FROM ${inputCollection}\n     WHERE type IN (${signalTypes})\n  GROUP BY query, user_id, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          user_id AS user_id_s,\n          query AS query_s,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY user_id, query",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each user / query combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used to boost queries for a user based on their past queries."
+    }, {
+      "type" : "sql_template",
+      "id" : "Finance_user_item_preferences_aggregation",
+      "inputCollection" : "Finance_signals",
+      "outputCollection" : "Finance_signals_aggr",
+      "sql" : "WITH signal_type_groups AS (\n    SELECT SUM(count_i) AS typed_aggr_count_i,\n           doc_id,\n           user_id,\n           type,\n           time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n      FROM ${inputCollection}\n     WHERE type IN (${signalTypes})\n  GROUP BY user_id, doc_id, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          doc_id AS doc_id_s,\n          user_id AS user_id_s,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY doc_id, user_id",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each user / item combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used as input to the ALS recommendation job."
+    }, {
+      "type" : "sql_template",
+      "id" : "Finance_session_rollup",
+      "inputCollection" : "Finance_signals",
+      "outputCollection" : "Finance_signals",
+      "sql" : "WITH session_agg AS (\n     SELECT COUNT(1) AS activity_count,\n            MIN(timestamp_tdt) AS start,\n            MAX(timestamp_tdt) AS end,\n            timediff(MAX(timestamp_tdt), MIN(timestamp_tdt), \"MINUTES\") AS duration,\n            'session' AS type,\n            first(user_id) AS user,\n            session_keywords(query) AS keywords,\n            session\n       FROM ${inputCollection}\n      WHERE timestamp_tdt IS NOT NULL\n        AND type != 'session'\n        AND session IS NOT NULL\n        AND session NOT IN (SELECT session FROM ${inputCollection} WHERE type = 'session' AND session IS NOT NULL)\n   GROUP BY session\n     HAVING timediff(current_timestamp(), MAX(timestamp_tdt), \"SECONDS\") >= ${elapsedSecsSinceLastActivity} OR timediff(current_timestamp(), MIN(timestamp_tdt), \"SECONDS\") >= ${elapsedSecsSinceSessionStart})\n SELECT activity_count, start, end, duration, type, user, keywords, session FROM session_agg",
+      "parameters" : [ {
+        "key" : "elapsedSecsSinceLastActivity",
+        "value" : "360"
+      }, {
+        "key" : "elapsedSecsSinceSessionStart",
+        "value" : "3600"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : false,
+      "outputRollup" : false,
+      "hiddenParameters" : [ {
+        "key" : "outputProjectedFieldsOnly",
+        "value" : "true"
+      } ],
+      "skipCheckEnabled" : false,
+      "notes" : "Aggregate related user activity into a session signal containing activity count, duration, and keywords (based on user search terms). This job is used by the Fusion Insights application to show reports about user sessions. Use the 'elapsedSecsSinceLastActivity' and 'elapsedSecsSinceSessionStart' parameters to determine when a user session is considered to be complete."
+    } ],
+    "blobs" : [ {
+      "id" : "webapps/Finance.war",
+      "path" : "/webapps/Finance.war",
+      "dir" : "/webapps",
+      "filename" : "Finance.war",
+      "contentType" : "application/zip",
+      "size" : 85441580,
+      "modifiedTime" : "2018-09-18T17:28:07.000Z",
+      "version" : 1611967168377782272,
+      "md5" : "9c29e277edf39d2ae9a101b77a9f6879",
+      "metadata" : {
+        "last-modified" : "1537289545604",
+        "type" : "appkit:war"
+      }
+    } ],
+    "appkitApps" : [ {
+      "appkitApp" : {
+        "id" : "Finance",
+        "name" : "Finance",
+        "contextPath" : "/Finance",
+        "enabled" : false,
+        "war" : "webapps/Finance.war"
+      },
+      "editingSessions" : [ ]
+    } ],
+    "fusionApps" : [ {
+      "id" : "Finance",
+      "name" : "Finance",
+      "description" : "A Fusion demo, generated by Demo Starter",
+      "dataUri" : "/admin/App-Tile-01-460x160.png",
+      "properties" : {
+        "tileColor" : "apps-darkblue",
+        "previousCollectionId" : "Finance"
+      }
+    } ],
+    "dataSources" : [ {
+      "id" : "sp500",
+      "created" : "2018-09-18T18:30:10.136Z",
+      "modified" : "2018-09-18T18:30:10.136Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "description" : "Reference data set for S&P 500",
+      "pipeline" : "sp500",
+      "parserId" : "sp500",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "maxItems" : -1,
+        "f.jsAjaxTimeout" : 20000,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://localhost:8780/data/Finance/sp500.csv" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
+      }
+    }, {
+      "id" : "cnn",
+      "created" : "2018-09-18T16:51:21.973Z",
+      "modified" : "2018-09-18T16:51:21.973Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "pipeline" : "Finance",
+      "parserId" : "Finance",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "maxItems" : -1,
+        "f.jsAjaxTimeout" : 20000,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://www.cnn.com" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
+      }
+    }, {
+      "id" : "sp500-historical",
+      "created" : "2018-09-18T18:42:29.437Z",
+      "modified" : "2018-09-18T18:42:29.437Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "description" : "S&P 500 historical stock prices",
+      "pipeline" : "sp500-historical",
+      "parserId" : "sp500-historical",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "f.jsAjaxTimeout" : 20000,
+        "maxItems" : 1,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://localhost:8780/data/Finance/sp500.csv" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
+      }
+    } ]
+  },
+  "metadata" : {
+    "formatVersion" : "1",
+    "exportedBy" : "default-subject",
+    "exportedDate" : "2018-09-18T19:43:55.301Z",
+    "fusionVersion" : "4.1.0",
+    "fusionGuid" : "cccab241-0f3c-45cb-8aa3-ed4ce9a1fb4e"
+  }
+}
