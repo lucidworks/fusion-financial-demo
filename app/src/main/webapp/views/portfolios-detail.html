@@ -1,0 +1,165 @@
+<search:platform var="platform" conf="platforms.fusion.finance.company-news"></search:platform>
+<search:query var="query" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+    <query:custom name="portfolio" value="{{params.id}}"></query:custom>
+</search:query>
+<search:response var="response" query="query" platform="platform"></search:response>
+
+<search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
+<search:query parameters="*,-f" var="companyQuery">
+    <query:custom name="portfolio" value="{{params.id}}"></query:custom>
+</search:query>
+<search:response var="companies" platform="finance" query="companyQuery"></search:response>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<div class="portfolio-detail-page">
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for symbols or companies..."
+                action="companies"></layout:include>
+
+<layout:grid styling="centercontent" style="padding-bottom:0px;">
+    <layout:block>
+        <layout:box style="padding:0px;">
+            <p><a href="#/portfolios">Portfolios</a> / {{collaborationTopics[params.id].title}}</p>
+        </layout:box>
+    </layout:block>
+</layout:grid>
+<layout:animate ng-if="collaborationTopics[params.id].companies.length > 0" animation="animate-fadeInUp" on="response" layout-grid>
+    <layout:block>
+            <layout:grid styling="centercontent" style="padding-top:0px;">
+                <layout:block>
+                        <div styling="stretch-content">
+
+                            <h3>Companies</h3>
+                            <search:result-list response="companies" infinite-scrolling="false" platform="platform" query="query">
+                                <search:result class="company-card">
+
+                                    <layout:grid>
+                                        <layout:block styling="close">
+                                            <a ng-click="$parent.$parent.$parent.$parent.deleteBookmarkByTarget($parent.$parent.$parent.$parent.params.id,result.fields.Symbol.val[0])"><span class="flaticon-cross"></span></a>
+                                        </layout:block>
+                                    </layout:grid>
+
+                                    <layout:grid>
+                                        <layout:block lg="1-5" medium="1-3" tiny="1-1" ng-controller="MainCtrl">
+                                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
+                                        </layout:block>
+
+                                        <layout:block lg="3-4" medium="2-4" tiny="1-1">
+                                            <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                                                <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['Symbol'].val[0] | encodeURIComponent }}"></search:field>
+                                                <search:field name="Symbol" label="" styling="title"></search:field>
+                                                <search:field result="result.related[0].result" name="Close" label="" styling="title" number-format="###,###.##"></search:field>
+                                                <!-- Metadata -->
+                                                <!--<search:field name="Industry" query="query" styling="label-left" label="Industry"></search:field>-->
+                                                <!--<search:field name="State" styling="label-left" query="query" label="State"></search:field>-->
+                                                <!--<search:field name="City" styling="label-left" query="query" label="City"></search:field>-->
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+
+                                </search:result>
+                            </search:result-list>
+                        </div>
+                </layout:block>
+
+
+                <layout:block>
+                    <chart:display response="companies" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
+                        <series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.Symbol.val[0]}}" results="company.result.related" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>
+                        <!--<series:result-list results="companies.results[0].result.related" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>-->
+                    </chart:display>
+                    <!--<div ng-repeat="company in companies.results">{{company.result.related[0].result.fields.Date}},{{company.result.related[0].result.fields.Close}}</div>-->
+                </layout:block>
+
+                <layout:block class="related-news">
+                        <div styling="width-1" ng-if="response.results && response.results.length > 0">
+
+                                <h3>News affecting this Portfolio</h3>
+
+                                <layout:grid>
+                                    <layout:block medium="1-3" large="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-light">
+                                        <layout:sidebar padding-left="0">
+                                            <search:facet-list response="response" platform="platform" query="query"
+                                                               styling="facet-list"
+                                                               facet-names="entity_country_hv_ss=Country,entity_company_hv_ss=Company,entity_person_hv_ss=Person,industry_tags_hv_ss=Industry,topics_tags_hv_ss=Topics">
+                                                <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+                                            </search:facet-list>
+                                        </layout:sidebar>
+                                    </layout:block>
+
+                                    <layout:block medium="2-3" large="18-24" styling="bg-searchresults">
+
+                                        <layout:box>
+
+                                            <search:breadcrumbs query="query" group-by-field="true"></search:breadcrumbs>
+
+                                            <search:result-list response="response">
+                                                <search:result>
+                                                    <layout:grid ng-if="result | field:'og_image_s'">
+                                                        <layout:block medium="1-5">
+                                                            <layout:box>
+                                                                <media:image field-name="og_image_s" fallback-image-url="/assets/noimage.svg"></media:image>
+                                                            </layout:box>
+                                                        </layout:block>
+                                                        <layout:block medium="4-5">
+                                                            <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                                                            <search:field name="og_description" styling="description"></search:field>
+
+                                                            <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                                                            <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                                                            <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                                                            <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                                                        </layout:block>
+                                                    </layout:grid>
+                                                    <layout:grid ng-if="!(result | field:'og_image_s')">
+                                                        <layout:block>
+                                                            <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                                                            <search:field name="og_description" styling="description"></search:field>
+
+                                                            <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                                                            <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                                                            <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                                                            <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                                                        </layout:block>
+                                                    </layout:grid>
+                                                </search:result>
+                                            </search:result-list>
+                                        </layout:box>
+                                    </layout:block>
+                                </layout:grid>
+                            </div>
+                    <search:no-results response="response" class="no-news">
+                        <span class="flaticon-folder-2"></span>
+                        <h2>There is no recent news affecting this portfolio.</h2>
+                    </search:no-results>
+                </layout:block>
+
+            </layout:grid>
+
+    </layout:block>
+
+
+
+</layout:animate>
+
+    <!-- Footer -->
+    <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+<layout:grid ng-if="collaborationTopics[params.id].companies.length == 0" styling="centercontent">
+    <layout:block>
+        <layout:box styling="stretch-content">
+            <div class="panel" styling="width-1">
+                <p>This portfolio has no companies yet.</p>
+                <p><a href="#/companies">Add some.</a></p>
+            </div>
+        </layout:box>
+    </layout:block>
+
+    <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+</layout:grid>
+</div>

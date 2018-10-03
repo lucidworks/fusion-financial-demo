@@ -64,9 +64,8 @@
         <%-- Comment this out if you use the WRO4J plugin above --%>
         <%--<script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/vendor.js"></script>--%>
         <%--<script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/main.js"></script>--%>
-
-        <script src="${app:contextPath(pageContext.request)}${'/wro/js/vendor.js'}" type="text/javascript"></script>
-        <script src="${app:contextPath(pageContext.request)}${'/wro/js/main.js'}" type="text/javascript"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/vendor.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/main.js"></script>
 
         <script>
             angular.module('lightning').constant('contextPath', '${app:contextPath(pageContext.request)}');

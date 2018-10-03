@@ -1,0 +1,205 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<!-- DATTODO
+<search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
+-->
+
+<search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
+
+<search:query var="query"></search:query>
+
+<!--
+DATTODO
+<search:query var="news-query">
+  <query:filter field="_lw_data_source_pipeline_s" value="stock-press-release"></query:filter>
+</search:query>
+
+<search:response var="news" platform="latest-news" query="news-query">
+  <widget:spinner></widget:spinner>
+</search:response>
+-->
+
+<search:response var="yourNews" platform="company-news" query="query"></search:response>
+
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<!--<layout:include file="views/partials/header-home.tpl.html"></layout:include>-->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for news..." action="news"></layout:include>
+
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="news-page">
+
+  <!-- CONTENT > SIDEBAR -->
+  <layout:block medium="1-3" large="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
+    <layout:sidebar>
+      <h3 style="color:white;">Your Entities</h3>
+
+      <search:facet-list response="yourNews" platform="company-news" query="query"
+                         styling="facet-list"
+                         facet-names="-_lw_data_source_s,entity_person_hv_ss=Person,entity_company_hv_ss=Company,Company_Events_ss=Event,industry_tags_hv_ss=Industry,entity_country_hv_ss=Country">
+        <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+      </search:facet-list>
+    </layout:sidebar>
+  </layout:block>
+
+  <layout:block medium="2-3" large="18-24">
+
+    <layout:box>
+    <layout:grid>
+      <layout:block>
+        <layout:box padding-bottom="0">
+          <search:breadcrumbs query="query" exclude="_lw_data_source_pipeline_s"></search:breadcrumbs>
+        </layout:box>
+      </layout:block>
+      <layout:block>
+        <layout:box>
+          <search:response-statistics response="news"></search:response-statistics>
+          <toggle:controls labels="News,Your News" panes="panes" class="tk-rgrid-justify-end"></toggle:controls>
+        </layout:box>
+      </layout:block>
+    </layout:grid>
+    </layout:box>
+
+
+    <toggle:panes id="panes">
+      <toggle:pane>
+        <!-- NEWS -->
+        <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
+
+          <!-- CONTENT > RESULTS -->
+          <layout:block class="tk-stl-bg-searchresults">
+            <div class="tk-bl-content">
+              <layout:grid>
+                <layout:block>
+
+                    <search:result-list response="news" infinite-scrolling="true" platform="latest-news" query="query">
+                      <search:result>
+                        <layout:grid ng-if="result | field:'og_image_s'">
+                          <layout:block medium="1-5">
+                            <layout:box>
+                              <media:image field-name="og_image_s" fallback-image-url="/assets/noimage.svg"></media:image>
+                            </layout:box>
+                          </layout:block>
+                          <layout:block medium="4-5">
+                            <layout:box>
+                              <div class="small-title">
+                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                              </div>
+                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description" styling="description"></search:field>
+
+                              <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                              <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                              <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industries"></search:field>
+                              <search:field name="Company_Events_ss" styling="capsules" query="query" label="Events" show="4"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                          <layout:block>
+                            <layout:box>
+                              <div class="small-title">
+                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                              </div>
+                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description" styling="description"></search:field>
+
+                              <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                              <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                              <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                              <search:field name="Company_Events_ss" styling="capsules" query="query" label="Events" show="4"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                      </search:result>
+                    </search:result-list>
+                    <search:no-results response="news"></search:no-results>
+
+                </layout:block>
+              </layout:grid>
+            </div>
+          </layout:block>
+
+        </layout:animate>
+      </toggle:pane>
+
+      <toggle:pane visible="true">
+        <!-- YOUR NEWS -->
+        <layout:animate animation="animate-fadeInUp" on="yourNews" layout-grid>
+
+
+
+          <!-- CONTENT > RESULTS -->
+          <layout:block medium="2-3" large="18-24" class="tk-stl-bg-searchresults">
+            <div class="tk-bl-content">
+              <layout:grid>
+                <layout:block>
+                  <search:response-statistics response="yourNews"></search:response-statistics>
+                  <search:result-list response="yourNews" infinite-scrolling="true" platform="company-news" query="query">
+                      <search:result>
+                        <layout:grid ng-if="result | field:'og_image_s'">
+                          <layout:block medium="1-5">
+                            <layout:box>
+                              <media:image field-name="og_image_s" fallback-image-url="/assets/noimage.svg"></media:image>
+                            </layout:box>
+                          </layout:block>
+                          <layout:block medium="4-5">
+                            <layout:box>
+                              <div class="small-title">
+                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                              </div>
+                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description" styling="description"></search:field>
+
+                              <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                              <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                              <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industries"></search:field>
+                              <search:field name="Company_Events_ss" styling="capsules" query="query" label="Events" show="4"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                          <layout:block>
+                            <layout:box>
+                              <div class="small-title">
+                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                              </div>
+                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description" styling="description"></search:field>
+
+                              <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                              <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                              <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                              <search:field name="Company_Events_ss" styling="capsules" query="query" label="Events" show="4"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                      </search:result>
+                    </search:result-list>
+                    <search:no-results response="yourNews"></search:no-results>
+
+                </layout:block>
+              </layout:grid>
+            </div>
+          </layout:block>
+
+        </layout:animate>
+      </toggle:pane>
+    </toggle:panes>
+  </layout:block>
+
+
+
+
+
+
+</layout:grid>

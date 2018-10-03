@@ -1,0 +1,127 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
+
+<search:query var="query" facets="Industry_facet,City_s,State">
+  <query:filter field="_lw_data_source_s" value="index-s-and-p-100"></query:filter>
+</search:query>
+
+<search:response var="response" platform="platform" query="query">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for news, symbols, or companies ..." action="companies"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="company-page">
+  <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+
+    <!-- CONTENT > SIDEBAR -->
+    <layout:block medium="1-3" large="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
+      <layout:sidebar>
+        <search:facet-list response="response" platform="platform" query="query"
+                           styling="facet-list"
+                           facet-names="-_lw_data_source_s,Industry_facet=Industry,City_s=City,State">
+          <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+        </search:facet-list>
+      </layout:sidebar>
+    </layout:block>
+
+    <!-- CONTENT > RESULTS -->
+    <layout:block medium="2-3" large="18-24" class="tk-stl-bg-searchresults">
+      <div class="tk-bl-content">
+        <layout:box>
+
+        <!-- SELECTED FACETS / SORT OPTIONS -->
+        <!--<search:tabs response="response" tabs="" field-name="" all-label="All" styling="tabs" platform="platform" query="query"></search:tabs>-->
+        <layout:grid styling="sortoptions-wrapper">
+          <layout:block>
+            <search:response-statistics response="response"></search:response-statistics>
+          </layout:block>
+        </layout:grid>
+        <search:breadcrumbs query="query" group-by-field="true" exclude="_lw_data_source_s"></search:breadcrumbs>
+
+        <!-- ALL RESULTS WRAPPER -->
+
+
+            <!-- APP RESULTS CARD LIST -->
+            <layout:block>
+              <layout:grid>
+                <layout:block>
+
+                  <!--<search:result-list response="response"></search:result-list>-->
+                  <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query">
+                      <search:result class="company-card card">
+
+                        <layout:grid>
+
+                          <layout:block md="6-24" tiny="1-1" ng-controller="MainCtrl">
+                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
+                          </layout:block>
+
+                          <layout:block md="18-24" tiny="1-1">
+                            <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                              <div class="small-title">
+                                <search:field name="Industry" query="query" styling="metadata" label="Industry"></search:field>
+                              </div>
+                              <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['Symbol'].val[0] | encodeURIComponent }}"></search:field>
+                              <search:field name="Symbol" label="" class="sub-title label-inline"></search:field>
+                              <search:field result="result.related[0].result" name="Close" label="" class="sub-title label-inline" number-format="###,###.##"></search:field>
+
+                              <search:field name="State" styling="metadata label-inline" query="query" label="State"></search:field>
+                              <search:field name="City" styling="metadata label-inline" query="query" label="City"></search:field>
+                            </layout:box>
+                          </layout:block>
+
+                        </layout:grid>
+
+                        <layout:grid>
+                          <layout:block>
+                            <hr class="simple" ng-if="result.fields.company_events">
+                            <layout:grid class="portfolio" ng-if="$parent.$parent.$parent.portfolioCompanies[result.fields.Symbol.val[0]].length > 0" >
+                              <layout:block md="6-24">
+                                <p styling="title">Portfolios</p>
+                              </layout:block>
+                              <layout:block md="18-24">
+                                <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                                  <ol styling="tag-list tag-capsules sm">
+                                    <li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.Symbol.val[0]]">
+                                      <a href="#/portfolios/{{portfolio.id}}">
+                                        <span class="value">{{portfolio.title}}</span>
+                                      </a>
+                                    </li>
+                                  </ol>
+                                </layout:box>
+                              </layout:block>
+                            </layout:grid>
+                            <search:field name="company_events" styling="capsules capsules-fullwidth" label="" show="10"></search:field>
+                          </layout:block>
+                        </layout:grid>
+                      </search:result>
+                    </search:result-list>
+
+                </layout:block>
+              </layout:grid>
+              <search:no-results response="response">
+                <h2 class="zero-results" styling="textcenter">Sorry, there are no results that match your search criteria.</h2>
+                <p class="zero-results" styling="textcenter">If you've checked your spelling, try using more general keywords.</p>
+              </search:no-results>
+            </layout:block>
+
+
+        </layout:box>
+      </div>
+    </layout:block>
+
+
+  </layout:animate>
+</layout:grid>

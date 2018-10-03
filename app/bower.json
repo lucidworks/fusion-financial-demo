@@ -1,0 +1,14 @@
+{
+  "name": "twigkit-async",
+  "version": "0.0.0",
+  "dependencies": {
+    "lightning": "https://github.com/twigkit/lightning.git#~0.10.3",
+    "angular-ui-router": "~0.2.15"
+  },
+  "appPath": "src/main/webapp/static/app",
+  "moduleName": "twigkitLightApp",
+  "resolutions": {
+    "phoenix": "~0.1.8",
+    "angular": "1.5.10"
+  }
+}

@@ -8,9 +8,9 @@
         <Arg>.*/spring-security[^/]*\.jar$|.*/spring-web[^/]*\.jar$|.*/classes/.*</Arg>
     </Call>
 
-<!--    <Call name="setAttribute">-->
-<!--      <Arg>org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern</Arg>-->
-<!--      <Arg>.*/foo-[^/]*\.jar$|.*/bar-[^/]*\.jar$|.*/classes/.*</Arg>-->
-<!--    </Call>-->
+    <!--    <Call name="setAttribute">-->
+    <!--      <Arg>org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern</Arg>-->
+    <!--      <Arg>.*/foo-[^/]*\.jar$|.*/bar-[^/]*\.jar$|.*/classes/.*</Arg>-->
+    <!--    </Call>-->
 
 </Configure>

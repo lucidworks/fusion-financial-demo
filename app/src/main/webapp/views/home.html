@@ -1,0 +1,222 @@
+<search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
+
+<search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
+
+<search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>
+
+<search:query var="query" results-per-page="5">
+    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:query var="getCompanies" parameters="-fa"></search:query>
+
+<search:response var="press" platform="company-news" query="query"></search:response>
+
+<search:response var="news" platform="latest-news" query="query">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
+
+<layout:include file="views/partials/header-home.tpl.html"></layout:include>
+
+<!-- Big Search Banner -->
+<layout:grid class="banner">
+    <layout:block>
+        <layout:box>
+            <!--<h1 class="banner-text">{{user.name}}'s Catalyst Portal</h1>-->
+<!--             <h1 class="banner-text">Discover the news affecting your portfolios</h1>
+ -->            <img src="/assets/360logowhite.png" width="260px">
+            <div class="banner-search">
+                <layout:box>
+                    <search:box placeholder="Search for symbols or companies..."
+                                action="companies">
+                        <layout:grid style="text-align:left;">
+                            <layout:block>
+                                <query:suggestions completion-service="services.suggestions.allSuggester"
+                                                   action="companies"></query:suggestions>
+                            </layout:block>
+                        </layout:grid>
+                    </search:box>
+                </layout:box>
+            </div>
+            </div>
+        </layout:box>
+    </layout:block>
+
+</layout:grid>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas centercontent">
+    <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
+
+        <!-- Container -->
+        <layout:grid>
+
+            <!-- BREADCRUMBS -->
+            <layout:grid>
+                <layout:block>
+                    <layout:box padding-bottom="0">
+                        <search:breadcrumbs query="query" exclude="_lw_data_source_pipeline_s"></search:breadcrumbs>
+                    </layout:box>
+                </layout:block>
+            </layout:grid>
+
+            <!-- NEWS -->
+            <layout:block medium="2-3">
+                    <div styling="width-1 stretch-content">
+
+                        <!-- 0 -->
+                        <layout:grid>
+                            <layout:block>
+                                <div class="page-header">
+                                    <h2>Latest Stories</h2>
+                                </div>
+
+
+                                    <search:result-list response="news">
+                                        <search:result>
+                                            <layout:grid ng-if="result | field:'og_image_s'">
+                                                <layout:block medium="1-4">
+                                                    <layout:box padding-top="0" padding-bottom="0" padding-left="0">
+                                                        <media:image field-name="og_image_s" height="100"
+                                                                     fallback-image-url="/assets/noimage.svg"></media:image>
+                                                    </layout:box>
+                                                </layout:block>
+                                                <layout:block medium="3-4">
+                                                    <div class="small-title">
+                                                        <search:field name="entity_company_hv_ss" styling="capsules"
+                                                                  query="query" label="Companies"></search:field>
+                                                    </div>
+                                                    <search:field name="title_t" styling="title"
+                                                                  urlfield="Content_Location"></search:field>
+                                                    <search:field name="og_description_s"
+                                                                  styling="description"></search:field>
+
+                                                    <search:field name="entity_country_hv_ss" styling="capsules"
+                                                                  query="query" label="Countries"></search:field>
+                                                    <search:field name="entity_person_hv_ss" styling="capsules"
+                                                                  query="query" label="People"></search:field>
+                                                    <search:field name="industry_tags_hv_ss" styling="capsules"
+                                                                  query="query" label="Industry"></search:field>
+                                                </layout:block>
+                                            </layout:grid>
+                                            <layout:grid ng-if="!(result | field:'og_image_s')">
+                                                <layout:block>
+                                                    <div class="small-title">
+                                                        <search:field name="entity_company_hv_ss" styling="capsules"
+                                                                      query="query" label="Companies"></search:field>
+                                                    </div>
+                                                    <search:field name="title_t" styling="title"
+                                                                  urlfield="Content_Location"></search:field>
+                                                    <search:field name="og_description_s"
+                                                                  styling="description"></search:field>
+
+                                                    <search:field name="entity_country_hv_ss" styling="capsules"
+                                                                  query="query" label="Countries"></search:field>
+                                                    <search:field name="entity_person_hv_ss" styling="capsules"
+                                                                  query="query" label="People"></search:field>
+                                                    <search:field name="industry_tags_hv_ss" styling="capsules"
+                                                                  query="query" label="Industry"></search:field>
+
+                                                </layout:block>
+                                            </layout:grid>
+                                        </search:result>
+                                    </search:result-list>
+                                    <!--<search:result-list response="news"></search:result-list>-->
+                            </layout:block>
+                            <layout:block>
+                                <a styling="panel panel-block-link" href="#/news">
+                                    <h2><span class="flaticon-search"></span> Find More Stories </h2>
+                                </a>
+                            </layout:block>
+                        </layout:grid>
+                    </div>
+            </layout:block>
+
+            <!-- PORTFOLIOS -->
+            <layout:block medium="1-3">
+
+                    <div class="home-sidebar" styling="width-1" styling="stretch-content">
+
+                        <!-- 0 -->
+                        <layout:grid>
+                            <layout:block>
+                                    <a href="#/portfolios">
+                                        <h2 ng-if="collaborationTopics.length > 0">Your portfolios</h2>
+                                        <h2 ng-if="collaborationTopics.length == 0">You haven't created any portfolios yet</h2>
+                                    </a>
+                                    <hr class="simple">
+                            </layout:block>
+                            <layout:block ng-if="press.facets.Company_Events_ss.filters.length > 0">
+                                <h3>Top Events</h3>
+                                <chart:tagcloud class="small-cloud" response="press" facet-name="Company_Events_ss" action="news"></chart:tagcloud>
+                                <hr class="simple">
+                            </layout:block>
+                            <layout:block ng-if="press.facets.Company_Events_ss.filters.length == 0">
+                                No significant events affecting your companies.
+                            </layout:block>
+                            <layout:block ng-if="press.facets.entity_person_hv_ss.filters.length > 0">
+                                <h3>Top People</h3>
+                                <chart:tagcloud class="small-cloud" response="press" facet-name="entity_person_hv_ss" action="news"></chart:tagcloud>
+                                <hr class="simple">
+                            </layout:block>
+                            <layout:block ng-if="press.facets.entity_person_hv_ss.filters.length == 0">
+                                <h3>Top People</h3>
+                                No significant mentions of people related to your companies.
+                                <hr class="simple">
+                            </layout:block>
+                        </layout:grid>
+
+                        <!-- 1 -->
+                        <layout:grid ng-if="collaborationTopics.length > 0">
+                            <layout:block ng-repeat="topic in collaborationTopics track by topic.id">
+                                    <h3><a class="simple-link" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></h3>
+                                    <p ng-if="topic.bookmarks.length == 0">You haven't added any companies yet.</p>
+                                    <div ng-if="topic.bookmarks.length > 0">
+                                        <layout:grid class="bookmark" ng-repeat="bookmark in topic.bookmarks">
+                                            <layout:block>
+                                                <h5 class="bookmark-title"><a href="#/companies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a></h5>
+                                            </layout:block>
+                                            <layout:block>
+                                                <layout:grid ng-repeat="r in companyDetails.results" ng-if="r.result.fields.Symbol.val[0] == bookmark.target">
+                                                    <layout:block>
+                                                        <h5>{{r.result.related[0].result | field:'Close' | actual | number : 1}}</h5>
+                                                        <h5>({{r.result.related[0].result | field:'Low' | actual | number : 1}}&nbsp;-&nbsp;{{r.result.related[0].result | field:'High' | actual | number : 1}})</h5>
+                                                    </layout:block>
+                                                    <!--<layout:block small="1-3" styling="right">-->
+                                                        <!--<helper:set var="sparkUrl" value="'https://ichart.finance.yahoo.com/h?s='+ (r.result | field:'Symbol' | actual)"></helper:set>-->
+                                                        <!--<img src="{{sparkUrl | trusted}}"/>-->
+                                                    <!--</layout:block>-->
+                                                </layout:grid>
+                                            </layout:block>
+                                        </layout:grid>
+                                    </div>
+                                    <hr class="simple">
+
+                            </layout:block>
+                        </layout:grid>
+
+                        <layout:grid ng-if="collaborationTopics.length == 0">
+                            <layout:block>
+                                <h3>What are Portfolios?</h3>
+                                <p>Portfolios are groups of bookmarked companies for which you want to track
+                                    catalysts. As you navigate the application,
+                                    you can save companies into an existing Portfolio.</p>
+                                <hr class="simple">
+                                <h3 class="mb0em">How many Portfolios can I create?</h3>
+                                <p>As many as you like! Better still, each Portfolio can contain as many items as
+                                    you wish.</p>
+                            </layout:block>
+                        </layout:grid>
+
+                    </div>
+
+            </layout:block>
+        </layout:grid>
+
+        <!-- Simple Footer -->
+        <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+    </layout:animate>
+</layout:grid>

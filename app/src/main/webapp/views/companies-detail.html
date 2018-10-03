@@ -1,0 +1,226 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="financials" conf="platforms.fusion.finance.historical"></search:platform>
+<search:platform var="platform" conf="platforms.fusion.finance"></search:platform>
+
+
+<search:query var="query" parameters="*"></search:query>
+<search:query var="companyQuery" parameters="none">
+    <query:filter field="Symbol" value="{{params.id}}"></query:filter>
+</search:query>
+
+<search:response var="response" platform="financials" query="companyQuery"></search:response>
+
+<!-- Fetch additional company information from Wikipedia -->
+<lifecycle:required object="response">
+    <search:platform var="wikipedia" conf="platforms.wikipedia"></search:platform>
+    <search:query var="wikiQuery" query="{{ response | result:0 | field:'Company' | actual }}"></search:query>
+    <search:response var="wikiResponse" platform="wikipedia" query="wikiQuery">
+        <widget:spinner></widget:spinner>
+    </search:response>
+</lifecycle:required>
+
+<search:query var="getHistoric" fields="Close,Date,Volume" sorts="-Date" max-results="90" parameters="none"
+              custom="Date:[NOW-30DAYS TO NOW]">
+    <query:filter field="_lw_data_source_s" value="{{params.id}}-historical"></query:filter>
+</search:query>
+
+<search:response var="historic" platform="platform" query="getHistoric">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<search:query var="getNews" sorts="-time_datetime_" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+    <query:filter field="_lw_data_source_s" value="{{params.id}}-press-release"></query:filter>
+</search:query>
+
+<search:response var="news" platform="platform" query="getNews"></search:response>
+
+
+<helper:set var="article" value="response | result:0"></helper:set>
+<helper:set var="financeData" value="article.related[0].result"></helper:set>
+
+<helper:set var="wikiArticle" value="wikiResponse | result:0"></helper:set>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for symbols or companies..."
+                action="companies"></layout:include>
+
+<layout:animate animation="animate-fadeInUp" on="wikiResponse" layout-grid>
+    <layout:block>
+        <layout:box>
+
+            <layout:grid styling="centercontent">
+                <layout:block>
+                    <layout:box styling="stretch-content">
+                        <div class="panel" styling="width-1">
+                            <layout:box>
+                                <layout:grid>
+                                    <layout:block>
+                                        <div ng-if="!isEmptyObject(collaborationTopics)" class="addto">
+                                                <button styling="button bordered fade"
+                                                        ng-class="{'in': collectionSelected.id}"
+                                                        ng-click="bookmarkResult(article,collectionSelected.id)">
+                                                    <span class="flaticon-plus"></span> Add
+                                                </button>
+                                            <select class="full-width" ng-model="collectionSelected"
+                                                    ng-change="changedValue(collectionSelected)"
+                                                    data-ng-options="topic as topic.title for topic in collaborationTopics track by topic.id">
+                                                <option value="">Add to Portfolio</option>
+                                            </select>
+                                        </div>
+                                        <div ng-if="isEmptyObject(collaborationTopics)" class="addto">
+                                            <a styling="button bordered" href="#/portfolios">Create another portfolio</a>
+                                        </div>
+
+                                        <img styling="image medium" ng-src="{{ wikiArticle | field:'infobox.logo' | actual }}" />
+                                        <search:field result="article" name="Company" styling="title" value-element="h1"></search:field>
+                                        <layout:grid class="portfolio" ng-if="!isEmptyObject(parentTopics)" >
+                                            <layout:block md="3-24">
+                                                <p styling="title">Portfolios</p>
+                                            </layout:block>
+                                            <layout:block md="21-24">
+                                                <ol styling="tag-list tag-capsules sm">
+                                                    <li ng-repeat="portfolio in parentTopics">
+                                                        <a href="#/portfolios/{{portfolio.id}}">
+                                                            <span class="value">{{portfolio.title}}</span>
+                                                        </a>
+                                                    </li>
+                                                </ol>
+                                            </layout:block>
+                                        </layout:grid>
+
+                                        <search:field result="wikiArticle" name="infobox.website" label="" urlfield="infobox.website" styling="label-inline"></search:field>
+                                        <search:field result="wikiArticle" name="infobox.entity_summary" styling="description"></search:field>
+
+                                        <hr/>
+                                        <layout:grid styling="metadata">
+                                            <layout:block md="1-5">
+                                                <layout:box ng-controller="MainCtrl" class="imgfullwidth">
+                                                    <img ng-src="{{mapUrl(article) | trusted}}"/>
+                                                </layout:box>
+                                            </layout:block>
+                                            <layout:block medium="2-5">
+                                                <layout:box>
+                                                    <search:field result="article" name="City" label="City" styling="label-above"></search:field>
+                                                    <search:field result="article" name="State" label="State" styling="label-above"></search:field>
+                                                    <search:field result="article" name="Industry" label="Industry" styling="label-above"></search:field>
+                                                    <search:field result="wikiArticle" name="infobox.divisions" label="Divisions" styling="label-above"></search:field>
+                                                </layout:box>
+                                            </layout:block>
+                                            <layout:block medium="2-5">
+                                                <layout:box>
+                                                    <search:field result="wikiArticle" name="infobox.key_people" label="Key people" styling="label-above"></search:field>
+                                                    <search:field result="wikiArticle" name="infobox.subsid" label="Subsidiaries" styling="label-above"></search:field>
+                                                </layout:box>
+                                            </layout:block>
+                                        </layout:grid>
+                                    </layout:block>
+                                </layout:grid>
+                            </layout:box>
+                        </div>
+                    </layout:box>
+                </layout:block>
+
+
+                <layout:block ng-if="historic.results && historic.results.length > 0">
+                    <layout:box>
+                        <div class="panel" styling="width-1">
+                            <layout:box>
+                                <h3>Stock Price, Last 30 Days</h3>
+                                <!-- 4 x Info Fields -->
+                                <layout:grid class="exp-stats">
+                                    <layout:block>
+                                        <layout:box>
+                                            <search:field result="financeData" label="Open" name="Open" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Close" name="Close" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="High" name="High" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Low" name="Low" styling="label-inline"></search:field>
+                                        </layout:box>
+                                    </layout:block>
+                                </layout:grid>
+                                <chart:display response="historic" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
+                                    <series:result-list response="historic" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>
+                                </chart:display>
+                            </layout:box>
+                        </div>
+                    </layout:box>
+                </layout:block>
+
+                <layout:block class="related-news" ng-if="news.results && news.results.length > 0">
+                    <layout:box>
+                        <div styling="width-1">
+                                <h3>News affecting {{article | field:'Company' | display}}</h3>
+                                
+                                    <layout:grid>
+
+                                        <layout:block medium="1-3" large="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-light">
+                                            <layout:sidebar padding-left="0">
+                                                <search:facet-list response="news" platform="platform" query="getNews"
+                                                                   styling="facet-list"
+                                                                   facet-names="entity_country_hv_ss=Country,entity_company_hv_ss=Company,entity_person_hv_ss=Person,industry_tags_hv_ss=Industry,topics_tags_hv_ss=Topics">
+                                                    <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+                                                </search:facet-list>
+                                            </layout:sidebar>
+                                        </layout:block>
+
+                                        <layout:block medium="2-3" large="18-24" styling="bg-searchresults">
+
+                                            <layout:box padding-left="2">
+
+                                                <search:breadcrumbs query="query" group-by-field="true"></search:breadcrumbs>
+
+                                                <search:result-list response="news">
+                                                    <search:result>
+                                                        <layout:grid ng-if="result | field:'og_image_s'">
+                                                            <layout:block medium="1-5">
+                                                                <layout:box>
+                                                                    <media:image field-name="og_image_s" fallback-image-url="/assets/noimage.svg"></media:image>
+                                                                </layout:box>
+                                                            </layout:block>
+                                                            <layout:block medium="4-5">
+                                                                <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                                                                <search:field name="og_description" styling="description"></search:field>
+
+                                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                                                            </layout:block>
+                                                        </layout:grid>
+                                                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                                                            <layout:block>
+                                                                <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
+                                                                <search:field name="og_description" styling="description"></search:field>
+
+                                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
+                                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
+                                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
+                                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
+                                                            </layout:block>
+                                                        </layout:grid>
+                                                    </search:result>
+                                                </search:result-list>
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+                                
+                            </layout:box>
+                    </layout:box>
+                </layout:block>
+
+            </layout:grid>
+        </layout:box>
+    </layout:block>
+
+    <!-- Footer -->
+    <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+</layout:animate>
+
