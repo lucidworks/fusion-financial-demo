@@ -1,0 +1,53 @@
+{
+  "id" : "Customer360_Messages-default",
+  "stages" : [ {
+    "type" : "field-mapping",
+    "id" : "2997d3bd-04ab-4ae3-8bc7-a466488550c8",
+    "mappings" : [ ],
+    "reservedFieldsMappingAllowed" : false,
+    "type" : "field-mapping",
+    "skip" : false,
+    "label" : "field-mapping",
+    "secretSourceStageId" : "2997d3bd-04ab-4ae3-8bc7-a466488550c8"
+  }, {
+    "type" : "solr-dynamic-field-name-mapping",
+    "id" : "2ef6ec5e-5f65-4123-a96c-0d78d33400df",
+    "duplicateSingleValuedFields" : false,
+    "fieldsToExclude" : [ ],
+    "advancedTextFieldsIndexing" : true,
+    "maxTextLengthForAdvancedIndexing" : 100,
+    "type" : "solr-dynamic-field-name-mapping",
+    "skip" : true,
+    "label" : "solr-dynamic-field-name-mapping",
+    "secretSourceStageId" : "2ef6ec5e-5f65-4123-a96c-0d78d33400df"
+  }, {
+    "type" : "regex-extractor",
+    "id" : "fvas0czxivzccjtt9",
+    "rules" : [ {
+      "source" : [ "id" ],
+      "target" : "message_id",
+      "writeMode" : "overwrite",
+      "pattern" : "/([0-9]).$/m",
+      "returnIfNoMatch" : "null",
+      "group" : 1
+    } ],
+    "type" : "regex-extractor",
+    "skip" : true,
+    "label" : "strip uri",
+    "secretSourceStageId" : "fvas0czxivzccjtt9"
+  }, {
+    "type" : "solr-index",
+    "id" : "27d5f83f-97b9-4923-8531-ef2899dd6ff4",
+    "enforceSchema" : true,
+    "dateFormats" : [ ],
+    "params" : [ ],
+    "bufferDocsForSolr" : false,
+    "type" : "solr-index",
+    "skip" : false,
+    "label" : "solr-index",
+    "secretSourceStageId" : "27d5f83f-97b9-4923-8531-ef2899dd6ff4"
+  } ],
+  "properties" : {
+    "secretSourcePipelineId" : "Customer360_Messages-default"
+  }
+}

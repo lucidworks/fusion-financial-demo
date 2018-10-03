@@ -1,0 +1,171 @@
+{
+  "id" : "Customer360_Customers-default",
+  "stages" : [ {
+    "type" : "recommendation",
+    "id" : "d8056547-ad42-4e2a-93e1-1447e276ff84",
+    "numRecommendations" : 10,
+    "numSignals" : 100,
+    "aggrType" : "*",
+    "boostId" : "id",
+    "type" : "recommendation",
+    "skip" : true,
+    "label" : "recommendation",
+    "secretSourceStageId" : "d8056547-ad42-4e2a-93e1-1447e276ff84"
+  }, {
+    "type" : "search-fields",
+    "id" : "f624df76-f49a-4209-92d9-82e748657807",
+    "rows" : 10,
+    "start" : 0,
+    "queryFields" : [ ],
+    "returnFields" : [ "*", "score", "customer_id" ],
+    "type" : "search-fields",
+    "skip" : true,
+    "label" : "search-fields",
+    "secretSourceStageId" : "f624df76-f49a-4209-92d9-82e748657807"
+  }, {
+    "type" : "facet",
+    "id" : "0e74cfdf-a98b-4a06-bb32-17eb66a29d47",
+    "fieldFacets" : [ {
+      "field" : "completeness",
+      "sort" : "index",
+      "minCount" : 1,
+      "missing" : false
+    }, {
+      "field" : "lifetime_value",
+      "sort" : "index",
+      "minCount" : 1,
+      "missing" : false
+    }, {
+      "field" : "state",
+      "sort" : "index",
+      "minCount" : 1,
+      "missing" : false
+    }, {
+      "field" : "current_products",
+      "sort" : "index",
+      "minCount" : 1,
+      "missing" : false
+    }, {
+      "field" : "recommended_products",
+      "sort" : "index",
+      "minCount" : 1,
+      "missing" : false
+    } ],
+    "type" : "facet",
+    "skip" : false,
+    "label" : "facet",
+    "secretSourceStageId" : "0e74cfdf-a98b-4a06-bb32-17eb66a29d47",
+    "properties" : {
+      "autoCreated" : true
+    }
+  }, {
+    "type" : "set-params",
+    "id" : "j2xiblf27a5hlg14i",
+    "params" : [ {
+      "key" : "facet.range",
+      "value" : "credit_score",
+      "policy" : "append"
+    }, {
+      "key" : "f.credit_score.facet.range.start",
+      "value" : "0",
+      "policy" : "append"
+    }, {
+      "key" : "f.credit_score.facet.range.end",
+      "value" : "1000",
+      "policy" : "append"
+    }, {
+      "key" : "f.credit_score.facet.range.gap",
+      "value" : "100",
+      "policy" : "append"
+    }, {
+      "key" : "f.credit_score.facet.range.other",
+      "value" : "all",
+      "policy" : "append"
+    }, {
+      "key" : "facet.mincount",
+      "value" : "1",
+      "policy" : "append"
+    } ],
+    "type" : "set-params",
+    "skip" : false,
+    "label" : "credit_score query params",
+    "secretSourceStageId" : "j2xiblf27a5hlg14i"
+  }, {
+    "type" : "set-params",
+    "id" : "qnv9zemz9wg919k9",
+    "params" : [ {
+      "key" : "facet.range",
+      "value" : "customer_since",
+      "policy" : "append"
+    }, {
+      "key" : "f.customer_since.facet.range.start",
+      "value" : "NOW/YEAR-20YEAR",
+      "policy" : "append"
+    }, {
+      "key" : "f.customer_since.facet.range.end",
+      "value" : "NOW/DAY+20YEAR",
+      "policy" : "append"
+    }, {
+      "key" : "f.customer_since.facet.range.gap",
+      "value" : "+1YEAR",
+      "policy" : "default"
+    }, {
+      "key" : "f.customer_since.facet.range.other",
+      "value" : "all",
+      "policy" : "append"
+    }, {
+      "key" : "facet.mincount",
+      "value" : "1",
+      "policy" : "append"
+    } ],
+    "type" : "set-params",
+    "skip" : false,
+    "label" : "customer_since query params",
+    "secretSourceStageId" : "qnv9zemz9wg919k9"
+  }, {
+    "type" : "set-params",
+    "id" : "881wu3j7nnexc4n29",
+    "params" : [ {
+      "key" : "facet.range",
+      "value" : "dob",
+      "policy" : "append"
+    }, {
+      "key" : "f.dob.facet.range.start",
+      "value" : "NOW/YEAR-90YEAR",
+      "policy" : "append"
+    }, {
+      "key" : "f.dob.facet.range.end",
+      "value" : "NOW/YEAR-10YEAR",
+      "policy" : "append"
+    }, {
+      "key" : "f.dob.facet.range.gap",
+      "value" : "+1YEAR",
+      "policy" : "append"
+    }, {
+      "key" : "f.dob.facet.range.other",
+      "value" : "all",
+      "policy" : "append"
+    }, {
+      "key" : "facet.mincount",
+      "value" : "1",
+      "policy" : "append"
+    } ],
+    "type" : "set-params",
+    "skip" : false,
+    "label" : "dob query params",
+    "secretSourceStageId" : "881wu3j7nnexc4n29"
+  }, {
+    "type" : "solr-query",
+    "id" : "25d9da21-efb3-4fb8-ae0f-f3ee0d5d96f3",
+    "allowedRequestHandlers" : [ ],
+    "httpMethod" : "POST",
+    "allowFederatedSearch" : false,
+    "type" : "solr-query",
+    "skip" : false,
+    "label" : "solr-query",
+    "secretSourceStageId" : "25d9da21-efb3-4fb8-ae0f-f3ee0d5d96f3"
+  } ],
+  "properties" : {
+    "secretSourcePipelineId" : "Customer360_Customers-default"
+  }
+}
