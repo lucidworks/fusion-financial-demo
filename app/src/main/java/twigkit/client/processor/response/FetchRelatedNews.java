@@ -53,7 +53,7 @@ public class FetchRelatedNews extends ResponseProcessor {
 
         logger.debug("Got back {} entries for facet {}", facet != null ? facet.getFilters().size() : 0, facetName);
 
-        //_lw_data_source_s-Company_Events_ss'].filters" ng-if="filter.val==result.fields.Symbol.val[0]+'-press-release'">
+        //_lw_data_source_s-Company_Events_ss'].filters" ng-if="filter.val==result.fields.ticker_s.val[0]+'-press-release'">
 
         // Glue related news metadata onto each company record
         String metadataFieldName = getParameterStringValue("metadata-field");

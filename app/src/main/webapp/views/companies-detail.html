@@ -8,7 +8,8 @@
 
 <search:query var="query" parameters="*"></search:query>
 <search:query var="companyQuery" parameters="none">
-    <query:filter field="Symbol" value="{{params.id}}"></query:filter>
+    <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
+    <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
 </search:query>
 
 <search:response var="response" platform="financials" query="companyQuery"></search:response>
@@ -16,23 +17,24 @@
 <!-- Fetch additional company information from Wikipedia -->
 <lifecycle:required object="response">
     <search:platform var="wikipedia" conf="platforms.wikipedia"></search:platform>
-    <search:query var="wikiQuery" query="{{ response | result:0 | field:'Company' | actual }}"></search:query>
+    <search:query var="wikiQuery" query="{{ response | result:0 | field:'company_name_s' | actual }}"></search:query>
     <search:response var="wikiResponse" platform="wikipedia" query="wikiQuery">
         <widget:spinner></widget:spinner>
     </search:response>
 </lifecycle:required>
 
-<search:query var="getHistoric" fields="Close,Date,Volume" sorts="-Date" max-results="90" parameters="none"
-              custom="Date:[NOW-30DAYS TO NOW]">
-    <query:filter field="_lw_data_source_s" value="{{params.id}}-historical"></query:filter>
+<search:query var="getHistoric" fields="close_d,date_dt,volume_i" sorts="-date_dt" max-results="90" parameters="none"
+              custom="date_dt:[NOW-30DAYS TO NOW]">
+    <query:filter field="_lw_data_source_s" value="sp500-historical"></query:filter>
+    <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
 </search:query>
 
 <search:response var="historic" platform="platform" query="getHistoric">
   <widget:spinner></widget:spinner>
 </search:response>
 
-<search:query var="getNews" sorts="-time_datetime_" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
-    <query:filter field="_lw_data_source_s" value="{{params.id}}-press-release"></query:filter>
+<search:query var="getNews" query="entity_stock_ticker_lv_ss:{{params.id}}.*" sorts="-lastModified_dt" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+    <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
 </search:query>
 
 <search:response var="news" platform="platform" query="getNews"></search:response>
@@ -108,9 +110,9 @@
                                             </layout:block>
                                             <layout:block medium="2-5">
                                                 <layout:box>
-                                                    <search:field result="article" name="City" label="City" styling="label-above"></search:field>
-                                                    <search:field result="article" name="State" label="State" styling="label-above"></search:field>
-                                                    <search:field result="article" name="Industry" label="Industry" styling="label-above"></search:field>
+                                                    <search:field result="article" name="city_s" label="City" styling="label-above"></search:field>
+                                                    <search:field result="article" name="stats_s" label="State" styling="label-above"></search:field>
+                                                    <search:field result="article" name="industry_s" label="Industry" styling="label-above"></search:field>
                                                     <search:field result="wikiArticle" name="infobox.divisions" label="Divisions" styling="label-above"></search:field>
                                                 </layout:box>
                                             </layout:block>
@@ -138,15 +140,15 @@
                                 <layout:grid class="exp-stats">
                                     <layout:block>
                                         <layout:box>
-                                            <search:field result="financeData" label="Open" name="Open" styling="label-inline"></search:field>
-                                            <search:field result="financeData" label="Close" name="Close" styling="label-inline"></search:field>
-                                            <search:field result="financeData" label="High" name="High" styling="label-inline"></search:field>
-                                            <search:field result="financeData" label="Low" name="Low" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Open" name="open_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Close" name="close_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="High" name="high_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Low" name="low_d" styling="label-inline"></search:field>
                                         </layout:box>
                                     </layout:block>
                                 </layout:grid>
                                 <chart:display response="historic" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
-                                    <series:result-list response="historic" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>
+                                    <series:result-list response="historic" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>
                                 </chart:display>
                             </layout:box>
                         </div>
@@ -156,7 +158,7 @@
                 <layout:block class="related-news" ng-if="news.results && news.results.length > 0">
                     <layout:box>
                         <div styling="width-1">
-                                <h3>News affecting {{article | field:'Company' | display}}</h3>
+                                <h3>News affecting {{article | field:'company_name_s' | display}}</h3>
                                 
                                     <layout:grid>
 
@@ -185,8 +187,8 @@
                                                                 </layout:box>
                                                             </layout:block>
                                                             <layout:block medium="4-5">
-                                                                <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                                                                <search:field name="og_description" styling="description"></search:field>
+                                                                <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                                                                <search:field name="og_description_s" styling="description"></search:field>
 
                                                                 <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                                                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
@@ -196,8 +198,8 @@
                                                         </layout:grid>
                                                         <layout:grid ng-if="!(result | field:'og_image_s')">
                                                             <layout:block>
-                                                                <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                                                                <search:field name="og_description" styling="description"></search:field>
+                                                                <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                                                                <search:field name="og_description_s" styling="description"></search:field>
 
                                                                 <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                                                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>

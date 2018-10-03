@@ -46,7 +46,7 @@ public class BookmarkQueryProcessor extends QueryProcessor {
                         logger.trace("Looking at bookmark target {}", target);
 
                         if (getParameterStringValue(PARAMETER_TYPE).equals("company")) {
-                            Filter companyFilter = Filter.create("Symbol", target, true, Filter.Optional.VALUE);
+                            Filter companyFilter = Filter.create("ticker_s", target, true, Filter.Optional.VALUE);
                             logger.trace("Adding filter {}", companyFilter.toString());
                             query.addFilter(companyFilter);
 

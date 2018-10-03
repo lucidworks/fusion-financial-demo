@@ -11,8 +11,7 @@ import twigkit.platform.Platform;
 import twigkit.processor.ResponseProcessor;
 
 /**
- * Execute a secondary pivot facet query to fetch related news metadata
- * for every company result in a result set.
+ * Execute a secondary pivot facet query to fetch stock history for every company result in a result set.
  *
  * @author bjarkih
  */
@@ -32,7 +31,7 @@ public class FetchHistorical extends ResponseProcessor {
 
         // Filter on the current companies
         String dataSourceField = getParameterStringValue("datasource-field");
-        String fieldValueSuffix = getParameterStringValue("field-suffix");
+        String dataSourceValue = getParameterStringValue("datasource-value");
         String idField = getParameterStringValue("id-field");
 
         logger.debug("Iterating over {} results.",companies.getHits());
@@ -42,7 +41,7 @@ public class FetchHistorical extends ResponseProcessor {
 
             Query historicalQuery = new Query();
             historicalQuery.setUser(companies.getQuery().getUser());
-            historicalQuery.setFields("high_d,low_d,close_d");
+            historicalQuery.setFields("high_d,low_d,close_d,ticker_s");
             historicalQuery.setResultsPerPage(getParameterIntegerValue("results-to-fetch"));
             historicalQuery.setSorts("-date_dt");
 
@@ -50,7 +49,11 @@ public class FetchHistorical extends ResponseProcessor {
                 logger.error("Result did not contain field {}",idField);
             }else{
                 String company = r.getFields().get(idField).getValue().getActualAsString();
-                Filter filter = new Filter(dataSourceField, company + fieldValueSuffix);
+                Filter filter = new Filter(dataSourceField, dataSourceValue);
+                filter.setOptional(Filter.Optional.VALUE);
+                historicalQuery.addFilter(filter);
+
+                filter = new Filter(idField, company);
                 filter.setOptional(Filter.Optional.VALUE);
                 historicalQuery.addFilter(filter);
 

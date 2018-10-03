@@ -4,8 +4,8 @@
 
 <search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
 
-<search:query var="query" facets="Industry_facet,City_s,State">
-  <query:filter field="_lw_data_source_s" value="index-s-and-p-100"></query:filter>
+<search:query var="query" facets="industry_s,city_s,state_s">
+  <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 
 <search:response var="response" platform="platform" query="query">
@@ -71,14 +71,14 @@
                           <layout:block md="18-24" tiny="1-1">
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                               <div class="small-title">
-                                <search:field name="Industry" query="query" styling="metadata" label="Industry"></search:field>
+                                <search:field name="industry_s" query="query" styling="metadata" label="Industry"></search:field>
                               </div>
-                              <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['Symbol'].val[0] | encodeURIComponent }}"></search:field>
-                              <search:field name="Symbol" label="" class="sub-title label-inline"></search:field>
-                              <search:field result="result.related[0].result" name="Close" label="" class="sub-title label-inline" number-format="###,###.##"></search:field>
+                              <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
+                              <search:field name="ticker_s" label="" class="sub-title label-inline"></search:field>
+                              <search:field result="result.related[0].result" name="close_d" label="" class="sub-title label-inline" number-format="###,###.##"></search:field>
 
-                              <search:field name="State" styling="metadata label-inline" query="query" label="State"></search:field>
-                              <search:field name="City" styling="metadata label-inline" query="query" label="City"></search:field>
+                              <search:field name="state_s" styling="metadata label-inline" query="query" label="State"></search:field>
+                              <search:field name="city_s" styling="metadata label-inline" query="query" label="City"></search:field>
                             </layout:box>
                           </layout:block>
 
@@ -87,14 +87,14 @@
                         <layout:grid>
                           <layout:block>
                             <hr class="simple" ng-if="result.fields.company_events">
-                            <layout:grid class="portfolio" ng-if="$parent.$parent.$parent.portfolioCompanies[result.fields.Symbol.val[0]].length > 0" >
+                            <layout:grid class="portfolio" ng-if="$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]].length > 0" >
                               <layout:block md="6-24">
                                 <p styling="title">Portfolios</p>
                               </layout:block>
                               <layout:block md="18-24">
                                 <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                                   <ol styling="tag-list tag-capsules sm">
-                                    <li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.Symbol.val[0]]">
+                                    <li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]]">
                                       <a href="#/portfolios/{{portfolio.id}}">
                                         <span class="value">{{portfolio.title}}</span>
                                       </a>

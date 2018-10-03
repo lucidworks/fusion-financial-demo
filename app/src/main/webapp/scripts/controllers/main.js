@@ -15,7 +15,7 @@ angular.module('twigkitLightApp')
 
 
         $scope.mapUrl = function(result) {
-            var query = window.encodeURIComponent(result.fields.City.val) + ',' + window.encodeURIComponent(result.fields.State.val);
+            var query = window.encodeURIComponent(result.fields.city_s.val) + ',' + window.encodeURIComponent(result.fields.state_s.val);
             return "http://maps.googleapis.com/maps/api/staticmap?zoom=10&size=150x150&maptype=roadmap&markers=color:red%7Clabel:S%7C" + query + "&sensor=false&key=AIzaSyAHi-dYGeMic0bEjEUq3N2ZG16t8_6mW7s";
         };
 

@@ -7,6 +7,7 @@
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
 <search:query parameters="*,-f" var="companyQuery">
     <query:custom name="portfolio" value="{{params.id}}"></query:custom>
+    <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 <search:response var="companies" platform="finance" query="companyQuery"></search:response>
 
@@ -39,7 +40,7 @@
 
                                     <layout:grid>
                                         <layout:block styling="close">
-                                            <a ng-click="$parent.$parent.$parent.$parent.deleteBookmarkByTarget($parent.$parent.$parent.$parent.params.id,result.fields.Symbol.val[0])"><span class="flaticon-cross"></span></a>
+                                            <a ng-click="$parent.$parent.$parent.$parent.deleteBookmarkByTarget($parent.$parent.$parent.$parent.params.id,result.fields.ticker_s.val[0])"><span class="flaticon-cross"></span></a>
                                         </layout:block>
                                     </layout:grid>
 
@@ -50,9 +51,9 @@
 
                                         <layout:block lg="3-4" medium="2-4" tiny="1-1">
                                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
-                                                <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['Symbol'].val[0] | encodeURIComponent }}"></search:field>
-                                                <search:field name="Symbol" label="" styling="title"></search:field>
-                                                <search:field result="result.related[0].result" name="Close" label="" styling="title" number-format="###,###.##"></search:field>
+                                                <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
+                                                <search:field name="ticker_s" label="" styling="title"></search:field>
+                                                <search:field result="result.related[0].result" name="close_d" label="" styling="title" number-format="###,###.##"></search:field>
                                                 <!-- Metadata -->
                                                 <!--<search:field name="Industry" query="query" styling="label-left" label="Industry"></search:field>-->
                                                 <!--<search:field name="State" styling="label-left" query="query" label="State"></search:field>-->
@@ -69,10 +70,10 @@
 
                 <layout:block>
                     <chart:display response="companies" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
-                        <series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.Symbol.val[0]}}" results="company.result.related" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>
-                        <!--<series:result-list results="companies.results[0].result.related" label-field="Date" value-field="Close" type="spline" number-to-show="30"></series:result-list>-->
+                        <series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.ticker_s.val[0]}}" results="company.result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>
+                        <!--<series:result-list results="companies.results[0].result.related" label-field="Date" value-field="close_d" type="spline" number-to-show="30"></series:result-list>-->
                     </chart:display>
-                    <!--<div ng-repeat="company in companies.results">{{company.result.related[0].result.fields.Date}},{{company.result.related[0].result.fields.Close}}</div>-->
+                    <!--<div ng-repeat="company in companies.results">{{company.result.related[0].result.fields.Date}},{{company.result.related[0].result.fields.close_d}}</div>-->
                 </layout:block>
 
                 <layout:block class="related-news">
@@ -106,8 +107,8 @@
                                                             </layout:box>
                                                         </layout:block>
                                                         <layout:block medium="4-5">
-                                                            <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                                                            <search:field name="og_description" styling="description"></search:field>
+                                                            <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                                                            <search:field name="og_description_s" styling="description"></search:field>
 
                                                             <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                                                             <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
@@ -117,8 +118,8 @@
                                                     </layout:grid>
                                                     <layout:grid ng-if="!(result | field:'og_image_s')">
                                                         <layout:block>
-                                                            <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                                                            <search:field name="og_description" styling="description"></search:field>
+                                                            <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                                                            <search:field name="og_description_s" styling="description"></search:field>
 
                                                             <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                                                             <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>

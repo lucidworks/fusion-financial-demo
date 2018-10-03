@@ -2,24 +2,19 @@
 <!-- Build the data model                         -->
 <!-- -------------------------------------------- -->
 
-<!-- DATTODO
 <search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
--->
 
 <search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
 
 <search:query var="query"></search:query>
 
-<!--
-DATTODO
 <search:query var="news-query">
-  <query:filter field="_lw_data_source_pipeline_s" value="stock-press-release"></query:filter>
+  <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
 <search:response var="news" platform="latest-news" query="news-query">
   <widget:spinner></widget:spinner>
 </search:response>
--->
 
 <search:response var="yourNews" platform="company-news" query="query"></search:response>
 
@@ -94,8 +89,8 @@ DATTODO
                               <div class="small-title">
                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
                               </div>
-                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                              <search:field name="og_description" styling="description"></search:field>
+                              <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
 
                               <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                               <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
@@ -110,8 +105,8 @@ DATTODO
                               <div class="small-title">
                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
                               </div>
-                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                              <search:field name="og_description" styling="description"></search:field>
+                              <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
 
                               <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                               <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
@@ -157,8 +152,8 @@ DATTODO
                               <div class="small-title">
                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
                               </div>
-                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                              <search:field name="og_description" styling="description"></search:field>
+                              <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
 
                               <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                               <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
@@ -173,8 +168,8 @@ DATTODO
                               <div class="small-title">
                                 <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
                               </div>
-                              <search:field name="title" styling="title" urlfield="Content_Location"></search:field>
-                              <search:field name="og_description" styling="description"></search:field>
+                              <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
 
                               <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
                               <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
