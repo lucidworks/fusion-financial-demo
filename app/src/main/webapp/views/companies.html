@@ -74,8 +74,8 @@
                                 <search:field name="industry_s" query="query" styling="metadata" label="Industry"></search:field>
                               </div>
                               <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
-                              <search:field name="ticker_s" label="" class="sub-title label-inline"></search:field>
-                              <search:field result="result.related[0].result" name="close_d" label="" class="sub-title label-inline" number-format="###,###.##"></search:field>
+                              <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
+                              <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
 
                               <search:field name="state_s" styling="metadata label-inline" query="query" label="State"></search:field>
                               <search:field name="city_s" styling="metadata label-inline" query="query" label="City"></search:field>
