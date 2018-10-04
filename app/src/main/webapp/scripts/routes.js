@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('twigkitLightApp').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+angular.module('appkitApp').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     // For any unmatched url, redirect to homepage /
     var defaultPage = 'home';

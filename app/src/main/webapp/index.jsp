@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body ng-app="twigkitLightApp">
+<body ng-app="appkitApp">
 
 <helper:constant name="googleMapApi" value="AIzaSyCAPCY1ohcDDT-nLGAU6zg7W_-5Rlc5_Ik"></helper:constant>
 

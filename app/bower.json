@@ -6,7 +6,7 @@
     "angular-ui-router": "~0.2.15"
   },
   "appPath": "src/main/webapp/static/app",
-  "moduleName": "twigkitLightApp",
+  "moduleName": "appkitApp",
   "resolutions": {
     "phoenix": "~0.1.8",
     "angular": "1.5.10"

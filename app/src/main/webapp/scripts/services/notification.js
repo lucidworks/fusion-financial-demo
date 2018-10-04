@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-  .module("twigkitLightApp")
+  .module("appkitApp")
   .factory('NotificationService', NotificationService);
 
   NotificationService.$inject = ['$timeout', '$document'];
