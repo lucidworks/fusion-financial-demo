@@ -6,6 +6,8 @@ app/logs
 app/*.log
 app/twigkit-socialdb
 app/dist
+app/objects/*.zip
+app/objects/blobs/webapps/*.war
 app-c360/logs
 app-c360/*.log
 app-c360/twigkit-socialdb
