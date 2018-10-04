@@ -25,7 +25,7 @@ public class FindPortfolioData extends QueryProcessor {
 
     private static final Logger logger = LoggerFactory.getLogger(FindPortfolioData.class);
 
-    public static String PARAMETER_FILTER_FIELD = "field";
+    public static String PARAMETER_FILTER_FIELD = "filter_field";
     public static String PARAMETER_FILTER_SUFFIX = "suffix";
     public static String PARAMETER_FILTER_PREFIX = "prefix";
 
@@ -41,7 +41,7 @@ public class FindPortfolioData extends QueryProcessor {
         Profile profile = ProfileContext.getProfile();
 
         String field;
-        if(hasParameter("field")){
+        if(hasParameter(PARAMETER_FILTER_FIELD)){
             field = getParameterStringValue(PARAMETER_FILTER_FIELD);
         }else{
             field = "_lw_data_source_s";
