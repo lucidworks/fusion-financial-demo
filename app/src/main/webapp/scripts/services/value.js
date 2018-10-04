@@ -2,7 +2,7 @@
 'use strict';
 
 angular
-  .module('twigkitLightApp')
+  .module('appkitApp')
   .factory('ValueService', ValueService);
 
   ValueService.$inject = ['$rootScope'];

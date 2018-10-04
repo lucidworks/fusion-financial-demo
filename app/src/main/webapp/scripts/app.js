@@ -2,20 +2,20 @@
 
 /**
  * @ngdoc overview
- * @name twigkitLightApp
+ * @name appkitApp
  * @description
- * # twigkitLightApp
+ * # appkitApp
  *
  * Main module of the application.
  */
 angular
-  .module('twigkitLightApp', [
-  	'ui.router',
-    'lightning'
-  ]);
+    .module('appkitApp', [
+        'ui.router',
+        'lightning'
+    ]);
 
 angular
-  .module("twigkitLightApp")
+  .module("appkitApp")
     .controller("ctrl",
     function($scope){
       $scope.changedValue = function(item) {
@@ -23,4 +23,3 @@ angular
         $scope.topic = item.id;
       }
     });
-

@@ -36,7 +36,7 @@ if [ "$no_build" -eq 0 ]; then
 
 fi
 
-cp "$DEMO_HOME/app/dist/$FUSION_UI_NAME.war" "$DEMO_HOME/app/objects/blobs/webapps/$FUSION_UI_NAME.war"
+cp "$DEMO_HOME/app/dist/$FUSION_UI_ARTIFACT_ID.war" "$DEMO_HOME/app/objects/blobs/webapps/$FUSION_UI_ARTIFACT_ID.war"
 # TODO: download the data, check if it is there, unzip,
 cd "$DEMO_HOME/data"
 # https://ci-nexus.lucidworks.com/service/local/repositories/datasets/content/com/lucid/data/bio-it-demo-data.zip/1.0/bio-it-demo-data.zip-1.0.zip
@@ -71,8 +71,9 @@ else
   curl -H "Content-Type:multipart/form-data" -X POST -F "importData=@$DEMO_HOME/app/objects/$FUSION_APPLICATION_NAME.zip"  "$FUSION_API/objects/import?importPolicy=overwrite"
 fi
 # Create the webapp
-#curl -H "content-type:application/json" -X POST -d "{\"id\": \"$FUSION_APPLICATION_NAME\",\"name\": \"$FUSION_APPLICATION_NAME\", \"contextPath\": \"/$FUSION_APPLICATION_NAME\"}" "$FUSION_API/webapps"
-#curl -H 'Content-type: application/zip' -X PUT "$FUSION_API/webapps/$FUSION_APPLICATION_NAME/war" --data-binary "@../app/dist/$FUSION_APPLICATION_NAME.war"
+cd "$DEMO_HOME"
+curl -H "content-type:application/json" -X POST -d "{\"id\": \"$FUSION_APPLICATION_NAME\",\"name\": \"$FUSION_APPLICATION_NAME\", \"contextPath\": \"/$FUSION_APPLICATION_NAME\"}" "$FUSION_API/webapps"
+curl -H 'Content-type: application/zip' -X PUT "$FUSION_API/webapps/$FUSION_APPLICATION_NAME/war" --data-binary "@./app/dist/$FUSION_UI_ARTIFACT_ID.war"
 
 if [ "$no_crawl" -eq 0 ]; then
   sleep 10

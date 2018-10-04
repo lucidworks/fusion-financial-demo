@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the twigkitLightApp
  */
-angular.module('twigkitLightApp')
+angular.module('appkitApp')
 
   .controller('PortfolioCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$state', '$lightningUrl', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $state, $lightningUrl ) {
     $scope.params = $stateParams;
@@ -124,11 +124,11 @@ angular.module('twigkitLightApp')
   }]);
 
 
-angular.module('twigkitLightApp').filter('encodeURIComponent', function() {
+angular.module('appkitApp').filter('encodeURIComponent', function() {
   return window.encodeURIComponent;
 });
 
-angular.module('twigkitLightApp').filter('contains', function() {
+angular.module('appkitApp').filter('contains', function() {
     return function (array, needle) {
         return array.indexOf(needle) >= 0;
     };

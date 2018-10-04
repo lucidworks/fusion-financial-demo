@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the twigkitLightApp
  */
-angular.module('twigkitLightApp')
+angular.module('appkitApp')
 
   .controller('CompanyCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$state', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $state ) {
     $scope.params = $stateParams;
@@ -117,6 +117,6 @@ angular.module('twigkitLightApp')
   }]);
 
 
-angular.module('twigkitLightApp').filter('encodeURIComponent', function() {
+angular.module('appkitApp').filter('encodeURIComponent', function() {
   return window.encodeURIComponent;
 });

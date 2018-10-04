@@ -7,9 +7,9 @@
  * # MainCtrl
  * Controller of the twigkitLightApp
  */
-angular.module('twigkitLightApp')
+angular.module('appkitApp')
 
-    .controller('MainCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$state', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $state) {
+    .controller('MainCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$timeout', '$sce', '$state', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $timeout, $sce, $state) {
         $scope.params = $stateParams;
         $scope.urlparams = $location.search();
 
@@ -116,6 +116,19 @@ angular.module('twigkitLightApp')
     }]);
 
 
-angular.module('twigkitLightApp').filter('encodeURIComponent', function () {
-    return window.encodeURIComponent;
-});
+angular.module('appkitApp')
+    .filter('encodeURIComponent', function () {
+        return window.encodeURIComponent;
+    })
+
+    .filter('landingPageLabel', function () {
+        return function (input) {
+            return input.split('|')[0];
+        }
+    })
+
+    .filter('landingPageLink', function () {
+        return function (input) {
+            return input.split('|')[1];
+        }
+    });
