@@ -10,7 +10,9 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="${wro:resourcePath('main.css', pageContext.request)}">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/wro/css/main.css" />
+    <link rel="icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
 </head>
 
 <body ng-app="twigkitLightApp">
@@ -20,8 +22,14 @@
 <!-- All views are loaded here -->
 <ui-view></ui-view>
 
-<script src="${wro:resourcePath('vendor.js', pageContext.request)}" type="text/javascript"></script>
-<script src="${wro:resourcePath('main.js', pageContext.request)}" type="text/javascript"></script>
+<div class="tk-stl-notifications"></div>
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/vendor.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/wro/js/main.js"></script>
+
+<script>
+    angular.module('lightning').constant('contextPath', '${pageContext.request.contextPath}');
+</script>
 
 </body>
 </html>

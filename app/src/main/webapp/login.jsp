@@ -9,25 +9,21 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Fusion Search</title>
-        <base href="${app:contextPath(pageContext.request)}/" />
+        <title>Market Research</title>
         <meta name="description" content="">
-        <meta name="author" content="Twigkit">
+        <meta name="author" content="Lucidworks">
         <meta name="viewport" content="minimal-ui, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=440">
-
-        <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.ico?v=3" type="image/x-icon"/>
 
         <%-- === Use WRO4J plugin when you want to switch between pre-compiled and dynamic resources === --%>
         <%-- === when running Jetty or Tomcat Maven plugins or a WAR file                            === --%>
         <%--<link rel="stylesheet" href="${wro:resourcePath('main.css', pageContext.request)}">--%>
 
         <%-- Comment this out if you use the WRO4J plugin above --%>
-        <%--<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/wro/css/main.css" />--%>
-        <%--<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/login.css">--%>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/wro/css/main.css" />
+        <link rel="icon" href="${pageContext.request.contextPath}/favicon.ico">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico">
 
-        <link rel="stylesheet" href="${app:contextPath(pageContext.request)}${'/wro/css/main.css'}">
-        <link rel="stylesheet" href="${app:contextPath(pageContext.request)}${'/assets/login.css'}">
-
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/login.css">
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -39,10 +35,10 @@
             <helper:title title="{{ $root.application_name }}" ng-if="$root.application_name"></helper:title>
             <widget:login-form
                     method="POST"
-                    action="${app:contextPath(pageContext.request)}${'/j_spring_security_check'}"
+                    action="${pageContext.request.contextPath}/j_spring_security_check"
                     append-hash-to-action="true"
                     branding-class="branding"
-                    logo="${app:contextPath(pageContext.request)}${'/assets/logo-icon.png'}"
+                    logo="${pageContext.request.contextPath}/assets/logo-icon.png"
                     logo-width="136"
                     title="{{$root.application_name}}"
                     title-element="h1"
