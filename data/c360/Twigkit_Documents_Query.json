@@ -1,0 +1,47 @@
+{
+  "id" : "Customer360_Documents-default",
+  "stages" : [ {
+    "type" : "recommendation",
+    "id" : "1bf114f1-468a-4fbb-ab34-bf6e232ff24f",
+    "numRecommendations" : 10,
+    "numSignals" : 100,
+    "aggrType" : "*",
+    "boostId" : "id",
+    "type" : "recommendation",
+    "skip" : false,
+    "label" : "recommendation",
+    "secretSourceStageId" : "1bf114f1-468a-4fbb-ab34-bf6e232ff24f"
+  }, {
+    "type" : "search-fields",
+    "id" : "034b96fb-281c-4911-a0cc-b74bc0c6572c",
+    "rows" : 10,
+    "start" : 0,
+    "queryFields" : [ ],
+    "returnFields" : [ "*", "score" ],
+    "type" : "search-fields",
+    "skip" : false,
+    "label" : "search-fields",
+    "secretSourceStageId" : "034b96fb-281c-4911-a0cc-b74bc0c6572c"
+  }, {
+    "type" : "facet",
+    "id" : "03303da7-f584-4b57-a369-3f601393946a",
+    "fieldFacets" : [ ],
+    "type" : "facet",
+    "skip" : false,
+    "label" : "facet",
+    "secretSourceStageId" : "03303da7-f584-4b57-a369-3f601393946a"
+  }, {
+    "type" : "solr-query",
+    "id" : "62ac0cd6-52a5-4082-91e9-60097c324a08",
+    "allowedRequestHandlers" : [ ],
+    "httpMethod" : "POST",
+    "allowFederatedSearch" : false,
+    "type" : "solr-query",
+    "skip" : false,
+    "label" : "solr-query",
+    "secretSourceStageId" : "62ac0cd6-52a5-4082-91e9-60097c324a08"
+  } ],
+  "properties" : {
+    "secretSourcePipelineId" : "Customer360_Documents-default"
+  }
+}

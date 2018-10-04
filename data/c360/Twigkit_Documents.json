@@ -1,0 +1,60 @@
+{
+  "id" : "Customer360_Documents-default",
+  "stages" : [ {
+    "type" : "csv-parser",
+    "id" : "0ez5d1dg7zefav2t9",
+    "sourceField" : "_raw_content_",
+    "sourceEncoding" : "binary",
+    "lineSeparator" : "\\n",
+    "delimiter" : ",",
+    "quote" : "\"",
+    "quoteEscape" : "\"",
+    "headersHandling" : "parse",
+    "headers" : [ ],
+    "comment" : "#",
+    "nullValue" : "",
+    "emptyValue" : "",
+    "ignoreLeadingWhitespaces" : true,
+    "ignoreTrailingWhitespaces" : true,
+    "skipEmptyLines" : true,
+    "inheritFields" : false,
+    "type" : "csv-parser",
+    "skip" : true,
+    "label" : "CSV Parser",
+    "secretSourceStageId" : "0ez5d1dg7zefav2t9"
+  }, {
+    "type" : "field-mapping",
+    "id" : "2789de05-e830-4105-8c95-77fe9b26c4eb",
+    "mappings" : [ ],
+    "reservedFieldsMappingAllowed" : false,
+    "type" : "field-mapping",
+    "skip" : false,
+    "label" : "field-mapping",
+    "secretSourceStageId" : "2789de05-e830-4105-8c95-77fe9b26c4eb"
+  }, {
+    "type" : "solr-dynamic-field-name-mapping",
+    "id" : "86384a04-23bf-4503-8f70-7f44be17c841",
+    "duplicateSingleValuedFields" : false,
+    "fieldsToExclude" : [ ],
+    "advancedTextFieldsIndexing" : true,
+    "maxTextLengthForAdvancedIndexing" : 100,
+    "type" : "solr-dynamic-field-name-mapping",
+    "skip" : false,
+    "label" : "solr-dynamic-field-name-mapping",
+    "secretSourceStageId" : "86384a04-23bf-4503-8f70-7f44be17c841"
+  }, {
+    "type" : "solr-index",
+    "id" : "2aa908a4-bbf9-41b6-b3a8-c31f237a2b9e",
+    "enforceSchema" : true,
+    "dateFormats" : [ ],
+    "params" : [ ],
+    "bufferDocsForSolr" : false,
+    "type" : "solr-index",
+    "skip" : false,
+    "label" : "solr-index",
+    "secretSourceStageId" : "2aa908a4-bbf9-41b6-b3a8-c31f237a2b9e"
+  } ],
+  "properties" : {
+    "secretSourcePipelineId" : "Customer360_Documents-default"
+  }
+}
