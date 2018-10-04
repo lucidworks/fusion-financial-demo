@@ -66,10 +66,10 @@ angular.module('twigkitLightApp')
 
     $scope.bookmarkResult = function(result,topicid){
         var data = {
-        target: result.fields.Symbol.val[0],
-        title: result.fields.Company.val[0],
+        target: result.fields.ticker_s.val[0],
+        title: result.fields.company_name_s.val[0],
         topic: topicid,
-        url: "#/companies/"+result.fields.Symbol.val[0]
+        url: "#/companies/"+result.fields.ticker_s.val[0]
         };
         $twigkit.postBookmark(data)
         .then(
