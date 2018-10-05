@@ -48,6 +48,7 @@ public class SumWeightsForBucket extends ResponseProcessor {
 
             for( Map.Entry<String,Float> e : industryWeights.entrySet()){
                 r.addField(new Field(e.getKey(),e.getValue()));
+                r.addField(new Field("industries",e.getKey()));
             }
 
             newBuckets.add(r);

@@ -6,24 +6,26 @@
 
 <search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>
 
-<search:query var="query" results-per-page="5">
-    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
-</search:query>
+<search:query var="query" parameters="*"></search:query>
 
 <search:query var="getCompanies" parameters="-fa">
     <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 
-<search:response var="press" platform="company-news" query="query"></search:response>
+<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
+<!--,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss-->
+<search:query var="backendQuery" results-per-page="5" fields="id">
+    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
+</search:query>
 
-<search:response var="news" platform="latest-news" query="query">
+<search:response var="news" platform="latest-news" query="backendQuery">
     <widget:spinner></widget:spinner>
 </search:response>
 
-<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
+<search:response var="press" platform="company-news" query="backendQuery"></search:response>
 
-<lifecycle:required object="user.name">
-    <search:query var="ownerQuery" sorts="-weight_s" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s">
+<!--<lifecycle:required object="user.name">,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s-->
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
@@ -93,7 +95,6 @@
                                 <div class="page-header">
                                     <h2>Latest Stories</h2>
                                 </div>
-
 
                                     <search:result-list response="news">
                                         <search:result>
@@ -238,20 +239,27 @@
 
                         <layout:grid>
                             <layout:block>
-                                <h2>Your companies</h2>
-                                <search:result-list response="mycompanies">
+                                <h2>Your Portfolios</h2>
+                                <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
-
-
-
-                                        <layout:box><h3>companies</h3></layout:box>
-
-                                        <search:result-list results="result.related">
-                                            <search:result class="bucket-company">
-                                                <!--<search:field name="owner_s"></search:field>-->
-                                                <!--<search:field name="bucket_id_s"></search:field>-->
-                                                <search:field name="company_name_s" label="Company" show="1" styling="label-inline"></search:field>
-                                                <search:field name="industry_s" label="Industry" show="1" styling="label-inline"></search:field>
+                                        <search:field name="ticker_s" label="" value-element="h3" styling="label-left text-center " class="inline-h3"></search:field>
+                                        <layout:box><h4>Portfolio's Exposure</h4></layout:box>
+                                        <div ng-repeat="industry in result.fields.industries.val" class="field tk-rgrid-g tk-stl-label-above">
+                                            <p class="tk-stl-label">{{industry}}</p>
+                                            <layout:grid>
+                                                <layout:block xs="1-2">
+                                                    <progress:bar percentage="(result | field:industry | actual | numberFormat:'#.##')*100"></progress:bar>
+                                                </layout:block>
+                                                <layout:block xs="1-2">
+                                                    <search:field name="{{industry}}" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
+                                                </layout:block>
+                                            </layout:grid>
+                                        </div>
+                                        <layout:box ng-if="result.related.length > 2"><h4>Top 3 Companies</h4></layout:box>
+                                        <layout:box ng-if="result.related.length < 3"><h4>Top Companies</h4></layout:box>
+                                        <search:result-list results="result.related | limitTo : 3">
+                                            <search:result class="no-border">
+                                                <search:field name="company_name_s" label="" show="1" styling="title"></search:field>
                                                 <layout:grid>
                                                     <layout:block xs="1-2">
                                                         <progress:bar percentage="(result | field:'weight_s' | actual | numberFormat:'#.##')*100"></progress:bar>
@@ -260,17 +268,15 @@
                                                         <search:field name="weight_s" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
                                                     </layout:block>
                                                 </layout:grid>
-
+                                                <search:field name="industry_s" label="Industry" show="1" styling="label-above"></search:field>
                                             </search:result>
-
                                         </search:result-list>
+                                        <layout:box ng-if="result.related.length > 2"><h5><a href="/">See More</a></h5></layout:box>
                                     </search:result>
                                 </search:result-list>
                             </layout:block>
-
                         </layout:grid>
                     </div>
-
             </layout:block>
         </layout:grid>
 

@@ -1508,6 +1508,67 @@ ul.tk-toggle-panes-controls li a:hover {
   border-top: 1px solid #eee;
 }
 
+
+.tk-stl-label-left.inline {
+  p {
+    display: inline-block;
+    span {
+      margin-right: 5px;
+      :after {
+        content: ',';
+      }
+    }
+  }
+  p:last-child span {
+    :after {
+      content: '';
+    }
+  }
+}
+
+.tk-stl-label-left.inline-h3 {
+  h3 {
+    display: inline-block;
+    span {
+      margin-right: 5px;
+      :after {
+        content: ',';
+      }
+    }
+  }
+  h3:last-child span {
+    :after {
+      content: '';
+    }
+  }
+}
+
+.side-results {
+  h3 {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  h4 {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.result.no-border {
+  border: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  .tk-stl-title p {
+    font-size: 1em;
+  }
+  p {
+    white-space:pre-wrap;
+  }
+}
+
 // ---------------------------------------------------------
 // Answer Card
 // ---------------------------------------------------------
