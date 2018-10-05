@@ -21,9 +21,9 @@ import java.util.List;
  * Created by guywalker on 16/03/2017.
  * Modified by JohnGUnderwod on 20/04/2017.
  */
-public class FindPortfolioData extends QueryProcessor {
+public class CollaborationServiceFindPortfolioData extends QueryProcessor {
 
-    private static final Logger logger = LoggerFactory.getLogger(FindPortfolioData.class);
+    private static final Logger logger = LoggerFactory.getLogger(CollaborationServiceFindPortfolioData.class);
 
     public static String PARAMETER_FILTER_FIELD = "filter_field";
     public static String PARAMETER_FILTER_SUFFIX = "suffix";
