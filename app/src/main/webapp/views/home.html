@@ -24,8 +24,8 @@
 
 <search:response var="press" platform="company-news" query="backendQuery"></search:response>
 
-<!--<lifecycle:required object="user.name">,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s-->
-    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id">
+<lifecycle:required object="user.name">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
