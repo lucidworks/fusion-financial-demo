@@ -4,15 +4,15 @@
 
 <search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
 
-<search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>
+<!--<search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>-->
 
 <search:query var="query" parameters="*"></search:query>
 
-<search:query var="getCompanies" parameters="-fa">
-    <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
-</search:query>
+<!--<search:query var="getCompanies" parameters="-fa">-->
+    <!--<query:filter field="_lw_data_source_s" value="sp500"></query:filter>-->
+<!--</search:query>-->
 
-<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
+<!--<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>-->
 
 <search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
@@ -164,8 +164,9 @@
                         <!--Old Collaboration Module management of portfolios-->
 
                         <!-- 0 -->
-                        <!--
+
                         <layout:grid>
+                            <!--
                             <layout:block>
                                     <a href="#/portfolios">
                                         <h2 ng-if="collaborationTopics.length > 0">Your portfolios</h2>
@@ -173,8 +174,9 @@
                                     </a>
                                     <hr class="simple">
                             </layout:block>
+                            -->
                             <layout:block ng-if="press.facets.Company_Events_ss.filters.length > 0">
-                                <h3>Top Events</h3>
+                                <h3>Event affecting your companies.</h3>
                                 <chart:tagcloud class="small-cloud" response="press" facet-name="Company_Events_ss" action="news"></chart:tagcloud>
                                 <hr class="simple">
                             </layout:block>
@@ -182,7 +184,7 @@
                                 No significant events affecting your companies.
                             </layout:block>
                             <layout:block ng-if="press.facets.entity_person_hv_ss.filters.length > 0">
-                                <h3>Top People</h3>
+                                <h3>People affecting your companies.</h3>
                                 <chart:tagcloud class="small-cloud" response="press" facet-name="entity_person_hv_ss" action="news"></chart:tagcloud>
                                 <hr class="simple">
                             </layout:block>
@@ -192,7 +194,7 @@
                                 <hr class="simple">
                             </layout:block>
                         </layout:grid>
-                        -->
+
                         <!-- 1 -->
                         <!--
                         <layout:grid ng-if="collaborationTopics.length > 0">
@@ -242,9 +244,9 @@
                                 <h2>Your Portfolios</h2>
                                 <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
-                                        <search:field name="ticker_s" label="" value-element="h3" styling="label-left text-center " class="inline-h3"></search:field>
-                                        <layout:box><h4>Portfolio's Exposure</h4></layout:box>
-                                        <div ng-repeat="industry in result.fields.industries.val" class="field tk-rgrid-g tk-stl-label-above">
+                                        <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
+                                        <hr class="simple">
+                                        <div ng-repeat="industry in result.fields.industries.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
                                             <p class="tk-stl-label">{{industry}}</p>
                                             <layout:grid>
                                                 <layout:block xs="1-2">
@@ -255,23 +257,22 @@
                                                 </layout:block>
                                             </layout:grid>
                                         </div>
-                                        <layout:box ng-if="result.related.length > 2"><h4>Top 3 Companies</h4></layout:box>
-                                        <layout:box ng-if="result.related.length < 3"><h4>Top Companies</h4></layout:box>
-                                        <search:result-list results="result.related | limitTo : 3">
-                                            <search:result class="no-border">
-                                                <search:field name="company_name_s" label="" show="1" styling="title"></search:field>
-                                                <layout:grid>
-                                                    <layout:block xs="1-2">
-                                                        <progress:bar percentage="(result | field:'weight_s' | actual | numberFormat:'#.##')*100"></progress:bar>
-                                                    </layout:block>
-                                                    <layout:block xs="1-2">
-                                                        <search:field name="weight_s" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
-                                                    </layout:block>
-                                                </layout:grid>
-                                                <search:field name="industry_s" label="Industry" show="1" styling="label-above"></search:field>
-                                            </search:result>
-                                        </search:result-list>
-                                        <layout:box ng-if="result.related.length > 2"><h5><a href="/">See More</a></h5></layout:box>
+                                        <!--<layout:box ng-if="result.related.length > 2"><h4>Top 3 Companies</h4></layout:box>-->
+                                        <!--<layout:box ng-if="result.related.length < 3"><h4>Top Companies</h4></layout:box>-->
+                                        <!--<search:result-list results="result.related">-->
+                                            <!--<search:result class="no-border" ng-if="index < 3">-->
+                                                <!--<layout:grid>-->
+                                                    <!--<layout:block xs="1-2">-->
+                                                        <!--<search:field name="company_name_s" label="" show="1" styling="title"></search:field>-->
+                                                    <!--</layout:block>-->
+                                                    <!--<layout:block xs="1-2">-->
+                                                        <!--<search:field name="weight_s" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>-->
+                                                    <!--</layout:block>-->
+                                                <!--</layout:grid>-->
+                                                <!--<search:field name="industry_s" label="Industry" show="1" styling="label-above"></search:field>-->
+                                            <!--</search:result>-->
+                                        <!--</search:result-list>-->
+                                        <!--<layout:box ng-if="result.related.length > 2"><h5><a href="/">See More</a></h5></layout:box>-->
                                     </search:result>
                                 </search:result-list>
                             </layout:block>

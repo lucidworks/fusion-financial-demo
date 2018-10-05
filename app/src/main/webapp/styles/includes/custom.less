@@ -1543,6 +1543,23 @@ ul.tk-toggle-panes-controls li a:hover {
   }
 }
 
+.tk-stl-label-left.inline-h4 {
+  h4 {
+    display: inline-block;
+    span {
+      margin-right: 5px;
+      :after {
+        content: ',';
+      }
+    }
+  }
+  h4:last-child span {
+    :after {
+      content: '';
+    }
+  }
+}
+
 .side-results {
   h3 {
     padding-bottom: 0px;

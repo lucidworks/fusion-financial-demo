@@ -7,10 +7,8 @@ import twigkit.model.Response;
 import twigkit.model.Result;
 import twigkit.processor.ResponseProcessor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author JohnGUnderwood.
@@ -46,7 +44,15 @@ public class SumWeightsForBucket extends ResponseProcessor {
                 }
             }
 
-            for( Map.Entry<String,Float> e : industryWeights.entrySet()){
+            Map<String,Float> sortedWeights = industryWeights
+                    .entrySet()
+                    .stream()
+                    .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+                    .collect(
+                            Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                                    LinkedHashMap::new));
+
+            for( Map.Entry<String,Float> e : sortedWeights.entrySet()){
                 r.addField(new Field(e.getKey(),e.getValue()));
                 r.addField(new Field("industries",e.getKey()));
             }
