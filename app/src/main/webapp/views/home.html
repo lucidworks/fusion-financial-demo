@@ -64,6 +64,14 @@
                 </layout:block>
             </layout:grid>
 
+            <!-- ANSWER CARD -->
+            <div ng-repeat="message in response.messages "
+                 ng-if="message.type == 'co_answer_card_content'"
+                 ng-bind-html="message.value"
+                 class="answer-card"
+            >
+            </div>
+
             <!-- NEWS -->
             <layout:block medium="2-3">
                     <div styling="width-1 stretch-content">
