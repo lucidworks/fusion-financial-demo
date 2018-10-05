@@ -73,7 +73,7 @@
             </div>
 
             <!-- NEWS -->
-            <layout:block medium="2-3">
+            <layout:block md="2-3">
                     <div styling="width-1 stretch-content">
 
                         <!-- 0 -->
@@ -87,13 +87,13 @@
                                     <search:result-list response="news">
                                         <search:result>
                                             <layout:grid ng-if="result | field:'og_image_s'">
-                                                <layout:block medium="1-4">
+                                                <layout:block md="1-4">
                                                     <layout:box padding-top="0" padding-bottom="0" padding-left="0">
                                                         <media:image field-name="og_image_s" height="100"
                                                                      fallback-image-url="assets/noimage.svg"></media:image>
                                                     </layout:box>
                                                 </layout:block>
-                                                <layout:block medium="3-4">
+                                                <layout:block md="3-4">
                                                     <div class="small-title">
                                                         <search:field name="entity_company_hv_ss" styling="capsules"
                                                                   query="query" label="Companies"></search:field>
@@ -145,7 +145,7 @@
             </layout:block>
 
             <!-- PORTFOLIOS -->
-            <layout:block medium="1-3">
+            <layout:block md="1-3">
 
                     <div class="home-sidebar" styling="width-1" styling="stretch-content">
 

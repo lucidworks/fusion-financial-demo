@@ -1,13 +1,13 @@
 <layout:grid styling="header">
 
   <!-- logo -->
-  <layout:block medium="3-24" styling="hidemedium">
+  <layout:block md="3-24" styling="hidemedium">
     <layout:box>
       <layout:logo image="assets/360logo.png"></layout:logo>
     </layout:box>
   </layout:block>
 
-  <layout:block tiny="4-24" medium="3-24">
+  <layout:block xs="4-24" md="3-24">
     <layout:box>
       <search:offcanvas-toggle target="#sidebar"></search:offcanvas-toggle>
     </layout:box>
@@ -17,7 +17,7 @@
   <!--<search:platform var="instantNews" conf="platforms.fusion.instant.news"></search:platform>-->
 
   <!-- search -->
-  <layout:block tiny="20-24" medium="1-2">
+  <layout:block xs="20-24" md="1-2">
     <layout:box>
       <search:box placeholder={{placeholder}} action="{{action}}" social="true">
 

@@ -26,7 +26,7 @@
   <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
 
     <!-- CONTENT > SIDEBAR -->
-    <layout:block medium="1-3" large="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
+    <layout:block lg="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
       <layout:sidebar>
         <search:facet-list response="response" platform="platform" query="query"
                            styling="facet-list"
@@ -37,7 +37,7 @@
     </layout:block>
 
     <!-- CONTENT > RESULTS -->
-    <layout:block medium="2-3" large="18-24" class="tk-stl-bg-searchresults">
+    <layout:block lg="18-24" class="tk-stl-bg-searchresults">
       <!-- ANSWER CARD -->
       <div ng-repeat="message in response.messages "
            ng-if="message.type == 'co_answer_card_content'"
@@ -68,23 +68,32 @@
                   <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query">
                       <search:result class="company-card card">
 
+                        <!--title + stock price-->
+                        <layout:grid>
+                          <layout:block xs="1-1" sm="1-2" md="3-5">
+                            <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                              <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
+                            </layout:box>
+                          </layout:block>
+                          <layout:block xs="1-1" sm="1-2" md="2-5">
+                            <layout:box padding-top="0" padding-right="0" padding-bottom="0" styling="pull-right">
+                              <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
+                              <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+
                         <layout:grid>
 
-                          <layout:block md="6-24" tiny="1-1" ng-controller="MainCtrl">
+                          <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
                             <media:image src="{{mapUrl(result) | trusted}}"></media:image>
                           </layout:block>
 
-                          <layout:block md="18-24" tiny="1-1">
+                          <layout:block xs="1-1" md="18-24" >
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
-                              <div class="small-title">
-                                <search:field name="industry_s" query="query" styling="metadata" label="Industry"></search:field>
-                              </div>
-                              <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
-                              <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
-                              <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
-
-                              <search:field name="state_s" styling="metadata label-inline" query="query" label="State"></search:field>
-                              <search:field name="city_s" styling="metadata label-inline" query="query" label="City"></search:field>
+                              <search:field name="industry_s" query="query" styling="label-left" label="Industry"></search:field>
+                              <search:field name="state_s" styling="label-left" query="query" label="State"></search:field>
+                              <search:field name="city_s" styling="label-left" query="query" label="City"></search:field>
                             </layout:box>
                           </layout:block>
 
