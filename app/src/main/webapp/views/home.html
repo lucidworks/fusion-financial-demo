@@ -13,8 +13,8 @@
 </search:query>
 
 <search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
-<!--,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss-->
-<search:query var="backendQuery" results-per-page="5" fields="id">
+
+<search:query var="backendQuery" results-per-page="5" fields="id,,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
