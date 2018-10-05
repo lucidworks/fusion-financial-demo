@@ -735,6 +735,15 @@
     }, {
       "id" : "Finance",
       "stages" : [ {
+        "type" : "javascript-query",
+        "id" : "n6l",
+        "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  var q = request.getFirstParam('q');\n  if(!q) {\n    return;  // To avoid NPA\n  }\n\n  var firstToken = q;\n  var remainder = '';\n\n  if (q.indexOf(' ') >= 0) {\n  \tfirstToken = q.substring(0, q.indexOf(' ')).replace(/\\(/, '');\n    remainder = q.substring(q.indexOf(' '), q.length);\n    remainder = remainder.trim();\n    remainder = remainder.replace(/\\s+/g, ' ');\n  }\n\n  logger.info('Answer card: first token is ' + firstToken);\n\n  if (!firstToken.match(/\\*/)) {\n    var query = new org.apache.solr.client.solrj.SolrQuery(firstToken);\n    query.addFilterQuery('_lw_data_source_s:sp500');\n    query.setRows(1);\n    var results = solrServerFactory.getSolrServer('Finance').query(query).getResults();\n    if (results.size() > 0) {  // A ticker was found\n      var tickerResult = results.get(0);\n      var ticker  = tickerResult.get('ticker_s');\n\n      // TODO: other patterns\n      if (remainder.match(/industry/)) {\n        var industry  = tickerResult.get('industry_s');\n        logger.info('Answer Card: will append industry to result: ' + industry);\n\n        ctx.setProperty(\"co_answer_card_company\", tickerResult.get('company_name_t'));\n        ctx.setProperty(\"co_answer_card_metric_label\", \"industry\");\n        ctx.setProperty(\"co_answer_card_metric_value\", industry);\n      }\n    }\n  }\n}\n",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Query for Answer Card Data",
+        "licensed" : true,
+        "secretSourceStageId" : "n6l"
+      }, {
         "type" : "recommendation",
         "id" : "028c6535-2b71-4dd9-96bc-74e461609b28",
         "numRecommendations" : 10,
@@ -845,6 +854,15 @@
         "skip" : false,
         "licensed" : true,
         "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
+      }, {
+        "type" : "javascript-query",
+        "id" : "efp",
+        "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  if (ctx.hasProperty(\"co_answer_card_company\")) {\n    var answer_card_content = ctx.getProperty(\"co_answer_card_company\") + \"'s \";\n    answer_card_content = answer_card_content + ctx.getProperty(\"co_answer_card_metric_label\") + \" is \";\n    answer_card_content = answer_card_content + ctx.getProperty(\"co_answer_card_metric_value\");\n    response.initialEntity.appendString(\"co_answer_card_content\", answer_card_content);\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Augment with Answer Card Data",
+        "licensed" : true,
+        "secretSourceStageId" : "efp"
       } ],
       "properties" : {
         "secretSourcePipelineId" : "Finance"
@@ -1072,6 +1090,15 @@
     }, {
       "id" : "latest-news",
       "stages" : [ {
+        "type" : "javascript-query",
+        "id" : "wzk",
+        "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  var q = request.getFirstParam('q');\n  if(!q) {\n    return;  // To avoid NPA\n  }\n\n  var firstToken = q;\n  var remainder = '';\n\n  if (q.indexOf(' ') >= 0) {\n  \tfirstToken = q.substring(0, q.indexOf(' ')).replace(/\\(/, '');\n    remainder = q.substring(q.indexOf(' '), q.length);\n    remainder = remainder.trim();\n    remainder = remainder.replace(/\\s+/g, ' ');\n  }\n\n  logger.info('Answer card: first token is ' + firstToken);\n\n  if (!firstToken.match(/\\*/)) {\n    var query = new org.apache.solr.client.solrj.SolrQuery(firstToken);\n    query.addFilterQuery('_lw_data_source_s:sp500');\n    query.setRows(1);\n    var results = solrServerFactory.getSolrServer('Finance').query(query).getResults();\n    if (results.size() > 0) {  // A ticker was found\n      var tickerResult = results.get(0);\n      var ticker  = tickerResult.get('ticker_s');\n\n      // TODO: other patterns\n      if (remainder.match(/industry/)) {\n        var industry  = tickerResult.get('industry_s');\n        logger.info('Answer Card: will append industry to result: ' + industry);\n\n        ctx.setProperty(\"co_answer_card_company\", tickerResult.get('company_name_t'));\n        ctx.setProperty(\"co_answer_card_metric_label\", \"industry\");\n        ctx.setProperty(\"co_answer_card_metric_value\", industry);\n      }\n    }\n  }\n}\n",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Query for Answer Card Data",
+        "licensed" : true,
+        "secretSourceStageId" : "wzk"
+      }, {
         "type" : "recommendation",
         "id" : "79f5f931-6027-42cc-9997-c98b7101c645",
         "numRecommendations" : 10,
@@ -1179,6 +1206,15 @@
         "skip" : false,
         "licensed" : true,
         "secretSourceStageId" : "e4302c97-4913-4ce5-a384-e52d5f14e33c"
+      }, {
+        "type" : "javascript-query",
+        "id" : "jh",
+        "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  if (ctx.hasProperty(\"co_answer_card_company\")) {\n    var answer_card_content = ctx.getProperty(\"co_answer_card_company\") + \"'s \";\n    answer_card_content = answer_card_content + ctx.getProperty(\"co_answer_card_metric_label\") + \" is \";\n    answer_card_content = answer_card_content + ctx.getProperty(\"co_answer_card_metric_value\");\n    response.initialEntity.appendString(\"co_answer_card_content\", answer_card_content);\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Augment with Answer Card Data",
+        "licensed" : true,
+        "secretSourceStageId" : "jh"
       } ],
       "properties" : {
         "secretSourcePipelineId" : "latest-news"
@@ -3933,7 +3969,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-05T15:18:24.195Z",
+    "exportedDate" : "2018-10-05T15:28:03.194Z",
     "fusionVersion" : "4.1.0",
     "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
