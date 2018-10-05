@@ -1,0 +1,164 @@
+ticker,company_name,industry,city,state,url,owner,type,bucket_id
+AVY,Avery Dennison Corp,Industrials,Pasadena,California,,Frank,analyst,0
+RRD,Donnelley (R.R.) & Sons,Industrials,Chicago,Illinois,,Carla,analyst,3
+HAR,Harman Int'l Industries,Consumer Discretionary,Stamford,Connecticut,,Frank,analyst,0
+DLTR,Dollar Tree,Consumer Discretionary,Chesapeake,Virginia,,Frank,analyst,0
+BEAM,Beam Inc.,Consumer Discretionary,Deerfield,Illinois,,Lawson,manager,1
+TDC,Teradata Corp.,Information Technology,Miamisburg,Ohio,,Frank,analyst,0
+GD,General Dynamics,Industrials,Falls Church,Virginia,,Frank,analyst,1
+LNC,Lincoln National,Financials,Radnor,Pennsylvania,,Cynthia,client,1
+TIE,Titanium Metals Corp,Materials,Dallas,Texas,,Geoffrey,analyst,0
+AMAT,Applied Materials Inc,Information Technology,Santa Clara,California,,Geoffrey,analyst,0
+CBG,CBRE Group,Financials,Los Angeles,California,,Geoffrey,analyst,0
+BSX,Boston Scientific,Health Care,Natick,Massachusetts,,Geoffrey,analyst,0
+FAST,Fastenal Co,Industrials,Winona,Minnesota,,Robert,client,2
+MAT,Mattel Inc.,Consumer Discretionary,El Segundo,California,,Chloe,manager,1
+EXPE,Expedia Inc.,Consumer Discretionary,Bellevue,Washington,,Geoffrey,analyst,0
+CCE,Coca-Cola Enterprises,Consumer Staples,Atlanta,Georgia,,Chloe,manager,2
+A,Agilent Technologies Inc,Health Care,Santa Clara,California,http://www.agilent.com,Lawson,manager,1
+VLO,Valero Energy,Energy,San Antonio,Texas,,Carla,analyst,0
+HRB,Block H&R,Consumer Discretionary,Kansas City,Missouri,,Geoffrey,analyst,1
+S,Sprint Nextel Corp.,Telecommunications Services,Overland Park,Kansas,,Geoffrey,analyst,1
+TXN,Texas Instruments,Information Technology,Dallas,Texas,,Geoffrey,analyst,2
+MPC,Marathon Petroleum,Energy,Findlay,Ohio,,Sophie,analyst,1
+GCI,Gannett Co.,Consumer Discretionary,McLean,Virginia,,Cynthia,client,1
+ABC,AmerisourceBergen Corp,Health Care,Chesterbrook,Pennsylvania,http://www.amerisourcebergen.com/,Geoffrey,analyst,3
+EQT,EQT Corporation,Utilities,Pittsburgh,Pennsylvania,,Geoffrey,analyst,3
+PRU,Prudential Financial,Financials,Newark,New Jersey,,Geoffrey,analyst,3
+VLO,Valero Energy,Energy,San Antonio,Texas,,Carla,analyst,0
+AKAM,Akamai Technologies Inc,Information Technology,Cambridge,Massachusetts,,Cynthia,client,1
+BA,Boeing Company,Industrials,Chicago,Illinois,,Carla,analyst,0
+BMC,BMC Software,Information Technology,Houston,Texas,,Carla,analyst,1
+SIAL,Sigma-Aldrich,Materials,St. Louis,Missouri,,Carla,analyst,1
+VMC,Vulcan Materials,Materials,Birmingham,Alabama,,Carla,analyst,1
+ADP,Automatic Data Processing,Information Technology,Roseland,New Jersey,,Lawson,manager,0
+VRSN,Verisign Inc.,Information Technology,Dulles,Virginia,,Carla,analyst,2
+HOT,Starwood Hotels & Resorts,Consumer Discretionary,White Plains,New York,,Carla,analyst,2
+MDT,Medtronic Inc.,Health Care,Fridley,Minnesota,,Carla,analyst,2
+JCI,Johnson Controls,Consumer Discretionary,Milwaukee,Wisconsin,,Carla,analyst,2
+DISCA,Discovery Communications,Consumer Discretionary,Silver Spring,Maryland,,Carla,analyst,2
+ISRG,Intuitive Surgical Inc.,Health Care,Sunnyvale,California,,Carla,analyst,2
+RRD,Donnelley (R.R.) & Sons,Industrials,Chicago,Illinois,,Carla,analyst,3
+EMC,EMC Corp.,Information Technology,Hopkinton,Massachusetts,,Carla,analyst,3
+LH,Laboratory Corp. of America Holding,Health Care,Burlington,North Carolina,,Carla,analyst,4
+SNI,Scripps Networks Interactive Inc.,Consumer Discretionary,Cincinnati,Ohio,,Carla,analyst,4
+JEC,Jacobs Engineering Group,Industrials,Pasadena,California,,Cynthia,client,1
+COF,Capital One Financial,Financials,Tysons Corner,Virginia,,Carla,analyst,4
+STZ,Constellation Brands,Consumer Staples,Victor,New York,,Carla,analyst,4
+MTB,M&T Bank Corp.,Financials,Buffalo,New York,,Carla,analyst,4
+NOV,National Oilwell Varco Inc.,Energy,Houston,Texas,,Chloe,manager,2
+GPS,Gap (The),Consumer Discretionary,San Francisco,California,,Sophie,analyst,0
+USB,U.S. Bancorp,Financials,Minneapolis,Minnesota,,Sophie,analyst,0
+HPQ,Hewlett-Packard,Information Technology,Palo Alto,California,,Lawson,manager,0
+PCLN,Priceline.com Inc,Industrials,Norwalk,Connecticut,,Lawson,manager,0
+LO,Lorillard Inc.,Consumer Staples,Greensboro,North Carolina,,Sophie,analyst,1
+NOC,Northrop Grumman Corp.,Industrials,West Falls Church,Virginia,,Sophie,analyst,1
+SLM,SLM Corporation,Financials,Newark,Delaware,,Sophie,analyst,1
+ORCL,Oracle Corp.,Information Technology,Redwood Shores,California,,Sophie,analyst,1
+MPC,Marathon Petroleum,Energy,Findlay,Ohio,,Sophie,analyst,1
+UPS,United Parcel Service,Industrials,Sandy Springs,Georgia,,Sophie,analyst,1
+SYY,Sysco Corp.,Consumer Staples,Houston,Texas,,Sophie,analyst,1
+JNJ,Johnson & Johnson,Health Care,New Brunswick,New Jersey,,Sophie,analyst,1
+ORLY,O'Reilly Automotive,Consumer Discretionary,Springfield,Missouri,,Chloe,manager,3
+HD,Home Depot,Consumer Discretionary,Cobb County,Georgia,,Sophie,analyst,2
+FTR,Frontier Communications,Telecommunications Services,Stamford,Connecticut,,Sophie,analyst,2
+KR,Kroger Co.,Consumer Staples,Cincinnati,Ohio,,Lawson,manager,1
+AET,Aetna Inc,Health Care,Hartford,Connecticut,,Chloe,manager,1
+TER,Teradyne Inc.,Information Technology,North Reading,Massachusetts,,Sophie,analyst,2
+RHI,Robert Half International,Industrials,Menlo Park,California,,Sophie,analyst,2
+NTAP,NetApp,Information Technology,Sunnyvale,California,,Sophie,analyst,2
+CI,CIGNA Corp.,Health Care,Philadelphia,Pennsylvania,,Sophie,analyst,2
+PPG,PPG Industries,Materials,Pittsburgh,Pennsylvania,,Sophie,analyst,2
+VTR,Ventas Inc,Financials,Chicago,Illinois,,Sophie,analyst,3
+JNPR,Juniper Networks,Information Technology,Sunnyvale,California,,Sophie,analyst,3
+NWSA,News Corporation,Consumer Discretionary,New York,New York,,Sophie,analyst,3
+F,Ford Motor,Consumer Discretionary,Dearborn,Michigan,,Robert,client,0
+FAST,Fastenal Co,Industrials,Winona,Minnesota,,Robert,client,2
+M,Macy's Inc.,Consumer Discretionary,Cincinnati,Ohio,,Robert,client,0
+GNW,Genworth Financial Inc.,Financials,Richmond,Virginia,,Robert,client,0
+POM,Pepco Holdings Inc.,Utilities,Washington D.C,,,Robert,client,3
+IGT,International Game Technology,Consumer Discretionary,Reno,Nevada,,Robert,client,1
+GLW,Corning Inc.,Industrials,Corning,New York,,Robert,client,1
+SBUX,Starbucks Corp.,Consumer Discretionary,Seattle,Washington,,Robert,client,2
+FAST,Fastenal Co,Industrials,Winona,Minnesota,,Robert,client,2
+ADI,Analog Devices Inc,Information Technology,Norwood,Massachusetts,,Robert,client,2
+CLX,The Clorox Company,Consumer Staples,Oakland,California,,Robert,client,2
+MNST,Monster Beverage,Consumer Staples,Corona,California,,Robert,client,2
+AXP,American Express Co,Financials,New York,New York,,Lawson,manager,1
+SYMC,Symantec Corp.,Information Technology,Mountain View,California,,Robert,client,2
+NEM,Newmont Mining Corp. (Hldg. Co.),Materials,Denver,Colorado,,Chloe,manager,4
+FMC,FMC Corporation,Materials,Philadelphia,Pennsylvania,,Robert,client,2
+ACN,Accenture,Information Technology,Dublin,Ireland,,Robert,client,2
+UTX,United Technologies,Industrials,Hartford,Connecticut,,Robert,client,2
+CTAS,Cintas Corporation,Industrials,Mason,Ohio,,Robert,client,3
+HAL,Halliburton Co.,Energy,Houston,Texas,,Robert,client,3
+LM,Legg Mason,Financials,Baltimore,Maryland,,Robert,client,3
+KLAC,KLA-Tencor Corp.,Information Technology,Milpitas,California,,Robert,client,3
+POM,Pepco Holdings Inc.,Utilities,Washington D.C,,,Robert,client,3
+SWK,Stanley Black & Decker,Consumer Discretionary,New Britain,Connecticut,,Robert,client,3
+VNO,Vornado Realty Trust,Financials,New York,New York,,Robert,client,3
+K,Kellogg Co.,Consumer Staples,Battle Creek,Michigan,,Cynthia,client,0
+XRAY,Dentsply International,Health Care,York,Pennsylvania,,Cynthia,client,0
+ROST,Ross Stores Inc.,Consumer Discretionary,Pleasanton,California,,Cynthia,client,0
+NFLX,NetFlix Inc.,Information Technology,Los Gatos,California,,Cynthia,client,0
+PNR,Pentair Ltd.,Industrials,Schaffhausen,Switzerland,,Cynthia,client,0
+CTSH,Cognizant Technology Solutions,Information Technology,Teaneck,New Jersey,,Cynthia,client,0
+JEC,Jacobs Engineering Group,Industrials,Pasadena,California,,Cynthia,client,1
+CHK,Chesapeake Energy,Energy,Oklahoma City,Oklahoma,,Cynthia,client,1
+CAT,Caterpillar Inc.,Industrials,Peoria,Illinois,,Cynthia,client,1
+LNC,Lincoln National,Financials,Radnor,Pennsylvania,,Cynthia,client,1
+HST,Host Hotels & Resorts,Financials,Bethesda,Maryland,,Cynthia,client,1
+GCI,Gannett Co.,Consumer Discretionary,McLean,Virginia,,Cynthia,client,1
+RDC,Rowan Cos.,Energy,Houston,Texas,,Chloe,manager,1
+IP,International Paper,Materials,Memphis,Tennessee,,Cynthia,client,1
+AKAM,Akamai Technologies Inc,Information Technology,Cambridge,Massachusetts,,Cynthia,client,1
+ACE,ACE Limited,Financials,Zurich,Switzerland,http://www.acegroup.com/,Cynthia,client,1
+CMCSA,Comcast Corp.,Consumer Discretionary,Philadelphia,Pennsylvania,,Lawson,manager,0
+ADP,Automatic Data Processing,Information Technology,Roseland,New Jersey,,Lawson,manager,0
+DGX,Quest Diagnostics,Health Care,Madison,New Jersey,,Lawson,manager,0
+SNDK,SanDisk Corporation,Information Technology,Milpitas,California,,Lawson,manager,0
+FIS,Fidelity National Information Services,Information Technology,Jacksonville,Florida,,Lawson,manager,0
+PCLN,Priceline.com Inc,Industrials,Norwalk,Connecticut,,Lawson,manager,0
+DO,Diamond Offshore Drilling,Energy,Houston,Texas,,Lawson,manager,0
+X,United States Steel Corp.,Materials,Pittsburgh,Pennsylvania,,Lawson,manager,0
+HPQ,Hewlett-Packard,Information Technology,Palo Alto,California,,Lawson,manager,0
+A,Agilent Technologies Inc,Health Care,Santa Clara,California,http://www.agilent.com,Lawson,manager,1
+BEAM,Beam Inc.,Consumer Discretionary,Deerfield,Illinois,,Lawson,manager,1
+NBL,Noble Energy Inc,Energy,Houston,Texas,,Lawson,manager,1
+AN,AutoNation Inc,Consumer Discretionary,Fort Lauderdale,Florida,,Chloe,manager,3
+KR,Kroger Co.,Consumer Staples,Cincinnati,Ohio,,Lawson,manager,1
+FISV,Fiserv Inc,Information Technology,Brookfield,Wisconsin,,Lawson,manager,1
+PHM,Pulte Homes Inc.,Consumer Discretionary,Bloomfield Hills,Michigan,,Lawson,manager,1
+AXP,American Express Co,Financials,New York,New York,,Lawson,manager,1
+HP,Helmerich & Payne,Energy,Tulsa,Oklahoma,,Lawson,manager,2
+V,Visa Inc.,Information Technology,San Francisco,California,,Lawson,manager,2
+ABT,Abbott Laboratories,Health Care,North Chicago,Illinois,http://www.abbott.com/,Lawson,manager,2
+LTD,Limited Brands Inc.,Consumer Discretionary,Columbus,Ohio,,Chloe,manager,0
+PEP,PepsiCo Inc.,Consumer Staples,Purchase,New York,,Chloe,manager,0
+NKE,NIKE Inc.,Consumer Discretionary,Washington County,Oregon,,Chloe,manager,2
+AEP,American Electric Power,Utilities,Columbus,Ohio,,Chloe,manager,1
+ETN,Eaton Corp.,Industrials,Cleveland,Ohio,,Chloe,manager,1
+DIS,Walt Disney Co.,Consumer Discretionary,Burbank,California,,Chloe,manager,1
+XEL,Xcel Energy Inc,Utilities,Minneapolis,Minnesota,,Chloe,manager,1
+ITW,Illinois Tool Works,Industrials,Glenview,Illinois,,Chloe,manager,1
+AET,Aetna Inc,Health Care,Hartford,Connecticut,,Chloe,manager,1
+RDC,Rowan Cos.,Energy,Houston,Texas,,Chloe,manager,1
+MAT,Mattel Inc.,Consumer Discretionary,El Segundo,California,,Chloe,manager,1
+HCN,Health Care REIT,Financials,Toledo,Ohio,,Chloe,manager,2
+FHN,First Horizon National,Financials,Memphis,Tennessee,,Chloe,manager,2
+ADT,ADT Corp,Industrials,Boca Raton,Florida,,Chloe,manager,2
+NOV,National Oilwell Varco Inc.,Energy,Houston,Texas,,Chloe,manager,2
+NKE,NIKE Inc.,Consumer Discretionary,Washington County,Oregon,,Chloe,manager,2
+YHOO,Yahoo Inc.,Information Technology,Sunnyvale,California,,Chloe,manager,2
+CCE,Coca-Cola Enterprises,Consumer Staples,Atlanta,Georgia,,Chloe,manager,2
+AN,AutoNation Inc,Consumer Discretionary,Fort Lauderdale,Florida,,Chloe,manager,3
+PNC,PNC Financial Services,Financials,Pittsburgh,Pennsylvania,,Chloe,manager,3
+TSO,Tesoro Petroleum Co.,Energy,San Antonio,Texas,,Chloe,manager,3
+PCAR,PACCAR Inc.,Industrials,Bellevue,Washington,,Chloe,manager,3
+C,Citigroup Inc.,Financials,New York,New York,,Chloe,manager,3
+FTI,FMC Technologies Inc.,Energy,Houston,Texas,,Chloe,manager,3
+ORLY,O'Reilly Automotive,Consumer Discretionary,Springfield,Missouri,,Chloe,manager,3
+CTXS,Citrix Systems,Information Technology,Fort Lauderdale,Florida,,Chloe,manager,3
+SWN,Southwestern Energy,Energy,Houston,Texas,,Chloe,manager,4
+TXT,Textron Inc.,Industrials,Providence,Rhode Island,,Chloe,manager,4
+NEM,Newmont Mining Corp. (Hldg. Co.),Materials,Denver,Colorado,,Chloe,manager,4
