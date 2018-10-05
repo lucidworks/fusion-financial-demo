@@ -48,6 +48,7 @@ random.seed(RANDOM_SEED)
 with open(COMPANY_INPUT_CSV,'r') as companiesfile:
     companies_reader = csv.DictReader(companiesfile)
     CSV_FIELDS = companies_reader.fieldnames
+
     for company_dict in companies_reader:
         COMPANIES_LIST.append(company_dict)
 
@@ -56,25 +57,41 @@ with open(COMPANY_INPUT_CSV,'r') as companiesfile:
 BUCKET_LIST = list()
 for type in BUCKETS:
     type_name = type['type']
+
     for person in type['people']:
         owner = person['owner']
         num_buckets = random.randint(1,4) # pick a random number of buckets for this person
         bucket_id = 0
+
         while bucket_id <= num_buckets:
+            bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
             num_companies = random.randint(1,10) # pick a random number of companies for this bucket
+            random_weights = [random.random() for i in range(0,num_companies)]
+            weight_sum = sum(random_weights)
             i = 0
-            while i <= num_companies:
+            testsum=0
+
+            while i < num_companies:
                 random_company_id = random.randint(0,499)
                 COMPANIES_LIST[random_company_id].update({'owner':owner})
                 COMPANIES_LIST[random_company_id].update({'type':type_name})
                 COMPANIES_LIST[random_company_id].update({'bucket_id':bucket_id})
+                COMPANIES_LIST[random_company_id].update({'unique_bucket_id':bucket_uid})
+
+                if type_name != 'analyst':
+                    COMPANIES_LIST[random_company_id].update({'weight':random_weights[i]/weight_sum})
+                else:
+                    COMPANIES_LIST[random_company_id].update({'weight':random.randint(0,2)})
+
                 BUCKET_LIST.append(COMPANIES_LIST[random_company_id])
                 i+=1
+
             bucket_id+=1
 
 #     To write out new CSV we need to add the fields to the headers
-CSV_FIELDS += ['owner','type','bucket_id']
+CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight']
+
 with open(BUCKETS_CSV, 'w') as bucketsfile:
     writer = csv.DictWriter(bucketsfile,CSV_FIELDS)
     writer.writeheader()
