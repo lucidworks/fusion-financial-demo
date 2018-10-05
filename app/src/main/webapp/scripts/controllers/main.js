@@ -23,7 +23,6 @@ angular.module('appkitApp')
         $twigkit.getUser()
             .then(function (user) {
                 $scope.user = user;
-                $scope.user.name = 'Grant'; // Temporary hack - user names for a demo
             });
         $rootScope.redirectTo = function (page) {
             $location.path(page);

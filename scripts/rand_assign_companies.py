@@ -68,23 +68,23 @@ for type in BUCKETS:
             bucket = list()
             num_companies = random.randint(1,10) # pick a random number of companies for this bucket
             random_weights = [random.random() for i in range(0,num_companies)]
+            random_company_ids = random.sample(range(500), num_companies)
             weight_sum = sum(random_weights)
             i = 0
-            testsum=0
 
-            while i < num_companies:
-                random_company_id = random.randint(0,499)
-                COMPANIES_LIST[random_company_id].update({'owner':owner})
-                COMPANIES_LIST[random_company_id].update({'type':type_name})
-                COMPANIES_LIST[random_company_id].update({'bucket_id':bucket_id})
-                COMPANIES_LIST[random_company_id].update({'unique_bucket_id':bucket_uid})
+            for id in random_company_ids:
+                # random_company_ids = random.randint(0,499)
+                COMPANIES_LIST[id].update({'owner':owner})
+                COMPANIES_LIST[id].update({'type':type_name})
+                COMPANIES_LIST[id].update({'bucket_id':bucket_id})
+                COMPANIES_LIST[id].update({'unique_bucket_id':bucket_uid})
 
                 if type_name != 'analyst':
-                    COMPANIES_LIST[random_company_id].update({'weight':random_weights[i]/weight_sum})
+                    COMPANIES_LIST[id].update({'weight':random_weights[i]/weight_sum})
                 else:
-                    COMPANIES_LIST[random_company_id].update({'weight':random.randint(0,2)})
+                    COMPANIES_LIST[id].update({'weight':random.randint(0,2)})
 
-                BUCKET_LIST.append(COMPANIES_LIST[random_company_id])
+                BUCKET_LIST.append(COMPANIES_LIST[id])
                 i+=1
 
             bucket_id+=1

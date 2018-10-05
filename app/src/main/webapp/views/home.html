@@ -1,3 +1,5 @@
+<search:platform var="finance" conf="platforms.fusion.finance.mycompanies"></search:platform>
+
 <search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
 
 <search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
@@ -19,6 +21,15 @@
 </search:response>
 
 <search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>
+
+<lifecycle:required object="user.name">
+    <search:query var="ownerQuery" sorts="-weight_s" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s">
+        <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
+        <query:filter field="owner_s" value="{{user.name}}"></query:filter>
+        <query:custom name="group.limit" value="10"></query:custom>
+    </search:query>
+    <search:response var="mycompanies" query="ownerQuery" platform="finance"></search:response>
+</lifecycle:required>
 
 <layout:include file="views/partials/header-home.tpl.html"></layout:include>
 
@@ -149,7 +160,10 @@
 
                     <div class="home-sidebar" styling="width-1" styling="stretch-content">
 
+                        <!--Old Collaboration Module management of portfolios-->
+
                         <!-- 0 -->
+                        <!--
                         <layout:grid>
                             <layout:block>
                                     <a href="#/portfolios">
@@ -177,8 +191,9 @@
                                 <hr class="simple">
                             </layout:block>
                         </layout:grid>
-
+                        -->
                         <!-- 1 -->
+                        <!--
                         <layout:grid ng-if="collaborationTopics.length > 0">
                             <layout:block ng-repeat="topic in collaborationTopics track by topic.id">
                                     <h3><a class="simple-link" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></h3>
@@ -202,7 +217,9 @@
 
                             </layout:block>
                         </layout:grid>
-
+                        -->
+                        <!-- 2 -->
+                        <!--
                         <layout:grid ng-if="collaborationTopics.length == 0">
                             <layout:block>
                                 <h3>What are Portfolios?</h3>
@@ -215,7 +232,43 @@
                                     you wish.</p>
                             </layout:block>
                         </layout:grid>
+                        -->
 
+                        <!--New Fusion-collection approach-->
+
+                        <layout:grid>
+                            <layout:block>
+                                <h2>Your companies</h2>
+                                <search:result-list response="mycompanies">
+                                    <search:result>
+
+
+
+                                        <layout:box><h3>companies</h3></layout:box>
+
+                                        <search:result-list results="result.related">
+                                            <search:result class="bucket-company">
+                                                <!--<search:field name="owner_s"></search:field>-->
+                                                <!--<search:field name="bucket_id_s"></search:field>-->
+                                                <search:field name="company_name_s" label="Company" show="1" styling="label-inline"></search:field>
+                                                <search:field name="industry_s" label="Industry" show="1" styling="label-inline"></search:field>
+                                                <layout:grid>
+                                                    <layout:block xs="1-2">
+                                                        <progress:bar percentage="(result | field:'weight_s' | actual | numberFormat:'#.##')*100"></progress:bar>
+                                                    </layout:block>
+                                                    <layout:block xs="1-2">
+                                                        <search:field name="weight_s" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
+                                                    </layout:block>
+                                                </layout:grid>
+
+                                            </search:result>
+
+                                        </search:result-list>
+                                    </search:result>
+                                </search:result-list>
+                            </layout:block>
+
+                        </layout:grid>
                     </div>
 
             </layout:block>
