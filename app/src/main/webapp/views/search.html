@@ -81,7 +81,7 @@
                                 <!-- Show messages from Fusion -->
                                 <search:message-list response="response" title="You might also want to look at"></search:message-list>
 
-                                <search:result-list response="response" styling="cards-sm-1 cards-lg-2 cards-xl-2" platform="platform" query="query" infinite-scroll="true">
+                                <search:result-list response="response" styling="cards-sm-1 cards-lg-2 cards-xl-2" platform="platform" query="query" infinite-scroll="true" class="main-results">
                                     <search:result>
                                         <search:field name="title_t" styling="title" urlfield="id" default-value="{{result.id}}"></search:field>
                                         <search:field name="body_t" styling="description" max-characters="150" default-value="&lt;i&gt;No description&lt;/i&gt;"></search:field>
