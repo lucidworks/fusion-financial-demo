@@ -411,6 +411,47 @@
         "secretSourcePipelineId" : "yahoo-news"
       }
     }, {
+      "id" : "user_buckets",
+      "stages" : [ {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "2a4f6a47-2b7e-48b5-9527-78c874f36728",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2a4f6a47-2b7e-48b5-9527-78c874f36728"
+      }, {
+        "type" : "field-mapping",
+        "id" : "52ab63cd-24b7-4855-8390-65b86a8638d9",
+        "mappings" : [ {
+          "source" : "weight_s",
+          "target" : "weight_d",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "52ab63cd-24b7-4855-8390-65b86a8638d9"
+      }, {
+        "type" : "solr-index",
+        "id" : "81b46e9d-eee1-4907-aa14-0bae9ef3d81c",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "81b46e9d-eee1-4907-aa14-0bae9ef3d81c"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "user_buckets"
+      }
+    }, {
       "id" : "sp500",
       "stages" : [ {
         "type" : "field-mapping",
@@ -2421,6 +2462,70 @@
         "inheritMediaTypes" : true,
         "outputFieldPrefix" : ""
       } ]
+    }, {
+      "id" : "_lw_tmp_1538763085",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
+        "errorHandling" : "mark",
+        "id" : "03c43dec-f21f-4190-ae48-3efd5ea344f1",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    }, {
+      "id" : "user_buckets",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
+        "errorHandling" : "mark",
+        "id" : "03c43dec-f21f-4190-ae48-3efd5ea344f1",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
     } ],
     "objectGroups" : [ {
       "id" : "d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
@@ -2442,6 +2547,11 @@
       "subject" : "query-profile:Finance_signals_aggr",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:_lw_tmp_1538763085",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals-lBdn",
@@ -2849,11 +2959,6 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "datasource:user_buckets",
-      "object" : "parser:Finance",
-      "linkType" : "dependsOn",
-      "originator" : "unspecified"
-    }, {
       "subject" : "index-profile:Finance_signals_aggr-mfVV",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
@@ -2944,6 +3049,11 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "datasource:user_buckets",
+      "object" : "index-pipeline:user_buckets",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:Finance-rmR5",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -2990,6 +3100,11 @@
       "originator" : "unspecified"
     }, {
       "subject" : "query-pipeline:suggest",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:user_buckets",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
@@ -3064,11 +3179,6 @@
       "linkType" : "dependsOn",
       "originator" : "unspecified"
     }, {
-      "subject" : "datasource:user_buckets",
-      "object" : "index-pipeline:Finance",
-      "linkType" : "dependsOn",
-      "originator" : "unspecified"
-    }, {
       "subject" : "query-profile:Finance_signals_aggr-vEYb",
       "object" : "query-pipeline:Finance_signals_aggr-CoCd",
       "linkType" : "relatesTo",
@@ -3092,6 +3202,11 @@
       "subject" : "query-profile:Finance_signals-Fklj",
       "object" : "collection:Finance_signals",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:user_buckets",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "datasource:sp500-historical",
@@ -3132,6 +3247,11 @@
       "subject" : "datasource:sp500-historical",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:user_buckets",
+      "object" : "parser:user_buckets",
+      "linkType" : "dependsOn",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals-JUwc",
@@ -3845,8 +3965,8 @@
       "modified" : "2018-10-05T11:44:59.621Z",
       "connector" : "lucid.web",
       "type" : "web",
-      "pipeline" : "Finance",
-      "parserId" : "Finance",
+      "pipeline" : "user_buckets",
+      "parserId" : "user_buckets",
       "properties" : {
         "refreshOlderThan" : -1,
         "f.appendTrailingSlashToLinks" : false,
@@ -3937,7 +4057,7 @@
           } ],
           "reservedFieldsMappingAllowed" : false,
           "skip" : false,
-          "id" : "Anda",
+          "id" : "FromMap",
           "type" : "field-mapping"
         },
         "f.extraPageLoadDeltaChars" : 0,
@@ -3969,7 +4089,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-05T15:28:03.194Z",
+    "exportedDate" : "2018-10-05T18:14:14.662Z",
     "fusionVersion" : "4.1.0",
     "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
