@@ -17,7 +17,7 @@
 
 <body ng-app="appkitApp">
 
-<helper:constant name="googleMapApi" value="AIzaSyCAPCY1ohcDDT-nLGAU6zg7W_-5Rlc5_Ik"></helper:constant>
+<helper:constant name="googleMapApi" value="AIzaSyDjiHy2i5MiQIJmGuhldVedXLuhi6BUris"></helper:constant>
 
 <!-- All views are loaded here -->
 <ui-view></ui-view>

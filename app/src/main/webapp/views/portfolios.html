@@ -12,7 +12,7 @@
  <div styling="centercontent-inner">
 
       <layout:grid>
-          <layout:block medium="3-4">
+          <layout:block md="3-4">
               <layout:box>
                   <h2>Create a new Portfolio</h2>
                   <collaborate:topic-form namespace="local"></collaborate:topic-form>
@@ -24,21 +24,21 @@
                           <div class="content">
 
                               <layout:grid>
-                                  <layout:block small="1-4">
+                                  <layout:block sm="1-4">
                                       <layout:box>
                                           <a styling="title" href="#/portfolios/{{topic.id}}">{{topic.title}}</a>
                                           <a class="right delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</a>
                                       </layout:box>
                                   </layout:block>
-                                  <layout:block small="1-4">
+                                  <layout:block sm="1-4">
                                       <layout:box>
                                           {{topic.created | date : 'dd MMM yyyy'}}
                                       </layout:box>
                                   </layout:block>
-                                  <!--<layout:block small="2-4" ng-if="topic.bookmarks.length == 0">-->
+                                  <!--<layout:block sm="2-4" ng-if="topic.bookmarks.length == 0">-->
                                       <!--<p>You haven't added any companies yet.</p>-->
                                   <!--</layout:block>-->
-                                  <!--<layout:block small="2-4" ng-if="topic.bookmarks.length > 0">-->
+                                  <!--<layout:block sm="2-4" ng-if="topic.bookmarks.length > 0">-->
                                       <!--<p ng-repeat="bookmark in topic.bookmarks">-->
                                           <!--<a href="#/comapnies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a>-->
                                           <!--<a style="padding-left:10;" ng-click="deleteBookmark(bookmark.id,topic.id)">&times;</a>-->
