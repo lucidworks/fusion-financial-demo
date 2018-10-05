@@ -20,7 +20,7 @@ shift $((OPTIND-1))
 echo "Offline=$offline, Leftovers: $@"
 
 
-curl  -X DELETE "$FUSION_API/webapps/$FUSION_UI_NAME"
+curl  -X DELETE "$FUSION_API/webapps/$FUSION_APPLICATION_NAME"
 
 
 mvn $offline clean package
