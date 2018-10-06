@@ -176,7 +176,7 @@
                             </layout:block>
                             -->
                             <layout:block ng-if="press.facets.Company_Events_ss.filters.length > 0">
-                                <h3>Event affecting your companies.</h3>
+                                <h3>Events affecting your companies.</h3>
                                 <chart:tagcloud class="small-cloud" response="press" facet-name="Company_Events_ss" action="news"></chart:tagcloud>
                                 <hr class="simple">
                             </layout:block>
@@ -257,6 +257,12 @@
                                                 </layout:block>
                                             </layout:grid>
                                         </div>
+                                        <layout:block styling="center-content">
+                                            <a href="#/portfolios">
+                                                <h5> View Portfolio </h5>
+                                            </a>
+                                        </layout:block>
+
                                         <!--<layout:box ng-if="result.related.length > 2"><h4>Top 3 Companies</h4></layout:box>-->
                                         <!--<layout:box ng-if="result.related.length < 3"><h4>Top Companies</h4></layout:box>-->
                                         <!--<search:result-list results="result.related">-->

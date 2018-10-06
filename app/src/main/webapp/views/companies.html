@@ -4,13 +4,15 @@
 
 <search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
 
-<search:query var="query" facets="industry_s,city_s,state_s">
+<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,state_s,city_s,company_name_s">
   <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 
-<search:response var="response" platform="platform" query="query">
+<search:response var="response" platform="platform" query="backendQuery">
   <widget:spinner></widget:spinner>
 </search:response>
+
+<search:query var="query" parameters="*"></search:query>
 
 <!-- -------------------------------------------- -->
 <!-- Define the view                              -->
@@ -24,27 +26,26 @@
 <!-- CONTENT -->
 <layout:grid styling="row-offcanvas" class="company-page">
   <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
-
     <!-- CONTENT > SIDEBAR -->
-    <layout:block lg="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
+    <layout:block md="6-24" drawer="left" id="sidebar" styling="blocksidebar-dark">
       <layout:sidebar>
         <search:facet-list response="response" platform="platform" query="query"
                            styling="facet-list"
-                           facet-names="-_lw_data_source_s,Industry_facet=Industry,City_s=City,State">
+                           facet-names="-_lw_data_source_s,industry_s=Industry,city_s=City,state_s=State">
           <search:facet collapsible="true" show="8" show-more="20"></search:facet>
         </search:facet-list>
       </layout:sidebar>
     </layout:block>
 
     <!-- CONTENT > RESULTS -->
-    <layout:block lg="18-24" class="tk-stl-bg-searchresults">
-      <!-- ANSWER CARD -->
-      <div ng-repeat="message in response.messages "
-           ng-if="message.type == 'co_answer_card_content'"
-           ng-bind-html="message.value"
-           class="answer-card" />
+    <layout:block md="18-24" class="tk-stl-bg-searchresults">
+        <!-- ANSWER CARD -->
+        <!--<div ng-repeat="message in response.messages "-->
+             <!--ng-if="message.type == 'co_answer_card_content'"-->
+             <!--ng-bind-html="message.value"-->
+             <!--class="answer-card" />-->
 
-      <div class="tk-bl-content">
+        <!--<div class="tk-bl-content">-->
         <layout:box>
 
         <!-- SELECTED FACETS / SORT OPTIONS -->
@@ -58,14 +59,13 @@
 
         <!-- ALL RESULTS WRAPPER -->
 
-
             <!-- APP RESULTS CARD LIST -->
             <layout:block>
               <layout:grid>
                 <layout:block>
 
                   <!--<search:result-list response="response"></search:result-list>-->
-                  <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query" class="main-results">
+                  <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query" styling="cards-xs-1 cards-sm-2 cards-md-2 cards-xl-3" class="main-results">
                       <search:result class="company-card card">
 
                         <!--title + stock price-->
