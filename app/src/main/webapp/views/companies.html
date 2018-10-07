@@ -40,14 +40,8 @@
     <!-- CONTENT > RESULTS -->
     <layout:block md="18-24" class="tk-stl-bg-searchresults">
         <!-- ANSWER CARD -->
-      <search:message-list response="response"></search:message-list>
+      <search:message-list response="response" type="co_answer_card_content" class="answer-card"></search:message-list>
 
-      <!--<div ng-repeat="message in response.messages "-->
-             <!--ng-if="message.type == 'co_answer_card_content'"-->
-             <!--ng-bind-html="message.value"-->
-             <!--class="answer-card" />-->
-
-        <!--<div class="tk-bl-content">-->
         <layout:box>
 
         <!-- SELECTED FACETS / SORT OPTIONS -->
