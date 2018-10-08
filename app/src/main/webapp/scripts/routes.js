@@ -19,7 +19,7 @@ angular.module('appkitApp').config(function ($stateProvider, $urlRouterProvider,
                     params.slug = defaultPage;
                 }
 
-                return 'views/'+params.usertype+'/' + params.slug + '.html';
+                return 'views/' + params.slug + '.html';
             },
             controller: 'MainCtrl'
         })

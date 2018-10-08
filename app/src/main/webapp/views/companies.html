@@ -101,26 +101,27 @@
 
                         </layout:grid>
 
-                        <layout:grid>
+                        <layout:grid ng-if="result | field:'news-articles'">
                           <layout:block>
-                            <hr class="simple" ng-if="result.fields.company_events">
-                            <layout:grid class="portfolio" ng-if="$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]].length > 0" >
-                              <layout:block md="6-24">
-                                <p styling="title">Portfolios</p>
-                              </layout:block>
-                              <layout:block md="18-24">
-                                <layout:box padding-top="0" padding-right="0" padding-bottom="0">
-                                  <ol styling="tag-list tag-capsules sm">
-                                    <li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]]">
-                                      <a href="#/portfolios/{{portfolio.id}}">
-                                        <span class="value">{{portfolio.title}}</span>
-                                      </a>
-                                    </li>
-                                  </ol>
-                                </layout:box>
-                              </layout:block>
-                            </layout:grid>
-                            <search:field name="company_events" styling="capsules capsules-fullwidth" label="" show="10"></search:field>
+                            <hr class="simple" >
+                            <span><a href="">{{(result | field:'news-articles').val.length}} News articles for this company</a></span>
+                            <!--<layout:grid class="portfolio">-->
+                              <!--<layout:block md="6-24">-->
+                                <!--<p styling="title">Portfolios</p>-->
+                              <!--</layout:block>-->
+                              <!--<layout:block md="18-24">-->
+                                <!--<layout:box padding-top="0" padding-right="0" padding-bottom="0">-->
+                                  <!--<ol styling="tag-list tag-capsules sm">-->
+                                    <!--<li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]]">-->
+                                      <!--<a href="#/portfolios/{{portfolio.id}}">-->
+                                        <!--<span class="value">{{portfolio.title}}</span>-->
+                                      <!--</a>-->
+                                    <!--</li>-->
+                                  <!--</ol>-->
+                                <!--</layout:box>-->
+                              <!--</layout:block>-->
+                            <!--</layout:grid>-->
+                            <!--<search:field name="news-articles" styling="capsules capsules-fullwidth" label="" show="10"></search:field>-->
                           </layout:block>
                         </layout:grid>
                       </search:result>
