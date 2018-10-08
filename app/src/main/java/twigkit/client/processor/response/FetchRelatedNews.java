@@ -64,9 +64,7 @@ public class FetchRelatedNews extends ResponseProcessor {
         // Filter on the current companies
         String dataSourceField = getParameterStringValue(PARAMETER_FILTER_FIELD);
         String fieldValueSuffix = getParameterStringValue(PARAMETER_FILTER_SUFFIX);
-
-        logger.debug("filter suffix: {}",fieldValueSuffix);
-
+        
         String idField = getParameterStringValue(PARAMETER_ID_FIELD);
         companies.getResults().forEach(r -> {
             Filter filter = new Filter(dataSourceField, r.getFields().get(idField).getValue().getActualAsString() + fieldValueSuffix);
@@ -78,7 +76,8 @@ public class FetchRelatedNews extends ResponseProcessor {
         });
 
         Response relatedNews = newsPlatform.search(newsQuery);
-        String facetName = getParameterStringValue(PARAMETER_PIVOT).replaceAll(",", "-");
+//        String facetName = getParameterStringValue(PARAMETER_PIVOT).replaceAll(",", "-");
+        String facetName = getParameterStringValue(PARAMETER_PIVOT);
         Facet facet = relatedNews.getFacet(facetName);
 
         logger.debug("Got back {} entries for facet {}", facet != null ? facet.getFilters().size() : 0, facetName);
