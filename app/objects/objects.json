@@ -776,6 +776,38 @@
     }, {
       "id" : "Finance",
       "stages" : [ {
+        "type" : "sub-query",
+        "id" : "flo",
+        "key" : "company-buckets",
+        "collection" : "Finance",
+        "handler" : "select",
+        "method" : "GET",
+        "parentParams" : [ "username" ],
+        "rollupKeys" : [ ],
+        "params" : [ {
+          "key" : "fq",
+          "value" : "{!field f=owner_s v=$username}"
+        }, {
+          "key" : "q",
+          "value" : "*:*"
+        } ],
+        "headers" : [ ],
+        "type" : "sub-query",
+        "skip" : false,
+        "label" : "User Portfolios: query for portfolios",
+        "condition" : "request.hasParam(\"username\")",
+        "licensed" : true,
+        "secretSourceStageId" : "flo"
+      }, {
+        "type" : "javascript-query",
+        "id" : "2re",
+        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:\" + ticker + \"^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n    }\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "User Portfolios: extract companies and boost",
+        "licensed" : true,
+        "secretSourceStageId" : "2re"
+      }, {
         "type" : "javascript-query",
         "id" : "n6l",
         "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  var q = request.getFirstParam('q');\n  if(!q) {\n    return;  // To avoid NPA\n  }\n\n  var firstToken = q;\n  var remainder = '';\n\n  if (q.indexOf(' ') >= 0) {\n  \tfirstToken = q.substring(0, q.indexOf(' ')).replace(/\\(/, '');\n    remainder = q.substring(q.indexOf(' '), q.length);\n    remainder = remainder.trim();\n    remainder = remainder.replace(/\\s+/g, ' ');\n  }\n\n  logger.info('Answer card: first token is ' + firstToken);\n\n  if (!firstToken.match(/\\*/)) {\n    var query = new org.apache.solr.client.solrj.SolrQuery(firstToken);\n    query.addFilterQuery('_lw_data_source_s:sp500');\n    query.setRows(1);\n    var results = solrServerFactory.getSolrServer('Finance').query(query).getResults();\n    if (results.size() > 0) {  // A ticker was found\n      var tickerResult = results.get(0);\n      var ticker  = tickerResult.get('ticker_s');\n\n      // TODO: other patterns\n      if (remainder.match(/industry/)) {\n        var industry  = tickerResult.get('industry_s');\n        logger.info('Answer Card: will append industry to result: ' + industry);\n\n        ctx.setProperty(\"co_answer_card_company\", tickerResult.get('company_name_t'));\n        ctx.setProperty(\"co_answer_card_metric_label\", \"industry\");\n        ctx.setProperty(\"co_answer_card_metric_value\", industry);\n      }\n    }\n  }\n}\n",
@@ -835,17 +867,6 @@
         "skip" : false,
         "licensed" : true,
         "secretSourceStageId" : "028c6535-2b71-4dd9-96bc-74e461609b28"
-      }, {
-        "type" : "search-fields",
-        "id" : "7719952e-b229-49b5-ae42-f958f13ed445",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "7719952e-b229-49b5-ae42-f958f13ed445"
       }, {
         "type" : "facet",
         "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
@@ -1132,6 +1153,38 @@
       "id" : "latest-news",
       "stages" : [ {
         "type" : "javascript-query",
+        "id" : "79f",
+        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:\" + ticker + \"^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n    }\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : true,
+        "label" : "User Portfolios: extract companies and boost",
+        "licensed" : true,
+        "secretSourceStageId" : "79f"
+      }, {
+        "type" : "sub-query",
+        "id" : "oyk",
+        "key" : "company-buckets",
+        "collection" : "Finance",
+        "handler" : "select",
+        "method" : "GET",
+        "parentParams" : [ "username" ],
+        "rollupKeys" : [ ],
+        "params" : [ {
+          "key" : "fq",
+          "value" : "{!field f=owner_s v=$username}"
+        }, {
+          "key" : "q",
+          "value" : "*:*"
+        } ],
+        "headers" : [ ],
+        "type" : "sub-query",
+        "skip" : true,
+        "label" : "User Portfolios: query for portfolios",
+        "condition" : "request.hasParam(\"username\")",
+        "licensed" : true,
+        "secretSourceStageId" : "oyk"
+      }, {
+        "type" : "javascript-query",
         "id" : "wzk",
         "script" : "function(request, response, ctx, collection, solrServer, solrServerFactory) {\n  var q = request.getFirstParam('q');\n  if(!q) {\n    return;  // To avoid NPA\n  }\n\n  var firstToken = q;\n  var remainder = '';\n\n  if (q.indexOf(' ') >= 0) {\n  \tfirstToken = q.substring(0, q.indexOf(' ')).replace(/\\(/, '');\n    remainder = q.substring(q.indexOf(' '), q.length);\n    remainder = remainder.trim();\n    remainder = remainder.replace(/\\s+/g, ' ');\n  }\n\n  logger.info('Answer card: first token is ' + firstToken);\n\n  if (!firstToken.match(/\\*/)) {\n    var query = new org.apache.solr.client.solrj.SolrQuery(firstToken);\n    query.addFilterQuery('_lw_data_source_s:sp500');\n    query.setRows(1);\n    var results = solrServerFactory.getSolrServer('Finance').query(query).getResults();\n    if (results.size() > 0) {  // A ticker was found\n      var tickerResult = results.get(0);\n      var ticker  = tickerResult.get('ticker_s');\n\n      // TODO: other patterns\n      if (remainder.match(/industry/)) {\n        var industry  = tickerResult.get('industry_s');\n        logger.info('Answer Card: will append industry to result: ' + industry);\n\n        ctx.setProperty(\"co_answer_card_company\", tickerResult.get('company_name_t'));\n        ctx.setProperty(\"co_answer_card_metric_label\", \"industry\");\n        ctx.setProperty(\"co_answer_card_metric_value\", industry);\n      }\n    }\n  }\n}\n",
         "type" : "javascript-query",
@@ -1190,17 +1243,6 @@
         "skip" : false,
         "licensed" : true,
         "secretSourceStageId" : "79f5f931-6027-42cc-9997-c98b7101c645"
-      }, {
-        "type" : "search-fields",
-        "id" : "bbec41fa-3bd3-4ca6-a7b6-d9fd742cb490",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "bbec41fa-3bd3-4ca6-a7b6-d9fd742cb490"
       }, {
         "type" : "facet",
         "id" : "b68fc543-6dc8-4102-adea-92a969f4feef",
@@ -2463,38 +2505,6 @@
         "outputFieldPrefix" : ""
       } ]
     }, {
-      "id" : "_lw_tmp_1538763085",
-      "enableMediaTypeDetection" : true,
-      "maxParserDepth" : 16,
-      "parserStages" : [ {
-        "type" : "csv",
-        "enabled" : true,
-        "mediaTypes" : [ ],
-        "pathPatterns" : [ {
-          "syntax" : "regex",
-          "pattern" : ".*\\.csv"
-        } ],
-        "errorHandling" : "mark",
-        "id" : "03c43dec-f21f-4190-ae48-3efd5ea344f1",
-        "charset" : "detect",
-        "ignoreBOM" : false,
-        "autoDetect" : true,
-        "hasHeaders" : true,
-        "headers" : [ ],
-        "fillValue" : "<FILL>",
-        "trimWhitespace" : true,
-        "skipEmptyLines" : true,
-        "includeRowNumber" : true,
-        "commentHandling" : "ignore",
-        "maxRowLength" : 10485760,
-        "maxNumColumns" : 1000,
-        "maxColumnChars" : 10485760,
-        "columnHandling" : "default",
-        "inheritMediaTypes" : true,
-        "outputFieldPrefix" : ""
-      } ],
-      "editPanel" : { }
-    }, {
       "id" : "user_buckets",
       "enableMediaTypeDetection" : true,
       "maxParserDepth" : 16,
@@ -2547,11 +2557,6 @@
       "subject" : "query-profile:Finance_signals_aggr",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
-      "subject" : "parser:_lw_tmp_1538763085",
-      "object" : "app:Finance",
-      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals-lBdn",
@@ -4089,7 +4094,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-05T18:14:14.662Z",
+    "exportedDate" : "2018-10-08T02:48:23.498Z",
     "fusionVersion" : "4.1.0",
     "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
