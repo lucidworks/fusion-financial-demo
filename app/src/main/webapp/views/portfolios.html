@@ -1,4 +1,15 @@
+<search:platform var="finance" conf="platforms.fusion.finance.mycompanies"></search:platform>
 
+<lifecycle:required object="user.name">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,revenue_f,marketcap_f,div_yield_f">
+        <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
+        <query:filter field="owner_s" value="{{user.name}}"></query:filter>
+        <query:custom name="group.limit" value="10"></query:custom>
+    </search:query>
+    <search:response var="mycompanies" query="ownerQuery" platform="finance">
+        <widget:spinner></widget:spinner>
+    </search:response>
+</lifecycle:required>
 <!-- -------------------------------------------- -->
 <!-- Define the view                              -->
 <!-- -------------------------------------------- -->
@@ -12,46 +23,83 @@
  <div styling="centercontent-inner">
 
       <layout:grid>
-          <layout:block md="3-4">
-              <layout:box>
-                  <h2>Create a new Portfolio</h2>
-                  <collaborate:topic-form namespace="local"></collaborate:topic-form>
-              </layout:box>
+          <layout:block>
+              <!--<layout:box>-->
+                  <!--<h2>Create a new Portfolio</h2>-->
+                  <!--<collaborate:topic-form namespace="local"></collaborate:topic-form>-->
+              <!--</layout:box>-->
               <layout:box>
                   <h3>Your portfolios</h3>
-                  <collaborate:topic-list empty-text="You haven't created any portfolios yet">
-                      <li ng-repeat="topic in $parent.topics" class="ng-scope" style="">
-                          <div class="content">
-
+                  <search:result-list response="mycompanies" styling="cards-xl-4" class="side-results">
+                      <search:result>
+                          <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
+                          <hr class="simple">
+                          <div ng-repeat="industry in result.fields.industries.val track by $index" class="field tk-rgrid-g tk-stl-label-above">
+                              <p class="tk-stl-label">{{industry}}</p>
                               <layout:grid>
-                                  <layout:block sm="1-4">
-                                      <layout:box>
-                                          <a styling="title" href="#/portfolios/{{topic.id}}">{{topic.title}}</a>
-                                          <a class="right delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</a>
-                                      </layout:box>
+                                  <layout:block xs="1-2">
+                                      <progress:bar percentage="(result | field:industry | actual | numberFormat:'#.##')*100"></progress:bar>
                                   </layout:block>
-                                  <layout:block sm="1-4">
-                                      <layout:box>
-                                          {{topic.created | date : 'dd MMM yyyy'}}
-                                      </layout:box>
+                                  <layout:block xs="1-2">
+                                      <search:field name="{{industry}}" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
                                   </layout:block>
-                                  <!--<layout:block sm="2-4" ng-if="topic.bookmarks.length == 0">-->
-                                      <!--<p>You haven't added any companies yet.</p>-->
-                                  <!--</layout:block>-->
-                                  <!--<layout:block sm="2-4" ng-if="topic.bookmarks.length > 0">-->
-                                      <!--<p ng-repeat="bookmark in topic.bookmarks">-->
-                                          <!--<a href="#/comapnies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a>-->
-                                          <!--<a style="padding-left:10;" ng-click="deleteBookmark(bookmark.id,topic.id)">&times;</a>-->
-                                      <!--</p>-->
-                                  <!--</layout:block>-->
                               </layout:grid>
-
-                              <!--<p><a class="ng-binding" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></p>-->
-                              <!--<span class="metadata ng-binding">{{topic.created | date : 'HH:mm, dd MMM yyyy'}}</span>-->
-                              <!--<span class="delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</span>-->
                           </div>
-                      </li>
-                  </collaborate:topic-list>
+                          <hr class="simple">
+                          <h2 styling="text-center">{{result.related.length}} Companies</h2>
+                          <h4 styling="text-center"><a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">See All</a></h4>
+                          <!--<search:result-list results="result.related" styling="cards-xl-1">-->
+                              <!--<search:result class="no-border">-->
+                                  <!--<layout:grid>-->
+                                      <!--<layout:block xs="1-2">-->
+                                          <!--<search:field name="company_name_s" label="" show="1"-->
+                                                        <!--styling="title"></search:field>-->
+                                      <!--</layout:block>-->
+                                      <!--<layout:block xs="1-2">-->
+                                          <!--<search:field name="weight_s" show="1" label=""-->
+                                                        <!--styling="label-inline pull-right"-->
+                                                        <!--number-format="#%"></search:field>-->
+                                      <!--</layout:block>-->
+                                  <!--</layout:grid>-->
+                                  <!--<search:field name="industry_s" label="Industry" show="1"-->
+                                                <!--styling="label-above"></search:field>-->
+                              <!--</search:result>-->
+                          <!--</search:result-list>-->
+                      </search:result>
+                  </search:result-list>
+                  <!--<collaborate:topic-list empty-text="You haven't created any portfolios yet">-->
+                      <!--<li ng-repeat="topic in $parent.topics" class="ng-scope" style="">-->
+                          <!--<div class="content">-->
+
+                              <!--<layout:grid>-->
+                                  <!--<layout:block sm="1-4">-->
+                                      <!--<layout:box>-->
+                                          <!--<a styling="title" href="#/portfolios/{{topic.id}}">{{topic.title}}</a>-->
+                                          <!--<a class="right delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</a>-->
+                                      <!--</layout:box>-->
+                                  <!--</layout:block>-->
+                                  <!--<layout:block sm="1-4">-->
+                                      <!--<layout:box>-->
+                                          <!--{{topic.created | date : 'dd MMM yyyy'}}-->
+                                      <!--</layout:box>-->
+                                  <!--</layout:block>-->
+                                  <!--&lt;!&ndash;<layout:block sm="2-4" ng-if="topic.bookmarks.length == 0">&ndash;&gt;-->
+                                      <!--&lt;!&ndash;<p>You haven't added any companies yet.</p>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;</layout:block>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;<layout:block sm="2-4" ng-if="topic.bookmarks.length > 0">&ndash;&gt;-->
+                                      <!--&lt;!&ndash;<p ng-repeat="bookmark in topic.bookmarks">&ndash;&gt;-->
+                                          <!--&lt;!&ndash;<a href="#/comapnies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a>&ndash;&gt;-->
+                                          <!--&lt;!&ndash;<a style="padding-left:10;" ng-click="deleteBookmark(bookmark.id,topic.id)">&times;</a>&ndash;&gt;-->
+                                      <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;</layout:block>&ndash;&gt;-->
+                              <!--</layout:grid>-->
+
+                              <!--&lt;!&ndash;<p><a class="ng-binding" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></p>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<span class="metadata ng-binding">{{topic.created | date : 'HH:mm, dd MMM yyyy'}}</span>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<span class="delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</span>&ndash;&gt;-->
+                          <!--</div>-->
+                      <!--</li>-->
+                  <!--</collaborate:topic-list>-->
 
               </layout:box>
           </layout:block>

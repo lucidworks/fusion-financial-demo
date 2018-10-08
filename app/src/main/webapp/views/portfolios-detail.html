@@ -6,10 +6,15 @@
 
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
 <search:query parameters="*,-f" var="companyQuery">
-    <query:custom name="portfolio" value="{{params.id}}"></query:custom>
-    <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
+    <!--<query:custom name="portfolio" value="{{params.id}}"></query:custom>-->
+    <!--<query:filter field="_lw_data_source_s" value="sp500"></query:filter>-->
+
+    <query:filter field="unique_bucket_id_s" value="{{params.id}}"></query:filter>
+    <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
 </search:query>
-<search:response var="companies" platform="finance" query="companyQuery"></search:response>
+<search:response var="companies" platform="finance" query="companyQuery">
+    <widget:spinner></widget:spinner>
+</search:response>
 
 <!-- -------------------------------------------- -->
 <!-- Define the view                              -->
@@ -24,43 +29,53 @@
 <layout:grid styling="centercontent" style="padding-bottom:0px;">
     <layout:block>
         <layout:box style="padding:0px;">
-            <p><a href="#/portfolios">Portfolios</a> / {{collaborationTopics[params.id].title}}</p>
+            <span ng-repeat="r in companies.results">{{r | result | field:'ticker_s'}}</span>
+            <p><a href="#/portfolios">Portfolios</a> / <span ng-repeat="r in companies.results track by $index">{{r.result | field:'ticker_s' | actual}}<span ng-if="$index < (companies.results.length - 1)">, </span></span></p>
         </layout:box>
     </layout:block>
 </layout:grid>
-<layout:animate ng-if="collaborationTopics[params.id].companies.length > 0" animation="animate-fadeInUp" on="response" layout-grid>
+<layout:animate animation="animate-fadeInUp" on="response" layout-grid>
     <layout:block>
             <layout:grid styling="centercontent" style="padding-top:0px;">
                 <layout:block>
                         <div styling="stretch-content">
 
                             <h3>Companies</h3>
-                            <search:result-list response="companies" infinite-scrolling="false" platform="platform" query="query">
-                                <search:result class="company-card">
+                            <search:result-list response="companies" styling="cards-md-1 cards-lg-2 cards-xl-3">
+                                <search:result class="company-card card">
 
                                     <layout:grid>
-                                        <layout:block styling="close">
-                                            <a ng-click="$parent.$parent.$parent.$parent.deleteBookmarkByTarget($parent.$parent.$parent.$parent.params.id,result.fields.ticker_s.val[0])"><span class="flaticon-cross"></span></a>
-                                        </layout:block>
-                                    </layout:grid>
-
-                                    <layout:grid>
-                                        <layout:block lg="1-5" md="1-3" xs="1-1" ng-controller="MainCtrl">
-                                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
-                                        </layout:block>
-
-                                        <layout:block lg="3-4" md="2-4" xs="1-1">
+                                        <layout:block xs="1-1" sm="1-2" md="3-5">
                                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
-                                                <search:field name="Company" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
-                                                <search:field name="ticker_s" label="" styling="title"></search:field>
-                                                <search:field result="result.related[0].result" name="close_d" label="" styling="title" number-format="###,###.##"></search:field>
-                                                <!-- Metadata -->
-                                                <!--<search:field name="Industry" query="query" styling="label-left" label="Industry"></search:field>-->
-                                                <!--<search:field name="State" styling="label-left" query="query" label="State"></search:field>-->
-                                                <!--<search:field name="City" styling="label-left" query="query" label="City"></search:field>-->
+                                                <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
+                                            </layout:box>
+                                        </layout:block>
+                                        <layout:block xs="1-1" sm="1-2" md="2-5">
+                                            <layout:box padding-top="0" padding-right="0" padding-bottom="0" styling="pull-right">
+                                                <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
+                                                <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
                                             </layout:box>
                                         </layout:block>
                                     </layout:grid>
+
+                                    <layout:grid>
+
+                                        <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
+                                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
+                                        </layout:block>
+
+                                        <layout:block xs="1-1" md="18-24" >
+                                            <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                                                <search:field name="industry_s" query="query" styling="label-left" label="Industry"></search:field>
+                                                <!--<search:field name="state_s" styling="label-left" query="query" label="State"></search:field>-->
+                                                <!--<search:field name="city_s" styling="label-left" query="query" label="City"></search:field>-->
+                                                <search:field name="marketcap_f" styling="label-left" query="query" label="Market Cap" number-format="$#,###"></search:field>
+                                                <search:field name="revenue_f" styling="label-left" query="query" label="Revenue" number-format="$#,###"></search:field>
+                                            </layout:box>
+                                        </layout:block>
+
+                                    </layout:grid>
+
 
                                 </search:result>
                             </search:result-list>

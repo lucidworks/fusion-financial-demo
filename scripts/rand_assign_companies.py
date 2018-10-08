@@ -46,7 +46,7 @@ random.seed(RANDOM_SEED)
 
 # Easiest way is just to read company CSV into list since it is small
 with open(COMPANY_INPUT_CSV,'r') as companiesfile:
-    companies_reader = csv.DictReader(companiesfile)
+    companies_reader = csv.DictReader(companiesfile,restkey="state")
     CSV_FIELDS = companies_reader.fieldnames
 
     for company_dict in companies_reader:
@@ -67,31 +67,28 @@ for type in BUCKETS:
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
             num_companies = random.randint(1,10) # pick a random number of companies for this bucket
-            random_weights = [random.random() for i in range(0,num_companies)]
+            random_weights = [random.random() for c in range(0,num_companies)]
             random_company_ids = random.sample(range(500), num_companies)
             weight_sum = sum(random_weights)
-            i = 0
+            weights_id = 0
 
             for id in random_company_ids:
-                # random_company_ids = random.randint(0,499)
                 COMPANIES_LIST[id].update({'owner':owner})
                 COMPANIES_LIST[id].update({'type':type_name})
                 COMPANIES_LIST[id].update({'bucket_id':bucket_id})
                 COMPANIES_LIST[id].update({'unique_bucket_id':bucket_uid})
 
                 if type_name != 'analyst':
-                    COMPANIES_LIST[id].update({'weight':random_weights[i]/weight_sum})
+                    COMPANIES_LIST[id].update({'weight':random_weights[weights_id]/weight_sum})
                 else:
                     COMPANIES_LIST[id].update({'weight':random.randint(0,2)})
-
                 BUCKET_LIST.append(COMPANIES_LIST[id])
-                i+=1
+                weights_id+=1
 
             bucket_id+=1
 
 #     To write out new CSV we need to add the fields to the headers
 CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight']
-
 with open(BUCKETS_CSV, 'w') as bucketsfile:
     writer = csv.DictWriter(bucketsfile,CSV_FIELDS)
     writer.writeheader()
