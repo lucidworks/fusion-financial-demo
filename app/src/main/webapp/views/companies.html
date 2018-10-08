@@ -13,6 +13,7 @@
 </search:response>
 
 <search:query var="query" parameters="*"></search:query>
+<track:query query="query" path="/companies"></track:query>
 
 <!-- -------------------------------------------- -->
 <!-- Define the view                              -->
@@ -63,7 +64,7 @@
               <layout:grid>
                 <layout:block>
 
-                  <!--<search:result-list response="response"></search:result-list>-->
+                  <track:clicks query=query type="click">
                   <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query" styling="cards-xs-1 cards-sm-2 cards-md-2 cards-xl-3" class="main-results">
                       <search:result class="company-card card">
 
@@ -124,7 +125,7 @@
                         </layout:grid>
                       </search:result>
                     </search:result-list>
-
+                  </track:clicks>
                 </layout:block>
               </layout:grid>
               <search:no-results response="response">
