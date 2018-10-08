@@ -18,8 +18,9 @@ public class SumWeightsForBucket extends ResponseProcessor {
 
     private static final Logger logger = LoggerFactory.getLogger(SumWeightsForBucket.class);
 
-    public static String PARAMETER_WEIGHT_FIELD = "weight_field";
-    public static String PARAMETER_SUM_OVER_FIELD = "sum_over_field";
+    public static String PARAMETER_WEIGHT_FIELD = "weight-field";
+    public static String PARAMETER_SUM_OVER_FIELD = "sum-over-field";
+    public static String PARAMETER_SUMMED_FIELD = "summed-field";
 
 
     @Override
@@ -29,22 +30,22 @@ public class SumWeightsForBucket extends ResponseProcessor {
         List<Result> newBuckets = new ArrayList<>();
 
         for(Result r : buckets){
-            Map<String,Float> industryWeights = new HashMap<String,Float>();
+            Map<String,Float> summedWeights = new HashMap<String,Float>();
 
             List<Result> companies = r.getRelated();
             for(Result c : companies){
-                String industry = c.getFields().get(getParameterStringValue(PARAMETER_SUM_OVER_FIELD)).getValue().getActualAsString();
+                String summedField = c.getFields().get(getParameterStringValue(PARAMETER_SUM_OVER_FIELD)).getValue().getActualAsString();
                 Float weight = Float.parseFloat(c.getFields().get(getParameterStringValue(PARAMETER_WEIGHT_FIELD)).getValue().getActualAsString());
 
-                if (industryWeights.containsKey(industry)){
-                    industryWeights.replace(industry,industryWeights.get(industry)+weight);
+                if (summedWeights.containsKey(summedField)){
+                    summedWeights.replace(summedField,summedWeights.get(summedField)+weight);
                 }
                 else {
-                    industryWeights.put(industry,weight);
+                    summedWeights.put(summedField,weight);
                 }
             }
 
-            Map<String,Float> sortedWeights = industryWeights
+            Map<String,Float> sortedWeights = summedWeights
                     .entrySet()
                     .stream()
                     .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
@@ -54,7 +55,7 @@ public class SumWeightsForBucket extends ResponseProcessor {
 
             for( Map.Entry<String,Float> e : sortedWeights.entrySet()){
                 r.addField(new Field(e.getKey(),e.getValue()));
-                r.addField(new Field("industries",e.getKey()));
+                r.addField(new Field(getParameterStringValue(PARAMETER_SUMMED_FIELD),e.getKey()));
             }
 
             newBuckets.add(r);

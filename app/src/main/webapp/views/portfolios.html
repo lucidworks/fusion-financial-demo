@@ -1,7 +1,7 @@
 <search:platform var="finance" conf="platforms.fusion.finance.mycompanies"></search:platform>
 
 <lifecycle:required object="user.name">
-    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,revenue_f,marketcap_f,div_yield_f">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,sector_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,revenue_f,marketcap_f,div_yield_f">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
@@ -32,39 +32,48 @@
                   <h3>Your portfolios</h3>
                   <search:result-list response="mycompanies" styling="cards-xl-4" class="side-results">
                       <search:result>
-                          <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
-                          <hr class="simple">
-                          <div ng-repeat="industry in result.fields.industries.val track by $index" class="field tk-rgrid-g tk-stl-label-above">
-                              <p class="tk-stl-label">{{industry}}</p>
-                              <layout:grid>
-                                  <layout:block xs="1-2">
-                                      <progress:bar percentage="(result | field:industry | actual | numberFormat:'#.##')*100"></progress:bar>
-                                  </layout:block>
-                                  <layout:block xs="1-2">
-                                      <search:field name="{{industry}}" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
-                                  </layout:block>
-                              </layout:grid>
-                          </div>
-                          <hr class="simple">
-                          <h2 styling="text-center">{{result.related.length}} Companies</h2>
-                          <h4 styling="text-center"><a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">See All</a></h4>
-                          <!--<search:result-list results="result.related" styling="cards-xl-1">-->
-                              <!--<search:result class="no-border">-->
-                                  <!--<layout:grid>-->
-                                      <!--<layout:block xs="1-2">-->
-                                          <!--<search:field name="company_name_s" label="" show="1"-->
-                                                        <!--styling="title"></search:field>-->
-                                      <!--</layout:block>-->
-                                      <!--<layout:block xs="1-2">-->
-                                          <!--<search:field name="weight_s" show="1" label=""-->
-                                                        <!--styling="label-inline pull-right"-->
-                                                        <!--number-format="#%"></search:field>-->
-                                      <!--</layout:block>-->
-                                  <!--</layout:grid>-->
-                                  <!--<search:field name="industry_s" label="Industry" show="1"-->
-                                                <!--styling="label-above"></search:field>-->
-                              <!--</search:result>-->
-                          <!--</search:result-list>-->
+                          <layout:block>
+                              <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
+                          </layout:block>
+
+                          <layout:block>
+                              <h4>Position by Sector</h4>
+                              <div ng-repeat="sector in result.fields.sectors.val track by $index"
+                                   class="field tk-rgrid-g tk-stl-label-above">
+                                  <p class="tk-stl-label">{{sector}}</p>
+                                  <layout:grid>
+                                      <layout:block xs="1-2">
+                                          <progress:bar percentage="(result | field:sector | actual | numberFormat:'#.##')*100"></progress:bar>
+                                      </layout:block>
+                                      <layout:block xs="1-2">
+                                          <search:field name="{{sector}}" show="1" label=""
+                                                        styling="label-inline pull-right"
+                                                        number-format="#%"></search:field>
+                                      </layout:block>
+                                  </layout:grid>
+                              </div>
+                              <hr class="simple">
+                              <h4>Position by Industry</h4>
+                              <div ng-repeat="industry in result.fields.industries.val track by $index"
+                                   class="field tk-rgrid-g tk-stl-label-above">
+                                  <p class="tk-stl-label">{{industry}}</p>
+                                  <layout:grid>
+                                      <layout:block xs="1-2">
+                                          <progress:bar percentage="(result | field:industry | actual | numberFormat:'#.##')*100"></progress:bar>
+                                      </layout:block>
+                                      <layout:block xs="1-2">
+                                          <search:field name="{{industry}}" show="1" label=""
+                                                        styling="label-inline pull-right"
+                                                        number-format="#%"></search:field>
+                                      </layout:block>
+                                  </layout:grid>
+                              </div>
+                          </layout:block>
+                          <layout:block>
+                              <hr class="simple">
+                              <h2 styling="text-center">{{result.related.length}} Companies</h2>
+                              <h4 styling="text-center"><a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">See All</a></h4>
+                          </layout:block>
                       </search:result>
                   </search:result-list>
                   <!--<collaborate:topic-list empty-text="You haven't created any portfolios yet">-->
