@@ -43,6 +43,15 @@
     "indexPipelines" : [ {
       "id" : "sp500",
       "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "hen",
+        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      doc.addField('marketcap_f', stats_record.marketcap);\n      doc.addField('div_yield_f', stats_record.dividendYield);\n      doc.addField('eps_f', stats_record.latestEPS);\n      doc.addField('eps_date_dt', stats_record.latestEPSDate);\n      doc.addField('eps_fy1_f', stats_record.consensusEPS);\n      doc.addField('ebitda_f', stats_record.EBITDA);\n      doc.addField('revenue_f', stats_record.revenue);\n      doc.addField('price_to_book_f', stats_record.priceToBook);\n      doc.addField('beta_f', stats_record.beta);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Add Key Stats",
+        "licensed" : true,
+        "secretSourceStageId" : "hen"
+      }, {
         "type" : "field-mapping",
         "id" : "979c08de-b2c9-4347-9683-76b7be15316e",
         "mappings" : [ {
@@ -472,6 +481,15 @@
     }, {
       "id" : "user_buckets",
       "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "h6i",
+        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      doc.addField('marketcap_f', stats_record.marketcap);\n      doc.addField('div_yield_f', stats_record.dividendYield);\n      doc.addField('eps_f', stats_record.latestEPS);\n      doc.addField('eps_date_dt', stats_record.latestEPSDate);\n      doc.addField('eps_fy1_f', stats_record.consensusEPS);\n      doc.addField('ebitda_f', stats_record.EBITDA);\n      doc.addField('revenue_f', stats_record.revenue);\n      doc.addField('price_to_book_f', stats_record.priceToBook);\n      doc.addField('beta_f', stats_record.beta);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Add Key Stats",
+        "licensed" : true,
+        "secretSourceStageId" : "h6i"
+      }, {
         "type" : "solr-dynamic-field-name-mapping",
         "id" : "2a4f6a47-2b7e-48b5-9527-78c874f36728",
         "duplicateSingleValuedFields" : false,
@@ -1954,11 +1972,6 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "datasource:sp500-historical",
-      "object" : "index-pipeline:sp500-historical",
-      "linkType" : "dependsOn",
-      "originator" : "unspecified"
-    }, {
       "subject" : "datasource:user_buckets",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -2299,11 +2312,6 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "datasource:sp500-historical",
-      "object" : "parser:sp500-historical",
-      "linkType" : "dependsOn",
-      "originator" : "unspecified"
-    }, {
       "subject" : "app:Finance",
       "object" : "group:_shared",
       "linkType" : "relatesTo",
@@ -2572,6 +2580,18 @@
         "interval" : 15,
         "timeUnit" : "minute",
         "startTime" : "2018-09-18T17:04:55.310Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "datasource:sp500-historical",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 4,
+        "timeUnit" : "hour",
+        "startTime" : "2018-10-08T09:00:00.000Z",
         "type" : "interval"
       } ],
       "default" : false
@@ -3503,7 +3523,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-08T03:42:14.323Z",
+    "exportedDate" : "2018-10-08T09:29:50.040Z",
     "fusionVersion" : "4.1.0",
     "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
