@@ -13,6 +13,7 @@
         <js>/scripts/controllers/main.js</js>
         <js>/scripts/controllers/portfolio.js</js>
         <js>/scripts/controllers/company.js</js>
+        <js>/scripts/directives/userSidebar.js</js>
 
     </group>
 

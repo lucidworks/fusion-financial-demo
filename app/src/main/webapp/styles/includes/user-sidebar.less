@@ -1,0 +1,172 @@
+// ---------------------------------------------------------
+// User Sidebar
+// ---------------------------------------------------------
+
+.header-landing span#open-user-sidebar, #open-user-sidebar {
+    //text-shadow: 0 2px 2px rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 900;
+    -webkit-text-stroke-width: .5px;
+}
+
+span#open-user-sidebar {
+    float: right;
+    margin: 0;
+    padding: 0.3em 0.5em 0 0.5em;
+    cursor: pointer;
+}
+
+span#open-user-sidebar.sidebar-light {
+    color: #fff;
+}
+
+span#open-user-sidebar.sidebar-dark {
+    color: #9a9a9a;
+}
+
+.user-sidebar {
+    height: 100%;
+    width: 24.5%;
+    overflow-y: auto;
+    position: fixed;
+    background: #f2f3f4;
+    border-left: 1px solid rgba(0,0,0,0.05);
+    right: -25%;
+    z-index: 3;
+    padding: 0 1em;
+    transition: right 0.25s ease-out;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    &.active {
+        right: 0;
+    }
+
+    .tk-stl-bookmarks-list {
+        color: #9a9a9a;
+    }
+
+    .title {
+        position: relative;
+        padding: 0.25em 0 0.425em 0;
+        margin:1.525em 1em 0 0;
+
+        .icon-cancel {
+            position: absolute;
+            right: 0;
+            padding: 0.25em;
+            margin:-5px 0 0 0;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.05);
+            cursor:pointer;
+        }
+
+    }
+
+    hr {
+        height: 1px;
+        border-color: #dadddf;
+        background: #f9fafb;
+    }
+
+    .tk-stl-saved-searches,
+    .tk-stl-bookmarks-list {
+        border:1px solid #dcdee0;
+        box-shadow:none;
+    }
+
+    .tk-stl-saved-searches input {
+        border-top-left-radius:6px;
+        box-shadow:none;
+        border:0;
+        border-bottom:1px solid #dcdee0;
+        margin-bottom:0.5em;
+    }
+
+    .tk-stl-saved-searches .tk-stl-button {
+        border-top-right-radius:4px;
+        font-size:0.85em;
+        padding:0.7em 1.5em;
+        border:0;
+    }
+}
+
+/* Your search history list */
+ol.user-recentsearches {
+    border: 1px solid #dddee0;
+    border-radius: 6px;
+    background: #fff;
+    padding: 1em;
+    margin: 0;
+    list-style-type:none;
+}
+
+ol.user-recentsearches:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+ol.user-recentsearches li {
+    margin:0 3px 0 0;
+    padding:0;
+    display:inline-block;
+    float:left;
+    border:0px solid #009688;
+}
+
+ol.user-recentsearches li a {
+    border:0px solid #CDDC39;
+    padding:0;
+    margin:0 -4px 0 0;
+}
+
+ol.user-recentsearches li:after {
+    content:',';
+}
+
+ol.user-recentsearches li a.icon-search:before {
+    color:#9a9a9a;
+    background:#f2f3f4;
+    padding:5px;
+    line-height:1;
+    border-radius:50%;
+    font-size:0.6em;
+    position:relative;
+    top:-2px;
+    margin-right:5px;
+}
+
+ol.user-recentsearches li a.icon-search:hover:before {text-decoration:none;}
+
+
+
+/* logout */
+
+p.user-sidebar-logout {
+    background: rgba(217, 223, 228, 0.25);
+    padding: 1em 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: left;
+    margin: 0;
+}
+
+
+@media screen and (max-width: 80em) {
+    .user-sidebar {
+        width: 50%;
+        right: -51%;
+        z-index: 999;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .user-sidebar {
+        width: 100%;
+        right: -101%;
+        z-index: 999;
+    }
+}

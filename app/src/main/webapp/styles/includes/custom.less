@@ -39,7 +39,7 @@
 // ---------------------------------------------------------
 // Flaticons
 // ---------------------------------------------------------
-
+@import "icons.css";
 @font-face {
   font-family: "Flaticon";
   src: url("/assets/flaticons/Flaticon.eot");
@@ -243,12 +243,20 @@ html body {background-color: #fff;height: 100%;}
 }
 
 // Navbar
+#navbar .navbar-container {
+  display: inline-flex;
+  .sidebar-container {
+    background: #313030;
+    padding: 0 !important;
+  }
+}
 .tk-stl-navbar {
   background: #313030;
   border: 0;
   font-weight: 500;
   font-size: 0.975em;
   border-bottom: 1px solid #3e3e3e;
+  width: 100%;
 }
 
 .tk-stl-navbar-item a {
