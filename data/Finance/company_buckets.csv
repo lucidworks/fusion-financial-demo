@@ -1,156 +1,156 @@
-ticker,company_name,sector,industry,city,state,owner,type,bucket_id,unique_bucket_id,weight,id
-K,Kellogg Co.,Consumer Staples,Packaged Foods & Meats,Battle Creek,Michigan,Frank,analyst,0,-8963511429048863525,0,-5837075024901858549
-LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,Carthage,Missouri,Carla,analyst,0,-5682681649273532249,0,8815082029933484909
-EA,Electronic Arts,Communication Services,Interactive Home Entertainment,Redwood City,California,Frank,analyst,0,-8963511429048863525,0,5595717709492553372
-EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,Houston,Texas,Frank,analyst,0,-8963511429048863525,1,4979269783318701307
-TPR,Tapestry Inc.,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Frank,analyst,0,-8963511429048863525,2,-3911120271297630383
-ABMD,ABIOMED Inc,Health Care,Health Care Equipment,Danvers,Massachusetts,Robert,client,2,-6569236597731516196,0.11354836800490127,1802958892533790561
-DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Cynthia,client,0,-7366088485569286635,0.04426988045557378,-4046527989074424117
-PNC,PNC Financial Services,Financials,Regional Banks,Pittsburgh,Pennsylvania,Frank,analyst,1,6506408882838236539,2,-4043887677151048079
-HCA,HCA Holdings,Health Care,Health Care Facilities,Nashville,Tennessee,Cynthia,client,0,-7366088485569286635,0.24211173522652027,-8324881926575092978
-APTV,Aptiv Plc,Consumer Discretionary,Auto Parts & Equipment,Gillingham,['United Kingdom'],Frank,analyst,1,6506408882838236539,0,2722956508780065941
-UPS,United Parcel Service,Industrials,Air Freight & Logistics,Atlanta,Georgia,Frank,analyst,1,6506408882838236539,0,2060410236418804861
-MRK,Merck & Co.,Health Care,Pharmaceuticals,Whitehouse Station,New Jersey,Geoffrey,analyst,0,6057199202231538670,0,2591395458192161602
-MSI,Motorola Solutions Inc.,Information Technology,Communications Equipment,Schaumburg,Illinois,Geoffrey,analyst,0,6057199202231538670,1,-6316874574540859981
-JNJ,Johnson & Johnson,Health Care,Health Care Equipment,New Brunswick,New Jersey,Geoffrey,analyst,0,6057199202231538670,2,-6092898667047389347
-LLY,Lilly (Eli) & Co.,Health Care,Pharmaceuticals,Indianapolis,Indiana,Geoffrey,analyst,0,6057199202231538670,2,8719040312459403489
-SRE,Sempra Energy,Utilities,Multi-Utilities,San Diego,California,Geoffrey,analyst,0,6057199202231538670,1,7948957424194278967
-WRK,WestRock,Materials,Paper Packaging,Richmond,Virginia,Geoffrey,analyst,0,6057199202231538670,2,-12486617311519540
-DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Cynthia,client,0,-7366088485569286635,0.04426988045557378,-4046527989074424117
-CA,CA Inc.,Information Technology,Systems Software,Islandia,New York,Geoffrey,analyst,1,6620634664428441190,2,7690972321718653453
-EMR,Emerson Electric Company,Industrials,Electrical Components & Equipment,Ferguson,Missouri,Carla,analyst,0,-5682681649273532249,1,8069942165695929521
-ETR,Entergy Corp.,Utilities,Electric Utilities,New Orleans,Louisiana,Geoffrey,analyst,1,6620634664428441190,0,-6489529863844863453
-LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,Columbus,Ohio,Robert,client,0,-3827990459603724498,0.8775436166389141,1342065138550692797
-FLIR,FLIR Systems,Information Technology,Electronic Equipment & Instruments,Wilsonville,Oregon,Lawson,manager,2,-510099671323609388,0.13236744012056906,-6463546365770226564
-FOXA,Twenty-First Century Fox Class A,Communication Services,Movies & Entertainment,New York,New York,Geoffrey,analyst,1,6620634664428441190,0,2601916715534137023
-AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,Minneapolis,Minnesota,Lawson,manager,3,-6484969006476075491,0.062039789437429466,-2937676418034792153
-PM,Philip Morris International,Consumer Staples,Tobacco,New York,New York,Geoffrey,analyst,1,6620634664428441190,1,-3916270800720246118
-HSY,The Hershey Company,Consumer Staples,Packaged Foods & Meats,Hershey,Pennsylvania,Geoffrey,analyst,1,6620634664428441190,0,7134823739573919550
-FISV,Fiserv Inc,Information Technology,Internet Software & Services,Brookfield,Wisconsin,Geoffrey,analyst,1,6620634664428441190,1,5310364659859169843
-XRAY,Dentsply Sirona,Health Care,Health Care Supplies,York,Pennsylvania,Lawson,manager,0,-5741132215201287743,0.44499923010333015,5921357706594519397
-ICE,Intercontinental Exchange,Financials,Financial Exchanges & Data,Atlanta,Georgia,Geoffrey,analyst,2,4622379946304407696,2,5697106759626301249
-WHR,Whirlpool Corp.,Consumer Discretionary,Household Appliances,Benton Harbor,Michigan,Cynthia,client,2,2815395098349678244,0.16019685246577775,8850802159841934508
-DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Lawson,manager,1,6800387724714752111,0.06730964278962001,8205129225736646271
-SBAC,SBA Communications,Real Estate,Specialized REITs,Boca Raton,Florida,Geoffrey,analyst,3,6033703565419237888,0,5027725477691645588
-EL,Estee Lauder Cos.,Consumer Staples,Personal Products,New York,New York,Geoffrey,analyst,3,6033703565419237888,0,-5563612387128858184
-NRG,NRG Energy,Utilities,Independent Power Producers & Energy Traders,Princeton,New Jersey,Geoffrey,analyst,3,6033703565419237888,2,-8222243754464500872
-CMI,Cummins Inc.,Industrials,Industrial Machinery,Columbus,Indiana,Geoffrey,analyst,3,6033703565419237888,0,-7926971477490618856
-WELL,Welltower Inc.,Real Estate,Health Care REITs,Toledo,Ohio,Cynthia,client,3,-2614378526410034704,0.06823531612316483,-5901413400421607134
-GWW,Grainger (W.W.) Inc.,Industrials,Industrial Machinery,Lake Forest,Illinois,Geoffrey,analyst,3,6033703565419237888,1,4377584982399426043
-MCO,Moody's Corp,Financials,Financial Exchanges & Data,New York,New York,Geoffrey,analyst,3,6033703565419237888,2,-7323270072504289981
-GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley,Minnesota,Cynthia,client,0,-7366088485569286635,0.25182406923906675,-7774385269142747562
-WDC,Western Digital,Information Technology,Technology Hardware,Storage & Peripherals,,Sophie,analyst,3,-5712921315342504464,0,7730388841698838930
-HRL,Hormel Foods Corp.,Consumer Staples,Packaged Foods & Meats,Austin,Minnesota,Carla,analyst,0,-5682681649273532249,0,6438833984789950392
-ALK,Alaska Air Group Inc,Industrials,Airlines,Seattle,Washington,Carla,analyst,0,-5682681649273532249,2,-2466023690697656898
-PEG,Public Serv. Enterprise Inc.,Utilities,Electric Utilities,Newark,New Jersey,Carla,analyst,0,-5682681649273532249,2,-7499873506062452485
-LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,Carthage,Missouri,Carla,analyst,0,-5682681649273532249,0,8815082029933484909
-EMR,Emerson Electric Company,Industrials,Electrical Components & Equipment,Ferguson,Missouri,Carla,analyst,0,-5682681649273532249,1,8069942165695929521
-IT,Gartner Inc,Information Technology,IT Consulting & Other Services,Stamford,Connecticut,Carla,analyst,0,-5682681649273532249,0,-1056103230398050003
-TRV,The Travelers Companies Inc.,Financials,Property & Casualty Insurance,New York,New York,Carla,analyst,1,-5140477160092607745,2,-7869955037955896774
-TAP,Molson Coors Brewing Company,Consumer Staples,Brewers,Denver,Colorado,Carla,analyst,1,-5140477160092607745,1,7869971848939822213
-AMZN,Amazon.com Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,Seattle,Washington,Carla,analyst,1,-5140477160092607745,2,8766926064505676136
-SYK,Stryker Corp.,Health Care,Health Care Equipment,Kalamazoo,Michigan,Sophie,analyst,0,5708351854011998799,0,-2308123532956711783
-FLT,FleetCor Technologies Inc,Information Technology,Data Processing & Outsources Services,Norcross,Georgia,Sophie,analyst,0,5708351854011998799,2,710143101441370861
-EXR,Extra Space Storage,Real Estate,Specialized REITs,Salt Lake City,Utah,Sophie,analyst,0,5708351854011998799,1,6394945373518717899
-PFE,Pfizer Inc.,Health Care,Pharmaceuticals,New York,New York,Sophie,analyst,1,-544013526484437562,0,1467268355893062922
-PBCT,People's United Financial,Financials,Thrifts & Mortgage Finance,Bridgeport,Connecticut,Sophie,analyst,1,-544013526484437562,2,2099336585704983650
-NKE,Nike,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Sophie,analyst,1,-544013526484437562,1,2547566588692732566
-HCP,HCP Inc.,Real Estate,Health Care REITs,Long Beach,California,Sophie,analyst,1,-544013526484437562,2,-2415591826124522421
-DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,Chesapeake,Virginia,Sophie,analyst,1,-544013526484437562,2,3436603216986643273
-GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Cynthia,client,3,-2614378526410034704,0.1285587313012984,517207278800601132
-ROP,Roper Technologies,Industrials,Industrial Conglomerates,Sarasota,Florida,Sophie,analyst,1,-544013526484437562,0,2883339098397460398
-REG,Regency Centers Corporation,Real Estate,Retail REITs,Jacksonville,Florida,Lawson,manager,0,-5741132215201287743,0.01573720872236008,7340054489455390665
-APD,Air Products & Chemicals Inc,Materials,Industrial Gases,Allentown,Pennsylvania,Sophie,analyst,1,-544013526484437562,2,7284064265457309398
-USB,U.S. Bancorp,Financials,Diversified Banks,Minneapolis,Minnesota,Sophie,analyst,2,-7237260932240238918,1,-3001916223952347858
-LKQ,LKQ Corporation,Consumer Discretionary,Distributors,Chicago,Illinois,Sophie,analyst,2,-7237260932240238918,0,16629518901719812
-IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Cynthia,client,1,-1865763551869118752,0.04774650954392512,6797486558921220748
-APH,Amphenol Corp,Information Technology,Electronic Components,Wallingford,Connecticut,Sophie,analyst,3,-5712921315342504464,0,7557902112496225493
-WDC,Western Digital,Information Technology,Technology Hardware,Storage & Peripherals,,Sophie,analyst,3,-5712921315342504464,0,7730388841698838930
-CNC,Centene Corporation,Health Care,Managed Health Care,St Louis,Missouri,Sophie,analyst,3,-5712921315342504464,1,1990519862572812264
-IFF,Intl Flavors & Fragrances,Materials,Specialty Chemicals,New York,New York,Sophie,analyst,3,-5712921315342504464,2,3726195692437979404
-LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,Columbus,Ohio,Robert,client,0,-3827990459603724498,0.8775436166389141,1342065138550692797
-KEY,KeyCorp,Financials,Regional Banks,Cleveland,Ohio,Robert,client,0,-3827990459603724498,0.12245638336108589,934989902162867348
-ROK,Rockwell Automation Inc.,Industrials,Electrical Components & Equipment,Milwaukee,Wisconsin,Chloe,manager,1,-245800103584745439,0.05482605985276579,2983109654248014407
-UAL,United Continental Holdings,Industrials,Airlines,Chicago,Illinois,Robert,client,1,-6437599047507785267,0.35599206178721515,5753959276716035503
-IDXX,IDEXX Laboratories,Health Care,Health Care Equipment,Westbrook,Maine,Robert,client,1,-6437599047507785267,0.23505622679306162,-8020077153206927231
-IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Cynthia,client,1,-1865763551869118752,0.04774650954392512,6797486558921220748
-VRSK,Verisk Analytics,Industrials,Research & Consulting Services,Jersey City,New Jersey,Cynthia,client,1,-1865763551869118752,0.1999682413572562,1340780814181422721
-BHGE,Baker Hughes,Energy,Oil & Gas Equipment & Services,Houston,Texas,Robert,client,2,-6569236597731516196,0.05999567632595415,-2787538374552514711
-MET,MetLife Inc.,Financials,Life & Health Insurance,New York,New York,Robert,client,2,-6569236597731516196,0.19452086400619434,3615477638435456387
-MS,Morgan Stanley,Financials,Investment Banking & Brokerage,New York,New York,Lawson,manager,2,-510099671323609388,0.02238473371863255,-6362957303844713194
-ABMD,ABIOMED Inc,Health Care,Health Care Equipment,Danvers,Massachusetts,Robert,client,2,-6569236597731516196,0.11354836800490127,1802958892533790561
-UA,Under Armour Class C,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Robert,client,2,-6569236597731516196,0.09245445540225689,-3002305787830799786
-ROST,Ross Stores,Consumer Discretionary,Apparel Retail,Pleasanton,California,Robert,client,2,-6569236597731516196,0.05235712780197169,2965689981896765295
-GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley,Minnesota,Cynthia,client,0,-7366088485569286635,0.25182406923906675,-7774385269142747562
-DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Cynthia,client,0,-7366088485569286635,0.04426988045557378,-4046527989074424117
-RE,Everest Re Group Ltd.,Financials,Reinsurance,Hamilton,Bermuda,Cynthia,client,0,-7366088485569286635,0.018977905709940075,1428248525118806315
-CHD,Church & Dwight,Consumer Staples,Household Products,Ewing,New Jersey,Cynthia,client,0,-7366088485569286635,0.3118554631511363,-4388301378131139172
-O,Realty Income Corporation,Real Estate,Retail REITs,San Diego,California,Cynthia,client,0,-7366088485569286635,0.1309609462177627,2788007656310249613
-HCA,HCA Holdings,Health Care,Health Care Facilities,Nashville,Tennessee,Cynthia,client,0,-7366088485569286635,0.24211173522652027,-8324881926575092978
-FAST,Fastenal Co,Industrials,Building Products,Winona,Minnesota,Cynthia,client,1,-1865763551869118752,0.20130091767333305,8461244915418862276
-IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Cynthia,client,1,-1865763551869118752,0.04774650954392512,6797486558921220748
-COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,Issaquah,Washington,Cynthia,client,1,-1865763551869118752,0.2473437603483804,-4082868758732551532
-SBUX,Starbucks Corp.,Consumer Discretionary,Restaurants,Seattle,Washington,Cynthia,client,1,-1865763551869118752,0.09485654859861832,4277080403703582579
-VRSK,Verisk Analytics,Industrials,Research & Consulting Services,Jersey City,New Jersey,Cynthia,client,1,-1865763551869118752,0.1999682413572562,1340780814181422721
-CDNS,Cadence Design Systems,Information Technology,Application Software,San Jose,California,Cynthia,client,1,-1865763551869118752,0.20878402247848685,-7947264198321248635
-DISCK,Discovery Inc. Class C,Communication Services,Broadcasting,Silver Spring,Maryland,Cynthia,client,2,2815395098349678244,0.09959309260585054,739425006504686579
-ANET,Arista Networks,Information Technology,Communications Equipment,Santa Clara,California,Cynthia,client,2,2815395098349678244,0.0182988914260117,6581591550346210560
-HOLX,Hologic,Health Care,Health Care Equipment,Marlborough,Massachusetts,Cynthia,client,2,2815395098349678244,0.07829213115526235,-6207959853259793683
-L,Loews Corp.,Financials,Multi-line Insurance,New York,New York,Cynthia,client,2,2815395098349678244,0.24030465403126006,-4862312798990464322
-DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Lawson,manager,1,6800387724714752111,0.06730964278962001,8205129225736646271
-WHR,Whirlpool Corp.,Consumer Discretionary,Household Appliances,Benton Harbor,Michigan,Cynthia,client,2,2815395098349678244,0.16019685246577775,8850802159841934508
-PAYX,Paychex Inc.,Information Technology,Internet Software & Services,Penfield,New York,Cynthia,client,2,2815395098349678244,0.014529093828507976,8129556327504135219
-EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Chloe,manager,1,-245800103584745439,0.047837377954494366,-6150100651000437946
-CL,Colgate-Palmolive,Consumer Staples,Household Products,New York,New York,Cynthia,client,2,2815395098349678244,0.15504194970866986,-7039914100996135770
-WELL,Welltower Inc.,Real Estate,Health Care REITs,Toledo,Ohio,Cynthia,client,3,-2614378526410034704,0.06823531612316483,-5901413400421607134
-LNT,Alliant Energy Corp,Utilities,Electric Utilities,Madison,Wisconsin,Cynthia,client,3,-2614378526410034704,0.11270708919377345,5649547898073169164
-KMX,Carmax Inc,Consumer Discretionary,Specialty Stores,Richmond,Virginia,Cynthia,client,3,-2614378526410034704,0.14665597313620896,-9043985274725040965
-AVY,Avery Dennison Corp,Materials,Paper Packaging,Glendale,California,Cynthia,client,3,-2614378526410034704,0.06374444478628433,-734734452302445794
-AET,Aetna Inc,Health Care,Managed Health Care,Hartford,Connecticut,Cynthia,client,3,-2614378526410034704,0.17717857661441241,605692778188893154
-GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Cynthia,client,3,-2614378526410034704,0.1285587313012984,517207278800601132
-NWSA,News Corp. Class A,Communication Services,Publishing,New York,New York,Cynthia,client,3,-2614378526410034704,0.23234765038828126,-1154128980529088620
-IBM,International Business Machines,Information Technology,IT Consulting & Other Services,Armonk,New York,Lawson,manager,1,6800387724714752111,0.0026232920298935327,-710390514162072645
-BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,Richfield,Minnesota,Cynthia,client,4,-3379579569425610349,0.31439646139651606,6779628231887732746
-EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Chloe,manager,1,-245800103584745439,0.047837377954494366,-6150100651000437946
-TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Cynthia,client,4,-3379579569425610349,0.6574388580597839,6758036619252159932
-MKC,McCormick & Co.,Consumer Staples,Packaged Foods & Meats,Sparks,Maryland,Lawson,manager,0,-5741132215201287743,0.2925310625108136,-5116505021452017275
-REG,Regency Centers Corporation,Real Estate,Retail REITs,Jacksonville,Florida,Lawson,manager,0,-5741132215201287743,0.01573720872236008,7340054489455390665
-WAT,Waters Corporation,Health Care,Health Care Distributors,Milford,Massachusetts,Lawson,manager,0,-5741132215201287743,0.2467324986634962,-3910291964378654111
-XRAY,Dentsply Sirona,Health Care,Health Care Supplies,York,Pennsylvania,Lawson,manager,0,-5741132215201287743,0.44499923010333015,5921357706594519397
-ADBE,Adobe Systems Inc,Information Technology,Application Software,San Jose,California,Lawson,manager,1,6800387724714752111,0.16956355575767468,-4294145799462597835
-IBM,International Business Machines,Information Technology,IT Consulting & Other Services,Armonk,New York,Lawson,manager,1,6800387724714752111,0.0026232920298935327,-710390514162072645
-NBL,Noble Energy Inc,Energy,Oil & Gas Exploration & Production,Houston,Texas,Lawson,manager,1,6800387724714752111,0.13736586469043754,8544558966061972604
-BR,Broadridge Financial Solutions,Information Technology,Data Processing & Outsourced Services,Lake Success,New York,Lawson,manager,1,6800387724714752111,0.04283286350416141,-1048603522087274692
-CNP,CenterPoint Energy,Utilities,Multi-Utilities,Houston,Texas,Lawson,manager,1,6800387724714752111,0.1670810895460081,-1498232870230638873
-ADS,Alliance Data Systems,Information Technology,Data Processing & Outsourced Services,Plano,Texas,Lawson,manager,1,6800387724714752111,0.16404364367491478,1591423180747004820
-CCI,Crown Castle International Corp.,Real Estate,Specialized REITs,Houston,Texas,Lawson,manager,1,6800387724714752111,0.053657977043520155,-8383840773953695104
-SJM,JM Smucker,Consumer Staples,Packaged Foods & Meats,Orrville,Ohio,Lawson,manager,1,6800387724714752111,0.18735244967616585,-8000686573060316494
-DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Lawson,manager,1,6800387724714752111,0.06730964278962001,8205129225736646271
-PPL,PPL Corp.,Utilities,Electric Utilities,Allentown,Pennsylvania,Lawson,manager,1,6800387724714752111,0.008169621287603917,2666331752914229776
-CELG,Celgene Corp.,Health Care,Biotechnology,Summit,New Jersey,Lawson,manager,2,-510099671323609388,0.20394248800491366,-4862339702562346478
-JBHT,J. B. Hunt Transport Services,Industrials,Trucking,Lowell,Arkansas,Lawson,manager,2,-510099671323609388,0.07353661491215771,-7688491459656920491
-WBA,Walgreens Boots Alliance,Consumer Staples,Drug Retail,Deerfield,Illinois,Lawson,manager,2,-510099671323609388,0.2102661943103618,-7577403223214345236
-VRSN,Verisign Inc.,Information Technology,Internet Services & Infrastructure,Dulles,Virginia,Lawson,manager,2,-510099671323609388,0.1135262550338313,-2583696532680242195
-AIG,American International Group Inc.,Financials,Property & Casualty Insurance,New York,New York,Lawson,manager,2,-510099671323609388,0.06860447909258308,-3281802120607215832
-MS,Morgan Stanley,Financials,Investment Banking & Brokerage,New York,New York,Lawson,manager,2,-510099671323609388,0.02238473371863255,-6362957303844713194
-WMT,Walmart,Consumer Staples,Hypermarkets & Super Centers,Bentonville,Arkansas,Lawson,manager,2,-510099671323609388,0.10753186101018887,-6839073012752860422
-FLIR,FLIR Systems,Information Technology,Electronic Equipment & Instruments,Wilsonville,Oregon,Lawson,manager,2,-510099671323609388,0.13236744012056906,-6463546365770226564
-BEN,Franklin Resources,Financials,Asset Management & Custody Banks,San Mateo,California,Lawson,manager,2,-510099671323609388,0.0678399337967618,3487268375375835937
-CTSH,Cognizant Technology Solutions,Information Technology,IT Consulting & Other Services,Teaneck,New Jersey,Lawson,manager,3,-6484969006476075491,0.0353964651793846,-2508360494238857641
-XEL,Xcel Energy Inc,Utilities,Multi-Utilities,Minneapolis,Minnesota,Lawson,manager,3,-6484969006476075491,0.181853180652398,-4251066597218538123
-ALXN,Alexion Pharmaceuticals,Health Care,Biotechnology,Cheshire,Connecticut,Lawson,manager,3,-6484969006476075491,0.2430088147484652,-5567283000243269280
-CMCSA,Comcast Corp.,Communication Services,Cable & Satellite,Philadelphia,Pennsylvania,Lawson,manager,3,-6484969006476075491,0.1391036083177016,4709756145184150460
-UTX,United Technologies,Industrials,Aerospace & Defense,Hartford,Connecticut,Lawson,manager,3,-6484969006476075491,0.1137257036075834,-6028593667071650038
-CHTR,Charter Communications,Communication Services,Cable & Satellite,Stamford,Connecticut,Lawson,manager,3,-6484969006476075491,0.15735474943011823,-9076977997205569526
-AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,Minneapolis,Minnesota,Lawson,manager,3,-6484969006476075491,0.062039789437429466,-2937676418034792153
-FTV,Fortive Corp,Industrials,Industrial Machinery,Everett,Washington,Lawson,manager,3,-6484969006476075491,0.06751768862691943,-4180634314818632794
-EMN,Eastman Chemical,Materials,Diversified Chemicals,Kingsport,Tennessee,Chloe,manager,0,4065333357432931161,1.0,7267019025701422868
-MYL,Mylan N.V.,Health Care,Pharmaceuticals,Amsterdam,Netherlands,Chloe,manager,1,-245800103584745439,0.00581152560673461,-2795869980842368451
-SO,Southern Co.,Utilities,Electric Utilities,Atlanta,Georgia,Chloe,manager,1,-245800103584745439,0.17942485411786435,-8168862819706214517
-EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Chloe,manager,1,-245800103584745439,0.047837377954494366,-6150100651000437946
-CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,Denver,Colorado,Chloe,manager,1,-245800103584745439,0.17206793639453621,-7083621082858520704
-IQV,IQVIA Holdings Inc.,Health Care,Life Sciences Tools & Service,Durham,North Carolina,Chloe,manager,1,-245800103584745439,0.16549742901046086,-4341094558602243231
-A,Agilent Technologies Inc,Health Care,Health Care Equipment,Santa Clara,California,Chloe,manager,1,-245800103584745439,0.1356011836941101,5637881317749612752
-PRU,Prudential Financial,Financials,Life & Health Insurance,Newark,New Jersey,Chloe,manager,1,-245800103584745439,0.1799091613987873,9022929391020361409
-EXPE,Expedia Group,Consumer Discretionary,Internet & Direct Marketing Retail,Bellevue,Washington,Chloe,manager,1,-245800103584745439,0.059024471970246364,-6805381176356144472
-ROK,Rockwell Automation Inc.,Industrials,Electrical Components & Equipment,Milwaukee,Wisconsin,Chloe,manager,1,-245800103584745439,0.05482605985276579,2983109654248014407
+ticker,company_name,sector,industry,city,state,owner,type,bucket_id,unique_bucket_id,weight
+K,Kellogg Co.,Consumer Staples,Packaged Foods & Meats,Battle Creek,Michigan,Frank,analyst,0,-6689250729854774874,0
+LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,Carthage,Missouri,Frank,analyst,0,-6689250729854774874,0
+EA,Electronic Arts,Communication Services,Interactive Home Entertainment,Redwood City,California,Frank,analyst,0,-6689250729854774874,0
+EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,Houston,Texas,Frank,analyst,0,-6689250729854774874,1
+TPR,Tapestry Inc.,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Frank,analyst,0,-6689250729854774874,2
+ABMD,ABIOMED Inc,Health Care,Health Care Equipment,Danvers,Massachusetts,Frank,analyst,1,5377924972730661641,0
+DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Frank,analyst,1,5377924972730661641,0
+PNC,PNC Financial Services,Financials,Regional Banks,Pittsburgh,Pennsylvania,Frank,analyst,1,5377924972730661641,2
+HCA,HCA Holdings,Health Care,Health Care Facilities,Nashville,Tennessee,Frank,analyst,1,5377924972730661641,0
+APTV,Aptiv Plc,Consumer Discretionary,Auto Parts & Equipment,Gillingham,['United Kingdom'],Frank,analyst,1,5377924972730661641,0
+UPS,United Parcel Service,Industrials,Air Freight & Logistics,Atlanta,Georgia,Frank,analyst,1,5377924972730661641,0
+MRK,Merck & Co.,Health Care,Pharmaceuticals,Whitehouse Station,New Jersey,Geoffrey,analyst,0,3285423392391644257,0
+MSI,Motorola Solutions Inc.,Information Technology,Communications Equipment,Schaumburg,Illinois,Geoffrey,analyst,0,3285423392391644257,1
+JNJ,Johnson & Johnson,Health Care,Health Care Equipment,New Brunswick,New Jersey,Geoffrey,analyst,0,3285423392391644257,2
+LLY,Lilly (Eli) & Co.,Health Care,Pharmaceuticals,Indianapolis,Indiana,Geoffrey,analyst,0,3285423392391644257,2
+SRE,Sempra Energy,Utilities,Multi-Utilities,San Diego,California,Geoffrey,analyst,0,3285423392391644257,1
+WRK,WestRock,Materials,Paper Packaging,Richmond,Virginia,Geoffrey,analyst,0,3285423392391644257,2
+DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Geoffrey,analyst,0,3285423392391644257,2
+CA,CA Inc.,Information Technology,Systems Software,Islandia,New York,Geoffrey,analyst,1,3924066922411707389,2
+EMR,Emerson Electric Company,Industrials,Electrical Components & Equipment,Ferguson,Missouri,Geoffrey,analyst,1,3924066922411707389,1
+ETR,Entergy Corp.,Utilities,Electric Utilities,New Orleans,Louisiana,Geoffrey,analyst,1,3924066922411707389,0
+LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,Columbus,Ohio,Geoffrey,analyst,1,3924066922411707389,0
+FLIR,FLIR Systems,Information Technology,Electronic Equipment & Instruments,Wilsonville,Oregon,Geoffrey,analyst,1,3924066922411707389,2
+FOXA,Twenty-First Century Fox Class A,Communication Services,Movies & Entertainment,New York,New York,Geoffrey,analyst,1,3924066922411707389,0
+AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,Minneapolis,Minnesota,Geoffrey,analyst,1,3924066922411707389,2
+PM,Philip Morris International,Consumer Staples,Tobacco,New York,New York,Geoffrey,analyst,1,3924066922411707389,1
+HSY,The Hershey Company,Consumer Staples,Packaged Foods & Meats,Hershey,Pennsylvania,Geoffrey,analyst,1,3924066922411707389,0
+FISV,Fiserv Inc,Information Technology,Internet Software & Services,Brookfield,Wisconsin,Geoffrey,analyst,1,3924066922411707389,1
+XRAY,Dentsply Sirona,Health Care,Health Care Supplies,York,Pennsylvania,Geoffrey,analyst,2,6916203040246376773,2
+ICE,Intercontinental Exchange,Financials,Financial Exchanges & Data,Atlanta,Georgia,Geoffrey,analyst,2,6916203040246376773,2
+WHR,Whirlpool Corp.,Consumer Discretionary,Household Appliances,Benton Harbor,Michigan,Geoffrey,analyst,2,6916203040246376773,0
+DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Geoffrey,analyst,2,6916203040246376773,2
+SBAC,SBA Communications,Real Estate,Specialized REITs,Boca Raton,Florida,Geoffrey,analyst,3,6931361035851245175,0
+EL,Estee Lauder Cos.,Consumer Staples,Personal Products,New York,New York,Geoffrey,analyst,3,6931361035851245175,0
+NRG,NRG Energy,Utilities,Independent Power Producers & Energy Traders,Princeton,New Jersey,Geoffrey,analyst,3,6931361035851245175,2
+CMI,Cummins Inc.,Industrials,Industrial Machinery,Columbus,Indiana,Geoffrey,analyst,3,6931361035851245175,0
+WELL,Welltower Inc.,Real Estate,Health Care REITs,Toledo,Ohio,Geoffrey,analyst,3,6931361035851245175,2
+GWW,Grainger (W.W.) Inc.,Industrials,Industrial Machinery,Lake Forest,Illinois,Geoffrey,analyst,3,6931361035851245175,1
+MCO,Moody's Corp,Financials,Financial Exchanges & Data,New York,New York,Geoffrey,analyst,3,6931361035851245175,2
+GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley,Minnesota,Geoffrey,analyst,3,6931361035851245175,0
+WDC,Western Digital,Information Technology,Technology Hardware,Storage & Peripherals,,Carla,analyst,0,4366091243521302688,1
+HRL,Hormel Foods Corp.,Consumer Staples,Packaged Foods & Meats,Austin,Minnesota,Carla,analyst,0,4366091243521302688,0
+ALK,Alaska Air Group Inc,Industrials,Airlines,Seattle,Washington,Carla,analyst,0,4366091243521302688,2
+PEG,Public Serv. Enterprise Inc.,Utilities,Electric Utilities,Newark,New Jersey,Carla,analyst,0,4366091243521302688,2
+LEG,Leggett & Platt,Consumer Discretionary,Home Furnishings,Carthage,Missouri,Carla,analyst,0,4366091243521302688,0
+EMR,Emerson Electric Company,Industrials,Electrical Components & Equipment,Ferguson,Missouri,Carla,analyst,0,4366091243521302688,1
+IT,Gartner Inc,Information Technology,IT Consulting & Other Services,Stamford,Connecticut,Carla,analyst,0,4366091243521302688,0
+TRV,The Travelers Companies Inc.,Financials,Property & Casualty Insurance,New York,New York,Carla,analyst,1,-6911120550871261025,2
+TAP,Molson Coors Brewing Company,Consumer Staples,Brewers,Denver,Colorado,Carla,analyst,1,-6911120550871261025,1
+AMZN,Amazon.com Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,Seattle,Washington,Carla,analyst,1,-6911120550871261025,2
+SYK,Stryker Corp.,Health Care,Health Care Equipment,Kalamazoo,Michigan,Sophie,analyst,0,9147971150091420863,0
+FLT,FleetCor Technologies Inc,Information Technology,Data Processing & Outsources Services,Norcross,Georgia,Sophie,analyst,0,9147971150091420863,2
+EXR,Extra Space Storage,Real Estate,Specialized REITs,Salt Lake City,Utah,Sophie,analyst,0,9147971150091420863,1
+PFE,Pfizer Inc.,Health Care,Pharmaceuticals,New York,New York,Sophie,analyst,1,-452271164720510643,0
+PBCT,People's United Financial,Financials,Thrifts & Mortgage Finance,Bridgeport,Connecticut,Sophie,analyst,1,-452271164720510643,2
+NKE,Nike,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Sophie,analyst,1,-452271164720510643,1
+HCP,HCP Inc.,Real Estate,Health Care REITs,Long Beach,California,Sophie,analyst,1,-452271164720510643,2
+DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,Chesapeake,Virginia,Sophie,analyst,1,-452271164720510643,2
+GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Sophie,analyst,1,-452271164720510643,2
+ROP,Roper Technologies,Industrials,Industrial Conglomerates,Sarasota,Florida,Sophie,analyst,1,-452271164720510643,0
+REG,Regency Centers Corporation,Real Estate,Retail REITs,Jacksonville,Florida,Sophie,analyst,1,-452271164720510643,1
+APD,Air Products & Chemicals Inc,Materials,Industrial Gases,Allentown,Pennsylvania,Sophie,analyst,1,-452271164720510643,2
+USB,U.S. Bancorp,Financials,Diversified Banks,Minneapolis,Minnesota,Sophie,analyst,2,1946792153145202106,1
+LKQ,LKQ Corporation,Consumer Discretionary,Distributors,Chicago,Illinois,Sophie,analyst,2,1946792153145202106,0
+IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Sophie,analyst,3,270741400370412797,0
+APH,Amphenol Corp,Information Technology,Electronic Components,Wallingford,Connecticut,Sophie,analyst,3,270741400370412797,0
+WDC,Western Digital,Information Technology,Technology Hardware,Storage & Peripherals,,Sophie,analyst,3,270741400370412797,0
+CNC,Centene Corporation,Health Care,Managed Health Care,St Louis,Missouri,Sophie,analyst,3,270741400370412797,1
+IFF,Intl Flavors & Fragrances,Materials,Specialty Chemicals,New York,New York,Sophie,analyst,3,270741400370412797,2
+LB,L Brands Inc.,Consumer Discretionary,Apparel Retail,Columbus,Ohio,Robert,client,0,8805466937832445658,0.8775436166389141
+KEY,KeyCorp,Financials,Regional Banks,Cleveland,Ohio,Robert,client,0,8805466937832445658,0.12245638336108589
+ROK,Rockwell Automation Inc.,Industrials,Electrical Components & Equipment,Milwaukee,Wisconsin,Robert,client,1,6943840797602088037,0.4089517114197232
+UAL,United Continental Holdings,Industrials,Airlines,Chicago,Illinois,Robert,client,1,6943840797602088037,0.35599206178721515
+IDXX,IDEXX Laboratories,Health Care,Health Care Equipment,Westbrook,Maine,Robert,client,1,6943840797602088037,0.23505622679306162
+IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Robert,client,2,4481064317356310845,0.17064498496866906
+VRSK,Verisk Analytics,Industrials,Research & Consulting Services,Jersey City,New Jersey,Robert,client,2,4481064317356310845,0.18148176689292794
+BHGE,Baker Hughes,Energy,Oil & Gas Equipment & Services,Houston,Texas,Robert,client,2,4481064317356310845,0.05999567632595415
+MET,MetLife Inc.,Financials,Life & Health Insurance,New York,New York,Robert,client,2,4481064317356310845,0.19452086400619434
+MS,Morgan Stanley,Financials,Investment Banking & Brokerage,New York,New York,Robert,client,2,4481064317356310845,0.1349967565971244
+ABMD,ABIOMED Inc,Health Care,Health Care Equipment,Danvers,Massachusetts,Robert,client,2,4481064317356310845,0.11354836800490127
+UA,Under Armour Class C,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Robert,client,2,4481064317356310845,0.09245445540225689
+ROST,Ross Stores,Consumer Discretionary,Apparel Retail,Pleasanton,California,Robert,client,2,4481064317356310845,0.05235712780197169
+GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley,Minnesota,Cynthia,client,0,4045829275105026631,0.25182406923906675
+DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Cynthia,client,0,4045829275105026631,0.04426988045557378
+RE,Everest Re Group Ltd.,Financials,Reinsurance,Hamilton,Bermuda,Cynthia,client,0,4045829275105026631,0.018977905709940075
+CHD,Church & Dwight,Consumer Staples,Household Products,Ewing,New Jersey,Cynthia,client,0,4045829275105026631,0.3118554631511363
+O,Realty Income Corporation,Real Estate,Retail REITs,San Diego,California,Cynthia,client,0,4045829275105026631,0.1309609462177627
+HCA,HCA Holdings,Health Care,Health Care Facilities,Nashville,Tennessee,Cynthia,client,0,4045829275105026631,0.24211173522652027
+FAST,Fastenal Co,Industrials,Building Products,Winona,Minnesota,Cynthia,client,1,5273153543190517723,0.20130091767333305
+IP,International Paper,Materials,Paper Packaging,Memphis,Tennessee,Cynthia,client,1,5273153543190517723,0.04774650954392512
+COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,Issaquah,Washington,Cynthia,client,1,5273153543190517723,0.2473437603483804
+SBUX,Starbucks Corp.,Consumer Discretionary,Restaurants,Seattle,Washington,Cynthia,client,1,5273153543190517723,0.09485654859861832
+VRSK,Verisk Analytics,Industrials,Research & Consulting Services,Jersey City,New Jersey,Cynthia,client,1,5273153543190517723,0.1999682413572562
+CDNS,Cadence Design Systems,Information Technology,Application Software,San Jose,California,Cynthia,client,1,5273153543190517723,0.20878402247848685
+DISCK,Discovery Inc. Class C,Communication Services,Broadcasting,Silver Spring,Maryland,Cynthia,client,2,-7065543293980096931,0.09959309260585054
+ANET,Arista Networks,Information Technology,Communications Equipment,Santa Clara,California,Cynthia,client,2,-7065543293980096931,0.0182988914260117
+HOLX,Hologic,Health Care,Health Care Equipment,Marlborough,Massachusetts,Cynthia,client,2,-7065543293980096931,0.07829213115526235
+L,Loews Corp.,Financials,Multi-line Insurance,New York,New York,Cynthia,client,2,-7065543293980096931,0.24030465403126006
+DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Cynthia,client,2,-7065543293980096931,0.1330440447930707
+WHR,Whirlpool Corp.,Consumer Discretionary,Household Appliances,Benton Harbor,Michigan,Cynthia,client,2,-7065543293980096931,0.16019685246577775
+PAYX,Paychex Inc.,Information Technology,Internet Software & Services,Penfield,New York,Cynthia,client,2,-7065543293980096931,0.014529093828507976
+EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Cynthia,client,2,-7065543293980096931,0.10069928998558919
+CL,Colgate-Palmolive,Consumer Staples,Household Products,New York,New York,Cynthia,client,2,-7065543293980096931,0.15504194970866986
+WELL,Welltower Inc.,Real Estate,Health Care REITs,Toledo,Ohio,Cynthia,client,3,8821653525867112307,0.06823531612316483
+LNT,Alliant Energy Corp,Utilities,Electric Utilities,Madison,Wisconsin,Cynthia,client,3,8821653525867112307,0.11270708919377345
+KMX,Carmax Inc,Consumer Discretionary,Specialty Stores,Richmond,Virginia,Cynthia,client,3,8821653525867112307,0.14665597313620896
+AVY,Avery Dennison Corp,Materials,Paper Packaging,Glendale,California,Cynthia,client,3,8821653525867112307,0.06374444478628433
+AET,Aetna Inc,Health Care,Managed Health Care,Hartford,Connecticut,Cynthia,client,3,8821653525867112307,0.17717857661441241
+GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Cynthia,client,3,8821653525867112307,0.1285587313012984
+NWSA,News Corp. Class A,Communication Services,Publishing,New York,New York,Cynthia,client,3,8821653525867112307,0.23234765038828126
+IBM,International Business Machines,Information Technology,IT Consulting & Other Services,Armonk,New York,Cynthia,client,3,8821653525867112307,0.07057221845657642
+BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,Richfield,Minnesota,Cynthia,client,4,9208150957088135361,0.31439646139651606
+EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Cynthia,client,4,9208150957088135361,0.02816468054369998
+TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Cynthia,client,4,9208150957088135361,0.6574388580597839
+MKC,McCormick & Co.,Consumer Staples,Packaged Foods & Meats,Sparks,Maryland,Lawson,manager,0,4451281151262933314,0.2925310625108136
+REG,Regency Centers Corporation,Real Estate,Retail REITs,Jacksonville,Florida,Lawson,manager,0,4451281151262933314,0.01573720872236008
+WAT,Waters Corporation,Health Care,Health Care Distributors,Milford,Massachusetts,Lawson,manager,0,4451281151262933314,0.2467324986634962
+XRAY,Dentsply Sirona,Health Care,Health Care Supplies,York,Pennsylvania,Lawson,manager,0,4451281151262933314,0.44499923010333015
+ADBE,Adobe Systems Inc,Information Technology,Application Software,San Jose,California,Lawson,manager,1,5432255817145169178,0.16956355575767468
+IBM,International Business Machines,Information Technology,IT Consulting & Other Services,Armonk,New York,Lawson,manager,1,5432255817145169178,0.0026232920298935327
+NBL,Noble Energy Inc,Energy,Oil & Gas Exploration & Production,Houston,Texas,Lawson,manager,1,5432255817145169178,0.13736586469043754
+BR,Broadridge Financial Solutions,Information Technology,Data Processing & Outsourced Services,Lake Success,New York,Lawson,manager,1,5432255817145169178,0.04283286350416141
+CNP,CenterPoint Energy,Utilities,Multi-Utilities,Houston,Texas,Lawson,manager,1,5432255817145169178,0.1670810895460081
+ADS,Alliance Data Systems,Information Technology,Data Processing & Outsourced Services,Plano,Texas,Lawson,manager,1,5432255817145169178,0.16404364367491478
+CCI,Crown Castle International Corp.,Real Estate,Specialized REITs,Houston,Texas,Lawson,manager,1,5432255817145169178,0.053657977043520155
+SJM,JM Smucker,Consumer Staples,Packaged Foods & Meats,Orrville,Ohio,Lawson,manager,1,5432255817145169178,0.18735244967616585
+DGX,Quest Diagnostics,Health Care,Health Care Services,Madison,New Jersey,Lawson,manager,1,5432255817145169178,0.06730964278962001
+PPL,PPL Corp.,Utilities,Electric Utilities,Allentown,Pennsylvania,Lawson,manager,1,5432255817145169178,0.008169621287603917
+CELG,Celgene Corp.,Health Care,Biotechnology,Summit,New Jersey,Lawson,manager,2,5552441644989518338,0.20394248800491366
+JBHT,J. B. Hunt Transport Services,Industrials,Trucking,Lowell,Arkansas,Lawson,manager,2,5552441644989518338,0.07353661491215771
+WBA,Walgreens Boots Alliance,Consumer Staples,Drug Retail,Deerfield,Illinois,Lawson,manager,2,5552441644989518338,0.2102661943103618
+VRSN,Verisign Inc.,Information Technology,Internet Services & Infrastructure,Dulles,Virginia,Lawson,manager,2,5552441644989518338,0.1135262550338313
+AIG,American International Group Inc.,Financials,Property & Casualty Insurance,New York,New York,Lawson,manager,2,5552441644989518338,0.06860447909258308
+MS,Morgan Stanley,Financials,Investment Banking & Brokerage,New York,New York,Lawson,manager,2,5552441644989518338,0.02238473371863255
+WMT,Walmart,Consumer Staples,Hypermarkets & Super Centers,Bentonville,Arkansas,Lawson,manager,2,5552441644989518338,0.10753186101018887
+FLIR,FLIR Systems,Information Technology,Electronic Equipment & Instruments,Wilsonville,Oregon,Lawson,manager,2,5552441644989518338,0.13236744012056906
+BEN,Franklin Resources,Financials,Asset Management & Custody Banks,San Mateo,California,Lawson,manager,2,5552441644989518338,0.0678399337967618
+CTSH,Cognizant Technology Solutions,Information Technology,IT Consulting & Other Services,Teaneck,New Jersey,Lawson,manager,3,-7522707224830861927,0.0353964651793846
+XEL,Xcel Energy Inc,Utilities,Multi-Utilities,Minneapolis,Minnesota,Lawson,manager,3,-7522707224830861927,0.181853180652398
+ALXN,Alexion Pharmaceuticals,Health Care,Biotechnology,Cheshire,Connecticut,Lawson,manager,3,-7522707224830861927,0.2430088147484652
+CMCSA,Comcast Corp.,Communication Services,Cable & Satellite,Philadelphia,Pennsylvania,Lawson,manager,3,-7522707224830861927,0.1391036083177016
+UTX,United Technologies,Industrials,Aerospace & Defense,Hartford,Connecticut,Lawson,manager,3,-7522707224830861927,0.1137257036075834
+CHTR,Charter Communications,Communication Services,Cable & Satellite,Stamford,Connecticut,Lawson,manager,3,-7522707224830861927,0.15735474943011823
+AMP,Ameriprise Financial,Financials,Asset Management & Custody Banks,Minneapolis,Minnesota,Lawson,manager,3,-7522707224830861927,0.062039789437429466
+FTV,Fortive Corp,Industrials,Industrial Machinery,Everett,Washington,Lawson,manager,3,-7522707224830861927,0.06751768862691943
+EMN,Eastman Chemical,Materials,Diversified Chemicals,Kingsport,Tennessee,Chloe,manager,0,-785177025095654803,1.0
+MYL,Mylan N.V.,Health Care,Pharmaceuticals,Amsterdam,Netherlands,Chloe,manager,1,650101295923559737,0.00581152560673461
+SO,Southern Co.,Utilities,Electric Utilities,Atlanta,Georgia,Chloe,manager,1,650101295923559737,0.17942485411786435
+EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Chloe,manager,1,650101295923559737,0.047837377954494366
+CMG,Chipotle Mexican Grill,Consumer Discretionary,Restaurants,Denver,Colorado,Chloe,manager,1,650101295923559737,0.17206793639453621
+IQV,IQVIA Holdings Inc.,Health Care,Life Sciences Tools & Service,Durham,North Carolina,Chloe,manager,1,650101295923559737,0.16549742901046086
+A,Agilent Technologies Inc,Health Care,Health Care Equipment,Santa Clara,California,Chloe,manager,1,650101295923559737,0.1356011836941101
+PRU,Prudential Financial,Financials,Life & Health Insurance,Newark,New Jersey,Chloe,manager,1,650101295923559737,0.1799091613987873
+EXPE,Expedia Group,Consumer Discretionary,Internet & Direct Marketing Retail,Bellevue,Washington,Chloe,manager,1,650101295923559737,0.059024471970246364
+ROK,Rockwell Automation Inc.,Industrials,Electrical Components & Equipment,Milwaukee,Wisconsin,Chloe,manager,1,650101295923559737,0.05482605985276579

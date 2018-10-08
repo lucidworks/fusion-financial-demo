@@ -12,6 +12,7 @@
 
 import csv
 import random
+import copy
 
 # 'Global' variables
 
@@ -22,18 +23,18 @@ CSV_FIELDS = []
 
 BUCKETS = [
     {'type':'analyst','people':[
-        {'owner':'Frank','buckets':[]},
-        {'owner':'Geoffrey','buckets':[]},
-        {'owner':'Carla','buckets':[]},
-        {'owner':'Sophie','buckets':[]}
+        'Frank',
+        'Geoffrey',
+        'Carla',
+        'Sophie'
     ]},
     {'type':'client','people':[
-        {'owner':'Robert','buckets':[]},
-        {'owner':'Cynthia','buckets':[]}
+        'Robert',
+        'Cynthia'
     ]},
     {'type':'manager','people':[
-        {'owner':'Lawson','buckets':[]},
-        {'owner':'Chloe','buckets':[]}
+        'Lawson',
+        'Chloe'
     ]}
 ]
 
@@ -58,8 +59,7 @@ BUCKET_LIST = list()
 for type in BUCKETS:
     type_name = type['type']
 
-    for person in type['people']:
-        owner = person['owner']
+    for owner in type['people']:
         num_buckets = random.randint(1,4) # pick a random number of buckets for this person
         bucket_id = 0
 
@@ -67,22 +67,24 @@ for type in BUCKETS:
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
             num_companies = random.randint(1,10) # pick a random number of companies for this bucket
-            random_weights = [random.random() for c in range(0,num_companies)]
-            random_company_ids = random.sample(range(500), num_companies)
+            random_weights = [random.random() for c in range(0,num_companies)] # generate some random weights
+            random_company_ids = random.sample(range(500), num_companies) # take a random sample from company ids (0-499)
             weight_sum = sum(random_weights)
             weights_id = 0
 
             for id in random_company_ids:
-                COMPANIES_LIST[id].update({'owner':owner})
-                COMPANIES_LIST[id].update({'type':type_name})
-                COMPANIES_LIST[id].update({'bucket_id':bucket_id})
-                COMPANIES_LIST[id].update({'unique_bucket_id':bucket_uid})
-
+                temp = copy.deepcopy(COMPANIES_LIST[id])
+                temp.update({'owner':owner})
+                temp.update({'type':type_name})
+                temp.update({'bucket_id':bucket_id})
+                temp.update({'unique_bucket_id':bucket_uid})
+                if id == 396 : print(temp)
                 if type_name != 'analyst':
-                    COMPANIES_LIST[id].update({'weight':random_weights[weights_id]/weight_sum})
+                    temp.update({'weight':random_weights[weights_id]/weight_sum})
                 else:
-                    COMPANIES_LIST[id].update({'weight':random.randint(0,2)})
-                BUCKET_LIST.append(COMPANIES_LIST[id])
+                    temp.update({'weight':random.randint(0,2)})
+                if id == 396 : print(temp)
+                BUCKET_LIST.append(temp)
                 weights_id+=1
 
             bucket_id+=1
