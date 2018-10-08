@@ -8,7 +8,7 @@
 <!-- Search query based on the user's input -->
 <search:query var="query" parameters="*" results-per-page="12"></search:query>
 
-<track:query query="query"></track:query>
+<track:query query="query" path="/search" ng-if="query"></track:query>
 <!-- Send query to platform and retrieve documents back -->
 <search:response var="response" platform="platform" query="query">
     <widget:spinner></widget:spinner>

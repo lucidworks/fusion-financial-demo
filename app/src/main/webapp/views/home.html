@@ -4,6 +4,8 @@
 
 <search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
 
+<search:platform var="topSearches" conf="platforms.fusion.logs.top-user-searches"></search:platform>
+
 <!--<search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>-->
 
 <search:query var="query" parameters="*"></search:query>
@@ -25,6 +27,11 @@
 <search:response var="press" platform="company-news" query="backendQuery"></search:response>
 
 <lifecycle:required object="user.name">
+    <!-- Top (most frequent) searches by this user -->
+    <search:query var="topSearchesQuery" parameters="-" results-per-page="5">
+        <query:filter field="user_token" value="{{user.name}}"></query:filter>
+    </search:query>
+    <search:response var="topSearchesResponse" platform="topSearches" query="topSearchesQuery"></search:response>
     <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
@@ -55,6 +62,10 @@
                             </layout:block>
                         </layout:grid>
                     </search:box>
+                    <p class="popular-searches" padding-top="05">
+                        <span>You most frequently search for:&nbsp;&nbsp;</span>
+                        <a ng-repeat="q in topSearchesResponse.facets['query'].filters" href="#/search?q={{q | actual}}">{{q | actual}}<span ng-if="!$last">, </span></a>
+                    </p>
                 </layout:box>
             </div>
             </div>
@@ -97,7 +108,7 @@
                                 <div class="page-header">
                                     <h2>Latest Stories</h2>
                                 </div>
-
+                                <track:clicks query=query type="click">
                                     <search:result-list response="news">
                                         <search:result>
                                             <layout:grid ng-if="result | field:'og_image_s'">
@@ -148,6 +159,7 @@
                                         </search:result>
                                     </search:result-list>
                                     <!--<search:result-list response="news"></search:result-list>-->
+                                </track:clicks>
                             </layout:block>
                             <layout:block>
                                 <a styling="panel panel-block-link" href="#/news">
