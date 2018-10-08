@@ -28,6 +28,20 @@ angular.module('appkitApp')
             return "#/"+page+"?"+filterBuffer;
         };
 
+        $scope.queryFields = function(response,field,filter){
+            var query = "";
+          angular.forEach(response.results, function(r, rkey){
+              angular.forEach(r.result.fields[field].val, function(v, vkey){
+                  if(rkey === response.results.length- 1 && vkey === r.result.fields[field].val.length- 1){
+                      query+=filter+":"+v;
+                  } else {
+                      query+=filter+":"+v+" OR ";
+                  }
+              });
+            });
+
+            return query
+        };
 
         $twigkit.getUser()
             .then(function (user) {

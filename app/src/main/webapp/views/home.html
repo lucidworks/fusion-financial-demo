@@ -40,6 +40,14 @@
     <search:response var="mycompanies" query="ownerQuery" platform="finance">
         <widget:spinner></widget:spinner>
     </search:response>
+
+</lifecycle:required>
+
+<lifecycle:required object="mycompanies.results">
+    <search:query var="companiesQuery" parameters="-" rpp="0">
+        <query:custom name="fq" value="{{queryFields(mycompanies,'ticker_s','title_t')}} OR {{queryFields(mycompanies,'company_name_s','title_t')}}"></query:custom>
+    </search:query>
+    <search:response var="catalysts" platform="latest-news" query="companiesQuery"></search:response>
 </lifecycle:required>
 
 <layout:include file="views/partials/header-home.tpl.html"></layout:include>
@@ -256,6 +264,7 @@
                         <layout:grid>
                             <layout:block>
                                 <h2>Your Portfolios</h2>
+                                <h4>{{catalysts.hits.act[1]}} stories affecting your companies</h4>
                                 <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
                                         <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
