@@ -19,6 +19,15 @@ angular.module('appkitApp')
             return "http://maps.googleapis.com/maps/api/staticmap?zoom=10&size=150x150&maptype=roadmap&markers=color:red%7Clabel:''%7C" + query + "&sensor=false&key="+google_api_key;
         };
 
+        $scope.filterQueryUrl = function(result, fieldname, page, filter){
+            var filterBuffer = "";
+            angular.forEach(result.fields[fieldname].val, function(value){
+                filterBuffer+="&f="+filter+"['"+value+"']*";
+            });
+            console.log("#/"+page+"?"+filterBuffer);
+            return "#/"+page+"?"+filterBuffer;
+        };
+
 
         $twigkit.getUser()
             .then(function (user) {

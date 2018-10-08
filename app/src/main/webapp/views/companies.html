@@ -102,9 +102,9 @@
                         </layout:grid>
 
                         <layout:grid ng-if="result | field:'news-articles'">
-                          <layout:block>
+                          <layout:block ng-controller="MainCtrl">
                             <hr class="simple" >
-                            <span><a href="">{{(result | field:'news-articles').val.length}} News articles for this company</a></span>
+                            <span><a href="{{filterQueryUrl(result, 'news-articles', 'news', 'id')}}">{{(result | field:'news-articles').val.length}} News articles for this company</a></span>
                             <!--<layout:grid class="portfolio">-->
                               <!--<layout:block md="6-24">-->
                                 <!--<p styling="title">Portfolios</p>-->
