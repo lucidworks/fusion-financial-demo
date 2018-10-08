@@ -481,6 +481,7 @@
   <field name="page" type="plong"/>
   <field name="page_title" type="string"/>
   <field name="params.topic_id" type="plongs"/>
+  <field name="params.unique_bucket_id" type="plongs"/>
   <field name="path" type="string"/>
   <field name="path_transition" type="string"/>
   <field name="pipeline_id" type="string"/>
