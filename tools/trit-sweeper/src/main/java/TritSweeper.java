@@ -22,7 +22,8 @@ public class TritSweeper {
     private static Set<String> BAD_PERSONS = Sets.newHashSet(
             "Blacklist Ad-Free",
             "Fortune Dow",
-            "Investing"
+            "Investing",
+            "Trump"
     );
     public static void main(String[] args) throws Exception {
         final SolrClient client = getSolrClient("http://localhost:8983/solr");
