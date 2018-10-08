@@ -64,7 +64,7 @@ public class FetchRelatedNews extends ResponseProcessor {
         // Filter on the current companies
         String dataSourceField = getParameterStringValue(PARAMETER_FILTER_FIELD);
         String fieldValueSuffix = getParameterStringValue(PARAMETER_FILTER_SUFFIX);
-        
+
         String idField = getParameterStringValue(PARAMETER_ID_FIELD);
         companies.getResults().forEach(r -> {
             Filter filter = new Filter(dataSourceField, r.getFields().get(idField).getValue().getActualAsString() + fieldValueSuffix);
