@@ -10,6 +10,7 @@
 <search:query var="companyQuery" parameters="none">
     <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
     <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
+
 </search:query>
 
 <search:response var="response" platform="financials" query="companyQuery"></search:response>
@@ -23,8 +24,7 @@
     </search:response>
 </lifecycle:required>
 
-<search:query var="getHistoric" fields="close_d,date_dt,volume_i" sorts="-date_dt" max-results="90" parameters="none"
-              custom="date_dt:[NOW-30DAYS TO NOW]">
+<search:query var="getHistoric" fields="close_d,date_dt,volume_i" max-results="90" parameters="none">
     <query:filter field="_lw_data_source_s" value="sp500-historical"></query:filter>
     <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
 </search:query>

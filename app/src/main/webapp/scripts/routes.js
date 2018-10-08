@@ -7,25 +7,6 @@ angular.module('appkitApp').config(function ($stateProvider, $urlRouterProvider,
     $urlRouterProvider.otherwise(defaultPage);
     $locationProvider.html5Mode(false);
 
-    $stateProvider.state('collaborations', {
-        url: '/collaborations',
-        templateUrl: 'views/collaborations.html',
-        controller: 'CollaborationsCtrl'
-    });
-
-    $stateProvider.state('collaboration', {
-        url: '/collaborations/{id}',
-        templateUrl: function (params) {
-
-            if (params.id === '') {
-                return defaultPage;
-            }
-
-            return 'views/collaborations-detail.html';
-        },
-        controller: 'CollaborationDetailCtrl'
-    });
-
     // Default views
     $stateProvider
 
@@ -38,36 +19,9 @@ angular.module('appkitApp').config(function ($stateProvider, $urlRouterProvider,
                     params.slug = defaultPage;
                 }
 
-                return 'views/' + params.slug + '.html';
+                return 'views/'+params.usertype+'/' + params.slug + '.html';
             },
             controller: 'MainCtrl'
-        })
-
-
-        .state('portfolios-details', {
-            url: '/portfolios/{id}',
-            templateUrl: function (params) {
-
-                if (params.id === '') {
-                    return 'views/' + defaultPage;
-                }
-
-                return 'views/portfolios-detail.html';
-            },
-            controller: 'PortfolioCtrl'
-        })
-
-        .state('companies-details', {
-            url: '/companies/{id}',
-            templateUrl: function (params) {
-
-                if (params.id === '') {
-                    return 'views/' + defaultPage;
-                }
-
-                return 'views/companies-detail.html';
-            },
-            controller: 'CompanyCtrl'
         })
 
         .state('details', {
