@@ -5,7 +5,7 @@
 <search:response var="response" query="query" platform="platform"></search:response>
 
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
-<search:query parameters="*,-f" var="companyQuery">
+<search:query parameters="*,-f" var="companyQuery" sorts="-weight_d">
     <!--<query:custom name="portfolio" value="{{params.id}}"></query:custom>-->
     <!--<query:filter field="_lw_data_source_s" value="sp500"></query:filter>-->
 
@@ -47,6 +47,11 @@
                                     <layout:grid>
                                         <layout:block xs="1-1" sm="1-2" md="3-5">
                                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                                                <search:field name="weight_s" label="" styling="title" number-format="#%"></search:field>
+                                            </layout:box>
+                                        </layout:block>
+                                        <layout:block xs="1-1" sm="1-2" md="3-5">
+                                            <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                                                 <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
                                             </layout:box>
                                         </layout:block>
@@ -76,6 +81,15 @@
 
                                     </layout:grid>
 
+                                    <layout:grid>
+                                        <layout:block>
+                                            <chart:display response="companies" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
+                                                <!--<series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.ticker_s.val[0]}}" results="company.result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>-->
+                                                <series:result-list results="result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>
+                                            </chart:display>
+                                        </layout:block>
+                                    </layout:grid>
+
 
                                 </search:result>
                             </search:result-list>
@@ -83,13 +97,14 @@
                 </layout:block>
 
 
-                <layout:block>
-                    <chart:display response="companies" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
-                        <series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.ticker_s.val[0]}}" results="company.result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>
-                        <!--<series:result-list results="companies.results[0].result.related" label-field="Date" value-field="close_d" type="spline" number-to-show="30"></series:result-list>-->
-                    </chart:display>
-                    <!--<div ng-repeat="company in companies.results">{{company.result.related[0].result.fields.Date}},{{company.result.related[0].result.fields.close_d}}</div>-->
-                </layout:block>
+                <!--<layout:block>-->
+                    <!--{{companies.results[0].result.related.length}}-->
+                    <!--<chart:display response="companies" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">-->
+                        <!--<series:result-list ng-repeat="company in companies.results" title="{{company.result.fields.ticker_s.val[0]}}" results="company.result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>-->
+                        <!--&lt;!&ndash;<series:result-list results="companies.results[0].result.related" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>&ndash;&gt;-->
+                    <!--</chart:display>-->
+                    <!--&lt;!&ndash;<div ng-repeat="company in companies.results">{{company.result.related[0].result.fields.Date}},{{company.result.related[0].result.fields.close_d}}</div>&ndash;&gt;-->
+                <!--</layout:block>-->
 
                 <layout:block class="related-news">
                         <div styling="width-1" ng-if="response.results && response.results.length > 0">

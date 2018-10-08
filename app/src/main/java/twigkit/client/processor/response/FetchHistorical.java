@@ -7,6 +7,7 @@ import twigkit.conf.ConfiguredPlatformProvider;
 import twigkit.model.Filter;
 import twigkit.model.Query;
 import twigkit.model.Response;
+import twigkit.model.values.Range;
 import twigkit.platform.Platform;
 import twigkit.processor.ResponseProcessor;
 
@@ -41,9 +42,12 @@ public class FetchHistorical extends ResponseProcessor {
 
             Query historicalQuery = new Query();
             historicalQuery.setUser(companies.getQuery().getUser());
-            historicalQuery.setFields("high_d,low_d,close_d,ticker_s");
+            historicalQuery.setFields("high_d,low_d,close_d,ticker_s,date_dt");
             historicalQuery.setResultsPerPage(getParameterIntegerValue("results-to-fetch"));
-            historicalQuery.setSorts("-date_dt");
+            historicalQuery.setSorts("+date_dt");
+
+            Range dayRange = new Range("NOW-30/DAYS","NOW");
+            Filter dayFilter = new Filter("date_dt",dayRange);
 
             if(r.getFields().get(idField) == null){
                 logger.error("Result did not contain field {}",idField);

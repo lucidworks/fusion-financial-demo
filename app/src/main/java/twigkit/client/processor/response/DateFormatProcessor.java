@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class DateFormatProcessor extends AbstractNamedFieldValueProcessor {
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     @Override
     public Value processValue(Value value) {
