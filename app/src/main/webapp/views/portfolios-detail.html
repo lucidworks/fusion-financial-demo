@@ -113,6 +113,13 @@
                             </layout:grid>
 
 
+                            <layout:grid ng-if="result | field:'news-articles'">
+                                <layout:block ng-controller="MainCtrl">
+                                    <hr class="simple" >
+                                    <span><a href="{{filterQueryUrl(result, 'news-articles', 'news', 'id')}}">{{(result | field:'news-articles').val.length}} News articles for this company</a></span>
+                                </layout:block>
+                            </layout:grid>
+
                         </search:result>
                     </search:result-list>
                 </div>
