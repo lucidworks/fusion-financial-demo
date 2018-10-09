@@ -7,9 +7,6 @@
 
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
 <search:query parameters="*,-f" var="companyQuery" sorts="-weight_d" facets="industry_s,sector_s">
-    <!--<query:custom name="portfolio" value="{{params.id}}"></query:custom>-->
-    <!--<query:filter field="_lw_data_source_s" value="sp500"></query:filter>-->
-
     <query:filter field="unique_bucket_id_s" value="{{params.id}}"></query:filter>
     <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
     <query:custom name="facet.mincount" value="1"></query:custom>
@@ -54,15 +51,17 @@
     </layout:block>
     <layout:block md="1-2">
         <layout:box>
-            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" show-count="true" title="Sector">
-                <series:facet name="sector_s" title="Sector" type="pie" response="companies" query="companyQuery" number-to-show="10" single-filter-mode="true"></series:facet>
+            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Sector">
+                <series:result-list response="companies" label-field="sector_s" value-field="weight_d" type="pie" show-marker="false"></series:result-list>
+                <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
     </layout:block>
     <layout:block md="1-2">
         <layout:box>
-            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" show-count="true" title="Industry">
-                <series:facet name="industry_s" title="Industry" type="pie" response="companies" query="companyQuery" number-to-show="10" single-filter-mode="true"></series:facet>
+            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Industry">
+                <series:result-list response="companies" label-field="industry_s" value-field="weight_d" type="pie"></series:result-list>
+                <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
     </layout:block>
@@ -104,8 +103,8 @@
                                 <search:field name="industry_s" query="query" styling="label-left" label="Industry"></search:field>
                                 <!--<search:field name="state_s" styling="label-left" query="query" label="State"></search:field>-->
                                 <!--<search:field name="city_s" styling="label-left" query="query" label="City"></search:field>-->
-                                <search:field name="marketcap_f" styling="label-left" query="query" label="Market Cap" number-format="$#,###"></search:field>
-                                <search:field name="revenue_f" styling="label-left" query="query" label="Revenue" number-format="$#,###"></search:field>
+                                <search:field name="marketcap_f" styling="label-left" query="query" label="Market Cap"></search:field>
+                                <search:field name="revenue_f" styling="label-left" query="query" label="Revenue"></search:field>
                             </layout:box>
                         </layout:block>
 
