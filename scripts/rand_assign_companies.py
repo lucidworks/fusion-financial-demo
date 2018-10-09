@@ -69,7 +69,7 @@ for type in BUCKETS:
         while bucket_id <= num_buckets:
             bucket_value_total = random.randint(100000000.0, 1000000000.0)
             bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
-            bucket_ytd_ror = random.uniform(0.005, 0.08)
+            bucket_ytd_ror = random.uniform(0.5, 8.0)
 
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
