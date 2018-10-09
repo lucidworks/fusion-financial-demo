@@ -3,14 +3,13 @@
 <!-- -------------------------------------------- -->
 
 <search:platform var="financials" conf="platforms.fusion.finance.historical"></search:platform>
-<search:platform var="platform" conf="platforms.fusion.finance"></search:platform>
+<search:platform var="platform" conf="platforms.fusion.finance.single-company"></search:platform>
 
 
 <search:query var="query" parameters="*"></search:query>
 <search:query var="companyQuery" parameters="none">
     <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
     <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
-
 </search:query>
 
 <search:response var="response" platform="financials" query="companyQuery"></search:response>
@@ -33,11 +32,14 @@
   <widget:spinner></widget:spinner>
 </search:response>
 
-<search:query var="getNews" query="entity_stock_ticker_lv_ss:{{params.id}}.*" sorts="-lastModified_dt" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+<search:query var="getNews" sorts="-lastModified_dt" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+    <query:custom name="company-ticker" value="{{params.id}}"></query:custom>
     <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
 </search:query>
 
-<search:response var="news" platform="platform" query="getNews"></search:response>
+<search:response var="news" platform="platform" query="getNews">
+    <widget:spinner></widget:spinner>
+</search:response>
 
 
 <helper:set var="article" value="response | result:0"></helper:set>
@@ -67,20 +69,6 @@
                                     <layout:block>
                                         <img styling="image medium" ng-src="{{ wikiArticle | field:'infobox.logo' | actual }}" />
                                         <search:field result="article" name="Company" styling="title" value-element="h1"></search:field>
-                                        <layout:grid class="portfolio" ng-if="!isEmptyObject(parentTopics)" >
-                                            <layout:block md="3-24">
-                                                <p styling="title">Portfolios</p>
-                                            </layout:block>
-                                            <layout:block md="21-24">
-                                                <ol styling="tag-list tag-capsules sm">
-                                                    <li ng-repeat="portfolio in parentTopics">
-                                                        <a href="#/portfolios/{{portfolio.id}}">
-                                                            <span class="value">{{portfolio.title}}</span>
-                                                        </a>
-                                                    </li>
-                                                </ol>
-                                            </layout:block>
-                                        </layout:grid>
 
                                         <search:field result="wikiArticle" name="infobox.website" label="" urlfield="infobox.website" styling="label-inline"></search:field>
                                         <search:field result="wikiArticle" name="infobox.entity_summary" styling="description"></search:field>
