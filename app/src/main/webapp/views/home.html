@@ -32,7 +32,7 @@
         <query:filter field="user_token" value="{{user.name}}"></query:filter>
     </search:query>
     <search:response var="topSearchesResponse" platform="topSearches" query="topSearchesQuery"></search:response>
-    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
@@ -190,6 +190,9 @@
                                     <search:result>
                                         <h3>{{result.fields.bucket_name_s.val[0]}}</h3>
                                         <search:field name="ticker_s" label="Holdings" value-element="h4" styling="label-left" class="inline-h4 portfolio-holdings"></search:field>
+                                        <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
+                                        <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
+                                        <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
                                         <hr class="simple">
                                         <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
                                             <p class="tk-stl-label">Sector concentration: {{sector}}</p>
