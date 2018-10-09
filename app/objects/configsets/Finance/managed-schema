@@ -433,7 +433,13 @@
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="body" type="text_general"/>
+  <field name="city_state" type="text_general"/>
+  <field name="city_state_hier" type="text_general"/>
+  <field name="city_state_hier_parent" type="text_general"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="sector_industry" type="text_general"/>
+  <field name="sector_industry_hier" type="text_general"/>
+  <field name="sector_industry_hier_parent" type="text_general"/>
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="true"/>
   <dynamicField name="*_ancestor_path" type="ancestor_path" indexed="true" stored="true"/>
@@ -503,4 +509,10 @@
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
   <copyField source="*" dest="_text_"/>
   <copyField source="body" dest="body_str" maxChars="256"/>
+  <copyField source="city_state_hier" dest="city_state_hier_str" maxChars="256"/>
+  <copyField source="sector_industry" dest="sector_industry_str" maxChars="256"/>
+  <copyField source="city_state" dest="city_state_str" maxChars="256"/>
+  <copyField source="sector_industry_hier" dest="sector_industry_hier_str" maxChars="256"/>
+  <copyField source="city_state_hier_parent" dest="city_state_hier_parent_str" maxChars="256"/>
+  <copyField source="sector_industry_hier_parent" dest="sector_industry_hier_parent_str" maxChars="256"/>
 </schema>
