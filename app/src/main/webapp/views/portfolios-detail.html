@@ -6,7 +6,7 @@
 <search:response var="response" query="query" platform="platform"></search:response>
 
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
-<search:query parameters="*,-f" var="companyQuery" sorts="-weight_d" facets="industry_s,sector_s">
+<search:query parameters="*,-f" var="companyQuery" sorts="-weight_d" facets="industry_s,sector_s,ticker_s">
     <query:filter field="unique_bucket_id_s" value="{{params.id}}"></query:filter>
     <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
     <query:custom name="facet.mincount" value="1"></query:custom>
@@ -39,30 +39,37 @@
                 <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-inline"></search:field>
             </search:result>
         </ol>
-        <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Holdings">
-            <series:result-list response="companies" label-field="ticker_s" value-field="weight_d" type="bar" show-tooltips="false"></series:result-list>
-        </chart:display>
 
     </layout:block>
 </layout:animate>
 <layout:grid animation="animate-fadeInUp" on="companies" styling="centercontent" style="padding-bottom:0px;" layout-grid>
     <layout:block>
-        <layout:box>
-            <h5 ng-if="companies.results">Position</h5>
+        <layout:box styling="centercontent">
+            <div class="allocation-header">
+                <h2 ng-if="companies.results">Portfolio Allocation</h2>
+            </div>
         </layout:box>
     </layout:block>
-    <layout:block md="1-2">
+    <layout:block md="1-3">
         <layout:box>
-            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Sector">
+            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="By Sector">
                 <series:result-list results="companies.facts.sector_s" label-field="sector_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
     </layout:block>
-    <layout:block md="1-2">
+    <layout:block md="1-3">
         <layout:box>
-            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Industry">
+            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="By Industry">
                 <series:result-list results="companies.facts.industry_s" label-field="industry_s" value-field="weight_d" type="pie"></series:result-list>
+                <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
+            </chart:display>
+        </layout:box>
+    </layout:block>
+    <layout:block md="1-3">
+        <layout:box>
+            <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="By Company">
+                <series:result-list results="companies.facts.ticker_s" label-field="ticker_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
@@ -96,7 +103,7 @@
                     <layout:grid>
 
                         <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
-                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
+                            <media:image field-name="image_url_s"></media:image>
                         </layout:block>
 
                         <layout:block xs="1-1" md="18-24" >

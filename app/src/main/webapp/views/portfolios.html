@@ -1,7 +1,7 @@
 <search:platform var="finance" conf="platforms.fusion.finance.portfolios"></search:platform>
 
 <lifecycle:required object="user.name">
-    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,industry_s,sector_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,revenue_f,marketcap_f,div_yield_f">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i,revenue_f,marketcap_f,div_yield_f">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
@@ -30,14 +30,19 @@
               <!--</layout:box>-->
               <layout:box>
                   <h3>Your portfolios</h3>
-                  <search:result-list response="mycompanies" styling="cards-xl-4" class="side-results">
+                  <search:result-list response="mycompanies" styling="cards-xl-3" class="side-results">
                       <search:result>
                           <layout:block>
-                              <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
+                              <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                              <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
+                              <search:field name="ticker_s" label="Holdings" styling="label-left" class="inline"></search:field>
+                              <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
+                              <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
+                              <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
                           </layout:block>
 
                           <layout:block>
-                              <h4>Position by Sector</h4>
+                              <h4>Allocation by Sector</h4>
                               <div ng-repeat="sector in result.fields.sectors.val track by $index"
                                    class="field tk-rgrid-g tk-stl-label-above">
                                   <p class="tk-stl-label">{{sector}}</p>
@@ -53,7 +58,7 @@
                                   </layout:grid>
                               </div>
                               <hr class="simple">
-                              <h4>Position by Industry</h4>
+                              <h4>Allocation by Industry</h4>
                               <div ng-repeat="industry in result.fields.industries.val track by $index"
                                    class="field tk-rgrid-g tk-stl-label-above">
                                   <p class="tk-stl-label">{{industry}}</p>
