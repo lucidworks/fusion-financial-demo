@@ -191,7 +191,7 @@
                                         <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
                                         <hr class="simple">
                                         <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
-                                            <p class="tk-stl-label">{{sector}}</p>
+                                            <p class="tk-stl-label">Sector concentration: {{sector}}</p>
                                             <layout:grid>
                                                 <layout:block xs="1-2">
                                                     <progress:bar percentage="(result | field:sector | actual | numberFormat:'#.##')*100"></progress:bar>
@@ -206,6 +206,7 @@
                                                 <h5> View Portfolio </h5>
                                             </a>
                                         </layout:block>
+
                                     </search:result>
                                 </search:result-list>
                             </layout:block>
