@@ -1,0 +1,8 @@
+----------------------------------------------------------------
+Tue Oct 09 16:42:13 BST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.7.1.1 - (1040133): instance a816c00e-0166-597e-2f08-0000491d37d8 
+on database directory /Users/junderwood/Projects/demos/fusion-financial-demo/twigkit-socialdb  with class loader WebAppClassLoader=Twigkit@706c062e 
+Loaded from file:/Users/junderwood/.m2/repository/org/apache/derby/derby/10.7.1.1/derby-10.7.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_121-b13
+Database Class Loader started - derby.database.classpath=''

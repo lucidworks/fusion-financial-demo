@@ -43,12 +43,12 @@
                                   <p class="tk-stl-label">{{sector}}</p>
                                   <layout:grid>
                                       <layout:block xs="1-2">
-                                          <progress:bar percentage="(result | field:sector | actual | numberFormat:'#.##')*100"></progress:bar>
+                                          <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
                                       </layout:block>
                                       <layout:block xs="1-2">
                                           <search:field name="{{sector}}" show="1" label=""
                                                         styling="label-inline pull-right"
-                                                        number-format="#%"></search:field>
+                                                        suffix="%"></search:field>
                                       </layout:block>
                                   </layout:grid>
                               </div>
@@ -59,12 +59,12 @@
                                   <p class="tk-stl-label">{{industry}}</p>
                                   <layout:grid>
                                       <layout:block xs="1-2">
-                                          <progress:bar percentage="(result | field:industry | actual | numberFormat:'#.##')*100"></progress:bar>
+                                          <progress:bar percentage="result | field:industry | actual | numberFormat:'#.##'"></progress:bar>
                                       </layout:block>
                                       <layout:block xs="1-2">
                                           <search:field name="{{industry}}" show="1" label=""
                                                         styling="label-inline pull-right"
-                                                        number-format="#%"></search:field>
+                                                        suffix="%"></search:field>
                                       </layout:block>
                                   </layout:grid>
                               </div>

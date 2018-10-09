@@ -33,13 +33,15 @@
     </layout:block>
     <layout:block>
         <ol class="result-list">
-            <search:result result="companies | result">
-                <search:field name="ticker_s" label="Holdings" styling="label-inline" class="inline"></search:field>
+            <search:result result="companies.results[0].result">
                 <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-inline" number-format="##.0# %"></search:field>
                 <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-inline" number-format="$###,###,###"></search:field>
                 <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-inline"></search:field>
             </search:result>
         </ol>
+        <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Holdings">
+            <series:result-list response="companies" label-field="ticker_s" value-field="weight_d" type="bar" show-tooltips="false"></series:result-list>
+        </chart:display>
 
     </layout:block>
 </layout:animate>
@@ -52,7 +54,7 @@
     <layout:block md="1-2">
         <layout:box>
             <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Sector">
-                <series:result-list response="companies" label-field="sector_s" value-field="weight_d" type="pie" show-marker="false"></series:result-list>
+                <series:result-list response="companies" label-field="sector_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
@@ -75,8 +77,7 @@
                     <layout:grid>
                         <layout:block>
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
-                                <!--<progress:bar percentage="(result | field:'weight_s' | actual | numberFormat:'#.##')*100"></progress:bar>-->
-                                <search:field name="weight_s" label="Portfolio weight" styling="label-left" number-format="#%"></search:field>
+                                <search:field name="weight_d" label="Portfolio weight" styling="label-left"></search:field>
                             </layout:box>
                         </layout:block>
                         <layout:block xs="1-1" sm="1-2" md="3-5">

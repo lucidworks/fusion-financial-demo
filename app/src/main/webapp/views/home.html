@@ -193,10 +193,10 @@
                                             </div>
                                             <layout:grid>
                                                 <layout:block xs="1-2">
-                                                    <progress:bar percentage="(result | field:sector | actual | numberFormat:'#.##')*100"></progress:bar>
+                                                    <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
                                                 </layout:block>
                                                 <layout:block xs="1-2">
-                                                    <search:field name="{{sector}}" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>
+                                                    <search:field name="{{sector}}" show="1" label="" styling="label-inline pull-right" suffix="%"></search:field>
                                                 </layout:block>
                                             </layout:grid>
                                         </div>

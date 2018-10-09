@@ -17,7 +17,7 @@ public class PercentFormatProcessor extends AbstractNamedFieldValueProcessor {
 
     @Override
     public Value processValue(Value value) {
-        Float fval = Float.parseFloat(value.getActualAsString());
+        Double fval = (Double) value.getActual();
         value.setActual(nfi.format(fval * 100));
         value.setDisplay(nfp.format(fval));
         return value;
