@@ -4,7 +4,7 @@
 
 <search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
 
-<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,state_s,city_s,company_name_s,div_yield_f,marketcap_f,revenue_f">
+<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,state_s,city_s,company_name_s,div_yield_f,marketcap_f,revenue_f,image_url_s">
   <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 
@@ -86,7 +86,7 @@
                         <layout:grid>
 
                           <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
-                            <media:image src="{{mapUrl(result) | trusted}}"></media:image>
+                            <media:image field-name="image_url_s"></media:image>
                           </layout:block>
 
                           <layout:block xs="1-1" md="18-24" >
