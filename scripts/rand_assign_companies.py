@@ -67,8 +67,9 @@ for type in BUCKETS:
         bucket_id = 0
 
         while bucket_id <= num_buckets:
-            bucket_value = random.randint(100000000.0, 1000000000.0)
+            bucket_value_total = random.randint(100000000.0, 1000000000.0)
             bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
+            bucket_ytd_ror = random.uniform(0.5, 5.0)
 
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
@@ -87,8 +88,10 @@ for type in BUCKETS:
                 if id == 396 : print(temp)
                 if type_name != 'analyst':
                     temp.update({'weight':random_weights[weights_id]/weight_sum})
-                    temp.update({'bucket_value': bucket_value * random_weights[weights_id] / weight_sum})
+                    temp.update({'bucket_value': bucket_value_total * random_weights[weights_id] / weight_sum})
+                    temp.update({'bucket_value_total': bucket_value_total})
                     temp.update({'bucket_name': bucket_name})
+                    temp.update({'bucket_ytd_ror': bucket_ytd_ror})
                 else:
                     temp.update({'weight':random.randint(0,2)})
                 if id == 396 : print(temp)
@@ -98,7 +101,7 @@ for type in BUCKETS:
             bucket_id+=1
 
 #     To write out new CSV we need to add the fields to the headers
-CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight','bucket_value','bucket_name']
+CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight','bucket_value','bucket_value_total','bucket_name','bucket_ytd_ror']
 with open(BUCKETS_CSV, 'w') as bucketsfile:
     writer = csv.DictWriter(bucketsfile,CSV_FIELDS)
     writer.writeheader()
