@@ -4,7 +4,7 @@
 
 <search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
 
-<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,state_s,city_s,company_name_s,div_yield_f,marketcap_f,revenue_f,image_url_s">
+<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,sector_industry_s_hier_ss,sector_industry_s_hier_ss_parent_ss,city_state_s_hier_ss,city_state_s_hier_ss_parent_ss,state_s,city_s,company_name_s,div_yield_f,marketcap_f,revenue_f,image_url_s">
   <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
 </search:query>
 
@@ -14,6 +14,8 @@
 
 <search:query var="query" parameters="*"></search:query>
 <track:query query="query" path="/companies"></track:query>
+
+<search:platform var="platformHierarchical" conf="services.hierarchical"></search:platform>
 
 <!-- -------------------------------------------- -->
 <!-- Define the view                              -->
@@ -30,10 +32,16 @@
     <!-- CONTENT > SIDEBAR -->
     <layout:block md="6-24" drawer="left" id="sidebar" styling="blocksidebar-dark">
       <layout:sidebar>
-        <search:facet-list response="response" platform="platform" query="query"
+        <search:facet-list response="response"
                            styling="facet-list"
-                           facet-names="-_lw_data_source_s,industry_s=Industry,city_s=City,state_s=State">
+                           facet-names="-_lw_data_source_s,sector_industry_s_hier_ss=Industry,city_state_s_hier_ss=Location">
           <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+          <search:facet facet-name="sector_industry_s_hier_ss" show="6" show-more="6">
+            <facet:hierarchical facet-name="sector_industry_s_hier_ss" platform="platformHierarchical" query="query"></facet:hierarchical>
+          </search:facet>
+          <search:facet facet-name="city_state_s_hier_ss" show="6" show-more="6">
+            <facet:hierarchical facet-name="city_state_s_hier_ss" platform="platformHierarchical" query="query"></facet:hierarchical>
+          </search:facet>
         </search:facet-list>
       </layout:sidebar>
     </layout:block>
