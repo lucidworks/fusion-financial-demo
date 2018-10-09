@@ -28,7 +28,7 @@
 <layout:animate animation="animate-fadeInUp" on="companies" styling="centercontent" style="padding-bottom:0px;" layout-grid>
     <layout:block>
         <layout:box style="padding:0px;">
-            <p><a href="#/portfolios">Portfolios</a> / <span>{{companies | result | field:'bucket_name_s' | actual}}</p>
+            <p><a href="#/portfolios">Portfolios</a> / <span>{{companies | result | field:'bucket_name_s' | actual}}</span></p>
         </layout:box>
     </layout:block>
     <layout:block>
@@ -54,7 +54,7 @@
     <layout:block md="1-2">
         <layout:box>
             <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Sector">
-                <series:result-list response="companies" label-field="sector_s" value-field="weight_d" type="pie"></series:result-list>
+                <series:result-list results="companies.facts.sector_s" label-field="sector_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
@@ -62,7 +62,7 @@
     <layout:block md="1-2">
         <layout:box>
             <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="Industry">
-                <series:result-list response="companies" label-field="industry_s" value-field="weight_d" type="pie"></series:result-list>
+                <series:result-list results="companies.facts.industry_s" label-field="industry_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
