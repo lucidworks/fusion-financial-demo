@@ -65,22 +65,6 @@
                             <layout:box>
                                 <layout:grid>
                                     <layout:block>
-                                        <div ng-if="!isEmptyObject(collaborationTopics)" class="addto">
-                                                <button styling="button bordered fade"
-                                                        ng-class="{'in': collectionSelected.id}"
-                                                        ng-click="bookmarkResult(article,collectionSelected.id)">
-                                                    <span class="flaticon-plus"></span> Add
-                                                </button>
-                                            <select class="full-width" ng-model="collectionSelected"
-                                                    ng-change="changedValue(collectionSelected)"
-                                                    data-ng-options="topic as topic.title for topic in collaborationTopics track by topic.id">
-                                                <option value="">Select a Portfolio</option>
-                                            </select>
-                                        </div>
-                                        <div ng-if="isEmptyObject(collaborationTopics)" class="addto">
-                                            <a styling="button bordered" href="#/portfolios">Create another portfolio</a>
-                                        </div>
-
                                         <img styling="image medium" ng-src="{{ wikiArticle | field:'infobox.logo' | actual }}" />
                                         <search:field result="article" name="Company" styling="title" value-element="h1"></search:field>
                                         <layout:grid class="portfolio" ng-if="!isEmptyObject(parentTopics)" >
