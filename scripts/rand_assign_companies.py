@@ -38,6 +38,9 @@ BUCKETS = [
     ]}
 ]
 
+CAPITALIZATIONS = ['Large Cap', 'All Cap', 'Mid Cap', 'Mid and Large Cap']
+STRATEGIES = ['Value', 'Blended', '130/30', 'Growth', 'Mixed', 'Domestic']
+
 COMPANIES_LIST = list()
 
 RANDOM_SEED = 123 # Integer. set to None to make script random on every run (using system time)
@@ -64,6 +67,9 @@ for type in BUCKETS:
         bucket_id = 0
 
         while bucket_id <= num_buckets:
+            bucket_value = random.randint(100000000.0, 1000000000.0)
+            bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
+
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
             num_companies = random.randint(1,10) # pick a random number of companies for this bucket
@@ -81,6 +87,8 @@ for type in BUCKETS:
                 if id == 396 : print(temp)
                 if type_name != 'analyst':
                     temp.update({'weight':random_weights[weights_id]/weight_sum})
+                    temp.update({'bucket_value': bucket_value * random_weights[weights_id] / weight_sum})
+                    temp.update({'bucket_name': bucket_name})
                 else:
                     temp.update({'weight':random.randint(0,2)})
                 if id == 396 : print(temp)
@@ -90,7 +98,7 @@ for type in BUCKETS:
             bucket_id+=1
 
 #     To write out new CSV we need to add the fields to the headers
-CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight']
+CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight','bucket_value','bucket_name']
 with open(BUCKETS_CSV, 'w') as bucketsfile:
     writer = csv.DictWriter(bucketsfile,CSV_FIELDS)
     writer.writeheader()
