@@ -60,7 +60,6 @@
       </layout:block>
       <layout:block>
         <layout:box>
-          <search:response-statistics response="news"></search:response-statistics>
           <toggle:controls labels="News,Your News" panes="panes" class="tk-rgrid-justify-end"></toggle:controls>
         </layout:box>
       </layout:block>
@@ -71,6 +70,7 @@
 
     <toggle:panes id="panes">
       <toggle:pane visible="true">
+        <search:response-statistics response="news"></search:response-statistics>
         <!-- NEWS -->
         <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
 
@@ -132,9 +132,9 @@
       </toggle:pane>
 
       <toggle:pane>
+        <search:response-statistics response="yourNews"></search:response-statistics>
         <!-- YOUR NEWS -->
         <layout:animate animation="animate-fadeInUp" on="yourNews" layout-grid>
-
 
           <!-- CONTENT > RESULTS -->
           <layout:block md="2-3" lg="18-24" class="tk-stl-bg-searchresults">
