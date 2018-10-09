@@ -70,6 +70,7 @@ for type in BUCKETS:
             bucket_value_total = random.randint(100000000.0, 1000000000.0)
             bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
             bucket_ytd_ror = random.uniform(0.5, 8.0)
+            bucket_total_clients = random.randint(40,500)
 
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
@@ -92,6 +93,7 @@ for type in BUCKETS:
                     temp.update({'bucket_value_total': bucket_value_total})
                     temp.update({'bucket_name': bucket_name})
                     temp.update({'bucket_ytd_ror': bucket_ytd_ror})
+                    temp.update({'bucket_total_clients': bucket_total_clients})
                 else:
                     temp.update({'weight':random.randint(0,2)})
                 if id == 396 : print(temp)
@@ -101,7 +103,7 @@ for type in BUCKETS:
             bucket_id+=1
 
 #     To write out new CSV we need to add the fields to the headers
-CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight','bucket_value','bucket_value_total','bucket_name','bucket_ytd_ror']
+CSV_FIELDS += ['owner','type','bucket_id','unique_bucket_id','weight','bucket_value','bucket_value_total','bucket_name','bucket_ytd_ror','bucket_total_clients']
 with open(BUCKETS_CSV, 'w') as bucketsfile:
     writer = csv.DictWriter(bucketsfile,CSV_FIELDS)
     writer.writeheader()

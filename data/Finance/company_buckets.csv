@@ -1,144 +1,173 @@
-ticker,company_name,sector,industry,city,state,owner,type,bucket_id,unique_bucket_id,weight,bucket_value,bucket_value_total,bucket_name,bucket_ytd_ror
-EBAY,eBay Inc.,Consumer Discretionary,Internet & Direct Marketing Retail,San Jose,California,Frank,analyst,0,-8559212967871232206,2,,,,
-ADI,Analog Devices Inc.,Information Technology,Semiconductors,Norwood,Massachusetts,Frank,analyst,1,-8559212967871232205,1,,,,
-UDR,UDR Inc,Real Estate,Residential REITs,Highlands Ranch,Colorado,Geoffrey,analyst,0,8967850806639543346,0,,,,
-LRCX,Lam Research,Information Technology,Semiconductor Equipment,Fremont,California,Geoffrey,analyst,0,8967850806639543346,2,,,,
-MAA,Mid-America Apartments,Real Estate,Residential REITs,Memphis,Tennessee,Geoffrey,analyst,1,8967850806639543347,2,,,,
-NTAP,NetApp,Information Technology,Internet Software & Services,Sunnyvale,California,Geoffrey,analyst,1,8967850806639543347,0,,,,
-TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Geoffrey,analyst,1,8967850806639543347,2,,,,
-HPQ,HP Inc.,Information Technology,Technology Hardware,Storage & Peripherals,,Geoffrey,analyst,1,8967850806639543347,2,,,,
-NFLX,Netflix Inc.,Communication Services,Movies & Entertainment,Los Gatos,California,Geoffrey,analyst,1,8967850806639543347,1,,,,
-ESRX,Express Scripts,Health Care,Health Care Distributors,Cool Valley,Missouri,Geoffrey,analyst,1,8967850806639543347,0,,,,
-AKAM,Akamai Technologies Inc,Information Technology,Internet Services & Infrastructure,Cambridge,Massachusetts,Geoffrey,analyst,1,8967850806639543347,1,,,,
-ADBE,Adobe Systems Inc,Information Technology,Application Software,San Jose,California,Carla,analyst,0,-65077717907596013,0,,,,
-EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,Pittsburgh,Pennsylvania,Carla,analyst,0,-65077717907596013,1,,,,
-CXO,Concho Resources,Energy,Oil & Gas Exploration & Production,Midland,Texas,Carla,analyst,1,-65077717907596014,0,,,,
-EFX,Equifax Inc.,Industrials,Research & Consulting Services,Atlanta,Georgia,Carla,analyst,1,-65077717907596014,1,,,,
-COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,Issaquah,Washington,Carla,analyst,1,-65077717907596014,0,,,,
-GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,Atlanta,Georgia,Carla,analyst,1,-65077717907596014,2,,,,
-GPS,Gap Inc.,Consumer Discretionary,Apparel Retail,San Francisco,California,Carla,analyst,1,-65077717907596014,1,,,,
-ARNC,Arconic Inc.,Industrials,Aerospace & Defense,New York,New York,Carla,analyst,1,-65077717907596014,2,,,,
-AAL,American Airlines Group,Industrials,Airlines,Fort Worth,Texas,Carla,analyst,1,-65077717907596014,0,,,,
-EQIX,Equinix,Real Estate,Specialized REITs,Redwood City,California,Carla,analyst,1,-65077717907596014,1,,,,
-ANSS,ANSYS,Information Technology,Application Software,Canonsburg,Pennsylvania,Carla,analyst,1,-65077717907596014,2,,,,
-GM,General Motors,Consumer Discretionary,Automobile Manufacturers,Detroit,Michigan,Carla,analyst,1,-65077717907596014,1,,,,
-FTI,TechnipFMC,Energy,Oil & Gas Equipment & Services,London,United Kingdom,Carla,analyst,2,-65077717907596015,1,,,,
-MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond,Virginia,Carla,analyst,2,-65077717907596015,2,,,,
-INTU,Intuit Inc.,Information Technology,Internet Software & Services,Mountain View,California,Carla,analyst,2,-65077717907596015,2,,,,
-SJM,JM Smucker,Consumer Staples,Packaged Foods & Meats,Orrville,Ohio,Carla,analyst,2,-65077717907596015,1,,,,
-BIIB,Biogen Inc.,Health Care,Biotechnology,Weston,Massachusetts,Carla,analyst,2,-65077717907596015,0,,,,
-NFLX,Netflix Inc.,Communication Services,Movies & Entertainment,Los Gatos,California,Sophie,analyst,0,4561942031224120483,1,,,,
-IPG,Interpublic Group,Communication Services,Advertising,New York,New York,Sophie,analyst,1,4561942031224120482,1,,,,
-BAX,Baxter International Inc.,Health Care,Health Care Equipment,Deerfield,Illinois,Sophie,analyst,1,4561942031224120482,2,,,,
-ILMN,Illumina Inc,Health Care,Life Sciences Tools & Services,San Diego,California,Sophie,analyst,1,4561942031224120482,1,,,,
-JNPR,Juniper Networks,Information Technology,Communications Equipment,Sunnyvale,California,Sophie,analyst,1,4561942031224120482,0,,,,
-SJM,JM Smucker,Consumer Staples,Packaged Foods & Meats,Orrville,Ohio,Sophie,analyst,2,4561942031224120481,1,,,,
-URI,United Rentals Inc.,Industrials,Trading Companies & Distributors,Stamford,Connecticut,Sophie,analyst,2,4561942031224120481,1,,,,
-ROL,Rollins Inc.,Industrials,Environmental & Facilities Services,Atlanta,Georgia,Sophie,analyst,2,4561942031224120481,1,,,,
-JEF,Jefferies Financial Group,Financials,Multi-Sector Holdings,New York,New York,Sophie,analyst,2,4561942031224120481,0,,,,
-RTN,Raytheon Co.,Industrials,Aerospace & Defense,Waltham,Massachusetts,Sophie,analyst,2,4561942031224120481,1,,,,
-HRL,Hormel Foods Corp.,Consumer Staples,Packaged Foods & Meats,Austin,Minnesota,Sophie,analyst,2,4561942031224120481,0,,,,
-PEP,PepsiCo Inc.,Consumer Staples,Soft Drinks,Purchase,New York,Sophie,analyst,2,4561942031224120481,1,,,,
-QRVO,Qorvo,Information Technology,Semiconductors,Greensboro,North Carolina,Sophie,analyst,2,4561942031224120481,2,,,,
-CXO,Concho Resources,Energy,Oil & Gas Exploration & Production,Midland,Texas,Sophie,analyst,2,4561942031224120481,2,,,,
-SPG,Simon Property Group Inc,Real Estate,Retail REITs,Indianapolis,Indiana,Sophie,analyst,2,4561942031224120481,1,,,,
-WELL,Welltower Inc.,Real Estate,Health Care REITs,Toledo,Ohio,Sophie,analyst,3,4561942031224120480,0,,,,
-AAL,American Airlines Group,Industrials,Airlines,Fort Worth,Texas,Sophie,analyst,3,4561942031224120480,0,,,,
-FBHS,Fortune Brands Home & Security,Industrials,Building Products,Deerfield,Illinois,Sophie,analyst,3,4561942031224120480,2,,,,
-ILMN,Illumina Inc,Health Care,Life Sciences Tools & Services,San Diego,California,Sophie,analyst,3,4561942031224120480,0,,,,
-SRE,Sempra Energy,Utilities,Multi-Utilities,San Diego,California,Sophie,analyst,3,4561942031224120480,2,,,,
-CA,CA Inc.,Information Technology,Systems Software,Islandia,New York,Sophie,analyst,3,4561942031224120480,0,,,,
-KLAC,KLA-Tencor Corp.,Information Technology,Semiconductor Equipment,Milpitas,California,Sophie,analyst,3,4561942031224120480,1,,,,
-EXC,Exelon Corp.,Utilities,Multi-Utilities,Chicago,Illinois,Sophie,analyst,3,4561942031224120480,0,,,,
-UNP,Union Pacific,Industrials,Railroads,Omaha,Nebraska,Sophie,analyst,3,4561942031224120480,1,,,,
-CCI,Crown Castle International Corp.,Real Estate,Specialized REITs,Houston,Texas,Sophie,analyst,4,4561942031224120487,2,,,,
-V,Visa Inc.,Information Technology,Internet Software & Services,San Francisco,California,Sophie,analyst,4,4561942031224120487,1,,,,
-COF,Capital One Financial,Financials,Consumer Finance,Tysons Corner,Virginia,Sophie,analyst,4,4561942031224120487,0,,,,
-AES,AES Corp,Utilities,Independent Power Producers & Energy Traders,Arlington,Virginia,Sophie,analyst,4,4561942031224120487,2,,,,
-NDAQ,Nasdaq Inc.,Financials,Financial Exchanges & Data,New York,New York,Sophie,analyst,4,4561942031224120487,0,,,,
-CMA,Comerica Inc.,Financials,Diversified Banks,Dallas,Texas,Robert,client,0,-385102506937072109,0.17858696632002385,161153193.62231344,902379367,Large Cap Domestic Strategy,3.975547405189811
-BR,Broadridge Financial Solutions,Information Technology,Data Processing & Outsourced Services,Lake Success,New York,Robert,client,0,-385102506937072109,0.15580370086400153,140594044.96191505,902379367,Large Cap Domestic Strategy,3.975547405189811
-BEN,Franklin Resources,Financials,Asset Management & Custody Banks,San Mateo,California,Robert,client,0,-385102506937072109,0.05809411409819707,52422929.90635685,902379367,Large Cap Domestic Strategy,3.975547405189811
-IT,Gartner Inc,Information Technology,IT Consulting & Other Services,Stamford,Connecticut,Robert,client,0,-385102506937072109,0.11672837030629106,105333272.90793252,902379367,Large Cap Domestic Strategy,3.975547405189811
-MLM,Martin Marietta Materials,Materials,Construction Materials,Raleigh,North Carolina,Robert,client,0,-385102506937072109,0.19745936743571085,178183258.9948572,902379367,Large Cap Domestic Strategy,3.975547405189811
-INFO,IHS Markit Ltd.,Industrials,Research & Consulting Services,London,United Kingdom,Robert,client,0,-385102506937072109,0.06451565518088352,58217596.08371594,902379367,Large Cap Domestic Strategy,3.975547405189811
-BMY,Bristol-Myers Squibb,Health Care,Health Care Distributors,New York,New York,Robert,client,0,-385102506937072109,0.07777149073049572,70179388.57603109,902379367,Large Cap Domestic Strategy,3.975547405189811
-ADS,Alliance Data Systems,Information Technology,Data Processing & Outsourced Services,Plano,Texas,Robert,client,0,-385102506937072109,0.13843682559211054,124922535.0472981,902379367,Large Cap Domestic Strategy,3.975547405189811
-IPGP,IPG Photonics Corp.,Information Technology,Electronic Manufacturing Services,Oxford,Massachusetts,Robert,client,0,-385102506937072109,0.01260350947228577,11373146.899579737,902379367,Large Cap Domestic Strategy,3.975547405189811
-VLO,Valero Energy,Energy,Oil & Gas Refining & Marketing,San Antonio,Texas,Robert,client,1,-385102506937072110,0.1410808219608277,111097058.20760807,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-FMC,FMC Corporation,Materials,Fertilizers & Agricultural Chemicals,Philadelphia,Pennsylvania,Robert,client,1,-385102506937072110,0.0852558405779502,67136503.39985247,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-RHT,Red Hat Inc.,Information Technology,Systems Software,Raleigh,North Carolina,Robert,client,1,-385102506937072110,0.027817852632043755,21905752.675093766,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-ANET,Arista Networks,Information Technology,Communications Equipment,Santa Clara,California,Robert,client,1,-385102506937072110,0.13363149637741503,105230930.22192334,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-LH,Laboratory Corp. of America Holding,Health Care,Health Care Services,Burlington,North Carolina,Robert,client,1,-385102506937072110,0.16449505224580374,129535085.91897616,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-PG,Procter & Gamble,Consumer Staples,Personal Products,Cincinnati,Ohio,Robert,client,1,-385102506937072110,0.08430572838823157,66388317.58850075,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-GILD,Gilead Sciences,Health Care,Biotechnology,Foster City,California,Robert,client,1,-385102506937072110,0.05895040039417022,46421731.692004025,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-EQR,Equity Residential,Real Estate,Residential REITs,Chicago,Illinois,Robert,client,1,-385102506937072110,0.28400513894505885,223645815.31428668,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-HII,Huntington Ingalls Industries,Industrials,Aerospace & Defense,Newport News,Virginia,Robert,client,1,-385102506937072110,0.020457668478498933,16109820.98175473,787471016,Mid and Large Cap Domestic Strategy,2.770646030074285
-DE,Deere & Co.,Industrials,Agricultural & Farm Machinery,Moline,Illinois,Robert,client,2,-385102506937072111,0.01400576882139027,3851781.428201624,275013923,Large Cap Blended Strategy,0.7816749314486464
-CAH,Cardinal Health Inc.,Health Care,Health Care Distributors,Dublin,Ohio,Robert,client,2,-385102506937072111,0.17681503352439149,48626596.014919415,275013923,Large Cap Blended Strategy,0.7816749314486464
-AJG,Arthur J. Gallagher & Co.,Financials,Insurance Brokers,Itasca,Illinois,Robert,client,2,-385102506937072111,0.002089450489886331,574627.9761379117,275013923,Large Cap Blended Strategy,0.7816749314486464
-NWL,Newell Brands,Consumer Discretionary,Housewares & Specialties,Sandy Springs,Georgia,Robert,client,2,-385102506937072111,0.12514683693330814,34417122.57607035,275013923,Large Cap Blended Strategy,0.7816749314486464
-SCG,SCANA Corp,Utilities,Multi-Utilities,Cayce,South Carolina,Robert,client,2,-385102506937072111,0.1043048768389212,28685293.367503557,275013923,Large Cap Blended Strategy,0.7816749314486464
-CHTR,Charter Communications,Communication Services,Cable & Satellite,Stamford,Connecticut,Robert,client,2,-385102506937072111,0.007979654214811546,2194516.0097988076,275013923,Large Cap Blended Strategy,0.7816749314486464
-AFL,AFLAC Inc,Financials,Life & Health Insurance,Columbus,Georgia,Robert,client,2,-385102506937072111,0.1795476589721483,49378106.05939665,275013923,Large Cap Blended Strategy,0.7816749314486464
-EL,Estee Lauder Cos.,Consumer Staples,Personal Products,New York,New York,Robert,client,2,-385102506937072111,0.13936541768136018,38327430.24708443,275013923,Large Cap Blended Strategy,0.7816749314486464
-BA,Boeing Company,Industrials,Aerospace & Defense,Chicago,Illinois,Robert,client,2,-385102506937072111,0.16765960612088437,46108726.00793923,275013923,Large Cap Blended Strategy,0.7816749314486464
-XEC,Cimarex Energy,Energy,Oil & Gas Exploration & Production,Denver,Colorado,Robert,client,2,-385102506937072111,0.08308569640289815,22849723.31294801,275013923,Large Cap Blended Strategy,0.7816749314486464
-PEP,PepsiCo Inc.,Consumer Staples,Soft Drinks,Purchase,New York,Robert,client,3,-385102506937072112,0.5917096545327994,177421014.50126466,299844718,Mid Cap 130/30 Strategy,4.703641015419259
-ULTA,Ulta Beauty,Consumer Discretionary,Specialty Stores,Bolingbrook,Illinois,Robert,client,3,-385102506937072112,0.29892141335184513,89630006.89064543,299844718,Mid Cap 130/30 Strategy,4.703641015419259
-AVB,AvalonBay Communities Inc.,Real Estate,Residential REITs,Arlington,Virginia[5],Robert,client,3,-385102506937072112,0.02562202602449108,7682629.167902188,299844718,Mid Cap 130/30 Strategy,4.703641015419259
-HCP,HCP Inc.,Real Estate,Health Care REITs,Long Beach,California,Robert,client,3,-385102506937072112,0.0837469060908643,25111067.44018769,299844718,Mid Cap 130/30 Strategy,4.703641015419259
-SRE,Sempra Energy,Utilities,Multi-Utilities,San Diego,California,Robert,client,4,-385102506937072105,0.16992146149431575,148840287.74284196,875935779,Mid Cap Value Strategy,4.406541952099992
-PPG,PPG Industries,Materials,Specialty Chemicals,Pittsburgh,Pennsylvania,Robert,client,4,-385102506937072105,0.7458821335769448,653344847.7169032,875935779,Mid Cap Value Strategy,4.406541952099992
-MTB,M&T Bank Corp.,Financials,Regional Banks,Buffalo,New York,Robert,client,4,-385102506937072105,0.08419640492873937,73750643.54025476,875935779,Mid Cap Value Strategy,4.406541952099992
-ABBV,AbbVie Inc.,Health Care,Pharmaceuticals,North Chicago,Illinois,Cynthia,client,0,3259901514176990716,0.3582031658473789,62504097.25455217,174493425,Mid Cap Domestic Strategy,1.8484749059447858
-O,Realty Income Corporation,Real Estate,Retail REITs,San Diego,California,Cynthia,client,0,3259901514176990716,0.6417968341526212,111989327.74544786,174493425,Mid Cap Domestic Strategy,1.8484749059447858
-CFG,Citizens Financial Group,Financials,Regional Banks,Providence,Rhode Island,Cynthia,client,1,3259901514176990717,0.13110172245090174,23293623.083100297,177675950,Large Cap Value Strategy,3.9320472793768353
-GIS,General Mills,Consumer Staples,Packaged Foods & Meats,Golden Valley,Minnesota,Cynthia,client,1,3259901514176990717,0.011820558282341145,2100228.9223453314,177675950,Large Cap Value Strategy,3.9320472793768353
-NWL,Newell Brands,Consumer Discretionary,Housewares & Specialties,Sandy Springs,Georgia,Cynthia,client,1,3259901514176990717,0.030073536375521282,5343344.145380301,177675950,Large Cap Value Strategy,3.9320472793768353
-ANSS,ANSYS,Information Technology,Application Software,Canonsburg,Pennsylvania,Cynthia,client,1,3259901514176990717,0.09145810446333473,16249905.59572224,177675950,Large Cap Value Strategy,3.9320472793768353
-ACN,Accenture plc,Information Technology,IT Consulting & Other Services,Dublin,Ireland,Cynthia,client,1,3259901514176990717,0.017899178049080356,3180253.464089499,177675950,Large Cap Value Strategy,3.9320472793768353
-ETFC,E*Trade,Financials,Investment Banking & Brokerage,New York,New York,Cynthia,client,1,3259901514176990717,0.1324981683900841,23541737.94196816,177675950,Large Cap Value Strategy,3.9320472793768353
-FLIR,FLIR Systems,Information Technology,Electronic Equipment & Instruments,Wilsonville,Oregon,Cynthia,client,1,3259901514176990717,0.07115730038378111,12642940.945123674,177675950,Large Cap Value Strategy,3.9320472793768353
-RTN,Raytheon Co.,Industrials,Aerospace & Defense,Waltham,Massachusetts,Cynthia,client,1,3259901514176990717,0.18953918701207778,33676555.11459859,177675950,Large Cap Value Strategy,3.9320472793768353
-RCL,Royal Caribbean Cruises Ltd,Consumer Discretionary,Hotels,Resorts & Cruise Lines,,Cynthia,client,1,3259901514176990717,0.16250300411756208,28872875.634441752,177675950,Large Cap Value Strategy,3.9320472793768353
-MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond,Virginia,Cynthia,client,1,3259901514176990717,0.16194924047531584,28774485.153230194,177675950,Large Cap Value Strategy,3.9320472793768353
-RE,Everest Re Group Ltd.,Financials,Reinsurance,Hamilton,Bermuda,Cynthia,client,2,3259901514176990718,0.14173513121229017,22414369.814949807,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-MTD,Mettler Toledo,Health Care,Life Sciences Tools & Services,Columbus,Ohio,Cynthia,client,2,3259901514176990718,0.10918169933220864,17266283.700625505,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-SWK,Stanley Black & Decker,Industrials,Industrial Machinery,New Britain,Connecticut,Cynthia,client,2,3259901514176990718,0.13856322282852163,21912755.804895796,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-TEL,TE Connectivity Ltd.,Information Technology,Electronic Manufacturing Services,Schaffhausen,Switzerland,Cynthia,client,2,3259901514176990718,0.15520644708074968,24544759.459260307,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-MAR,Marriott Int'l.,Consumer Discretionary,Hotels,Resorts & Cruise Lines,,Cynthia,client,2,3259901514176990718,0.15403963974345605,24360237.45023402,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-EOG,EOG Resources,Energy,Oil & Gas Exploration & Production,Houston,Texas,Cynthia,client,2,3259901514176990718,0.047533917896320534,7517139.931142226,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-JWN,Nordstrom,Consumer Discretionary,Department Stores,Seattle,Washington,Cynthia,client,2,3259901514176990718,0.07599141847136746,12017484.598286673,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-ABT,Abbott Laboratories,Health Care,Health Care Equipment,North Chicago,Illinois,Cynthia,client,2,3259901514176990718,0.17774852343508593,28109623.240605686,158142654,Mid and Large Cap Blended Strategy,1.438358114510903
-CTL,CenturyLink Inc,Communication Services,Integrated Telecommunication Services,Monroe,Louisiana,Lawson,manager,0,-4616788562093188533,0.15908461712989982,124557917.76472226,782966449,Mid Cap Value Strategy,5.897144957463993
-ESS,Essex Property Trust Inc.,Real Estate,Residential REITs,Palo Alto,California,Lawson,manager,0,-4616788562093188533,0.03742403186378212,29301761.33564834,782966449,Mid Cap Value Strategy,5.897144957463993
-PWR,Quanta Services Inc.,Industrials,Construction & Engineering,Houston,Texas,Lawson,manager,0,-4616788562093188533,0.21331913559205212,167021726.09825855,782966449,Mid Cap Value Strategy,5.897144957463993
-DHI,D. R. Horton,Consumer Discretionary,Homebuilding,Fort Worth,Texas,Lawson,manager,0,-4616788562093188533,0.2667076205748662,208823118.60274228,782966449,Mid Cap Value Strategy,5.897144957463993
-TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Lawson,manager,0,-4616788562093188533,0.07108808021829524,55659581.73474577,782966449,Mid Cap Value Strategy,5.897144957463993
-WRK,WestRock,Materials,Paper Packaging,Richmond,Virginia,Lawson,manager,0,-4616788562093188533,0.22711844461389089,177826122.08174133,782966449,Mid Cap Value Strategy,5.897144957463993
-BHF,Brighthouse Financial Inc,Financials,Life & Health Insurance,Charlotte,North Carolina,Lawson,manager,0,-4616788562093188533,0.0252580700072136,19776221.382141434,782966449,Mid Cap Value Strategy,5.897144957463993
-AWK,American Water Works Company Inc,Utilities,Water Utilities,Voorhees,New Jersey,Lawson,manager,1,-4616788562093188534,0.1943324761657286,24105649.9970648,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond,Virginia,Lawson,manager,1,-4616788562093188534,0.091055565316706,11294836.720639067,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-CAG,Conagra Brands,Consumer Staples,Packaged Foods & Meats,Chicago,Illinois,Lawson,manager,1,-4616788562093188534,0.025113842250182414,3115204.9482872686,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-BLL,Ball Corp,Materials,Metal & Glass Containers,Broomfield,Colorado,Lawson,manager,1,-4616788562093188534,0.24909074708641554,30898048.97896649,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-F,Ford Motor,Consumer Discretionary,Automobile Manufacturers,Dearborn,Michigan,Lawson,manager,1,-4616788562093188534,0.15063655486860034,18685461.84390411,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-MDT,Medtronic plc,Health Care,Health Care Equipment,Dublin,Ireland,Lawson,manager,1,-4616788562093188534,0.06737251563767278,8357112.0660167085,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-INTU,Intuit Inc.,Information Technology,Internet Software & Services,Mountain View,California,Lawson,manager,1,-4616788562093188534,0.22239829867469427,27587028.445121545,124043343,Mid Cap Mixed Strategy,7.2569168261465515
-GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Lawson,manager,2,-4616788562093188535,0.2797270491632236,167373268.08439773,598344953,Large Cap Growth Strategy,7.81370878869829
-CFG,Citizens Financial Group,Financials,Regional Banks,Providence,Rhode Island,Lawson,manager,2,-4616788562093188535,0.2232874772093131,133602935.05629502,598344953,Large Cap Growth Strategy,7.81370878869829
-AON,Aon plc,Financials,Insurance Brokers,London,United Kingdom,Lawson,manager,2,-4616788562093188535,0.2667117170106581,159585609.77929154,598344953,Large Cap Growth Strategy,7.81370878869829
-AJG,Arthur J. Gallagher & Co.,Financials,Insurance Brokers,Itasca,Illinois,Lawson,manager,2,-4616788562093188535,0.23027375661680508,137783140.08001566,598344953,Large Cap Growth Strategy,7.81370878869829
-CF,CF Industries Holdings Inc,Materials,Fertilizers & Agricultural Chemicals,Deerfield,Illinois,Chloe,manager,0,2821398652557191391,0.41430826270959403,327558304.7494995,790614946,Mid and Large Cap Mixed Strategy,7.135978718934572
-USB,U.S. Bancorp,Financials,Diversified Banks,Minneapolis,Minnesota,Chloe,manager,0,2821398652557191391,0.5041607297406635,398597008.1192352,790614946,Mid and Large Cap Mixed Strategy,7.135978718934572
-COL,Rockwell Collins,Industrials,Aerospace & Defense,Cedar Rapids,Iowa,Chloe,manager,0,2821398652557191391,0.08131687401783531,64290335.960499674,790614946,Mid and Large Cap Mixed Strategy,7.135978718934572
-BHGE,Baker Hughes,Energy,Oil & Gas Equipment & Services,Houston,Texas,Chloe,manager,0,2821398652557191391,0.00021413353190715038,169297.17076556096,790614946,Mid and Large Cap Mixed Strategy,7.135978718934572
-DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,Chesapeake,Virginia,Chloe,manager,1,2821398652557191390,0.20497426894596915,176781422.97113374,862456658,Large Cap Blended Strategy,1.7611102374675986
-M,Macy's Inc.,Consumer Discretionary,Department Stores,Cincinnati,Ohio,Chloe,manager,1,2821398652557191390,0.01606949581699008,13859243.658066245,862456658,Large Cap Blended Strategy,1.7611102374675986
-RJF,Raymond James Financial Inc.,Financials,Investment Banking & Brokerage,St. Petersburg,Florida,Chloe,manager,1,2821398652557191390,0.005898065921295896,5086826.22314455,862456658,Large Cap Blended Strategy,1.7611102374675986
-EW,Edwards Lifesciences,Health Care,Health Care Equipment,Irvine,California,Chloe,manager,1,2821398652557191390,0.1958566584880094,168917879.1266159,862456658,Large Cap Blended Strategy,1.7611102374675986
-AMG,Affiliated Managers Group Inc,Financials,Asset Management & Custody Banks,Beverly,Massachusetts,Chloe,manager,1,2821398652557191390,0.09745104041743786,84047298.6370464,862456658,Large Cap Blended Strategy,1.7611102374675986
-BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,Richfield,Minnesota,Chloe,manager,1,2821398652557191390,0.1407035451587583,121350709.32637475,862456658,Large Cap Blended Strategy,1.7611102374675986
-DHR,Danaher Corp.,Health Care,Health Care Equipment,Washington,D.C.,Chloe,manager,1,2821398652557191390,0.1579533932001648,136227955.61917406,862456658,Large Cap Blended Strategy,1.7611102374675986
-WMT,Walmart,Consumer Staples,Hypermarkets & Super Centers,Bentonville,Arkansas,Chloe,manager,1,2821398652557191390,0.13455841905244864,116050804.40173836,862456658,Large Cap Blended Strategy,1.7611102374675986
-GD,General Dynamics,Industrials,Aerospace & Defense,Falls Church,Virginia,Chloe,manager,1,2821398652557191390,0.04653511299892589,40134518.036705986,862456658,Large Cap Blended Strategy,1.7611102374675986
+ticker,company_name,sector,industry,city,state,owner,type,bucket_id,unique_bucket_id,weight,bucket_value,bucket_value_total,bucket_name,bucket_ytd_ror,bucket_total_clients
+MMM,3M Company,Industrials,Industrial Conglomerates,St. Paul,Minnesota,Frank,analyst,0,-8559212967871232206,1,,,,,
+GILD,Gilead Sciences,Health Care,Biotechnology,Foster City,California,Frank,analyst,0,-8559212967871232206,2,,,,,
+ADI,Analog Devices Inc.,Information Technology,Semiconductors,Norwood,Massachusetts,Frank,analyst,0,-8559212967871232206,0,,,,,
+M,Macy's Inc.,Consumer Discretionary,Department Stores,Cincinnati,Ohio,Frank,analyst,0,-8559212967871232206,0,,,,,
+AIG,American International Group Inc.,Financials,Property & Casualty Insurance,New York,New York,Frank,analyst,0,-8559212967871232206,2,,,,,
+DOV,Dover Corp.,Industrials,Industrial Machinery,Downers Grove,Illinois,Frank,analyst,0,-8559212967871232206,0,,,,,
+ROL,Rollins Inc.,Industrials,Environmental & Facilities Services,Atlanta,Georgia,Frank,analyst,1,-8559212967871232205,1,,,,,
+DOV,Dover Corp.,Industrials,Industrial Machinery,Downers Grove,Illinois,Frank,analyst,1,-8559212967871232205,2,,,,,
+FLT,FleetCor Technologies Inc,Information Technology,Data Processing & Outsources Services,Norcross,Georgia,Frank,analyst,1,-8559212967871232205,1,,,,,
+PEG,Public Serv. Enterprise Inc.,Utilities,Electric Utilities,Newark,New Jersey,Frank,analyst,1,-8559212967871232205,1,,,,,
+MYL,Mylan N.V.,Health Care,Pharmaceuticals,Amsterdam,Netherlands,Geoffrey,analyst,0,8967850806639543346,1,,,,,
+BF.B,Brown-Forman Corp.,Consumer Staples,Distillers & Vintners,Louisville,Kentucky,Geoffrey,analyst,0,8967850806639543346,1,,,,,
+ADBE,Adobe Systems Inc,Information Technology,Application Software,San Jose,California,Geoffrey,analyst,1,8967850806639543347,1,,,,,
+CBOE,Cboe Global Markets,Financials,Financial Exchanges & Data,Chicago,Illinois,Geoffrey,analyst,2,8967850806639543344,1,,,,,
+CXO,Concho Resources,Energy,Oil & Gas Exploration & Production,Midland,Texas,Geoffrey,analyst,2,8967850806639543344,0,,,,,
+EFX,Equifax Inc.,Industrials,Research & Consulting Services,Atlanta,Georgia,Geoffrey,analyst,2,8967850806639543344,1,,,,,
+COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,Issaquah,Washington,Geoffrey,analyst,2,8967850806639543344,0,,,,,
+GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,Atlanta,Georgia,Geoffrey,analyst,2,8967850806639543344,2,,,,,
+GPS,Gap Inc.,Consumer Discretionary,Apparel Retail,San Francisco,California,Geoffrey,analyst,2,8967850806639543344,1,,,,,
+ARNC,Arconic Inc.,Industrials,Aerospace & Defense,New York,New York,Geoffrey,analyst,2,8967850806639543344,2,,,,,
+AAL,American Airlines Group,Industrials,Airlines,Fort Worth,Texas,Geoffrey,analyst,2,8967850806639543344,0,,,,,
+EQIX,Equinix,Real Estate,Specialized REITs,Redwood City,California,Geoffrey,analyst,2,8967850806639543344,1,,,,,
+ANSS,ANSYS,Information Technology,Application Software,Canonsburg,Pennsylvania,Geoffrey,analyst,2,8967850806639543344,2,,,,,
+FTI,TechnipFMC,Energy,Oil & Gas Equipment & Services,London,United Kingdom,Geoffrey,analyst,3,8967850806639543345,1,,,,,
+MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond,Virginia,Geoffrey,analyst,3,8967850806639543345,2,,,,,
+INTU,Intuit Inc.,Information Technology,Internet Software & Services,Mountain View,California,Geoffrey,analyst,3,8967850806639543345,2,,,,,
+SJM,JM Smucker,Consumer Staples,Packaged Foods & Meats,Orrville,Ohio,Geoffrey,analyst,3,8967850806639543345,1,,,,,
+BIIB,Biogen Inc.,Health Care,Biotechnology,Weston,Massachusetts,Geoffrey,analyst,3,8967850806639543345,0,,,,,
+NFLX,Netflix Inc.,Communication Services,Movies & Entertainment,Los Gatos,California,Geoffrey,analyst,4,8967850806639543350,1,,,,,
+TTWO,Take-Two Interactive,Communication Services,Interactive Home Entertainment,New York,New York,Carla,analyst,0,-65077717907596013,1,,,,,
+FLT,FleetCor Technologies Inc,Information Technology,Data Processing & Outsources Services,Norcross,Georgia,Carla,analyst,1,-65077717907596014,0,,,,,
+VLO,Valero Energy,Energy,Oil & Gas Refining & Marketing,San Antonio,Texas,Carla,analyst,1,-65077717907596014,2,,,,,
+AMGN,Amgen Inc.,Health Care,Biotechnology,Thousand Oaks,California,Carla,analyst,1,-65077717907596014,2,,,,,
+CBS,CBS Corp.,Communication Services,Broadcasting,New York,New York,Carla,analyst,1,-65077717907596014,0,,,,,
+FE,FirstEnergy Corp,Utilities,Electric Utilities,Akron,Ohio,Carla,analyst,2,-65077717907596015,0,,,,,
+XEC,Cimarex Energy,Energy,Oil & Gas Exploration & Production,Denver,Colorado,Carla,analyst,2,-65077717907596015,0,,,,,
+ILMN,Illumina Inc,Health Care,Life Sciences Tools & Services,San Diego,California,Carla,analyst,2,-65077717907596015,2,,,,,
+AVY,Avery Dennison Corp,Materials,Paper Packaging,Glendale,California,Carla,analyst,2,-65077717907596015,1,,,,,
+MU,Micron Technology,Information Technology,Semiconductors,Boise,Idaho,Carla,analyst,2,-65077717907596015,2,,,,,
+TDG,TransDigm Group,Industrials,Aerospace & Defense,Cleveland,Ohio,Carla,analyst,2,-65077717907596015,1,,,,,
+RHT,Red Hat Inc.,Information Technology,Systems Software,Raleigh,North Carolina,Carla,analyst,2,-65077717907596015,1,,,,,
+MAS,Masco Corp.,Industrials,Building Products,Taylor,Michigan,Carla,analyst,2,-65077717907596015,2,,,,,
+IDXX,IDEXX Laboratories,Health Care,Health Care Equipment,Westbrook,Maine,Carla,analyst,2,-65077717907596015,1,,,,,
+NTRS,Northern Trust Corp.,Financials,Asset Management & Custody Banks,Chicago,Illinois,Carla,analyst,2,-65077717907596015,2,,,,,
+COO,The Cooper Companies,Health Care,Health Care Supplies,Pleasanton,California,Carla,analyst,3,-65077717907596016,0,,,,,
+SBAC,SBA Communications,Real Estate,Specialized REITs,Boca Raton,Florida,Carla,analyst,3,-65077717907596016,1,,,,,
+DUK,Duke Energy,Utilities,Electric Utilities,Charlotte,North Carolina,Carla,analyst,3,-65077717907596016,2,,,,,
+VRSN,Verisign Inc.,Information Technology,Internet Services & Infrastructure,Dulles,Virginia,Carla,analyst,3,-65077717907596016,0,,,,,
+ALL,Allstate Corp,Financials,Property & Casualty Insurance,Northfield Township,Illinois,Carla,analyst,3,-65077717907596016,1,,,,,
+FDX,FedEx Corporation,Industrials,Air Freight & Logistics,Memphis,Tennessee,Carla,analyst,3,-65077717907596016,0,,,,,
+TTWO,Take-Two Interactive,Communication Services,Interactive Home Entertainment,New York,New York,Carla,analyst,4,-65077717907596009,2,,,,,
+TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Carla,analyst,4,-65077717907596009,0,,,,,
+CHD,Church & Dwight,Consumer Staples,Household Products,Ewing,New Jersey,Carla,analyst,4,-65077717907596009,1,,,,,
+SYF,Synchrony Financial,Financials,Consumer Finance,Stamford,Connecticut,Carla,analyst,4,-65077717907596009,2,,,,,
+HP,Helmerich & Payne,Energy,Oil & Gas Drilling,Tulsa,Oklahoma[7],Carla,analyst,4,-65077717907596009,0,,,,,
+TDG,TransDigm Group,Industrials,Aerospace & Defense,Cleveland,Ohio,Carla,analyst,4,-65077717907596009,0,,,,,
+TIF,Tiffany & Co.,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Carla,analyst,4,-65077717907596009,0,,,,,
+PVH,PVH Corp.,Consumer Discretionary,Apparel,Accessories & Luxury Goods,,Carla,analyst,4,-65077717907596009,1,,,,,
+DVA,DaVita Inc.,Health Care,Health Care Facilities,Denver,Colorado,Carla,analyst,4,-65077717907596009,1,,,,,
+LNC,Lincoln National,Financials,Multi-line Insurance,Radnor,Pennsylvania,Carla,analyst,4,-65077717907596009,1,,,,,
+VAR,Varian Medical Systems,Health Care,Health Care Equipment,Palo Alto,California,Sophie,analyst,0,4561942031224120483,1,,,,,
+AXP,American Express Co,Financials,Consumer Finance,New York,New York,Sophie,analyst,0,4561942031224120483,1,,,,,
+VLO,Valero Energy,Energy,Oil & Gas Refining & Marketing,San Antonio,Texas,Sophie,analyst,0,4561942031224120483,0,,,,,
+FMC,FMC Corporation,Materials,Fertilizers & Agricultural Chemicals,Philadelphia,Pennsylvania,Sophie,analyst,0,4561942031224120483,0,,,,,
+RHT,Red Hat Inc.,Information Technology,Systems Software,Raleigh,North Carolina,Sophie,analyst,0,4561942031224120483,0,,,,,
+ANET,Arista Networks,Information Technology,Communications Equipment,Santa Clara,California,Sophie,analyst,0,4561942031224120483,0,,,,,
+LH,Laboratory Corp. of America Holding,Health Care,Health Care Services,Burlington,North Carolina,Sophie,analyst,0,4561942031224120483,2,,,,,
+PG,Procter & Gamble,Consumer Staples,Personal Products,Cincinnati,Ohio,Sophie,analyst,0,4561942031224120483,0,,,,,
+GILD,Gilead Sciences,Health Care,Biotechnology,Foster City,California,Sophie,analyst,0,4561942031224120483,2,,,,,
+AFL,AFLAC Inc,Financials,Life & Health Insurance,Columbus,Georgia,Sophie,analyst,1,4561942031224120482,1,,,,,
+EL,Estee Lauder Cos.,Consumer Staples,Personal Products,New York,New York,Sophie,analyst,1,4561942031224120482,2,,,,,
+BA,Boeing Company,Industrials,Aerospace & Defense,Chicago,Illinois,Sophie,analyst,1,4561942031224120482,1,,,,,
+XEC,Cimarex Energy,Energy,Oil & Gas Exploration & Production,Denver,Colorado,Sophie,analyst,1,4561942031224120482,0,,,,,
+CI,CIGNA Corp.,Health Care,Managed Health Care,Bloomfield,Connecticut,Sophie,analyst,1,4561942031224120482,0,,,,,
+NOV,National Oilwell Varco Inc.,Energy,Oil & Gas Equipment & Services,Houston,Texas,Sophie,analyst,1,4561942031224120482,2,,,,,
+GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,Atlanta,Georgia,Sophie,analyst,1,4561942031224120482,2,,,,,
+KSS,Kohl's Corp.,Consumer Discretionary,General Merchandise Stores,Menomonee Falls,Wisconsin,Sophie,analyst,1,4561942031224120482,0,,,,,
+SRE,Sempra Energy,Utilities,Multi-Utilities,San Diego,California,Sophie,analyst,2,4561942031224120481,0,,,,,
+PPG,PPG Industries,Materials,Specialty Chemicals,Pittsburgh,Pennsylvania,Sophie,analyst,2,4561942031224120481,0,,,,,
+MTB,M&T Bank Corp.,Financials,Regional Banks,Buffalo,New York,Sophie,analyst,2,4561942031224120481,2,,,,,
+HCP,HCP Inc.,Real Estate,Health Care REITs,Long Beach,California,Robert,client,0,-385102506937072109,0.034083623024321774,8923671.520355377,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+ANTM,Anthem Inc.,Health Care,Managed Health Care,Indianapolis,Indiana,Robert,client,0,-385102506937072109,0.012752182752906545,3338738.0787915397,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+NFLX,Netflix Inc.,Communication Services,Movies & Entertainment,Los Gatos,California,Robert,client,0,-385102506937072109,0.0578189246968269,15137976.713522032,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+ESS,Essex Property Trust Inc.,Real Estate,Residential REITs,Palo Alto,California,Robert,client,0,-385102506937072109,0.18071478479706127,47314200.64263477,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+VNO,Vornado Realty Trust,Real Estate,Office REITs,New York,New York,Robert,client,0,-385102506937072109,0.37001791658441957,96876976.42616798,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+SBAC,SBA Communications,Real Estate,Specialized REITs,Boca Raton,Florida,Robert,client,0,-385102506937072109,0.26115834484924744,68375691.23949528,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+CRM,Salesforce.com,Information Technology,Internet Software & Services,San Francisco,California,Robert,client,0,-385102506937072109,0.02354688694014976,6164975.0154465465,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+CFG,Citizens Financial Group,Financials,Regional Banks,Providence,Rhode Island,Robert,client,0,-385102506937072109,0.05990733635506673,15684758.36358647,261816988,Large Cap 130/30 Strategy,6.8851792102366725,42
+DVA,DaVita Inc.,Health Care,Health Care Facilities,Denver,Colorado,Robert,client,1,-385102506937072110,0.29706602718847563,145018950.045175,488170766,Mid Cap Value Strategy,0.5715610175404149,190
+AVB,AvalonBay Communities Inc.,Real Estate,Residential REITs,Arlington,Virginia[5],Robert,client,1,-385102506937072110,0.3075458785655869,150134907.11950555,488170766,Mid Cap Value Strategy,0.5715610175404149,190
+REG,Regency Centers Corporation,Real Estate,Retail REITs,Jacksonville,Florida,Robert,client,1,-385102506937072110,0.021879107397839007,10680740.617799334,488170766,Mid Cap Value Strategy,0.5715610175404149,190
+RJF,Raymond James Financial Inc.,Financials,Investment Banking & Brokerage,St. Petersburg,Florida,Robert,client,1,-385102506937072110,0.02438877712108421,11905888.009002952,488170766,Mid Cap Value Strategy,0.5715610175404149,190
+MMC,Marsh & McLennan,Financials,Insurance Brokers,New York,New York,Robert,client,1,-385102506937072110,0.3491202097270143,170430280.20851722,488170766,Mid Cap Value Strategy,0.5715610175404149,190
+MNST,Monster Beverage,Consumer Staples,Soft Drinks,Corona,California,Robert,client,2,-385102506937072111,0.06719785090087231,53131902.87490401,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+AME,AMETEK Inc.,Industrials,Electrical Components & Equipment,Berwyn,Pennsylvania,Robert,client,2,-385102506937072111,0.11440488818482908,90457497.16635187,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+PKG,Packaging Corporation of America,Materials,Paper Packaging,Lake Forest,Illinois,Robert,client,2,-385102506937072111,0.15468113137809117,122303060.8684886,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+MA,Mastercard Inc.,Information Technology,Internet Software & Services,Harrison,New York,Robert,client,2,-385102506937072111,0.1602192108184354,126681901.783683,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+GWW,Grainger (W.W.) Inc.,Industrials,Industrial Machinery,Lake Forest,Illinois,Robert,client,2,-385102506937072111,0.11012264807231016,87071621.53647484,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+APTV,Aptiv Plc,Consumer Discretionary,Auto Parts & Equipment,Gillingham,['United Kingdom'],Robert,client,2,-385102506937072111,0.06392889848977742,50547212.149226025,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+M,Macy's Inc.,Consumer Discretionary,Department Stores,Cincinnati,Ohio,Robert,client,2,-385102506937072111,0.12612576907960546,99724946.89816304,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+PNW,Pinnacle West Capital,Utilities,Multi-Utilities,Phoenix,Arizona,Robert,client,2,-385102506937072111,0.0006005477702076275,474840.27198253194,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+CELG,Celgene Corp.,Health Care,Biotechnology,Summit,New Jersey,Robert,client,2,-385102506937072111,0.06405444813513426,50646481.56742392,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+MU,Micron Technology,Information Technology,Semiconductors,Boise,Idaho,Robert,client,2,-385102506937072111,0.13866460717073706,109639137.88330215,790678603,Mid and Large Cap Domestic Strategy,2.4744693254770174,234
+AAPL,Apple Inc.,Information Technology,Technology Hardware,Storage & Peripherals,,Robert,client,3,-385102506937072112,0.1825531444841457,29856134.859642178,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+XLNX,Xilinx,Information Technology,Semiconductors,San Jose,California,Robert,client,3,-385102506937072112,0.03033380023952176,4961021.259402418,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+MMC,Marsh & McLennan,Financials,Insurance Brokers,New York,New York,Robert,client,3,-385102506937072112,0.004960722013718005,811314.3482752953,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,Issaquah,Washington,Robert,client,3,-385102506937072112,0.13531739951374241,22130840.529505324,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+TMK,Torchmark Corp.,Financials,Life & Health Insurance,McKinney,Texas,Robert,client,3,-385102506937072112,0.14193764675424086,23213566.302183874,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+AWK,American Water Works Company Inc,Utilities,Water Utilities,Voorhees,New Jersey,Robert,client,3,-385102506937072112,0.1672938012973545,27360505.38504846,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+MO,Altria Group Inc,Consumer Staples,Tobacco,Richmond,Virginia,Robert,client,3,-385102506937072112,0.12487136078768872,20422415.611186866,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+CAG,Conagra Brands,Consumer Staples,Packaged Foods & Meats,Chicago,Illinois,Robert,client,3,-385102506937072112,0.14485806896089518,23691194.444363248,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+BLL,Ball Corp,Materials,Metal & Glass Containers,Broomfield,Colorado,Robert,client,3,-385102506937072112,0.06787405594869292,11100641.260392353,163547634,Large Cap 130/30 Strategy,6.335154455948581,170
+GPN,Global Payments Inc.,Information Technology,Data Processing & Outsourced Services,Atlanta,Georgia,Robert,client,4,-385102506937072105,0.23429035257950767,110039831.68094337,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+CFG,Citizens Financial Group,Financials,Regional Banks,Providence,Rhode Island,Robert,client,4,-385102506937072105,0.07923455485607478,37214323.951807275,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+AON,Aon plc,Financials,Insurance Brokers,London,United Kingdom,Robert,client,4,-385102506937072105,0.1920256519670953,90189246.75403288,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+AJG,Arthur J. Gallagher & Co.,Financials,Insurance Brokers,Itasca,Illinois,Robert,client,4,-385102506937072105,0.15328129158573847,71992070.2676323,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+AAPL,Apple Inc.,Information Technology,Technology Hardware,Storage & Peripherals,,Robert,client,4,-385102506937072105,0.18309095062290626,85992859.57372668,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+PRU,Prudential Financial,Financials,Life & Health Insurance,Newark,New Jersey,Robert,client,4,-385102506937072105,0.1580771983886774,74244577.77185743,469672910,Mid Cap Growth Strategy,4.652874603723247,95
+USB,U.S. Bancorp,Financials,Diversified Banks,Minneapolis,Minnesota,Cynthia,client,0,3259901514176990716,0.0016590126247271854,1386694.282791513,835855172,Mid and Large Cap 130/30 Strategy,5.555660969407942,418
+COL,Rockwell Collins,Industrials,Aerospace & Defense,Cedar Rapids,Iowa,Cynthia,client,0,3259901514176990716,0.9983409873752728,834468477.7172085,835855172,Mid and Large Cap 130/30 Strategy,5.555660969407942,418
+DLTR,Dollar Tree,Consumer Discretionary,General Merchandise Stores,Chesapeake,Virginia,Cynthia,client,1,3259901514176990717,0.20497426894596915,44413436.988870025,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+M,Macy's Inc.,Consumer Discretionary,Department Stores,Cincinnati,Ohio,Cynthia,client,1,3259901514176990717,0.01606949581699008,3481907.9662088207,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+RJF,Raymond James Financial Inc.,Financials,Investment Banking & Brokerage,St. Petersburg,Florida,Cynthia,client,1,3259901514176990717,0.005898065921295896,1277981.7705837376,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+EW,Edwards Lifesciences,Health Care,Health Care Equipment,Irvine,California,Cynthia,client,1,3259901514176990717,0.1958566584880094,42437850.396240674,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+AMG,Affiliated Managers Group Inc,Financials,Asset Management & Custody Banks,Beverly,Massachusetts,Cynthia,client,1,3259901514176990717,0.09745104041743786,21115507.15773301,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+BBY,Best Buy Co. Inc.,Consumer Discretionary,Computer & Electronics Retail,Richfield,Minnesota,Cynthia,client,1,3259901514176990717,0.1407035451587583,30487378.09459585,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+DHR,Danaher Corp.,Health Care,Health Care Equipment,Washington,D.C.,Cynthia,client,1,3259901514176990717,0.1579533932001648,34225042.54874517,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+WMT,Walmart,Consumer Staples,Hypermarkets & Super Centers,Bentonville,Arkansas,Cynthia,client,1,3259901514176990717,0.13455841905244864,29155863.790314138,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+GD,General Dynamics,Industrials,Aerospace & Defense,Falls Church,Virginia,Cynthia,client,1,3259901514176990717,0.04653511299892589,10083140.28670858,216678109,Mid and Large Cap Blended Strategy,2.5001141776127316,117
+GPC,Genuine Parts,Consumer Discretionary,Specialty Stores,Atlanta,Georgia,Cynthia,client,2,3259901514176990718,0.1500454926829452,82186608.07133177,547744598,All Cap Domestic Strategy,6.504763132225279,110
+JEF,Jefferies Financial Group,Financials,Multi-Sector Holdings,New York,New York,Cynthia,client,2,3259901514176990718,0.24490433355627,134145025.73223703,547744598,All Cap Domestic Strategy,6.504763132225279,110
+ES,Eversource Energy,Utilities,Multi-Utilities,Springfield,Massachusetts,Cynthia,client,2,3259901514176990718,0.017117380373281775,9375952.631376317,547744598,All Cap Domestic Strategy,6.504763132225279,110
+VRSN,Verisign Inc.,Information Technology,Internet Services & Infrastructure,Dulles,Virginia,Cynthia,client,2,3259901514176990718,0.1577979300124161,86432963.73988299,547744598,All Cap Domestic Strategy,6.504763132225279,110
+SYF,Synchrony Financial,Financials,Consumer Finance,Stamford,Connecticut,Cynthia,client,2,3259901514176990718,0.05179599805942575,28370978.135068938,547744598,All Cap Domestic Strategy,6.504763132225279,110
+ANSS,ANSYS,Information Technology,Application Software,Canonsburg,Pennsylvania,Cynthia,client,2,3259901514176990718,0.15535672101062947,85095804.69656539,547744598,All Cap Domestic Strategy,6.504763132225279,110
+ALLE,Allegion,Industrials,Building Products,Dublin,Ireland,Cynthia,client,2,3259901514176990718,0.2229821443050318,122137264.99353763,547744598,All Cap Domestic Strategy,6.504763132225279,110
+COF,Capital One Financial,Financials,Consumer Finance,Tysons Corner,Virginia,Cynthia,client,3,3259901514176990719,0.02304474437220486,13399133.586763425,581439888,All Cap Value Strategy,5.564055102074658,112
+MSCI,MSCI Inc,Financials,Financial Exchanges & Data,New York,New York,Cynthia,client,3,3259901514176990719,0.16683874618192346,97006701.894078,581439888,All Cap Value Strategy,5.564055102074658,112
+WFC,Wells Fargo,Financials,Diversified Banks,San Francisco,California,Cynthia,client,3,3259901514176990719,0.19570547493784166,113790969.42884545,581439888,All Cap Value Strategy,5.564055102074658,112
+MYL,Mylan N.V.,Health Care,Pharmaceuticals,Amsterdam,Netherlands,Cynthia,client,3,3259901514176990719,0.18629282095328667,108318076.95028305,581439888,All Cap Value Strategy,5.564055102074658,112
+AMAT,Applied Materials Inc.,Information Technology,Semiconductor Equipment,Santa Clara,California,Cynthia,client,3,3259901514176990719,0.20633893617868782,119973687.94177538,581439888,All Cap Value Strategy,5.564055102074658,112
+ALLE,Allegion,Industrials,Building Products,Dublin,Ireland,Cynthia,client,3,3259901514176990719,0.14378250385399377,83600882.93722571,581439888,All Cap Value Strategy,5.564055102074658,112
+BA,Boeing Company,Industrials,Aerospace & Defense,Chicago,Illinois,Cynthia,client,3,3259901514176990719,0.07799677352206177,45350435.26102897,581439888,All Cap Value Strategy,5.564055102074658,112
+K,Kellogg Co.,Consumer Staples,Packaged Foods & Meats,Battle Creek,Michigan,Cynthia,client,4,3259901514176990712,0.12850288418838904,105707097.44289462,822604863,Large Cap Mixed Strategy,4.877970526104572,208
+WLTW,Willis Towers Watson,Financials,Insurance Brokers,London,United Kingdom,Cynthia,client,4,3259901514176990712,0.20065596743931247,165060574.6055481,822604863,Large Cap Mixed Strategy,4.877970526104572,208
+UNH,United Health Group Inc.,Health Care,Managed Health Care,Minnetonka,Minnesota,Cynthia,client,4,3259901514176990712,0.0898509407129498,73911820.7755972,822604863,Large Cap Mixed Strategy,4.877970526104572,208
+TJX,TJX Companies Inc.,Consumer Discretionary,Apparel Retail,Framingham,Massachusetts,Cynthia,client,4,3259901514176990712,0.2583495810485895,212519621.72458237,822604863,Large Cap Mixed Strategy,4.877970526104572,208
+MAR,Marriott Int'l.,Consumer Discretionary,Hotels,Resorts & Cruise Lines,,Cynthia,client,4,3259901514176990712,0.3226406266107591,265405748.45137763,822604863,Large Cap Mixed Strategy,4.877970526104572,208
+JNJ,Johnson & Johnson,Health Care,Health Care Equipment,New Brunswick,New Jersey,Lawson,manager,0,-4616788562093188533,0.21308562300470438,166846565.937888,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+KHC,Kraft Heinz Co,Consumer Staples,Packaged Foods & Meats,Pittsburgh,Pennsylvania,Lawson,manager,0,-4616788562093188533,0.12342168968832438,96639486.02620618,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+L,Loews Corp.,Financials,Multi-line Insurance,New York,New York,Lawson,manager,0,-4616788562093188533,0.09568479279745591,74921427.6665743,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+RTN,Raytheon Co.,Industrials,Aerospace & Defense,Waltham,Massachusetts,Lawson,manager,0,-4616788562093188533,0.20801998966038138,162880162.5931532,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+EW,Edwards Lifesciences,Health Care,Health Care Equipment,Irvine,California,Lawson,manager,0,-4616788562093188533,0.11981696516548042,93816977.87522066,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+BR,Broadridge Financial Solutions,Information Technology,Data Processing & Outsourced Services,Lake Success,New York,Lawson,manager,0,-4616788562093188533,0.1667993768344826,130604321.55387,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+ESRX,Express Scripts,Health Care,Health Care Distributors,Cool Valley,Missouri,Lawson,manager,0,-4616788562093188533,0.07317156284917078,57293513.34708752,783002455,Mid and Large Cap Growth Strategy,3.9053473124478146,342
+LRCX,Lam Research,Information Technology,Semiconductor Equipment,Fremont,California,Lawson,manager,1,-4616788562093188534,0.9002426115553518,564753571.7858684,627334859,All Cap 130/30 Strategy,3.660312417706366,121
+WFC,Wells Fargo,Financials,Diversified Banks,San Francisco,California,Lawson,manager,1,-4616788562093188534,0.09975738844464815,62581287.21413158,627334859,All Cap 130/30 Strategy,3.660312417706366,121
+WEC,Wec Energy Group Inc,Utilities,Electric Utilities,Milwaukee,Wisconsin,Chloe,manager,0,2821398652557191391,0.11639927437339653,86313997.52373937,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+EIX,Edison Int'l,Utilities,Electric Utilities,Rosemead,California,Chloe,manager,0,2821398652557191391,0.07429818608235907,55094617.076038875,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+HON,Honeywell Int'l Inc.,Industrials,Industrial Conglomerates,Morristown,New Jersey,Chloe,manager,0,2821398652557191391,0.20783163258428686,154114182.556578,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+CFG,Citizens Financial Group,Financials,Regional Banks,Providence,Rhode Island,Chloe,manager,0,2821398652557191391,0.1399827064891877,103801909.81702179,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+PBCT,People's United Financial,Financials,Thrifts & Mortgage Finance,Bridgeport,Connecticut,Chloe,manager,0,2821398652557191391,0.0922518562163858,68407870.51196061,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+SO,Southern Co.,Utilities,Electric Utilities,Atlanta,Georgia,Chloe,manager,0,2821398652557191391,0.20004406546133852,148339438.22947985,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+JWN,Nordstrom,Consumer Discretionary,Department Stores,Seattle,Washington,Chloe,manager,0,2821398652557191391,0.1691922787930454,125461795.28518145,741533811,Mid and Large Cap 130/30 Strategy,4.442619865161581,146
+CDNS,Cadence Design Systems,Information Technology,Application Software,San Jose,California,Chloe,manager,1,2821398652557191390,0.4795627738745465,354904455.2966565,740058392,Large Cap Domestic Strategy,1.5522736318690782,412
+KLAC,KLA-Tencor Corp.,Information Technology,Semiconductor Equipment,Milpitas,California,Chloe,manager,1,2821398652557191390,0.5204372261254535,385153936.7033435,740058392,Large Cap Domestic Strategy,1.5522736318690782,412
+EQT,EQT Corporation,Energy,Oil & Gas Exploration & Production,Pittsburgh,Pennsylvania,Chloe,manager,2,2821398652557191389,1.0,324122270.0,324122270,Mid and Large Cap Blended Strategy,7.8721749420782725,270
+GT,Goodyear Tire & Rubber,Consumer Discretionary,Tires & Rubber,Akron,Ohio,Chloe,manager,3,2821398652557191388,0.09105534205061153,64560972.17897138,709030033,Mid Cap Blended Strategy,3.7015769787058836,431
+AMD,Advanced Micro Devices Inc,Information Technology,Semiconductors,Sunnyvale,California,Chloe,manager,3,2821398652557191388,0.18231332768901753,129265624.74768391,709030033,Mid Cap Blended Strategy,3.7015769787058836,431
+ALXN,Alexion Pharmaceuticals,Health Care,Biotechnology,Cheshire,Connecticut,Chloe,manager,3,2821398652557191388,0.24717104943918614,175251697.3405108,709030033,Mid Cap Blended Strategy,3.7015769787058836,431
+WEC,Wec Energy Group Inc,Utilities,Electric Utilities,Milwaukee,Wisconsin,Chloe,manager,3,2821398652557191388,0.19927500833158274,141291965.7334174,709030033,Mid Cap Blended Strategy,3.7015769787058836,431
+ES,Eversource Energy,Utilities,Multi-Utilities,Springfield,Massachusetts,Chloe,manager,3,2821398652557191388,0.2801852724896021,198659772.99941656,709030033,Mid Cap Blended Strategy,3.7015769787058836,431
