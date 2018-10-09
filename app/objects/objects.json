@@ -808,178 +808,6 @@
         "secretSourcePipelineId" : "buckets"
       }
     }, {
-      "id" : "Finance_signals_aggr",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "b083a011-bfd6-4ba6-9366-9b639ede912a",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "b083a011-bfd6-4ba6-9366-9b639ede912a"
-      }, {
-        "type" : "search-fields",
-        "id" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2"
-      }, {
-        "type" : "facet",
-        "id" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6"
-      }, {
-        "type" : "solr-query",
-        "id" : "74bae31b-e151-4a95-b8cf-5d7f7c467013",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "74bae31b-e151-4a95-b8cf-5d7f7c467013"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "Finance_signals_aggr"
-      }
-    }, {
-      "id" : "finance-default",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
-      }, {
-        "type" : "search-fields",
-        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
-      }, {
-        "type" : "facet",
-        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
-      }, {
-        "type" : "solr-query",
-        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "finance-default"
-      }
-    }, {
       "id" : "queries-facets",
       "stages" : [ {
         "type" : "set-params",
@@ -1255,6 +1083,300 @@
       } ],
       "properties" : {
         "secretSourcePipelineId" : "latest-news"
+      }
+    }, {
+      "id" : "Finance_signals_aggr",
+      "stages" : [ {
+        "type" : "recommendation",
+        "id" : "b083a011-bfd6-4ba6-9366-9b639ede912a",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "b083a011-bfd6-4ba6-9366-9b639ede912a"
+      }, {
+        "type" : "search-fields",
+        "id" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2"
+      }, {
+        "type" : "facet",
+        "id" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6"
+      }, {
+        "type" : "solr-query",
+        "id" : "74bae31b-e151-4a95-b8cf-5d7f7c467013",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "74bae31b-e151-4a95-b8cf-5d7f7c467013"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_signals_aggr"
+      }
+    }, {
+      "id" : "company-news",
+      "stages" : [ {
+        "type" : "sub-query",
+        "id" : "mm8",
+        "key" : "company-buckets",
+        "collection" : "Finance",
+        "handler" : "select",
+        "method" : "GET",
+        "parentParams" : [ "company-ticker" ],
+        "rollupKeys" : [ ],
+        "params" : [ {
+          "key" : "fq",
+          "value" : "{!field f=ticker_s v=$company-ticker}"
+        }, {
+          "key" : "q",
+          "value" : "*:*"
+        }, {
+          "key" : "fq",
+          "value" : "_lw_data_source_s:sp500"
+        } ],
+        "headers" : [ ],
+        "type" : "sub-query",
+        "skip" : false,
+        "label" : "Get Company",
+        "condition" : "request.hasParam(\"company-ticker\")",
+        "licensed" : true,
+        "secretSourceStageId" : "mm8"
+      }, {
+        "type" : "javascript-query",
+        "id" : "9",
+        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results!');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    var company_disjunction = '(';\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n        logger.info('Company Portfolios: adding boost for ' + company_name);\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:(\" + ticker + \")^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n        if (i > 0) {\n          company_disjunction = company_disjunction + \" OR \";\n        }\n        company_disjunction = company_disjunction + \"ticker_s:\" + ticker + \" OR entity_stock_ticker_mv_ss:\" + ticker + \"* OR title_t:\" + ticker + \" OR title_t:\\\"\" + company_name + \"\\\"\";\n    }\n    company_disjunction = company_disjunction + ')';\n    request.addParam('fq', company_disjunction);\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Filter By Company",
+        "condition" : "",
+        "licensed" : true,
+        "secretSourceStageId" : "9"
+      }, {
+        "type" : "recommendation",
+        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
+      }, {
+        "type" : "search-fields",
+        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
+      }, {
+        "type" : "facet",
+        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
+      }, {
+        "type" : "solr-query",
+        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "company-news"
+      }
+    }, {
+      "id" : "finance-default",
+      "stages" : [ {
+        "type" : "recommendation",
+        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
+      }, {
+        "type" : "search-fields",
+        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
+      }, {
+        "type" : "facet",
+        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
+      }, {
+        "type" : "solr-query",
+        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "finance-default"
       }
     } ],
     "features" : {
@@ -1548,6 +1670,11 @@
       "collection" : "Finance",
       "searchHandler" : "/select"
     }, {
+      "id" : "default",
+      "queryPipeline" : "finance-default",
+      "collection" : "Finance",
+      "searchHandler" : "select"
+    }, {
       "id" : "Finance_signals_aggr-vEYb",
       "queryPipeline" : "Finance_signals_aggr-CoCd",
       "collection" : "Finance_signals_aggr",
@@ -1567,6 +1694,11 @@
       "queryPipeline" : "Finance_signals-STPg",
       "collection" : "Finance_signals",
       "searchHandler" : "/select"
+    }, {
+      "id" : "company-news",
+      "queryPipeline" : "company-news",
+      "collection" : "Finance",
+      "searchHandler" : "select"
     }, {
       "id" : "Finance-c3f7",
       "queryPipeline" : "Finance-5nq0",
@@ -2131,6 +2263,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:default",
+      "object" : "query-pipeline:finance-default",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:Finance_signals_aggr-I5Tj",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
@@ -2186,6 +2323,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:company-news",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "index-profile:Finance-uDja",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
@@ -2224,6 +2366,11 @@
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "object" : "spark:Finance_click_signals_aggregation",
       "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:company-news",
+      "object" : "query-pipeline:company-news",
+      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "datasource:sp500",
@@ -2371,6 +2518,11 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-pipeline:company-news",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:Finance_signals_aggr",
       "object" : "query-pipeline:Finance_signals_aggr",
       "linkType" : "relatesTo",
@@ -2464,6 +2616,11 @@
       "subject" : "query-profile:suggest",
       "object" : "query-pipeline:suggest",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:default",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals-Roet",
@@ -2651,6 +2808,11 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:default",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "index-profile:Finance-cUlP",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
@@ -2724,6 +2886,11 @@
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "object" : "spark:Finance_user_query_history_aggregation",
       "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:company-news",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance",
@@ -3486,7 +3653,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-09T10:13:15.736Z",
+    "exportedDate" : "2018-10-09T13:13:52.907Z",
     "fusionVersion" : "4.1.0",
     "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
