@@ -183,88 +183,9 @@
 
                     <div class="home-sidebar" styling="width-1" styling="stretch-content">
 
-                        <!--Old Collaboration Module management of portfolios-->
-
-                        <!-- 0 -->
-
-                        <layout:grid>
-                            <!--
-                            <layout:block>
-                                    <a href="#/portfolios">
-                                        <h2 ng-if="collaborationTopics.length > 0">Your portfolios</h2>
-                                        <h2 ng-if="collaborationTopics.length == 0">You haven't created any portfolios yet</h2>
-                                    </a>
-                                    <hr class="simple">
-                            </layout:block>
-                            -->
-                            <layout:block ng-if="press.facets.Company_Events_ss.filters.length > 0">
-                                <h3>Events affecting your companies.</h3>
-                                <chart:tagcloud class="small-cloud" response="press" facet-name="Company_Events_ss" action="news"></chart:tagcloud>
-                                <hr class="simple">
-                            </layout:block>
-                            <layout:block ng-if="press.facets.Company_Events_ss.filters.length == 0">
-                                No significant events affecting your companies.
-                            </layout:block>
-                            <layout:block ng-if="press.facets.entity_person_hv_ss.filters.length > 0">
-                                <h3>People affecting your companies.</h3>
-                                <chart:tagcloud class="small-cloud" response="press" facet-name="entity_person_hv_ss" action="news"></chart:tagcloud>
-                                <hr class="simple">
-                            </layout:block>
-                            <layout:block ng-if="press.facets.entity_person_hv_ss.filters.length == 0">
-                                <h3>Top People</h3>
-                                No significant mentions of people related to your companies.
-                                <hr class="simple">
-                            </layout:block>
-                        </layout:grid>
-
-                        <!-- 1 -->
-                        <!--
-                        <layout:grid ng-if="collaborationTopics.length > 0">
-                            <layout:block ng-repeat="topic in collaborationTopics track by topic.id">
-                                    <h3><a class="simple-link" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></h3>
-                                    <p ng-if="topic.bookmarks.length == 0">You haven't added any companies yet.</p>
-                                    <div ng-if="topic.bookmarks.length > 0">
-                                        <layout:grid class="bookmark" ng-repeat="bookmark in topic.bookmarks">
-                                            <layout:block>
-                                                <h5 class="bookmark-title"><a href="#/companies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a></h5>
-                                            </layout:block>
-                                            <layout:block>
-                                                <layout:grid ng-repeat="r in companyDetails.results" ng-if="r.result.fields.ticker_s.val[0] == bookmark.target">
-                                                    <layout:block>
-                                                        <h5>{{r.result.related[0].result | field:'close_d' | actual | number : 1}}</h5>
-                                                        <h5>({{r.result.related[0].result | field:'Low' | actual | number : 1}}&nbsp;-&nbsp;{{r.result.related[0].result | field:'High' | actual | number : 1}})</h5>
-                                                    </layout:block>
-                                                </layout:grid>
-                                            </layout:block>
-                                        </layout:grid>
-                                    </div>
-                                    <hr class="simple">
-
-                            </layout:block>
-                        </layout:grid>
-                        -->
-                        <!-- 2 -->
-                        <!--
-                        <layout:grid ng-if="collaborationTopics.length == 0">
-                            <layout:block>
-                                <h3>What are Portfolios?</h3>
-                                <p>Portfolios are groups of bookmarked companies for which you want to track
-                                    catalysts. As you navigate the application,
-                                    you can save companies into an existing Portfolio.</p>
-                                <hr class="simple">
-                                <h3 class="mb0em">How many Portfolios can I create?</h3>
-                                <p>As many as you like! Better still, each Portfolio can contain as many items as
-                                    you wish.</p>
-                            </layout:block>
-                        </layout:grid>
-                        -->
-
-                        <!--New Fusion-collection approach-->
-
                         <layout:grid>
                             <layout:block>
                                 <h2>Your Portfolios</h2>
-                                <h4>{{catalysts.hits.act[1]}} stories affecting your companies</h4>
                                 <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
                                         <search:field name="ticker_s" label="" value-element="h4" styling="label-left text-center" class="inline-h4"></search:field>
@@ -285,23 +206,6 @@
                                                 <h5> View Portfolio </h5>
                                             </a>
                                         </layout:block>
-
-                                        <!--<layout:box ng-if="result.related.length > 2"><h4>Top 3 Companies</h4></layout:box>-->
-                                        <!--<layout:box ng-if="result.related.length < 3"><h4>Top Companies</h4></layout:box>-->
-                                        <!--<search:result-list results="result.related">-->
-                                            <!--<search:result class="no-border" ng-if="index < 3">-->
-                                                <!--<layout:grid>-->
-                                                    <!--<layout:block xs="1-2">-->
-                                                        <!--<search:field name="company_name_s" label="" show="1" styling="title"></search:field>-->
-                                                    <!--</layout:block>-->
-                                                    <!--<layout:block xs="1-2">-->
-                                                        <!--<search:field name="weight_s" show="1" label="" styling="label-inline pull-right" number-format="#%"></search:field>-->
-                                                    <!--</layout:block>-->
-                                                <!--</layout:grid>-->
-                                                <!--<search:field name="industry_s" label="Industry" show="1" styling="label-above"></search:field>-->
-                                            <!--</search:result>-->
-                                        <!--</search:result-list>-->
-                                        <!--<layout:box ng-if="result.related.length > 2"><h5><a href="/">See More</a></h5></layout:box>-->
                                     </search:result>
                                 </search:result-list>
                             </layout:block>
