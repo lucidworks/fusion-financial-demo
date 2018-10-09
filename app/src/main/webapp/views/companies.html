@@ -70,12 +70,12 @@
 
                         <!--title + stock price-->
                         <layout:grid>
-                          <layout:block xs="1-1" sm="1-2" md="3-5">
+                          <layout:block xs="1-1" sm="1-2" md="4-5">
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                               <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
                             </layout:box>
                           </layout:block>
-                          <layout:block xs="1-1" sm="1-2" md="2-5">
+                          <layout:block xs="1-1" sm="1-2" md="1-5">
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0" styling="pull-right">
                               <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
                               <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
