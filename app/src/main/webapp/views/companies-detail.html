@@ -103,12 +103,7 @@
 
                                         <hr/>
                                         <layout:grid styling="metadata">
-                                            <layout:block md="1-5">
-                                                <layout:box ng-controller="MainCtrl" class="imgfullwidth">
-                                                    <img ng-src="{{mapUrl(article) | trusted}}"/>
-                                                </layout:box>
-                                            </layout:block>
-                                            <layout:block md="2-5">
+                                            <layout:block md="3-5">
                                                 <layout:box>
                                                     <search:field result="article" name="city_s" label="City" styling="label-above"></search:field>
                                                     <search:field result="article" name="stats_s" label="State" styling="label-above"></search:field>
@@ -162,17 +157,7 @@
                                 
                                     <layout:grid>
 
-                                        <layout:block md="1-3" lg="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-light">
-                                            <layout:sidebar padding-left="0">
-                                                <search:facet-list response="news" platform="platform" query="getNews"
-                                                                   styling="facet-list"
-                                                                   facet-names="entity_country_hv_ss=Country,entity_company_hv_ss=Company,entity_person_hv_ss=Person,industry_tags_hv_ss=Industry,topics_tags_hv_ss=Topics">
-                                                    <search:facet collapsible="true" show="8" show-more="20"></search:facet>
-                                                </search:facet-list>
-                                            </layout:sidebar>
-                                        </layout:block>
-
-                                        <layout:block md="2-3" lg="18-24" styling="bg-searchresults">
+                                        <layout:block md="1-1" styling="bg-searchresults">
 
                                             <layout:box padding-left="2">
 
