@@ -6,17 +6,14 @@
 
 <search:platform var="topSearches" conf="platforms.fusion.logs.top-user-searches"></search:platform>
 
-<!--<search:platform var="companies" conf="platforms.fusion.finance.historical-home"></search:platform>-->
-
 <search:query var="query" parameters="*"></search:query>
 
-<!--<search:query var="getCompanies" parameters="-fa">-->
-    <!--<query:filter field="_lw_data_source_s" value="sp500"></query:filter>-->
-<!--</search:query>-->
-
-<!--<search:response var="companyDetails" platform="companies" query="getCompanies"></search:response>-->
 
 <search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss">
+    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:query var="companyNewsQuery" results-per-page="0" from="backendQuery">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
@@ -24,7 +21,9 @@
     <widget:spinner></widget:spinner>
 </search:response>
 
-<search:response var="press" platform="company-news" query="backendQuery"></search:response>
+<search:response var="press" platform="company-news" query="companyNewsQuery">
+    <widget:spinner></widget:spinner>
+</search:response>
 
 <lifecycle:required object="user.name">
     <!-- Top (most frequent) searches by this user -->
@@ -37,17 +36,8 @@
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
     </search:query>
-    <search:response var="mycompanies" query="ownerQuery" platform="finance">
-        <widget:spinner></widget:spinner>
-    </search:response>
+    <search:response var="mycompanies" query="ownerQuery" platform="finance"></search:response>
 
-</lifecycle:required>
-
-<lifecycle:required object="mycompanies.results">
-    <search:query var="companiesQuery" parameters="-" rpp="0">
-        <query:custom name="fq" value="{{queryFields(mycompanies,'ticker_s','title_t')}} OR {{queryFields(mycompanies,'company_name_s','title_t')}}"></query:custom>
-    </search:query>
-    <search:response var="catalysts" platform="latest-news" query="companiesQuery"></search:response>
 </lifecycle:required>
 
 <layout:include file="views/partials/header-home.tpl.html"></layout:include>
@@ -179,23 +169,28 @@
             </layout:block>
 
             <!-- PORTFOLIOS -->
-            <layout:block md="1-3">
+            <layout:animate animation="animate-fadeInUp" on="press" md="1-3" layout-block>
+            <!--<layout:block md="1-3">-->
 
                     <div class="home-sidebar" styling="width-1" styling="stretch-content">
 
                         <layout:grid>
                             <layout:block>
-                                <h2>Your Portfolios</h2>
+                                <h2>{{press.hits.act[1]}} Stories affecting Your Portfolios</h2>
                                 <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
-                                        <h3>{{result.fields.bucket_name_s.val[0]}}</h3>
-                                        <search:field name="ticker_s" label="Holdings" value-element="h4" styling="label-left" class="inline-h4 portfolio-holdings"></search:field>
+                                        <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                                        <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
+                                        <search:field name="ticker_s" label="Holdings" styling="label-left" class="inline"></search:field>
                                         <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
                                         <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
                                         <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
                                         <hr class="simple">
                                         <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
-                                            <p class="tk-stl-label">Sector concentration: {{sector}}</p>
+                                            <p class="tk-stl-label">Sector concentration</p>
+                                            <div class="tk-rgrid-u-1 tk-rgrid-u-md-2-3">
+                                                <p><span class="value">{{sector}}</span></p>
+                                            </div>
                                             <layout:grid>
                                                 <layout:block xs="1-2">
                                                     <progress:bar percentage="(result | field:sector | actual | numberFormat:'#.##')*100"></progress:bar>
@@ -216,7 +211,8 @@
                             </layout:block>
                         </layout:grid>
                     </div>
-            </layout:block>
+            <!--</layout:block>-->
+            </layout:animate>
         </layout:grid>
 
         <!-- Simple Footer -->
