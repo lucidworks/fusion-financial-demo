@@ -21,9 +21,7 @@
     <widget:spinner></widget:spinner>
 </search:response>
 
-<search:response var="press" platform="company-news" query="companyNewsQuery">
-    <widget:spinner></widget:spinner>
-</search:response>
+<search:response var="press" platform="company-news" query="companyNewsQuery"></search:response>
 
 <lifecycle:required object="user.name">
     <!-- Top (most frequent) searches by this user -->
@@ -52,11 +50,11 @@
             <div class="banner-search">
                 <layout:box>
                     <search:box placeholder="Search for symbols or companies..."
-                                action="companies">
+                                action="news">
                         <layout:grid style="text-align:left;">
                             <layout:block>
                                 <query:suggestions completion-service="services.suggestions.allSuggester"
-                                                   action="companies"></query:suggestions>
+                                                   action="news"></query:suggestions>
                             </layout:block>
                         </layout:grid>
                     </search:box>
@@ -169,14 +167,14 @@
             </layout:block>
 
             <!-- PORTFOLIOS -->
-            <layout:animate animation="animate-fadeInUp" on="press" md="1-3" layout-block>
+            <layout:animate animation="animate-fadeInUp" on="mycompanies" md="1-3" layout-block>
             <!--<layout:block md="1-3">-->
 
                     <div class="home-sidebar" styling="width-1" styling="stretch-content">
 
                         <layout:grid>
                             <layout:block>
-                                <h2>{{press.hits.act[1]}} Stories affecting Your Portfolios</h2>
+                                <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Portfolios</h2>
                                 <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
                                     <search:result>
                                         <search:field name="bucket_name_s" styling="title" show="1"></search:field>

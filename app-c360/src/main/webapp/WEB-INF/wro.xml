@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups xmlns="http://www.isdc.ro/wro">
+
+
+    <!-- ====================================== -->
+    <!-- End-user application - dynamic assets  -->
+    <!-- ====================================== -->
+
+    <group name="main">
+        <css>classpath:generated/lib/appkit-ui/dist/less/phoenix.all.less</css>
+        <css>/styles/twigkit.less</css>
+        <css>/styles/animations.css</css>
+        <js>/scripts/app.js</js>
+        <js>/scripts/routes.js</js>
+        <js>/scripts/controllers/main.js</js>
+        <js>/scripts/services/**.js</js>
+    </group>
+
+    <!-- ====================================== -->
+    <!-- End-user application - pre-built libs  -->
+    <!-- ====================================== -->
+
+    <group name="vendor">
+        <js>classpath:generated/lib/angular/angular.js</js>
+        <js>classpath:generated/lib/angular-animate/angular-animate.js</js>
+        <js>classpath:generated/lib/angular-cookies/angular-cookies.js</js>
+        <js>classpath:generated/lib/angular-sanitize/angular-sanitize.js</js>
+        <js>classpath:generated/lib/appkit-ui/dist/js/lightning.min.js</js>
+        <js>classpath:generated/lib/angular-ui-router/release/angular-ui-router.js</js>
+        <js>classpath:generated/lib/angular-resizable/src/angular-resizable.js</js>
+    </group>
+
+    <group name="angular">
+        <js>classpath:generated/lib/angular/angular.js</js>
+        <js>classpath:generated/lib/angular-resource/angular-resource.js</js>
+        <js>classpath:generated/lib/angular-touch/angular-touch.js</js>
+        <js>classpath:generated/lib/angular-animate/angular-animate.js</js>
+        <js>classpath:generated/lib/angular-cookies/angular-cookies.js</js>
+        <js>classpath:generated/lib/angular-sanitize/angular-sanitize.js</js>
+        <js>classpath:generated/lib/angular-ui-router/release/angular-ui-router.js</js>
+    </group>
+
+    <group name="lightning">
+        <!-- Used in builder. Errors when used via webpack-->
+        <js>classpath:generated/lib/appkit-ui/dist/js/lightning.min.js</js>
+    </group>
+
+    <group name="lightning-dev">
+        <!-- Used for debugging lightning. Note: lightning.js does not exist. You have to build lightning locally and cp lightning.js into the location below. -->
+        <js>classpath:generated/lib/appkit-ui/dist/js/lightning.js</js>
+    </group>
+
+
+    <!-- ====================================== -->
+    <!-- Setup app                              -->
+    <!-- ====================================== -->
+
+    <group name="setup">
+        <css>classpath:generated/lib/appkit-ui/dist/less/phoenix.all.less</css>
+        <css>/setup/styles/twigkit.less</css>
+        <css>/setup/styles/animations.css</css>
+        <css>classpath:generated/lib/highlightjs/styles/agate.css</css>
+
+        <js>/setup/scripts/app.js</js>
+        <js>/setup/scripts/routes.js</js>
+        <js>/setup/scripts/services/markup.js</js>
+        <js>/setup/scripts/services/platform.js</js>
+        <js>/setup/scripts/services/notification.js</js>
+        <js>/setup/scripts/directives/**.js</js>
+        <js>/setup/scripts/filters/encode-path.js</js>
+        <js>/setup/scripts/controllers/setup.js</js>
+        <js>/setup/scripts/components/step-content.js</js>
+        <js>/setup/scripts/directives/**.js</js>
+        <js>classpath:generated/lib/ng-file-upload/dist/ng-file-upload.js</js>
+        <js>classpath:generated/lib/angular-multi-step-form/dist/browser/angular-multi-step-form.min.js</js>
+        <js>classpath:generated/lib/telemark/dist/telemark.min.js</js>
+        <js>classpath:generated/lib/telemark/dist/telemark-html-plugin.min.js</js>
+        <js>classpath:generated/lib/highlightjs/highlight.pack.js</js>
+        <js>classpath:generated/lib/angular-highlightjs/build/angular-highlightjs.js</js>
+        <js>classpath:generated/lib/xml-formatter/browser/xml-formatter.js</js>
+    </group>
+</groups>

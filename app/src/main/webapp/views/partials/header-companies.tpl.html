@@ -1,0 +1,86 @@
+<layout:grid styling="header">
+
+  <!-- logo -->
+  <layout:block md="4-24" styling="hidemedium">
+    <layout:box>
+      <layout:logo image="assets/360logo.png"></layout:logo>
+    </layout:box>
+  </layout:block>
+
+
+  <!--<search:platform var="instantCompanies" conf="platforms.fusion.instant.companies"></search:platform>-->
+  <!--<search:platform var="instantNews" conf="platforms.fusion.instant.news"></search:platform>-->
+
+  <!-- search -->
+  <layout:block xs="18-24" md="1-2">
+    <layout:box>
+      <search:box placeholder={{placeholder}} action="{{action}}" social="true">
+
+        <!--<query:suggestions completion-service="services.suggestions.querySuggestionsTerms" action="companies"></query:suggestions>-->
+
+        <query:suggestions completion-service="services.suggestions.companySuggester" action="companies"></query:suggestions>
+
+
+        <!--<instant:result-list platform="instantNews">-->
+          <!--<search:result>-->
+            <!--<a ng-href="{{result | field:'Content_Location' | actual}}" class="link">-->
+
+              <!--<layout:grid ng-if="result | field:'og_image_s'">-->
+                <!--<layout:block md="2-24">-->
+                  <!--<media:image field-name="og_image_s" width="75"></media:image>-->
+                <!--</layout:block>-->
+                <!--<layout:block md="16-24">-->
+                  <!--<search:field name="title_t" label="" styling="title" urlfield="Content_Location"></search:field>-->
+                <!--</layout:block>-->
+                <!--<layout:block md="6-24">-->
+                  <!--<search:field name="entity_company_hv_ss" styling="capsules" label=""></search:field>-->
+                <!--</layout:block>-->
+              <!--</layout:grid>-->
+
+              <!--<layout:grid ng-if="!result | field:'og_image_s'">-->
+                <!--<layout:block md="3-4">-->
+                  <!--<search:field name="title_t" label="" styling="title" urlfield="Content_Location"></search:field>-->
+                <!--</layout:block>-->
+                <!--<layout:block md="1-4">-->
+                  <!--<search:field name="entity_company_hv_ss" styling="capsules" label=""></search:field>-->
+                <!--</layout:block>-->
+              <!--</layout:grid>-->
+
+            <!--</a>-->
+          <!--</search:result>-->
+        <!--</instant:result-list>-->
+
+      </search:box>
+    </layout:box>
+  </layout:block>
+
+  <layout:block md="1-3">
+    <layout:box class="sidebar-container" styling="pull-right">
+      <span id="open-user-sidebar" class="ak-uniF10E sidebar-dark"></span>
+    </layout:box>
+  </layout:block>
+  <!-- User Sidebar -->
+  <layout:block class="user-sidebar">
+    <p class="title"><span>{{$parent.$parent.user.name}}</span> <close class="icon-cancel"></close></p>
+    <hr>
+    <layout:box>
+      <h4><i class="icon-bookmark"></i> Your bookmarks</h4>
+      <collaborate:bookmark-list></collaborate:bookmark-list>
+      <br/><br/>
+      <h4><i class="icon-search"></i> Your saved searches</h4>
+      <collaborate:saved-query-list></collaborate:saved-query-list>
+      <br/><br/>
+      <p styling="sm" class="user-sidebar-logout"><a styling="button button-secondary" ng-href="logout/" href="logout/">Logout</a></p>
+    </layout:box>
+  </layout:block>
+
+
+</layout:grid>
+
+<!-- NAVBAR -->
+<layout:grid id="navbar">
+  <layout:block>
+    <search:tabs response="response" tabs="home=Home,news=News,companies=Companies,portfolios=Portfolios"
+                 styling="navbar" class="tk-stl-navbar"></search:tabs>
+  </layout:block>
+</layout:grid>
