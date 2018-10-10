@@ -51,31 +51,43 @@
 
   <layout:block md="2-3" lg="18-24">
 
-    <layout:box>
-    <layout:grid>
-      <layout:block>
-        <layout:box padding-bottom="0">
-          <search:breadcrumbs query="news-query" exclude="_lw_data_source_s" group-by-field="true"></search:breadcrumbs>
-        </layout:box>
-      </layout:block>
-      <layout:block>
-        <layout:box>
-          <toggle:controls labels="News,Your News" panes="panes" class="tk-rgrid-justify-end"></toggle:controls>
-        </layout:box>
-      </layout:block>
-    </layout:grid>
-    </layout:box>
+    <layout:block>
+      <search:message-list response="news" type="co_answer_card_content" class="answer-card"></search:message-list>
+    </layout:block>
 
-    <search:message-list response="news" type="co_answer_card_content" class="answer-card"></search:message-list>
+    <!--<layout:box>-->
+      <!--<layout:grid>-->
+        <layout:block>
+          <layout:box padding-bottom="0">
+            <search:breadcrumbs query="news-query" exclude="_lw_data_source_s" group-by-field="true"></search:breadcrumbs>
+          </layout:box>
+        </layout:block>
+
+      <!--</layout:grid>-->
+    <!--</layout:box>-->
+
+    <layout:block>
+        <toggle:controls labels="News,Your News" panes="panes"></toggle:controls>
+    </layout:block>
 
     <toggle:panes id="panes">
       <toggle:pane visible="true">
-        <search:response-statistics response="news"></search:response-statistics>
+
         <!-- NEWS -->
         <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
 
           <!-- CONTENT > RESULTS -->
           <layout:block class="tk-stl-bg-searchresults">
+            <layout:grid styling="sortoptions-wrapper">
+              <layout:block>
+                <layout:box>
+                  <search:response-statistics response="news"></search:response-statistics>
+                  <!--<layout:controls class="right">-->
+                    <!--<search:sort response="response" fields="date_dt=Date"></search:sort>-->
+                  <!--</layout:controls>-->
+                </layout:box>
+              </layout:block>
+            </layout:grid>
             <div class="tk-bl-content">
               <layout:grid>
                 <layout:block>
@@ -132,12 +144,21 @@
       </toggle:pane>
 
       <toggle:pane>
-        <search:response-statistics response="yourNews"></search:response-statistics>
         <!-- YOUR NEWS -->
         <layout:animate animation="animate-fadeInUp" on="yourNews" layout-grid>
 
           <!-- CONTENT > RESULTS -->
-          <layout:block md="2-3" lg="18-24" class="tk-stl-bg-searchresults">
+          <layout:block class="tk-stl-bg-searchresults">
+            <layout:grid styling="sortoptions-wrapper">
+              <layout:block>
+                <layout:box>
+                  <search:response-statistics response="yourNews"></search:response-statistics>
+                  <!--<layout:controls class="right">-->
+                    <!--<search:sort response="response" fields="date_dt=Date"></search:sort>-->
+                  <!--</layout:controls>-->
+                </layout:box>
+              </layout:block>
+            </layout:grid>
             <div class="tk-bl-content">
               <layout:grid>
                 <layout:block>
