@@ -1,0 +1,44 @@
+[
+  {
+    "snippet": "<layout:block>\n\t$0\n</layout:block>",
+    "caption": "layout:block",
+    "docHTML": "A layout block for positioning content",
+    "tabTrigger": "block"
+  },
+  {
+    "snippet": "<layout:box>\n\t$0\n</layout:box>",
+    "caption": "layout:box",
+    "docHTML": "Adds padding around content",
+    "tabTrigger": "box"
+  },
+  {
+    "snippet": "<layout:grid>\n\t<layout:block>\n\t\t$0\n\t</layout:block>\n</layout:grid>",
+    "caption": "layout:grid",
+    "docHTML": "Grid container with blocks",
+    "tabTrigger": "grid"
+  },
+  {
+    "snippet": "<search:result-list response=\"${1:response}\" styling=\"${2:cards-sm-2 cards-lg-3 cards-xl-4}\">\n\t<search:result styling=\"${3:card}\">\n\t\t$0\n\t</search:result>\n</search:result-list>",
+    "caption": "search:result-list",
+    "docHTML": "Result list",
+    "tabTrigger": "result-list"
+  },
+  {
+    "snippet": "<search:result styling=\"${1}\"></search:result>",
+    "caption": "search:result",
+    "docHTML": "Result container",
+    "tabTrigger": "result"
+  },
+  {
+    "snippet": "<search:field name=\"${1:field_name}\" label=\"${2:Label...}\"></search:field>",
+    "caption": "search:field",
+    "docHTML": "Field tag to use when rendering results",
+    "tabTrigger": "field"
+  },
+  {
+    "snippet": "<search:platform var=\"${1:var}\" conf=\"${2:platforms.solr}\"></search:platform>\n<search:query var=\"${3:query}\" parameters=\"${4:*}\"></search:query>\n<search:response var=\"${5:response}\" platform=\"${1:field_name}\" query=\"${3:query}\"></search:response>",
+    "caption": "platform + query + response",
+    "docHTML": "Platform, Query and Response tags",
+    "tabTrigger": "pqr"
+  }
+]

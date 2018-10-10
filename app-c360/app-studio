@@ -1,0 +1,505 @@
+#!/bin/sh
+# ----------------------------------------------------------------------------
+# App Studio
+#
+# Copyright (c) twigkit.com
+#
+# NOTICE: All information contained herein is, and remains the property
+# of App Studio and its suppliers, if any.
+# The intellectual and technical concepts contained herein are PROPRIETARY
+# to App Studio and its suppliers and may be covered by U.S. and Foreign Patents,
+# patents in process, and are protected by trade secret or COPYRIGHT LAW.
+# Dissemination of this information or reproduction of this material
+# is strictly FORBIDDEN unless prior written permission is obtained
+# from TwigKit.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+# All Rights Reserved.
+# ----------------------------------------------------------------------------
+
+#   Copyright (c) 2009-2016 App Studio.  All rights reserved.
+
+# ----------------------------------------------------------------------------
+# Check this is a valid project
+# ----------------------------------------------------------------------------
+
+if [ ! -f ./pom.xml ]; then
+	echo ""
+    echo "Could not find project pom.xml file, are you sure the current directory is a App Studio project?"
+    echo ""
+    exit 1
+fi
+
+# ----------------------------------------------------------------------------
+# Set environment variables
+# ----------------------------------------------------------------------------
+
+BASEDIR=`dirname $0`
+BASEDIR=`(cd "$BASEDIR"; pwd)`
+
+if [ -z "$TWIGKIT_PID_DIR" ]; then
+  TWIGKIT_PID_DIR="$BASEDIR/logs"
+fi
+
+if [ -z "$TWIGKIT_LOGS_DIR" ]; then
+  TWIGKIT_LOGS_DIR="$BASEDIR/logs"
+fi
+
+MVNCMD="$BASEDIR/bin/mvnw"
+SETTINGS="$BASEDIR/bin/settings.xml"
+START_TIMEOUT=120
+START_MESSAGE_TEXT="$BASEDIR/bin/start.txt"
+PRODUCTNAME="app-studio"
+
+
+# ----------------------------------------------------------------------------
+# Ensure bin directory is executable
+# ----------------------------------------------------------------------------
+chmod -R a+x "$BASEDIR/bin"
+
+# ----------------------------------------------------------------------------
+# Define functions
+# ----------------------------------------------------------------------------
+
+
+# Usage instructions
+function print_usage() {
+  CMD="$1"
+  ERROR_MSG="$2"
+    
+  if [ "$ERROR_MSG" != "" ]; then
+    echo "\nERROR: $ERROR_MSG\n"
+  fi
+  
+  if [ -z "$CMD" ]; then
+    echo ""
+    echo "Usage: app-studio COMMAND OPTIONS"
+    echo "       where COMMAND is one of: start, stop, package, dist"
+    echo ""
+    echo "  Allows you to build and run App Studio applications easily from the command line."
+    echo ""
+    echo "  Standalone server example (start App Studio running in the background on port 8080):"
+    echo ""
+    echo "    ./app-studio start -p 8080"
+    echo ""
+    echo ""
+    echo "Pass -help after any COMMAND to see command-specific usage information,"
+    echo "  such as:    ./app-studio start -help or ./app-studio stop -help"
+    echo ""
+  elif [[ "$CMD" == "start" ]]; then
+    echo ""
+    echo "Usage: app-studio $CMD [--production] [-f] [-p port] [-m memory] [-t timeout] [-V]"
+    echo ""
+    echo "  --production  Run App Studio in production mode, with the code editor and wizard disabled"
+    echo ""
+    echo "  -f            Start App Studio in foreground; default starts App Studio in the background"
+    echo "                  and sends stdout / stderr to $PRODUCTNAME-PORT-console.log"
+    echo ""
+    echo "  -p <port>     Specify the port to start the App Studio web server on; default is 8080."
+    echo ""
+    echo "  -m <memory>   Sets the min (-Xms) and max (-Xmx) heap size for the JVM, such as: -m 4g"
+    echo "                  results in: -Xms4g -Xmx4g; by default, this script sets the heap size to 512m"
+    echo ""
+    echo "  -t <timeout>  Sets the startup timeout in seconds (defaults to $START_TIMEOUT)"
+    echo ""
+    echo "  -V            Verbose messages from this script"
+    echo ""
+  elif [ "$CMD" == "stop" ]; then
+    echo ""
+    echo "Usage: app-studio $CMD [-p port] [-V]"
+    echo ""
+    echo "  -p <port>     Specify the port the App Studio HTTP listener is bound to"
+    echo ""
+    echo ""
+  elif [ "$CMD" == "package" ]; then
+    echo ""
+    echo "Usage: app-studio $CMD"
+    echo ""
+    echo "  NOTE: This command will build a new WAR file with App Studio and place it in ./dist"
+    echo ""
+  elif [ "$CMD" == "dist" ]; then
+    echo ""
+    echo "Usage: app-studio $CMD"
+    echo ""
+    echo "  NOTE: This command will build a self-contained application and place it in ./dist/${project.name}-standalone/"
+    echo ""
+	
+  fi
+} # end print_usage
+
+# Used to show the script is still alive when waiting on work to complete
+function spinner() {
+  local pid=$1
+  local delay=0.075
+  local spinstr[1]="-●----"
+  local spinstr[2]="--●---"
+  local spinstr[3]="---●--"
+  local spinstr[4]="----●-"
+  local spinstr[5]="-----●"
+  local spinstr[6]="----●-"
+  local spinstr[7]="---●--"
+  local spinstr[8]="--●---"
+  local spinstr[9]="-●----"
+  local spinstr[10]="●-----"
+  local counter=1;
+  
+  tput civis; # hide cursor
+  while [ "$(ps aux | awk '{print $2}' | grep -w $pid)" ]; do
+      local temp="${spinstr[counter]}"
+      printf "[%s]" $temp
+      sleep $delay
+      printf "\b\b\b\b\b\b\b\b\b\b"
+      counter=`expr $counter + 1`
+      if [ $counter -eq 11 ]; then
+        counter=1
+      fi
+  done
+  printf "    \b\b\b\b"
+  tput cnorm; # show cursor
+}
+
+# Given a port, find the pid for a App Studio process
+function twigkit_pid_by_port() {
+  THE_PORT="$1"
+  if [ -e "$TWIGKIT_PID_DIR/$PRODUCTNAME-$THE_PORT.pid" ]; then
+    PID=`cat "$TWIGKIT_PID_DIR/$PRODUCTNAME-$THE_PORT.pid"`
+    CHECK_PID=`ps auxww | awk '{print $2}' | grep -w $PID | sort -r | tr -d ' '`
+    if [ "$CHECK_PID" != "" ]; then
+      local twigkitPID=$PID
+    fi
+  fi
+  echo "$twigkitPID"
+}
+
+# Extract the value of the -Dtwigkit.http.port parameter from a running App Studio process 
+function get_port() {
+  TWIGKIT_PID="$1"
+  SOLR_PROC=`ps auxww | grep -w $TWIGKIT_PID | grep twigkit.http.port`
+  IFS=' ' read -a proc_args <<< "$TWIGKIT_PROC"
+  for arg in "${proc_args[@]}"
+    do
+      IFS='=' read -a pair <<< "$arg"
+      if [ "${pair[0]}" == "-Dtwigkit.http.port" ]; then
+        local tk_port="${pair[1]}"
+        break
+      fi
+    done    
+  echo "$tk_port"
+} # end get_port func
+
+function find_and_stop_twigkit() {
+  # see if App Studio is already running
+  TWIGKIT_PID=`twigkit_pid_by_port "$TWIGKIT_PORT"`
+  if [ -z "$TWIGKIT_PID" ]; then
+    # not found using the pid file ... but use ps to ensure not found
+    TWIGKIT_PID=`ps auxww | grep start\.jar | grep -w $TWIGKIT_PORT | grep -v grep | awk '{print $2}' | sort -r`
+  fi
+  if [ "$TWIGKIT_PID" != "" ]; then
+    stop_twigkit "$TWIGKIT_PORT" "$STOP_KEY" "$TWIGKIT_PID"
+  else
+    if [ "$SCRIPT_CMD" == "stop" ]; then
+      echo "No process found for App Studio node running on port $TWIGKIT_PORT"
+      exit 1
+    fi
+  fi
+}
+
+# tries to gracefully stop App Studio using the Jetty 
+# stop command and if that fails, then uses kill -9
+function stop_twigkit() {
+
+  TWIGKIT_PORT="$1"
+  STOP_PORT=`expr $TWIGKIT_PORT - 1000`
+  STOP_KEY="$2"
+  TWIGKIT_PID="$3"
+
+  if [ "$TWIGKIT_PID" != "" ]; then
+    echo "Sending stop command to App Studio running on port $TWIGKIT_PORT ... waiting 5 seconds to allow Jetty process $TWIGKIT_PID to stop gracefully."
+    nohup "$MVNCMD" jetty:stop -o &> "$TWIGKIT_LOGS_DIR/$PRODUCTNAME-stop.log" || true
+    (sleep 5) &
+    spinner $!
+    rm -f "$TWIGKIT_PID_DIR/$PRODUCTNAME-$TWIGKIT_PORT.pid"
+  else
+    echo "No App Studio nodes found to stop."
+    exit 0
+  fi
+
+  CHECK_PID=`ps auxww | awk '{print $2}' | grep -w $TWIGKIT_PID | sort -r | tr -d ' '`
+  if [ "$CHECK_PID" != "" ]; then
+    echo "App Studio process $TWIGKIT_PID is still running; forcefully killing it now."
+    kill -9 $TWIGKIT_PID
+    echo "Killed process $TWIGKIT_PID"
+    rm -f "$TWIGKIT_PID_DIR/$PRODUCTNAME-$TWIGKIT_PORT.pid"
+    sleep 1
+  else
+    echo "App Studio process stopped gracefully"
+  fi
+
+  CHECK_PID=`ps auxww | awk '{print $2}' | grep -w $TWIGKIT_PID | sort -r | tr -d ' '`
+  if [ "$CHECK_PID" != "" ]; then
+    echo "ERROR: Failed to kill previous App Studio Java process $TWIGKIT_PID ... script fails."
+    exit 1
+  fi
+} # end stop_twigkit
+
+# build the deployable App Studio artifact
+function build_twigkit() {
+  "$MVNCMD" clean package --settings "$SETTINGS"
+}
+
+
+# build the deployable App Studio artifact as a standalone service
+function build_twigkit_standalone() {
+  "$MVNCMD" clean package -Pstandalone --settings "$SETTINGS"
+}
+
+# ----------------------------------------------------------------------------
+# Check which command is invoked
+# ----------------------------------------------------------------------------
+
+if [ $# -gt 0 ]; then
+  # if first arg starts with a dash (and it's not -help or -info), 
+  # then assume they are starting App Studio, such as: app-studio -f
+  if [[ $1 == -* ]]; then
+    SCRIPT_CMD="start"
+  else
+    SCRIPT_CMD="$1"
+    shift
+  fi
+else
+  # no args - just show usage and exit
+  print_usage ""
+  exit  
+fi
+
+# verify the command given is supported
+if [ "$SCRIPT_CMD" != "stop" ] && [ "$SCRIPT_CMD" != "start" ] && [ "$SCRIPT_CMD" != "package" ] && [ "$SCRIPT_CMD" != "dist" ]; then
+  print_usage "" "$SCRIPT_CMD is not a valid command!"
+  exit 1
+fi
+
+
+# Run in foreground (default is to run in the background)
+FG="false"
+noprompt=false
+TWIGKIT_OPTS=
+
+if [ $# -gt 0 ]; then
+  while true; do  
+    case "$1" in
+        --production)
+            TWIGKIT_OPTS+="-Dlucidworks.app.mode=production"
+            shift
+        ;;
+        -f|-foreground)
+            FG="true"
+            shift
+        ;;
+        -m|-memory)
+            if [[ -z "$2" || "${2:0:1}" == "-" ]]; then
+              print_usage "$SCRIPT_CMD" "Memory setting is required when using the $1 option!"
+              exit 1
+            fi
+            TWIGKIT_HEAP="$2"
+            shift 2
+        ;;
+        -p|-port)
+            if [[ -z "$2" || "${2:0:1}" == "-" ]]; then
+              print_usage "$SCRIPT_CMD" "Port number is required when using the $1 option!"
+              exit 1
+            fi
+            TWIGKIT_PORT="$2"
+            shift 2
+        ;;
+        -t|-timeout)
+            if [[ $2 ]]; then
+              START_TIMEOUT="$2"
+              shift 2
+            fi
+            shift
+        ;;
+        -help|-usage)
+            print_usage "$SCRIPT_CMD"
+            exit 0
+        ;;
+        -V|-verbose)
+            verbose=true
+            shift
+        ;;
+        -all)
+            stop_all=true
+            shift
+        ;;
+        --)
+            shift
+            break
+        ;;
+        *)
+            if [ "${1:0:2}" == "-D" ]; then
+              # pass thru any opts that begin with -D (java system props)
+              TWIGKIT_OPTS+=("$1")
+              shift
+            else
+              if [ "$1" != "" ]; then
+                print_usage "$SCRIPT_CMD" "$1 is not supported by this script"
+                exit 1
+              else
+                break # out-of-args, stop looping
+              fi
+            fi
+        ;;
+    esac
+  done
+fi
+
+
+# ----------------------------------------------------------------------------
+# Now run the command
+# ----------------------------------------------------------------------------
+
+
+############# start/stop/build logic below here ################
+
+
+if [ -z "$TWIGKIT_PORT" ]; then
+  TWIGKIT_PORT=8080
+fi
+
+if [ -z "$STOP_PORT" ]; then
+  STOP_PORT=`expr $TWIGKIT_PORT - 1000`
+fi
+
+if [[ "$SCRIPT_CMD" == "start" ]]; then
+  # see if App Studio is already running
+  TWIGKIT_PID=`twigkit_pid_by_port "$TWIGKIT_PORT"`
+
+  if [ -z "$TWIGKIT_PID" ]; then
+    # not found using the pid file ... but use ps to ensure not found
+    TWIGKIT_PID=`ps auxww | grep start\.jar | grep -w $TWIGKIT_PORT | grep -v grep | awk '{print $2}' | sort -r`
+  fi
+
+  if [ "$TWIGKIT_PID" != "" ]; then
+    echo "\nPort $TWIGKIT_PORT is already being used by another process (pid: $TWIGKIT_PID)\nPlease choose a different port using the -p option.\n"
+    exit 1
+  fi
+elif [[ "$SCRIPT_CMD" == "package" ]]; then
+  build_twigkit
+elif [[ "$SCRIPT_CMD" == "dist" ]]; then
+  build_twigkit_standalone
+else
+  find_and_stop_twigkit
+fi
+
+if [ "$SCRIPT_CMD" == "stop" ]; then
+  # already stopped, script is done.
+  exit 0
+fi
+
+# NOTE: If the script gets to here, then it is starting up a new app.
+
+
+JAVA_MEM_OPTS=()
+if [ -z "$SOLR_HEAP" ] && [ -n "$SOLR_JAVA_MEM" ]; then
+  JAVA_MEM_OPTS=($SOLR_JAVA_MEM)
+else
+  SOLR_HEAP="${SOLR_HEAP:-512m}"
+  JAVA_MEM_OPTS=("-Xms$SOLR_HEAP" "-Xmx$SOLR_HEAP")
+fi
+
+function print_start_message() {
+  cat "$START_MESSAGE_TEXT"
+}
+
+# Launches App Studio in foreground/background depending on parameters
+function launch_twigkit() {
+
+  print_start_message
+
+  run_in_foreground="$1"
+  stop_port="$STOP_PORT"
+  
+  GC_TUNE=($GC_TUNE)
+
+  if [ ! -e "$BASEDIR/bin/mvnw" ]; then
+    echo "\nERROR: mvnw file not found in $BASEDIR/bin!\n"
+    exit 1
+  fi
+
+  mkdir -p "$TWIGKIT_LOGS_DIR"
+  mkdir -p "$TWIGKIT_PID_DIR"
+
+  if [ "$run_in_foreground" == "true" ]; then
+    echo "\nStarting App Studio on port $TWIGKIT_PORT\n"
+    exec "$MVNCMD" jetty:run --settings "$SETTINGS" $TWIGKIT_OPTS -Dtwigkit.conf.watch=false -Dtwigkit.conf=file://src/main/resources/conf -Dtwigkit.conf.overlay=file://src/dev/resources/conf -Dtwigkit.mode=local
+  else
+    # run in the background
+    nohup "$MVNCMD" jetty:run --settings "$SETTINGS" $TWIGKIT_OPTS \
+	-Dtwigkit.http.port=$TWIGKIT_PORT -Dtwigkit.http.stop.port=$STOP_PORT -Dtwigkit.conf.watch=false "${SOLR_JETTY_CONFIG[@]}" -Dtwigkit.conf=file://src/main/resources/conf -Dtwigkit.conf.overlay=file://src/dev/resources/conf -Dtwigkit.mode=local \
+	1>"$TWIGKIT_LOGS_DIR/$PRODUCTNAME-$TWIGKIT_PORT-console.log" 2>&1 & echo $! > "$TWIGKIT_PID_DIR/$PRODUCTNAME-$TWIGKIT_PORT.pid"
+
+    # no lsof on cygwin though
+    if hash lsof 2>/dev/null ; then  # hash returns true if lsof is on the path
+      echo "Waiting up to $START_TIMEOUT seconds to see App Studio running on port $TWIGKIT_PORT"
+      # Launch in a subshell to show the spinner
+      (loops=0
+      while true
+      do
+        running=`lsof -PniTCP:$TWIGKIT_PORT -sTCP:LISTEN`
+        if [ -z "$running" ]; then
+          if [ $loops -lt $START_TIMEOUT ]; then
+            sleep 1
+            if grep -q "\[INFO\] BUILD FAILURE" "$TWIGKIT_LOGS_DIR/$PRODUCTNAME-$TWIGKIT_PORT-console.log" || grep -q "\[ERROR\]" "$TWIGKIT_LOGS_DIR/$PRODUCTNAME-$TWIGKIT_PORT-console.log"; then
+            	sleep 3
+            	tail -30 "$TWIGKIT_LOGS_DIR/$PRODUCTNAME-$TWIGKIT_PORT-console.log"
+            	echo ""
+            	echo "Build error occured. See console output above to help diagnose the problem" 
+            	exit 1
+            fi
+            loops=$[$loops+1]
+          else
+            tail -30 "$TWIGKIT_LOGS_DIR/$PRODUCTNAME-$TWIGKIT_PORT-console.log"
+            echo ""
+            echo "Still not seeing App Studio listening on $TWIGKIT_PORT after $START_TIMEOUT seconds!\nSee console output above to help diagnose this problem."
+            find_and_stop_twigkit
+            exit # subshell!
+          fi
+        else
+          TWIGKIT_PID=`ps auxww | grep mvnw | grep -w $TWIGKIT_PORT | grep -v grep | awk '{print $2}' | sort -r`
+          echo "\nStarted App Studio server on port $TWIGKIT_PORT. Have fun!\n"
+	  open http://localhost:$TWIGKIT_PORT
+
+          exit # subshell!
+        fi
+      done) &
+      spinner $!
+    else
+      echo "NOTE: Please install lsof as this script needs it to determine if App Studio is listening on port $TWIGKIT_PORT."
+      sleep 10
+      TWIGKIT_PID=`ps auxww | grep mvnw | grep -w $TWIGKIT_PORT | grep -v grep | awk '{print $2}' | sort -r`
+      echo "\nStarted App Studio server on port $TWIGKIT_PORT (pid=$TWIGKIT_PID). Have fun!\n"
+      return;
+    fi
+  fi
+}
+
+if [[ "$SCRIPT_CMD" == "start" ]]; then
+  launch_twigkit "$FG" "$ADDITIONAL_CMD_OPTS"
+fi
+
+exit $?
+
+
+
+# Run the given App Studio command
+# exec "$JAVACMD" $JAVA_OPTS \
+#   $EXTRA_JVM_ARGUMENTS \
+#   -classpath "$CLASSPATH" \
+#   -Dapp.name="twigkit" \
+#   -Dapp.pid="$$" \
+#   -Dapp.repo="$REPO" \
+#   -Dbasedir="$BASEDIR" \
+#   twigkit.app.Start \
+#   "$@"
