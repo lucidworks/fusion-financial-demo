@@ -1,0 +1,35 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>search-app-project</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <!-- Package the entire directory as a Maven project zip -->
+            <directory>${project.basedir}</directory>
+
+            <excludes>
+                <exclude>.idea/**</exclude>
+                <exclude>dist/**</exclude>
+                <exclude>jenkins/**</exclude>
+                <exclude>logs/**</exclude>
+                <exclude>m2/**</exclude>
+                <exclude>**/node_modules/**</exclude>
+                <exclude>src/test/**</exclude>
+                <exclude>target/**</exclude>
+                <exclude>publish/**</exclude>
+
+                <exclude>.travis.yml</exclude>
+                <exclude>*log</exclude>
+                <exclude>build_distributable.sh</exclude>
+                <exclude>*.iml</exclude>
+                <exclude>*.war</exclude>
+                <exclude>*.zip</exclude>
+                <exclude>**/created_by_app_studio.txt</exclude>
+            </excludes>
+        </fileSet>
+    </fileSets>
+</assembly>

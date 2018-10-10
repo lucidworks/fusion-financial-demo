@@ -1,0 +1,3 @@
+twigkit.app.AppModule
+twigkit.app.inspection.AppInspectionModule
+twigkit.insights.InsightsModule

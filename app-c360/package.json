@@ -1,0 +1,35 @@
+{
+  "name": "fusion-starter",
+  "version": "4.1.0-1.0.1",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.6.4",
+    "angular-animate": "~1.6.4",
+    "angular-cookies": "~1.6.4",
+    "angular-highlightjs": "^0.7.1",
+    "angular-multi-step-form": "^1.3.0",
+    "angular-resizable": "^1.2.0",
+    "angular-sanitize": "~1.6.4",
+    "appkit-ui": "http://appkit.lucidworks.com/repo/4.1.0/appkit-ui.tar.gz",
+    "highlightjs": "https://github.com/components/highlightjs/archive/9.12.0.tar.gz",
+    "ng-file-upload": "^12.2.13",
+    "telemark": "2.0.0"
+  },
+  "repository": {},
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.6.4",
+    "jasmine-core": "^2.3.4",
+    "karma": "^2.0.2",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.2",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-phantomjs-launcher": "1.0.4"
+  }
+}

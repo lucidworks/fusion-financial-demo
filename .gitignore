@@ -12,6 +12,8 @@ app-c360/logs
 app-c360/*.log
 app-c360/twigkit-socialdb
 app-c360/dist
+app-c360/objects/*.zip
+app-c360/objects/blobs/webapps/*.war
 password_file.json
 myenv.sh
 demo-starter-master.zip

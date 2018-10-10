@@ -1,0 +1,26 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "exclude": [
+          "transform-regenerator"
+        ],
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie 11"
+          ]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "fast-async",
+      {
+        "useRuntimeModule": true
+      }
+    ]
+  ]
+}
