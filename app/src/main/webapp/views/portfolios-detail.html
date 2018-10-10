@@ -39,10 +39,9 @@
                 <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-inline"></search:field>
             </search:result>
         </ol>
-
     </layout:block>
 </layout:animate>
-<layout:grid animation="animate-fadeInUp" on="companies" styling="centercontent" style="padding-bottom:0px;" layout-grid>
+<layout:grid animation="animate-fadeInUp" on="companies" styling="centercontent" style="padding-bottom:0px;padding-top:0px;" layout-grid>
     <layout:block>
         <layout:box styling="centercontent">
             <div class="allocation-header">
@@ -69,7 +68,7 @@
     <layout:block md="1-3">
         <layout:box>
             <chart:display ng-if="companies.results" platform="finance" query="companyQuery" height="285" title="By Company">
-                <series:result-list results="companies.facts.ticker_s" label-field="ticker_s" value-field="weight_d" type="pie"></series:result-list>
+                <series:result-list results="companies.results" label-field="ticker_s" value-field="weight_d" type="pie"></series:result-list>
                 <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
             </chart:display>
         </layout:box>
