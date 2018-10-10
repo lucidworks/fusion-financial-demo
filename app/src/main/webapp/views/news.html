@@ -55,20 +55,18 @@
       <search:message-list response="news" type="co_answer_card_content" class="answer-card"></search:message-list>
     </layout:block>
 
-    <!--<layout:box>-->
-      <!--<layout:grid>-->
-        <layout:block>
+      <layout:grid>
+        <layout:block md="3-5">
           <layout:box padding-bottom="0">
             <search:breadcrumbs query="news-query" exclude="_lw_data_source_s" group-by-field="true"></search:breadcrumbs>
           </layout:box>
         </layout:block>
-
-      <!--</layout:grid>-->
-    <!--</layout:box>-->
-
-    <layout:block>
-        <toggle:controls labels="News,Your News" panes="panes"></toggle:controls>
-    </layout:block>
+        <layout:block md="2-5">
+          <layout:box padding-bottom="0">
+            <toggle:controls labels="News,Your News" panes="panes" styling="pull-right"></toggle:controls>
+          </layout:box>
+        </layout:block>
+      </layout:grid>
 
     <toggle:panes id="panes">
       <toggle:pane visible="true">
