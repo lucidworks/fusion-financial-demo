@@ -75,6 +75,18 @@ cd "$DEMO_HOME"
 curl -H "content-type:application/json" -X POST -d "{\"id\": \"$FUSION_APPLICATION_NAME\",\"name\": \"$FUSION_APPLICATION_NAME\", \"contextPath\": \"/$FUSION_APPLICATION_NAME\"}" "$FUSION_API/webapps"
 curl -H 'Content-type: application/zip' -X PUT "$FUSION_API/webapps/$FUSION_APPLICATION_NAME/war" --data-binary "@./app/dist/$FUSION_UI_ARTIFACT_ID.war"
 
+echo ""
+echo "Creating users"
+echo ""
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Lawson", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Chloe", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Robert", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Cynthia", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Frank", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Geoffrey", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Carla", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+curl -u "$FUSION_USER:$FUSION_PASS" -X POST -H 'Content-type: application/json' -d '{"username":"Sophie", "password":"searchr0cks", "passwordConfirm":"searchr0cks", "realmName": "native", "roleNames": ["admin"]}' "$FUSION_USERS_API"
+
 if [ "$no_crawl" -eq 0 ]; then
   sleep 10
 
