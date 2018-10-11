@@ -23,7 +23,10 @@ public class TritSweeper {
             "Blacklist Ad-Free",
             "Fortune Dow",
             "Investing",
-            "Trump"
+            "Trump",
+            "Investing",
+            "Says Bloomberg Westford"
+
     );
     public static void main(String[] args) throws Exception {
         final SolrClient client = getSolrClient("http://localhost:8983/solr");
