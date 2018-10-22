@@ -29,7 +29,7 @@
         <query:filter field="user_token" value="{{user.name}}"></query:filter>
     </search:query>
     <search:response var="topSearchesResponse" platform="topSearches" query="topSearchesQuery"></search:response>
-    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,type_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
         <query:custom name="group.limit" value="10"></query:custom>
@@ -174,38 +174,53 @@
 
                         <layout:grid>
                             <layout:block>
-                                <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Portfolios</h2>
-                                <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
-                                    <search:result>
-                                        <search:field name="bucket_name_s" styling="title" show="1"></search:field>
-                                        <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
-                                        <search:field name="ticker_s" label="Holdings" styling="label-left" class="inline"></search:field>
-                                        <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
-                                        <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
-                                        <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
-                                        <hr class="simple">
-                                        <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
-                                            <p class="tk-stl-label">Sector concentration</p>
-                                            <div class="tk-rgrid-u-1 tk-rgrid-u-md-2-3">
-                                                <p><span class="value">{{sector}}</span></p>
+                                <span ng-if="mycompanies.results && mycompanies.results.length > 0 && mycompanies.results[0].result.fields.type_s.val[0] == 'analyst'">
+                                    <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Companies</h2>
+                                    <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
+                                        <search:result>
+                                            <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                                            <search:field name="ticker_s" label="Tickers" styling="label-left" class="inline"></search:field>
+                                            <layout:block styling="center-content">
+                                                <a href="#/my-companies/{{result | field:'unique_bucket_id_s' | actual}}">
+                                                    <h5> View Companies </h5>
+                                                </a>
+                                            </layout:block>
+                                        </search:result>
+                                    </search:result-list>
+                                </span>
+                                <span ng-if="mycompanies.results && mycompanies.results.length > 0 && mycompanies.results[0].result.fields.type_s.val[0] != 'analyst'">
+                                    <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Portfolios</h2>
+                                    <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
+                                        <search:result>
+                                            <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                                            <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
+                                            <search:field name="ticker_s" label="Holdings" styling="label-left" class="inline"></search:field>
+                                            <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
+                                            <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
+                                            <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
+                                            <hr class="simple">
+                                            <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
+                                                <p class="tk-stl-label">Sector concentration</p>
+                                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-2-3">
+                                                    <p><span class="value">{{sector}}</span></p>
+                                                </div>
+                                                <layout:grid>
+                                                    <layout:block xs="1-2">
+                                                        <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
+                                                    </layout:block>
+                                                    <layout:block xs="1-2">
+                                                        <search:field name="{{sector}}" show="1" label="" styling="label-inline pull-right" suffix="%"></search:field>
+                                                    </layout:block>
+                                                </layout:grid>
                                             </div>
-                                            <layout:grid>
-                                                <layout:block xs="1-2">
-                                                    <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
-                                                </layout:block>
-                                                <layout:block xs="1-2">
-                                                    <search:field name="{{sector}}" show="1" label="" styling="label-inline pull-right" suffix="%"></search:field>
-                                                </layout:block>
-                                            </layout:grid>
-                                        </div>
-                                        <layout:block styling="center-content">
-                                            <a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">
-                                                <h5> View Portfolio </h5>
-                                            </a>
-                                        </layout:block>
-
-                                    </search:result>
-                                </search:result-list>
+                                            <layout:block styling="center-content">
+                                                <a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">
+                                                    <h5> View Portfolio </h5>
+                                                </a>
+                                            </layout:block>
+                                        </search:result>
+                                    </search:result-list>
+                                </span>
                             </layout:block>
                         </layout:grid>
                     </div>

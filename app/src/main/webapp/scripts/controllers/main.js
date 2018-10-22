@@ -32,6 +32,7 @@ angular.module('appkitApp')
         $twigkit.getUser()
             .then(function (user) {
                 $scope.user = user;
+                $rootScope.user = user;
             });
         $rootScope.redirectTo = function (page) {
             $location.path(page);

@@ -63,18 +63,22 @@ for type in BUCKETS:
     type_name = type['type']
 
     for owner in type['people']:
-        num_buckets = random.randint(1,4) # pick a random number of buckets for this person
+        if type_name != 'analyst':
+            num_buckets = random.randint(1,4) # pick a random number of buckets for this person
+        else:
+            num_buckets = 2 # analysts have their covered companies, and companies they follow
+
         bucket_id = 0
 
-        while bucket_id <= num_buckets:
-            bucket_value_total = random.randint(100000000.0, 1000000000.0)
-            bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
-            bucket_ytd_ror = random.uniform(0.5, 8.0)
-            bucket_total_clients = random.randint(40,500)
+        while bucket_id < num_buckets:
+
 
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
-            num_companies = random.randint(1,10) # pick a random number of companies for this bucket
+            if type_name == 'analyst':
+                num_companies = random.randint(5,8)
+            else:
+                num_companies = random.randint(10,20)
             random_weights = [random.random() for c in range(0,num_companies)] # generate some random weights
             random_company_ids = random.sample(range(500), num_companies) # take a random sample from company ids (0-499)
             weight_sum = sum(random_weights)
@@ -86,8 +90,11 @@ for type in BUCKETS:
                 temp.update({'type':type_name})
                 temp.update({'bucket_id':bucket_id})
                 temp.update({'unique_bucket_id':bucket_uid})
-                if id == 396 : print(temp)
                 if type_name != 'analyst':
+                    bucket_value_total = random.randint(100000000.0, 1000000000.0)
+                    bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
+                    bucket_ytd_ror = random.uniform(0.5, 8.0)
+                    bucket_total_clients = random.randint(40, 500)
                     temp.update({'weight':random_weights[weights_id]/weight_sum})
                     temp.update({'bucket_value': bucket_value_total * random_weights[weights_id] / weight_sum})
                     temp.update({'bucket_value_total': bucket_value_total})
@@ -95,8 +102,16 @@ for type in BUCKETS:
                     temp.update({'bucket_ytd_ror': bucket_ytd_ror})
                     temp.update({'bucket_total_clients': bucket_total_clients})
                 else:
-                    temp.update({'weight':random.randint(0,2)})
-                if id == 396 : print(temp)
+                    if bucket_id == 0:
+                        bucket_name = 'Covered Companies'
+                        temp.update({'weight': 2})
+                    elif bucket_id == 1:
+                        bucket_name = 'Followed Companies'
+                        temp.update({'weight': 1})
+                    else:
+                        print 'unexpected bucket_id for analyst'
+                        exit(1)
+                    temp.update({'bucket_name': bucket_name})
                 BUCKET_LIST.append(temp)
                 weights_id+=1
 
