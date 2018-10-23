@@ -9,7 +9,7 @@
  */
 angular.module('appkitApp')
 
-    .controller('MainCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$timeout', '$sce', '$state', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $timeout, $sce, $state) {
+    .controller('MainCtrl', ['$rootScope', '$scope', '$stateParams', 'ResponseService', '$location', 'ModalService', '$twigkit', '$timeout', '$sce', '$state', '$http', function ($rootScope, $scope, $stateParams, ResponseService, $location, ModalService, $twigkit, $timeout, $sce, $state, $http) {
         $scope.params = $stateParams;
         $scope.urlparams = $location.search();
 
@@ -24,7 +24,6 @@ angular.module('appkitApp')
             angular.forEach(result.fields[fieldname].val, function(value){
                 filterBuffer+="&f="+filter+"['"+value+"']*";
             });
-            console.log("#/"+page+"?"+filterBuffer);
             return "#/"+page+"?"+filterBuffer;
         };
 
@@ -33,7 +32,14 @@ angular.module('appkitApp')
             .then(function (user) {
                 $scope.user = user;
                 $rootScope.user = user;
-            });
+                $http.get("/twigkit/api/user-profile/" + user.name + "/")
+                            .then(function successCallback(response){
+                                user.role = response.data.role;
+                            }, function errorCallback(response){
+                                console.error('failed to get user details: ' + JSON.stringify(response, undefined, 2));
+                            });
+                });
+
         $rootScope.redirectTo = function (page) {
             $location.path(page);
         };

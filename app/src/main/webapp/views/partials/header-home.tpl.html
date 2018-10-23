@@ -1,7 +1,11 @@
 <!-- NAVBAR -->
 <layout:grid id="navbar">
   <layout:block class="navbar-container">
-    <search:tabs response="response" tabs="home=Home,news=News,companies=Companies,portfolios=Portfolios,my-companies=My Companies"
+    <search:tabs ng-if="$root.user.role == 'analyst'"
+                 response="response" tabs="home=Home,news=News,companies=Companies,my-companies=My Companies"
+                 styling="navbar" class="tk-stl-navbar"></search:tabs>
+    <search:tabs ng-if="$root.user.role != 'analyst'"
+                 response="response" tabs="home=Home,news=News,companies=Companies,portfolios=Portfolios"
                  styling="navbar" class="tk-stl-navbar"></search:tabs>
     <layout:box class="sidebar-container" styling="pull-right">
       <span id="open-user-sidebar" class="ak-uniF10E sidebar-light"></span>

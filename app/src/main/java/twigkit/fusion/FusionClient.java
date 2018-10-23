@@ -3,6 +3,7 @@ package twigkit.fusion;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -178,7 +179,19 @@ public class FusionClient extends PlatformClient {
      * @throws Exception
      */
     public String request(String endpoint) throws Exception {
-        return request(endpoint, null);
+        return request(endpoint, null, null);
+    }
+
+    /**
+     * Make a request to a Fusion Endpoint.
+     *
+     * @param endpoint
+     * @param nvps
+     * @return
+     * @throws Exception
+     */
+    public String request(String endpoint, NameValuePair ... nvps) throws Exception {
+        return request(endpoint, null, nvps);
     }
 
     /**
@@ -186,15 +199,16 @@ public class FusionClient extends PlatformClient {
      *
      * @param endpoint the requested endpoint
      * @param user     the current user
+     * @param nvps     name-value parameter pairs
      * @return the JSON response from Fusion
      * @throws Exception if it's not possible to make a reqest to Fusion
      */
-    public String request(String endpoint, User user) throws Exception {
+    public String request(String endpoint, User user, NameValuePair ... nvps) throws Exception {
         String host = this.host != null ? this.host : DEFAULT_HOST;
         int port = this.port != -1 ? this.port : DEFAULT_PORT;
 
         URIBuilder uri = new URIBuilder();
-        uri.setScheme(HTTP).setHost(host).setPort(port).setPath(endpoint);
+        uri.setScheme(HTTP).setHost(host).setPort(port).setPath(endpoint).setParameters(nvps);
         logger.debug("Requested URI: {}", uri.getScheme() + "://" + uri.getHost() + ":" + uri.getPort() + uri.getPath());
 
         final HttpGet request = new HttpGet(uri.build());
