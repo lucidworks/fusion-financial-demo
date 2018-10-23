@@ -433,13 +433,30 @@
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="body" type="text_general"/>
+  <field name="bucket_id" type="plongs"/>
+  <field name="bucket_name" type="text_general"/>
+  <field name="bucket_total_clients" type="plongs"/>
+  <field name="bucket_value" type="pdoubles"/>
+  <field name="bucket_value_total" type="plongs"/>
+  <field name="bucket_ytd_ror" type="pdoubles"/>
+  <field name="city" type="text_general"/>
   <field name="city_state" type="text_general"/>
   <field name="city_state_hier" type="text_general"/>
   <field name="city_state_hier_parent" type="text_general"/>
+  <field name="company_name" type="text_general"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="industry" type="text_general"/>
+  <field name="role" type="text_general"/>
+  <field name="sector" type="text_general"/>
   <field name="sector_industry" type="text_general"/>
   <field name="sector_industry_hier" type="text_general"/>
   <field name="sector_industry_hier_parent" type="text_general"/>
+  <field name="state" type="text_general"/>
+  <field name="ticker" type="text_general"/>
+  <field name="type" type="text_general"/>
+  <field name="unique_bucket_id" type="plongs"/>
+  <field name="username" type="text_general"/>
+  <field name="weight" type="plongs"/>
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="true"/>
   <dynamicField name="*_ancestor_path" type="ancestor_path" indexed="true" stored="true"/>
@@ -515,4 +532,14 @@
   <copyField source="sector_industry_hier" dest="sector_industry_hier_str" maxChars="256"/>
   <copyField source="city_state_hier_parent" dest="city_state_hier_parent_str" maxChars="256"/>
   <copyField source="sector_industry_hier_parent" dest="sector_industry_hier_parent_str" maxChars="256"/>
+  <copyField source="ticker" dest="ticker_str" maxChars="256"/>
+  <copyField source="city" dest="city_str" maxChars="256"/>
+  <copyField source="bucket_name" dest="bucket_name_str" maxChars="256"/>
+  <copyField source="company_name" dest="company_name_str" maxChars="256"/>
+  <copyField source="industry" dest="industry_str" maxChars="256"/>
+  <copyField source="state" dest="state_str" maxChars="256"/>
+  <copyField source="type" dest="type_str" maxChars="256"/>
+  <copyField source="sector" dest="sector_str" maxChars="256"/>
+  <copyField source="role" dest="role_str" maxChars="256"/>
+  <copyField source="username" dest="username_str" maxChars="256"/>
 </schema>

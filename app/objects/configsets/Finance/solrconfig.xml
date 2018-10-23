@@ -974,74 +974,7 @@
     </arr>
   </requestHandler>
 
-	<!-- Suggest Component
 
-		https://cwiki.apache.org/confluence/display/solr/Suggester
-
-	-->
-  	<searchComponent name="suggest" class="solr.SuggestComponent">
-  		<lst name="suggester">
-    		<str name="name">eventsSuggester</str>
-    		<str name="lookupImpl">FuzzyLookupFactory</str>
-    		<str name="dictionaryImpl">DocumentDictionaryFactory</str>
-    		<str name="field">Company_Events_ss</str>
-			<str name="suggestAnalyzerFieldType">text_general</str>
-    		<str name="buildOnStartup">true</str>
-          	<str name="exactMatchFirst">true</str>
-  		</lst>
-      	<lst name="suggester">
-            <str name="name">symbolSuggester</str>
-            <str name="lookupImpl">AnalyzingLookupFactory</str>
-            <str name="suggestAnalyzerFieldType">text_general</str>
-            <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-            <str name="field">ticker_s</str>
-            <str name="buildOnStartup">true</str>
-            <str name="exactMatchFirst">true</str>
-          </lst>
-        <lst name="suggester">
-            <str name="name">companySuggester</str>
-            <str name="lookupImpl">FuzzyLookupFactory</str>
-            <str name="suggestAnalyzerFieldType">text_general</str>
-            <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-            <str name="field">company_name_s</str>
-            <str name="buildOnStartup">true</str>
-            <str name="exactMatchFirst">true</str>
-          </lst>
-          <lst name="suggester">
-            <str name="name">newsFuzzySuggester</str>
-            <str name="lookupImpl">FuzzyLookupFactory</str>
-            <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-            <str name="field">og_description</str>
-            <str name="suggestAnalyzerFieldType">text_general</str>
-            <str name="buildOnStartup">true</str>
-            <str name="exactMatchFirst">true</str>
-      	  </lst>
-          <lst name="suggester">
-            <str name="name">newsSuggester</str>
-            <str name="lookupImpl">FreeTextLookupFactory</str>
-            <str name="suggestFreeTextAnalyzerFieldType">text_general</str>
-            <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-            <str name="field">og_description</str>
-            <str name="buildOnStartup">true</str>
-            <str name="exactMatchFirst">true</str>
-          </lst>
-	</searchComponent>
-  
-  <!-- A request handler for demonstrating suggest component -->
-  	<requestHandler name="/suggest" class="solr.SearchHandler" startup="lazy">
-  		<lst name="defaults">
-    		<str name="suggest">true</str>
-    		<str name="suggest.count">10</str>
-            <str name="suggest.dictionary">eventsSuggester</str>
-            <str name="suggest.dictionary">symbolSuggester</str>
-          	<str name="suggest.dictionary">companySuggester</str>
-          	<!--str name="suggest.dictionary">newsSuggester</str-->
-          	<str name="suggest.dictionary">newsFuzzySuggester</str>
-  		</lst>
-  		<arr name="components">
-    		<str>suggest</str>
-  		</arr>
-	</requestHandler>
   <!-- Query Elevation Component
 
        http://wiki.apache.org/solr/QueryElevationComponent
