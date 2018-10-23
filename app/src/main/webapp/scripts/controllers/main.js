@@ -32,7 +32,7 @@ angular.module('appkitApp')
             .then(function (user) {
                 $scope.user = user;
                 $rootScope.user = user;
-                $http.get("/twigkit/api/user-profile/" + user.name + "/")
+                $http.get("twigkit/api/user-profile/" + user.name + "/")
                             .then(function successCallback(response){
                                 user.role = response.data.role;
                             }, function errorCallback(response){
