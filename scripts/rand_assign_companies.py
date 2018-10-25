@@ -76,9 +76,9 @@ for type in BUCKETS:
             bucket_uid = hash(owner+str(bucket_id))
             bucket = list()
             if type_name == 'analyst':
-                num_companies = random.randint(5,8)
+                num_companies = random.randint(8,10)
             else:
-                num_companies = random.randint(10,20)
+                num_companies = random.randint(15,30)
             random_weights = [random.random() for c in range(0,num_companies)] # generate some random weights
             random_company_ids = random.sample(range(500), num_companies) # take a random sample from company ids (0-499)
             weight_sum = sum(random_weights)
