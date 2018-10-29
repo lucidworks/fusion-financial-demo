@@ -28,7 +28,7 @@ BUCKETS = [
         'Carla',
         'Sophie'
     ]},
-    {'type':'client','people':[
+    {'type':'advisor','people':[
         'Robert',
         'Cynthia'
     ]},
@@ -94,7 +94,7 @@ for type in BUCKETS:
                     bucket_value_total = random.randint(100000000.0, 1000000000.0)
                     bucket_name = random.choice(CAPITALIZATIONS) + ' ' + random.choice(STRATEGIES) + ' Strategy'
                     bucket_ytd_ror = random.uniform(0.5, 8.0)
-                    bucket_total_clients = random.randint(40, 500)
+                    bucket_total_clients = random.randint(1000, 2000)
                     temp.update({'weight':random_weights[weights_id]/weight_sum})
                     temp.update({'bucket_value': bucket_value_total * random_weights[weights_id] / weight_sum})
                     temp.update({'bucket_value_total': bucket_value_total})
