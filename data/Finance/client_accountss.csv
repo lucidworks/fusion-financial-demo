@@ -1,0 +1,3133 @@
+status,open,close,type,account_id,client_id
+Active,2003-10-28,,Roth IRA,1,1
+Active,2003-07-16,,Roth 401(k),2,1
+Active,2013-03-26,,529,3,2
+Active,2015-12-17,,Roth IRA,4,2
+Active,2013-06-08,,Roth IRA,5,3
+Inactive,2014-10-19,2016-10-14,Brokerage,6,3
+Active,2015-12-03,,Traditional IRA,7,3
+Inactive,2013-07-20,2016-12-19,Roth 401(k),8,3
+Inactive,2018-05-01,2018-08-20,Roth IRA,9,4
+Active,2017-10-29,,Brokerage,10,4
+Active,2017-12-20,,Roth 401(k),11,4
+Active,2016-03-14,,529,12,5
+Active,2012-05-25,,Roth 401(k),13,5
+Active,2018-04-08,,Brokerage,14,5
+Active,2018-04-30,,529,15,6
+Active,2015-03-23,,Brokerage,16,6
+Inactive,2013-01-13,2014-01-22,Roth 401(k),17,6
+Active,2015-07-29,,Roth IRA,18,6
+Active,2016-07-30,,Traditional IRA,19,7
+Active,2017-01-27,,Roth 401(k),20,7
+Active,2016-07-10,,529,21,7
+Active,2014-11-14,,529,22,8
+Active,2013-11-29,,Brokerage,23,8
+Active,2005-10-02,,Roth 401(k),24,8
+Active,2017-04-08,,Roth IRA,25,9
+Active,2016-01-24,,529,26,9
+Active,2016-01-02,,Traditional IRA,27,9
+Active,2017-11-09,,Brokerage,28,9
+Active,2017-07-13,,Roth 401(k),29,10
+Active,2016-12-08,,Brokerage,30,10
+Active,2016-10-17,,Roth IRA,31,10
+Active,2017-07-12,,Traditional IRA,32,10
+Active,2017-10-24,,529,33,10
+Active,2016-07-30,,529,34,11
+Active,2006-01-20,,Roth IRA,35,11
+Active,2018-03-24,,Traditional IRA,36,11
+Active,2007-10-09,,Brokerage,37,11
+Active,2002-01-30,,Roth 401(k),38,11
+Inactive,2015-04-24,2017-01-07,529,39,12
+Active,2016-06-30,,Roth 401(k),40,12
+Active,2013-09-07,,Roth IRA,41,13
+Active,2013-11-12,,529,42,13
+Active,2013-07-20,,Brokerage,43,13
+Active,2005-03-12,,Roth IRA,44,14
+Active,2006-04-15,,Roth 401(k),45,14
+Active,2018-05-27,,Traditional IRA,46,15
+Active,2018-02-23,,Roth IRA,47,15
+Active,2017-08-01,,Roth 401(k),48,15
+Active,2016-05-15,,Brokerage,49,15
+Active,2018-06-16,,529,50,15
+Inactive,2013-06-02,2017-02-14,Roth IRA,51,16
+Active,2005-08-01,,529,52,17
+Active,2014-10-10,,Roth IRA,53,17
+Active,2011-05-09,,Brokerage,54,17
+Active,2015-12-30,,Roth 401(k),55,17
+Active,2007-09-01,,Brokerage,56,18
+Active,2013-12-09,,Traditional IRA,57,18
+Active,2017-03-08,,Roth IRA,58,19
+Active,2015-11-24,,529,59,19
+Active,2018-07-21,,Traditional IRA,60,19
+Active,2015-07-02,,Roth 401(k),61,19
+Inactive,2014-09-04,2015-12-09,Brokerage,62,19
+Active,2007-04-16,,Brokerage,63,20
+Active,2015-08-07,,Roth 401(k),64,20
+Active,2016-03-27,,Roth IRA,65,20
+Active,2010-05-29,,Traditional IRA,66,20
+Active,2011-12-23,,529,67,21
+Active,2011-08-07,,Roth IRA,68,21
+Active,2008-01-16,,Brokerage,69,21
+Active,2015-04-08,,Roth 401(k),70,21
+Active,2003-08-29,,Traditional IRA,71,21
+Active,2012-12-07,,Traditional IRA,72,22
+Active,2017-01-18,,Roth IRA,73,23
+Active,2017-06-21,,Traditional IRA,74,23
+Active,2012-05-22,,529,75,23
+Active,2015-05-22,,Roth 401(k),76,23
+Active,2013-02-13,,Roth IRA,77,24
+Active,2017-08-25,,Traditional IRA,78,24
+Active,2013-10-10,,Roth 401(k),79,24
+Active,2016-01-18,,Roth 401(k),80,25
+Active,2008-10-26,,Traditional IRA,81,25
+Active,2013-09-14,,529,82,25
+Active,2011-03-15,,Brokerage,83,25
+Active,2015-03-14,,Brokerage,84,26
+Active,2016-09-11,,Traditional IRA,85,26
+Active,2013-10-10,,Roth IRA,86,27
+Active,2014-03-08,,Brokerage,87,27
+Active,2013-10-18,,529,88,27
+Inactive,2015-08-24,2016-05-15,Roth 401(k),89,27
+Active,2014-10-09,,Traditional IRA,90,27
+Active,2018-05-25,,Roth IRA,91,28
+Active,2017-05-04,,529,92,29
+Active,2015-12-04,,Brokerage,93,29
+Active,2018-03-19,,Roth 401(k),94,29
+Active,2011-04-15,,Roth 401(k),95,30
+Inactive,2004-07-04,2017-12-06,529,96,31
+Active,2017-10-10,,Brokerage,97,31
+Active,2016-02-11,,Roth 401(k),98,31
+Inactive,2009-04-20,2015-03-07,Roth IRA,99,31
+Active,2012-03-23,,Brokerage,100,32
+Active,2016-09-26,,529,101,32
+Active,2014-05-06,,Roth IRA,102,32
+Active,2015-07-08,,Traditional IRA,103,32
+Active,2017-10-27,,Roth 401(k),104,32
+Active,2016-11-16,,Brokerage,105,33
+Active,2013-05-25,,Brokerage,106,34
+Active,2017-12-12,,Roth IRA,107,34
+Active,2008-07-12,,529,108,34
+Active,2016-11-28,,Roth 401(k),109,35
+Active,2014-05-09,,Roth IRA,110,36
+Active,2013-11-14,,Traditional IRA,111,36
+Active,2011-09-07,,529,112,36
+Active,2017-11-26,,Traditional IRA,113,37
+Active,2018-04-20,,529,114,38
+Inactive,2018-06-03,2018-10-15,Roth IRA,115,38
+Active,2011-12-04,,Brokerage,116,38
+Inactive,2018-05-22,2018-09-27,Roth 401(k),117,38
+Active,2014-12-11,,Traditional IRA,118,38
+Active,2010-05-06,,529,119,39
+Active,2009-01-05,,Roth IRA,120,39
+Active,2015-09-16,,Brokerage,121,40
+Active,2016-09-16,,Roth 401(k),122,41
+Active,2016-09-11,,Traditional IRA,123,41
+Active,2014-04-16,,Roth IRA,124,41
+Inactive,2012-06-21,2013-07-22,529,125,41
+Active,2013-11-12,,Brokerage,126,41
+Active,2018-07-20,,Roth 401(k),127,42
+Active,2007-08-26,,Roth IRA,128,42
+Active,2018-02-16,,Brokerage,129,42
+Active,2015-09-28,,529,130,42
+Active,2015-05-20,,Roth IRA,131,43
+Active,2015-12-29,,529,132,43
+Active,2018-02-02,,Brokerage,133,43
+Active,2014-05-21,,Roth 401(k),134,43
+Active,2013-01-21,,Traditional IRA,135,43
+Active,2015-03-14,,529,136,44
+Active,2011-01-16,,Roth IRA,137,45
+Active,2012-07-19,,529,138,45
+Active,2009-12-16,,Traditional IRA,139,45
+Active,2017-09-20,,Roth 401(k),140,45
+Active,2006-01-05,,Roth 401(k),141,46
+Active,2016-07-13,,529,142,46
+Active,2006-08-14,,Roth IRA,143,46
+Active,2011-12-05,,Traditional IRA,144,46
+Active,2015-10-23,,Roth 401(k),145,47
+Active,2015-08-28,,529,146,47
+Active,2010-04-08,,Brokerage,147,48
+Inactive,2010-08-05,2016-07-25,529,148,48
+Active,2010-12-02,,Traditional IRA,149,48
+Active,2011-09-20,,Roth IRA,150,48
+Active,2018-01-16,,Roth 401(k),151,49
+Active,2018-06-16,,529,152,49
+Active,2018-02-13,,Brokerage,153,49
+Active,2018-05-31,,Traditional IRA,154,49
+Active,2007-03-21,,529,155,50
+Active,2009-11-01,,Roth IRA,156,50
+Active,2017-05-31,,Roth IRA,157,51
+Inactive,2016-04-21,2018-09-09,Brokerage,158,52
+Active,2009-12-20,,Traditional IRA,159,52
+Active,2007-04-18,,529,160,52
+Active,2017-09-30,,Brokerage,161,53
+Active,2017-08-24,,529,162,53
+Active,2017-03-26,,529,163,54
+Active,2015-09-02,,Traditional IRA,164,54
+Active,2008-11-26,,Roth IRA,165,54
+Active,2015-04-07,,529,166,55
+Inactive,2016-08-30,2017-12-05,Roth 401(k),167,55
+Active,2015-10-22,,Roth IRA,168,55
+Active,2016-12-10,,Brokerage,169,55
+Active,2017-11-15,,Traditional IRA,170,55
+Inactive,2014-09-20,2016-12-03,529,171,56
+Active,2003-03-14,,Brokerage,172,56
+Active,2018-07-05,,529,173,57
+Active,2017-09-20,,Roth IRA,174,57
+Active,2013-11-19,,Roth IRA,175,58
+Active,2018-04-09,,529,176,58
+Active,2014-03-06,,Roth 401(k),177,58
+Active,2015-02-26,,Roth IRA,178,59
+Active,2012-09-16,,Brokerage,179,59
+Active,2017-02-02,,Traditional IRA,180,59
+Active,2017-04-21,,Traditional IRA,181,60
+Active,2018-01-14,,Brokerage,182,60
+Active,2016-04-12,,Brokerage,183,61
+Active,2015-07-02,,Traditional IRA,184,61
+Active,2017-10-22,,Brokerage,185,62
+Active,2017-12-02,,529,186,62
+Active,2017-07-12,,Roth 401(k),187,62
+Active,2012-09-18,,Traditional IRA,188,62
+Inactive,2016-10-17,2018-07-26,Roth IRA,189,62
+Inactive,2008-04-06,2009-03-12,529,190,63
+Active,2005-01-15,,Traditional IRA,191,63
+Active,2017-09-26,,Roth IRA,192,63
+Active,2018-03-19,,Traditional IRA,193,64
+Active,2006-10-21,,Brokerage,194,64
+Inactive,2013-02-24,2015-04-02,Roth IRA,195,64
+Inactive,2011-10-05,2015-04-20,Roth 401(k),196,64
+Active,2006-10-19,,529,197,65
+Active,2018-01-31,,529,198,66
+Active,2017-05-30,,Roth 401(k),199,66
+Active,2017-02-13,,Brokerage,200,66
+Active,2016-04-10,,Roth IRA,201,66
+Active,2012-12-24,,Traditional IRA,202,67
+Active,2013-08-26,,Brokerage,203,67
+Active,2018-07-03,,Roth IRA,204,68
+Active,2018-03-25,,Traditional IRA,205,68
+Active,2017-06-10,,Roth IRA,206,69
+Active,2004-06-06,,Roth 401(k),207,70
+Active,2015-11-07,,Roth 401(k),208,71
+Inactive,2011-10-08,2015-07-25,Traditional IRA,209,71
+Active,2017-08-11,,Brokerage,210,72
+Active,2014-07-30,,Roth 401(k),211,72
+Active,2017-01-14,,Traditional IRA,212,73
+Active,2016-11-20,,Roth IRA,213,73
+Active,2016-04-18,,529,214,73
+Active,2018-05-09,,Brokerage,215,73
+Active,2008-08-12,,Roth IRA,216,74
+Active,2010-02-19,,Brokerage,217,74
+Active,2014-01-03,,Traditional IRA,218,75
+Active,2013-07-08,,Roth 401(k),219,75
+Active,2015-08-21,,Roth IRA,220,75
+Active,2014-11-10,,Brokerage,221,75
+Active,2011-10-05,,529,222,75
+Active,2012-06-24,,529,223,76
+Active,2016-11-02,,Traditional IRA,224,76
+Active,2015-01-10,,Brokerage,225,76
+Active,2006-01-14,,529,226,77
+Active,2015-08-20,,Roth 401(k),227,78
+Active,2016-03-14,,Brokerage,228,78
+Active,2012-06-23,,Roth IRA,229,78
+Active,2012-04-21,,Brokerage,230,79
+Inactive,2012-09-20,2014-01-04,Roth 401(k),231,79
+Inactive,2017-04-02,2018-06-30,Roth IRA,232,79
+Active,2013-03-07,,Traditional IRA,233,79
+Active,2011-12-03,,Roth 401(k),234,80
+Active,2012-11-23,,Traditional IRA,235,80
+Active,2014-07-25,,Roth IRA,236,80
+Active,2009-09-05,,Brokerage,237,80
+Active,2011-11-13,,529,238,81
+Active,2012-11-01,,Brokerage,239,81
+Active,2007-08-27,,Roth IRA,240,81
+Inactive,2006-07-10,2017-07-29,Traditional IRA,241,81
+Active,2009-10-17,,Brokerage,242,82
+Active,2017-08-10,,Traditional IRA,243,83
+Active,2013-10-14,,Roth 401(k),244,84
+Active,2008-04-18,,529,245,84
+Active,2015-11-30,,Roth IRA,246,84
+Active,2013-12-05,,Traditional IRA,247,84
+Active,2012-09-30,,Traditional IRA,248,85
+Active,2015-09-06,,Brokerage,249,85
+Inactive,2008-09-12,2014-10-23,Roth 401(k),250,85
+Active,2017-03-24,,Brokerage,251,86
+Inactive,2003-12-07,2017-05-12,Roth 401(k),252,86
+Active,2001-06-23,,Traditional IRA,253,86
+Inactive,2003-11-18,2016-09-22,529,254,86
+Active,2008-12-12,,Roth IRA,255,87
+Active,2011-09-22,,Brokerage,256,88
+Active,2011-02-20,,Roth IRA,257,88
+Active,2011-07-27,,Traditional IRA,258,88
+Active,2011-05-05,,Roth 401(k),259,89
+Active,2017-05-09,,529,260,89
+Active,2016-11-29,,Roth 401(k),261,90
+Active,2016-03-09,,529,262,90
+Active,2011-04-16,,Traditional IRA,263,90
+Inactive,2014-09-16,2016-03-30,Brokerage,264,90
+Active,2012-03-08,,Roth IRA,265,90
+Active,2007-06-14,,Traditional IRA,266,91
+Active,2010-12-30,,529,267,91
+Active,2004-05-15,,Roth IRA,268,91
+Active,2017-11-15,,Roth 401(k),269,91
+Active,2013-12-17,,Brokerage,270,91
+Active,2010-09-02,,529,271,92
+Active,2011-11-05,,Traditional IRA,272,92
+Active,2017-05-06,,Brokerage,273,93
+Active,2006-10-02,,529,274,93
+Active,2014-12-11,,Roth 401(k),275,93
+Active,2012-07-13,,Traditional IRA,276,93
+Inactive,2017-03-17,2018-03-30,Traditional IRA,277,94
+Active,2013-06-16,,529,278,94
+Active,2016-12-14,,Roth 401(k),279,94
+Active,2018-04-27,,Brokerage,280,94
+Active,2004-01-07,,Brokerage,281,95
+Active,2005-02-04,,529,282,95
+Active,2006-09-28,,Roth IRA,283,95
+Active,2004-02-08,,Roth 401(k),284,95
+Active,2011-12-03,,Roth 401(k),285,96
+Active,2018-02-22,,Brokerage,286,97
+Active,2017-11-03,,Roth 401(k),287,97
+Active,2018-01-21,,Roth IRA,288,97
+Active,2017-11-07,,Traditional IRA,289,97
+Active,2017-12-18,,529,290,97
+Inactive,2007-12-23,2017-09-18,Brokerage,291,98
+Active,2007-09-16,,Roth 401(k),292,98
+Active,2004-09-12,,Roth IRA,293,98
+Active,2014-12-30,,Roth IRA,294,99
+Inactive,2016-11-21,2018-01-02,Roth 401(k),295,99
+Active,2013-06-24,,Brokerage,296,99
+Active,2015-05-31,,Traditional IRA,297,99
+Active,2015-09-10,,529,298,99
+Active,2017-08-06,,Traditional IRA,299,100
+Active,2015-05-14,,Brokerage,300,101
+Active,2011-02-23,,Traditional IRA,301,102
+Active,2008-05-21,,Brokerage,302,102
+Inactive,2016-08-26,2018-03-30,529,303,102
+Active,2018-04-12,,529,304,103
+Active,2017-12-29,,Roth IRA,305,103
+Active,2009-09-13,,Traditional IRA,306,104
+Active,2017-01-20,,Brokerage,307,105
+Active,2017-03-24,,529,308,105
+Active,2017-09-08,,Roth IRA,309,105
+Active,2006-04-12,,Roth 401(k),310,106
+Active,2016-11-23,,529,311,106
+Active,2003-10-24,,Brokerage,312,106
+Active,2017-06-26,,Traditional IRA,313,107
+Active,2013-06-07,,Brokerage,314,107
+Active,2005-06-22,,Roth 401(k),315,107
+Active,2014-08-20,,529,316,107
+Active,2007-07-11,,Traditional IRA,317,108
+Inactive,2003-09-22,2014-10-17,Roth 401(k),318,108
+Active,2013-02-17,,Traditional IRA,319,109
+Active,2016-08-07,,Roth IRA,320,109
+Active,2016-09-16,,529,321,110
+Active,2010-01-18,,Roth 401(k),322,111
+Active,2014-09-26,,Roth IRA,323,111
+Active,2017-10-17,,529,324,111
+Inactive,2015-11-06,2017-11-30,Traditional IRA,325,111
+Active,2015-08-27,,Traditional IRA,326,112
+Active,2005-06-16,,Roth 401(k),327,113
+Inactive,2012-10-18,2017-01-25,Traditional IRA,328,113
+Active,2010-07-22,,Brokerage,329,113
+Active,2007-06-10,,Roth IRA,330,113
+Active,2015-03-18,,529,331,114
+Active,2011-07-29,,Traditional IRA,332,114
+Active,2017-01-02,,Brokerage,333,114
+Active,2007-06-18,,Roth 401(k),334,114
+Inactive,2015-07-14,2018-10-29,529,335,115
+Active,2015-04-21,,Roth 401(k),336,115
+Active,2018-06-25,,Roth IRA,337,115
+Active,2014-10-31,,Traditional IRA,338,115
+Active,2013-06-10,,Roth 401(k),339,116
+Active,2015-08-04,,529,340,116
+Active,2014-03-26,,Brokerage,341,116
+Active,2017-08-13,,Roth 401(k),342,117
+Active,2017-08-26,,Roth IRA,343,117
+Active,2017-12-02,,Traditional IRA,344,117
+Active,2018-05-05,,Brokerage,345,117
+Inactive,2018-06-07,2018-10-03,Roth 401(k),346,118
+Active,2015-07-01,,Roth IRA,347,118
+Active,2014-09-15,,529,348,119
+Active,2016-07-13,,Traditional IRA,349,119
+Active,2012-03-03,,Roth IRA,350,119
+Active,2016-12-13,,Roth 401(k),351,119
+Active,2012-06-10,,529,352,120
+Active,2018-03-03,,Traditional IRA,353,121
+Active,2002-06-23,,Roth 401(k),354,121
+Inactive,2007-04-06,2014-11-30,529,355,122
+Active,2001-06-13,,Traditional IRA,356,122
+Active,2017-11-22,,Traditional IRA,357,123
+Inactive,2017-07-28,2017-11-09,529,358,124
+Active,2018-03-01,,Roth IRA,359,124
+Inactive,2013-08-15,2018-10-09,Roth 401(k),360,124
+Inactive,2014-08-16,2016-05-30,529,361,125
+Active,2013-06-11,,Roth IRA,362,125
+Active,2007-03-06,,Traditional IRA,363,125
+Active,2008-03-28,,Roth 401(k),364,125
+Active,2018-01-17,,Traditional IRA,365,126
+Active,2012-04-03,,Traditional IRA,366,127
+Active,2014-03-10,,Roth 401(k),367,127
+Inactive,2013-08-17,2013-12-24,529,368,127
+Active,2016-03-22,,Brokerage,369,127
+Active,2010-09-13,,Roth IRA,370,127
+Active,2018-01-23,,Roth IRA,371,128
+Active,2018-07-17,,Brokerage,372,128
+Active,2017-09-11,,Roth 401(k),373,128
+Active,2018-06-29,,Traditional IRA,374,128
+Active,2015-10-27,,Roth IRA,375,129
+Active,2017-12-22,,Traditional IRA,376,129
+Active,2012-09-04,,529,377,129
+Active,2016-10-03,,Brokerage,378,130
+Active,2010-07-18,,Roth IRA,379,131
+Active,2005-08-19,,529,380,131
+Active,2018-07-02,,Brokerage,381,131
+Inactive,2006-04-08,2012-01-14,Roth 401(k),382,131
+Active,2015-02-11,,Traditional IRA,383,131
+Active,2017-08-13,,Brokerage,384,132
+Active,2009-12-22,,Roth IRA,385,133
+Active,2017-12-15,,529,386,133
+Active,2004-02-08,,Traditional IRA,387,133
+Active,2016-01-11,,Roth 401(k),388,133
+Active,2010-06-27,,Brokerage,389,133
+Active,2015-07-31,,Roth 401(k),390,134
+Active,2016-01-29,,Brokerage,391,134
+Active,2018-01-03,,529,392,135
+Active,2009-08-21,,Traditional IRA,393,135
+Active,2017-12-15,,529,394,136
+Active,2015-02-18,,Traditional IRA,395,137
+Active,2017-02-03,,Roth IRA,396,137
+Active,2016-09-22,,Brokerage,397,137
+Inactive,2014-06-10,2016-05-19,529,398,137
+Active,2017-02-09,,Roth 401(k),399,137
+Active,2009-02-22,,Brokerage,400,138
+Active,2005-09-21,,Traditional IRA,401,138
+Active,2010-03-03,,Traditional IRA,402,139
+Active,2018-06-02,,Brokerage,403,140
+Active,2018-06-02,,529,404,140
+Inactive,2018-02-23,2018-06-25,Traditional IRA,405,140
+Active,2016-07-17,,529,406,141
+Active,2017-05-02,,Roth IRA,407,142
+Active,2010-03-09,,Roth 401(k),408,142
+Active,2014-07-12,,Roth 401(k),409,143
+Inactive,2018-03-19,2018-10-12,Traditional IRA,410,144
+Active,2014-02-26,,Traditional IRA,411,145
+Active,2015-07-01,,Roth 401(k),412,145
+Active,2013-12-17,,529,413,145
+Active,2017-11-26,,Roth 401(k),414,146
+Active,2003-04-23,,Brokerage,415,146
+Active,2004-11-16,,529,416,146
+Active,2017-09-20,,Traditional IRA,417,147
+Active,2012-09-20,,Roth 401(k),418,147
+Active,2016-02-28,,529,419,148
+Active,2010-01-01,,Roth 401(k),420,148
+Active,2017-06-27,,Brokerage,421,149
+Active,2017-09-22,,Brokerage,422,150
+Active,2007-08-29,,Roth IRA,423,150
+Active,2016-06-29,,Roth 401(k),424,150
+Active,2010-08-25,,Traditional IRA,425,150
+Active,2015-05-16,,529,426,150
+Active,2010-06-18,,Roth IRA,427,151
+Active,2012-12-06,,Traditional IRA,428,151
+Active,2017-09-30,,Brokerage,429,151
+Active,2018-01-18,,529,430,151
+Active,2012-01-12,,Roth 401(k),431,151
+Active,2016-10-02,,Traditional IRA,432,152
+Inactive,2015-08-12,2017-12-14,529,433,152
+Active,2011-01-28,,Roth IRA,434,152
+Active,2017-10-07,,Roth 401(k),435,152
+Inactive,2005-10-26,2013-09-10,Traditional IRA,436,153
+Active,2008-06-21,,529,437,153
+Active,2003-10-11,,Brokerage,438,153
+Active,2015-09-30,,Roth 401(k),439,153
+Active,2011-06-03,,Roth IRA,440,153
+Active,2017-01-25,,529,441,154
+Active,2016-10-19,,Brokerage,442,154
+Active,2011-05-19,,Brokerage,443,155
+Active,2010-03-24,,Roth 401(k),444,156
+Active,2016-10-22,,Brokerage,445,156
+Active,2011-12-10,,Traditional IRA,446,156
+Active,2017-03-03,,Roth IRA,447,156
+Active,2015-07-10,,Roth 401(k),448,157
+Active,2009-05-02,,Roth 401(k),449,158
+Active,2009-02-21,,Brokerage,450,158
+Active,2008-02-20,,Traditional IRA,451,158
+Active,2014-10-28,,Roth IRA,452,158
+Active,2006-11-08,,529,453,158
+Inactive,2002-08-04,2006-12-03,529,454,159
+Active,2014-06-04,,Brokerage,455,160
+Inactive,2009-11-24,2014-04-24,Traditional IRA,456,160
+Active,2011-12-01,,Roth IRA,457,160
+Active,2010-07-14,,Roth 401(k),458,160
+Active,2011-06-23,,529,459,160
+Active,2014-04-28,,529,460,161
+Active,2012-01-15,,Brokerage,461,161
+Active,2017-01-04,,Traditional IRA,462,161
+Active,2008-03-16,,Roth IRA,463,161
+Active,2017-11-04,,Brokerage,464,162
+Inactive,2016-10-16,2018-04-24,Traditional IRA,465,162
+Active,2012-03-18,,529,466,162
+Active,2013-07-20,,Roth IRA,467,162
+Active,2013-11-16,,Roth 401(k),468,162
+Active,2007-09-26,,529,469,163
+Active,2016-12-08,,Roth 401(k),470,163
+Active,2013-05-14,,Brokerage,471,163
+Active,2010-06-04,,Roth IRA,472,163
+Active,2015-05-17,,Traditional IRA,473,163
+Active,2013-11-27,,Roth 401(k),474,164
+Active,2006-01-29,,Traditional IRA,475,164
+Active,2011-05-15,,Traditional IRA,476,165
+Inactive,2007-11-22,2015-09-03,Roth IRA,477,165
+Active,2017-01-02,,Brokerage,478,166
+Active,2017-08-22,,Roth IRA,479,166
+Active,2014-06-14,,Traditional IRA,480,166
+Active,2012-11-08,,Roth 401(k),481,166
+Active,2018-05-04,,Brokerage,482,167
+Active,2013-10-08,,Roth 401(k),483,167
+Active,2015-12-16,,529,484,167
+Active,2014-03-31,,Roth IRA,485,167
+Active,2017-11-29,,Roth IRA,486,168
+Active,2018-02-14,,Traditional IRA,487,168
+Active,2017-11-25,,Roth 401(k),488,168
+Active,2015-12-03,,Brokerage,489,168
+Active,2016-12-22,,Roth 401(k),490,169
+Active,2017-01-02,,Brokerage,491,169
+Active,2016-11-08,,529,492,169
+Active,2015-05-06,,529,493,170
+Active,2018-04-09,,Brokerage,494,171
+Active,2017-01-29,,Roth 401(k),495,171
+Inactive,2018-06-11,2018-10-01,Traditional IRA,496,171
+Active,2018-02-20,,Roth IRA,497,171
+Active,2017-02-27,,529,498,171
+Active,2015-10-29,,Brokerage,499,172
+Active,2014-03-30,,Roth IRA,500,172
+Active,2015-12-04,,529,501,172
+Active,2011-09-12,,Roth 401(k),502,172
+Active,2011-09-20,,Traditional IRA,503,172
+Active,2010-12-20,,Roth 401(k),504,173
+Active,2017-04-10,,529,505,173
+Active,2014-08-12,,Traditional IRA,506,173
+Active,2015-08-03,,Roth IRA,507,173
+Active,2013-12-07,,Brokerage,508,173
+Active,2017-11-17,,Roth IRA,509,174
+Active,2017-02-28,,529,510,174
+Active,2017-11-05,,Traditional IRA,511,174
+Active,2017-09-12,,Roth 401(k),512,174
+Active,2018-06-21,,Brokerage,513,174
+Active,2016-09-06,,Traditional IRA,514,175
+Active,2012-10-02,,Roth 401(k),515,175
+Active,2017-06-16,,Traditional IRA,516,176
+Active,2018-07-04,,Traditional IRA,517,177
+Active,2003-05-12,,Brokerage,518,178
+Active,2015-11-01,,529,519,178
+Active,2006-05-15,,Roth 401(k),520,178
+Active,2014-08-28,,Roth IRA,521,179
+Active,2016-11-11,,Brokerage,522,179
+Active,2009-07-14,,529,523,179
+Active,2007-04-21,,Traditional IRA,524,179
+Active,2007-10-11,,Roth 401(k),525,179
+Active,2017-10-24,,Brokerage,526,180
+Active,2016-11-26,,Roth IRA,527,180
+Active,2016-11-17,,529,528,180
+Active,2015-09-03,,Roth IRA,529,181
+Active,2017-04-14,,Roth 401(k),530,181
+Inactive,2018-03-22,2018-08-25,Brokerage,531,181
+Active,2015-06-18,,Roth IRA,532,182
+Active,2016-12-03,,529,533,182
+Active,2013-02-24,,Brokerage,534,182
+Active,2012-09-29,,Roth 401(k),535,183
+Inactive,2017-10-08,2018-05-29,Brokerage,536,183
+Active,2016-09-11,,Roth 401(k),537,184
+Active,2015-12-25,,529,538,184
+Active,2013-05-24,,Roth IRA,539,184
+Active,2015-11-10,,Traditional IRA,540,184
+Active,2016-07-24,,Brokerage,541,185
+Active,2010-04-20,,Traditional IRA,542,185
+Active,2011-05-12,,Roth IRA,543,185
+Active,2017-10-08,,529,544,185
+Active,2009-04-16,,Roth 401(k),545,185
+Active,2011-08-31,,Traditional IRA,546,186
+Active,2017-05-29,,Roth 401(k),547,187
+Active,2016-12-26,,Brokerage,548,187
+Active,2017-06-16,,Traditional IRA,549,187
+Active,2012-07-02,,Traditional IRA,550,188
+Active,2013-06-22,,Roth IRA,551,188
+Inactive,2017-09-18,2018-08-22,529,552,188
+Active,2018-07-04,,529,553,189
+Inactive,2018-05-09,2018-08-18,Roth 401(k),554,189
+Inactive,2009-04-15,2012-01-06,Brokerage,555,190
+Inactive,2014-12-12,2016-08-13,529,556,190
+Active,2005-12-13,,Roth 401(k),557,190
+Active,2011-02-19,,Traditional IRA,558,190
+Active,2005-10-21,,Roth IRA,559,190
+Active,2010-08-26,,Traditional IRA,560,191
+Active,2018-02-15,,529,561,192
+Active,2016-12-07,,Roth 401(k),562,192
+Active,2015-12-27,,Traditional IRA,563,192
+Active,2015-07-23,,Brokerage,564,192
+Active,2008-09-30,,Brokerage,565,193
+Active,2009-06-01,,Traditional IRA,566,193
+Active,2016-09-25,,Roth IRA,567,193
+Active,2008-03-01,,529,568,193
+Inactive,2014-08-12,2018-03-19,Traditional IRA,569,194
+Active,2013-06-19,,Roth IRA,570,194
+Active,2006-10-22,,529,571,195
+Active,2005-10-30,,Brokerage,572,195
+Active,2017-03-17,,Roth IRA,573,195
+Inactive,2015-05-13,2018-01-21,Brokerage,574,196
+Active,2016-12-04,,Roth IRA,575,196
+Active,2016-08-04,,Roth 401(k),576,196
+Active,2015-11-16,,Traditional IRA,577,196
+Active,2015-08-05,,Roth 401(k),578,197
+Active,2012-05-17,,Traditional IRA,579,197
+Active,2014-06-01,,Roth IRA,580,197
+Active,2011-09-05,,Traditional IRA,581,198
+Active,2012-04-17,,Traditional IRA,582,199
+Active,2016-06-14,,529,583,200
+Active,2017-03-25,,Roth IRA,584,200
+Active,2017-11-10,,Brokerage,585,200
+Active,2014-03-02,,Roth 401(k),586,200
+Active,2018-04-21,,Traditional IRA,587,200
+Active,2011-11-10,,Traditional IRA,588,201
+Active,2014-04-18,,Roth IRA,589,201
+Inactive,2018-03-02,2018-10-19,529,590,201
+Active,2010-06-09,,Roth 401(k),591,201
+Active,2010-06-30,,Brokerage,592,201
+Active,2012-08-05,,Roth IRA,593,202
+Inactive,2017-01-05,2018-09-18,Traditional IRA,594,202
+Active,2018-05-11,,529,595,202
+Inactive,2015-09-09,2017-01-17,Traditional IRA,596,203
+Active,2015-11-16,,Brokerage,597,203
+Inactive,2016-06-08,2017-12-14,Traditional IRA,598,204
+Active,2015-12-24,,529,599,204
+Inactive,2016-10-26,2017-10-30,Roth 401(k),600,204
+Active,2017-10-29,,Brokerage,601,204
+Active,2008-06-05,,Roth 401(k),602,205
+Active,2007-01-28,,Brokerage,603,205
+Inactive,2013-05-05,2018-04-23,Roth IRA,604,205
+Active,2018-05-16,,Traditional IRA,605,205
+Active,2011-10-01,,Brokerage,606,206
+Active,2007-12-04,,529,607,206
+Active,2001-02-27,,Roth IRA,608,206
+Active,2017-08-25,,529,609,207
+Active,2017-10-29,,Brokerage,610,207
+Active,2015-07-11,,Traditional IRA,611,207
+Active,2014-04-14,,Roth 401(k),612,207
+Active,2018-03-27,,Roth IRA,613,207
+Active,2016-09-04,,Roth 401(k),614,208
+Active,2014-08-07,,Roth IRA,615,208
+Active,2008-02-18,,Traditional IRA,616,208
+Active,2010-10-10,,529,617,208
+Active,2017-07-21,,Roth IRA,618,209
+Active,2013-09-10,,Traditional IRA,619,209
+Active,2005-03-17,,Brokerage,620,209
+Active,2014-03-29,,Roth 401(k),621,209
+Active,2014-04-22,,529,622,209
+Active,2018-06-08,,Roth 401(k),623,210
+Active,2003-11-03,,Brokerage,624,211
+Inactive,2007-05-15,2017-09-10,Traditional IRA,625,211
+Active,2006-01-01,,Roth IRA,626,211
+Active,2015-10-16,,Brokerage,627,212
+Active,2011-10-07,,Traditional IRA,628,213
+Active,2014-06-15,,Roth 401(k),629,213
+Active,2013-04-23,,529,630,213
+Active,2014-11-14,,Roth IRA,631,213
+Active,2018-06-22,,Traditional IRA,632,214
+Active,2002-04-01,,Brokerage,633,215
+Active,2002-03-12,,Traditional IRA,634,215
+Active,2010-01-25,,Roth IRA,635,215
+Active,2013-07-02,,Brokerage,636,216
+Active,2015-08-29,,529,637,216
+Active,2017-06-18,,Roth IRA,638,216
+Active,2013-12-19,,Traditional IRA,639,216
+Active,2017-10-30,,Roth 401(k),640,216
+Active,2017-06-19,,Traditional IRA,641,217
+Active,2009-04-29,,Roth IRA,642,217
+Active,2014-05-27,,Roth IRA,643,218
+Active,2012-03-13,,Brokerage,644,218
+Active,2006-12-02,,Traditional IRA,645,218
+Active,2008-12-16,,529,646,218
+Active,2007-02-20,,Roth IRA,647,219
+Active,2008-06-21,,Roth 401(k),648,219
+Active,2008-12-14,,Traditional IRA,649,219
+Active,2011-11-25,,529,650,220
+Active,2008-01-16,,Roth 401(k),651,220
+Active,2011-04-02,,Traditional IRA,652,220
+Inactive,2016-06-27,2017-03-20,Brokerage,653,220
+Active,2016-03-30,,Roth IRA,654,220
+Active,2018-02-01,,529,655,221
+Active,2013-11-10,,Traditional IRA,656,221
+Active,2010-11-17,,Roth IRA,657,221
+Active,2013-11-09,,Roth 401(k),658,221
+Active,2013-01-16,,Brokerage,659,221
+Active,2015-12-30,,Roth IRA,660,222
+Active,2016-04-30,,Traditional IRA,661,222
+Active,2018-07-07,,Brokerage,662,222
+Active,2017-08-25,,Roth 401(k),663,222
+Inactive,2016-09-18,2017-07-14,529,664,222
+Active,2014-11-15,,Roth 401(k),665,223
+Active,2013-03-25,,529,666,223
+Active,2016-08-02,,Roth IRA,667,223
+Active,2016-02-01,,Traditional IRA,668,223
+Active,2017-10-28,,Brokerage,669,223
+Active,2017-03-10,,Traditional IRA,670,224
+Active,2015-11-19,,Roth 401(k),671,224
+Active,2015-12-03,,Brokerage,672,225
+Active,2007-06-29,,Traditional IRA,673,225
+Active,2008-12-22,,529,674,226
+Active,2005-03-03,,Traditional IRA,675,226
+Active,2007-07-14,,Roth 401(k),676,226
+Active,2012-09-28,,Roth IRA,677,226
+Active,2006-07-31,,Brokerage,678,226
+Active,2006-10-25,,Traditional IRA,679,227
+Active,2015-11-11,,Brokerage,680,227
+Active,2003-03-29,,529,681,227
+Active,2017-12-02,,Traditional IRA,682,228
+Active,2017-03-19,,Roth 401(k),683,228
+Active,2015-11-25,,Roth IRA,684,228
+Active,2016-10-13,,Brokerage,685,228
+Active,2011-03-27,,529,686,228
+Active,2011-05-19,,Roth 401(k),687,229
+Active,2016-04-05,,Brokerage,688,229
+Active,2009-01-31,,Traditional IRA,689,229
+Active,2007-06-06,,Brokerage,690,230
+Active,2014-12-16,,Traditional IRA,691,230
+Active,2016-04-06,,Brokerage,692,231
+Active,2013-12-10,,Roth 401(k),693,231
+Active,2014-07-24,,Traditional IRA,694,231
+Active,2014-07-18,,529,695,232
+Active,2017-06-13,,Brokerage,696,232
+Active,2017-10-28,,Roth IRA,697,233
+Active,2017-07-06,,Roth 401(k),698,233
+Inactive,2017-03-15,2018-04-05,Brokerage,699,233
+Active,2000-05-12,,529,700,234
+Inactive,2007-11-26,2017-09-16,Roth 401(k),701,234
+Active,2006-01-22,,Traditional IRA,702,234
+Active,2013-06-04,,Brokerage,703,234
+Active,2012-12-02,,Roth IRA,704,235
+Active,2015-10-01,,Brokerage,705,235
+Active,2016-02-05,,529,706,235
+Active,2017-07-08,,Traditional IRA,707,235
+Active,2015-03-09,,Roth 401(k),708,236
+Active,2005-12-23,,529,709,236
+Active,2003-09-20,,Roth IRA,710,236
+Active,2016-06-17,,529,711,237
+Active,2012-03-23,,Roth IRA,712,238
+Active,2015-11-28,,Brokerage,713,238
+Active,2004-02-25,,Traditional IRA,714,238
+Active,2017-11-08,,Traditional IRA,715,239
+Active,2017-09-04,,529,716,240
+Active,2015-10-13,,Traditional IRA,717,240
+Active,2015-02-15,,Brokerage,718,240
+Active,2017-03-08,,Roth IRA,719,240
+Active,2017-09-18,,Roth 401(k),720,240
+Inactive,2010-12-09,2016-08-31,Traditional IRA,721,241
+Active,2010-01-11,,Roth IRA,722,241
+Active,2006-03-23,,Roth 401(k),723,241
+Active,2008-10-14,,529,724,242
+Active,2011-04-10,,Traditional IRA,725,242
+Active,2018-04-23,,Roth 401(k),726,242
+Active,2007-05-27,,Brokerage,727,242
+Inactive,2015-09-04,2017-11-28,Brokerage,728,243
+Active,2016-05-25,,Roth 401(k),729,243
+Active,2016-09-01,,Traditional IRA,730,243
+Active,2017-07-09,,Roth IRA,731,243
+Inactive,2017-08-11,2018-10-19,Roth 401(k),732,244
+Active,2009-04-11,,529,733,245
+Active,2014-06-03,,Roth IRA,734,245
+Active,2016-01-01,,Brokerage,735,245
+Active,2015-10-09,,Roth IRA,736,246
+Active,2016-07-17,,Brokerage,737,246
+Active,2016-01-24,,Traditional IRA,738,246
+Active,2016-02-13,,Roth 401(k),739,246
+Inactive,2018-05-25,2018-10-22,529,740,246
+Active,2018-04-23,,Roth IRA,741,247
+Active,2010-12-20,,Brokerage,742,247
+Inactive,2007-03-10,2017-08-14,Traditional IRA,743,247
+Active,2017-11-25,,Roth 401(k),744,247
+Active,2017-04-02,,Roth 401(k),745,248
+Active,2017-10-29,,529,746,248
+Active,2016-09-02,,Brokerage,747,248
+Active,2018-01-01,,Traditional IRA,748,248
+Active,2012-04-16,,Brokerage,749,249
+Active,2015-10-11,,Roth 401(k),750,249
+Active,2013-04-24,,Traditional IRA,751,249
+Active,2016-07-24,,Roth IRA,752,249
+Active,2016-11-14,,Roth IRA,753,250
+Active,2017-01-17,,529,754,250
+Active,2015-08-21,,Traditional IRA,755,250
+Active,2011-11-06,,Roth IRA,756,251
+Active,2011-11-24,,Roth 401(k),757,251
+Active,2015-05-29,,529,758,252
+Active,2016-05-07,,Roth IRA,759,252
+Active,2015-03-08,,Roth IRA,760,253
+Active,2001-11-27,,Brokerage,761,253
+Active,2017-04-26,,529,762,253
+Active,2015-03-25,,Brokerage,763,254
+Inactive,2012-08-01,2016-06-21,Traditional IRA,764,254
+Active,2018-07-04,,529,765,254
+Active,2018-06-29,,529,766,255
+Active,2017-09-25,,Brokerage,767,256
+Active,2017-08-09,,529,768,256
+Inactive,2017-09-15,2018-03-06,Brokerage,769,257
+Active,2018-04-09,,Roth 401(k),770,257
+Active,2018-04-29,,Roth IRA,771,257
+Active,2018-03-20,,Traditional IRA,772,257
+Active,2014-01-09,,Traditional IRA,773,258
+Active,2012-09-02,,Roth 401(k),774,258
+Active,2016-02-18,,Brokerage,775,258
+Inactive,2014-05-14,2018-09-02,Roth IRA,776,258
+Active,2013-01-07,,529,777,258
+Active,2005-03-15,,Brokerage,778,259
+Inactive,2015-07-14,2016-07-14,Roth IRA,779,260
+Active,2018-05-18,,Traditional IRA,780,261
+Active,2015-11-30,,Roth IRA,781,262
+Active,2017-04-21,,Roth 401(k),782,262
+Active,2017-12-16,,Brokerage,783,262
+Inactive,2009-07-01,2014-07-20,Traditional IRA,784,263
+Active,2013-12-17,,Roth 401(k),785,263
+Active,2008-11-30,,529,786,263
+Active,2018-03-22,,529,787,264
+Active,2018-04-12,,Roth IRA,788,264
+Active,2009-11-21,,Roth IRA,789,265
+Inactive,2010-11-07,2017-02-01,Roth 401(k),790,265
+Inactive,2013-12-22,2014-09-27,Traditional IRA,791,265
+Active,2011-05-11,,529,792,265
+Active,2018-06-06,,Roth IRA,793,266
+Inactive,2011-10-17,2012-09-30,Roth 401(k),794,266
+Active,2013-02-04,,Traditional IRA,795,266
+Active,2010-02-12,,Traditional IRA,796,267
+Active,2009-11-07,,Roth 401(k),797,267
+Active,2013-11-18,,Brokerage,798,267
+Active,2018-06-05,,Roth IRA,799,267
+Active,2017-12-28,,529,800,268
+Active,2018-06-29,,Traditional IRA,801,268
+Active,2015-09-19,,Roth 401(k),802,268
+Active,2017-05-24,,Brokerage,803,269
+Active,2008-07-17,,529,804,269
+Active,2013-11-10,,Traditional IRA,805,269
+Active,2017-08-28,,Roth IRA,806,269
+Active,2016-06-26,,Roth IRA,807,270
+Active,2016-11-06,,Roth 401(k),808,270
+Active,2016-04-02,,529,809,270
+Inactive,2016-09-02,2018-04-12,Traditional IRA,810,270
+Active,2016-05-04,,Roth 401(k),811,271
+Inactive,2016-04-21,2017-12-26,Traditional IRA,812,271
+Active,2018-03-19,,529,813,271
+Active,2015-08-03,,Brokerage,814,271
+Active,2015-08-12,,Roth IRA,815,271
+Active,2015-10-01,,Roth 401(k),816,272
+Active,2011-01-20,,Traditional IRA,817,272
+Active,2016-12-10,,Roth IRA,818,272
+Active,2012-05-08,,Brokerage,819,272
+Active,2013-09-12,,Brokerage,820,273
+Active,2017-09-15,,Roth IRA,821,274
+Active,2017-07-19,,Roth 401(k),822,274
+Active,2017-08-21,,529,823,274
+Active,2006-07-20,,Traditional IRA,824,275
+Active,2008-08-17,,529,825,275
+Active,2016-07-02,,Roth 401(k),826,276
+Active,2016-12-19,,Roth IRA,827,276
+Active,2007-12-17,,Brokerage,828,277
+Active,2012-06-30,,529,829,278
+Active,2015-01-16,,Traditional IRA,830,278
+Active,2014-09-25,,Roth 401(k),831,278
+Inactive,2015-02-20,2016-07-30,Roth IRA,832,278
+Active,2014-01-19,,Brokerage,833,278
+Active,2018-07-20,,Brokerage,834,279
+Active,2018-04-26,,Roth IRA,835,279
+Active,2013-03-04,,529,836,279
+Active,2012-10-27,,Traditional IRA,837,279
+Active,2014-09-20,,Roth 401(k),838,279
+Active,2017-02-09,,529,839,280
+Active,2015-05-20,,Roth 401(k),840,280
+Active,2014-09-04,,Brokerage,841,280
+Active,2016-02-23,,Brokerage,842,281
+Active,2014-03-17,,Traditional IRA,843,282
+Active,2014-07-02,,Traditional IRA,844,283
+Active,2011-05-25,,529,845,283
+Active,2017-05-21,,Roth IRA,846,283
+Active,2013-03-25,,Roth 401(k),847,283
+Active,2017-04-07,,Brokerage,848,283
+Active,2014-11-12,,Brokerage,849,284
+Active,2017-04-15,,Roth IRA,850,284
+Active,2014-05-16,,Roth 401(k),851,284
+Active,2010-04-04,,Traditional IRA,852,284
+Active,2011-12-07,,529,853,284
+Active,2015-09-20,,Brokerage,854,285
+Inactive,2015-01-04,2018-01-24,529,855,286
+Active,2015-03-03,,Traditional IRA,856,286
+Active,2014-12-01,,Roth IRA,857,286
+Active,2016-10-31,,Roth 401(k),858,286
+Active,2016-04-25,,Brokerage,859,286
+Active,2012-11-23,,Roth 401(k),860,287
+Active,2011-10-19,,Traditional IRA,861,287
+Inactive,2002-11-30,2016-05-24,529,862,287
+Inactive,2015-09-05,2018-03-24,Roth IRA,863,288
+Active,2006-05-12,,Brokerage,864,288
+Active,2003-11-14,,Roth 401(k),865,288
+Active,2008-12-04,,Traditional IRA,866,288
+Active,2009-03-26,,529,867,288
+Active,2015-06-19,,Roth 401(k),868,289
+Active,2016-05-07,,Roth IRA,869,289
+Active,2011-04-27,,529,870,289
+Active,2008-03-15,,Roth IRA,871,290
+Inactive,2009-03-10,2012-02-12,Brokerage,872,290
+Active,2014-10-20,,Traditional IRA,873,290
+Active,2018-02-24,,Roth 401(k),874,291
+Inactive,2017-12-05,2018-09-11,Roth IRA,875,291
+Active,2018-03-23,,529,876,291
+Active,2016-12-05,,Traditional IRA,877,291
+Active,2011-11-15,,Roth 401(k),878,292
+Active,2012-01-05,,Brokerage,879,292
+Active,2018-04-22,,Brokerage,880,293
+Active,2015-08-18,,Roth IRA,881,293
+Active,2017-12-30,,529,882,293
+Active,2014-08-30,,Brokerage,883,294
+Active,2013-06-24,,Roth 401(k),884,294
+Active,2013-02-10,,Roth IRA,885,294
+Active,2014-07-21,,529,886,294
+Active,2018-05-13,,Brokerage,887,295
+Inactive,2018-05-04,2018-09-03,Traditional IRA,888,295
+Active,2018-03-31,,Roth IRA,889,295
+Active,2018-06-27,,Roth 401(k),890,295
+Active,2014-05-09,,Brokerage,891,296
+Active,2015-06-10,,Traditional IRA,892,297
+Active,2007-03-31,,529,893,297
+Active,2011-07-28,,Brokerage,894,297
+Active,2009-11-29,,Roth IRA,895,297
+Active,2014-09-20,,Roth IRA,896,298
+Active,2015-12-23,,Roth 401(k),897,298
+Active,2012-09-29,,Traditional IRA,898,298
+Active,2016-04-05,,Brokerage,899,298
+Active,2014-11-19,,529,900,298
+Active,2018-05-22,,529,901,299
+Active,2018-05-04,,Roth 401(k),902,299
+Active,2018-07-09,,Traditional IRA,903,299
+Active,2011-05-24,,Roth IRA,904,300
+Inactive,2014-11-02,2016-10-08,Roth 401(k),905,300
+Active,2017-01-19,,Brokerage,906,300
+Active,2016-12-22,,Roth IRA,907,301
+Active,2017-07-18,,529,908,302
+Active,2013-05-28,,Roth 401(k),909,302
+Active,2011-01-01,,Traditional IRA,910,302
+Active,2017-10-28,,Brokerage,911,302
+Active,2017-01-30,,529,912,303
+Active,2008-11-06,,Roth 401(k),913,303
+Active,2017-03-31,,Brokerage,914,303
+Active,2016-02-23,,Roth IRA,915,303
+Active,2014-08-22,,529,916,304
+Active,2018-04-06,,Roth 401(k),917,304
+Active,2009-11-09,,Brokerage,918,304
+Inactive,2012-11-09,2014-05-01,Roth 401(k),919,305
+Active,2016-05-15,,Roth IRA,920,305
+Active,2011-08-06,,529,921,306
+Active,2011-11-19,,Roth 401(k),922,306
+Active,2011-04-13,,Brokerage,923,307
+Active,2008-04-21,,Roth 401(k),924,307
+Active,2012-07-22,,529,925,308
+Active,2007-06-29,,Traditional IRA,926,308
+Active,2007-11-23,,Roth 401(k),927,308
+Active,2007-11-03,,Roth IRA,928,308
+Inactive,2013-01-07,2015-12-02,Brokerage,929,308
+Active,2017-09-01,,Traditional IRA,930,309
+Active,2012-03-18,,529,931,309
+Active,2011-10-23,,Roth 401(k),932,309
+Inactive,2012-11-15,2018-03-19,Brokerage,933,309
+Active,2011-01-26,,529,934,310
+Active,2012-12-15,,Roth 401(k),935,311
+Active,2016-11-30,,Roth IRA,936,311
+Active,2013-01-28,,529,937,311
+Active,2015-09-08,,Brokerage,938,312
+Active,2014-06-21,,Roth IRA,939,312
+Active,2018-07-15,,529,940,312
+Active,2016-04-16,,Traditional IRA,941,312
+Active,2017-02-20,,Traditional IRA,942,313
+Active,2017-12-15,,529,943,313
+Active,2016-11-05,,Brokerage,944,313
+Inactive,2018-04-15,2018-09-01,Roth IRA,945,313
+Active,2015-02-07,,Roth IRA,946,314
+Inactive,2017-02-13,2018-05-04,Traditional IRA,947,314
+Active,2013-06-19,,Brokerage,948,314
+Active,2017-10-10,,Roth 401(k),949,314
+Active,2018-01-15,,Roth IRA,950,315
+Active,2018-06-19,,Roth 401(k),951,315
+Active,2014-06-28,,Brokerage,952,316
+Active,2017-12-13,,Roth 401(k),953,316
+Active,2017-03-05,,529,954,316
+Active,2018-06-06,,Roth IRA,955,316
+Active,2012-11-29,,Brokerage,956,317
+Active,2014-10-31,,Roth 401(k),957,317
+Inactive,2010-04-09,2013-03-05,Brokerage,958,318
+Active,2016-03-20,,529,959,318
+Active,2009-11-29,,Roth IRA,960,318
+Active,2006-08-15,,Traditional IRA,961,318
+Active,2016-09-17,,529,962,319
+Active,2017-05-17,,Roth IRA,963,319
+Active,2016-11-22,,Roth 401(k),964,319
+Active,2016-01-25,,Traditional IRA,965,320
+Active,2017-08-02,,Brokerage,966,320
+Active,2011-12-16,,Traditional IRA,967,321
+Active,2011-03-22,,529,968,321
+Active,2008-12-07,,Brokerage,969,322
+Active,2011-03-05,,Roth IRA,970,322
+Active,2015-03-29,,Brokerage,971,323
+Inactive,2018-06-07,2018-10-29,529,972,324
+Inactive,2013-10-29,2014-05-27,Brokerage,973,324
+Active,2011-04-19,,Roth 401(k),974,324
+Active,2014-09-24,,Traditional IRA,975,324
+Active,2014-06-28,,Roth IRA,976,324
+Active,2015-05-05,,Brokerage,977,325
+Active,2014-04-10,,Brokerage,978,326
+Active,2017-10-07,,529,979,326
+Active,2017-02-25,,Roth IRA,980,326
+Active,2012-05-28,,Roth 401(k),981,326
+Active,2011-09-15,,Traditional IRA,982,326
+Active,2013-09-10,,529,983,327
+Active,2012-07-21,,Roth IRA,984,327
+Active,2008-01-07,,Traditional IRA,985,327
+Active,2005-01-01,,Roth 401(k),986,327
+Active,2018-06-12,,Traditional IRA,987,328
+Active,2017-10-01,,Brokerage,988,328
+Active,2009-04-09,,Brokerage,989,329
+Active,2009-02-27,,Roth IRA,990,329
+Active,2011-04-04,,529,991,329
+Active,2015-06-19,,Traditional IRA,992,329
+Active,2014-11-27,,Roth 401(k),993,329
+Active,2009-05-15,,529,994,330
+Active,2009-03-24,,Roth 401(k),995,330
+Active,2018-07-16,,Brokerage,996,330
+Active,2014-11-12,,Roth IRA,997,330
+Active,2013-09-28,,Roth 401(k),998,331
+Active,2016-02-10,,529,999,331
+Active,2018-02-11,,Traditional IRA,1000,331
+Active,2008-09-19,,Roth IRA,1001,331
+Active,2005-05-07,,Brokerage,1002,331
+Active,2016-06-20,,529,1003,332
+Inactive,2014-02-10,2017-04-04,Traditional IRA,1004,332
+Active,2017-06-07,,Brokerage,1005,333
+Active,2015-08-15,,529,1006,333
+Inactive,2014-05-30,2017-10-08,Roth 401(k),1007,333
+Active,2015-09-03,,Roth IRA,1008,333
+Active,2012-11-28,,Traditional IRA,1009,333
+Active,2016-01-25,,Traditional IRA,1010,334
+Active,2016-10-03,,Roth IRA,1011,335
+Active,2017-08-30,,Roth 401(k),1012,335
+Active,2017-06-12,,Roth 401(k),1013,336
+Active,2017-09-13,,Traditional IRA,1014,336
+Active,2015-10-19,,Brokerage,1015,336
+Active,2017-12-03,,Roth IRA,1016,336
+Inactive,2016-10-28,2017-10-03,Roth IRA,1017,337
+Active,2018-06-08,,529,1018,337
+Inactive,2013-08-19,2016-11-29,Traditional IRA,1019,337
+Active,2007-06-20,,Roth IRA,1020,338
+Active,2016-06-03,,Roth 401(k),1021,338
+Active,2010-01-20,,Traditional IRA,1022,338
+Active,2013-07-04,,Brokerage,1023,338
+Active,2014-05-12,,529,1024,338
+Active,2013-04-23,,Roth IRA,1025,339
+Active,2017-04-06,,Traditional IRA,1026,339
+Active,2016-03-08,,529,1027,339
+Active,2018-04-07,,Brokerage,1028,340
+Inactive,2017-11-23,2018-04-16,Roth IRA,1029,340
+Active,2017-12-21,,529,1030,340
+Active,2018-01-07,,Roth 401(k),1031,340
+Active,2017-11-01,,Traditional IRA,1032,340
+Active,2017-04-24,,529,1033,341
+Active,2017-11-09,,Roth IRA,1034,341
+Active,2017-08-15,,Roth 401(k),1035,341
+Active,2015-03-17,,Roth IRA,1036,342
+Active,2014-11-01,,529,1037,343
+Active,2016-10-04,,Traditional IRA,1038,343
+Active,2016-09-26,,Brokerage,1039,343
+Active,2016-06-12,,Roth IRA,1040,343
+Active,2014-10-25,,Roth 401(k),1041,343
+Active,2017-03-08,,Roth 401(k),1042,344
+Active,2011-10-21,,Roth 401(k),1043,345
+Active,2007-08-14,,Roth IRA,1044,345
+Active,2017-12-06,,Roth IRA,1045,346
+Active,2018-03-07,,Brokerage,1046,346
+Active,2018-03-26,,529,1047,346
+Active,2017-12-14,,Traditional IRA,1048,346
+Active,2018-05-12,,Roth 401(k),1049,346
+Active,2016-02-06,,529,1050,347
+Active,2018-05-26,,Traditional IRA,1051,347
+Inactive,2017-10-04,2018-06-24,529,1052,348
+Active,2009-03-28,,Brokerage,1053,349
+Active,2012-10-10,,Roth IRA,1054,349
+Active,2016-08-27,,Roth 401(k),1055,349
+Active,2002-08-29,,Traditional IRA,1056,349
+Active,2013-12-28,,529,1057,349
+Active,2012-12-23,,Roth 401(k),1058,350
+Active,2004-11-14,,Roth IRA,1059,350
+Inactive,2015-12-02,2018-02-10,Traditional IRA,1060,350
+Active,2015-01-09,,Brokerage,1061,350
+Active,2004-12-22,,529,1062,350
+Active,2013-01-25,,Traditional IRA,1063,351
+Inactive,2014-07-19,2015-06-02,Roth 401(k),1064,351
+Active,2013-08-10,,529,1065,351
+Active,2017-09-09,,Roth IRA,1066,351
+Active,2018-05-27,,Roth IRA,1067,352
+Inactive,2018-05-17,2018-09-22,Roth 401(k),1068,352
+Active,2017-11-20,,529,1069,352
+Active,2018-03-04,,Brokerage,1070,352
+Active,2009-08-08,,Traditional IRA,1071,353
+Active,2007-07-30,,529,1072,353
+Active,2004-11-29,,Roth IRA,1073,353
+Active,2004-11-13,,Brokerage,1074,353
+Active,2010-04-05,,Roth 401(k),1075,353
+Inactive,2005-11-14,2011-01-11,Brokerage,1076,354
+Active,2004-11-03,,Roth IRA,1077,354
+Active,2012-12-24,,Roth 401(k),1078,354
+Active,2005-07-02,,529,1079,354
+Active,2007-06-17,,Traditional IRA,1080,354
+Active,2018-04-27,,Roth 401(k),1081,355
+Active,2017-11-20,,Traditional IRA,1082,355
+Active,2017-12-28,,Roth IRA,1083,355
+Active,2018-06-29,,Brokerage,1084,355
+Active,2003-12-02,,Brokerage,1085,356
+Active,2015-01-24,,Roth IRA,1086,356
+Active,2009-06-17,,Traditional IRA,1087,356
+Active,2003-07-13,,529,1088,356
+Active,2009-05-01,,Roth IRA,1089,357
+Active,2013-06-21,,Brokerage,1090,357
+Active,2010-11-11,,529,1091,357
+Active,2012-09-01,,Traditional IRA,1092,357
+Active,2009-12-06,,Roth 401(k),1093,357
+Active,2003-02-26,,Brokerage,1094,358
+Active,2012-02-15,,Roth 401(k),1095,358
+Active,2015-03-09,,Traditional IRA,1096,358
+Active,2003-05-17,,529,1097,358
+Active,2008-08-09,,Roth IRA,1098,358
+Active,2016-07-17,,529,1099,359
+Active,2015-10-25,,Brokerage,1100,359
+Active,2015-11-13,,Traditional IRA,1101,359
+Active,2014-10-08,,Roth IRA,1102,359
+Active,2013-07-07,,Roth 401(k),1103,360
+Active,2006-04-21,,Roth IRA,1104,360
+Active,2018-04-27,,Traditional IRA,1105,360
+Active,2011-10-06,,Roth IRA,1106,361
+Inactive,2015-10-12,2016-02-06,529,1107,361
+Active,2017-07-26,,Brokerage,1108,361
+Active,2011-06-18,,Roth 401(k),1109,361
+Active,2010-03-17,,Traditional IRA,1110,361
+Active,2012-12-01,,Brokerage,1111,362
+Active,2017-11-05,,529,1112,362
+Active,2016-09-17,,Traditional IRA,1113,362
+Active,2018-06-12,,Roth 401(k),1114,363
+Active,2017-08-17,,Traditional IRA,1115,363
+Active,2017-06-14,,Roth IRA,1116,363
+Active,2017-07-24,,Brokerage,1117,363
+Active,2016-02-20,,Roth 401(k),1118,364
+Inactive,2012-10-25,2015-11-19,529,1119,364
+Active,2007-03-03,,Roth 401(k),1120,365
+Inactive,2008-07-04,2011-11-01,Roth IRA,1121,365
+Inactive,2018-06-26,2018-10-08,Traditional IRA,1122,365
+Active,2017-12-05,,529,1123,365
+Active,2016-01-08,,Roth IRA,1124,366
+Active,2017-09-23,,Traditional IRA,1125,366
+Inactive,2014-12-01,2018-02-21,Brokerage,1126,366
+Active,2015-03-01,,529,1127,366
+Active,2018-02-15,,Brokerage,1128,367
+Inactive,2018-06-10,2018-10-19,Roth 401(k),1129,367
+Active,2013-01-14,,Traditional IRA,1130,368
+Active,2009-12-11,,529,1131,368
+Active,2015-05-22,,Traditional IRA,1132,369
+Active,2010-04-26,,529,1133,369
+Inactive,2017-11-29,2018-10-01,Roth 401(k),1134,369
+Active,2016-05-13,,Roth IRA,1135,369
+Active,2012-11-26,,Brokerage,1136,369
+Active,2016-07-02,,Brokerage,1137,370
+Active,2016-12-03,,Traditional IRA,1138,370
+Active,2016-06-03,,529,1139,370
+Active,2017-12-27,,Traditional IRA,1140,371
+Inactive,2018-01-12,2018-08-06,Brokerage,1141,371
+Active,2017-11-19,,Roth 401(k),1142,371
+Active,2013-08-01,,Roth 401(k),1143,372
+Active,2016-03-19,,529,1144,372
+Active,2017-10-12,,Brokerage,1145,372
+Active,2016-02-20,,Roth IRA,1146,373
+Active,2018-07-07,,Roth 401(k),1147,373
+Inactive,2014-05-24,2018-03-05,529,1148,373
+Active,2017-04-22,,Roth IRA,1149,374
+Active,2014-08-29,,Brokerage,1150,374
+Active,2016-09-14,,529,1151,374
+Active,2018-07-06,,Roth 401(k),1152,374
+Active,2017-09-02,,529,1153,375
+Active,2012-04-20,,Traditional IRA,1154,375
+Active,2015-01-06,,Roth IRA,1155,375
+Active,2018-03-13,,Brokerage,1156,376
+Active,2014-11-08,,Traditional IRA,1157,376
+Active,2010-11-24,,529,1158,377
+Active,2015-11-03,,Roth IRA,1159,377
+Active,2005-09-27,,Roth 401(k),1160,377
+Active,2012-12-19,,Brokerage,1161,377
+Active,2016-02-11,,Traditional IRA,1162,378
+Active,2017-09-15,,Brokerage,1163,378
+Active,2016-04-22,,529,1164,378
+Active,2015-05-04,,Roth IRA,1165,379
+Inactive,2013-01-12,2018-01-14,Traditional IRA,1166,379
+Active,2017-11-11,,Brokerage,1167,379
+Active,2006-05-19,,Brokerage,1168,380
+Active,2018-02-09,,Traditional IRA,1169,380
+Active,2013-02-27,,Roth 401(k),1170,380
+Active,2002-12-15,,Roth IRA,1171,380
+Active,2004-02-26,,529,1172,380
+Active,2007-04-09,,Roth 401(k),1173,381
+Active,2017-05-06,,Roth 401(k),1174,382
+Active,2015-09-02,,Roth IRA,1175,382
+Active,2016-07-24,,Traditional IRA,1176,382
+Active,2015-08-14,,Brokerage,1177,382
+Active,2017-04-01,,529,1178,382
+Active,2018-01-30,,Roth IRA,1179,383
+Inactive,2018-01-26,2018-08-11,529,1180,383
+Active,2018-03-05,,Brokerage,1181,383
+Active,2018-03-22,,Traditional IRA,1182,383
+Active,2016-02-15,,Roth IRA,1183,384
+Active,2009-02-18,,Brokerage,1184,384
+Active,2005-09-15,,529,1185,384
+Active,2014-08-03,,Traditional IRA,1186,384
+Active,2005-11-27,,Roth 401(k),1187,385
+Active,2012-10-09,,529,1188,385
+Active,2013-08-22,,529,1189,386
+Active,2018-03-01,,Roth IRA,1190,386
+Active,2014-12-01,,Roth IRA,1191,387
+Active,2011-01-25,,Roth 401(k),1192,387
+Active,2012-09-13,,529,1193,387
+Active,2014-09-28,,Brokerage,1194,387
+Active,2017-03-22,,Traditional IRA,1195,387
+Inactive,2014-12-09,2018-08-29,Traditional IRA,1196,388
+Active,2015-10-21,,Brokerage,1197,388
+Active,2018-02-04,,Roth 401(k),1198,388
+Active,2017-12-11,,529,1199,388
+Active,2016-05-09,,Roth IRA,1200,388
+Active,2008-04-26,,Traditional IRA,1201,389
+Active,2015-09-11,,529,1202,389
+Active,2014-04-08,,Brokerage,1203,389
+Active,2015-11-27,,Roth 401(k),1204,389
+Active,2018-06-02,,Traditional IRA,1205,390
+Active,2011-09-10,,Roth 401(k),1206,391
+Active,2010-07-26,,Brokerage,1207,391
+Active,2012-08-12,,529,1208,391
+Active,2010-09-27,,Roth 401(k),1209,392
+Active,2004-06-27,,529,1210,393
+Active,2016-11-12,,Brokerage,1211,393
+Active,2010-09-20,,529,1212,394
+Inactive,2010-04-23,2012-10-29,Roth 401(k),1213,394
+Active,2003-05-17,,Brokerage,1214,394
+Active,2007-07-10,,Traditional IRA,1215,394
+Active,2007-04-17,,Roth IRA,1216,394
+Active,2008-06-26,,Roth IRA,1217,395
+Active,2017-10-13,,529,1218,395
+Active,2012-11-08,,Roth 401(k),1219,396
+Active,2014-01-02,,Brokerage,1220,396
+Active,2017-05-29,,Roth IRA,1221,397
+Active,2006-08-22,,Roth 401(k),1222,398
+Active,2017-05-13,,Brokerage,1223,399
+Active,2015-12-29,,Traditional IRA,1224,399
+Active,2009-10-25,,Roth IRA,1225,399
+Active,2016-11-17,,Roth 401(k),1226,400
+Active,2013-09-24,,529,1227,401
+Active,2015-03-29,,Brokerage,1228,402
+Active,2014-03-07,,Roth IRA,1229,402
+Active,2017-12-03,,Traditional IRA,1230,402
+Inactive,2017-05-04,2018-02-25,529,1231,402
+Active,2014-08-22,,Roth 401(k),1232,402
+Active,2017-11-10,,Traditional IRA,1233,403
+Active,2017-12-13,,529,1234,403
+Active,2017-08-29,,Brokerage,1235,403
+Inactive,2017-11-06,2018-07-30,Roth 401(k),1236,403
+Active,2018-03-08,,Roth IRA,1237,403
+Active,2013-12-18,,Traditional IRA,1238,404
+Active,2015-02-10,,Roth IRA,1239,404
+Inactive,2017-02-23,2017-12-24,529,1240,404
+Active,2016-03-11,,Brokerage,1241,404
+Active,2015-06-11,,Roth 401(k),1242,404
+Active,2009-09-06,,529,1243,405
+Active,2010-12-12,,Traditional IRA,1244,405
+Active,2014-06-15,,Roth IRA,1245,406
+Active,2014-12-13,,Roth 401(k),1246,406
+Active,2017-08-18,,Brokerage,1247,406
+Active,2018-02-14,,Roth IRA,1248,407
+Active,2012-06-20,,Traditional IRA,1249,407
+Active,2010-05-15,,Brokerage,1250,407
+Active,2017-03-31,,529,1251,408
+Active,2017-03-16,,Roth 401(k),1252,408
+Inactive,2008-12-18,2015-10-02,Roth 401(k),1253,409
+Active,2013-03-24,,Brokerage,1254,409
+Active,2001-03-29,,529,1255,409
+Active,2004-10-04,,529,1256,410
+Active,2010-12-22,,Brokerage,1257,411
+Active,2016-11-17,,Roth IRA,1258,411
+Active,2002-07-10,,Traditional IRA,1259,411
+Active,2007-08-20,,529,1260,411
+Active,2015-08-31,,Roth 401(k),1261,411
+Active,2016-11-17,,Traditional IRA,1262,412
+Active,2014-12-24,,529,1263,412
+Active,2016-04-18,,Roth IRA,1264,412
+Active,2017-06-11,,Roth 401(k),1265,412
+Active,2016-03-23,,Brokerage,1266,412
+Active,2017-08-09,,Brokerage,1267,413
+Inactive,2016-08-16,2018-03-19,Traditional IRA,1268,413
+Active,2009-03-09,,Roth IRA,1269,414
+Active,2006-04-04,,529,1270,414
+Active,2012-08-02,,Roth 401(k),1271,415
+Active,2017-06-22,,Brokerage,1272,415
+Active,2017-03-17,,529,1273,415
+Active,2016-08-31,,Roth IRA,1274,416
+Active,2015-12-30,,Traditional IRA,1275,416
+Active,2016-01-11,,529,1276,417
+Inactive,2016-11-05,2017-10-02,Traditional IRA,1277,417
+Active,2017-09-25,,Brokerage,1278,417
+Inactive,2013-05-04,2015-07-12,Roth IRA,1279,417
+Active,2017-01-30,,Roth 401(k),1280,417
+Active,2012-03-07,,529,1281,418
+Active,2008-04-09,,Roth 401(k),1282,418
+Inactive,2015-11-18,2018-10-05,Brokerage,1283,419
+Active,2016-05-16,,529,1284,419
+Active,2016-03-23,,Traditional IRA,1285,419
+Active,2013-12-19,,Roth 401(k),1286,419
+Active,2015-04-12,,Roth IRA,1287,419
+Active,2014-09-13,,Brokerage,1288,420
+Active,2014-03-29,,Traditional IRA,1289,421
+Active,2011-11-08,,Brokerage,1290,422
+Active,2001-09-22,,Traditional IRA,1291,423
+Active,2002-11-28,,Roth 401(k),1292,423
+Active,2018-04-17,,Brokerage,1293,424
+Active,2017-11-24,,Roth 401(k),1294,424
+Active,2013-05-03,,529,1295,425
+Active,2015-08-12,,Brokerage,1296,425
+Active,2014-09-30,,Roth 401(k),1297,425
+Active,2013-08-17,,Traditional IRA,1298,425
+Active,2017-01-31,,Roth IRA,1299,425
+Active,2005-09-17,,Roth IRA,1300,426
+Active,2015-08-23,,Brokerage,1301,426
+Active,2016-05-31,,Roth IRA,1302,427
+Active,2013-10-11,,Brokerage,1303,427
+Active,2017-06-18,,Roth 401(k),1304,427
+Active,2014-07-04,,Traditional IRA,1305,427
+Inactive,2018-05-21,2018-10-28,529,1306,427
+Active,2013-05-05,,529,1307,428
+Active,2017-08-31,,Roth 401(k),1308,429
+Active,2017-06-27,,Brokerage,1309,429
+Active,2017-08-11,,Traditional IRA,1310,429
+Active,2017-11-25,,529,1311,429
+Active,2018-05-15,,Brokerage,1312,430
+Active,2016-11-04,,Roth IRA,1313,430
+Active,2015-12-22,,529,1314,430
+Inactive,2017-11-21,2018-08-24,Roth 401(k),1315,430
+Active,2016-05-27,,Traditional IRA,1316,430
+Active,2011-07-29,,Roth 401(k),1317,431
+Active,2007-10-15,,529,1318,431
+Active,2004-01-04,,Brokerage,1319,431
+Active,2005-10-02,,Roth IRA,1320,431
+Active,2007-10-05,,Traditional IRA,1321,431
+Active,2013-12-10,,529,1322,432
+Active,2014-10-19,,Roth IRA,1323,432
+Active,2011-05-25,,Roth 401(k),1324,432
+Active,2018-04-05,,Roth 401(k),1325,433
+Active,2015-06-14,,529,1326,433
+Active,2017-03-19,,Brokerage,1327,433
+Active,2018-03-24,,Traditional IRA,1328,433
+Active,2010-10-05,,Brokerage,1329,434
+Inactive,2018-03-03,2018-08-31,Traditional IRA,1330,434
+Active,2007-06-22,,529,1331,435
+Active,2002-04-13,,Traditional IRA,1332,435
+Active,2004-08-13,,Brokerage,1333,435
+Active,2002-09-23,,Roth IRA,1334,435
+Active,2017-08-13,,Roth 401(k),1335,436
+Active,2010-08-05,,Roth IRA,1336,436
+Active,2017-11-22,,Traditional IRA,1337,436
+Active,2016-12-12,,529,1338,436
+Active,2010-07-27,,Roth IRA,1339,437
+Active,2008-05-31,,Traditional IRA,1340,437
+Active,2009-06-28,,529,1341,437
+Active,2011-11-28,,Brokerage,1342,437
+Active,2012-04-06,,529,1343,438
+Active,2014-01-13,,Brokerage,1344,438
+Active,2014-12-13,,Roth IRA,1345,439
+Active,2006-08-16,,Brokerage,1346,439
+Active,2016-04-27,,Roth 401(k),1347,439
+Active,2008-06-23,,529,1348,439
+Active,2011-02-15,,Traditional IRA,1349,439
+Active,2018-07-07,,Traditional IRA,1350,440
+Active,2010-07-24,,Roth IRA,1351,441
+Active,2010-04-01,,Roth IRA,1352,442
+Active,2015-02-12,,Brokerage,1353,442
+Active,2007-09-08,,Traditional IRA,1354,442
+Active,2014-03-16,,529,1355,443
+Active,2017-10-21,,Roth IRA,1356,443
+Active,2013-04-29,,Traditional IRA,1357,443
+Active,2014-08-14,,Roth 401(k),1358,443
+Inactive,2018-01-26,2018-10-09,Brokerage,1359,443
+Active,2016-07-13,,Brokerage,1360,444
+Active,2007-06-27,,Brokerage,1361,445
+Inactive,2006-09-11,2010-04-25,Traditional IRA,1362,445
+Active,2014-04-10,,Roth IRA,1363,445
+Active,2018-03-27,,529,1364,446
+Active,2017-09-13,,Brokerage,1365,446
+Active,2016-10-28,,Roth 401(k),1366,446
+Active,2008-11-25,,Roth IRA,1367,447
+Active,2015-12-31,,529,1368,447
+Inactive,2014-11-24,2015-06-08,Brokerage,1369,447
+Active,2015-12-08,,Roth 401(k),1370,447
+Active,2011-09-12,,Traditional IRA,1371,447
+Active,2009-11-11,,Traditional IRA,1372,448
+Active,2013-01-14,,529,1373,448
+Active,2016-07-03,,529,1374,449
+Active,2017-06-14,,Traditional IRA,1375,449
+Active,2009-05-06,,529,1376,450
+Active,2018-05-26,,Brokerage,1377,450
+Active,2012-12-07,,Traditional IRA,1378,450
+Active,2015-11-04,,Roth 401(k),1379,450
+Active,2011-05-29,,Roth IRA,1380,451
+Active,2012-02-23,,529,1381,451
+Inactive,2018-03-28,2018-10-05,Roth 401(k),1382,451
+Active,2011-06-14,,Traditional IRA,1383,451
+Active,2007-03-08,,Traditional IRA,1384,452
+Active,2015-05-23,,Roth IRA,1385,452
+Active,2007-11-30,,Brokerage,1386,452
+Active,2017-07-19,,Roth 401(k),1387,453
+Active,2013-07-12,,529,1388,454
+Active,2008-10-07,,Traditional IRA,1389,454
+Active,2014-03-25,,Traditional IRA,1390,455
+Active,2007-03-21,,Brokerage,1391,455
+Active,2004-12-13,,Brokerage,1392,456
+Active,2005-02-05,,Roth IRA,1393,456
+Active,2009-02-19,,Traditional IRA,1394,456
+Active,2017-04-04,,529,1395,456
+Active,2007-05-12,,Roth 401(k),1396,456
+Active,2008-06-26,,529,1397,457
+Active,2015-05-28,,Traditional IRA,1398,458
+Inactive,2012-02-16,2016-09-04,Roth IRA,1399,459
+Active,2017-02-28,,529,1400,460
+Active,2004-05-19,,Brokerage,1401,460
+Active,2015-12-05,,Roth 401(k),1402,460
+Active,2008-02-03,,Traditional IRA,1403,460
+Active,2018-02-16,,Traditional IRA,1404,461
+Active,2015-03-26,,529,1405,461
+Active,2015-03-06,,Roth IRA,1406,461
+Active,2018-01-06,,Roth 401(k),1407,461
+Active,2017-05-09,,Brokerage,1408,461
+Active,2016-01-05,,529,1409,462
+Active,2016-12-09,,Roth IRA,1410,463
+Active,2015-08-18,,Brokerage,1411,463
+Active,2017-04-13,,Traditional IRA,1412,463
+Active,2012-05-08,,Roth 401(k),1413,463
+Active,2011-09-04,,Roth IRA,1414,464
+Active,2013-09-18,,Roth 401(k),1415,465
+Inactive,2010-01-07,2015-03-22,529,1416,465
+Active,2015-01-09,,Brokerage,1417,465
+Active,2013-02-28,,Roth IRA,1418,465
+Active,2012-10-22,,Traditional IRA,1419,465
+Active,2016-09-24,,Roth IRA,1420,466
+Active,2015-04-27,,Brokerage,1421,466
+Inactive,2009-08-29,2016-07-21,529,1422,466
+Active,2016-09-30,,Roth 401(k),1423,466
+Active,2013-09-09,,Traditional IRA,1424,467
+Inactive,2012-08-29,2014-02-11,Brokerage,1425,467
+Inactive,2013-05-15,2015-10-18,Roth IRA,1426,467
+Active,2015-01-28,,Roth 401(k),1427,467
+Active,2012-10-28,,529,1428,467
+Active,2018-06-28,,Roth 401(k),1429,468
+Active,2017-10-15,,529,1430,468
+Active,2016-12-06,,Roth IRA,1431,468
+Active,2016-07-08,,Traditional IRA,1432,468
+Active,2005-06-07,,529,1433,469
+Active,2008-06-26,,Roth 401(k),1434,469
+Inactive,2006-09-11,2017-10-17,Traditional IRA,1435,469
+Active,2006-08-29,,Roth IRA,1436,469
+Active,2017-09-12,,Roth 401(k),1437,470
+Active,2017-05-24,,Brokerage,1438,470
+Active,2017-03-29,,529,1439,470
+Active,2017-03-31,,Traditional IRA,1440,470
+Active,2008-04-16,,Roth 401(k),1441,471
+Active,2007-01-19,,Roth IRA,1442,471
+Active,2015-03-15,,529,1443,471
+Active,2010-01-31,,Roth 401(k),1444,472
+Active,2008-02-03,,Traditional IRA,1445,472
+Inactive,2012-07-10,2014-08-22,Roth IRA,1446,472
+Active,2010-01-24,,529,1447,472
+Active,2018-03-15,,529,1448,473
+Active,2005-09-30,,Roth IRA,1449,473
+Active,2017-02-19,,Roth 401(k),1450,473
+Active,2017-09-29,,Traditional IRA,1451,474
+Active,2015-10-19,,Roth IRA,1452,474
+Active,2014-09-05,,529,1453,475
+Active,2018-07-05,,Roth IRA,1454,475
+Active,2015-08-16,,Traditional IRA,1455,476
+Active,2006-03-27,,Roth 401(k),1456,476
+Active,2004-11-16,,529,1457,476
+Inactive,2018-01-03,2018-08-10,Roth 401(k),1458,477
+Active,2017-05-07,,529,1459,477
+Active,2017-10-14,,Traditional IRA,1460,477
+Active,2013-09-13,,Roth IRA,1461,477
+Active,2018-02-19,,Brokerage,1462,477
+Active,2018-05-09,,Roth IRA,1463,478
+Active,2012-02-29,,Brokerage,1464,478
+Active,2017-06-22,,Roth IRA,1465,479
+Active,2017-01-12,,529,1466,479
+Active,2016-05-27,,529,1467,480
+Inactive,2004-03-26,2014-02-01,Roth IRA,1468,480
+Active,2007-03-19,,Brokerage,1469,481
+Active,2018-07-12,,Brokerage,1470,482
+Active,2016-10-30,,529,1471,482
+Active,2015-08-06,,Roth IRA,1472,482
+Active,2016-07-21,,Roth 401(k),1473,482
+Active,2015-11-04,,Traditional IRA,1474,483
+Active,2014-10-06,,529,1475,483
+Active,2016-07-28,,Roth IRA,1476,483
+Active,2016-04-13,,Brokerage,1477,483
+Active,2013-04-21,,Roth 401(k),1478,483
+Active,2011-01-22,,Roth IRA,1479,484
+Active,2015-03-18,,Roth 401(k),1480,484
+Active,2012-12-23,,Traditional IRA,1481,484
+Active,2012-08-29,,529,1482,485
+Inactive,2014-09-20,2017-09-12,Roth 401(k),1483,486
+Active,2014-06-08,,Roth IRA,1484,486
+Active,2014-03-30,,529,1485,486
+Active,2015-04-04,,Roth IRA,1486,487
+Active,2017-03-04,,529,1487,487
+Active,2012-09-17,,Traditional IRA,1488,488
+Inactive,2016-11-14,2018-05-02,Brokerage,1489,489
+Inactive,2017-06-14,2018-05-29,Traditional IRA,1490,489
+Active,2015-06-13,,Roth 401(k),1491,489
+Active,2017-05-23,,529,1492,489
+Inactive,2018-06-10,2018-10-26,Roth IRA,1493,489
+Active,2015-11-04,,Traditional IRA,1494,490
+Active,2017-09-23,,Roth 401(k),1495,491
+Active,2017-05-29,,Roth IRA,1496,491
+Active,2016-09-12,,Traditional IRA,1497,491
+Active,2016-12-19,,Brokerage,1498,491
+Active,2010-03-01,,Roth 401(k),1499,492
+Active,2011-09-28,,Traditional IRA,1500,492
+Active,2010-03-07,,Roth IRA,1501,492
+Active,2002-08-22,,529,1502,492
+Active,2013-11-22,,529,1503,493
+Active,2017-06-28,,Brokerage,1504,493
+Active,2014-10-25,,Traditional IRA,1505,493
+Active,2017-06-12,,Roth 401(k),1506,493
+Active,2016-08-19,,Roth IRA,1507,493
+Active,2014-05-07,,Traditional IRA,1508,494
+Active,2017-10-30,,Roth IRA,1509,495
+Active,2013-02-21,,Brokerage,1510,495
+Active,2017-12-06,,529,1511,495
+Active,2016-03-02,,Roth IRA,1512,496
+Active,2009-04-06,,Roth IRA,1513,497
+Active,2010-06-02,,Roth 401(k),1514,497
+Active,2017-06-03,,Roth 401(k),1515,498
+Active,2018-01-28,,529,1516,498
+Inactive,2014-04-08,2015-10-10,Brokerage,1517,498
+Active,2016-06-22,,Roth IRA,1518,498
+Active,2015-07-14,,Traditional IRA,1519,498
+Active,2008-03-21,,Roth 401(k),1520,499
+Active,2007-12-13,,Traditional IRA,1521,499
+Active,2014-05-04,,Roth IRA,1522,500
+Active,2004-08-20,,Traditional IRA,1523,501
+Active,2006-09-15,,529,1524,501
+Active,2004-08-28,,Roth 401(k),1525,501
+Active,2016-11-11,,Roth IRA,1526,501
+Active,2018-01-06,,Brokerage,1527,501
+Active,2016-06-14,,Roth IRA,1528,502
+Active,2014-05-03,,529,1529,503
+Active,2015-06-29,,Roth IRA,1530,503
+Active,2003-03-25,,Brokerage,1531,504
+Active,2007-08-29,,529,1532,504
+Active,2001-08-22,,Roth IRA,1533,504
+Active,2004-07-27,,Traditional IRA,1534,504
+Active,2014-07-20,,Roth 401(k),1535,504
+Active,2014-06-29,,Roth 401(k),1536,505
+Inactive,2017-04-02,2018-03-16,Roth IRA,1537,505
+Active,2014-11-21,,Brokerage,1538,506
+Active,2013-08-25,,Traditional IRA,1539,506
+Inactive,2013-08-16,2018-02-05,529,1540,506
+Active,2013-01-12,,Roth IRA,1541,506
+Active,2015-03-04,,Roth 401(k),1542,506
+Inactive,2005-11-17,2016-07-08,Roth IRA,1543,507
+Active,2015-06-06,,Brokerage,1544,507
+Active,2005-05-30,,Traditional IRA,1545,507
+Active,2010-10-21,,Brokerage,1546,508
+Active,2016-07-05,,Roth 401(k),1547,508
+Inactive,2013-02-27,2016-03-07,Roth IRA,1548,508
+Inactive,2018-06-23,2018-10-27,Roth IRA,1549,509
+Active,2012-01-30,,Traditional IRA,1550,509
+Active,2010-06-10,,529,1551,509
+Active,2009-05-07,,Roth 401(k),1552,509
+Active,2014-10-07,,Brokerage,1553,509
+Active,2016-12-09,,Roth IRA,1554,510
+Active,2017-09-11,,529,1555,510
+Active,2018-04-27,,Traditional IRA,1556,510
+Active,2017-06-18,,Roth 401(k),1557,510
+Active,2016-11-25,,Brokerage,1558,510
+Active,2008-11-22,,529,1559,511
+Active,2018-05-23,,Traditional IRA,1560,511
+Active,2010-07-19,,Roth 401(k),1561,511
+Active,2010-03-03,,Brokerage,1562,511
+Inactive,2015-06-11,2015-10-02,529,1563,512
+Active,2017-01-31,,Roth 401(k),1564,512
+Active,2014-03-02,,Roth IRA,1565,512
+Active,2017-10-12,,Traditional IRA,1566,512
+Active,2015-02-21,,Roth 401(k),1567,513
+Active,2017-07-18,,Roth IRA,1568,513
+Active,2009-11-30,,Roth IRA,1569,514
+Active,2013-05-30,,Roth 401(k),1570,514
+Active,2018-06-21,,Brokerage,1571,514
+Active,2012-01-31,,529,1572,514
+Active,2009-05-29,,Roth 401(k),1573,515
+Active,2012-09-25,,Roth IRA,1574,515
+Active,2011-05-31,,Traditional IRA,1575,515
+Active,2014-09-30,,Traditional IRA,1576,516
+Active,2008-10-04,,Roth 401(k),1577,516
+Active,2016-08-07,,Brokerage,1578,516
+Active,2014-07-23,,Roth IRA,1579,516
+Active,2018-07-05,,529,1580,516
+Active,2007-08-23,,Brokerage,1581,517
+Active,2010-05-17,,Traditional IRA,1582,517
+Inactive,2010-08-11,2012-10-27,Roth IRA,1583,517
+Active,2013-08-14,,Roth 401(k),1584,517
+Active,2012-05-19,,529,1585,517
+Active,2015-03-10,,Traditional IRA,1586,518
+Active,2013-10-27,,Brokerage,1587,518
+Active,2015-10-09,,Roth IRA,1588,518
+Active,2015-12-15,,Traditional IRA,1589,519
+Active,2009-10-20,,Brokerage,1590,519
+Active,2009-02-24,,Roth 401(k),1591,519
+Active,2011-03-08,,529,1592,519
+Active,2007-11-24,,Roth IRA,1593,519
+Active,2015-10-03,,529,1594,520
+Active,2016-03-11,,Roth IRA,1595,520
+Active,2018-06-06,,Traditional IRA,1596,521
+Active,2018-04-12,,Roth IRA,1597,521
+Active,2003-04-23,,Roth IRA,1598,522
+Active,2002-03-01,,Roth 401(k),1599,522
+Inactive,2008-10-27,2017-05-05,Traditional IRA,1600,522
+Active,2009-12-19,,Brokerage,1601,522
+Active,2014-05-02,,529,1602,523
+Active,2016-08-11,,Brokerage,1603,523
+Active,2015-06-29,,Roth 401(k),1604,523
+Active,2013-12-20,,Roth IRA,1605,523
+Active,2013-09-21,,Traditional IRA,1606,523
+Active,2017-09-04,,529,1607,524
+Active,2014-08-26,,Roth IRA,1608,524
+Active,2015-01-01,,Traditional IRA,1609,524
+Active,2015-06-30,,Brokerage,1610,524
+Active,2013-04-30,,Roth IRA,1611,525
+Active,2016-11-14,,Traditional IRA,1612,525
+Active,2015-10-03,,529,1613,525
+Active,2015-01-29,,Brokerage,1614,525
+Inactive,2015-06-17,2016-08-20,Roth 401(k),1615,526
+Active,2006-06-30,,Traditional IRA,1616,527
+Inactive,2008-09-28,2010-08-26,Roth IRA,1617,527
+Active,2014-11-19,,529,1618,528
+Active,2014-04-02,,Traditional IRA,1619,528
+Active,2010-07-05,,Roth 401(k),1620,528
+Active,2009-09-26,,Roth IRA,1621,528
+Active,2011-09-24,,529,1622,529
+Active,2017-01-13,,Roth IRA,1623,529
+Active,2013-10-22,,Traditional IRA,1624,529
+Active,2013-06-22,,Roth IRA,1625,530
+Active,2015-12-24,,Traditional IRA,1626,530
+Active,2018-01-13,,Roth 401(k),1627,530
+Active,2014-01-11,,Brokerage,1628,530
+Active,2005-06-28,,529,1629,531
+Active,2018-04-16,,Brokerage,1630,532
+Active,2013-04-10,,Roth IRA,1631,532
+Active,2004-09-06,,Traditional IRA,1632,532
+Active,2017-03-02,,Roth 401(k),1633,532
+Inactive,2013-03-23,2018-08-05,529,1634,532
+Active,2013-07-08,,Traditional IRA,1635,533
+Active,2007-06-07,,529,1636,533
+Active,2012-03-17,,Traditional IRA,1637,534
+Active,2018-04-06,,Roth 401(k),1638,534
+Active,2014-07-04,,Roth IRA,1639,534
+Active,2014-09-03,,529,1640,534
+Active,2012-03-13,,Roth 401(k),1641,535
+Active,2008-03-29,,529,1642,536
+Inactive,2011-12-12,2017-05-10,Traditional IRA,1643,536
+Inactive,2012-08-14,2017-08-01,Roth IRA,1644,536
+Inactive,2013-11-08,2016-07-28,Roth IRA,1645,537
+Active,2015-04-25,,Brokerage,1646,537
+Active,2017-11-14,,Traditional IRA,1647,537
+Active,2012-12-24,,Roth 401(k),1648,537
+Active,2014-09-01,,529,1649,537
+Active,2007-12-05,,Brokerage,1650,538
+Active,2013-06-20,,Traditional IRA,1651,538
+Active,2017-05-11,,529,1652,538
+Active,2013-03-12,,Roth IRA,1653,538
+Active,2011-02-03,,Roth IRA,1654,539
+Active,2010-07-11,,Brokerage,1655,539
+Active,2005-02-17,,529,1656,539
+Active,2015-03-11,,Traditional IRA,1657,539
+Active,2007-09-15,,Roth 401(k),1658,539
+Active,2016-03-12,,529,1659,540
+Active,2008-09-20,,Roth IRA,1660,541
+Inactive,2007-02-10,2009-05-05,Roth 401(k),1661,541
+Active,2010-08-27,,Brokerage,1662,541
+Active,2015-09-22,,529,1663,541
+Active,2005-08-17,,Traditional IRA,1664,541
+Active,2016-12-22,,Brokerage,1665,542
+Active,2018-02-28,,Traditional IRA,1666,542
+Active,2006-09-23,,Traditional IRA,1667,543
+Active,2005-10-11,,529,1668,543
+Inactive,2016-07-12,2017-09-30,Roth IRA,1669,544
+Inactive,2016-06-08,2018-04-08,529,1670,544
+Inactive,2015-07-17,2017-08-05,Traditional IRA,1671,544
+Active,2017-05-22,,Traditional IRA,1672,545
+Active,2016-02-09,,529,1673,545
+Active,2011-10-15,,Roth 401(k),1674,545
+Active,2015-03-23,,Roth 401(k),1675,546
+Active,2018-03-25,,Traditional IRA,1676,546
+Inactive,2016-06-27,2017-09-10,529,1677,546
+Active,2017-02-17,,Brokerage,1678,547
+Active,2018-02-21,,Traditional IRA,1679,547
+Active,2018-04-02,,529,1680,547
+Active,2017-12-17,,Roth IRA,1681,547
+Active,2012-06-04,,Roth 401(k),1682,548
+Active,2010-01-18,,Traditional IRA,1683,548
+Active,2017-05-01,,Roth IRA,1684,548
+Active,2007-10-11,,Brokerage,1685,548
+Active,2017-04-08,,Roth 401(k),1686,549
+Active,2013-10-20,,Traditional IRA,1687,550
+Active,2014-09-14,,Roth IRA,1688,550
+Active,2011-04-05,,529,1689,550
+Active,2017-03-04,,Roth 401(k),1690,551
+Active,2012-06-23,,529,1691,551
+Active,2017-03-13,,Brokerage,1692,551
+Active,2018-07-09,,Roth IRA,1693,551
+Active,2012-12-29,,Traditional IRA,1694,552
+Active,2017-04-16,,Roth IRA,1695,553
+Active,2017-08-03,,Brokerage,1696,553
+Active,2017-03-10,,Traditional IRA,1697,553
+Active,2018-01-14,,529,1698,553
+Active,2018-02-26,,Roth 401(k),1699,553
+Active,2016-10-26,,Roth IRA,1700,554
+Active,2012-09-25,,Traditional IRA,1701,554
+Active,2011-01-20,,529,1702,554
+Active,2006-08-03,,Roth 401(k),1703,554
+Active,2013-09-03,,529,1704,555
+Active,2012-05-25,,Roth 401(k),1705,555
+Active,2013-09-01,,Brokerage,1706,555
+Active,2017-05-09,,Traditional IRA,1707,555
+Active,2006-04-10,,Traditional IRA,1708,556
+Active,2009-04-04,,529,1709,557
+Active,2017-06-08,,Brokerage,1710,557
+Active,2005-06-27,,Roth IRA,1711,557
+Active,2007-07-24,,Traditional IRA,1712,557
+Active,2004-11-30,,Roth 401(k),1713,557
+Active,2017-04-27,,529,1714,558
+Active,2012-05-11,,Brokerage,1715,559
+Active,2011-12-23,,Roth 401(k),1716,559
+Active,2016-01-22,,529,1717,559
+Active,2010-10-18,,Roth IRA,1718,560
+Active,2015-07-09,,Roth 401(k),1719,560
+Inactive,2017-01-27,2017-10-29,Roth 401(k),1720,561
+Active,2016-04-06,,Roth IRA,1721,561
+Active,2016-02-28,,529,1722,561
+Active,2017-08-13,,Brokerage,1723,561
+Active,2014-07-28,,529,1724,562
+Active,2018-05-27,,Roth IRA,1725,562
+Active,2012-12-13,,Traditional IRA,1726,562
+Active,2016-10-04,,Brokerage,1727,562
+Active,2014-05-11,,529,1728,563
+Active,2013-04-11,,Roth 401(k),1729,563
+Active,2018-05-31,,Roth 401(k),1730,564
+Active,2014-09-08,,Brokerage,1731,564
+Inactive,2015-10-12,2018-07-22,Roth IRA,1732,564
+Active,2012-08-31,,Roth IRA,1733,565
+Active,2005-09-14,,Roth 401(k),1734,566
+Active,2015-10-09,,Roth IRA,1735,566
+Active,2008-09-29,,Brokerage,1736,566
+Inactive,2008-12-18,2017-11-16,529,1737,566
+Active,2007-05-06,,Traditional IRA,1738,566
+Active,2018-02-19,,529,1739,567
+Active,2001-05-28,,Brokerage,1740,567
+Active,2014-01-04,,Brokerage,1741,568
+Inactive,2011-09-26,2016-12-10,Traditional IRA,1742,568
+Active,2015-01-12,,529,1743,568
+Active,2016-12-22,,Roth 401(k),1744,568
+Active,2016-05-20,,Roth IRA,1745,568
+Inactive,2005-08-04,2015-02-21,529,1746,569
+Active,2016-09-12,,529,1747,570
+Active,2016-04-06,,Roth 401(k),1748,570
+Active,2011-12-08,,Roth 401(k),1749,571
+Active,2014-12-11,,Brokerage,1750,571
+Active,2014-08-04,,Roth IRA,1751,571
+Active,2016-06-04,,Roth 401(k),1752,572
+Active,2015-12-24,,Roth IRA,1753,572
+Active,2015-11-18,,529,1754,573
+Active,2011-11-07,,Roth IRA,1755,573
+Active,2009-05-14,,Traditional IRA,1756,573
+Active,2012-11-28,,Roth 401(k),1757,573
+Active,2018-06-13,,Brokerage,1758,574
+Active,2011-08-06,,Roth IRA,1759,575
+Active,2013-07-05,,Traditional IRA,1760,575
+Active,2011-04-10,,Roth IRA,1761,576
+Active,2005-02-07,,Roth IRA,1762,577
+Active,2005-01-04,,Brokerage,1763,577
+Active,2018-05-06,,529,1764,578
+Active,2016-10-24,,Roth 401(k),1765,578
+Active,2018-01-05,,Brokerage,1766,578
+Active,2017-06-24,,Roth IRA,1767,578
+Active,2013-12-05,,Brokerage,1768,579
+Inactive,2012-09-12,2017-03-09,529,1769,580
+Active,2017-08-19,,Roth 401(k),1770,580
+Active,2016-01-12,,Brokerage,1771,580
+Active,2017-06-12,,Roth IRA,1772,581
+Active,2009-09-12,,Traditional IRA,1773,581
+Active,2013-04-07,,Roth 401(k),1774,581
+Active,2009-01-15,,Brokerage,1775,581
+Active,2010-07-24,,529,1776,581
+Active,2004-09-02,,Traditional IRA,1777,582
+Active,2016-10-01,,529,1778,582
+Inactive,2014-01-26,2017-04-09,Roth IRA,1779,582
+Inactive,2009-09-25,2010-03-26,Brokerage,1780,582
+Active,2008-09-27,,Roth 401(k),1781,582
+Active,2017-04-24,,529,1782,583
+Active,2017-08-03,,Roth IRA,1783,584
+Active,2016-12-15,,Roth 401(k),1784,584
+Inactive,2014-01-25,2017-03-14,Roth 401(k),1785,585
+Active,2011-12-16,,529,1786,585
+Active,2016-09-16,,Traditional IRA,1787,585
+Active,2017-09-03,,Roth IRA,1788,585
+Inactive,2007-09-10,2012-06-29,Roth IRA,1789,586
+Active,2011-10-01,,Brokerage,1790,586
+Inactive,2008-06-08,2011-11-03,Roth 401(k),1791,586
+Active,2002-12-02,,Roth 401(k),1792,587
+Active,2000-06-06,,529,1793,587
+Active,2015-02-01,,Roth IRA,1794,588
+Active,2013-04-12,,Roth 401(k),1795,588
+Active,2015-03-21,,529,1796,588
+Active,2009-12-19,,Brokerage,1797,588
+Active,2013-05-09,,Traditional IRA,1798,588
+Inactive,2015-07-04,2017-01-24,Traditional IRA,1799,589
+Active,2016-07-03,,529,1800,589
+Active,2017-04-27,,Brokerage,1801,589
+Active,2015-11-30,,Roth 401(k),1802,589
+Inactive,2013-12-31,2017-12-16,Roth IRA,1803,589
+Active,2016-12-15,,Traditional IRA,1804,590
+Active,2015-03-25,,Brokerage,1805,590
+Active,2017-02-11,,529,1806,590
+Active,2018-07-11,,Roth 401(k),1807,590
+Active,2015-02-08,,Traditional IRA,1808,591
+Active,2015-05-07,,Brokerage,1809,591
+Active,2012-11-24,,Roth IRA,1810,591
+Active,2014-11-28,,Brokerage,1811,592
+Active,2016-07-14,,Roth IRA,1812,592
+Active,2017-05-16,,Brokerage,1813,593
+Active,2017-03-09,,Roth 401(k),1814,593
+Active,2017-10-22,,Roth 401(k),1815,594
+Active,2016-05-13,,Brokerage,1816,594
+Active,2016-12-01,,Roth IRA,1817,594
+Active,2015-07-09,,Roth 401(k),1818,595
+Active,2017-11-09,,Brokerage,1819,595
+Active,2015-01-02,,Roth IRA,1820,595
+Active,2008-02-07,,Traditional IRA,1821,595
+Active,2017-04-23,,Brokerage,1822,596
+Active,2016-06-08,,529,1823,596
+Active,2016-04-05,,Roth 401(k),1824,596
+Active,2016-04-29,,Traditional IRA,1825,596
+Active,2007-08-28,,529,1826,597
+Inactive,2011-04-16,2012-01-02,Traditional IRA,1827,598
+Active,2017-09-05,,Roth 401(k),1828,599
+Active,2017-09-23,,Traditional IRA,1829,599
+Inactive,2017-06-22,2017-11-30,529,1830,600
+Active,2018-01-09,,Traditional IRA,1831,600
+Active,2017-06-19,,Brokerage,1832,600
+Active,2017-11-28,,Roth 401(k),1833,600
+Active,2015-05-20,,Roth 401(k),1834,601
+Active,2016-11-17,,Roth IRA,1835,601
+Active,2017-07-04,,Traditional IRA,1836,601
+Active,2015-10-24,,Brokerage,1837,601
+Inactive,2014-12-09,2016-07-02,Roth 401(k),1838,602
+Inactive,2018-06-09,2018-10-13,529,1839,602
+Active,2013-03-26,,Brokerage,1840,602
+Active,2011-12-23,,Roth 401(k),1841,603
+Active,2009-07-13,,529,1842,603
+Active,2018-03-19,,Traditional IRA,1843,603
+Active,2011-06-26,,Brokerage,1844,603
+Active,2017-01-03,,Roth IRA,1845,603
+Inactive,2013-01-08,2015-04-17,Traditional IRA,1846,604
+Inactive,2018-01-28,2018-09-13,Roth 401(k),1847,605
+Active,2008-04-16,,Roth IRA,1848,605
+Active,2007-07-06,,Traditional IRA,1849,605
+Active,2017-08-24,,529,1850,605
+Active,2011-10-30,,529,1851,606
+Active,2006-06-26,,Traditional IRA,1852,606
+Active,2017-11-29,,Roth 401(k),1853,607
+Active,2017-03-26,,Roth IRA,1854,607
+Active,2014-06-22,,529,1855,607
+Inactive,2016-05-18,2017-01-23,Traditional IRA,1856,607
+Active,2016-05-05,,Brokerage,1857,607
+Active,2006-10-21,,Roth 401(k),1858,608
+Active,2005-08-03,,Traditional IRA,1859,608
+Active,2009-12-16,,Brokerage,1860,608
+Inactive,2017-07-06,2018-01-03,Brokerage,1861,609
+Active,2016-10-13,,Traditional IRA,1862,609
+Active,2016-12-03,,Roth IRA,1863,609
+Inactive,2017-06-12,2018-01-12,529,1864,610
+Active,2014-07-10,,Brokerage,1865,610
+Active,2015-03-14,,Roth 401(k),1866,610
+Active,2017-04-07,,Traditional IRA,1867,610
+Active,2015-04-01,,Roth IRA,1868,610
+Active,2017-07-04,,Roth 401(k),1869,611
+Active,2018-06-09,,Brokerage,1870,611
+Active,2018-05-01,,529,1871,611
+Active,2017-12-19,,Roth IRA,1872,611
+Active,2018-05-08,,Traditional IRA,1873,612
+Active,2016-02-01,,Brokerage,1874,613
+Active,2003-09-29,,Roth IRA,1875,613
+Active,2011-04-01,,529,1876,613
+Active,2010-11-27,,Roth 401(k),1877,613
+Active,2006-08-27,,Traditional IRA,1878,613
+Active,2011-09-21,,Roth IRA,1879,614
+Active,2004-08-22,,529,1880,614
+Active,2016-07-19,,Roth IRA,1881,615
+Active,2013-07-20,,Brokerage,1882,615
+Active,2017-06-01,,529,1883,615
+Active,2012-06-04,,Traditional IRA,1884,615
+Active,2015-11-15,,Roth 401(k),1885,615
+Active,2010-08-02,,Brokerage,1886,616
+Active,2012-06-09,,529,1887,617
+Active,2014-06-25,,Roth IRA,1888,618
+Inactive,2017-07-24,2018-03-22,Traditional IRA,1889,618
+Inactive,2016-11-07,2017-07-18,Roth 401(k),1890,618
+Active,2017-12-25,,Brokerage,1891,618
+Active,2012-11-23,,529,1892,618
+Inactive,2017-12-01,2018-08-21,529,1893,619
+Active,2018-01-13,,Traditional IRA,1894,619
+Active,2018-02-12,,Roth 401(k),1895,619
+Active,2017-12-01,,Brokerage,1896,619
+Active,2018-01-02,,Roth IRA,1897,619
+Active,2009-01-08,,Roth 401(k),1898,620
+Active,2018-04-19,,Roth IRA,1899,620
+Active,2012-11-02,,Traditional IRA,1900,620
+Active,2011-10-15,,Brokerage,1901,620
+Active,2005-12-04,,529,1902,620
+Inactive,2007-03-18,2011-02-27,Roth IRA,1903,621
+Active,2003-05-07,,Traditional IRA,1904,621
+Active,2014-04-21,,529,1905,622
+Active,2017-05-05,,Brokerage,1906,622
+Active,2017-04-16,,Roth IRA,1907,623
+Active,2017-02-21,,Roth 401(k),1908,623
+Active,2017-08-06,,Brokerage,1909,623
+Active,2018-05-07,,Roth IRA,1910,624
+Active,2001-01-27,,529,1911,624
+Active,2013-04-04,,Roth 401(k),1912,625
+Active,2014-06-25,,Traditional IRA,1913,626
+Inactive,2009-10-04,2016-10-20,Roth 401(k),1914,626
+Active,2015-03-09,,Roth IRA,1915,626
+Active,2017-07-24,,Traditional IRA,1916,627
+Active,2014-03-19,,Roth IRA,1917,627
+Active,2013-12-09,,Roth 401(k),1918,627
+Active,2018-04-13,,529,1919,627
+Active,2017-09-19,,Roth IRA,1920,628
+Active,2014-07-31,,Traditional IRA,1921,628
+Active,2017-05-18,,Roth 401(k),1922,628
+Active,2016-11-13,,Brokerage,1923,628
+Active,2013-08-20,,Roth 401(k),1924,629
+Active,2014-01-27,,Roth IRA,1925,629
+Active,2015-12-24,,Traditional IRA,1926,629
+Inactive,2017-01-21,2017-09-07,Brokerage,1927,629
+Active,2018-05-31,,529,1928,630
+Active,2016-08-12,,Traditional IRA,1929,630
+Active,2013-07-15,,Roth 401(k),1930,630
+Active,2012-02-03,,Roth 401(k),1931,631
+Active,2017-03-26,,529,1932,631
+Active,2018-07-16,,Brokerage,1933,631
+Active,2014-03-20,,Traditional IRA,1934,631
+Active,2016-05-27,,Brokerage,1935,632
+Active,2012-11-26,,Traditional IRA,1936,632
+Active,2008-04-30,,Roth 401(k),1937,632
+Active,2015-01-05,,Roth IRA,1938,632
+Active,2007-07-28,,529,1939,632
+Active,2004-07-18,,Roth IRA,1940,633
+Active,2018-04-09,,Brokerage,1941,633
+Active,2011-09-05,,Traditional IRA,1942,633
+Active,2016-07-30,,Roth 401(k),1943,634
+Active,2017-01-15,,529,1944,634
+Active,2016-12-05,,Traditional IRA,1945,634
+Active,2018-04-29,,Brokerage,1946,634
+Active,2018-01-07,,529,1947,635
+Active,2017-12-21,,Roth 401(k),1948,635
+Active,2018-01-11,,Brokerage,1949,635
+Active,2017-12-27,,Traditional IRA,1950,635
+Active,2018-05-06,,Roth IRA,1951,635
+Active,2017-09-29,,Traditional IRA,1952,636
+Active,2018-01-14,,Brokerage,1953,636
+Active,2017-09-02,,529,1954,636
+Active,2018-05-06,,Roth 401(k),1955,636
+Active,2017-01-31,,Roth IRA,1956,636
+Inactive,2014-02-10,2017-03-16,Brokerage,1957,637
+Active,2009-12-08,,529,1958,637
+Active,2018-04-01,,529,1959,638
+Active,2017-06-13,,Roth 401(k),1960,638
+Active,2017-07-25,,Brokerage,1961,639
+Active,2017-01-07,,529,1962,639
+Active,2015-02-25,,Brokerage,1963,640
+Active,2018-07-13,,Traditional IRA,1964,641
+Active,2015-12-06,,529,1965,641
+Active,2014-04-04,,Roth IRA,1966,641
+Active,2008-10-12,,Brokerage,1967,641
+Active,2014-09-24,,Roth 401(k),1968,642
+Active,2006-03-22,,529,1969,643
+Active,2018-01-05,,Roth 401(k),1970,643
+Active,2011-02-13,,529,1971,644
+Inactive,2016-05-07,2018-03-14,Roth 401(k),1972,644
+Inactive,2013-03-28,2016-02-20,Traditional IRA,1973,644
+Active,2016-07-15,,Brokerage,1974,644
+Active,2007-09-05,,Roth IRA,1975,645
+Active,2014-10-02,,529,1976,646
+Active,2013-05-14,,Traditional IRA,1977,647
+Active,2016-07-07,,Roth IRA,1978,647
+Active,2015-10-17,,Roth 401(k),1979,647
+Active,2014-10-24,,529,1980,647
+Active,2014-12-17,,Traditional IRA,1981,648
+Active,2017-03-26,,Roth 401(k),1982,648
+Active,2011-06-06,,Roth IRA,1983,648
+Active,2018-03-06,,Traditional IRA,1984,649
+Active,2017-02-21,,529,1985,650
+Active,2017-03-16,,Roth 401(k),1986,650
+Inactive,2018-07-01,2018-10-26,Roth IRA,1987,650
+Active,2015-01-10,,Traditional IRA,1988,650
+Active,2012-08-26,,Brokerage,1989,650
+Inactive,2018-01-13,2018-08-21,529,1990,651
+Active,2016-05-28,,Roth 401(k),1991,651
+Active,2015-05-08,,Roth IRA,1992,651
+Active,2016-02-15,,Brokerage,1993,651
+Active,2007-05-02,,Roth IRA,1994,652
+Active,2011-04-14,,Traditional IRA,1995,652
+Active,2016-03-11,,Roth 401(k),1996,652
+Active,2015-06-06,,529,1997,652
+Active,2006-04-27,,Brokerage,1998,652
+Active,2004-07-20,,Roth 401(k),1999,653
+Inactive,2009-08-28,2013-06-20,Traditional IRA,2000,653
+Active,2004-01-17,,Roth IRA,2001,653
+Active,2011-02-19,,Brokerage,2002,653
+Active,2017-01-08,,529,2003,653
+Active,2013-01-29,,Brokerage,2004,654
+Active,2016-04-04,,Traditional IRA,2005,654
+Active,2015-07-04,,529,2006,654
+Active,2018-05-11,,Roth 401(k),2007,654
+Inactive,2016-10-25,2017-06-12,Roth IRA,2008,654
+Active,2009-05-05,,Traditional IRA,2009,655
+Active,2007-03-23,,Brokerage,2010,655
+Active,2012-06-12,,529,2011,655
+Active,2016-11-11,,Roth 401(k),2012,655
+Active,2018-01-26,,Roth IRA,2013,655
+Active,2014-03-21,,Traditional IRA,2014,656
+Active,2014-06-29,,Brokerage,2015,656
+Active,2006-06-08,,529,2016,657
+Active,2009-11-15,,Brokerage,2017,657
+Active,2013-11-21,,Roth IRA,2018,657
+Active,2003-12-22,,Traditional IRA,2019,657
+Active,2012-04-24,,Traditional IRA,2020,658
+Active,2010-11-30,,Roth 401(k),2021,658
+Active,2009-04-01,,Brokerage,2022,658
+Active,2013-02-20,,529,2023,658
+Active,2017-07-18,,Brokerage,2024,659
+Active,2006-10-03,,Roth IRA,2025,659
+Active,2016-02-29,,Traditional IRA,2026,660
+Active,2017-12-17,,529,2027,660
+Active,2016-02-09,,Roth IRA,2028,660
+Active,2012-01-09,,Roth 401(k),2029,660
+Active,2015-11-18,,Brokerage,2030,660
+Active,2018-02-11,,Brokerage,2031,661
+Active,2017-10-30,,Roth 401(k),2032,661
+Active,2017-10-19,,529,2033,661
+Active,2017-08-31,,Traditional IRA,2034,661
+Active,2009-02-28,,Brokerage,2035,662
+Active,2009-07-21,,Traditional IRA,2036,662
+Active,2016-12-09,,529,2037,662
+Active,2006-01-23,,Roth IRA,2038,662
+Active,2017-03-19,,Traditional IRA,2039,663
+Active,2011-09-09,,529,2040,663
+Active,2017-03-18,,529,2041,664
+Active,2017-05-04,,Traditional IRA,2042,664
+Active,2017-10-08,,Roth IRA,2043,664
+Active,2018-02-03,,Roth 401(k),2044,664
+Active,2014-10-30,,Traditional IRA,2045,665
+Active,2017-09-13,,529,2046,666
+Active,2006-08-29,,Roth IRA,2047,666
+Active,2004-09-20,,Brokerage,2048,666
+Active,2007-01-22,,Traditional IRA,2049,666
+Active,2014-01-07,,Traditional IRA,2050,667
+Active,2016-03-08,,529,2051,667
+Inactive,2017-09-24,2018-08-11,Traditional IRA,2052,668
+Active,2017-11-30,,529,2053,668
+Active,2016-08-09,,Roth IRA,2054,668
+Inactive,2002-11-14,2010-10-28,Roth 401(k),2055,669
+Active,2007-02-11,,Roth IRA,2056,669
+Active,2017-09-03,,Traditional IRA,2057,669
+Active,2011-05-21,,Brokerage,2058,669
+Active,2017-08-24,,Traditional IRA,2059,670
+Inactive,2006-12-26,2016-07-03,Roth IRA,2060,670
+Active,2006-04-13,,Brokerage,2061,670
+Active,2009-01-30,,Traditional IRA,2062,671
+Active,2018-03-21,,Roth IRA,2063,672
+Active,2015-02-06,,Roth 401(k),2064,672
+Active,2015-12-02,,Traditional IRA,2065,673
+Active,2017-06-10,,Roth IRA,2066,673
+Active,2018-03-31,,Roth 401(k),2067,673
+Active,2018-03-27,,529,2068,673
+Inactive,2008-01-18,2012-05-30,Brokerage,2069,673
+Active,2013-10-18,,529,2070,674
+Active,2015-03-27,,Roth IRA,2071,674
+Active,2013-01-20,,Brokerage,2072,674
+Active,2003-08-07,,Roth IRA,2073,675
+Inactive,2016-08-08,2017-12-09,529,2074,676
+Active,2017-04-23,,Roth IRA,2075,676
+Active,2016-05-03,,Roth IRA,2076,677
+Active,2012-12-10,,Traditional IRA,2077,678
+Active,2016-04-03,,Traditional IRA,2078,679
+Active,2012-09-26,,Roth IRA,2079,679
+Active,2013-09-29,,Roth 401(k),2080,679
+Active,2006-01-31,,529,2081,680
+Active,2013-04-02,,Traditional IRA,2082,680
+Active,2017-01-13,,Roth IRA,2083,680
+Active,2018-01-23,,Traditional IRA,2084,681
+Active,2013-03-15,,529,2085,681
+Inactive,2018-02-25,2018-09-21,Roth 401(k),2086,681
+Active,2014-03-08,,Roth IRA,2087,681
+Active,2011-01-03,,Brokerage,2088,681
+Active,2015-10-11,,Roth 401(k),2089,682
+Active,2015-10-29,,Traditional IRA,2090,682
+Active,2013-04-18,,529,2091,682
+Inactive,2017-02-01,2017-06-04,Roth IRA,2092,682
+Active,2016-09-23,,Brokerage,2093,683
+Active,2017-07-18,,529,2094,683
+Active,2012-09-13,,Roth IRA,2095,684
+Active,2017-06-14,,Roth IRA,2096,685
+Active,2012-05-06,,Brokerage,2097,685
+Active,2010-10-25,,529,2098,685
+Active,2005-05-14,,Roth 401(k),2099,685
+Active,2010-07-07,,Brokerage,2100,686
+Active,2014-03-27,,Traditional IRA,2101,686
+Inactive,2016-05-10,2017-06-30,Roth 401(k),2102,687
+Active,2017-07-23,,Brokerage,2103,688
+Active,2017-10-01,,Roth 401(k),2104,688
+Inactive,2017-09-12,2018-03-07,Roth IRA,2105,688
+Active,2017-09-24,,Traditional IRA,2106,688
+Active,2017-08-19,,529,2107,688
+Active,2018-05-15,,529,2108,689
+Active,2014-05-18,,Roth 401(k),2109,689
+Active,2014-10-04,,Roth IRA,2110,690
+Active,2018-04-03,,529,2111,690
+Active,2012-05-27,,Traditional IRA,2112,691
+Inactive,2009-01-03,2011-08-16,529,2113,691
+Active,2014-12-07,,Traditional IRA,2114,692
+Active,2014-08-18,,Roth IRA,2115,692
+Inactive,2016-02-16,2016-12-05,Roth 401(k),2116,692
+Active,2010-08-01,,Roth 401(k),2117,693
+Active,2018-06-21,,529,2118,693
+Inactive,2012-01-03,2015-10-30,529,2119,694
+Active,2013-12-26,,Brokerage,2120,694
+Inactive,2010-11-07,2014-03-28,529,2121,695
+Active,2012-08-12,,Roth 401(k),2122,695
+Active,2014-08-26,,Traditional IRA,2123,695
+Active,2012-11-10,,Roth 401(k),2124,696
+Inactive,2012-02-22,2018-06-01,Brokerage,2125,696
+Active,2018-04-21,,Roth IRA,2126,696
+Active,2002-05-08,,Traditional IRA,2127,696
+Active,2016-04-02,,Roth IRA,2128,697
+Active,2017-08-13,,Brokerage,2129,697
+Active,2016-11-08,,Roth 401(k),2130,697
+Active,2016-10-09,,529,2131,697
+Active,2015-02-14,,Traditional IRA,2132,697
+Inactive,2016-12-17,2018-06-09,Roth IRA,2133,698
+Active,2013-05-12,,Traditional IRA,2134,698
+Active,2017-05-28,,Brokerage,2135,699
+Active,2018-05-31,,Roth 401(k),2136,699
+Active,2014-03-10,,Traditional IRA,2137,699
+Active,2016-11-26,,Roth IRA,2138,699
+Active,2014-01-24,,529,2139,699
+Active,2005-03-10,,Roth 401(k),2140,700
+Active,2011-09-21,,529,2141,700
+Active,2003-08-03,,Roth 401(k),2142,701
+Active,2003-05-17,,Traditional IRA,2143,701
+Active,2016-12-14,,Traditional IRA,2144,702
+Active,2016-02-18,,Brokerage,2145,702
+Active,2015-09-08,,Roth IRA,2146,703
+Active,2013-11-02,,Traditional IRA,2147,703
+Active,2014-10-03,,Roth 401(k),2148,704
+Active,2014-10-02,,Traditional IRA,2149,704
+Active,2017-04-13,,529,2150,704
+Active,2014-12-01,,Roth 401(k),2151,705
+Active,2011-10-17,,Brokerage,2152,705
+Active,2015-01-05,,529,2153,705
+Active,2012-10-01,,Roth IRA,2154,705
+Active,2018-06-23,,Brokerage,2155,706
+Active,2015-10-03,,Traditional IRA,2156,706
+Active,2010-02-23,,Roth IRA,2157,707
+Active,2015-06-29,,Brokerage,2158,707
+Active,2006-08-21,,Roth 401(k),2159,707
+Active,2016-02-08,,Traditional IRA,2160,707
+Inactive,2009-11-30,2011-08-12,529,2161,707
+Inactive,2005-10-09,2014-12-14,529,2162,708
+Active,2014-11-07,,Traditional IRA,2163,708
+Active,2006-08-21,,Roth IRA,2164,708
+Active,2013-06-13,,Brokerage,2165,708
+Inactive,2008-12-12,2017-09-11,Roth 401(k),2166,708
+Active,2011-10-10,,Brokerage,2167,709
+Active,2016-09-16,,Roth IRA,2168,709
+Active,2017-12-01,,Traditional IRA,2169,709
+Active,2007-12-29,,529,2170,710
+Active,2013-02-21,,Roth IRA,2171,710
+Active,2007-06-26,,Roth 401(k),2172,711
+Active,2010-02-13,,Traditional IRA,2173,711
+Active,2004-12-29,,Roth IRA,2174,711
+Active,2005-08-31,,529,2175,711
+Active,2018-06-21,,Brokerage,2176,712
+Active,2013-08-05,,Roth IRA,2177,713
+Active,2016-08-31,,Brokerage,2178,713
+Active,2018-03-20,,529,2179,713
+Active,2018-04-15,,Traditional IRA,2180,713
+Active,2012-08-18,,Roth IRA,2181,714
+Active,2010-03-01,,Traditional IRA,2182,715
+Active,2007-04-03,,Roth IRA,2183,715
+Active,2014-07-27,,Roth 401(k),2184,715
+Inactive,2012-11-16,2015-10-05,Brokerage,2185,715
+Active,2018-06-21,,Traditional IRA,2186,716
+Active,2017-12-27,,Brokerage,2187,716
+Active,2016-06-17,,Roth IRA,2188,717
+Active,2015-08-12,,Brokerage,2189,717
+Active,2017-06-10,,Roth 401(k),2190,718
+Active,2015-06-06,,Brokerage,2191,718
+Active,2017-12-31,,Traditional IRA,2192,718
+Active,2017-03-22,,Roth IRA,2193,718
+Inactive,2017-02-05,2018-02-11,529,2194,718
+Active,2016-02-01,,Brokerage,2195,719
+Active,2017-05-18,,529,2196,719
+Active,2018-05-21,,Roth 401(k),2197,720
+Active,2017-12-20,,529,2198,720
+Active,2016-05-10,,529,2199,721
+Active,2003-04-12,,Roth 401(k),2200,721
+Active,2013-10-06,,Roth IRA,2201,721
+Active,2004-01-11,,Traditional IRA,2202,721
+Active,2018-05-15,,Roth IRA,2203,722
+Active,2017-07-21,,Roth 401(k),2204,722
+Active,2018-06-08,,Brokerage,2205,722
+Active,2015-09-10,,Roth IRA,2206,723
+Active,2011-05-20,,529,2207,723
+Active,2010-10-15,,Brokerage,2208,723
+Inactive,2007-11-06,2015-09-26,Traditional IRA,2209,723
+Active,2008-04-08,,Roth 401(k),2210,723
+Active,2014-07-21,,Traditional IRA,2211,724
+Active,2017-03-18,,Brokerage,2212,724
+Active,2014-05-18,,Roth IRA,2213,724
+Active,2009-10-16,,Roth 401(k),2214,725
+Active,2017-11-22,,Roth IRA,2215,725
+Active,2006-07-03,,Brokerage,2216,725
+Active,2003-07-25,,Traditional IRA,2217,725
+Active,2010-01-11,,529,2218,725
+Active,2018-07-14,,Roth IRA,2219,726
+Active,2011-09-30,,Roth 401(k),2220,727
+Active,2017-04-18,,Brokerage,2221,727
+Active,2007-03-12,,Traditional IRA,2222,727
+Inactive,2013-06-07,2017-02-06,529,2223,727
+Active,2011-09-19,,Roth IRA,2224,727
+Active,2010-01-27,,Roth 401(k),2225,728
+Active,2009-04-28,,Brokerage,2226,728
+Active,2017-10-24,,Traditional IRA,2227,728
+Active,2010-10-21,,Traditional IRA,2228,729
+Active,2010-12-02,,Roth 401(k),2229,730
+Active,2017-04-29,,Brokerage,2230,730
+Active,2017-02-11,,Brokerage,2231,731
+Active,2018-02-03,,Traditional IRA,2232,731
+Active,2014-04-30,,Roth IRA,2233,731
+Active,2012-01-15,,Roth 401(k),2234,731
+Active,2012-05-18,,529,2235,731
+Active,2014-08-01,,Brokerage,2236,732
+Active,2007-05-10,,Traditional IRA,2237,732
+Active,2005-02-01,,529,2238,732
+Active,2008-10-10,,Roth 401(k),2239,733
+Active,2011-06-02,,Traditional IRA,2240,733
+Active,2004-12-19,,Roth IRA,2241,733
+Active,2009-06-01,,529,2242,733
+Active,2005-02-18,,Brokerage,2243,733
+Active,2016-10-02,,Traditional IRA,2244,734
+Active,2013-10-05,,Roth IRA,2245,734
+Active,2010-04-23,,529,2246,734
+Active,2014-12-01,,Brokerage,2247,734
+Active,2013-11-20,,Roth 401(k),2248,735
+Active,2016-02-27,,Brokerage,2249,736
+Active,2011-08-08,,Roth IRA,2250,736
+Active,2001-08-30,,Traditional IRA,2251,737
+Active,2014-01-06,,Roth IRA,2252,737
+Active,2008-03-18,,529,2253,737
+Active,2008-10-03,,529,2254,738
+Active,2012-02-25,,Brokerage,2255,738
+Active,2017-12-29,,Traditional IRA,2256,738
+Active,2016-08-30,,Traditional IRA,2257,739
+Active,2013-07-27,,Roth IRA,2258,739
+Inactive,2014-03-09,2017-09-30,Roth 401(k),2259,739
+Active,2014-04-15,,529,2260,739
+Active,2002-06-06,,Roth IRA,2261,740
+Active,2009-01-09,,529,2262,740
+Active,2016-01-18,,Roth 401(k),2263,740
+Active,2004-01-19,,Brokerage,2264,740
+Active,2016-06-18,,Traditional IRA,2265,740
+Active,2017-05-13,,Brokerage,2266,741
+Active,2016-04-13,,Traditional IRA,2267,741
+Active,2017-06-01,,Roth 401(k),2268,741
+Active,2017-09-03,,Roth IRA,2269,741
+Active,2011-12-31,,Roth 401(k),2270,742
+Active,2006-04-07,,Brokerage,2271,743
+Active,2014-12-22,,Brokerage,2272,744
+Active,2010-01-07,,Brokerage,2273,745
+Active,2008-08-01,,Roth IRA,2274,745
+Active,2007-03-31,,529,2275,745
+Active,2015-09-05,,Roth 401(k),2276,745
+Active,2009-11-22,,Traditional IRA,2277,745
+Inactive,2018-03-29,2018-08-24,Traditional IRA,2278,746
+Active,2014-09-06,,Brokerage,2279,746
+Active,2015-02-23,,Roth IRA,2280,746
+Active,2008-09-22,,529,2281,746
+Active,2002-01-24,,Brokerage,2282,747
+Active,2001-08-29,,Traditional IRA,2283,747
+Active,2012-03-05,,Roth IRA,2284,747
+Active,2013-05-28,,Traditional IRA,2285,748
+Active,2014-02-09,,Brokerage,2286,748
+Active,2017-11-24,,Roth IRA,2287,748
+Active,2010-03-03,,Traditional IRA,2288,749
+Active,2006-03-02,,Roth IRA,2289,749
+Active,2018-06-09,,529,2290,750
+Active,2011-03-09,,Roth IRA,2291,751
+Active,2018-05-23,,Brokerage,2292,751
+Inactive,2010-05-16,2013-12-20,Roth 401(k),2293,751
+Active,2011-08-14,,Traditional IRA,2294,751
+Active,2018-07-08,,529,2295,751
+Active,2012-03-19,,Traditional IRA,2296,752
+Active,2010-08-15,,Brokerage,2297,753
+Active,2006-07-06,,Roth IRA,2298,754
+Active,2016-09-16,,Brokerage,2299,755
+Active,2017-12-03,,529,2300,755
+Active,2004-11-08,,Roth IRA,2301,755
+Active,2006-06-07,,Traditional IRA,2302,755
+Inactive,2011-12-08,2018-02-26,Roth 401(k),2303,755
+Active,2017-09-13,,Traditional IRA,2304,756
+Active,2010-07-04,,Roth IRA,2305,757
+Active,2011-06-14,,529,2306,757
+Inactive,2018-07-15,2018-10-24,Brokerage,2307,758
+Active,2018-03-04,,Roth IRA,2308,758
+Active,2018-03-16,,Roth 401(k),2309,758
+Active,2014-02-02,,Roth IRA,2310,759
+Inactive,2017-12-19,2018-04-04,Traditional IRA,2311,760
+Active,2017-09-21,,529,2312,760
+Active,2016-05-23,,Roth IRA,2313,761
+Active,2016-11-15,,Brokerage,2314,761
+Active,2016-07-07,,Roth 401(k),2315,762
+Active,2015-12-01,,Roth 401(k),2316,763
+Active,2015-01-11,,529,2317,763
+Active,2015-09-09,,Traditional IRA,2318,763
+Active,2018-03-08,,Brokerage,2319,764
+Active,2015-01-25,,529,2320,764
+Active,2016-08-05,,Traditional IRA,2321,764
+Active,2013-12-21,,Roth IRA,2322,764
+Active,2017-01-12,,Roth 401(k),2323,764
+Inactive,2013-06-08,2015-04-17,Brokerage,2324,765
+Inactive,2013-07-04,2017-01-15,Roth IRA,2325,765
+Active,2007-10-05,,Roth 401(k),2326,765
+Active,2017-05-21,,Brokerage,2327,766
+Active,2016-10-02,,529,2328,766
+Active,2017-01-14,,Roth IRA,2329,766
+Active,2018-02-10,,Roth IRA,2330,767
+Active,2013-10-27,,529,2331,767
+Active,2014-08-25,,Roth 401(k),2332,767
+Active,2016-01-05,,529,2333,768
+Active,2018-01-05,,Traditional IRA,2334,768
+Active,2017-03-05,,Roth 401(k),2335,768
+Active,2011-08-23,,Brokerage,2336,768
+Active,2012-12-06,,Brokerage,2337,769
+Active,2010-01-17,,Traditional IRA,2338,769
+Active,2017-11-09,,529,2339,769
+Active,2008-09-25,,Roth IRA,2340,769
+Active,2009-09-27,,Roth 401(k),2341,770
+Active,2011-04-05,,Brokerage,2342,770
+Active,2017-05-26,,Traditional IRA,2343,770
+Active,2018-02-17,,Brokerage,2344,771
+Active,2018-02-26,,Roth IRA,2345,772
+Active,2017-06-12,,Roth 401(k),2346,772
+Active,2016-03-17,,Traditional IRA,2347,772
+Active,2017-05-30,,Brokerage,2348,772
+Active,2016-11-17,,529,2349,772
+Active,2018-07-13,,529,2350,773
+Active,2008-07-14,,Roth IRA,2351,774
+Active,2010-02-13,,Roth 401(k),2352,774
+Active,2005-08-08,,529,2353,774
+Active,2018-05-11,,Traditional IRA,2354,774
+Active,2005-04-15,,Brokerage,2355,774
+Active,2011-01-07,,529,2356,775
+Active,2015-04-12,,Roth IRA,2357,775
+Active,2014-05-31,,Roth 401(k),2358,775
+Active,2015-12-13,,Roth 401(k),2359,776
+Active,2017-11-07,,Traditional IRA,2360,776
+Active,2015-09-27,,Roth 401(k),2361,777
+Active,2015-04-16,,Traditional IRA,2362,777
+Active,2016-07-10,,Roth IRA,2363,777
+Active,2015-02-06,,529,2364,777
+Active,2016-08-06,,Brokerage,2365,777
+Active,2017-09-11,,Roth IRA,2366,778
+Active,2016-12-16,,Brokerage,2367,778
+Active,2010-03-11,,Traditional IRA,2368,778
+Active,2014-01-29,,529,2369,779
+Active,2012-11-06,,Roth IRA,2370,779
+Active,2007-08-08,,Traditional IRA,2371,779
+Active,2011-06-26,,Roth 401(k),2372,779
+Active,2008-09-23,,Brokerage,2373,780
+Active,2010-02-18,,Traditional IRA,2374,780
+Active,2004-02-25,,Roth IRA,2375,780
+Active,2006-09-24,,Roth 401(k),2376,780
+Active,2017-10-29,,Traditional IRA,2377,781
+Active,2015-09-08,,Roth 401(k),2378,781
+Active,2015-09-19,,529,2379,781
+Active,2012-06-05,,Roth IRA,2380,782
+Active,2012-06-24,,529,2381,782
+Active,2008-03-22,,Traditional IRA,2382,782
+Active,2007-05-21,,Brokerage,2383,782
+Active,2016-03-19,,529,2384,783
+Active,2016-01-09,,Roth IRA,2385,783
+Active,2017-09-13,,Brokerage,2386,783
+Active,2011-07-22,,Traditional IRA,2387,784
+Active,2017-04-04,,529,2388,784
+Active,2014-01-27,,Brokerage,2389,784
+Active,2011-12-18,,Roth 401(k),2390,784
+Active,2015-08-13,,Roth IRA,2391,784
+Active,2007-11-20,,Brokerage,2392,785
+Active,2009-06-18,,Brokerage,2393,786
+Active,2005-03-29,,Roth 401(k),2394,786
+Active,2010-09-29,,Roth IRA,2395,786
+Active,2014-11-14,,529,2396,786
+Active,2017-06-28,,Roth 401(k),2397,787
+Active,2014-04-06,,Traditional IRA,2398,787
+Active,2017-08-20,,529,2399,788
+Active,2017-10-02,,Traditional IRA,2400,788
+Active,2018-06-15,,Roth IRA,2401,788
+Active,2014-11-23,,Brokerage,2402,789
+Active,2013-05-11,,Roth IRA,2403,789
+Inactive,2015-07-29,2016-02-06,Brokerage,2404,790
+Active,2016-05-31,,Roth 401(k),2405,790
+Active,2015-02-19,,Roth IRA,2406,790
+Active,2016-12-23,,Roth 401(k),2407,791
+Active,2018-04-13,,Traditional IRA,2408,791
+Active,2015-04-06,,529,2409,791
+Active,2017-09-24,,Roth IRA,2410,791
+Active,2016-05-09,,Brokerage,2411,791
+Active,2018-03-15,,Roth 401(k),2412,792
+Active,2017-10-27,,529,2413,792
+Active,2018-05-04,,Traditional IRA,2414,792
+Active,2016-08-31,,Roth 401(k),2415,793
+Active,2007-10-04,,Traditional IRA,2416,793
+Active,2018-04-09,,529,2417,793
+Active,2017-12-03,,Roth IRA,2418,793
+Active,2013-12-21,,Roth 401(k),2419,794
+Active,2015-03-07,,529,2420,794
+Active,2014-12-17,,Traditional IRA,2421,795
+Active,2016-09-25,,Brokerage,2422,796
+Active,2016-07-23,,Roth IRA,2423,796
+Active,2018-06-25,,Traditional IRA,2424,796
+Inactive,2018-06-16,2018-10-12,Roth 401(k),2425,796
+Active,2017-12-28,,Roth IRA,2426,797
+Active,2017-08-10,,529,2427,797
+Active,2018-05-04,,Roth 401(k),2428,797
+Inactive,2017-11-27,2018-09-05,Brokerage,2429,797
+Active,2014-12-11,,Roth 401(k),2430,798
+Active,2007-07-06,,Brokerage,2431,799
+Active,2014-04-07,,Brokerage,2432,800
+Active,2014-02-04,,Roth 401(k),2433,800
+Active,2015-11-25,,Roth IRA,2434,800
+Active,2013-02-27,,Traditional IRA,2435,800
+Active,2009-08-07,,529,2436,800
+Active,2017-06-10,,Roth 401(k),2437,801
+Active,2015-05-04,,Roth IRA,2438,801
+Active,2016-01-21,,Roth IRA,2439,802
+Active,2013-07-20,,Brokerage,2440,802
+Active,2016-11-03,,529,2441,802
+Inactive,2014-02-02,2018-08-09,Traditional IRA,2442,802
+Active,2014-01-26,,Roth 401(k),2443,803
+Active,2015-12-12,,529,2444,804
+Inactive,2016-06-23,2017-12-08,Roth 401(k),2445,804
+Inactive,2017-12-08,2018-10-22,Brokerage,2446,805
+Active,2016-02-11,,Traditional IRA,2447,805
+Active,2016-05-28,,Brokerage,2448,806
+Active,2015-06-15,,Traditional IRA,2449,806
+Active,2018-06-16,,Roth 401(k),2450,807
+Active,2016-02-12,,Brokerage,2451,807
+Active,2015-09-01,,529,2452,808
+Active,2014-11-02,,Traditional IRA,2453,808
+Active,2007-10-29,,Roth 401(k),2454,808
+Active,2018-03-22,,Roth 401(k),2455,809
+Active,2017-12-14,,Traditional IRA,2456,809
+Active,2016-07-28,,Brokerage,2457,810
+Active,2015-08-21,,Roth IRA,2458,810
+Active,2016-05-06,,Roth 401(k),2459,810
+Active,2016-03-16,,Traditional IRA,2460,810
+Active,2018-05-10,,529,2461,810
+Active,2013-03-31,,Traditional IRA,2462,811
+Active,2012-11-02,,Roth 401(k),2463,811
+Inactive,2017-10-17,2018-05-24,Roth IRA,2464,811
+Active,2016-02-02,,529,2465,811
+Active,2012-10-16,,Brokerage,2466,811
+Active,2003-02-26,,Roth IRA,2467,812
+Active,2009-11-22,,529,2468,812
+Active,2006-08-05,,Roth 401(k),2469,812
+Inactive,2013-11-04,2016-09-21,Brokerage,2470,812
+Inactive,2006-09-05,2011-09-10,Traditional IRA,2471,812
+Inactive,2009-01-01,2011-09-11,Roth IRA,2472,813
+Active,2004-03-15,,Brokerage,2473,813
+Active,2014-11-27,,529,2474,813
+Inactive,2014-06-12,2017-01-11,Roth 401(k),2475,813
+Inactive,2015-11-18,2018-06-20,Brokerage,2476,814
+Active,2006-06-14,,529,2477,814
+Active,2015-05-08,,Roth 401(k),2478,814
+Active,2013-03-01,,Traditional IRA,2479,814
+Inactive,2017-02-15,2017-09-07,Roth IRA,2480,815
+Active,2016-08-20,,Traditional IRA,2481,815
+Active,2012-12-26,,Roth 401(k),2482,815
+Active,2013-07-03,,529,2483,815
+Active,2016-10-26,,Brokerage,2484,815
+Active,2011-01-21,,Roth 401(k),2485,816
+Active,2009-06-02,,529,2486,816
+Inactive,2006-05-29,2008-08-03,Roth 401(k),2487,817
+Active,2006-05-13,,Roth IRA,2488,817
+Active,2008-12-28,,Traditional IRA,2489,817
+Active,2004-05-02,,Brokerage,2490,817
+Active,2006-08-16,,529,2491,817
+Active,2017-03-01,,Traditional IRA,2492,818
+Active,2013-11-27,,Roth 401(k),2493,818
+Active,2013-03-18,,Roth IRA,2494,818
+Active,2012-12-22,,Brokerage,2495,818
+Active,2015-10-21,,529,2496,818
+Active,2016-01-18,,Roth IRA,2497,819
+Active,2012-04-24,,Brokerage,2498,819
+Active,2013-08-27,,Traditional IRA,2499,819
+Active,2017-04-16,,529,2500,819
+Active,2014-08-28,,Roth 401(k),2501,819
+Active,2009-08-06,,Roth 401(k),2502,820
+Active,2015-03-11,,Brokerage,2503,820
+Active,2016-09-11,,529,2504,820
+Active,2013-06-04,,Roth 401(k),2505,821
+Inactive,2012-05-28,2015-08-02,Brokerage,2506,821
+Inactive,2017-06-14,2018-06-23,Traditional IRA,2507,821
+Active,2006-03-08,,Roth 401(k),2508,822
+Inactive,2013-09-04,2016-07-21,Roth IRA,2509,822
+Active,2012-11-26,,Brokerage,2510,822
+Active,2013-11-22,,529,2511,823
+Active,2006-07-18,,Roth IRA,2512,824
+Active,2005-03-18,,Brokerage,2513,824
+Active,2015-02-17,,Traditional IRA,2514,825
+Inactive,2017-08-27,2018-05-14,Roth IRA,2515,826
+Active,2017-07-27,,Brokerage,2516,826
+Active,2017-11-30,,Traditional IRA,2517,826
+Active,2013-10-11,,529,2518,826
+Active,2008-04-15,,Roth 401(k),2519,826
+Active,2015-01-03,,Roth IRA,2520,827
+Active,2011-06-11,,529,2521,827
+Active,2010-12-27,,Roth 401(k),2522,827
+Inactive,2010-01-30,2012-08-16,Roth IRA,2523,828
+Active,2002-01-13,,Traditional IRA,2524,828
+Active,2012-11-01,,Roth 401(k),2525,828
+Active,2018-04-21,,Roth IRA,2526,829
+Active,2015-01-22,,Roth 401(k),2527,829
+Active,2016-03-06,,Traditional IRA,2528,829
+Inactive,2016-03-29,2017-12-05,Brokerage,2529,830
+Active,2017-04-02,,Roth IRA,2530,831
+Inactive,2014-12-19,2016-04-12,Brokerage,2531,831
+Active,2016-06-15,,529,2532,831
+Active,2012-02-05,,Roth 401(k),2533,831
+Active,2017-05-10,,Traditional IRA,2534,831
+Inactive,2013-12-29,2018-06-21,Traditional IRA,2535,832
+Inactive,2012-07-11,2017-07-19,Roth 401(k),2536,833
+Active,2013-05-13,,Roth IRA,2537,834
+Active,2011-12-08,,Brokerage,2538,834
+Active,2017-05-03,,529,2539,835
+Active,2018-05-10,,Traditional IRA,2540,835
+Active,2017-10-01,,Brokerage,2541,835
+Active,2012-02-23,,Roth IRA,2542,836
+Active,2010-11-01,,Brokerage,2543,836
+Active,2005-06-25,,529,2544,836
+Active,2007-06-04,,Traditional IRA,2545,836
+Active,2006-07-10,,Roth 401(k),2546,836
+Active,2009-12-03,,Brokerage,2547,837
+Active,2009-10-31,,Roth 401(k),2548,837
+Active,2016-02-08,,529,2549,837
+Active,2018-02-21,,529,2550,838
+Active,2015-05-19,,Roth 401(k),2551,838
+Active,2015-10-17,,Roth IRA,2552,839
+Active,2018-06-15,,Roth 401(k),2553,839
+Active,2018-07-13,,529,2554,839
+Active,2016-06-26,,Traditional IRA,2555,840
+Inactive,2015-11-27,2018-07-22,529,2556,840
+Active,2017-09-01,,Roth IRA,2557,840
+Active,2016-04-29,,Brokerage,2558,840
+Active,2013-10-20,,Roth 401(k),2559,841
+Active,2017-10-02,,529,2560,841
+Active,2007-11-07,,529,2561,842
+Active,2018-03-01,,Brokerage,2562,843
+Inactive,2016-03-20,2017-04-21,Traditional IRA,2563,843
+Inactive,2018-07-20,2018-10-29,Roth IRA,2564,843
+Active,2015-05-25,,529,2565,843
+Active,2017-08-27,,Roth 401(k),2566,843
+Active,2006-03-26,,529,2567,844
+Active,2015-03-02,,Traditional IRA,2568,844
+Inactive,2012-10-31,2014-04-12,Brokerage,2569,844
+Active,2017-02-14,,Roth 401(k),2570,845
+Inactive,2018-06-17,2018-10-27,529,2571,845
+Active,2017-04-09,,Brokerage,2572,845
+Active,2006-02-01,,Brokerage,2573,846
+Active,2004-11-23,,Roth IRA,2574,847
+Active,2017-07-19,,Traditional IRA,2575,847
+Inactive,2015-02-23,2017-09-11,Brokerage,2576,848
+Active,2014-09-27,,Roth 401(k),2577,848
+Active,2015-03-26,,Traditional IRA,2578,848
+Active,2011-04-01,,Brokerage,2579,849
+Active,2011-07-03,,Traditional IRA,2580,849
+Inactive,2018-06-01,2018-10-09,Roth 401(k),2581,849
+Active,2012-07-31,,529,2582,849
+Active,2011-03-04,,Roth IRA,2583,849
+Active,2012-04-16,,Brokerage,2584,850
+Active,2016-05-09,,529,2585,851
+Active,2017-07-01,,Roth IRA,2586,851
+Active,2016-01-17,,Roth 401(k),2587,851
+Active,2015-08-01,,Traditional IRA,2588,851
+Active,2016-12-03,,Traditional IRA,2589,852
+Active,2016-02-18,,529,2590,852
+Active,2018-05-28,,Roth IRA,2591,852
+Active,2016-05-26,,Brokerage,2592,852
+Active,2017-08-26,,529,2593,853
+Active,2017-10-04,,Roth IRA,2594,853
+Active,2016-12-11,,Roth IRA,2595,854
+Active,2011-09-06,,Roth IRA,2596,855
+Active,2014-07-10,,Roth 401(k),2597,855
+Active,2015-03-28,,Traditional IRA,2598,855
+Active,2018-06-02,,Brokerage,2599,856
+Active,2018-02-26,,Roth IRA,2600,856
+Active,2014-09-30,,Traditional IRA,2601,857
+Active,2018-03-10,,Roth IRA,2602,857
+Active,2013-05-23,,Brokerage,2603,857
+Active,2014-10-14,,529,2604,857
+Active,2016-08-04,,Roth 401(k),2605,857
+Active,2016-02-19,,Traditional IRA,2606,858
+Active,2018-05-01,,Roth IRA,2607,859
+Active,2016-02-01,,Traditional IRA,2608,859
+Active,2016-04-04,,529,2609,859
+Active,2018-05-31,,Roth IRA,2610,860
+Active,2015-07-10,,Roth 401(k),2611,860
+Active,2017-05-27,,Brokerage,2612,860
+Active,2015-06-02,,Traditional IRA,2613,860
+Active,2015-07-06,,529,2614,860
+Active,2016-06-25,,529,2615,861
+Active,2017-12-10,,Traditional IRA,2616,862
+Active,2016-11-08,,Roth 401(k),2617,862
+Active,2018-04-12,,Roth IRA,2618,863
+Active,2017-09-10,,529,2619,863
+Active,2018-04-24,,Traditional IRA,2620,863
+Active,2016-05-08,,Brokerage,2621,863
+Active,2013-02-27,,529,2622,864
+Active,2014-02-22,,Brokerage,2623,864
+Active,2014-02-10,,Traditional IRA,2624,864
+Active,2013-09-21,,Roth 401(k),2625,864
+Active,2015-02-25,,Roth IRA,2626,864
+Active,2018-07-01,,Roth IRA,2627,865
+Active,2015-11-23,,529,2628,865
+Active,2018-02-26,,Roth 401(k),2629,866
+Active,2010-03-24,,Traditional IRA,2630,866
+Active,2018-01-15,,Roth IRA,2631,866
+Active,2008-11-02,,529,2632,867
+Active,2015-08-13,,Brokerage,2633,867
+Inactive,2016-07-10,2017-02-28,Traditional IRA,2634,868
+Active,2013-05-04,,Roth 401(k),2635,869
+Active,2012-09-08,,Roth IRA,2636,869
+Active,2017-01-27,,Brokerage,2637,870
+Active,2016-04-12,,Traditional IRA,2638,871
+Active,2003-03-12,,Brokerage,2639,872
+Active,2012-05-30,,Traditional IRA,2640,873
+Active,2015-01-08,,Roth IRA,2641,873
+Active,2009-02-15,,Brokerage,2642,874
+Inactive,2010-07-27,2011-10-10,Roth IRA,2643,874
+Active,2017-02-19,,529,2644,874
+Active,2012-10-30,,Traditional IRA,2645,874
+Active,2017-02-27,,Traditional IRA,2646,875
+Active,2013-08-06,,529,2647,876
+Active,2008-03-19,,Brokerage,2648,876
+Active,2008-12-02,,Traditional IRA,2649,876
+Active,2010-06-13,,Roth 401(k),2650,876
+Active,2015-05-08,,Brokerage,2651,877
+Active,2014-04-30,,529,2652,877
+Inactive,2016-12-04,2017-05-27,Roth 401(k),2653,878
+Active,2016-04-18,,Brokerage,2654,879
+Active,2012-11-26,,Traditional IRA,2655,879
+Active,2017-08-20,,Roth IRA,2656,879
+Inactive,2018-06-09,2018-09-18,529,2657,880
+Active,2018-07-04,,Roth 401(k),2658,880
+Active,2018-07-20,,Roth IRA,2659,880
+Active,2017-07-22,,Traditional IRA,2660,880
+Active,2010-05-13,,Roth IRA,2661,881
+Active,2017-01-24,,Brokerage,2662,881
+Inactive,2013-05-17,2013-12-31,Traditional IRA,2663,881
+Active,2010-01-01,,Roth 401(k),2664,881
+Active,2005-11-22,,529,2665,881
+Active,2017-07-28,,Brokerage,2666,882
+Active,2014-11-20,,Traditional IRA,2667,882
+Active,2017-01-08,,Roth 401(k),2668,883
+Active,2014-02-05,,Roth IRA,2669,883
+Active,2014-06-22,,Traditional IRA,2670,883
+Active,2010-08-16,,529,2671,883
+Active,2004-07-25,,Brokerage,2672,883
+Inactive,2017-06-28,2018-05-17,Roth IRA,2673,884
+Inactive,2013-01-21,2013-10-18,529,2674,884
+Active,2014-11-06,,Roth 401(k),2675,884
+Active,2016-11-06,,Traditional IRA,2676,884
+Active,2015-06-02,,Brokerage,2677,885
+Active,2016-04-12,,Roth IRA,2678,885
+Active,2014-05-16,,Traditional IRA,2679,885
+Active,2014-08-25,,Roth 401(k),2680,885
+Active,2012-12-18,,529,2681,885
+Active,2016-08-30,,Brokerage,2682,886
+Active,2016-09-06,,Traditional IRA,2683,886
+Active,2016-12-02,,Roth IRA,2684,886
+Active,2018-02-16,,Roth 401(k),2685,886
+Active,2018-05-10,,529,2686,886
+Active,2017-06-27,,Traditional IRA,2687,887
+Active,2017-09-23,,Brokerage,2688,888
+Active,2014-12-27,,Roth 401(k),2689,888
+Active,2013-08-22,,Traditional IRA,2690,889
+Inactive,2012-05-15,2015-05-22,Roth 401(k),2691,889
+Active,2012-11-06,,Brokerage,2692,889
+Active,2014-04-22,,529,2693,890
+Active,2014-09-23,,Roth 401(k),2694,890
+Active,2016-07-21,,Roth 401(k),2695,891
+Active,2014-12-24,,Brokerage,2696,891
+Active,2017-02-20,,Traditional IRA,2697,891
+Active,2014-04-29,,529,2698,892
+Active,2012-11-17,,Traditional IRA,2699,892
+Inactive,2016-11-02,2017-07-01,Brokerage,2700,892
+Active,2016-05-05,,Roth IRA,2701,892
+Active,2009-04-05,,Roth IRA,2702,893
+Inactive,2012-02-07,2013-01-16,Roth 401(k),2703,893
+Active,2018-02-10,,529,2704,893
+Active,2004-12-14,,529,2705,894
+Active,2003-12-05,,Brokerage,2706,894
+Active,2017-05-10,,Roth 401(k),2707,894
+Active,2014-11-19,,Traditional IRA,2708,894
+Active,2016-12-21,,Roth IRA,2709,894
+Active,2018-04-26,,Roth IRA,2710,895
+Active,2015-07-31,,Roth IRA,2711,896
+Active,2010-11-24,,Brokerage,2712,896
+Active,2011-01-15,,Traditional IRA,2713,896
+Active,2017-10-09,,Brokerage,2714,897
+Active,2011-02-07,,Roth 401(k),2715,897
+Active,2006-01-22,,529,2716,898
+Active,2002-09-27,,Traditional IRA,2717,898
+Active,2016-09-21,,Brokerage,2718,899
+Active,2016-11-22,,Traditional IRA,2719,899
+Inactive,2017-08-07,2017-12-11,529,2720,899
+Active,2013-12-23,,Roth 401(k),2721,899
+Active,2012-08-14,,Roth IRA,2722,899
+Active,2017-03-26,,Traditional IRA,2723,900
+Active,2017-02-16,,Roth IRA,2724,900
+Active,2017-02-12,,Roth IRA,2725,901
+Active,2017-03-14,,Brokerage,2726,901
+Active,2014-02-19,,Traditional IRA,2727,901
+Active,2018-05-16,,Roth 401(k),2728,901
+Active,2014-07-02,,529,2729,901
+Active,2017-08-27,,529,2730,902
+Inactive,2008-11-11,2011-11-26,Roth IRA,2731,902
+Active,2015-04-05,,Brokerage,2732,902
+Active,2008-08-27,,Traditional IRA,2733,902
+Active,2016-03-12,,Roth 401(k),2734,903
+Active,2011-07-22,,Roth IRA,2735,903
+Active,2009-11-07,,Brokerage,2736,903
+Active,2010-02-17,,529,2737,903
+Active,2015-04-02,,529,2738,904
+Active,2014-10-25,,Brokerage,2739,904
+Active,2010-12-10,,Roth IRA,2740,904
+Active,2017-10-20,,Traditional IRA,2741,905
+Active,2017-10-24,,529,2742,905
+Active,2017-09-30,,Roth 401(k),2743,905
+Active,2018-05-19,,Brokerage,2744,905
+Active,2017-07-31,,Roth IRA,2745,905
+Active,2016-06-27,,Traditional IRA,2746,906
+Active,2012-09-04,,Brokerage,2747,906
+Active,2017-05-03,,529,2748,907
+Active,2017-07-25,,Traditional IRA,2749,907
+Active,2016-12-23,,Brokerage,2750,907
+Active,2018-03-24,,Roth IRA,2751,907
+Inactive,2017-01-29,2018-10-09,Traditional IRA,2752,908
+Active,2017-03-28,,Brokerage,2753,908
+Active,2018-06-21,,Roth IRA,2754,908
+Inactive,2015-11-26,2018-05-31,Roth 401(k),2755,908
+Active,2017-07-17,,529,2756,908
+Active,2014-11-30,,Roth IRA,2757,909
+Active,2018-06-09,,529,2758,910
+Active,2018-04-24,,Roth 401(k),2759,910
+Active,2017-12-21,,Traditional IRA,2760,910
+Active,2017-03-07,,Roth IRA,2761,910
+Active,2011-11-13,,Roth 401(k),2762,911
+Active,2015-02-07,,Brokerage,2763,911
+Active,2008-10-11,,Roth IRA,2764,911
+Active,2016-07-30,,529,2765,911
+Active,2016-08-14,,Roth IRA,2766,912
+Active,2015-03-05,,Traditional IRA,2767,912
+Active,2016-01-26,,Brokerage,2768,912
+Active,2011-11-09,,Roth IRA,2769,913
+Active,2014-03-31,,Roth 401(k),2770,913
+Active,2017-03-13,,529,2771,913
+Active,2013-03-20,,Brokerage,2772,913
+Active,2014-12-04,,Traditional IRA,2773,913
+Active,2006-07-20,,Roth IRA,2774,914
+Active,2018-04-20,,Brokerage,2775,914
+Active,2016-05-18,,Roth 401(k),2776,915
+Inactive,2015-07-01,2017-07-21,Roth IRA,2777,915
+Active,2017-11-23,,Brokerage,2778,915
+Inactive,2016-12-11,2018-01-14,529,2779,915
+Active,2017-02-27,,Traditional IRA,2780,915
+Active,2017-02-20,,Roth IRA,2781,916
+Inactive,2012-12-07,2014-02-11,Roth 401(k),2782,916
+Active,2012-11-14,,Traditional IRA,2783,916
+Active,2015-12-26,,Brokerage,2784,916
+Active,2008-01-04,,Roth 401(k),2785,917
+Active,2011-11-30,,Brokerage,2786,917
+Active,2013-04-25,,Roth IRA,2787,917
+Active,2007-08-18,,529,2788,918
+Active,2011-03-30,,Brokerage,2789,918
+Active,2011-11-29,,Roth IRA,2790,918
+Active,2012-08-21,,Roth IRA,2791,919
+Active,2011-03-27,,Brokerage,2792,919
+Active,2013-10-12,,Brokerage,2793,920
+Active,2016-12-13,,Roth IRA,2794,920
+Active,2013-08-03,,Roth 401(k),2795,920
+Active,2013-11-19,,529,2796,920
+Active,2016-05-13,,Traditional IRA,2797,920
+Active,2017-07-09,,Roth 401(k),2798,921
+Active,2016-09-14,,Brokerage,2799,921
+Inactive,2016-02-24,2018-07-25,Brokerage,2800,922
+Active,2017-04-22,,Traditional IRA,2801,922
+Active,2017-05-21,,Roth IRA,2802,922
+Active,2004-05-28,,Traditional IRA,2803,923
+Active,2005-07-22,,Brokerage,2804,923
+Active,2001-12-09,,529,2805,923
+Active,2002-04-07,,Roth 401(k),2806,923
+Inactive,2012-11-03,2013-03-31,Roth IRA,2807,923
+Active,2012-11-18,,529,2808,924
+Active,2017-04-06,,Roth IRA,2809,924
+Active,2012-07-13,,Roth 401(k),2810,925
+Active,2013-05-21,,Roth IRA,2811,925
+Active,2014-11-05,,529,2812,925
+Active,2011-01-10,,Traditional IRA,2813,925
+Active,2017-01-10,,529,2814,926
+Inactive,2013-02-01,2018-02-27,Roth 401(k),2815,926
+Active,2013-09-24,,Brokerage,2816,926
+Active,2016-09-21,,Roth IRA,2817,926
+Active,2016-05-11,,Roth IRA,2818,927
+Active,2017-01-28,,Roth 401(k),2819,927
+Active,2018-01-31,,Brokerage,2820,927
+Active,2017-05-14,,529,2821,927
+Active,2016-01-22,,Traditional IRA,2822,927
+Active,2017-06-16,,Roth IRA,2823,928
+Active,2017-03-20,,Roth 401(k),2824,928
+Active,2017-03-29,,Roth IRA,2825,929
+Active,2011-07-12,,Roth 401(k),2826,929
+Active,2015-07-28,,Brokerage,2827,929
+Active,2016-02-07,,Traditional IRA,2828,929
+Inactive,2010-01-16,2011-04-27,Traditional IRA,2829,930
+Active,2018-03-07,,Brokerage,2830,930
+Active,2017-01-08,,Roth IRA,2831,931
+Active,2009-07-14,,529,2832,931
+Inactive,2016-05-29,2018-04-30,529,2833,932
+Inactive,2007-03-24,2010-08-24,Roth 401(k),2834,932
+Active,2006-11-18,,Roth IRA,2835,932
+Active,2006-05-29,,Brokerage,2836,932
+Active,2017-03-02,,Traditional IRA,2837,932
+Active,2012-05-03,,Brokerage,2838,933
+Active,2014-04-21,,Roth IRA,2839,933
+Active,2013-10-26,,529,2840,934
+Active,2017-10-18,,Traditional IRA,2841,934
+Active,2017-04-03,,Roth IRA,2842,934
+Inactive,2014-03-29,2017-03-30,Traditional IRA,2843,935
+Active,2016-11-29,,529,2844,935
+Active,2015-11-28,,Roth 401(k),2845,935
+Active,2013-12-09,,Roth IRA,2846,935
+Active,2013-09-30,,Brokerage,2847,935
+Active,2013-08-25,,529,2848,936
+Active,2016-04-14,,Roth IRA,2849,936
+Active,2007-03-09,,Traditional IRA,2850,937
+Active,2005-04-10,,Roth 401(k),2851,937
+Active,2012-02-28,,Roth IRA,2852,938
+Inactive,2003-12-27,2013-11-16,Brokerage,2853,938
+Active,2000-10-19,,Roth 401(k),2854,938
+Active,2002-09-18,,Traditional IRA,2855,938
+Active,2018-05-09,,Roth 401(k),2856,939
+Active,2017-01-01,,Brokerage,2857,939
+Active,2018-05-29,,Roth IRA,2858,939
+Active,2015-12-10,,529,2859,939
+Active,2017-09-07,,Traditional IRA,2860,939
+Active,2017-07-23,,Roth 401(k),2861,940
+Active,2017-04-02,,Brokerage,2862,940
+Active,2014-01-13,,Roth IRA,2863,941
+Active,2015-10-23,,Roth 401(k),2864,941
+Active,2014-09-04,,Brokerage,2865,941
+Active,2015-06-20,,Traditional IRA,2866,941
+Active,2017-12-24,,529,2867,941
+Active,2013-12-10,,Roth 401(k),2868,942
+Active,2013-11-17,,Brokerage,2869,942
+Inactive,2015-09-04,2016-11-25,529,2870,942
+Active,2013-03-27,,Brokerage,2871,943
+Active,2012-05-16,,Traditional IRA,2872,943
+Active,2016-06-05,,529,2873,943
+Active,2013-10-27,,Brokerage,2874,944
+Active,2013-03-04,,Traditional IRA,2875,944
+Active,2012-09-01,,Roth IRA,2876,944
+Active,2013-11-19,,529,2877,944
+Active,2016-12-04,,Roth 401(k),2878,944
+Active,2017-08-31,,Roth 401(k),2879,945
+Active,2017-04-20,,529,2880,946
+Active,2014-07-04,,Brokerage,2881,946
+Active,2006-10-13,,Roth IRA,2882,946
+Active,2014-02-19,,Traditional IRA,2883,946
+Active,2016-12-20,,Roth 401(k),2884,946
+Inactive,2017-01-11,2018-04-02,Roth IRA,2885,947
+Active,2015-02-03,,529,2886,947
+Active,2015-02-20,,Brokerage,2887,947
+Active,2016-10-24,,Traditional IRA,2888,947
+Inactive,2017-06-14,2017-09-25,Roth 401(k),2889,947
+Active,2002-10-09,,529,2890,948
+Active,2010-10-31,,Roth 401(k),2891,948
+Active,2010-08-01,,Brokerage,2892,948
+Active,2016-01-14,,529,2893,949
+Active,2016-05-05,,Traditional IRA,2894,949
+Active,2004-06-20,,Roth IRA,2895,950
+Active,2016-08-22,,Brokerage,2896,950
+Active,2012-02-23,,Roth 401(k),2897,950
+Active,2018-06-28,,Roth IRA,2898,951
+Active,2018-03-01,,529,2899,951
+Active,2017-09-15,,Roth 401(k),2900,951
+Active,2018-07-14,,Traditional IRA,2901,951
+Active,2017-06-03,,Roth IRA,2902,952
+Active,2017-06-05,,Traditional IRA,2903,952
+Active,2015-11-07,,529,2904,952
+Active,2017-08-17,,Roth 401(k),2905,952
+Active,2017-07-01,,Brokerage,2906,952
+Active,2017-02-07,,Brokerage,2907,953
+Active,2013-02-03,,Roth IRA,2908,953
+Active,2017-05-25,,Roth IRA,2909,954
+Active,2018-07-18,,529,2910,954
+Inactive,2017-03-01,2017-09-13,Roth 401(k),2911,954
+Active,2005-03-10,,529,2912,955
+Active,2006-11-14,,Brokerage,2913,955
+Active,2016-12-09,,Roth 401(k),2914,955
+Active,2014-06-30,,Roth 401(k),2915,956
+Active,2009-05-23,,Traditional IRA,2916,956
+Active,2013-10-13,,Brokerage,2917,956
+Active,2013-03-10,,Roth IRA,2918,956
+Active,2017-01-08,,Brokerage,2919,957
+Active,2017-02-12,,Brokerage,2920,958
+Active,2012-02-02,,Roth 401(k),2921,959
+Inactive,2006-05-25,2007-12-16,529,2922,959
+Active,2014-01-01,,Brokerage,2923,960
+Active,2017-02-20,,Traditional IRA,2924,960
+Active,2015-04-02,,Roth IRA,2925,960
+Active,2011-04-15,,Roth 401(k),2926,961
+Active,2008-03-23,,529,2927,961
+Active,2011-07-06,,Traditional IRA,2928,962
+Active,2012-05-15,,Roth IRA,2929,962
+Active,2012-06-23,,529,2930,962
+Active,2016-05-26,,Brokerage,2931,962
+Active,2018-02-11,,Brokerage,2932,963
+Active,2016-12-25,,Traditional IRA,2933,963
+Inactive,2017-11-19,2018-07-13,Roth IRA,2934,963
+Active,2017-03-03,,529,2935,963
+Active,2017-10-15,,Roth 401(k),2936,963
+Active,2003-05-27,,529,2937,964
+Active,2009-05-02,,Brokerage,2938,964
+Active,2012-09-01,,Brokerage,2939,965
+Active,2008-02-07,,Roth IRA,2940,965
+Inactive,2012-08-09,2013-10-27,Roth 401(k),2941,965
+Active,2013-02-12,,529,2942,965
+Active,2009-07-25,,Traditional IRA,2943,965
+Active,2016-10-29,,Traditional IRA,2944,966
+Active,2014-07-20,,529,2945,966
+Active,2014-10-12,,Roth IRA,2946,966
+Active,2013-09-08,,Roth 401(k),2947,966
+Active,2016-02-24,,Brokerage,2948,966
+Active,2016-03-06,,529,2949,967
+Inactive,2016-12-19,2017-05-29,Roth 401(k),2950,967
+Active,2017-07-28,,Brokerage,2951,967
+Active,2016-08-08,,Roth IRA,2952,967
+Active,2017-08-16,,Brokerage,2953,968
+Active,2017-01-31,,Roth 401(k),2954,968
+Active,2013-12-12,,Roth IRA,2955,969
+Active,2005-04-04,,Traditional IRA,2956,969
+Active,2013-07-23,,529,2957,969
+Active,2014-01-24,,Roth 401(k),2958,970
+Active,2013-07-16,,529,2959,970
+Active,2016-05-05,,Traditional IRA,2960,971
+Active,2015-04-27,,529,2961,971
+Active,2017-08-23,,529,2962,972
+Inactive,2013-11-03,2018-01-16,Roth IRA,2963,972
+Active,2016-08-21,,Roth 401(k),2964,972
+Active,2014-05-27,,Brokerage,2965,972
+Active,2013-05-18,,Traditional IRA,2966,972
+Active,2015-08-13,,Traditional IRA,2967,973
+Active,2017-01-29,,Roth IRA,2968,973
+Active,2015-11-03,,Brokerage,2969,973
+Active,2016-10-19,,529,2970,973
+Active,2016-11-26,,Roth 401(k),2971,973
+Active,2014-11-18,,Traditional IRA,2972,974
+Active,2017-11-14,,529,2973,975
+Active,2008-10-31,,Traditional IRA,2974,975
+Active,2017-02-09,,Brokerage,2975,975
+Active,2013-01-30,,Roth 401(k),2976,975
+Active,2015-12-18,,Roth IRA,2977,975
+Active,2011-10-31,,Roth IRA,2978,976
+Active,2016-02-22,,Roth 401(k),2979,976
+Active,2013-07-21,,Brokerage,2980,976
+Active,2012-07-10,,Traditional IRA,2981,976
+Active,2012-03-10,,529,2982,976
+Active,2018-05-15,,Roth IRA,2983,977
+Active,2018-05-16,,529,2984,977
+Active,2018-01-24,,Traditional IRA,2985,977
+Active,2017-03-06,,Brokerage,2986,978
+Active,2012-09-22,,Traditional IRA,2987,978
+Active,2010-08-18,,Roth 401(k),2988,979
+Active,2013-01-05,,Traditional IRA,2989,979
+Active,2016-07-05,,Roth IRA,2990,979
+Inactive,2017-06-05,2018-01-30,Brokerage,2991,979
+Active,2014-07-02,,Roth IRA,2992,980
+Active,2014-11-24,,Traditional IRA,2993,980
+Active,2014-09-30,,Brokerage,2994,980
+Active,2011-08-19,,Roth 401(k),2995,980
+Active,2016-03-13,,Brokerage,2996,981
+Active,2005-09-07,,529,2997,981
+Active,2008-12-15,,Traditional IRA,2998,981
+Active,2018-06-02,,Roth 401(k),2999,982
+Active,2017-08-24,,Roth IRA,3000,982
+Active,2018-04-25,,529,3001,982
+Active,2005-08-14,,Traditional IRA,3002,983
+Inactive,2013-05-30,2016-03-25,Roth IRA,3003,984
+Active,2017-02-26,,Brokerage,3004,984
+Active,2015-12-23,,Roth 401(k),3005,984
+Active,2015-12-16,,529,3006,984
+Active,2017-09-03,,Roth IRA,3007,985
+Active,2017-06-16,,Traditional IRA,3008,985
+Inactive,2012-11-27,2017-10-23,Brokerage,3009,985
+Active,2016-06-21,,Brokerage,3010,986
+Active,2018-06-23,,Roth IRA,3011,986
+Active,2018-03-05,,Roth 401(k),3012,986
+Active,2015-09-14,,Traditional IRA,3013,986
+Active,2015-12-04,,Traditional IRA,3014,987
+Active,2015-06-13,,Roth 401(k),3015,988
+Inactive,2016-10-16,2018-10-12,Roth IRA,3016,988
+Active,2015-04-01,,529,3017,988
+Inactive,2014-11-07,2015-09-18,Traditional IRA,3018,988
+Active,2018-01-13,,Roth IRA,3019,989
+Active,2017-02-19,,Roth 401(k),3020,989
+Active,2016-03-17,,Brokerage,3021,990
+Active,2017-12-31,,Traditional IRA,3022,990
+Active,2017-11-09,,Roth 401(k),3023,990
+Active,2017-02-09,,529,3024,990
+Active,2018-04-08,,Roth IRA,3025,990
+Active,2010-05-12,,Brokerage,3026,991
+Active,2014-06-16,,Roth IRA,3027,991
+Active,2010-07-25,,Traditional IRA,3028,991
+Active,2007-12-21,,529,3029,991
+Active,2017-09-13,,529,3030,992
+Active,2015-03-27,,Brokerage,3031,992
+Inactive,2016-01-17,2017-10-22,Roth 401(k),3032,992
+Active,2015-01-03,,Roth IRA,3033,993
+Active,2017-02-04,,Traditional IRA,3034,994
+Active,2016-06-01,,Roth 401(k),3035,994
+Active,2017-08-02,,Brokerage,3036,994
+Active,2014-10-06,,Brokerage,3037,995
+Active,2005-08-11,,Roth 401(k),3038,995
+Active,2004-09-01,,Traditional IRA,3039,995
+Active,2015-08-06,,Brokerage,3040,996
+Active,2017-03-21,,Traditional IRA,3041,996
+Active,2017-06-29,,529,3042,996
+Active,2017-06-30,,Roth 401(k),3043,996
+Active,2014-12-07,,Roth 401(k),3044,997
+Active,2013-09-22,,Brokerage,3045,997
+Active,2010-10-19,,Roth IRA,3046,997
+Active,2018-01-07,,Roth IRA,3047,998
+Inactive,2018-02-25,2018-06-19,Roth 401(k),3048,998
+Active,2017-12-30,,Brokerage,3049,998
+Active,2018-07-09,,Traditional IRA,3050,998
+Active,2018-01-07,,529,3051,998
+Active,2017-12-25,,Roth IRA,3052,999
+Active,2014-10-11,,Roth 401(k),3053,999
+Active,2018-04-24,,Brokerage,3054,999
+Active,2014-12-06,,Traditional IRA,3055,999
+Inactive,2015-05-27,2017-09-22,Brokerage,3056,1000
+Inactive,2017-12-04,2018-07-03,529,3057,1000
+Active,2018-01-29,,Traditional IRA,3058,1000
+Active,2017-03-03,,Roth 401(k),3059,1000
+Active,2017-05-28,,Roth IRA,3060,1000
+Active,2006-11-29,,Roth IRA,3061,1001
+Active,2014-03-28,,Traditional IRA,3062,1001
+Active,2006-06-09,,Roth 401(k),3063,1001
+Inactive,2008-08-30,2011-08-06,Roth 401(k),3064,1002
+Active,2017-05-18,,Traditional IRA,3065,1002
+Active,2011-01-11,,Brokerage,3066,1002
+Active,2013-11-17,,Brokerage,3067,1003
+Active,2015-09-09,,Roth IRA,3068,1003
+Active,2015-07-29,,529,3069,1003
+Active,2012-09-11,,Roth 401(k),3070,1003
+Active,2015-05-13,,Traditional IRA,3071,1003
+Active,2016-07-19,,Brokerage,3072,1004
+Active,2016-10-31,,529,3073,1004
+Inactive,2014-02-07,2018-08-12,Roth IRA,3074,1004
+Active,2017-10-04,,529,3075,1005
+Active,2016-04-01,,Roth IRA,3076,1005
+Active,2018-01-21,,Brokerage,3077,1005
+Active,2006-04-17,,Roth 401(k),3078,1005
+Active,2009-08-31,,Traditional IRA,3079,1005
+Active,2011-01-31,,Roth 401(k),3080,1006
+Active,2011-03-05,,Brokerage,3081,1006
+Active,2010-08-02,,529,3082,1006
+Active,2016-03-05,,Traditional IRA,3083,1007
+Active,2017-04-05,,Roth IRA,3084,1007
+Active,2018-06-04,,Roth 401(k),3085,1008
+Active,2011-08-21,,Roth 401(k),3086,1009
+Active,2002-01-05,,529,3087,1009
+Active,2016-07-13,,Traditional IRA,3088,1009
+Active,2000-09-24,,Roth IRA,3089,1009
+Active,2012-07-29,,Brokerage,3090,1009
+Active,2016-02-16,,Roth IRA,3091,1010
+Active,2015-07-09,,Brokerage,3092,1010
+Active,2018-03-31,,Roth 401(k),3093,1010
+Active,2018-07-15,,Traditional IRA,3094,1011
+Active,2017-10-12,,529,3095,1011
+Active,2016-02-14,,529,3096,1012
+Active,2013-12-07,,Brokerage,3097,1012
+Active,2016-02-09,,Traditional IRA,3098,1012
+Active,2016-06-12,,Roth IRA,3099,1013
+Active,2013-07-09,,Brokerage,3100,1013
+Active,2016-07-10,,Roth 401(k),3101,1013
+Active,2016-11-21,,529,3102,1014
+Active,2013-11-25,,Brokerage,3103,1014
+Inactive,2015-01-10,2016-03-15,Roth IRA,3104,1015
+Active,2015-04-21,,529,3105,1015
+Active,2016-01-10,,Traditional IRA,3106,1015
+Active,2017-06-20,,Brokerage,3107,1015
+Active,2008-02-13,,Roth IRA,3108,1016
+Active,2015-04-25,,Brokerage,3109,1017
+Active,2006-02-09,,529,3110,1017
+Active,2017-01-11,,Traditional IRA,3111,1018
+Active,2018-01-14,,529,3112,1018
+Active,2017-12-09,,Roth IRA,3113,1018
+Inactive,2017-11-30,2018-08-14,Roth 401(k),3114,1018
+Inactive,2017-01-06,2018-10-04,Brokerage,3115,1018
+Active,2002-01-17,,529,3116,1019
+Active,2017-12-04,,Roth 401(k),3117,1020
+Active,2017-11-18,,Traditional IRA,3118,1020
+Active,2017-10-19,,529,3119,1020
+Active,2018-04-15,,Brokerage,3120,1020
+Active,2018-04-29,,Roth IRA,3121,1020
+Active,2013-10-06,,Traditional IRA,3122,1021
+Active,2001-07-10,,Roth 401(k),3123,1021
+Active,2010-05-05,,Roth IRA,3124,1021
+Inactive,2007-12-27,2015-02-03,Brokerage,3125,1021
+Active,2017-09-18,,Roth 401(k),3126,1022
+Active,2013-11-01,,Roth 401(k),3127,1023
+Active,2002-05-14,,Brokerage,3128,1024
+Active,2013-10-29,,Traditional IRA,3129,1024
+Active,2018-02-18,,Roth IRA,3130,1025
+Active,2017-01-09,,Traditional IRA,3131,1026
+Active,2017-10-13,,Roth 401(k),3132,1026

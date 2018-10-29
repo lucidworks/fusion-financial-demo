@@ -1,0 +1,1027 @@
+first_name,last_name,full_name,client_id,dob,age,inception,city,state,street,advisor,lat,lon
+Robert,Wigfield,Robert Wigfield,1,1971-04-24,47,2002-05-10,Fayetteville,AR,2622 Martin Luther King Junior Boulevard,Robert,36.053922,-94.1973008
+Maria,Turner,Maria Turner,2,1950-11-17,67,2004-11-22,Oklahoma City,OK,3446 Northwest 48th Street,Robert,35.520218,-97.57768899999999
+Victoria,Thornburg,Victoria Thornburg,3,1977-11-14,40,2012-05-01,Fayetteville,AR,540 East Appleby Road,Robert,36.1054754,-94.15089139999999
+Joseph,Cummins,Joseph Cummins,4,1987-08-28,31,2017-08-07,Oklahoma City,OK,1313 Southwest 14th Street,Robert,35.4508579,-97.5352429
+Michael,Anderson,Michael Anderson,5,1953-06-01,65,2009-01-20,Glendale,AZ,5125 North 58th Avenue,Robert,33.5125581,-112.1828849
+Joy,Schwartz,Joy Schwartz,6,1953-11-02,65,2009-07-05,Washington,DC,H Street Northwest,Robert,38.90021429999999,-77.0351541
+Jona,Cass,Jona Cass,7,1982-01-15,36,2015-07-04,Montgomery,AL,2036 Gorgas Street,Cynthia,32.357301,-86.276583
+Richard,Washington,Richard Washington,8,1986-03-16,32,2001-04-10,Panama City Beach,FL,6506 North Lagoon Drive,Cynthia,30.156689,-85.75668600000002
+Gary,Cruz,Gary Cruz,9,1955-08-26,63,2014-08-14,Glen Burnie,MD,1207 Branch Lane,Cynthia,39.18226900000001,-76.617914
+Jose,Grady,Jose Grady,10,1957-07-11,61,2016-02-08,Peoria,AZ,6902 West Sherri Jean Lane,Cynthia,33.63079,-112.207084
+Elvin,Kelly,Elvin Kelly,11,1977-09-14,41,2000-12-04,Fayetteville,AR,4695 East Huntsville Road,Cynthia,36.0471975,-94.0946286
+Jeffrey,Pimentel,Jeffrey Pimentel,12,1956-01-15,62,2013-12-24,Chester,VT,2909 Flamstead Road,Robert,43.3024429,-72.560051
+Elizabeth,Schaufelberge,Elizabeth Schaufelberge,13,1982-02-16,36,2013-06-10,Arlington,MA,11 Adams Street,Robert,42.410379,-71.1468411
+Vicente,Quirk,Vicente Quirk,14,1967-04-06,51,2002-09-24,Louisville,KY,8007 Kendrick Crossing Lane,Cynthia,38.12356,-85.560345
+Kelly,Ozzella,Kelly Ozzella,15,1951-02-21,67,2016-02-13,Quincy,MA,45 Brackett Street,Robert,42.2519714,-70.9942731
+Felix,Smith,Felix Smith,16,1953-01-05,65,2008-12-19,Louisville,KY,649 South 41st Street,Robert,38.2527574,-85.8192785
+Elsa,Kerstetter,Elsa Kerstetter,17,1967-09-03,51,2000-04-12,Washington,DC,4603 Grant Street Northeast,Robert,38.8983173,-76.9364561
+Norberto,Fitzgerald,Norberto Fitzgerald,18,1984-11-17,33,2006-09-01,Washington,DC,4339 Benning Road Northeast,Robert,38.8917663,-76.93973129999999
+Isabel,Washington,Isabel Washington,19,1952-03-11,66,2014-04-25,Danville,VT,178 Old Homestead Road,Robert,44.4096114,-72.211852
+Bobby,Billings,Bobby Billings,20,1954-07-28,64,2005-10-18,Oklahoma City,OK,2613 Southeast 50th Street,Robert,35.415036,-97.46544999999999
+James,Myers,James Myers,21,1983-02-24,35,2003-04-05,Redding,CA,835 Shiloh Court,Cynthia,40.620584,-122.368137
+Marilyn,Krause,Marilyn Krause,22,1985-10-05,33,2011-07-26,Oklahoma City,OK,4408 Northwest 55th Street,Robert,35.526527,-97.59923599999999
+Albert,Paul,Albert Paul,23,1985-02-02,33,2009-04-01,Panama City,FL,6412 Lenawee Street,Cynthia,30.140945,-85.5790169
+John,Collins,John Collins,24,1955-09-17,63,2006-06-08,Glendale,AZ,5611 North 61st Avenue,Cynthia,33.519163,-112.191583
+Lynn,Mcneil,Lynn Mcneil,25,1975-10-14,43,2006-10-14,Pooler,GA,218 Durham Park Way,Cynthia,32.127729,-81.25452299999999
+Jimmy,White,Jimmy White,26,1989-07-20,29,2013-06-15,Oklahoma City,OK,3116 Northwest 61st Terrace,Robert,35.5339389,-97.5718459
+Hyun,Ramsey,Hyun Ramsey,27,1959-09-24,59,2012-09-05,Montgomery,AL,449 Saratoga Lane,Cynthia,32.3749619,-86.19708399999999
+Jeffrey,Orzechowski,Jeffrey Orzechowski,28,1963-08-25,55,2012-12-13,Glendale,AZ,7416 West Maryland Avenue,Cynthia,33.5309979,-112.218947
+Juanita,Spalding,Juanita Spalding,29,1979-10-20,39,2011-01-04,Fairfield,CA,3388 Thomasson Lane,Cynthia,38.198231,-122.106795
+Richard,Davis,Richard Davis,30,1990-01-14,28,2007-09-02,Fayetteville,AR,600 West North Street,Robert,36.077974,-94.167103
+Ronald,Wesler,Ronald Wesler,31,1960-09-11,58,2003-11-12,Manchester,CT,37 Rushforde Drive,Robert,41.738226,-72.538398
+Harold,Jones,Harold Jones,32,1961-09-05,57,2010-05-15,Melbourne Beach,FL,3035 South Highway A1A,Robert,28.0357085,-80.54249569999999
+Matthew,Chaney,Matthew Chaney,33,1985-11-11,32,2010-07-07,Louisville,KY,1002 Highland Avenue,Cynthia,38.2371577,-85.7367362
+Whitney,Peterson,Whitney Peterson,34,1987-06-21,31,2001-05-02,Montgomery,AL,5685 Express Drive,Cynthia,32.31678670000001,-86.22460559999999
+Ben,Reid,Ben Reid,35,1952-11-27,65,2013-08-01,Fayetteville,AR,North Scull Creek Drive,Robert,36.0869939,-94.16856829999999
+Edward,Thompson,Edward Thompson,36,1967-02-16,51,2000-08-19,Fayetteville,AR,735 West Treadwell Street,Robert,36.06214480000001,-94.17032209999999
+Jacquline,Phillips,Jacquline Phillips,37,1980-10-15,38,2017-08-27,Pittsfield,MA,43 Westminster Street,Robert,42.458409,-73.23273499999999
+David,Johnson,David Johnson,38,1975-09-07,43,2011-03-18,Oklahoma City,OK,328 South Ranchwood Manor Drive,Robert,35.3685432,-97.5194117
+Katie,Turner,Katie Turner,39,1968-09-14,50,2005-09-14,Sacramento,CA,4920 Quonset Drive,Robert,38.530987,-121.417033
+Francis,Parsons,Francis Parsons,40,1965-03-06,53,2012-03-13,Colchester,VT,112 Shannon Road,Robert,44.514781,-73.15258
+Christopher,Pereira,Christopher Pereira,41,1989-05-20,29,2012-01-26,Washington,DC,1333 Kenyon Street Northwest,Robert,38.930001,-77.0309709
+Sandra,Castle,Sandra Castle,42,1961-05-14,57,2006-06-28,Baltimore,MD,5224 Wasena Avenue,Cynthia,39.223779,-76.60339499999999
+Joseph,Guy,Joseph Guy,43,1954-06-26,64,2011-08-22,Louisville,KY,211 West Oak Street,Robert,38.2351143,-85.75778299999999
+Nathan,Erben,Nathan Erben,44,1962-11-09,56,2009-05-04,Washington,DC,4339 Benning Road Northeast,Cynthia,38.8917663,-76.93973129999999
+John,Carvajal,John Carvajal,45,1981-07-19,37,2007-09-21,Bloomingdale,GA,408 Pine Street,Robert,32.123381,-81.300556
+Martin,Saunders,Martin Saunders,46,1956-06-02,62,2002-08-21,Savannah,GA,714 East 33rd Street,Cynthia,32.057619,-81.087919
+Elizabeth,Timinsky,Elizabeth Timinsky,47,1978-11-27,39,2012-03-25,Union City,CA,1701 Atlantic Street,Cynthia,37.602458,-122.046613
+Courtney,Kosinski,Courtney Kosinski,48,1963-05-21,55,2010-01-22,Norman,OK,2617 Truffula Circle,Cynthia,35.2505473,-97.4527748
+James,Jackson,James Jackson,49,1963-02-05,55,2017-09-17,Arvada,CO,11140 West 60th Avenue,Robert,39.805639,-105.122694
+Kent,Carroll,Kent Carroll,50,1953-03-20,65,2006-05-25,Belchertown,MA,224 Michael Sears Road,Robert,42.23461,-72.35973
+Kim,Holmes,Kim Holmes,51,1987-11-06,31,2007-01-22,Fayetteville,AR,5529 East Saddleridge Drive,Cynthia,36.113929,-94.080563
+Priscilla,Smith,Priscilla Smith,52,1977-12-21,40,2002-12-25,San Leandro,CA,1349 Burkhart Avenue,Cynthia,37.685391,-122.152332
+Rosemarie,Burch,Rosemarie Burch,53,1969-02-28,49,2011-07-17,Manchester,CT,173 Spruce Street,Robert,41.7705332,-72.51594109999999
+Charles,Canada,Charles Canada,54,1953-11-07,65,2007-09-09,Montgomery,AL,2195 Cantelou Road,Robert,32.308832,-86.460094
+Karen,Keck,Karen Keck,55,1989-11-08,28,2014-02-18,Hanover,MD,33 Chesapeake Mobile Court,Robert,39.1487192,-76.7167149
+John,Jordan,John Jordan,56,1971-09-04,47,2003-01-10,Nashville,TN,5788 Cane Ridge Road,Cynthia,36.018688,-86.639803
+Mark,Gilbert,Mark Gilbert,57,1952-11-28,65,2015-03-24,Pueblo,CO,1637 Delphil Street,Robert,38.225753,-104.547695
+Raymond,Cooper,Raymond Cooper,58,1956-02-27,62,2009-07-15,Montgomery,AL,1566 Wingate Park Court,Cynthia,32.3094534,-86.14028689999999
+James,Zambrano,James Zambrano,59,1960-11-11,58,2011-09-17,Manchester,CT,195 Kennedy Road,Robert,41.804833,-72.49600800000002
+William,Young,William Young,60,1973-09-25,45,2016-05-21,Savannah,GA,415 West 42nd Street,Robert,32.0543472,-81.1064222
+Modesta,Mcneil,Modesta Mcneil,61,1965-07-17,53,2006-08-06,Louisville,KY,2917 Danzig Place,Cynthia,38.280137,-85.49418639999999
+Hattie,Barnes,Hattie Barnes,62,1962-04-19,56,2000-09-12,Glendale,AZ,5434 West Beck Lane,Robert,33.6266139,-112.176412
+David,Stacey,David Stacey,63,1959-08-17,59,2004-02-16,Pueblo,CO,3813 Sheffield Lane,Robert,38.218097,-104.6573
+Ulysses,Quasdorf,Ulysses Quasdorf,64,1975-07-04,43,2004-05-12,Fayetteville,AR,349 North Sabine Pass Road,Cynthia,36.069263,-94.248685
+Brian,Chambers,Brian Chambers,65,1964-08-21,54,2002-09-26,Fayetteville,AR,606 National Street,Cynthia,36.0534454,-94.167263
+Kristin,Lancaster,Kristin Lancaster,66,1980-07-17,38,2015-04-14,Nashville,TN,5170 Hickory Hollow Parkway,Robert,36.0518069,-86.663692
+Michael,Ramirez,Michael Ramirez,67,1955-09-11,63,2001-10-24,Savannah,GA,27 Leary Drive,Robert,31.9856666,-81.0492697
+Melissa,Attridge,Melissa Attridge,68,1957-08-01,61,2017-12-22,Louisville,KY,32 Royal Drive,Robert,38.1291611,-85.7593052
+Joseph,Sorensen,Joseph Sorensen,69,1975-01-18,43,2009-01-21,Montgomery,AL,1566 Wingate Park Court,Robert,32.3094534,-86.14028689999999
+John,Freeman,John Freeman,70,1950-05-24,68,2003-07-25,Louisville,KY,2115 Longest Avenue,Cynthia,38.2366023,-85.7136791
+George,Robinson,George Robinson,71,1980-03-17,38,2007-07-11,Panama City,FL,414 Tanya Pass,Cynthia,30.142348,-85.55865299999999
+Patrick,Jacobsen,Patrick Jacobsen,72,1964-01-12,54,2013-05-13,Oklahoma City,OK,320 Northwest 22nd Street,Cynthia,35.491908,-97.51843099999999
+George,Foster,George Foster,73,1958-07-17,60,2015-09-25,Fayetteville,AR,481 East Redbud Lane,Cynthia,36.103899,-94.151128
+Cortney,Jackson,Cortney Jackson,74,1963-12-18,54,2006-12-09,Midwest City,OK,3824 Rosewood Court,Robert,35.4798788,-97.39408019999999
+Michael,Westmoreland,Michael Westmoreland,75,1952-10-04,66,2011-08-02,Fremont,CA,4770 Balboa Way,Cynthia,37.551937,-122.021022
+Anna,Cook,Anna Cook,76,1955-02-18,63,2005-12-12,Savannah,GA,1350 Exley Street,Robert,32.0858238,-81.11530499999999
+Colleen,Peterson,Colleen Peterson,77,1951-08-02,67,2002-03-13,Arvada,CO,13583 West 68th Avenue,Cynthia,39.8220027,-105.1518073
+Kim,Baker,Kim Baker,78,1966-08-18,52,2008-11-26,Louisville,KY,4400 Vaneto Drive,Robert,38.190657,-85.853982
+Julius,Weng,Julius Weng,79,1987-06-01,31,2008-08-15,Mesa,AZ,9828 East Pueblo Avenue,Robert,33.402405,-111.618577
+Phillip,Hood,Phillip Hood,80,1965-08-25,53,2009-05-10,Glendale,AZ,21323 North 64th Avenue,Cynthia,33.6803787,-112.1972274
+Silvia,Cullum,Silvia Cullum,81,1979-12-28,38,2005-10-03,Riva,MD,2708 Riverview Drive,Cynthia,38.958123,-76.595481
+Victor,Cerza,Victor Cerza,82,1955-03-08,63,2001-05-01,Washington,DC,449 15th Street Northeast,Robert,38.896241,-76.983372
+Kenneth,Warren,Kenneth Warren,83,1988-08-13,30,2017-03-19,San Lorenzo,CA,90 Via Verde,Robert,37.67869,-122.117142
+George,Nelson,George Nelson,84,1988-02-02,30,2007-06-19,Nashville,TN,1211 Rock Creek Trce,Cynthia,36.237989,-86.800055
+Lonnie,Southwick,Lonnie Southwick,85,1969-09-14,49,2003-09-18,Glendale,AZ,8427 West Glendale Avenue,Robert,33.5372122,-112.2411629
+Marvin,Douglas,Marvin Douglas,86,1984-02-26,34,2000-10-22,Longmeadow,MA,73 Twin Hills Drive,Robert,42.0420378,-72.5428872
+Mark,Buchmeier,Mark Buchmeier,87,1958-08-22,60,2007-08-28,Worcester,MA,4 Cutting Avenue,Robert,42.307664,-71.79180099999999
+Jesse,Davis,Jesse Davis,88,1981-10-25,37,2007-05-17,Manchester,CT,75 Wilfred Road,Robert,41.7657441,-72.5585211
+Herman,Arthur,Herman Arthur,89,1954-05-02,64,2009-03-10,Sacramento,CA,6244 Sun River Drive,Robert,38.512894,-121.41258
+Erma,Snyder,Erma Snyder,90,1954-07-07,64,2010-01-22,Tybee Island,GA,26 Battery Drive,Cynthia,32.015963,-80.87416499999999
+Joan,Yoder,Joan Yoder,91,1961-08-05,57,2004-02-14,Panama City Beach,FL,7502 Kingman Street,Robert,30.18001499999999,-85.7654359
+James,Blanchard,James Blanchard,92,1955-09-28,63,2009-04-20,Edmond,OK,1032 Brayhill Road,Cynthia,35.6752043,-97.4988948
+Ann,Roekle,Ann Roekle,93,1969-04-01,49,2001-02-05,Montgomery,AL,Berryhill Place,Cynthia,32.3527548,-86.16858669999999
+Kendra,Justiniano,Kendra Justiniano,94,1955-11-10,63,2010-10-28,Farmington,AR,129 Lark Lane,Cynthia,36.052057,-94.234786
+Kelly,Epstein,Kelly Epstein,95,1980-06-22,38,2003-08-23,Nashville,TN,3219 Lakeshore Drive,Robert,36.242959,-86.625265
+Andrea,Wood,Andrea Wood,96,1955-03-21,63,2002-07-19,Nashville,TN,584 Rural Hill Road,Cynthia,36.089291,-86.621854
+Earline,Mccoach,Earline Mccoach,97,1952-03-14,66,2017-09-17,Oklahoma City,OK,2835 Southwest 78th Street,Cynthia,35.3874512,-97.5644501
+Kirsten,Smith,Kirsten Smith,98,1980-11-07,38,2002-07-23,Conway,AR,1405 Tolkien Drive,Cynthia,35.0991829,-92.517619
+Celia,Bania,Celia Bania,99,1967-01-13,51,2012-07-14,Panama City,FL,539 Palermo Road,Cynthia,30.21889,-85.66890699999999
+Jude,Boyd,Jude Boyd,100,1962-07-04,56,2003-03-05,Oakland,CA,2732 Humboldt Avenue,Robert,37.7906226,-122.2090177
+Michelle,Daley,Michelle Daley,101,1987-01-01,31,2006-05-21,Savannah,GA,1504 East 55th Street,Robert,32.0372442,-81.0812656
+Louie,Sanchez,Louie Sanchez,102,1987-12-22,30,2006-08-01,Fayetteville,AR,103 Martin Luther King Junior Boulevard,Robert,36.0561032,-94.1613141
+Catherine,Lirette,Catherine Lirette,103,1950-01-16,68,2017-11-04,Washington,DC,760 11th Street Southeast,Robert,38.879695,-76.99121
+Clifford,Saucedo,Clifford Saucedo,104,1967-09-28,51,2008-01-04,Birmingham,AL,3328 Sunny Meadows Court,Robert,33.382724,-86.715277
+Mohamed,Mullinix,Mohamed Mullinix,105,1961-02-22,57,2016-05-06,Manchester,CT,23 Columbia Drive,Robert,41.808424,-72.481477
+Arthur,Moroney,Arthur Moroney,106,1952-12-09,65,2000-10-14,Livermore,CA,330 Michell Court,Robert,37.690035,-121.759468
+Patricia,Eppinger,Patricia Eppinger,107,1966-04-01,52,2004-10-15,Louisville,KY,Little Rock Court,Cynthia,38.3214271,-85.5421016
+Patricia,Jackson,Patricia Jackson,108,1988-11-10,29,2002-06-25,Arvada,CO,6672 Urban Court,Robert,39.817946,-105.13477
+Vera,Hall,Vera Hall,109,1959-02-12,59,2003-05-04,Nashville,TN,3180 Parthenon Avenue,Cynthia,36.1449179,-86.821767
+Mary,Barnas,Mary Barnas,110,1986-10-03,32,2012-12-02,Colchester,VT,29 East Avenue,Cynthia,44.551498,-73.161736
+Pauline,Schoolfield,Pauline Schoolfield,111,1977-02-27,41,2009-05-25,Manchester,CT,12 Kane Road,Cynthia,41.764315,-72.51276
+David,Patrick,David Patrick,112,1951-01-02,67,2002-04-27,Gardner,MA,125 Connors Street,Robert,42.5738871,-71.9966865
+Antonio,Long,Antonio Long,113,1967-11-15,50,2005-03-10,Aptos,CA,260 Rio Del Mar Boulevard,Cynthia,36.967915,-121.902513
+Marcus,Klatt,Marcus Klatt,114,1954-01-07,64,2007-04-28,Savannah,GA,132 Laurel Green Court,Robert,32.0243075,-81.2468102
+Shane,Benedict,Shane Benedict,115,1974-12-01,43,2000-03-18,Agawam,MA,30 Windermere Drive,Cynthia,42.0700018,-72.65142159999999
+Thomas,Kemppainen,Thomas Kemppainen,116,1957-08-12,61,2010-06-03,Manchester,CT,527 Birch Mountain Road,Robert,41.754289,-72.47027600000001
+Dana,Mooney,Dana Mooney,117,1961-06-28,57,2017-03-02,Montgomery,AL,1631 Madison Avenue,Robert,32.3808099,-86.28537299999999
+Alexander,Clemans,Alexander Clemans,118,1988-03-19,30,2015-02-23,Hanover,MD,7703 Aragorn Court,Robert,39.145016,-76.713634
+Stephanie,Diaz,Stephanie Diaz,119,1954-12-11,63,2011-10-26,Beverly,MA,22 Charnock Street,Cynthia,42.55227,-70.876549
+Joanna,Emch,Joanna Emch,120,1969-01-26,49,2008-08-13,Panama City,FL,814 East 10th Court,Robert,30.166997,-85.648022
+Jane,Daugherty,Jane Daugherty,121,1976-05-06,42,2000-05-27,Severn,MD,1516 Ringe Drive,Robert,39.094173,-76.68423299999999
+Dorothy,Gatton,Dorothy Gatton,122,1976-05-04,42,2000-03-24,Manchester,CT,200 Redwood Road,Robert,41.748421,-72.562237
+Thomas,Swain,Thomas Swain,123,1964-07-16,54,2016-09-09,Fayetteville,AR,3365 South Cato Springs Road,Cynthia,36.0224059,-94.198476
+Amber,Ricketts,Amber Ricketts,124,1973-07-27,45,2012-06-01,Arvada,CO,6208 Ingalls Street,Cynthia,39.810149,-105.063267
+Kevin,Stapleton,Kevin Stapleton,125,1959-08-08,59,2003-08-13,Colchester,VT,29 East Avenue,Robert,44.551498,-73.161736
+Oscar,Anthon,Oscar Anthon,126,1975-06-01,43,2012-08-13,San Leandro,CA,1772 150th Avenue,Cynthia,37.708643,-122.124605
+Jose,Miller,Jose Miller,127,1962-08-15,56,2008-07-09,Windsor,VT,4 Elm Street,Robert,43.476997,-72.398925
+Nicholas,Simmons,Nicholas Simmons,128,1951-09-08,67,2017-07-13,Edgewater,MD,3579 2nd Avenue,Cynthia,38.91283200000001,-76.5224099
+Travis,Tucker,Travis Tucker,129,1962-12-07,55,2012-07-13,Laurel,MD,3386 Sudlersville South,Cynthia,39.089731,-76.81937599999999
+John,Babbitt,John Babbitt,130,1972-02-10,46,2011-04-10,Glendale,AZ,5128 West Carol Avenue,Robert,33.571654,-112.17049
+Melvin,Whitfield,Melvin Whitfield,131,1961-06-14,57,2003-11-25,Arvada,CO,7256 West 84th Way,Cynthia,39.8506912,-105.0767393
+Shane,Sims,Shane Sims,132,1967-02-21,51,2003-08-11,Montgomery,AL,650 Malvern Street,Cynthia,32.353324,-86.317742
+Patricia,Frith,Patricia Frith,133,1978-02-22,40,2002-08-05,Colchester,VT,112 Shannon Road,Robert,44.514781,-73.15258
+Marvin,Robertson,Marvin Robertson,134,1970-07-01,48,2012-12-14,Del City,OK,2313 Mansfield Avenue,Cynthia,35.4413434,-97.4554773
+Jacqueline,Buman,Jacqueline Buman,135,1983-07-16,35,2004-11-18,Oakland,CA,732 Kevin Court,Cynthia,37.757904,-122.206479
+Louis,Banter,Louis Banter,136,1978-03-24,40,2009-05-23,Edmond,OK,1015 Castle Road,Robert,35.665019,-97.466045
+Brenna,Allison,Brenna Allison,137,1979-05-16,39,2011-01-25,Saint Albans City,VT,45 Parsons Avenue,Cynthia,44.79305600000001,-73.086777
+Joyce,Moore,Joyce Moore,138,1973-10-24,45,2005-05-18,Danville,VT,776 Morrill Road,Robert,44.46019,-72.137885
+James,Greene,James Greene,139,1961-02-25,57,2007-03-21,Nashville,TN,1211 Rock Creek Trce,Robert,36.237989,-86.800055
+Jeremiah,Duff,Jeremiah Duff,140,1975-01-26,43,2016-09-19,Washington,DC,328 Missouri Avenue Northwest,Robert,38.957119,-77.017178
+Don,Blair,Don Blair,141,1954-02-15,64,2013-02-11,Savannah,GA,10714 Abercorn Street,Robert,31.9795828,-81.1330018
+Holly,Panella,Holly Panella,142,1987-03-17,31,2008-09-12,Salem,MA,7 Cloutman Street,Robert,42.506718,-70.90101899999999
+Walton,Kontos,Walton Kontos,143,1984-03-13,34,2014-06-07,Washington,DC,519 Roxboro Place Northwest,Cynthia,38.9656982,-77.0208081
+Frank,Ostermann,Frank Ostermann,144,1978-10-06,40,2017-07-15,Washington,DC,422 C Street Northeast,Robert,38.8942029,-76.99988809999999
+Roland,Parker,Roland Parker,145,1965-02-28,53,2000-05-20,Washington,DC,1508 Massachusetts Avenue Southeast,Cynthia,38.887255,-76.98318499999999
+Travis,Sullivan,Travis Sullivan,146,1960-12-04,57,2001-05-21,Panama City,FL,1416 Ridgewood Avenue,Cynthia,30.1738197,-85.6007266
+Edward,Alday,Edward Alday,147,1985-08-20,33,2007-04-10,Oklahoma City,OK,621 Northwest 94th Street,Cynthia,35.5670088,-97.5246341
+Anna,Macha,Anna Macha,148,1986-02-10,32,2007-09-16,Conway,AR,1405 Tolkien Drive,Cynthia,35.0991829,-92.517619
+Natalie,Benson,Natalie Benson,149,1982-05-04,36,2016-01-06,Nashville,TN,410 51st Avenue North,Cynthia,36.1527274,-86.84816409999999
+John,Banner,John Banner,150,1980-02-18,38,2002-09-28,Louisville,KY,8502 Madrone Avenue,Cynthia,38.1286407,-85.8678042
+Don,Ovando,Don Ovando,151,1983-09-01,35,2009-04-25,Conway,AR,14 Short Circle,Cynthia,35.0045975,-92.40435640000001
+Patricia,Skinner,Patricia Skinner,152,1965-04-22,53,2008-11-28,Glendale,AZ,5708 West Union Hills Drive,Cynthia,33.655011,-112.1833113
+William,Acevedo,William Acevedo,153,1966-04-13,52,2000-07-24,Washington,DC,235 17th Street Southeast,Robert,38.886815,-76.981088
+Roxanne,Cates,Roxanne Cates,154,1989-04-28,29,2016-09-27,Louisville,KY,6624 Strawberry Lane,Robert,38.160651,-85.761636
+Stephanie,Siddoway,Stephanie Siddoway,155,1950-05-10,68,2003-06-13,Nashville,TN,430 Cornish Drive,Cynthia,36.230277,-86.785924
+Patricia,Numbers,Patricia Numbers,156,1952-03-28,66,2008-04-06,Panama City,FL,6718 Keithley Road,Cynthia,30.2843982,-85.5390632
+Ada,Ruiz,Ada Ruiz,157,1982-11-10,35,2006-05-03,Nashville,TN,314 Lallemand Court,Cynthia,36.078873,-86.694142
+Dorothy,Rodriguez,Dorothy Rodriguez,158,1959-12-02,58,2005-11-23,Washington,DC,1421 Floral Street Northwest,Cynthia,38.9788736,-77.03436099999999
+Marianne,Brown,Marianne Brown,159,1967-08-06,51,2000-04-07,Savannah,GA,227 West Montgomery Cross Road,Robert,31.998812,-81.134464
+Danielle,Madson,Danielle Madson,160,1972-01-01,46,2009-05-22,Savannah,GA,1350 Exley Street,Robert,32.0858238,-81.11530499999999
+Susan,Robinson,Susan Robinson,161,1960-08-25,58,2008-02-03,Kenai,AK,36528 Short Circle,Cynthia,60.510223,-151.248721
+Christopher,Vescio,Christopher Vescio,162,1966-01-11,52,2012-01-09,Orange,CA,2134 West Mills Drive,Robert,33.786584,-117.875665
+Patricia,Schmidt,Patricia Schmidt,163,1988-03-15,30,2002-01-18,Arvada,CO,7910 Ralston Road,Cynthia,39.8017354,-105.0858249
+Dante,Powers,Dante Powers,164,1980-08-01,38,2004-03-02,Anchorage,AK,22524 Sambar Loop,Robert,61.424618,-149.462133
+Donald,Jacobi,Donald Jacobi,165,1981-08-07,37,2005-08-23,Montgomery,AL,117 South Capitol Parkway,Cynthia,32.3777959,-86.284319
+Duane,Hummel,Duane Hummel,166,1972-08-16,46,2008-10-01,Edgewater,MD,3 Carvel Circle,Cynthia,38.969161,-76.54205999999999
+Carmen,Reyes,Carmen Reyes,167,1952-06-09,66,2012-04-10,Washington,DC,1309 Columbia Road Northwest,Cynthia,38.9275945,-77.0307141
+Mark,Radford,Mark Radford,168,1989-06-18,29,2015-06-01,Saint Albans City,VT,45 Parsons Avenue,Robert,44.79305600000001,-73.086777
+Alvaro,Brandt,Alvaro Brandt,169,1956-12-21,61,2016-05-13,Ardmore,OK,4712 Rock Creek Road,Robert,34.182105,-97.19224500000001
+Isabel,Hanes,Isabel Hanes,170,1988-01-24,30,2009-01-20,Panama City,FL,7703 Laird Street,Robert,30.177643,-85.768343
+Judith,Mathis,Judith Mathis,171,1979-01-21,39,2010-10-06,Arvada,CO,7622 Vance Drive,Robert,39.835974,-105.079238
+John,Lewis,John Lewis,172,1987-01-13,31,2007-05-24,Manchester,CT,96 Green Manor Road,Robert,41.789265,-72.5004359
+Derrick,Spears,Derrick Spears,173,1951-08-11,67,2008-12-21,Louisville,KY,1026 Orchard Avenue,Robert,38.1687304,-85.71964659999999
+Sabrina,Squires,Sabrina Squires,174,1983-12-19,34,2016-11-24,Nashville,TN,2505 Walker Lane,Robert,36.2125119,-86.806625
+Jeff,Guerrette,Jeff Guerrette,175,1965-08-27,53,2010-07-16,Youngstown,FL,7202 Jump Street,Cynthia,30.279755,-85.520225
+Sharon,Quinn,Sharon Quinn,176,1983-12-14,34,2013-06-23,Panama City Beach,FL,208 Bonita Circle,Cynthia,30.1680412,-85.7868371
+Nathan,Maurer,Nathan Maurer,177,1983-05-19,35,2008-09-23,Brookfield,VT,1992 West Street,Cynthia,44.03152499999999,-72.62063599999999
+Christine,Hemenway,Christine Hemenway,178,1978-04-06,40,2002-05-19,Louisville,KY,1622 Orchard Avenue,Cynthia,38.198791,-85.709931
+Franklin,Younker,Franklin Younker,179,1957-12-18,60,2005-08-23,Louisville,KY,1079 East Kentucky Street,Robert,38.2358124,-85.73356439999999
+Anna,Gonzalez,Anna Gonzalez,180,1977-11-04,41,2005-04-11,Anchorage,AK,3871 Galactica Drive,Robert,61.191509,-149.955863
+Rochelle,Phillips,Rochelle Phillips,181,1964-10-22,54,2012-10-04,Glen Burnie,MD,1025 Rose Anne Road,Cynthia,39.1785583,-76.6078459
+Amber,Johnson,Amber Johnson,182,1980-06-25,38,2010-10-28,Glendale,AZ,6114 West Glenn Drive,Robert,33.5401454,-112.1912722
+Vito,Bolin,Vito Bolin,183,1980-09-27,38,2010-12-13,Hartford,VT,10 Skyline Way,Robert,43.6664654,-72.32172
+Alvin,Raygosa,Alvin Raygosa,184,1979-06-04,39,2012-03-13,Newfane,VT,578 Vermont 30,Robert,42.9853466,-72.6551727
+Amelia,Lawson,Amelia Lawson,185,1962-12-12,55,2008-05-05,Montgomery,AL,8293 Grayson Grove,Robert,32.3331541,-86.1546573
+Richard,Taylor,Richard Taylor,186,1955-01-20,63,2005-05-26,Berkeley,CA,1725 Oxford Street,Cynthia,37.87633599999999,-122.2662512
+Michael,Nebarez,Michael Nebarez,187,1970-06-18,48,2016-09-12,Montgomery,AL,3808 South Smiley Circle,Cynthia,32.3317172,-86.3507277
+Margarito,Mcfarland,Margarito Mcfarland,188,1980-01-23,38,2003-03-28,Glendale,AZ,8028 North 56th Lane,Cynthia,33.5543049,-112.1816343
+Gertrude,Turner,Gertrude Turner,189,1964-07-25,54,2016-08-28,Washington,DC,3708 Fort Lincoln Drive Northeast,Robert,38.922628,-76.9529694
+Meghan,Rosado,Meghan Rosado,190,1978-01-22,40,2000-05-18,Panama City Beach,FL,409 Snook Lane,Cynthia,30.14119699999999,-85.745166
+Russell,Munger,Russell Munger,191,1970-06-14,48,2010-05-09,Oklahoma City,OK,11724 Rushmore,Cynthia,35.59008300000001,-97.640506
+Ken,Rivera,Ken Rivera,192,1981-11-22,36,2015-05-13,Jeffersontown,KY,10819 Bluegrass Parkway,Robert,38.2217085,-85.5551964
+Thelma,Teague,Thelma Teague,193,1950-10-25,68,2005-12-02,Glendale,AZ,13066 North 56th Avenue,Cynthia,33.602739,-112.177602
+David,Adkins,David Adkins,194,1971-10-19,47,2007-05-24,Nashville,TN,7405 River Park Drive,Cynthia,36.0581729,-86.974773
+Curtis,Hyneman,Curtis Hyneman,195,1974-08-03,44,2003-05-25,Glendale,AZ,6748 West San Juan Avenue,Cynthia,33.518939,-112.205511
+Martha,Martin,Martha Martin,196,1987-03-01,31,2011-10-16,Oklahoma City,OK,7002 South Bryant Avenue,Robert,35.3962378,-97.45863539999999
+Deborah,Mitchell,Deborah Mitchell,197,1960-09-27,58,2010-02-18,Savannah,GA,618 McLaws Street,Cynthia,32.018382,-81.09913399999999
+Aida,Holsworth,Aida Holsworth,198,1971-07-26,47,2008-08-17,Nashville,TN,240 54th Avenue North,Cynthia,36.1481224,-86.8526358
+Sean,Hitchcock,Sean Hitchcock,199,1986-12-15,31,2002-11-01,Arvada,CO,6342 Kendall Street,Cynthia,39.811755,-105.0660879
+Cory,Gindlesperger,Cory Gindlesperger,200,1965-02-20,53,2013-09-08,Saint Albans City,VT,901 Samson Road,Robert,44.826321,-73.188881
+Robert,Book,Robert Book,201,1964-10-23,54,2009-09-22,Glendale,AZ,8821 West Myrtle Avenue,Cynthia,33.5404296,-112.2488391
+Ben,Norment,Ben Norment,202,1985-09-11,33,2012-03-08,Berkeley,CA,1528 Spruce Street,Robert,37.879558,-122.266155
+James,Mysliwiec,James Mysliwiec,203,1969-03-23,49,2015-04-24,Thetford,VT,15 Cranberry Hill Road,Cynthia,43.8022212,-72.22335939999999
+Sarah,Arthur,Sarah Arthur,204,1987-02-06,31,2015-03-13,Lynn,MA,39 Newhall Street,Cynthia,42.4616169,-70.93997499999999
+Thomas,Marsh,Thomas Marsh,205,1975-11-20,42,2005-02-20,Anchorage,AK,18827 Fish Hatchery Road,Cynthia,61.34890099999999,-149.53132
+Jennifer,Barbieri,Jennifer Barbieri,206,1984-03-16,34,2000-02-04,Union City,CA,4231 Miramonte Way,Cynthia,37.591721,-122.075993
+Sonia,Hughes,Sonia Hughes,207,1974-07-26,44,2013-09-22,Manchester,CT,31 Mitchell Road,Cynthia,41.798274,-72.510216
+James,Williams,James Williams,208,1986-10-14,32,2002-10-12,Louisville,KY,4331 Foeburn Lane,Cynthia,38.26753,-85.634376
+Mildred,Trull,Mildred Trull,209,1966-02-21,52,2000-09-10,Arvada,CO,5856 Parfet Court,Robert,39.80326,-105.121486
+Stella,Cooper,Stella Cooper,210,1954-11-11,64,2011-03-26,Panama City Beach,FL,102 Derondo Street,Cynthia,30.2555704,-85.95951029999999
+Douglas,Tinoco,Douglas Tinoco,211,1968-07-14,50,2002-09-20,Greeley,CO,523 10th Street,Cynthia,40.4229185,-104.6865623
+Ona,Beard,Ona Beard,212,1988-11-11,29,2013-03-02,Oakland,CA,1515 Excelsior Avenue,Cynthia,37.8019867,-122.2252044
+Justin,Blanchard,Justin Blanchard,213,1966-08-19,52,2008-12-25,Fayetteville,AR,2008 North Shannon Drive,Cynthia,36.0886151,-94.17334470000002
+Carolyn,Letarte,Carolyn Letarte,214,1978-01-27,40,2017-12-17,Union City,CA,2902 Flint Street,Robert,37.60442,-122.069607
+Robert,Rodriguez,Robert Rodriguez,215,1985-08-19,33,2001-07-25,Manchester,CT,23 Columbia Drive,Robert,41.808424,-72.481477
+Leatha,Alford,Leatha Alford,216,1956-01-04,62,2013-03-19,Glendale,AZ,15082 North 59th Avenue,Robert,33.6231673,-112.1871757
+Annie,Durant,Annie Durant,217,1985-09-07,33,2002-02-16,Nashville,TN,2008 Ashton Avenue,Robert,36.194946,-86.835812
+Chris,Jackson,Chris Jackson,218,1978-10-11,40,2004-07-20,Glen Burnie,MD,800 Old Stage Road,Robert,39.1480719,-76.6371115
+Clayton,Sterling,Clayton Sterling,219,1962-02-20,56,2006-07-25,Montgomery,AL,Brook Park Drive,Robert,32.3076534,-86.1451185
+Beverly,Hungerford,Beverly Hungerford,220,1954-02-14,64,2004-05-04,Arvada,CO,8432 West 78th Circle,Cynthia,39.836549,-105.092974
+Earl,Wheat,Earl Wheat,221,1975-12-19,42,2010-10-09,Manchester,CT,275 Henry Street,Cynthia,41.78936590000001,-72.5106079
+Chris,Wade,Chris Wade,222,1983-01-14,35,2013-05-02,Annapolis,MD,1433 Bretton View Road,Robert,39.026117,-76.471535
+Lynn,Reyes,Lynn Reyes,223,1965-04-27,53,2011-10-15,Washington,DC,1811 1st Street Northwest,Robert,38.9145119,-77.011917
+Barbara,Morris,Barbara Morris,224,1951-09-28,67,2012-10-07,Fayetteville,AR,467 North Mountain Ranch Road,Cynthia,36.0706293,-94.2107741
+Antonio,Johnson,Antonio Johnson,225,1969-10-09,49,2006-04-06,Prospect,KY,9306 Norton Commons Boulevard,Cynthia,38.3232327,-85.5679148
+Eva,Bartko,Eva Bartko,226,1957-03-11,61,2004-04-06,Youngstown,FL,10638 Happyville Road,Cynthia,30.364068,-85.45559
+Daniel,Vazquez,Daniel Vazquez,227,1982-06-17,36,2001-08-06,Panama City,FL,4113 Holiday Drive,Robert,30.1548681,-85.7709976
+Virginia,Fallin,Virginia Fallin,228,1959-08-09,59,2009-01-01,Anchorage,AK,1600 West 11th Avenue,Cynthia,61.211172,-149.914253
+Roy,Sullivan,Roy Sullivan,229,1974-06-17,44,2000-05-12,Fayetteville,AR,1521 North Olympic Club Avenue,Cynthia,36.0833881,-94.2152761
+Joe,Jackson,Joe Jackson,230,1968-10-17,50,2004-11-09,Montgomery,AL,3808 South Smiley Circle,Robert,32.3317172,-86.3507277
+Glen,Montgomery,Glen Montgomery,231,1979-05-08,39,2013-02-20,Anchorage,AK,3301 Old Muldoon Road,Robert,61.1908348,-149.7340096
+Robert,Saeler,Robert Saeler,232,1983-11-23,34,2013-05-04,Billerica,MA,37 Parlmont Park,Cynthia,42.5725656,-71.2754739
+Felecia,Zaldivar,Felecia Zaldivar,233,1970-07-27,48,2015-12-23,Foresthill,CA,20930 Todd Valley Road,Robert,38.989466,-120.883108
+Tammy,Lopez,Tammy Lopez,234,1958-04-23,60,2000-04-03,Ashland City,TN,4696 Bull Run Road,Cynthia,36.241285,-86.940741
+James,Gulbrandsen,James Gulbrandsen,235,1965-12-18,52,2010-06-22,Louisville,KY,2502 Adrienne Way,Cynthia,38.1718223,-85.84547189999999
+Tyra,Morgan,Tyra Morgan,236,1986-12-06,31,2000-09-10,San Leandro,CA,1780 142nd Avenue,Cynthia,37.7168246,-122.1336681
+Connie,Irby,Connie Irby,237,1951-06-25,67,2012-11-19,Highgate,VT,91 Hoague Drive,Robert,44.93571619999999,-73.0274348
+Ruth,Keen,Ruth Keen,238,1972-02-27,46,2002-12-11,Glendale,AZ,7400 West Arrowhead Clubhouse Drive,Robert,33.66589,-112.217955
+James,Smith,James Smith,239,1985-10-16,33,2007-07-04,Savannah,GA,1125 West 41st Street,Cynthia,32.0573416,-81.1154395
+Cleo,Weber,Cleo Weber,240,1987-06-18,31,2012-05-06,Savannah,GA,227 West Montgomery Cross Road,Robert,31.998812,-81.134464
+Crystal,Resnick,Crystal Resnick,241,1954-07-07,64,2002-04-11,Montgomery,AL,2845 Zelda Road,Cynthia,32.3602803,-86.2633893
+Jerome,Flatt,Jerome Flatt,242,1990-02-02,28,2006-07-20,Savannah,GA,2206 Skidaway Road,Cynthia,32.045721,-81.063795
+Teri,Kuehn,Teri Kuehn,243,1964-07-09,54,2009-12-23,Mexico Beach,FL,3203 US Highway 98,Cynthia,29.9491178,-85.41958989999999
+Lawrence,Tepper,Lawrence Tepper,244,1982-06-08,36,2012-12-01,Washington,DC,2812 Jasper Street Southeast,Robert,38.851629,-76.966622
+Janet,Leggette,Janet Leggette,245,1980-12-11,37,2008-06-12,Manchester,CT,1164 Middle Turnpike West,Robert,41.7808152,-72.57570439999999
+Maria,Matthews,Maria Matthews,246,1951-04-25,67,2013-11-08,Panama City Beach,FL,327 Fairway Boulevard,Cynthia,30.216785,-85.84494699999999
+Deborah,Whit,Deborah Whit,247,1982-07-06,36,2005-11-20,Nashville,TN,8064 Claytie Circle,Cynthia,36.06466899999999,-86.976433
+Manuel,Huntley,Manuel Huntley,248,1985-12-19,32,2015-05-06,Pleasanton,CA,3538 Mendenhall Court,Cynthia,37.6991919,-121.85909
+Janet,Evans,Janet Evans,249,1955-11-22,62,2007-12-23,Berkeley,CA,1358 Scenic Avenue,Cynthia,37.8830528,-122.2632462
+Michael,Williams,Michael Williams,250,1974-05-27,44,2014-01-07,Louisville,KY,3408 Bellisima Place,Cynthia,38.2857023,-85.5023064
+Velma,Reed,Velma Reed,251,1965-02-19,53,2006-02-03,Washington,DC,1256 Talbert Street Southeast,Robert,38.8617636,-76.99095559999999
+Antoinette,Mowrey,Antoinette Mowrey,252,1989-12-13,28,2015-01-27,Manchester,CT,35 Pilgrim Lane,Cynthia,41.772138,-72.498806
+Shirley,Prideaux,Shirley Prideaux,253,1975-02-26,43,2000-10-08,Litchfield Park,AZ,13525 West Stella Lane,Robert,33.528206,-112.350848
+Amy,Garmon,Amy Garmon,254,1960-11-19,57,2002-02-13,Fayetteville,AR,2222 Martin Luther King Junior Boulevard,Robert,36.0554972,-94.1910602
+Marcella,Lenhardt,Marcella Lenhardt,255,1962-04-18,56,2015-02-19,Nashville,TN,1609 Porter Avenue,Robert,36.196292,-86.725028
+Richard,Johnson,Richard Johnson,256,1969-04-16,49,2017-02-09,Fayetteville,AR,644 West Maple Street,Robert,36.0703335,-94.1686289
+Edwin,Gold,Edwin Gold,257,1953-05-14,65,2017-05-22,Woburn,MA,78 School Street,Cynthia,42.506877,-71.15299
+Mary,Lovejoy,Mary Lovejoy,258,1955-11-09,63,2010-02-11,Anchorage,AK,201 East 9th Avenue,Robert,61.213897,-149.880633
+Michael,Moniz,Michael Moniz,259,1985-05-18,33,2000-08-20,Belvidere,VT,3415 Bog Road,Robert,44.757141,-72.632584
+Julian,Johnson,Julian Johnson,260,1960-01-06,58,2010-07-06,Nashville,TN,66 Ocala Drive,Robert,36.052152,-86.688237
+Nora,Bowling,Nora Bowling,261,1978-10-21,40,2017-10-17,Pooler,GA,130 Carolina Cherry Circle,Cynthia,32.1485911,-81.2620116
+Denise,Bayerl,Denise Bayerl,262,1962-02-07,56,2015-06-13,Washington,DC,1908 Newton Street Northeast,Cynthia,38.9343024,-76.97761179999999
+Stephen,Miles,Stephen Miles,263,1972-09-28,46,2007-11-12,Nashville,TN,600 12th Avenue South,Robert,36.1511457,-86.783423
+Walter,Ryder,Walter Ryder,264,1963-09-20,55,2010-07-19,Anchorage,AK,2555 West 69th Court,Robert,61.158468,-149.933297
+Billie,Human,Billie Human,265,1988-08-19,30,2006-03-13,Woodford,VT,210 Depot Street,Cynthia,42.88266,-73.198891
+Alvin,Hall,Alvin Hall,266,1973-07-06,45,2000-01-18,Glendale,AZ,5615 West Acoma Drive,Robert,33.6166852,-112.1809842
+Keith,Prather,Keith Prather,267,1962-08-15,56,2007-05-05,Panama City,FL,1515 Chandlee Avenue,Cynthia,30.176365,-85.666253
+Derek,Foster,Derek Foster,268,1958-08-21,60,2015-06-05,Anchorage,AK,10332 Thuja Circle,Robert,61.12733699999999,-149.854578
+Ethel,Poss,Ethel Poss,269,1977-07-24,41,2006-06-20,Washington,DC,4510 Eastern Avenue Northeast,Robert,38.944641,-76.976466
+Michael,Stambaugh,Michael Stambaugh,270,1971-11-15,46,2015-10-24,Randolph,VT,8 Village Circle,Robert,43.927687,-72.65563
+Jeff,Eastman,Jeff Eastman,271,1960-01-11,58,2015-07-08,Washington,DC,833 50th Place Northeast,Robert,38.90093299999999,-76.9279239
+Daniel,Landsman,Daniel Landsman,272,1983-02-28,35,2005-06-28,Edgewater,MD,3579 2nd Avenue,Robert,38.91283200000001,-76.5224099
+Richard,Brown,Richard Brown,273,1982-08-15,36,2001-07-19,Nashville,TN,310 West Trinity Lane,Cynthia,36.206447,-86.78049899999999
+Jorge,Dini,Jorge Dini,274,1957-08-01,61,2015-07-13,Glendale,AZ,6730 North 59th Drive,Cynthia,33.5360084,-112.1882161
+Pok,Wagner,Pok Wagner,275,1987-07-07,31,2002-05-28,Nashville,TN,295 Townes Drive,Cynthia,36.052158,-86.70206900000001
+Charlette,Carson,Charlette Carson,276,1974-11-14,43,2014-12-14,Mexico Beach,FL,106 Parker Parkway,Robert,29.944578,-85.402835
+Diane,Stengle,Diane Stengle,277,1962-09-12,56,2007-07-19,Poultney,VT,1485 Hampshire Hollow Road,Robert,43.538445,-73.166016
+Joyce,Townsend,Joyce Townsend,278,1980-02-14,38,2011-10-15,Panama City Beach,FL,415 Lullwater Drive,Cynthia,30.22177929999999,-85.8841423
+Amanda,Hyslop,Amanda Hyslop,279,1969-03-09,49,2011-08-06,Fayetteville,AR,4296 North Blossom Court,Robert,36.1288759,-94.1239252
+Dana,Wallace,Dana Wallace,280,1954-04-22,64,2011-06-21,Evans,CO,2931 Shady Oaks Drive,Robert,40.384469,-104.726478
+Natalie,Williams,Natalie Williams,281,1976-06-26,42,2015-05-28,Washington,DC,1157 1st Street Northwest,Cynthia,38.90538280000001,-77.0121662
+Charlotte,Hachting,Charlotte Hachting,282,1970-06-13,48,2009-09-22,Oklahoma City,OK,9805 South Youngs Lane,Robert,35.3698,-97.551936
+Dorothy,Hemphill,Dorothy Hemphill,283,1956-10-14,62,2007-01-12,Panama City,FL,154 Byrd Drive,Cynthia,30.161691,-85.59920199999999
+Scott,Davis,Scott Davis,284,1984-11-18,33,2009-05-04,Montgomery,AL,3426 Broadview Street,Cynthia,32.410407,-86.280954
+Jamie,Childress,Jamie Childress,285,1976-08-25,42,2010-04-10,Panama City,FL,2928 Avon Road,Cynthia,30.196279,-85.619315
+Elizabeth,Delarosa,Elizabeth Delarosa,286,1989-02-27,29,2014-09-18,Oklahoma City,OK,1515 Northwest 19th Street,Robert,35.48943,-97.5360199
+Leone,Juarez,Leone Juarez,287,1966-05-12,52,2001-05-06,Manchester,CT,318 Lydall Street,Cynthia,41.79475,-72.49465099999999
+Helga,Bright,Helga Bright,288,1989-11-10,28,2002-03-11,Anchorage,AK,3635 Bisquier Drive,Cynthia,61.188009,-149.786529
+Weston,Gelston,Weston Gelston,289,1965-03-11,53,2009-03-28,Anchorage,AK,9101 Vanguard Drive,Robert,61.1382426,-149.84756
+Lori,Desanctis,Lori Desanctis,290,1977-11-06,41,2007-06-04,Arvada,CO,7645 Marshall Street,Cynthia,39.835952,-105.070063
+Jessica,Clark,Jessica Clark,291,1958-12-27,59,2016-02-13,Savannah,GA,345 Tattnall Street,Robert,32.0737537,-81.0972164
+Lula,Southall,Lula Southall,292,1963-01-01,55,2011-06-18,Montgomery,AL,2500 Snowdoun Chambers Road,Robert,32.24569110000001,-86.2577436
+Michelle,Harshbarger,Michelle Harshbarger,293,1963-11-26,54,2014-06-25,Arvada,CO,6483 West 76th Avenue,Robert,39.834927,-105.069802
+Carole,Dellapenna,Carole Dellapenna,294,1954-04-18,64,2012-11-05,Arvada,CO,12816 West 65th Way,Cynthia,39.8141779,-105.1426275
+Eric,Bacote,Eric Bacote,295,1972-11-01,46,2017-11-20,Fayetteville,AR,239 Eastern Avenue,Cynthia,36.0605438,-94.18373079999999
+Christopher,Bertrand,Christopher Bertrand,296,1959-04-16,59,2005-12-16,Nashville,TN,2611 Bluefield Avenue,Cynthia,36.16786,-86.670203
+David,Thomas,David Thomas,297,1957-06-10,61,2007-02-04,Savannah,GA,7804 Abercorn Street,Cynthia,32.00192,-81.11689830000002
+Ronald,Whitfield,Ronald Whitfield,298,1982-08-15,36,2012-07-17,Louisville,KY,814 Keswick Boulevard,Cynthia,38.218157,-85.74302399999999
+Lena,Buck,Lena Buck,299,1985-02-04,33,2017-08-02,Savannah,GA,228 East Huntingdon Street,Robert,32.068676,-81.092193
+George,Potts,George Potts,300,1979-10-22,39,2010-11-24,Severna Park,MD,517 Retford Drive,Robert,39.086405,-76.580855
+Patricia,Still,Patricia Still,301,1973-10-17,45,2011-07-06,San Leandro,CA,1521 159th Avenue,Cynthia,37.70179340000001,-122.1192658
+Alan,Hall,Alan Hall,302,1981-02-11,37,2010-08-23,Glendale,AZ,6717 North 59th Avenue,Robert,33.5357556,-112.1857265
+Virginia,Barnum,Virginia Barnum,303,1976-05-11,42,2004-11-06,Peabody,MA,11 Proctor Circle,Robert,42.535503,-70.953384
+Harold,Williams,Harold Williams,304,1977-04-21,41,2008-11-23,Glen Burnie,MD,120 Wells Avenue,Cynthia,39.180259,-76.63452
+Paul,Cardoza,Paul Cardoza,305,1963-08-25,55,2010-03-21,Brookline,MA,16 Fuller Street,Robert,42.3443251,-71.12841
+Edna,Cash,Edna Cash,306,1983-11-06,35,2000-12-17,Nashville,TN,5113 Village Trace,Cynthia,36.046228,-86.732514
+Kevin,Jimenez,Kevin Jimenez,307,1990-09-17,28,2000-11-09,Washington,DC,1380 Quincy Street Northwest,Robert,38.9376132,-77.032111
+William,Gusman,William Gusman,308,1979-07-21,39,2007-01-10,Edmond,OK,18713 Shilstone Way,Robert,35.6618776,-97.53426999999999
+Daniel,Murphy,Daniel Murphy,309,1961-06-13,57,2004-08-13,Fremont,CA,4444 Hansen Avenue,Robert,37.5538472,-122.0122099
+Jamie,Veach,Jamie Veach,310,1971-05-13,47,2004-08-22,Montgomery,AL,204 North Holt Street,Robert,32.3759869,-86.3206649
+Susan,Gomez,Susan Gomez,311,1987-06-12,31,2010-03-14,Pasadena,MD,1897 Poplar Ridge Road,Robert,39.128818,-76.4627
+Daisy,Young,Daisy Young,312,1954-01-13,64,2011-04-25,Washington,DC,1402 North Capitol Street Northwest,Cynthia,38.908785,-77.00945999999999
+Ruth,Eager,Ruth Eager,313,1958-07-05,60,2014-02-28,Cupertino,CA,10312 Parlett Place,Cynthia,37.327683,-122.031104
+Bryant,Satmary,Bryant Satmary,314,1952-06-06,66,2010-11-20,Montgomery,AL,5685 Express Drive,Cynthia,32.31678670000001,-86.22460559999999
+Mary,Jacklin,Mary Jacklin,315,1962-11-08,56,2017-07-19,Nashville,TN,306 Rural Hill Court,Robert,36.077414,-86.63667099999999
+Joshua,Carr,Joshua Carr,316,1976-05-21,42,2013-12-23,Chico,CA,1797 Pasatiempo Drive,Cynthia,39.6777229,-121.7704692
+Willie,Wawrzyniak,Willie Wawrzyniak,317,1951-11-24,66,2003-09-13,Louisville,KY,1612 Beech Street,Cynthia,38.2296247,-85.805719
+Marie,Brown,Marie Brown,318,1989-06-15,29,2000-05-14,Litchfield Park,AZ,13417 West Marlette Court,Robert,33.5272379,-112.34799
+Lisa,Bowes,Lisa Bowes,319,1972-02-26,46,2016-08-26,Crofton,MD,1642 Fendall Court,Cynthia,39.0152744,-76.6751351
+Albert,Pearson,Albert Pearson,320,1969-05-14,49,2015-08-09,Glendale,AZ,9428 North 65th Drive,Cynthia,33.571222,-112.20045
+Eric,Rhyne,Eric Rhyne,321,1983-09-02,35,2009-02-04,Fremont,CA,4255 Tanager Common,Robert,37.5738888,-122.0460256
+Robert,Myers,Robert Myers,322,1961-06-02,57,2006-02-07,Panama City,FL,7703 Laird Street,Robert,30.177643,-85.768343
+Michael,Nghe,Michael Nghe,323,1982-11-06,36,2006-09-23,Oklahoma City,OK,1205 Southwest 128th Street,Cynthia,35.3403832,-97.5372799
+Michael,Kulesza,Michael Kulesza,324,1959-02-20,59,2009-08-16,Berkeley,CA,1209 Parker Street,Robert,37.859962,-122.286565
+Robert,Jones,Robert Jones,325,1960-11-11,58,2003-02-01,Nashville,TN,332 33rd Avenue North,Robert,36.152087,-86.823275
+Shane,Dolson,Shane Dolson,326,1988-11-12,29,2011-05-07,Anchorage,AK,632 North Pine Street,Robert,61.22930220000001,-149.7938547
+Lisa,Jeronimo,Lisa Jeronimo,327,1953-01-21,65,2004-09-24,Laurel,MD,8320 Cloud Street,Cynthia,39.10376300000001,-76.797466
+Cecelia,Horne,Cecelia Horne,328,1951-05-28,67,2017-01-21,Arvada,CO,7901 West 52nd Avenue,Robert,39.791644,-105.084667
+Nelia,Garrett,Nelia Garrett,329,1975-03-20,43,2008-10-28,Fayetteville,AR,2849 Quail Drive,Cynthia,36.095294,-94.20036300000001
+John,Wilkinson,John Wilkinson,330,1958-04-12,60,2007-12-22,Savannah,GA,301 East Court,Cynthia,32.0592074,-81.0606937
+Denise,Council,Denise Council,331,1973-08-03,45,2002-05-19,Panama City,FL,1309 Clay Avenue,Cynthia,30.1729,-85.69342999999999
+Alvaro,Martinez,Alvaro Martinez,332,1963-09-11,55,2013-12-24,Severna Park,MD,337 South Drive,Cynthia,39.0896789,-76.53340299999999
+Corinne,Candelaria,Corinne Candelaria,333,1970-04-21,48,2012-08-02,Hartford,VT,5036 Jericho Street,Robert,43.6858829,-72.393875
+Diana,Flores,Diana Flores,334,1960-05-13,58,2014-07-27,Montgomery,AL,940 Ironwood Drive,Cynthia,32.405795,-86.19257999999999
+Lee,Sanders,Lee Sanders,335,1988-06-23,30,2016-07-07,Severn,MD,8358 WB&A Road,Cynthia,39.108962,-76.68668799999999
+Francisco,Ulrich,Francisco Ulrich,336,1960-10-07,58,2012-05-17,Oklahoma City,OK,3200 Southwest 95th Street,Cynthia,35.371299,-97.57186899999999
+Roger,Garner,Roger Garner,337,1952-06-12,66,2013-01-03,Washington,DC,904 Shepherd Street Northwest,Cynthia,38.9396331,-77.0252273
+Timothy,Harris,Timothy Harris,338,1956-04-14,62,2006-06-16,Savannah,GA,1809 U.S. 80,Robert,32.0847824,-81.16739679999999
+Robin,Eyre,Robin Eyre,339,1975-07-01,43,2003-01-17,Aurora,CO,1613 Ensenada Way,Cynthia,39.7422815,-104.762286
+Albert,Debroux,Albert Debroux,340,1950-04-20,68,2017-09-11,Montgomery,AL,142 Ash Drive,Cynthia,32.3629729,-86.0507669
+Juan,Duncan,Juan Duncan,341,1983-04-25,35,2016-05-07,Savannah,GA,125 Heritage Way,Robert,32.032415,-81.23194099999999
+Dennis,Hagen,Dennis Hagen,342,1967-05-01,51,2000-09-10,Fayetteville,AR,1879 South Cherry Hills Drive,Robert,36.042359,-94.10679999999999
+Victoria,Andrews,Victoria Andrews,343,1977-10-28,41,2013-01-06,Louisville,KY,4316 Dover Road,Robert,38.186788,-85.833439
+Grady,Galvis,Grady Galvis,344,1962-06-03,56,2017-01-12,Manchester,CT,22 Star Farms Drive,Robert,41.756721,-72.56769899999999
+Karen,Robyn,Karen Robyn,345,1969-01-28,49,2002-10-13,Warren,VT,46 Sugarloaf Hill Road,Cynthia,44.1166669,-72.8856442
+Annetta,Moyer,Annetta Moyer,346,1975-07-02,43,2017-09-16,Jeffersontown,KY,10819 Bluegrass Parkway,Cynthia,38.2217085,-85.5551964
+Robert,Jarvis,Robert Jarvis,347,1958-02-06,60,2008-12-18,Lithia,FL,9331 Edison Road,Cynthia,27.86851,-82.07391199999999
+Louise,Rodriguez,Louise Rodriguez,348,1974-08-05,44,2004-10-05,Anchorage,AK,2631 Northrup Place,Robert,61.1968802,-149.8365951
+Marcy,Bradley,Marcy Bradley,349,1980-07-13,38,2002-06-27,Oklahoma City,OK,3821 Southwest 25th Street,Robert,35.4400509,-97.58666900000001
+Robert,Haldeman,Robert Haldeman,350,1981-12-03,36,2004-05-23,Panama City,FL,1439 2nd Street,Robert,30.291842,-85.651057
+Robert,Russell,Robert Russell,351,1979-11-22,38,2012-02-22,Arvada,CO,15771 West 64th Avenue,Cynthia,39.8126444,-105.1768838
+Evelyn,King,Evelyn King,352,1980-08-04,38,2017-10-08,Choctaw,OK,17800 Creekwood Lane,Robert,35.473645,-97.216093
+Julia,Perez,Julia Perez,353,1957-06-09,61,2004-08-18,Berkeley,CA,1040 University Avenue,Robert,37.8685768,-122.2934965
+Alfred,Fitzpatrick,Alfred Fitzpatrick,354,1966-12-27,51,2004-03-25,Fayetteville,AR,2196 East Jonquil Road,Robert,36.0960533,-94.1293548
+Margaret,Berryhill,Margaret Berryhill,355,1960-12-02,57,2017-10-12,Savannah,GA,14006 Coffee Bluff Road,Cynthia,31.951424,-81.146176
+Robert,Abel,Robert Abel,356,1961-06-15,57,2000-06-09,Louisville,KY,13005 Mills Edge Court,Cynthia,38.090539,-85.889248
+Faye,Tracy,Faye Tracy,357,1957-10-06,61,2008-12-06,Nashville,TN,5908 Sedberry Road,Cynthia,36.1148079,-86.869148
+Peter,Fechtner,Peter Fechtner,358,1974-07-11,44,2002-11-03,Montgomery,AL,2315 Chestnut Street,Robert,32.367382,-86.27867599999999
+Julie,Lockhart,Julie Lockhart,359,1965-12-05,52,2012-09-11,Fountain,FL,9716 South Silver Lake Road,Cynthia,30.486086,-85.47367190000001
+Marvin,Mayo,Marvin Mayo,360,1972-12-08,45,2002-04-12,Panama City,FL,2560 Michigan Court,Robert,30.195109,-85.707312
+Amber,Coronado,Amber Coronado,361,1963-10-16,55,2007-05-14,Washington,DC,513 10th Street Southeast,Cynthia,38.8822501,-76.9926471
+Lorrie,Chevas,Lorrie Chevas,362,1984-03-28,34,2012-09-18,Louisville,KY,205 Harrison Avenue,Cynthia,38.242139,-85.540162
+Gretchen,Ramiez,Gretchen Ramiez,363,1988-01-23,30,2016-11-04,Montgomery,AL,3522 Whiting Avenue,Cynthia,32.341878,-86.32006299999999
+Bruce,Hedrick,Bruce Hedrick,364,1990-05-21,28,2001-12-02,Lowell,MA,584 Westford Street,Robert,42.6337599,-71.33707030000001
+James,Baker,James Baker,365,1965-11-27,52,2005-12-18,Washington,DC,3607 R Street Northwest,Cynthia,38.913859,-77.0715419
+Mary,Burkett,Mary Burkett,366,1987-07-10,31,2014-05-21,Panama City,FL,6818 North Lagoon Drive,Cynthia,30.159839,-85.76199
+Monique,Bigelow,Monique Bigelow,367,1985-01-27,33,2017-12-09,Washington,DC,601 Farragut Place Northeast,Robert,38.951089,-76.997855
+Deanna,Parenteau,Deanna Parenteau,368,1988-11-15,29,2009-11-20,Louisville,KY,1606 Trevilian Way,Robert,38.2136971,-85.7000308
+Mary,Draper,Mary Draper,369,1985-10-04,33,2009-12-19,Montgomery,AL,2036 Gorgas Street,Robert,32.357301,-86.276583
+Emily,Halas,Emily Halas,370,1988-11-26,29,2014-06-02,Worcester,MA,63 Dorchester Street,Cynthia,42.25189,-71.793182
+Joyce,Meagher,Joyce Meagher,371,1984-03-07,34,2017-09-13,Nashville,TN,1809 Hughes Street,Robert,36.189117,-86.81445699999999
+Eduardo,Self,Eduardo Self,372,1983-01-19,35,2012-01-13,Nashville,TN,629 Debbie Drive,Cynthia,36.208114,-86.58621199999999
+Sharon,Eaton,Sharon Eaton,373,1983-05-26,35,2013-10-02,Severna Park,MD,12 Saint Andrews Crossover,Cynthia,39.086046,-76.593603
+Cindy,Grubbs,Cindy Grubbs,374,1973-09-04,45,2014-06-03,Savannah,GA,1900 Lincoln Street,Robert,32.0574393,-81.0962614
+Nancy,Hassell,Nancy Hassell,375,1990-02-17,28,2011-01-16,Glendale,AZ,15253 North 62nd Avenue,Robert,33.6226261,-112.1931236
+Christina,Champlin,Christina Champlin,376,1978-04-05,40,2013-09-27,Hayward,CA,236 Alden Road,Robert,37.682588,-122.112121
+Rachelle,Newman,Rachelle Newman,377,1976-07-02,42,2004-02-19,Riverview,FL,10802 Brickside Court,Cynthia,27.801051,-82.327653
+Theresa,Buendia,Theresa Buendia,378,1982-07-13,36,2015-05-22,Montgomery,AL,741 Amity Lane,Cynthia,32.397793,-86.204089
+Pamela,Brooks,Pamela Brooks,379,1951-02-20,67,2008-09-14,Westmore,VT,210 Lacross Lane,Cynthia,44.771005,-72.048664
+Jose,Solis,Jose Solis,380,1988-04-22,30,2002-07-22,Fremont,CA,4876 Norris Road,Robert,37.543515,-122.008143
+Judith,Barker,Judith Barker,381,1960-08-17,58,2003-02-23,Piedmont,CA,1 Portsmouth Road,Cynthia,37.816922,-122.235478
+Leonard,Didonna,Leonard Didonna,382,1966-06-09,52,2015-03-28,Glen Burnie,MD,219 Shana Road,Cynthia,39.1528017,-76.60245239999999
+Anna,Sullivan,Anna Sullivan,383,1981-11-11,36,2017-12-08,Annapolis,MD,814 Coachway,Robert,39.022008,-76.53079
+Antonio,Mcintyre,Antonio Mcintyre,384,1959-03-11,59,2002-11-27,Edmond,OK,325 East 7th Street,Cynthia,35.6480391,-97.47550249999999
+Ina,Zabinski,Ina Zabinski,385,1979-11-16,38,2004-07-08,Concord,CA,1238 Roanwood Way,Robert,37.94042,-121.944464
+Robert,Whitney,Robert Whitney,386,1972-05-14,46,2013-03-23,Montgomery,AL,2044 Bullard Street,Robert,32.356948,-86.2778699
+Bradley,Lippincott,Bradley Lippincott,387,1953-01-27,65,2010-02-07,Oklahoma City,OK,1001 Northwest 104th Street,Robert,35.57694,-97.530186
+Phyllis,Brewer,Phyllis Brewer,388,1963-08-02,55,2014-10-26,Fountain,FL,17615 Center Drive,Robert,30.467356,-85.424572
+Alfred,Mcintire,Alfred Mcintire,389,1961-11-26,56,2001-08-25,Washington,DC,449 15th Street Northeast,Cynthia,38.896241,-76.983372
+John,Green,John Green,390,1974-10-17,44,2015-10-11,Louisville,KY,3408 Taylorsville Road,Cynthia,38.2217118,-85.6571735
+Mary,Flythe,Mary Flythe,391,1982-08-17,36,2010-02-07,Arvada,CO,5073 West 65th Place,Cynthia,39.815543,-105.05209
+Arthur,Bedell,Arthur Bedell,392,1955-01-02,63,2007-08-21,Montgomery,AL,915 Heath Drive,Robert,32.363883,-86.333247
+Paul,Belew,Paul Belew,393,1968-02-22,50,2001-02-07,Edgewater,MD,105 Bear Creek Parkway,Cynthia,38.901074,-76.524779
+Donald,Guthmiller,Donald Guthmiller,394,1970-02-04,48,2000-12-26,Oklahoma City,OK,1136 Northwest 31st Street,Cynthia,35.5015,-97.5315778
+Natalia,Daws,Natalia Daws,395,1962-09-13,56,2003-05-03,Anchorage,AK,716 O Street,Robert,61.2151561,-149.9098424
+Jacob,Gallup,Jacob Gallup,396,1954-11-01,64,2010-09-23,Oklahoma City,OK,2829 Cambridge Court,Robert,35.54268,-97.564402
+Sara,Juariqui,Sara Juariqui,397,1965-10-26,53,2008-07-03,Anchorage,AK,4900 Cambridge Way,Cynthia,61.175974,-149.904861
+Ryan,Griggs,Ryan Griggs,398,1990-01-10,28,2004-08-14,Savannah,GA,43 Henderson Avenue,Robert,31.97937899999999,-81.06062
+Danielle,Goodwin,Danielle Goodwin,399,1953-12-23,64,2008-01-06,Salem,MA,24 Norman Street,Robert,42.520197,-70.896807
+Matthew,Rogers,Matthew Rogers,400,1950-04-26,68,2016-06-16,San Leandro,CA,1521 159th Avenue,Cynthia,37.70179340000001,-122.1192658
+Mary,Meyer,Mary Meyer,401,1966-05-13,52,2013-06-18,Montgomery,AL,3354 Wilmington Road,Cynthia,32.345724,-86.301384
+Kimberly,Sumpter,Kimberly Sumpter,402,1981-01-09,37,2014-01-15,Panama City Beach,FL,141 West Leslie Lane,Cynthia,30.184254,-85.813002
+Angelia,Kohn,Angelia Kohn,403,1951-03-10,67,2017-05-22,Manchester,CT,200 West Center Street,Robert,41.77056450000001,-72.54388569999999
+William,Hudec,William Hudec,404,1953-12-07,64,2013-05-17,Oklahoma City,OK,2835 Southwest 78th Street,Cynthia,35.3874512,-97.5644501
+Joe,Anklam,Joe Anklam,405,1972-02-21,46,2005-10-07,Savannah,GA,1612 Whitemarsh Way,Robert,32.0372429,-81.0156669
+Mary,Delacruz,Mary Delacruz,406,1976-10-09,42,2006-12-06,Berkeley,CA,1528 Spruce Street,Cynthia,37.879558,-122.266155
+Brian,Summerville,Brian Summerville,407,1958-07-27,60,2008-06-11,Colchester,VT,141 Lavigne Road,Robert,44.52947899999999,-73.200469
+Harry,Bloom,Harry Bloom,408,1977-11-16,40,2017-01-15,Savannah,GA,614 East Duffy Lane,Cynthia,32.0617289,-81.09023880000001
+Vanessa,Wood,Vanessa Wood,409,1950-12-12,67,2000-11-26,Manchester,CT,65 Arcellia Drive,Cynthia,41.788139,-72.491989
+Nathan,Pam,Nathan Pam,410,1988-05-14,30,2000-07-27,Savannah,GA,1405 East 55th Street,Robert,32.037246,-81.082886
+Trey,Rice,Trey Rice,411,1986-05-12,32,2001-11-07,Fremont,CA,37608 2nd Street,Cynthia,37.576224,-121.979386
+Kevin,Conner,Kevin Conner,412,1969-10-20,49,2013-12-07,Montgomery,AL,144 Lauderdale Street,Cynthia,32.309978,-86.259716
+Mary,Mcginnis,Mary Mcginnis,413,1983-02-09,35,2016-02-27,Manchester,CT,152 Bissell Street,Cynthia,41.7727917,-72.5136789
+Martha,Parker,Martha Parker,414,1952-09-19,66,2000-07-21,Burlington,MA,9 Kimball Court,Cynthia,42.501798,-71.168725
+Patricia,Caruso,Patricia Caruso,415,1951-01-15,67,2011-06-03,Montgomery,AL,Senators Drive,Cynthia,32.370404,-86.1768135
+Lula,Ortiz,Lula Ortiz,416,1979-09-09,39,2015-03-05,Fayetteville,AR,2100 North Leverett Avenue,Robert,36.090445,-94.16954299999999
+Kenneth,Smtih,Kenneth Smtih,417,1950-05-04,68,2012-11-28,Arvada,CO,6413 Kendall Street,Robert,39.813433,-105.066616
+Richard,Aguirre,Richard Aguirre,418,1964-01-13,54,2007-12-26,Westfield,MA,17 Stratfield Avenue,Robert,42.1291269,-72.7652119
+Sara,Witt,Sara Witt,419,1978-08-13,40,2013-10-21,Pasadena,MD,8380 Lockwood Road,Robert,39.110554,-76.480541
+Glenn,Norton,Glenn Norton,420,1988-02-24,30,2014-02-27,Fayetteville,AR,1835 Pointer Lane,Robert,36.08606899999999,-94.1187549
+Richard,Alvarez,Richard Alvarez,421,1976-11-05,42,2010-02-14,Alameda,CA,11 Eclipse Court,Cynthia,37.7823187,-122.2678109
+Jerry,Lukach,Jerry Lukach,422,1983-01-05,35,2006-04-28,Louisville,KY,6241 Hudson Creek Drive,Robert,38.160127,-85.600579
+Jennie,Santoya,Jennie Santoya,423,1953-05-21,65,2001-08-19,Pasadena,MD,Black Sky Lane,Cynthia,39.1263052,-76.5827778
+Merrill,Minnick,Merrill Minnick,424,1950-01-26,68,2017-06-09,Arvada,CO,6081 Jay Street,Robert,39.8070279,-105.064621
+Clifford,Bouchard,Clifford Bouchard,425,1985-01-11,33,2011-04-13,Savannah,GA,103 Chevis Road,Cynthia,31.996086,-81.259314
+Donna,Oglesby,Donna Oglesby,426,1952-01-24,66,2005-04-07,Fayetteville,AR,683 North Wilson Avenue,Cynthia,36.073326,-94.166248
+John,Diem,John Diem,427,1987-07-21,31,2013-06-06,Anchorage,AK,4907 Roger Drive,Robert,61.17564799999999,-149.839627
+Karen,Hartigan,Karen Hartigan,428,1970-12-21,47,2013-03-19,Arvada,CO,10262 West 59th Avenue,Robert,39.803718,-105.111974
+Rebecca,Vincent,Rebecca Vincent,429,1962-11-14,55,2017-04-05,Hayward,CA,1011 Devon Drive,Robert,37.65444100000001,-122.067741
+Kenny,Andaya,Kenny Andaya,430,1974-05-26,44,2015-06-18,Anchorage,AK,108 East 11th Avenue,Cynthia,61.2115071,-149.8824567
+Peggy,Drey,Peggy Drey,431,1975-02-22,43,2003-11-16,Anchorage,AK,4231 Laurel Street,Cynthia,61.1819427,-149.8341093
+Robert,Dubinsky,Robert Dubinsky,432,1963-03-11,55,2009-10-18,Edgewater,MD,720 South River Landing Road,Cynthia,38.944474,-76.544197
+Joseph,Scheetz,Joseph Scheetz,433,1981-11-02,37,2014-09-23,Lynn Haven,FL,4719 Bayou Bluff Trail,Cynthia,30.236109,-85.599884
+Rachel,Wong,Rachel Wong,434,1968-06-03,50,2009-06-10,Savannah,GA,402 Tuten Avenue,Robert,32.091614,-81.121633
+Gerald,Castro,Gerald Castro,435,1982-11-19,35,2001-12-11,Panama City,FL,2638 East 40th Plaza,Cynthia,30.221445,-85.62478999999999
+Sharon,Brooks,Sharon Brooks,436,1985-06-28,33,2010-06-08,Washington,DC,1644 New Jersey Avenue Northwest,Cynthia,38.91233,-77.017736
+Dennis,Munter,Dennis Munter,437,1960-04-01,58,2007-07-23,Arvada,CO,6950 Reno Drive,Robert,39.7974819,-105.075046
+Bruce,Kaufman,Bruce Kaufman,438,1974-02-09,44,2010-02-13,Glendale,AZ,5843 West McLellan Road,Cynthia,33.5330898,-112.1857087
+Annette,Graves,Annette Graves,439,1952-03-01,66,2003-10-25,Nashville,TN,416 McIver Street,Cynthia,36.10436,-86.74411599999999
+Carolyn,Reeves,Carolyn Reeves,440,1962-06-04,56,2017-01-24,Panama City,FL,1430 South Gay Avenue,Cynthia,30.120243,-85.587605
+Betty,Wilson,Betty Wilson,441,1958-01-08,60,2008-05-04,Montgomery,AL,2500 Snowdoun Chambers Road,Cynthia,32.24569110000001,-86.2577436
+Martha,Paul,Martha Paul,442,1973-09-25,45,2005-08-09,Saint Matthews,KY,903 Mallard Creek Road,Robert,38.2384725,-85.63011589999999
+Horace,Lowe,Horace Lowe,443,1962-02-17,56,2004-11-11,Arvada,CO,11140 West 60th Avenue,Robert,39.805639,-105.122694
+Dolores,Cobbins,Dolores Cobbins,444,1962-11-04,56,2011-01-25,Savannah,GA,1800 East 63rd Street,Robert,32.031138,-81.08280099999999
+Lindsey,Taylor,Lindsey Taylor,445,1973-04-04,45,2001-08-05,Anchorage,AK,1129 I Street,Cynthia,61.2110743,-149.899634
+Ellen,Garza,Ellen Garza,446,1980-04-15,38,2015-10-26,Severn,MD,615 Sand Road,Robert,39.11421199999999,-76.655209
+June,Griggs,June Griggs,447,1986-02-17,32,2008-06-18,Mesa,AZ,11507 East Neville Avenue,Robert,33.366249,-111.5858266
+James,Gallardo,James Gallardo,448,1983-06-25,35,2006-12-15,Shelburne,VT,135 Pond Road,Robert,44.37428999999999,-73.177277
+Patrick,Martin,Patrick Martin,449,1979-05-11,39,2014-11-19,Nashville,TN,5114 Greentree Drive,Cynthia,36.0618539,-86.738508
+Bella,Carrillo,Bella Carrillo,450,1986-11-04,32,2008-10-05,Savannah,GA,733 East DeRenne Avenue,Robert,32.024217,-81.095602
+Raymond,Lombardi,Raymond Lombardi,451,1961-07-09,57,2010-02-13,Anchorage,AK,4907 Roger Drive,Cynthia,61.17564799999999,-149.839627
+Connie,Cortez,Connie Cortez,452,1956-10-18,62,2004-09-14,Waddell,AZ,18505 Onyx Avenue,Cynthia,33.574278,-112.457342
+Shane,Martinez,Shane Martinez,453,1984-11-11,33,2016-05-25,Annapolis,MD,225 Claude Street,Robert,38.99468,-76.501953
+Johnnie,Hewitt,Johnnie Hewitt,454,1961-11-23,56,2007-12-28,Panama City Beach,FL,412 Lakefront Drive,Cynthia,30.2632812,-85.9757722
+Kevin,Banks,Kevin Banks,455,1976-01-13,42,2004-05-18,Panama City Beach,FL,1738 Annabellas Drive,Robert,30.1877596,-85.7782311
+Thelma,Fisher,Thelma Fisher,456,1977-04-27,41,2001-01-28,Arvada,CO,13583 West 68th Avenue,Cynthia,39.8220027,-105.1518073
+Tommy,Hunter,Tommy Hunter,457,1981-08-27,37,2006-02-14,Mountain View,CA,1954 Wilson Court,Cynthia,37.36696999999999,-122.089049
+Cynthia,Hill,Cynthia Hill,458,1971-11-17,46,2012-06-11,Holbrook,MA,34 Belair Drive,Cynthia,42.1348305,-71.001043
+Joyce,Houston,Joyce Houston,459,1954-07-13,64,2006-06-28,Panama City,FL,1405 Mercedes Avenue,Robert,30.1738039,-85.6462091
+James,Matthews,James Matthews,460,1969-09-09,49,2001-05-25,Fremont,CA,4255 Tanager Common,Cynthia,37.5738888,-122.0460256
+Lance,Richter,Lance Richter,461,1971-04-21,47,2013-04-02,Panama City,FL,6911 Steven Road,Robert,30.273937,-85.53093799999999
+Francisco,Henry,Francisco Henry,462,1978-12-28,39,2012-09-20,Mexico Beach,FL,3114 US Highway 98,Cynthia,29.9491841,-85.41904129999999
+Russell,Slevin,Russell Slevin,463,1954-09-07,64,2012-03-24,Arvada,CO,11813 West 75th Circle,Robert,39.8341751,-105.1322001
+Brandon,Griggs,Brandon Griggs,464,1950-06-27,68,2008-07-15,Savannah,GA,107 Laurel Green Court,Robert,32.025628,-81.24673399999999
+Rhea,Ballew,Rhea Ballew,465,1972-09-05,46,2009-11-10,Washington,DC,832 51st Street Northeast,Cynthia,38.9008832,-76.9273381
+Lynn,Valente,Lynn Valente,466,1986-02-01,32,2004-09-22,Nashville,TN,5434 Cedar Ash Crossing,Robert,36.03928,-86.6286669
+Tina,Green,Tina Green,467,1977-10-17,41,2011-02-12,Glendale,AZ,5837 West Evans Drive,Robert,33.616799,-112.184922
+Kermit,Abed,Kermit Abed,468,1968-10-03,50,2015-10-03,Montgomery,AL,9457 Winfield Place,Robert,32.341347,-86.14867799999999
+Susan,Woolsey,Susan Woolsey,469,1978-02-16,40,2003-03-03,Pooler,GA,208 Towne Lake Way,Cynthia,32.137605,-81.25850600000001
+Fanny,Collins,Fanny Collins,470,1978-05-15,40,2017-01-08,Montgomery,AL,4010 Governors Drive,Robert,32.3300322,-86.2483238
+Sonny,Kitchin,Sonny Kitchin,471,1989-01-05,29,2006-08-03,Montgomery,AL,8700 Lillington Circle,Robert,32.330168,-86.14481099999999
+Rudy,Ashby,Rudy Ashby,472,1964-09-09,54,2005-12-03,Panama City,FL,334 North Cove Boulevard,Cynthia,30.15363,-85.6500873
+Rebecca,Rago,Rebecca Rago,473,1985-08-05,33,2002-06-16,San Leandro,CA,2400 Easy Street,Cynthia,37.70656,-122.108047
+William,Moore,William Moore,474,1972-06-28,46,2009-07-12,Washington,DC,827 10th Street Northeast,Cynthia,38.901021,-76.992391
+Barbara,Williams,Barbara Williams,475,1986-04-16,32,2014-07-16,Anchorage,AK,9101 Vanguard Drive,Robert,61.1382426,-149.84756
+Peter,Cumings,Peter Cumings,476,1950-11-07,68,2003-02-17,Manchester,CT,68 Bigelow Street,Cynthia,41.778697,-72.52448
+John,Ventura,John Ventura,477,1956-03-18,62,2013-07-04,Louisville,KY,1400 Doris Drive,Robert,38.1089043,-85.7403406
+John,Butler,John Butler,478,1969-11-27,48,2011-05-05,Hartford,VT,488 Mill Road,Cynthia,43.658581,-72.33954770000001
+Alberta,Guthrie,Alberta Guthrie,479,1975-06-27,43,2016-02-21,Lynn Haven,FL,307 Meadowood Court,Cynthia,30.237071,-85.60347
+Brent,Pennington,Brent Pennington,480,1975-05-21,43,2002-03-09,Oklahoma City,OK,8307 Brookline Place,Robert,35.3834308,-97.5674947
+Ruth,Hill,Ruth Hill,481,1964-08-16,54,2005-10-12,Savannah,GA,13 Breezy Palm Way,Cynthia,31.994747,-81.06653399999999
+Arthur,Jones,Arthur Jones,482,1979-11-09,38,2013-11-15,Nashville,TN,4225 Eatons Creek Road,Robert,36.214124,-86.865025
+Moses,Gose,Moses Gose,483,1958-09-16,60,2011-05-27,Montgomery,AL,8513 Pipit Court,Robert,32.326354,-86.14844599999999
+Chadwick,Sanderson,Chadwick Sanderson,484,1990-03-05,28,2009-12-07,Glendale,AZ,8546 North 59th Lane,Robert,33.5615847,-112.1884147
+Gloria,Larson,Gloria Larson,485,1959-04-07,59,2001-08-03,Nashville,TN,302 Elberta Street,Cynthia,36.119165,-86.745851
+Rose,Davis,Rose Davis,486,1978-06-26,40,2013-12-14,Louisville,KY,8133 Meadowgreen Place,Robert,38.1899697,-85.60704779999999
+Donald,Duey,Donald Duey,487,1954-08-27,64,2009-06-12,Lynn,MA,172 Chestnut Street,Robert,42.4696809,-70.93746680000001
+Rachael,West,Rachael West,488,1971-06-09,47,2003-02-14,Windham,VT,200 Edson Road,Cynthia,43.2215166,-72.7049368
+Bernardo,Branch,Bernardo Branch,489,1952-06-06,66,2013-09-11,Panama City,FL,7509 Linda Lane,Cynthia,30.140681,-85.563592
+Jane,Ferraro,Jane Ferraro,490,1976-01-05,42,2013-10-06,Pueblo,CO,620 Veta Avenue,Robert,38.2580448,-104.636825
+Jacob,Schroer,Jacob Schroer,491,1969-01-28,49,2016-08-03,Worcester,MA,4 Cutting Avenue,Robert,42.307664,-71.79180099999999
+Randy,Cyree,Randy Cyree,492,1953-12-23,64,2001-06-17,Nashville,TN,3180 Parthenon Avenue,Robert,36.1449179,-86.821767
+Patrick,Barton,Patrick Barton,493,1958-06-25,60,2013-09-10,Montgomery,AL,2534 Willena Avenue,Robert,32.39612,-86.27819199999999
+David,Bennett,David Bennett,494,1989-10-24,29,2012-09-17,Anchorage,AK,5116 Emmanuel Avenue,Robert,61.1897802,-149.7867626
+Larry,Gorham,Larry Gorham,495,1972-05-13,46,2008-09-17,Lynn Haven,FL,325 Alexander Drive,Robert,30.220334,-85.65544
+Brandi,Speece,Brandi Speece,496,1985-04-11,33,2003-07-06,Nashville,TN,404 Ramble Wood Circle,Robert,36.042086,-86.9647899
+Mario,Stewart,Mario Stewart,497,1982-06-26,36,2007-06-04,Charlotte,VT,31 Hills Point Road,Cynthia,44.335754,-73.280121
+Gerald,Coleman,Gerald Coleman,498,1957-09-20,61,2013-07-27,Plymouth,MA,8 Chandler Street,Robert,41.7657751,-70.6331276
+Yvonne,Thornburg,Yvonne Thornburg,499,1966-05-26,52,2005-10-04,Rancho Cordova,CA,3228 Chettenham Drive,Robert,38.577813,-121.301333
+William,Horton,William Horton,500,1964-05-20,54,2006-03-26,Anchorage,AK,6143 Prosperity Drive,Cynthia,61.19966700000001,-149.765295
+Shaun,Garcia,Shaun Garcia,501,1975-05-04,43,2004-07-13,Hurstbourne Acres,KY,2300 Deer Path Circle,Robert,38.2187876,-85.59292239999999
+Kimberly,Holland,Kimberly Holland,502,1990-02-19,28,2013-01-08,Fremont,CA,4738 Mallard Common,Robert,37.5666441,-122.0444344
+Mary,Buie,Mary Buie,503,1989-04-28,29,2012-12-13,Panama City,FL,231 South Kimbrel Avenue,Robert,30.14022199999999,-85.58254699999999
+Todd,Jones,Todd Jones,504,1974-12-23,43,2001-01-11,Watertown,MA,74 Bradford Road,Cynthia,42.3764483,-71.17979
+Erica,Betancourt,Erica Betancourt,505,1978-12-17,39,2014-03-01,Oklahoma City,OK,516 Southwest 60th Terrace,Cynthia,35.4051605,-97.5223633
+Lori,Ervin,Lori Ervin,506,1988-12-09,29,2012-12-20,Farmington,AR,196 Ruth Street,Robert,36.045747,-94.23354599999999
+Donna,Hartley,Donna Hartley,507,1966-01-25,52,2004-08-16,Anchorage,AK,6740 Dickerson Drive,Cynthia,61.221587,-149.75383
+Valerie,Genet,Valerie Genet,508,1963-12-04,54,2007-10-21,Panama City,FL,103 North East Avenue,Robert,30.14617599999999,-85.625518
+Richard,Chan,Richard Chan,509,1969-04-10,49,2009-03-19,Sun City Center,FL,1122 McDaniel Street,Cynthia,27.693293,-82.37096849999999
+Marjorie,Stewart,Marjorie Stewart,510,1974-12-21,43,2016-09-10,Louisville,KY,1244 South 4th Street,Robert,38.233598,-85.7610867
+James,Fischl,James Fischl,511,1957-03-24,61,2005-12-21,Thunderbolt,GA,2817 3rd Street,Cynthia,32.0327305,-81.0530522
+Scott,Collins,Scott Collins,512,1955-01-15,63,2012-10-10,Nashville,TN,1613 Maple Timber Court,Cynthia,36.067096,-86.607005
+Frances,Williamson,Frances Williamson,513,1976-09-14,42,2014-09-22,Crofton,MD,2334 Nantucket Drive,Cynthia,39.0298609,-76.67307600000001
+Tammy,Mora,Tammy Mora,514,1951-03-03,67,2009-10-19,Anchorage,AK,401 East Northern Lights Boulevard,Robert,61.19566319999999,-149.8762046
+Latonia,Kopicko,Latonia Kopicko,515,1980-04-25,38,2002-09-01,Chester,VT,130 Old Route 103,Cynthia,43.224335,-72.54227399999999
+Tom,Felty,Tom Felty,516,1985-01-28,33,2003-08-08,Manchester,CT,131 Kent Drive,Robert,41.803084,-72.492786
+Ana,Bilal,Ana Bilal,517,1953-02-12,65,2007-05-09,San Leandro,CA,2400 Easy Street,Robert,37.70656,-122.108047
+Ray,Nilsson,Ray Nilsson,518,1971-05-18,47,2013-08-06,Washington,DC,2927 Martin Luther King Junior Avenue Southeast,Cynthia,38.845443,-76.9975165
+Vilma,Spearman,Vilma Spearman,519,1973-01-09,45,2006-05-16,Alameda,CA,72 Salmon Road,Cynthia,37.739659,-122.255689
+Anthony,King,Anthony King,520,1958-12-01,59,2013-04-19,Anchorage,AK,3901 Old Seward Highway,Robert,61.1853511,-149.8649285
+Jose,Griego,Jose Griego,521,1969-02-15,49,2016-06-07,Pasadena,MD,1243 Doris Avenue,Robert,39.109591,-76.486294
+Willie,Pina,Willie Pina,522,1960-02-27,58,2000-09-06,Hardwick,MA,64 Church Street,Cynthia,42.3126052,-72.2026295
+Manuel,Sherer,Manuel Sherer,523,1970-12-13,47,2013-01-13,Arvada,CO,6534 Benton Circle,Cynthia,39.815171,-105.057149
+Frances,Decker,Frances Decker,524,1957-06-26,61,2013-12-24,Glen Burnie,MD,7808 Baltimore Annapolis Boulevard,Robert,39.14247599999999,-76.590255
+John,Blumenfeld,John Blumenfeld,525,1989-11-09,28,2008-03-10,Arvada,CO,6276 Devinney Circle,Robert,39.80981,-105.156147
+Alonzo,Blanco,Alonzo Blanco,526,1987-03-26,31,2006-08-16,Anchorage,AK,11901 Northern Raven Drive,Robert,61.112897,-149.837535
+Elizabeth,Sottile,Elizabeth Sottile,527,1975-10-05,43,2001-02-10,San Leandro,CA,1780 142nd Avenue,Robert,37.7168246,-122.1336681
+John,Haller,John Haller,528,1982-12-07,35,2009-01-07,Washington,DC,1710 Monroe Street Northeast,Robert,38.933363,-76.98034799999999
+Kyle,Williams,Kyle Williams,529,1960-08-17,58,2010-11-02,Hartford,VT,488 Mill Road,Robert,43.658581,-72.33954770000001
+Mary,Jackman,Mary Jackman,530,1963-03-06,55,2011-08-07,Arvada,CO,8300 Dover Way,Cynthia,39.847382,-105.093116
+Steven,Goldstein,Steven Goldstein,531,1977-07-23,41,2005-01-14,Waitsfield,VT,93 Marble Hill Road,Cynthia,44.181389,-72.866547
+Veronica,Lewis,Veronica Lewis,532,1968-04-15,50,2004-07-27,Edmond,OK,632 Belmar Drive,Robert,35.7016024,-97.4912627
+John,Underwood,John Underwood,533,1986-03-02,32,2006-10-27,Arvada,CO,5385 Iris Street,Robert,39.794498,-105.106056
+William,Aaron,William Aaron,534,1968-05-04,50,2011-09-08,Grand Junction,CO,378 Bonny Street,Robert,39.059697,-108.543777
+Earl,Briggs,Earl Briggs,535,1962-04-25,56,2010-04-10,Anchorage,AK,1320 Huffman Park Drive,Cynthia,61.10976600000001,-149.858039
+David,Barrera,David Barrera,536,1969-11-28,48,2004-10-18,Manchester,CT,200 Boulder Road,Cynthia,41.7792079,-72.494963
+Edna,Hall,Edna Hall,537,1990-06-19,28,2012-10-14,Littleton,CO,5516 West Indore Drive,Cynthia,39.581053,-105.057687
+Carl,Channel,Carl Channel,538,1964-09-09,54,2005-03-09,Oklahoma City,OK,7132 South Villa Avenue,Robert,35.392665,-97.5569639
+Scott,Owens,Scott Owens,539,1965-02-14,53,2002-08-25,Nashville,TN,115 Colemont Court,Robert,36.0603,-86.698751
+Jaime,Brown,Jaime Brown,540,1955-09-20,63,2003-01-16,Oakland,CA,3578 Galindo Street,Cynthia,37.783471,-122.2149729
+Sandra,Lapointe,Sandra Lapointe,541,1954-07-09,64,2004-08-06,Arvada,CO,7622 Vance Drive,Robert,39.835974,-105.079238
+Charles,Brauner,Charles Brauner,542,1987-07-26,31,2016-08-04,San Leandro,CA,1011 San Jose Street,Cynthia,37.72956300000001,-122.147074
+Pablo,Roman,Pablo Roman,543,1964-09-17,54,2002-07-15,Oklahoma City,OK,1311 Northwest 98th Street,Robert,35.5705807,-97.53640229999999
+Thomas,Mccoy,Thomas Mccoy,544,1964-02-06,54,2015-06-01,Annapolis,MD,992 Sherwood Forest Road,Robert,39.01615,-76.56639
+Marty,Britt,Marty Britt,545,1954-11-26,63,2008-04-26,Glendale,AZ,5222 West Laurie Lane,Robert,33.5587639,-112.172235
+Thomas,Altman,Thomas Altman,546,1984-04-06,34,2008-02-20,Fayetteville,AR,1653 Brooks Avenue,Robert,36.04687,-94.17589699999999
+Helen,Jennings,Helen Jennings,547,1958-06-18,60,2016-12-12,Guilford,VT,81 Buck Hill Road,Robert,42.815964,-72.580124
+Vita,Olmstead,Vita Olmstead,548,1956-05-23,62,2006-03-26,Burlington,VT,115 Home Avenue,Cynthia,44.450746,-73.213854
+Marissa,Gordon,Marissa Gordon,549,1976-07-07,42,2013-05-21,Manchester,CT,67 Steeplechase Drive,Robert,41.742648,-72.53360599999999
+Harold,Goodman,Harold Goodman,550,1953-07-22,65,2009-07-08,Panama City,FL,2115 Honeysuckle Drive,Cynthia,30.108185,-85.496292
+Shannon,Montoya,Shannon Montoya,551,1982-09-06,36,2007-11-24,Montgomery,AL,12371 Atlanta Highway,Robert,32.369194,-86.06518799999999
+Kim,Stuart,Kim Stuart,552,1988-09-18,30,2005-05-21,Louisville,KY,11012 Eagles Cove Drive,Cynthia,38.306841,-85.54619
+Tim,Lujan,Tim Lujan,553,1968-12-11,49,2016-04-18,Oakland,CA,725 65th Street,Robert,37.849964,-122.266668
+Mary,Jeffers,Mary Jeffers,554,1966-11-16,51,2003-01-21,Vallejo,CA,637 Britannia Drive,Cynthia,38.10476999999999,-122.193849
+Michael,Larson,Michael Larson,555,1987-11-11,30,2011-08-06,Moore,OK,2325 Eastridge Circle,Robert,35.358778,-97.4688594
+Susan,Pryce,Susan Pryce,556,1953-10-13,65,2004-03-02,Fayetteville,AR,103 Martin Luther King Junior Boulevard,Cynthia,36.0561032,-94.1613141
+Kyle,Lambert,Kyle Lambert,557,1984-06-23,34,2001-02-05,Glendale,AZ,7910 West Krall Street,Robert,33.534019,-112.2299964
+Jill,Nielsen,Jill Nielsen,558,1967-04-28,51,2016-08-18,Arvada,CO,8886 West 77th Circle,Robert,39.838824,-105.0971129
+Hilda,Barrientes,Hilda Barrientes,559,1984-09-17,34,2002-01-06,Manchester,CT,180 Center Street,Robert,41.773626,-72.5265469
+Matthew,South,Matthew South,560,1988-12-18,29,2002-07-04,Anchorage,AK,2631 Northrup Place,Robert,61.1968802,-149.8365951
+John,Brown,John Brown,561,1986-02-12,32,2016-02-03,Savannah,GA,707 Leaning Oaks Drive,Cynthia,32.007317,-80.970293
+Willie,Cook,Willie Cook,562,1954-12-22,63,2009-11-25,Fairfield,CA,3388 Thomasson Lane,Cynthia,38.198231,-122.106795
+Phillip,Linden,Phillip Linden,563,1975-02-14,43,2007-04-28,Arvada,CO,16772 West 70th Avenue,Robert,39.8236429,-105.187982
+Evelyn,Beede,Evelyn Beede,564,1976-08-16,42,2014-02-27,Glendale,AZ,22825 North 74th Lane,Robert,33.691213,-112.219428
+Martha,Gross,Martha Gross,565,1951-04-24,67,2003-03-10,Washington,DC,4130 Legation Street Northwest,Robert,38.9619069,-77.08174199999999
+Valeria,Pete,Valeria Pete,566,1980-01-12,38,2004-05-18,Moore,OK,320 South Ramblin Oaks Drive,Robert,35.3353578,-97.4660835
+Daniel,Taylor,Daniel Taylor,567,1956-04-05,62,2000-02-13,Nashville,TN,1054 Overton Lea Road,Robert,36.077622,-86.79813
+Debbie,Roman,Debbie Roman,568,1990-04-13,28,2011-02-01,Montgomery,AL,2248 South Sutherland Drive,Robert,32.331721,-86.19776999999999
+Ronald,White,Ronald White,569,1983-09-21,35,2000-05-08,Saint Albans City,VT,1689 Fisher Pond Road,Cynthia,44.826977,-73.055054
+Sophia,Mesa,Sophia Mesa,570,1954-02-02,64,2009-06-08,Brockton,MA,9 Montello Street,Cynthia,42.0855398,-71.0173809
+Mirian,Destina,Mirian Destina,571,1962-02-05,56,2010-09-17,Savannah,GA,7 River Otter Lane,Cynthia,31.938468,-81.06171499999999
+Lenora,Law,Lenora Law,572,1972-01-08,46,2015-09-21,Marshfield,MA,150 Meadowview Street,Cynthia,42.1149966,-70.6756703
+Bradley,Aviles,Bradley Aviles,573,1961-05-10,57,2006-08-02,Panama City,FL,312 North Cove Boulevard,Cynthia,30.1520433,-85.6500713
+Linda,Matherne,Linda Matherne,574,1963-10-07,55,2017-11-17,Savannah,GA,113 Dove Lane,Cynthia,31.9852832,-81.065208
+Yu,Schaffert,Yu Schaffert,575,1965-07-28,53,2003-06-17,Arvada,CO,8506 West 54th Avenue,Robert,39.7947797,-105.0921168
+Albert,Reece,Albert Reece,576,1978-12-12,39,2005-11-02,Dummerston,VT,3 Emery Hill Drive,Cynthia,42.957065,-72.587507
+Jone,Moore,Jone Moore,577,1954-10-22,64,2004-02-04,Litchfield Park,AZ,13525 West Stella Lane,Robert,33.528206,-112.350848
+Carolyn,Coleman,Carolyn Coleman,578,1964-02-16,54,2016-04-08,Glendale,AZ,7711 North 51st Avenue,Robert,33.5502243,-112.1665731
+Carla,Brammer,Carla Brammer,579,1978-12-02,39,2011-06-17,Arvada,CO,6385 Oak Street,Robert,39.8119701,-105.1192906
+David,Hinkle,David Hinkle,580,1979-11-10,38,2008-10-21,South Hadley,MA,77 Shadow Brook Estates,Cynthia,42.2215649,-72.57858360000002
+Megan,Maciel,Megan Maciel,581,1972-06-01,46,2008-09-13,Arvada,CO,7720 Allison Street,Cynthia,39.8383411,-105.0855734
+Peggy,Oguin,Peggy Oguin,582,1950-10-08,68,2003-09-15,Anchorage,AK,435 East 5th Avenue,Cynthia,61.217854,-149.875705
+Theresa,Jacobs,Theresa Jacobs,583,1963-10-11,55,2015-02-09,Manchester,CT,32 Prospect Street,Cynthia,41.763702,-72.5306932
+Maria,Bishop,Maria Bishop,584,1982-12-17,35,2016-10-08,Savannah,GA,12 Red Fox Drive,Cynthia,31.981396,-81.22833899999999
+Bradley,Haines,Bradley Haines,585,1972-12-04,45,2011-05-05,Fayetteville,AR,4079 North Sunflower Circle,Robert,36.125191,-94.132121
+Richard,Maus,Richard Maus,586,1985-01-15,33,2001-03-20,Panama City,FL,2538 East 40th Plaza,Cynthia,30.221455,-85.626834
+Kathleen,Esqueda,Kathleen Esqueda,587,1975-10-02,43,2000-01-25,Fayetteville,AR,1666 South Summer Rose Avenue,Robert,36.044801,-94.1003209
+Vera,Belkowski,Vera Belkowski,588,1950-12-20,67,2008-11-07,Nashville,TN,3605 Normandy Place South,Robert,36.1459501,-86.8276312
+Steven,Wolfert,Steven Wolfert,589,1950-11-25,67,2013-12-07,Oklahoma City,OK,4132 Northwest 57th Street,Robert,35.529164,-97.594155
+Anthony,Grier,Anthony Grier,590,1985-06-24,33,2014-02-05,Hayward,CA,1821 Catalpa Way,Robert,37.622266,-122.081085
+Nathan,Castro,Nathan Castro,591,1966-11-08,52,2010-03-24,Savannah,GA,88 Pine Valley Road,Robert,32.022372,-81.0796529
+Deanne,Hardesty,Deanne Hardesty,592,1959-12-25,58,2012-08-04,Fayetteville,AR,1422 North Dawn Drive,Cynthia,36.08123,-94.167422
+Patrick,Menefield,Patrick Menefield,593,1968-12-18,49,2015-11-20,Washington,DC,Mitscher Road,Robert,38.85952229999999,-77.00599009999999
+Lilly,Ponder,Lilly Ponder,594,1986-10-03,32,2016-02-10,Montgomery,AL,4235 Phelan Court,Cynthia,32.297403,-86.22021500000001
+Sharlene,Chapman,Sharlene Chapman,595,1985-07-11,33,2002-08-21,Montgomery,AL,741 Amity Lane,Cynthia,32.397793,-86.204089
+Richard,Haven,Richard Haven,596,1970-01-10,48,2013-05-11,Oklahoma City,OK,4408 Northwest 55th Street,Robert,35.526527,-97.59923599999999
+Annie,Ford,Annie Ford,597,1956-08-15,62,2002-02-25,Glendale,AZ,5950 West Missouri Avenue,Cynthia,33.5180142,-112.1891119
+Helen,Wright,Helen Wright,598,1970-11-02,48,2008-01-13,Anchorage,AK,4050 Lake Otis Parkway,Cynthia,61.18408040000001,-149.8382083
+Jose,Prucha,Jose Prucha,599,1964-11-23,53,2012-06-19,Manchester,CT,95 Briarwood Drive,Cynthia,41.745751,-72.542544
+Carrie,Shumway,Carrie Shumway,600,1964-08-18,54,2017-02-04,Fremont,CA,4253 San Juan Avenue,Cynthia,37.560886,-122.021195
+Charles,Mcfadden,Charles Mcfadden,601,1971-12-09,46,2012-06-01,Oakland,CA,7725 Ney Avenue,Robert,37.767338,-122.167775
+Rachel,Chenoweth,Rachel Chenoweth,602,1962-07-24,56,2003-12-24,Littleton,CO,5516 West Indore Drive,Cynthia,39.581053,-105.057687
+Patrick,Leffew,Patrick Leffew,603,1961-10-03,57,2008-10-12,Nashville,TN,314 Lallemand Court,Cynthia,36.078873,-86.694142
+Kenneth,Barash,Kenneth Barash,604,1985-11-02,33,2012-12-14,Louisville,KY,Little Rock Court,Cynthia,38.3214271,-85.5421016
+Rhonda,Davies,Rhonda Davies,605,1977-09-28,41,2000-05-28,Anchorage,AK,4516 Old Seward Highway,Cynthia,61.1796427,-149.8693945
+Paul,Harvey,Paul Harvey,606,1973-06-17,45,2002-11-09,Tahoe City,CA,3115 North Lake Boulevard,Cynthia,39.190947,-120.108825
+Evan,Dempster,Evan Dempster,607,1983-06-04,35,2012-12-24,Montgomery,AL,915 Heath Drive,Robert,32.363883,-86.333247
+Jaime,Rylee,Jaime Rylee,608,1959-05-12,59,2001-11-13,Arvada,CO,5650 West 60th Avenue,Cynthia,39.804868,-105.058319
+Bradley,Davis,Bradley Davis,609,1967-12-15,50,2013-11-14,Nashville,TN,600 12th Avenue South,Robert,36.1511457,-86.783423
+Carrie,Deal,Carrie Deal,610,1983-06-28,35,2013-12-13,Severna Park,MD,722 Oak Grove Circle,Cynthia,39.069901,-76.52649699999999
+James,Vaneck,James Vaneck,611,1968-08-24,50,2017-02-22,Moore,OK,720 Southwest 2nd Street,Robert,35.3362859,-97.4996421
+Jorge,Stevenson,Jorge Stevenson,612,1957-12-22,60,2017-12-17,Arvada,CO,6007 Yarrow Street,Cynthia,39.806211,-105.084446
+Harry,Gorsky,Harry Gorsky,613,1974-02-02,44,2000-08-04,Fremont,CA,3777 Mowry Avenue,Robert,37.5497744,-121.9881106
+Carol,Moss,Carol Moss,614,1950-10-07,68,2000-10-21,Selma,CA,2409 Park Street,Cynthia,36.55983190000001,-119.6183089
+Ann,Simpson,Ann Simpson,615,1975-02-05,43,2012-03-09,Louisville,KY,2707 Wendell Avenue,Cynthia,38.219641,-85.659446
+Angel,Chipman,Angel Chipman,616,1986-05-12,32,2006-05-11,Washington,DC,1559 Alabama Avenue Southeast,Cynthia,38.8467679,-76.98076200000001
+Sean,Morris,Sean Morris,617,1966-05-04,52,2007-10-02,Fountain,FL,9716 South Silver Lake Road,Cynthia,30.486086,-85.47367190000001
+Rose,Reid,Rose Reid,618,1990-02-22,28,2012-10-13,Montgomery,AL,1332 Maple Street,Robert,32.3589738,-86.3278235
+Herbert,Rose,Herbert Rose,619,1966-04-03,52,2017-10-18,Norton,MA,14 Olympia Street,Robert,41.955988,-71.20811100000002
+Bradley,Garcia,Bradley Garcia,620,1958-08-13,60,2004-04-18,Washington,DC,7060 Eastern Avenue,Robert,38.977426,-77.01809999999999
+Nita,Rodriques,Nita Rodriques,621,1987-11-17,30,2003-02-05,West Sacramento,CA,1497 Greenbrier Road,Cynthia,38.547427,-121.521598
+Helen,Castillo,Helen Castillo,622,1967-05-07,51,2012-09-13,Savannah,GA,126 Sunshine Road,Cynthia,32.059784,-81.202271
+Ben,Seevers,Ben Seevers,623,1978-04-06,40,2014-09-15,Lynn Haven,FL,111 Lakeview Terrace,Robert,30.235297,-85.605544
+Greg,Baird,Greg Baird,624,1970-12-21,47,2000-05-24,Anchorage,AK,1841 Logan Street,Robert,61.20354099999999,-149.833058
+Lloyd,Omoyosi,Lloyd Omoyosi,625,1968-09-20,50,2012-02-25,Glendale,AZ,6286 West Louise Drive,Robert,33.68332,-112.193544
+Sylvia,Connell,Sylvia Connell,626,1950-07-12,68,2000-04-27,Savannah,GA,110 Central Junction Boulevard,Robert,32.054279,-81.13059799999999
+James,Gordo,James Gordo,627,1976-08-22,42,2009-05-08,Glendale,AZ,19259 North 61st Drive,Robert,33.659422,-112.191284
+Anthony,Oliveira,Anthony Oliveira,628,1973-05-18,45,2013-07-26,Fayetteville,AR,557 West Willoughby Road,Robert,36.019975,-94.16828199999999
+Pete,Tigner,Pete Tigner,629,1961-08-19,57,2010-06-19,Oklahoma City,OK,10001 Pheasant Lane,Robert,35.571646,-97.63995700000001
+Emilie,Abrams,Emilie Abrams,630,1988-09-28,30,2012-02-27,Lynn Haven,FL,2909 Minnesota Avenue,Cynthia,30.2138724,-85.64491489999999
+Rachel,Diaz,Rachel Diaz,631,1960-07-25,58,2011-07-08,Glendale,AZ,6060 West Royal Palm Road,Cynthia,33.557131,-112.189432
+Carolyn,Harris,Carolyn Harris,632,1978-07-28,40,2005-11-01,Revere,MA,382 Ocean Avenue,Cynthia,42.411366,-70.991801
+Geoffrey,Walton,Geoffrey Walton,633,1950-03-23,68,2001-01-04,Manchester,CT,99 Summer Street,Cynthia,41.7701909,-72.541037
+Linda,Alexander,Linda Alexander,634,1953-11-25,64,2016-01-26,Edmond,OK,1015 Castle Road,Robert,35.665019,-97.466045
+Louise,Johnson,Louise Johnson,635,1956-04-23,62,2017-05-19,Linthicum Heights,MD,406 North Hammonds Ferry Road,Cynthia,39.212529,-76.662395
+Cherise,Colon,Cherise Colon,636,1968-03-22,50,2016-10-17,Panama City Beach,FL,218 Oleander Drive,Robert,30.248032,-85.936684
+Raymond,Schulze,Raymond Schulze,637,1950-01-09,68,2001-02-27,Panama City,FL,7041 Coe Road,Robert,30.2716997,-85.5325422
+Bernice,Whitesell,Bernice Whitesell,638,1981-11-20,36,2017-02-17,Nashville,TN,204 Blue Hills Drive,Robert,36.166786,-86.68691199999999
+Kirk,Hawkins,Kirk Hawkins,639,1956-11-22,61,2016-09-22,Severn,MD,8358 WB&A Road,Robert,39.108962,-76.68668799999999
+Estella,Brett,Estella Brett,640,1966-04-02,52,2012-06-09,Washington,DC,627 Emerson Street Northwest,Robert,38.950225,-77.0212169
+Gracie,Clemons,Gracie Clemons,641,1958-03-19,60,2007-07-16,Savannah,GA,2212 Daffin Drive,Cynthia,32.027338,-81.07870799999999
+Javier,Guerrero,Javier Guerrero,642,1979-09-26,39,2011-10-04,Louisville,KY,8915 Shevie Drive,Robert,38.1254107,-85.84821219999999
+Robby,Bolenbaugh,Robby Bolenbaugh,643,1961-12-25,56,2005-05-11,Golden,CO,6095 Terry Lane,Cynthia,39.807376,-105.191019
+Elena,Duncan,Elena Duncan,644,1958-01-19,60,2010-06-25,Manchester,CT,65 Arcellia Drive,Cynthia,41.788139,-72.491989
+Edwin,Wagner,Edwin Wagner,645,1952-01-02,66,2004-03-09,Montgomery,AL,2441 Chase Park Drive,Robert,32.4266516,-86.2700112
+James,Robinson,James Robinson,646,1977-07-10,41,2010-09-18,Glendale,AZ,6932 West Montebello Avenue,Robert,33.5202714,-112.2088875
+Julia,Ogle,Julia Ogle,647,1971-06-27,47,2010-06-18,Nashville,TN,1907 18th Avenue South,Cynthia,36.134703,-86.79737700000001
+James,Straight,James Straight,648,1977-05-01,41,2008-07-24,Louisville,KY,208 Kinnaird Lane,Robert,38.242112,-85.550184
+Russell,Williams,Russell Williams,649,1955-09-09,63,2017-06-28,Fayetteville,AR,1160 North College Avenue,Robert,36.0785477,-94.1566273
+Betty,Krebs,Betty Krebs,650,1954-10-11,64,2012-05-24,Fort Collins,CO,1010 Hillcrest Drive,Cynthia,40.574139,-105.1189987
+Melissa,Tollerud,Melissa Tollerud,651,1953-04-25,65,2015-03-10,Oklahoma City,OK,621 Northwest 94th Street,Cynthia,35.5670088,-97.5246341
+Christopher,Hall,Christopher Hall,652,1953-01-09,65,2005-11-12,Savannah,GA,1101 West 48th Street,Robert,32.0519185,-81.1162954
+Reina,Murphy,Reina Murphy,653,1951-02-07,67,2002-03-17,Littleton,CO,5516 West Indore Drive,Robert,39.581053,-105.057687
+Anthony,Honokaupu,Anthony Honokaupu,654,1975-11-26,42,2008-09-14,Norman,OK,122 East Hayes Street,Robert,35.232121,-97.445053
+Jenifer,Schaff,Jenifer Schaff,655,1959-01-28,59,2005-03-27,Nashville,TN,510 Leeanne Drive,Cynthia,36.067017,-86.72742
+Ossie,Pringle,Ossie Pringle,656,1983-07-18,35,2013-06-21,Fayetteville,AR,2902 North Gregg Avenue,Robert,36.1040853,-94.1635855
+Robert,Alleyne,Robert Alleyne,657,1971-03-17,47,2001-12-25,Manchester,CT,327 Woodbridge Street,Cynthia,41.7940619,-72.509382
+Josie,Gill,Josie Gill,658,1962-09-01,56,2007-04-12,Plymouth,MA,8 Chandler Street,Cynthia,41.7657751,-70.6331276
+Jennie,Rose,Jennie Rose,659,1974-10-01,44,2004-05-08,Edmond,OK,3612 Jim Robison Drive,Cynthia,35.6196504,-97.4676195
+Richard,Bello,Richard Bello,660,1970-11-03,48,2006-04-24,Worcester,MA,20 Hacker Street,Robert,42.244896,-71.8175172
+Edwardo,Turner,Edwardo Turner,661,1986-08-13,32,2017-05-28,Glen Burnie,MD,706 James Road,Cynthia,39.14470499999999,-76.639042
+Julia,Johnson,Julia Johnson,662,1964-02-28,54,2000-04-26,Arvada,CO,6789 West 70th Avenue,Cynthia,39.8236737,-105.0717506
+Scott,Jones,Scott Jones,663,1956-02-05,62,2007-12-11,Castro Valley,CA,20097 Butterfield Drive,Robert,37.6990989,-122.085039
+Wilma,Tate,Wilma Tate,664,1950-03-02,68,2015-07-21,Glendale,AZ,8398 West Denton Lane,Robert,33.515353,-112.240812
+Anna,Reyes,Anna Reyes,665,1964-10-10,54,2006-10-05,Proctor,VT,1 Pond View Road,Robert,43.663678,-73.0458419
+Beulah,Smith,Beulah Smith,666,1979-10-24,39,2003-07-12,Panama City,FL,7431 Gilbert Road,Cynthia,30.2797619,-85.52385749999999
+Aurora,Martinez,Aurora Martinez,667,1959-06-09,59,2008-02-17,Needham,MA,984 Greendale Avenue,Cynthia,42.275811,-71.203287
+Josephine,Warren,Josephine Warren,668,1959-05-22,59,2015-12-24,Manchester,CT,1164 Middle Turnpike West,Cynthia,41.7808152,-72.57570439999999
+Kelly,Morant,Kelly Morant,669,1985-04-18,33,2000-04-15,Washington,DC,1333 Kenyon Street Northwest,Robert,38.930001,-77.0309709
+Martha,Rice,Martha Rice,670,1954-12-28,63,2003-08-16,Montgomery,AL,6275 Eric Lane,Robert,32.303026,-86.226477
+Mark,Conner,Mark Conner,671,1979-09-19,39,2003-09-28,Salinas,CA,1536 North Main Street,Cynthia,36.7122208,-121.6522485
+Beth,Kaneta,Beth Kaneta,672,1956-01-18,62,2010-04-25,Louisville,KY,8415 Running Spring Drive,Cynthia,38.312472,-85.5930939
+Lana,Hernandez,Lana Hernandez,673,1955-04-01,63,2007-07-12,Nashville,TN,3616 Echo Lane,Robert,36.236713,-86.833956
+Kevin,Webb,Kevin Webb,674,1976-06-24,42,2012-01-12,Fremont,CA,4770 Balboa Way,Cynthia,37.551937,-122.021022
+Sandra,Parish,Sandra Parish,675,1952-08-05,66,2002-04-12,Anchorage,AK,22649 McManus Drive,Robert,61.418189,-149.460766
+Maida,Wheeler,Maida Wheeler,676,1955-08-24,63,2016-05-06,Savannah,GA,110 Central Junction Boulevard,Cynthia,32.054279,-81.13059799999999
+Rene,Perez,Rene Perez,677,1965-01-13,53,2014-07-11,Anchorage,AK,4221 Thompson Avenue,Robert,61.2277595,-149.8015005
+Benjamin,Heath,Benjamin Heath,678,1961-09-25,57,2012-05-25,Nashville,TN,312 Shepherd Hills Drive,Robert,36.29248,-86.691462
+Michael,Marvin,Michael Marvin,679,1963-04-14,55,2012-07-19,Webster,MA,194 North Main Street,Robert,42.0622129,-71.8779105
+Pablo,Nieto,Pablo Nieto,680,1988-07-19,30,2005-10-18,Grand Junction,CO,491 Arabian Way,Cynthia,39.07548999999999,-108.474785
+Raymond,Moore,Raymond Moore,681,1974-12-16,43,2010-05-07,Oakland,CA,3578 Galindo Street,Robert,37.783471,-122.2149729
+Eric,Whitson,Eric Whitson,682,1988-07-17,30,2012-03-19,Panama City Beach,FL,21402 Caribbean Lane,Cynthia,30.25459499999999,-85.9513149
+Kelsey,Davis,Kelsey Davis,683,1958-09-04,60,2011-01-12,Panama City,FL,2560 Michigan Court,Cynthia,30.195109,-85.707312
+Jason,Robinson,Jason Robinson,684,1950-03-13,68,2009-01-13,Montgomery,AL,646 Clinton Street,Robert,32.3602725,-86.3183004
+Kenneth,Levine,Kenneth Levine,685,1975-06-08,43,2004-01-17,Edgewater,MD,3579 2nd Avenue,Cynthia,38.91283200000001,-76.5224099
+Maxine,Esperanza,Maxine Esperanza,686,1983-08-08,35,2007-03-18,Washington,DC,4700 10th Street Northeast,Cynthia,38.946402,-76.99293999999999
+Bette,Mcgregor,Bette Mcgregor,687,1976-01-20,42,2015-07-28,Washington,DC,1636 Church Street Northwest,Cynthia,38.91038959999999,-77.0381549
+Tara,Mcfadden,Tara Mcfadden,688,1983-01-19,35,2017-05-28,Arvada,CO,7966 Chase Circle,Cynthia,39.840388,-105.05578
+Shantel,Eccleston,Shantel Eccleston,689,1981-05-08,37,2013-12-23,Fayetteville,AR,2732 North Ashbrook Drive,Robert,36.100738,-94.12509399999999
+Sheila,Harris,Sheila Harris,690,1983-07-16,35,2004-07-23,Montgomery,AL,1361 Barret Park Way,Cynthia,32.3073745,-86.14638219999999
+Alicia,Brown,Alicia Brown,691,1983-12-01,34,2003-11-21,Ardmore,OK,915 Hargrove Street,Cynthia,34.184371,-97.13386190000001
+Tonya,Brown,Tonya Brown,692,1983-10-18,35,2013-02-01,Louisville,KY,200 Edgewood Way,Cynthia,38.2472771,-85.55492919999999
+Rose,Mendes,Rose Mendes,693,1990-02-26,28,2009-06-06,Arvada,CO,8532 Ingalls Circle,Robert,39.8532617,-105.0629712
+Geraldine,Fujii,Geraldine Fujii,694,1986-08-05,32,2011-03-04,Anchorage,AK,6143 Prosperity Drive,Robert,61.19966700000001,-149.765295
+Jennifer,Chancey,Jennifer Chancey,695,1967-03-20,51,2007-03-03,Springfield,MA,60 Montgomery Street,Cynthia,42.1564515,-72.4948435
+Lillian,Wilson,Lillian Wilson,696,1972-03-03,46,2001-05-22,Edmond,OK,1601 East 19th Street,Cynthia,35.635514,-97.458704
+Miguel,Griffin,Miguel Griffin,697,1960-03-05,58,2014-07-23,Anchorage,AK,4231 Laurel Street,Robert,61.1819427,-149.8341093
+Linda,Mirabella,Linda Mirabella,698,1982-06-04,36,2012-07-23,Waterbury Center,VT,1402 Maggies Way,Cynthia,44.410965,-72.71017499999999
+Angela,Brown,Angela Brown,699,1985-02-07,33,2011-12-16,Panama City Beach,FL,8315 Surf Drive,Robert,30.163458,-85.785449
+Gerald,Weber,Gerald Weber,700,1953-07-06,65,2002-06-04,Glendale,AZ,7407 North 75th Drive,Robert,33.54394670000001,-112.2209465
+Peter,Alldredge,Peter Alldredge,701,1971-01-02,47,2002-08-12,Castro Valley,CA,20375 Wisteria Street,Robert,37.696683,-122.085865
+Arturo,Thurston,Arturo Thurston,702,1977-04-22,41,2015-09-07,Savannah,GA,2 Ambelwood Way,Robert,31.9138389,-81.07297989999999
+Stella,Terrell,Stella Terrell,703,1977-12-24,40,2003-08-11,Braintree,MA,228 Common Street,Robert,42.22427800000001,-71.014608
+Amy,Alexander,Amy Alexander,704,1950-10-19,68,2006-12-05,Norman,OK,508 Baker Street,Robert,35.224961,-97.51696299999999
+Reva,Wagner,Reva Wagner,705,1960-07-18,58,2000-09-20,Nashville,TN,2906 Clare Avenue,Cynthia,36.162322,-86.821303
+Terry,Katz,Terry Katz,706,1966-12-17,51,2015-04-28,Woburn,MA,78 School Street,Robert,42.506877,-71.15299
+Donald,Rosenthal,Donald Rosenthal,707,1987-03-20,31,2002-05-03,Oklahoma City,OK,208 Southeast 19th Street,Robert,35.445591,-97.508117
+Tamara,Doyle,Tamara Doyle,708,1956-04-23,62,2001-12-13,Arvada,CO,8820 Culebra Street,Robert,39.8547193,-105.2138111
+Jose,Cooper,Jose Cooper,709,1971-08-23,47,2011-02-09,Louisville,KY,6703 Bluffview Circle,Robert,38.154164,-85.5569639
+Carol,Carter,Carol Carter,710,1959-09-27,59,2005-11-03,Waterbury Center,VT,1402 Maggies Way,Cynthia,44.410965,-72.71017499999999
+Eusebio,Weinzierl,Eusebio Weinzierl,711,1978-02-06,40,2004-10-10,North Beach,MD,7041 Dover Avenue,Robert,38.721772,-76.539551
+Frank,Wolfe,Frank Wolfe,712,1974-02-05,44,2016-11-07,Nashville,TN,1054 Overton Lea Road,Robert,36.077622,-86.79813
+David,Orielly,David Orielly,713,1965-09-21,53,2009-05-25,Pooler,GA,112 Aquinnah Drive,Cynthia,32.0602837,-81.26482469999999
+Glenn,Ortiz,Glenn Ortiz,714,1989-02-11,29,2010-06-24,Washington,DC,1514 16th Street Southeast,Cynthia,38.8708699,-76.981956
+Jose,Shippey,Jose Shippey,715,1963-11-22,54,2004-08-27,Manchester,CT,18 Cambridge Street,Robert,41.784351,-72.524384
+Harold,Parman,Harold Parman,716,1981-06-17,37,2015-06-26,Fayetteville,AR,2544 Worthington Way,Cynthia,36.09696,-94.11189
+Lisa,Mitchell,Lisa Mitchell,717,1982-09-01,36,2015-06-01,Edgewater,MD,410 Fairlea Drive,Cynthia,38.940422,-76.54894
+Maria,Farrell,Maria Farrell,718,1956-02-11,62,2004-06-25,Hadley,MA,8 Kozera Avenue,Robert,42.36135549999999,-72.57288930000001
+Diane,Lopez,Diane Lopez,719,1965-01-10,53,2010-08-22,Mansfield,MA,10 Erick Road,Cynthia,42.032505,-71.17718599999999
+Todd,Hawkins,Todd Hawkins,720,1970-12-05,47,2017-07-28,Fayetteville,AR,683 North Wilson Avenue,Robert,36.073326,-94.166248
+Joseph,Mcbride,Joseph Mcbride,721,1974-03-03,44,2003-01-10,Pasadena,MD,1990 Poplar Ridge Road,Cynthia,39.130041,-76.457656
+Carol,Boucher,Carol Boucher,722,1960-01-03,58,2017-04-17,Savannah,GA,3 Mad Anthony Lane,Cynthia,31.949414,-81.02015399999999
+Christopher,Knepp,Christopher Knepp,723,1971-04-18,47,2006-01-13,Oklahoma City,OK,4121 Northwest 31st Street,Cynthia,35.502076,-97.594043
+Amanda,White,Amanda White,724,1981-03-02,37,2010-07-12,Castro Valley,CA,19416 Barclay Road,Cynthia,37.70382,-122.091054
+William,Tanner,William Tanner,725,1971-09-21,47,2003-01-13,Louisville,KY,2721 Lindsay Avenue,Cynthia,38.263793,-85.700243
+Deborah,Austin,Deborah Austin,726,1956-02-14,62,2017-12-22,Birmingham,AL,3328 Sunny Meadows Court,Robert,33.382724,-86.715277
+Nell,Yusef,Nell Yusef,727,1959-09-07,59,2006-03-25,Thunderbolt,GA,2817 3rd Street,Robert,32.0327305,-81.0530522
+Cari,Soto,Cari Soto,728,1982-03-01,36,2008-06-19,Concord,CA,3072 The Alameda,Robert,37.976075,-122.021196
+Gale,Lamore,Gale Lamore,729,1951-05-09,67,2010-02-20,Revere,MA,500 Revere Beach Boulevard,Cynthia,42.4282118,-70.9804188
+Charlotte,Vautour,Charlotte Vautour,730,1971-09-18,47,2002-10-13,Anchorage,AK,108 East 11th Avenue,Robert,61.2115071,-149.8824567
+Colette,Foster,Colette Foster,731,1979-12-24,38,2011-09-24,Glendale,AZ,7180 West Paraiso Drive,Robert,33.6923763,-112.2149355
+Emma,Campbell,Emma Campbell,732,1974-08-28,44,2004-05-02,Louisville,KY,5161 Jefferson Boulevard,Robert,38.1579108,-85.67098399999999
+Colton,Irvin,Colton Irvin,733,1969-08-20,49,2004-07-26,Arvada,CO,5611 Kendall Court,Robert,39.7991311,-105.0667299
+Harold,Watson,Harold Watson,734,1990-04-28,28,2009-07-01,Beverly Hills,FL,85 West Seymeria Drive,Cynthia,28.909929,-82.436317
+Dorothy,Woodring,Dorothy Woodring,735,1990-10-24,28,2008-05-18,Glendale,AZ,6101 North 60th Avenue,Robert,33.525917,-112.188811
+James,Mulinix,James Mulinix,736,1989-10-08,29,2005-07-08,Foxborough,MA,184 Oak Street,Robert,42.06659399999999,-71.215166
+Carmen,Hartzell,Carmen Hartzell,737,1981-07-06,37,2000-11-14,Panama City,FL,804 East 7th Court,Robert,30.161259,-85.648719
+Jasper,Fields,Jasper Fields,738,1981-11-06,37,2008-08-28,Glen Burnie,MD,6518 Dolphin Court,Robert,39.198769,-76.63721
+Gloria,Wilson,Gloria Wilson,739,1953-09-21,65,2010-12-05,Panama City Beach,FL,301 Argonaut Street,Cynthia,30.20514,-85.84755899999999
+Fernando,Chavez,Fernando Chavez,740,1978-07-03,40,2002-01-26,Savannah,GA,1800 East 63rd Street,Cynthia,32.031138,-81.08280099999999
+William,Hunter,William Hunter,741,1951-04-12,67,2016-02-02,Union City,CA,33655 5th Street,Robert,37.601043,-122.019351
+Christopher,Chenault,Christopher Chenault,742,1964-06-15,54,2008-01-18,Manchester,CT,22 Star Farms Drive,Robert,41.756721,-72.56769899999999
+Kendra,Martin,Kendra Martin,743,1962-04-01,56,2003-09-07,Fayetteville,AR,962 South Silverado Drive,Robert,36.052776,-94.1399945
+Ellen,Herold,Ellen Herold,744,1975-06-26,43,2013-07-03,Annapolis,MD,1983 Reidsville Street,Cynthia,38.9817243,-76.5313745
+John,Serrano,John Serrano,745,1952-08-13,66,2001-07-10,Glendale,AZ,6601 West Ocotillo Road,Robert,33.53433,-112.2011246
+Barry,Espinoza,Barry Espinoza,746,1973-05-24,45,2003-07-15,Bolton,VT,49 West Street,Robert,44.371346,-72.867516
+Jonna,Edwards,Jonna Edwards,747,1959-03-01,59,2000-12-14,Arvada,CO,7622 Vance Drive,Robert,39.835974,-105.079238
+Kelly,Hearns,Kelly Hearns,748,1954-11-13,64,2012-10-26,Oroville,CA,1870 A Street,Robert,39.499763,-121.551396
+Rosa,Matthews,Rosa Matthews,749,1979-11-05,39,2002-04-03,Montgomery,AL,7309 Live Oak Court,Robert,32.374389,-86.16609
+Kathy,Viverette,Kathy Viverette,750,1986-09-16,32,2015-03-11,Washington,DC,1157 1st Street Northwest,Cynthia,38.90538280000001,-77.0121662
+Eric,Hickey,Eric Hickey,751,1962-11-28,55,2009-11-26,Glendale,AZ,6373 West Golden Lane,Cynthia,33.5652702,-112.1968756
+Louise,Cantell,Louise Cantell,752,1957-06-12,61,2008-06-20,Washington,DC,417 R Street Northwest,Robert,38.91284,-77.016831
+Nancy,Inouye,Nancy Inouye,753,1972-01-02,46,2010-05-05,Savannah,GA,1425 Claremont Circle,Robert,32.062524,-81.123133
+Jacqueline,Caldeira,Jacqueline Caldeira,754,1963-02-01,55,2001-07-15,Manchester,CT,31 Ashworth Street,Robert,41.771831,-72.506789
+Ann,Hernandez,Ann Hernandez,755,1966-04-09,52,2002-07-01,Oakland,CA,1314 89th Avenue,Cynthia,37.7497401,-122.1762833
+Tricia,Steffel,Tricia Steffel,756,1982-11-06,36,2012-04-06,Louisville,KY,4216 Winter Lake Drive,Cynthia,38.0728758,-85.8740936
+Armand,Phillips,Armand Phillips,757,1965-11-23,52,2010-04-28,Palisade,CO,715 36.1 Road,Robert,39.108376,-108.383924
+Virgil,Mcdougal,Virgil Mcdougal,758,1958-07-10,60,2017-03-18,Nashville,TN,1257 John Street,Cynthia,36.14368,-86.761208
+Mary,Townson,Mary Townson,759,1959-01-18,59,2002-10-20,Montgomery,AL,2057 Lucas Street,Cynthia,32.3934472,-86.2766814
+Linda,Jeffries,Linda Jeffries,760,1988-05-27,30,2011-02-22,Santa Cruz,CA,125 John Street,Cynthia,36.950901,-122.046881
+Jesse,Kennedy,Jesse Kennedy,761,1957-01-17,61,2007-01-24,Fremont,CA,38252 Farwell Drive,Robert,37.5376257,-122.0104815
+Terry,Allan,Terry Allan,762,1984-04-16,34,2010-12-19,Hartford,VT,123 Remember Baker Lane,Robert,43.6696484,-72.4299719
+Joy,Smith,Joy Smith,763,1950-01-16,68,2013-12-21,San Leandro,CA,1780 142nd Avenue,Cynthia,37.7168246,-122.1336681
+James,Smith,James Smith,764,1970-08-19,48,2012-09-01,Louisville,KY,8801 Rosshire Drive,Robert,38.1216631,-85.7505505
+Jerry,Then,Jerry Then,765,1982-06-07,36,2002-03-01,Montgomery,AL,709 Mildred Street,Robert,32.371664,-86.319825
+Garrett,Spellacy,Garrett Spellacy,766,1982-12-25,35,2014-09-28,Pittsfield,MA,43 Westminster Street,Cynthia,42.458409,-73.23273499999999
+Claudette,Blevins,Claudette Blevins,767,1964-08-23,54,2004-02-04,Gardena,CA,16502 South Main Street,Cynthia,33.8816216,-118.2753946
+Scott,Robleto,Scott Robleto,768,1975-04-26,43,2009-04-14,Edmond,OK,3612 Jim Robison Drive,Robert,35.6196504,-97.4676195
+Daniel,Labriola,Daniel Labriola,769,1984-01-16,34,2006-05-12,Alameda,CA,565 Amber Isle,Cynthia,37.764288,-122.268645
+Roxie,Brown,Roxie Brown,770,1972-07-05,46,2006-01-01,Oklahoma City,OK,604 Northwest 118th Street,Cynthia,35.5902559,-97.523444
+David,Tomlin,David Tomlin,771,1962-09-05,56,2016-05-26,Norton,MA,14 Olympia Street,Robert,41.955988,-71.20811100000002
+Lora,Rushing,Lora Rushing,772,1965-01-09,53,2015-09-01,Pasadena,MD,3440 Brookhaven Road,Cynthia,39.127619,-76.5278441
+Yvette,Mata,Yvette Mata,773,1967-11-03,51,2015-09-09,Montgomery,AL,4000 Beth Manor Drive,Cynthia,32.3653276,-86.24366189999999
+William,Calkins,William Calkins,774,1963-03-21,55,2003-06-14,Beverly Hills,FL,85 West Seymeria Drive,Cynthia,28.909929,-82.436317
+Arnold,Jahnke,Arnold Jahnke,775,1967-08-23,51,2002-12-16,Glendale,AZ,5039 North 57th Avenue,Robert,33.5105588,-112.181081
+Liana,Hunnicutt,Liana Hunnicutt,776,1951-02-15,67,2015-10-28,Anchorage,AK,3302 Woodland Park Drive,Cynthia,61.190512,-149.927286
+John,Grubbs,John Grubbs,777,1975-09-05,43,2014-10-21,Severn,MD,615 Sand Road,Robert,39.11421199999999,-76.655209
+Cynthia,Standley,Cynthia Standley,778,1984-05-14,34,2008-12-23,Fayetteville,AR,1649 Timberridge Court,Cynthia,36.084563,-94.206082
+Dorine,Phillips,Dorine Phillips,779,1977-05-14,41,2006-07-12,Washington,DC,421 1/2 6th Street Southeast,Cynthia,38.88354700000001,-76.998734
+Gaye,Crier,Gaye Crier,780,1970-10-11,48,2001-03-05,Montgomery,AL,1044 Stokes Road,Cynthia,32.439489,-86.247089
+Angela,Oakley,Angela Oakley,781,1962-08-13,56,2014-05-11,Warr Acres,OK,4807 North Grove Avenue,Cynthia,35.5203601,-97.6147122
+Timothy,Jackson,Timothy Jackson,782,1984-09-23,34,2003-11-23,Manchester,CT,38 Bruce Road,Robert,41.7540679,-72.526937
+Mary,Habicht,Mary Habicht,783,1967-02-20,51,2013-07-01,Annapolis,MD,1433 Bretton View Road,Cynthia,39.026117,-76.471535
+Frank,Fleming,Frank Fleming,784,1966-02-17,52,2004-12-20,Savannah,GA,1900 Lincoln Street,Cynthia,32.0574393,-81.0962614
+Isaiah,Yates,Isaiah Yates,785,1950-11-17,67,2002-07-20,Midwest City,OK,4408 Bonaparte Boulevard,Robert,35.482651,-97.38337399999999
+Charles,Oneil,Charles Oneil,786,1985-06-05,33,2004-03-08,Annapolis,MD,1002 Cedar Ridge Court,Cynthia,38.958121,-76.492963
+David,Mcevoy,David Mcevoy,787,1952-04-23,66,2013-10-27,Glendale,AZ,5157 West Kerry Lane,Robert,33.6600759,-112.170169
+Thomas,Hampton,Thomas Hampton,788,1976-12-12,41,2016-11-26,Louisville,KY,4316 Dover Road,Robert,38.186788,-85.833439
+Gloria,Pallazzo,Gloria Pallazzo,789,1959-10-17,59,2012-10-25,Highgate,VT,91 Hoague Drive,Cynthia,44.93571619999999,-73.0274348
+Anthony,Brotzman,Anthony Brotzman,790,1956-01-17,62,2011-07-07,Manchester,CT,233 Buckland Hills Drive,Cynthia,41.8100683,-72.5453665
+Amanda,Jones,Amanda Jones,791,1956-12-05,61,2014-01-18,Severna Park,MD,722 Oak Grove Circle,Cynthia,39.069901,-76.52649699999999
+Franklin,Blaisdell,Franklin Blaisdell,792,1956-04-19,62,2017-05-07,Hayward,CA,24147 Clinton Court,Cynthia,37.648857,-122.112388
+Elvie,Tomlinson,Elvie Tomlinson,793,1984-11-19,33,2007-06-06,Washington,DC,3538 Albemarle Street Northwest,Robert,38.947617,-77.06859399999999
+Georgia,Scully,Georgia Scully,794,1987-09-11,31,2009-02-28,Montgomery,AL,915 Heath Drive,Cynthia,32.363883,-86.333247
+Ruth,Hereford,Ruth Hereford,795,1955-02-01,63,2011-08-02,Glendale,AZ,10654 North 60th Avenue,Cynthia,33.5833933,-112.189887
+Dolores,Scull,Dolores Scull,796,1990-11-20,27,2016-04-18,Washington,DC,1318 22nd Street Northwest,Robert,38.9078486,-77.0490562
+Leonard,Terry,Leonard Terry,797,1965-04-17,53,2017-02-19,Nashville,TN,718 Dutchmans Court,Cynthia,36.2048851,-86.5994752
+Eldon,Gries,Eldon Gries,798,1973-03-10,45,2014-11-08,Savannah,GA,537 East Waldburg Street,Cynthia,32.0638156,-81.09003910000001
+Joanna,Conway,Joanna Conway,799,1987-03-10,31,2006-08-04,Alameda,CA,1818 Bay Street,Robert,37.7774427,-122.2641515
+Oscar,Adams,Oscar Adams,800,1970-09-27,48,2009-03-05,Fremont,CA,4511 Sloat Road,Robert,37.5420236,-121.9926731
+Carmen,Reth,Carmen Reth,801,1962-05-12,56,2014-11-19,Fayetteville,AR,3142 West Finger Road,Robert,36.042837,-94.205309
+Hannah,Thompson,Hannah Thompson,802,1981-12-20,36,2010-10-10,Hartford,VT,6985 Woodstock Road,Robert,43.6443136,-72.4219284
+Megan,Hacker,Megan Hacker,803,1965-04-24,53,2008-04-13,Glen Burnie,MD,800 Old Stage Road,Robert,39.1480719,-76.6371115
+Walter,Dunn,Walter Dunn,804,1977-01-17,41,2014-03-15,Montgomery,AL,4604 Virginia Loop Road,Robert,32.314591,-86.24074999999999
+Mark,Mcnally,Mark Mcnally,805,1970-11-28,47,2015-10-25,Louisville,KY,534 North 31st Street,Cynthia,38.273639,-85.7982012
+Gabriel,Hughes,Gabriel Hughes,806,1957-11-06,61,2002-05-13,Anchorage,AK,905 Richardson Vista Road,Robert,61.2309498,-149.8576984
+Peggy,Taylor,Peggy Taylor,807,1976-11-06,42,2011-09-01,Anchorage,AK,5330 Shaun Circle,Cynthia,61.132468,-149.782196
+Joy,Odom,Joy Odom,808,1961-08-09,57,2006-10-22,Nashville,TN,1609 Porter Avenue,Robert,36.196292,-86.725028
+Daniel,Cromer,Daniel Cromer,809,1972-10-28,46,2017-10-21,Manchester,CT,163 Highwood Drive,Robert,41.76664299999999,-72.490877
+Coleman,Ewing,Coleman Ewing,810,1984-02-22,34,2015-07-19,Anchorage,AK,249 Yellow Leaf Circle,Robert,61.221345,-149.71888
+Paige,Bishop,Paige Bishop,811,1969-01-26,49,2010-08-22,San Leandro,CA,15267 Hesperian Boulevard,Robert,37.6949779,-122.1311145
+John,Purdy,John Purdy,812,1980-09-14,38,2000-07-28,Norman,OK,996 Ed Noble Parkway,Robert,35.206422,-97.4821307
+Janice,Clark,Janice Clark,813,1982-06-06,36,2002-11-16,Glendale,AZ,5804 West Abraham Lane,Robert,33.677824,-112.183949
+Daniel,Dilday,Daniel Dilday,814,1990-08-03,28,2004-12-20,Anchorage,AK,4221 Thompson Avenue,Cynthia,61.2277595,-149.8015005
+Cynthia,Mcrae,Cynthia Mcrae,815,1983-06-11,35,2011-05-25,Arvada,CO,5327 Pierce Street,Cynthia,39.79299899999999,-105.072757
+Pamela,Zabawa,Pamela Zabawa,816,1967-04-14,51,2004-06-10,Crofton,MD,2008 Aberdeen Drive,Robert,39.010872,-76.6722829
+Lettie,Arnold,Lettie Arnold,817,1951-02-04,67,2004-04-05,Van Buren,AR,2107 Elfen Glen,Cynthia,35.469752,-94.364987
+Sarah,Williams,Sarah Williams,818,1983-05-02,35,2012-08-19,Fayetteville,AR,1629 South Razorback Road,Robert,36.0468184,-94.1812858
+Janelle,Thomas,Janelle Thomas,819,1975-02-21,43,2004-11-26,Hayward,CA,26466 Mockingbird Lane,Cynthia,37.6410262,-122.0864272
+Denise,Ramirez,Denise Ramirez,820,1967-04-11,51,2003-10-16,Glendale,AZ,5601 West Crocus Drive,Cynthia,33.6152469,-112.179737
+Manuela,Houser,Manuela Houser,821,1969-11-13,48,2006-02-26,Montgomery,AL,3100 Don Juan Court,Cynthia,32.4174654,-86.2884313
+Angela,Walker,Angela Walker,822,1972-07-24,46,2004-05-09,Millersville,MD,1771 Daisey Court,Cynthia,39.044662,-76.64797399999999
+Larry,Krause,Larry Krause,823,1957-03-27,61,2002-11-14,Fayetteville,AR,3164 West Woodfield Way,Robert,36.084691,-94.20445
+Carlos,Robinson,Carlos Robinson,824,1960-05-23,58,2004-02-11,Annapolis,MD,1478 Sharps Point Road,Robert,39.003222,-76.43876399999999
+Jeanne,Hogston,Jeanne Hogston,825,1975-09-06,43,2010-08-09,Franklin,VT,5348 Main Street,Cynthia,44.9841611,-72.91668729999999
+Robert,Propst,Robert Propst,826,1987-07-06,31,2007-11-02,Berkeley,CA,1481 Stannage Avenue,Robert,37.87654149999999,-122.2926347
+Jennifer,Butler,Jennifer Butler,827,1960-08-27,58,2009-12-04,Anchorage,AK,1334 East 14th Avenue,Robert,61.208547,-149.857294
+Florence,Smith,Florence Smith,828,1979-04-08,39,2001-05-01,Poultney,VT,1485 Hampshire Hollow Road,Cynthia,43.538445,-73.166016
+Bobby,Scott,Bobby Scott,829,1990-09-28,28,2014-05-21,Port Wentworth,GA,3 Hawser Way,Robert,32.195628,-81.20426499999999
+Eric,Rains,Eric Rains,830,1988-08-10,30,2010-04-08,Savannah,GA,10714 Abercorn Street,Cynthia,31.9795828,-81.1330018
+Brenda,Leetch,Brenda Leetch,831,1973-04-06,45,2010-03-15,Washington,DC,1508 Massachusetts Avenue Southeast,Robert,38.887255,-76.98318499999999
+Nancy,Payton,Nancy Payton,832,1953-12-24,64,2009-06-05,Berkeley,CA,2708 Mabel Street,Cynthia,37.857695,-122.284908
+Carol,Jordan,Carol Jordan,833,1977-06-17,41,2011-05-25,Framingham,MA,189 Danforth Street,Robert,42.3259861,-71.39104990000001
+Brandy,Armstead,Brandy Armstead,834,1957-06-09,61,2008-01-23,Washington,DC,1514 16th Street Southeast,Cynthia,38.8708699,-76.981956
+Michelle,Stanley,Michelle Stanley,835,1977-10-24,41,2017-02-20,Arvada,CO,8295 Moss Circle,Cynthia,39.8460582,-105.1759628
+Michael,Buffington,Michael Buffington,836,1987-11-01,31,2005-02-09,Youngstown,FL,9827 Davenport Avenue,Robert,30.326868,-85.457939
+Brandy,Barker,Brandy Barker,837,1981-04-18,37,2004-07-17,Manchester,CT,118 Pearl Street,Cynthia,41.7741359,-72.5155781
+Anna,Andrews,Anna Andrews,838,1975-05-20,43,2014-11-09,Montgomery,AL,5470 Atlanta Highway,Robert,32.3802399,-86.21232959999999
+Virginia,Brehm,Virginia Brehm,839,1976-03-16,42,2015-09-15,Manchester,CT,171 Tolland Turnpike,Cynthia,41.812844,-72.513702
+Louisa,Martinez,Louisa Martinez,840,1981-06-25,37,2014-03-08,Montgomery,AL,1163 Rosedale Drive,Cynthia,32.394317,-86.274375
+Josephine,Wilson,Josephine Wilson,841,1981-10-24,37,2012-09-08,Anchorage,AK,22424 Birchwood Loop Road,Cynthia,61.3972464,-149.4649636
+Margaret,Donahue,Margaret Donahue,842,1982-10-15,36,2000-11-25,Moore,OK,932 Northwest 20th Street,Cynthia,35.3563709,-97.5080011
+Anthony,Volkert,Anthony Volkert,843,1958-02-01,60,2011-06-06,Newark,CA,5715 Saint Matthew Drive,Robert,37.538738,-122.024679
+Alex,Seabrook,Alex Seabrook,844,1958-08-23,60,2000-09-21,Washington,DC,4339 Benning Road Northeast,Cynthia,38.8917663,-76.93973129999999
+David,Spracklen,David Spracklen,845,1957-03-26,61,2015-01-20,Deale,MD,6000 Parker Drive,Cynthia,38.780208,-76.539991
+Ralph,Hoffman,Ralph Hoffman,846,1957-08-26,61,2003-07-07,Anchorage,AK,2307 East 72nd Avenue,Robert,61.155804,-149.8395899
+Mary,Hurley,Mary Hurley,847,1974-08-18,44,2004-09-15,Washington,DC,6419 8th Street Northwest,Cynthia,38.968037,-77.02396399999999
+Jesse,Bean,Jesse Bean,848,1966-10-27,52,2012-06-12,Colchester,VT,112 Shannon Road,Cynthia,44.514781,-73.15258
+Jill,Boucher,Jill Boucher,849,1983-01-25,35,2010-03-07,Gambrills,MD,2109 Puddingtons Patent Way,Cynthia,38.9810159,-76.656246
+Judith,Enos,Judith Enos,850,1950-03-21,68,2002-03-28,Louisville,KY,6408 Fern Crest Road,Cynthia,38.154488,-85.612144
+Ronald,Stollings,Ronald Stollings,851,1969-02-05,49,2015-04-03,Midwest City,OK,4408 Bonaparte Boulevard,Robert,35.482651,-97.38337399999999
+Diana,Jordan,Diana Jordan,852,1954-01-24,64,2015-08-22,Glendale,AZ,5815 West Del Lago Circle,Cynthia,33.674991,-112.183422
+Randy,Witherspoon,Randy Witherspoon,853,1961-05-23,57,2015-01-14,Berkeley,CA,2035 Ninth Street,Cynthia,37.8676351,-122.2938418
+Richard,Kelly,Richard Kelly,854,1983-10-13,35,2004-08-19,Manchester,CT,86 Highland Street,Cynthia,41.763769,-72.500345
+Robert,Washington,Robert Washington,855,1988-06-11,30,2006-02-21,Homer,AK,57413 Taku Avenue,Cynthia,59.69155499999999,-151.383791
+Roxanna,Wojciak,Roxanna Wojciak,856,1990-04-22,28,2017-04-08,Montgomery,AL,1914 Stratford Downs Drive,Robert,32.3544811,-86.211
+Lori,Adams,Lori Adams,857,1989-12-08,28,2011-07-09,Arvada,CO,8159 West 81st Avenue,Robert,39.843993,-105.089124
+John,Hardison,John Hardison,858,1990-07-08,28,2002-08-13,Maidstone,VT,3541 North Road,Cynthia,44.61203,-71.5981599
+Beverly,Stadler,Beverly Stadler,859,1980-09-23,38,2014-09-16,Easton,MA,120 Depot Street,Robert,42.0420508,-71.0786277
+Terri,Palmer,Terri Palmer,860,1972-03-16,46,2013-04-12,Savannah,GA,618 McLaws Street,Robert,32.018382,-81.09913399999999
+Robin,Stroud,Robin Stroud,861,1956-02-02,62,2012-01-09,Manchester,CT,78 Cliffside Drive,Robert,41.7952975,-72.48649
+David,Marble,David Marble,862,1967-01-05,51,2013-08-07,Nashville,TN,306 Rural Hill Court,Cynthia,36.077414,-86.63667099999999
+Amanda,Mejia,Amanda Mejia,863,1965-06-23,53,2016-03-18,Colchester,VT,29 East Avenue,Cynthia,44.551498,-73.161736
+Janelle,Binns,Janelle Binns,864,1955-02-26,63,2010-06-26,Arvada,CO,6208 Ingalls Street,Robert,39.810149,-105.063267
+Elisabeth,Bradham,Elisabeth Bradham,865,1979-04-15,39,2009-09-23,Lexington,MA,2 Spencer Street,Cynthia,42.432515,-71.206915
+Angela,Pentek,Angela Pentek,866,1967-04-01,51,2005-11-20,Washington,DC,1627 Connecticut Avenue Northwest,Robert,38.9120258,-77.04440380000001
+Don,Cruz,Don Cruz,867,1951-11-25,66,2005-12-02,Nashville,TN,270 Tampa Drive,Cynthia,36.0834724,-86.71200139999999
+Julie,Jenkins,Julie Jenkins,868,1957-08-02,61,2016-03-23,Anchorage,AK,700 Winston Place,Robert,61.215882,-149.737337
+Chris,Sheth,Chris Sheth,869,1967-07-28,51,2009-05-25,Washington,DC,1710 Massachusetts Avenue Southeast,Cynthia,38.886104,-76.98016799999999
+Stanley,Markle,Stanley Markle,870,1954-01-16,64,2005-01-24,East Longmeadow,MA,711 Parker Street,Robert,42.082262,-72.488113
+Cindy,Emerson,Cindy Emerson,871,1950-08-11,68,2014-01-25,Fayetteville,AR,2917 Miramar Drive,Cynthia,36.107054,-94.2004709
+Fanny,Johnson,Fanny Johnson,872,1979-05-26,39,2000-09-27,Fayetteville,AR,1823 North Munchkin Lane,Cynthia,36.0874669,-94.236992
+Betty,Keagle,Betty Keagle,873,1987-09-10,31,2012-03-12,Manchester,CT,20 Masters Way,Cynthia,41.740694,-72.51832
+Anthony,Edson,Anthony Edson,874,1969-11-11,48,2006-01-24,Tyndall Air Force Base,FL,3722 Kisling Loop,Robert,30.1048481,-85.65097360000001
+Lillie,Yates,Lillie Yates,875,1972-12-21,45,2013-09-01,Arvada,CO,6516 Nile Circle,Cynthia,39.814985,-105.176911
+Mary,Kimberling,Mary Kimberling,876,1984-01-21,34,2005-12-26,Montgomery,AL,6005 Tamarack Drive,Cynthia,32.414472,-86.19744999999999
+Tim,Miller,Tim Miller,877,1958-05-11,60,2013-10-07,Panama City Beach,FL,420 Cove Villa Street,Cynthia,30.1931873,-85.761876
+George,Kilberg,George Kilberg,878,1964-06-17,54,2011-07-26,Glendale,AZ,8821 West Myrtle Avenue,Robert,33.5404296,-112.2488391
+Ronald,Mckinney,Ronald Mckinney,879,1959-05-27,59,2012-08-22,Fayetteville,AR,22 South Duncan Avenue,Cynthia,36.0628328,-94.1711035
+Cori,Green,Cori Green,880,1958-08-24,60,2017-06-02,Louisville,KY,8007 Kendrick Crossing Lane,Cynthia,38.12356,-85.560345
+Dixie,Olive,Dixie Olive,881,1974-12-19,43,2003-10-05,Edmond,OK,19448 Currant Drive,Cynthia,35.6697215,-97.5520796
+Damien,Skinner,Damien Skinner,882,1964-05-27,54,2013-09-21,Panama City,FL,714 Venetian Way,Robert,30.221203,-85.67021000000001
+Kenny,Hansell,Kenny Hansell,883,1963-04-03,55,2003-06-13,Montgomery,AL,1931 Beauvoir Lake Drive,Cynthia,32.354542,-86.193607
+Helen,Bergeron,Helen Bergeron,884,1963-04-05,55,2006-06-28,Anchorage,AK,8841 Tempest Circle,Robert,61.1404067,-149.8122451
+Salvador,Joseph,Salvador Joseph,885,1954-12-04,63,2007-11-16,Fall River,MA,225 Almond Street,Robert,41.698185,-71.171035
+Franklin,Day,Franklin Day,886,1978-12-26,39,2016-02-03,Savannah,GA,3110 East Victory Drive,Cynthia,32.035625,-81.054075
+Monica,Campos,Monica Campos,887,1964-09-22,54,2009-07-23,Louisville,KY,600 Marshall Street,Cynthia,38.2500352,-85.7423251
+Judy,Bullock,Judy Bullock,888,1969-06-07,49,2012-01-22,Arvada,CO,6385 Oak Street,Robert,39.8119701,-105.1192906
+Coy,Kuhn,Coy Kuhn,889,1964-12-23,53,2007-01-21,Washington,DC,1318 4th Street Southwest,Robert,38.8742671,-77.0175514
+Margaret,Schuler,Margaret Schuler,890,1978-12-05,39,2012-01-06,Panama City,FL,1607 Louisiana Avenue,Robert,30.177473,-85.651614
+Robert,Rea,Robert Rea,891,1975-06-12,43,2014-11-07,Riva,MD,2708 Riverview Drive,Robert,38.958123,-76.595481
+Sharon,Smith,Sharon Smith,892,1976-03-01,42,2012-05-03,Castleton,VT,175 Creek Road,Cynthia,43.6055996,-73.2336737
+Nan,Wininger,Nan Wininger,893,1983-02-25,35,2008-09-06,Glendale,AZ,6116 West Charter Oak Road,Robert,33.597866,-112.191085
+Sandra,Trexler,Sandra Trexler,894,1970-04-08,48,2000-05-19,Montgomery,AL,940 Ironwood Drive,Robert,32.405795,-86.19257999999999
+Peggy,Sculley,Peggy Sculley,895,1965-07-02,53,2017-05-10,Anchorage,AK,7851 Snow View Drive,Robert,61.149614,-149.8234019
+Shirley,Pharr,Shirley Pharr,896,1980-06-19,38,2008-08-08,Panama City,FL,2716 Fairmont Drive,Robert,30.197948,-85.663404
+Steven,Smith,Steven Smith,897,1974-01-10,44,2000-10-07,Panama City,FL,2527 Lisenby Avenue,Robert,30.19391999999999,-85.684286
+Misty,Harris,Misty Harris,898,1987-07-04,31,2000-12-07,Louisville,KY,2721 Lindsay Avenue,Cynthia,38.263793,-85.700243
+John,Jackson,John Jackson,899,1977-08-26,41,2012-07-23,Glendale,AZ,4319 West Claremont Street,Cynthia,33.528782,-112.152664
+Anna,Buttner,Anna Buttner,900,1979-11-06,39,2016-11-26,Montgomery,AL,1332 Maple Street,Robert,32.3589738,-86.3278235
+Lilian,Rodriguez,Lilian Rodriguez,901,1984-06-02,34,2012-12-28,Ardmore,OK,420 D Street Northwest,Robert,34.1791714,-97.13180349999999
+Marie,Lucht,Marie Lucht,902,1973-09-27,45,2006-02-24,Tampa,FL,6435 West Hillsborough Avenue,Robert,27.997289,-82.551557
+Gilbert,Rodriguez,Gilbert Rodriguez,903,1966-05-15,52,2007-05-09,Litchfield Park,AZ,13417 West Marlette Court,Robert,33.5272379,-112.34799
+James,Gonzales,James Gonzales,904,1951-02-02,67,2009-08-01,Anchorage,AK,5630 Silverado Way,Robert,61.1695128,-149.8896842
+Tiffany,Daniels,Tiffany Daniels,905,1987-05-23,31,2017-05-26,Anchorage,AK,1330 West 82nd Avenue,Cynthia,61.147676,-149.905329
+Carmine,Ly,Carmine Ly,906,1966-08-03,52,2002-08-07,Anchorage,AK,1413 G Street,Robert,61.2082831,-149.8952664
+Minnie,Silva,Minnie Silva,907,1982-12-09,35,2016-10-19,Castro Valley,CA,2313 Vegas Avenue,Cynthia,37.689189,-122.076775
+William,Compton,William Compton,908,1984-02-02,34,2014-07-25,Lynn Haven,FL,325 Alexander Drive,Robert,30.220334,-85.65544
+Camille,Copeland,Camille Copeland,909,1971-08-26,47,2014-04-25,Methuen,MA,23 Sable Run Lane,Robert,42.759847,-71.157721
+Fannie,Landers,Fannie Landers,910,1976-08-21,42,2016-09-06,Panama City Beach,FL,301 Argonaut Street,Cynthia,30.20514,-85.84755899999999
+George,Hernandez,George Hernandez,911,1955-07-08,63,2008-08-23,Manchester,CT,175 Oak Street,Robert,41.7700323,-72.512125
+Velda,Phillips,Velda Phillips,912,1975-04-20,43,2011-07-16,Manchester,CT,39 Tania Drive,Cynthia,41.763112,-72.4810849
+Joe,Garcia,Joe Garcia,913,1985-01-04,33,2010-08-15,Fayetteville,AR,3782 North Front Street,Cynthia,36.1184954,-94.1443355
+James,Herrera,James Herrera,914,1980-06-15,38,2005-10-11,Anchorage,AK,5412 East 22nd Avenue,Cynthia,61.20040100000001,-149.77991
+Tia,Clauson,Tia Clauson,915,1990-05-12,28,2015-05-13,Mountain View,CA,928 Wright Avenue,Robert,37.3996523,-122.0796285
+Tanya,Cone,Tanya Cone,916,1967-01-15,51,2009-09-02,Fayetteville,AR,349 North Sabine Pass Road,Cynthia,36.069263,-94.248685
+Jerry,Broughton,Jerry Broughton,917,1983-12-22,34,2005-03-28,Fayetteville,AR,595 West 15th Street,Cynthia,36.0483886,-94.16722949999999
+Daisy,Dubicki,Daisy Dubicki,918,1986-11-22,31,2007-07-20,Annapolis,MD,98 Lee Drive,Cynthia,38.933313,-76.4933099
+Emma,Chan,Emma Chan,919,1979-08-05,39,2009-07-06,Oklahoma City,OK,901 North Lincoln Boulevard,Robert,35.4766936,-97.50385539999999
+Nelda,Johnson,Nelda Johnson,920,1985-07-11,33,2012-10-21,Panama City,FL,7513 Lois Street,Robert,30.149239,-85.563121
+Kathy,Cooper,Kathy Cooper,921,1974-10-04,44,2016-05-07,Arvada,CO,7072 Quail Street,Robert,39.826338,-105.12315
+Alan,Dickey,Alan Dickey,922,1979-09-14,39,2015-11-22,Davis,CA,107 Guaymas Place,Cynthia,38.567048,-121.746046
+Michael,Nemec,Michael Nemec,923,1990-02-06,28,2001-09-28,Fayetteville,AR,354 North University Avenue,Robert,36.0659848,-94.16817080000001
+Jodi,Nutting,Jodi Nutting,924,1950-11-27,67,2005-12-28,Fremont,CA,36043 Soapberry Commons,Cynthia,37.555484,-122.012744
+Ricardo,Cullen,Ricardo Cullen,925,1981-01-09,37,2009-10-09,Pasadena,MD,3207 Art Hall Lane,Robert,39.1347116,-76.5331654
+Robert,Holcomb,Robert Holcomb,926,1952-11-18,65,2012-10-28,Montgomery,AL,4339 Oak Street,Cynthia,32.327767,-86.317746
+Michael,Ensminger,Michael Ensminger,927,1965-08-24,53,2015-10-26,Fayetteville,AR,2209 East Manor Drive,Robert,36.075132,-94.12903399999999
+Jacob,Williamson,Jacob Williamson,928,1967-12-15,50,2014-06-10,Oroville,CA,2750 Gilmore Lane,Robert,39.5076332,-121.5385254
+Priscilla,Zatorski,Priscilla Zatorski,929,1958-03-13,60,2007-05-03,Castro Valley,CA,22062 Cameron Street,Robert,37.6887201,-122.0675144
+Jennifer,Crowley,Jennifer Crowley,930,1971-02-05,47,2008-05-23,Montgomery,AL,6233 South Hampton Drive,Cynthia,32.299741,-86.2284279
+Candace,Westcott,Candace Westcott,931,1990-08-28,28,2001-06-05,Fairlee,VT,96 Lakehouse Drive,Robert,43.894627,-72.2085475
+Candace,Fragoso,Candace Fragoso,932,1953-02-07,65,2005-03-19,Manchester,CT,607 Trails End Road,Robert,41.8007533,-72.5421348
+Martin,Lodge,Martin Lodge,933,1975-09-11,43,2000-01-09,Dublin,CA,4936 Sequoia Avenue,Robert,37.711885,-121.884051
+Nancy,Gagne,Nancy Gagne,934,1989-03-09,29,2011-06-05,Montgomery,AL,6045 Camelot Court,Robert,32.3558835,-86.20262180000002
+Brianna,Kopecky,Brianna Kopecky,935,1988-05-20,30,2012-02-18,Moore,OK,712 Southwest 1st Street,Robert,35.3370771,-97.4992535
+Diana,Cola,Diana Cola,936,1964-05-11,54,2008-01-22,Edmond,OK,1605 Remington Road,Cynthia,35.7062389,-97.458961
+Robert,Mckinney,Robert Mckinney,937,1958-11-09,60,2003-09-14,Louisville,KY,3402 Prestwood Drive,Cynthia,38.162681,-85.699162
+James,Armstrong,James Armstrong,938,1951-07-05,67,2000-03-11,Groton,CT,981 Groton Long Point Road,Robert,41.320335,-72.00249459999999
+Reba,Baker,Reba Baker,939,1966-02-06,52,2015-11-13,Edmond,OK,2121 Stepping Stone Trail,Cynthia,35.6315432,-97.51250619999999
+John,Penttila,John Penttila,940,1965-08-25,53,2017-01-21,San Gabriel,CA,6148 Avon Avenue,Cynthia,34.1107022,-118.0784535
+Bonita,Franciscus,Bonita Franciscus,941,1974-12-13,43,2013-06-24,Del City,OK,2417 Becker Place,Robert,35.439682,-97.453451
+Goldie,Bova,Goldie Bova,942,1986-12-02,31,2010-04-17,Manchester,CT,265 Slater Street,Robert,41.8120281,-72.5345938
+Rafael,Murray,Rafael Murray,943,1956-09-17,62,2000-12-27,Midwest City,OK,4408 Bonaparte Boulevard,Cynthia,35.482651,-97.38337399999999
+Carol,Oliva,Carol Oliva,944,1974-02-28,44,2012-03-24,Washington,DC,4418 15th Street Northwest,Robert,38.944698,-77.03482319999999
+Lydia,Marker,Lydia Marker,945,1950-04-25,68,2005-05-25,Anchorage,AK,7420 Bearfoot Circle,Robert,61.15294599999999,-149.927235
+David,Smith,David Smith,946,1972-06-08,46,2006-04-14,Nashville,TN,2906 Clare Avenue,Robert,36.162322,-86.821303
+Isabel,Mitchell,Isabel Mitchell,947,1978-10-24,40,2014-07-23,Oklahoma City,OK,7701 Southwest 104th Street,Cynthia,35.3641983,-97.6475346
+Rebecca,Digiovanni,Rebecca Digiovanni,948,1982-12-20,35,2000-05-15,Livermore,CA,1226 Blossom Circle,Cynthia,37.679629,-121.739175
+Derek,Bryant,Derek Bryant,949,1973-02-05,45,2006-11-09,Glendale,AZ,5514 West Altadena Avenue,Robert,33.592239,-112.178085
+James,Villafana,James Villafana,950,1952-03-05,66,2004-01-14,Odenton,MD,1460 Berger Street,Robert,39.095935,-76.71678299999999
+Lloyd,Tiemens,Lloyd Tiemens,951,1967-12-23,50,2016-11-07,Montgomery,AL,100 Lake Forest Drive,Robert,32.383714,-86.16060399999999
+Sharon,Stavnes,Sharon Stavnes,952,1956-05-26,62,2015-09-17,Savannah,GA,301 East Court,Robert,32.0592074,-81.0606937
+Kay,Cathey,Kay Cathey,953,1962-10-06,56,2004-03-27,Montgomery,AL,2113 Bowen Drive,Robert,32.3487983,-86.24910760000002
+Shae,Hallquist,Shae Hallquist,954,1971-03-05,47,2016-07-15,Fayetteville,AR,325 Baxter Lane,Cynthia,36.075744,-94.153863
+Jeff,Clark,Jeff Clark,955,1958-02-16,60,2002-05-19,Oklahoma City,OK,4725 Royal Oak Drive,Robert,35.417909,-97.448348
+Gladys,Allen,Gladys Allen,956,1951-12-01,66,2003-11-14,Brentwood,TN,123 Villa View Court,Robert,36.0355599,-86.7806023
+Beulah,Keller,Beulah Keller,957,1963-10-25,55,2015-10-27,Washington,DC,5458 30th Street Northwest,Robert,38.962854,-77.060583
+Jeffrey,Devit,Jeffrey Devit,958,1963-03-02,55,2014-11-19,Washington,DC,4667 Benning Road Southeast,Cynthia,38.8847377,-76.9355625
+Jesse,Raynor,Jesse Raynor,959,1951-06-08,67,2002-11-28,Washington,DC,2262 Hall Place Northwest,Cynthia,38.9199438,-77.0720597
+Martina,Thomas,Martina Thomas,960,1987-01-25,31,2013-02-04,Nashville,TN,2927 Leatherwood Drive,Robert,36.156413,-86.65534099999999
+Colleen,Rothrock,Colleen Rothrock,961,1958-09-03,60,2004-08-25,Livermore,CA,1226 Blossom Circle,Robert,37.679629,-121.739175
+Jackie,Blevins,Jackie Blevins,962,1956-09-08,62,2011-01-27,Fayetteville,AR,4250 North Valley Lake Drive,Cynthia,36.1279064,-94.12180719999999
+Barbara,Wiley,Barbara Wiley,963,1955-10-14,63,2016-04-24,Lowell,MA,241 Methuen Street,Cynthia,42.6578963,-71.2970094
+Delores,Nobles,Delores Nobles,964,1982-08-08,36,2002-07-04,Fremont,CA,35805 Alcazar Court,Robert,37.563275,-122.026806
+Amber,Jacquez,Amber Jacquez,965,1987-11-10,30,2005-11-15,Anchorage,AK,816 West 19th Avenue,Robert,61.203221,-149.898655
+Jeffrey,Rzeszutko,Jeffrey Rzeszutko,966,1952-04-23,66,2013-06-15,Alameda,CA,72 Salmon Road,Cynthia,37.739659,-122.255689
+Gina,Willingham,Gina Willingham,967,1987-09-14,31,2014-11-22,Oakland,CA,9300 C Street,Robert,37.745714,-122.176955
+Elizabeth,Corum,Elizabeth Corum,968,1972-08-05,46,2016-02-06,Panama City Beach,FL,505 Tarpon Street,Cynthia,30.20339,-85.85009699999999
+Bryan,Elsea,Bryan Elsea,969,1966-08-13,52,2001-07-16,Manchester,CT,95 Middle Turnpike West,Cynthia,41.7829973,-72.527656
+Jason,Hunt,Jason Hunt,970,1984-09-20,34,2011-09-23,Louisville,KY,1606 Trevilian Way,Robert,38.2136971,-85.7000308
+Elizabeth,Tinsley,Elizabeth Tinsley,971,1950-02-11,68,2015-01-04,Manchester,CT,123 Elizabeth Drive,Robert,41.791814,-72.496656
+Alice,Green,Alice Green,972,1972-12-24,45,2013-03-14,Montgomery,AL,2013 Talbot Terrace,Cynthia,32.346206,-86.239281
+Eric,Garcia,Eric Garcia,973,1988-06-06,30,2015-02-08,Montgomery,AL,343 Daman Drive,Cynthia,32.2999,-86.342286
+Annabelle,Sexton,Annabelle Sexton,974,1958-09-17,60,2006-12-05,Edgewater,MD,241 Braxton Way,Cynthia,38.935297,-76.563699
+Robert,Rodriguez,Robert Rodriguez,975,1988-04-05,30,2008-02-06,Glendale,AZ,6729 North 54th Avenue,Cynthia,33.536068,-112.17458
+Juanita,Lindsley,Juanita Lindsley,976,1978-04-21,40,2006-01-02,Bakersfield,CA,4500 Margalo Avenue,Robert,35.305082,-119.052448
+Daisy,Green,Daisy Green,977,1958-05-09,60,2017-12-06,Arvada,CO,9920 West 81st Avenue,Cynthia,39.8446204,-105.1083834
+Patrice,Boles,Patrice Boles,978,1960-06-22,58,2012-05-22,Louisville,KY,128 East Oak Street,Robert,38.2342125,-85.7539867
+Delbert,Jenkins,Delbert Jenkins,979,1979-02-10,39,2009-12-14,Montgomery,AL,8820 Vaughn Road,Cynthia,32.337777,-86.13765590000001
+Sidney,Ceaser,Sidney Ceaser,980,1969-01-05,49,2010-02-11,Savannah,GA,23 Cove Drive,Robert,31.980788,-81.212321
+Tina,Martinelli,Tina Martinelli,981,1966-08-20,52,2004-09-07,Montgomery,AL,7737 Wynlakes Boulevard,Robert,32.348508,-86.14822099999999
+Natacha,Mcdaniels,Natacha Mcdaniels,982,1987-11-21,30,2017-06-25,Fremont,CA,4255 Tanager Common,Robert,37.5738888,-122.0460256
+Josephine,Horne,Josephine Horne,983,1962-12-13,55,2002-06-22,Waltham,MA,2309 Stearns Hill Road,Cynthia,42.4088913,-71.2375565
+Debra,George,Debra George,984,1975-01-22,43,2012-07-15,Pittsford,VT,141 Parker Road,Robert,43.689358,-72.991669
+Juanita,Smith,Juanita Smith,985,1972-05-23,46,2008-02-18,Montgomery,AL,3437 Sommerville Drive,Cynthia,32.342288,-86.256546
+Donald,Addis,Donald Addis,986,1952-04-15,66,2014-10-18,Savannah,GA,103 Chevis Road,Cynthia,31.996086,-81.259314
+Judith,Holguin,Judith Holguin,987,1965-07-28,53,2007-11-12,Washington,DC,509 Franklin Street Northeast,Robert,38.9255849,-76.9990895
+Kayla,Arroyo,Kayla Arroyo,988,1951-06-06,67,2012-08-18,Manchester,CT,46 Lilac Street,Cynthia,41.774046,-72.53570909999999
+Jeffrey,Denison,Jeffrey Denison,989,1957-09-02,61,2016-11-11,Manchester,CT,4 Orchard Street,Robert,41.7747,-72.5247351
+Ann,Campbell,Ann Campbell,990,1968-12-19,49,2015-12-09,Oklahoma City,OK,2237 Northwest 18th Street,Cynthia,35.4882133,-97.5513414
+Keith,Clyde,Keith Clyde,991,1990-06-25,28,2003-06-16,Annapolis,MD,201 West Street,Robert,38.9769726,-76.5001837
+Patricia,Yockey,Patricia Yockey,992,1963-10-15,55,2012-10-28,Panama City,FL,1904 Baker Court,Robert,30.166081,-85.690184
+Beth,Sexton,Beth Sexton,993,1958-09-23,60,2001-07-28,San Leandro,CA,14347 Corvallis Street,Robert,37.7017199,-122.1576841
+Archie,Williams,Archie Williams,994,1973-07-26,45,2016-01-18,Union City,CA,4231 Miramonte Way,Robert,37.591721,-122.075993
+Mona,Beggs,Mona Beggs,995,1961-06-19,57,2002-09-25,Pasadena,MD,8376 Albacore Drive,Robert,39.110409,-76.46565799999999
+Robert,Anderson,Robert Anderson,996,1971-06-27,47,2015-04-26,Burlington,MA,9 Kimball Court,Robert,42.501798,-71.168725
+Naomi,Profitt,Naomi Profitt,997,1976-06-06,42,2006-09-01,Hurstbourne Acres,KY,2300 Deer Path Circle,Robert,38.2187876,-85.59292239999999
+Robert,Nelson,Robert Nelson,998,1986-11-02,32,2017-11-25,Orange,CA,553 South Arlington Road,Cynthia,33.7794839,-117.820383
+Steven,Cagle,Steven Cagle,999,1953-12-07,64,2014-09-09,Manchester,CT,24 Amherst Drive,Robert,41.808229,-72.47829999999999
+Edgar,Horne,Edgar Horne,1000,1958-05-25,60,2014-12-03,Oakland,CA,4329 Howe Street,Cynthia,37.83019,-122.249552
+Shirley,Hernandez,Shirley Hernandez,1001,1950-03-16,68,2000-10-06,Edgewater,MD,241 Braxton Way,Cynthia,38.935297,-76.563699
+Evelyn,Kassis,Evelyn Kassis,1002,1955-08-09,63,2006-09-26,Anchorage,AK,3555 Alamosa Drive,Robert,61.142316,-149.9454749
+Candice,Smith,Candice Smith,1003,1953-10-09,65,2011-06-15,Louisville,KY,1117 Everett Avenue,Cynthia,38.239723,-85.717075
+Maryetta,Gardner,Maryetta Gardner,1004,1965-07-18,53,2012-06-08,Panama City,FL,1607 Louisiana Avenue,Robert,30.177473,-85.651614
+Linda,Goins,Linda Goins,1005,1963-08-11,55,2004-02-06,Manchester,CT,Brookside Court,Cynthia,41.8018695,-72.5414062
+Erin,Taylor,Erin Taylor,1006,1958-08-12,60,2005-01-22,Quincy,MA,276 Adams Street,Robert,42.253513,-71.015669
+Henry,Anderson,Henry Anderson,1007,1966-01-03,52,2000-08-10,Montgomery,AL,1163 Rosedale Drive,Robert,32.394317,-86.274375
+Esther,Kingsbury,Esther Kingsbury,1008,1977-08-05,41,2016-03-28,Woodland,CA,622 Thomas Street,Robert,38.672731,-121.76065
+Wendy,Swenson,Wendy Swenson,1009,1981-11-13,36,2000-03-04,Southport,FL,9222 Sandra Grace Road,Cynthia,30.317219,-85.615911
+Meredith,Holcombe,Meredith Holcombe,1010,1966-02-26,52,2012-09-26,Fayetteville,AR,6086 Kennedy Drive,Robert,36.103629,-94.24773599999999
+Paul,Outlaw,Paul Outlaw,1011,1987-07-18,31,2016-11-25,Anchorage,AK,400 D Street,Robert,61.2182493,-149.8894168
+Reginald,Nelson,Reginald Nelson,1012,1972-12-04,45,2011-08-09,Washington,DC,1126 Oates Street Northeast,Robert,38.90606,-76.9891839
+Beatrice,Walton,Beatrice Walton,1013,1968-04-04,50,2013-01-07,Fayetteville,AR,906 West Berry Street,Robert,36.0760793,-94.1723526
+Louis,Witham,Louis Witham,1014,1955-06-02,63,2012-06-12,Louisville,KY,4316 Dover Road,Robert,38.186788,-85.833439
+Lisa,Corso,Lisa Corso,1015,1984-05-03,34,2012-01-24,Oakland,CA,2515 60th Avenue,Robert,37.7705346,-122.1907449
+Paul,Cortinas,Paul Cortinas,1016,1967-05-18,51,2002-06-12,Brentwood,TN,5526 Thalman Drive,Robert,36.044282,-86.748932
+Fran,Wages,Fran Wages,1017,1986-06-26,32,2000-01-04,Washington,DC,3728 9th Street Northwest,Cynthia,38.936736,-77.02556
+Christine,Johnson,Christine Johnson,1018,1980-08-13,38,2016-08-09,Fayetteville,AR,2619 North Quality Lane,Robert,36.09925399999999,-94.164274
+Ronald,Kuehne,Ronald Kuehne,1019,1956-01-01,62,2000-10-25,Aurora,CO,15509 East 7th Circle,Cynthia,39.728358,-104.807559
+Crystal,Anderson,Crystal Anderson,1020,1951-06-06,67,2017-09-25,Savannah,GA,1405 East 55th Street,Robert,32.037246,-81.082886
+Whitney,Turner,Whitney Turner,1021,1984-09-10,34,2001-05-09,Anchorage,AK,8800 Cordell Circle,Cynthia,61.1409305,-149.9437822
+Sylvia,Rainge,Sylvia Rainge,1022,1957-11-25,60,2015-12-13,Fremont,CA,1300 Lemos Lane,Cynthia,37.546996,-121.951627
+Kim,Gill,Kim Gill,1023,1989-08-11,29,2011-05-11,Manchester,CT,18 Curry Lane,Robert,41.75048899999999,-72.542174
+Mary,Mcadoo,Mary Mcadoo,1024,1982-12-06,35,2000-08-17,Fayetteville,AR,3425 North Futrall Drive,Cynthia,36.11354499999999,-94.155049
+Thomas,Jones,Thomas Jones,1025,1959-07-18,59,2016-05-22,Washington,DC,2327 Pomeroy Road Southeast,Robert,38.857527,-76.98526
+Joyce,Swartz,Joyce Swartz,1026,1981-08-27,37,2016-12-11,Olivehurst,CA,968 Virginia Avenue,Cynthia,39.1022419,-121.581218
