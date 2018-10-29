@@ -21,7 +21,7 @@ import json
 
 USERS_INPUT_CSV = '../data/Finance/user-prefs.csv'
 CLIENTS_CSV = '../data/Finance/clients.csv'
-CLIENT_ACCOUNTS_CSV = '../data/Finance/client_accountss.csv'
+CLIENT_ACCOUNTS_CSV = '../data/Finance/client_accounts.csv'
 
 GENDERS = ['male', 'female']
 ACCOUNT_TYPES = ['Roth IRA', 'Roth 401(k)', 'Traditional IRA', 'Brokerage', '529']
