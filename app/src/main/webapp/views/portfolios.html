@@ -4,7 +4,7 @@
     <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i,revenue_f,marketcap_f,div_yield_f">
         <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
         <query:filter field="owner_s" value="{{user.name}}"></query:filter>
-        <query:custom name="group.limit" value="10"></query:custom>
+        <query:custom name="group.limit" value="30"></query:custom>
     </search:query>
     <search:response var="mycompanies" query="ownerQuery" platform="finance">
         <widget:spinner></widget:spinner>
