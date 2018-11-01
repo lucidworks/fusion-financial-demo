@@ -49,11 +49,11 @@ client_id = 0
 account_id = 0
 
 clients_file = open(CLIENTS_CSV, 'w')
-clients_file_writer = csv.DictWriter(clients_file, ['first_name', 'last_name', 'full_name', 'client_id', 'dob', 'age', 'inception', 'city', 'state', 'street', 'advisor', 'lat', 'lon'])
+clients_file_writer = csv.DictWriter(clients_file, ['first_name', 'last_name', 'full_name', 'client_id', 'dob', 'age', 'inception', 'city', 'state', 'street', 'advisor', 'lat', 'lon', 'account_types', 'total_aum'])
 clients_file_writer.writeheader()
 
 accounts_file = open(CLIENT_ACCOUNTS_CSV, 'w')
-accounts_file_writer = csv.DictWriter(accounts_file, ['status', 'open', 'close', 'type', 'account_id', 'client_id'])
+accounts_file_writer = csv.DictWriter(accounts_file, ['status', 'open', 'close', 'type', 'account_id', 'client_id', 'value'])
 accounts_file_writer.writeheader()
 
 while client_id < num_clients:
@@ -97,11 +97,13 @@ while client_id < num_clients:
     inception = datetime.date(year, month, day)
     client['inception'] = inception
 
-    clients_file_writer.writerow(client)
+
 
     # accounts
     account_types = random.sample(ACCOUNT_TYPES, random.randint(1, len(ACCOUNT_TYPES)))
     account_idx = 0
+    client_aum = 0
+    client_acct_types = ''
     for account_type in account_types:
         account = dict()
         account_id += 1
@@ -109,6 +111,10 @@ while client_id < num_clients:
         account['client_id'] = client_id
 
         account['type'] = account_types[account_idx]
+        if account_idx == 0:
+            client_acct_types += account['type']
+        else:
+            client_acct_types += (',' + account['type'])
         account_idx += 1
 
         account_open = inception + datetime.timedelta(days = random.randint(20, (datetime.date.today() - inception).days - 100))
@@ -120,7 +126,17 @@ while client_id < num_clients:
         else:
             account['status'] = 'Active'
 
+        if random.uniform(0.0,1.0) < 0.1:
+            account['value'] = random.uniform(50000, 300000)
+        else:
+            account['value'] = random.uniform(1000, 25000)
+
+        client_aum += account['value']
         accounts_file_writer.writerow(account)
+
+    client['total_aum'] = client_aum
+    client['account_types'] = client_acct_types
+    clients_file_writer.writerow(client)
 
 clients_file.close()
 accounts_file.close()
