@@ -1213,7 +1213,7 @@ ul.facet-list li li {
 h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
-.main-results.result-list li:first-of-type {
+.main-results.result-list li:first-of-type.company-card {
   padding-bottom: 30px;
   border-bottom: 1px solid #ececec;
   .tk-stl-title a {
@@ -1307,6 +1307,12 @@ ul.tk-toggle-panes-controls li a:hover {
   .facet-list h3 {
     letter-spacing: 0.08em;
     font-size: 16px;
+  }
+  .facet-list .histogram li div.bar {
+    background-color: #0077cc;
+  }
+  .facet-list rzslider .rz-bubble {
+    display: none;
   }
 }
 .tk-stl-breadcrumb-capsules {
@@ -1501,11 +1507,6 @@ ul.tk-toggle-panes-controls li a:hover {
       text-decoration: none;
     }
   }
-}
-
-.main-results.result-list li.result.client-card:first-of-type {
-  width: 100%;
-  background: none;
 }
 
 .client-card .tk-stl-tag-list li:first-of-type,
@@ -1726,4 +1727,201 @@ ul.tk-toggle-panes-controls li a:hover {
 .address-field {
   white-space:pre-wrap;
   font-size: 0.7em;
+}
+
+// ---------------------------------------------------------
+// Client Detail Page
+// ---------------------------------------------------------
+.detail-page {
+    .wrapper {
+        display: flex;
+        height: 100%;
+        padding: 0 1em;
+        [class^="fi-"], [class*=" fi-"] {
+            font-size: 16px;
+        }
+        .corner-icon {
+            position: absolute;
+            right: .8em;
+            top: .8em;
+            font-size: 35px;
+            color: #6f6f6f;
+        }
+    }
+    .info {
+        .section {
+            :after {
+                background: url("../../assets/section-bg1.svg");
+                content: "";
+                opacity: 0.5;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+                background-size: 100%;
+            }
+        }
+        p {
+            display: inline;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .tk-stl-label {
+            font-weight: 400;
+        }
+        .user-name {
+            margin-bottom: 40px;
+            img {
+                max-width: 90px;
+                border-radius: 25px;
+                margin: 0 20px 0 0;
+                display: inline-block;
+                float: left;
+            }
+            p {
+                font-size: 30px;
+                color: #000;
+                font-weight: 700;
+                margin: 30px 0;
+                display: inline-block;
+                span {
+                    font-size: 60px;
+                    color: #f3f3f3;
+                    line-height: 25px;
+                    vertical-align: middle;
+                }
+            }
+
+        }
+    }
+    .stats {
+        .section {
+            :after {
+                background: url("../../assets/section-bg2.svg");
+                content: "";
+                opacity: 0.5;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                position: absolute;
+                z-index: -1;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+                background-size: 100%;
+            }
+        }
+        .box-section {
+            position: absolute;
+            width: 90%;
+            bottom: 3em;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            .box-wrapper {
+                padding: 0 .5em;
+                .stats-box {
+                    padding: 2em 1em 1em;
+                    background: #eee;
+                    border-radius: @border-radius;
+                    height: 40%;
+                    background: rgb(243, 243, 243);
+                    background: linear-gradient(175deg, rgba(255,255,255,0) 45%, #ff8f00 100%);
+                }
+            }
+        }
+        .subtitle {
+            font-size: 10px;
+            color: #ff8f00;
+            text-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .numbers {
+            font-size: 22px;
+            //letter-spacing: 1px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            line-height: 35px;
+        }
+    }
+    .section {
+        padding: 3em 2em;
+        background: #fff;
+        border-radius: 8px;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0px 4px 3px -2px rgba(160, 160, 160, 0.15);
+        border: 1px solid #e1f3f9;
+        margin: 0 auto 40px;
+        .title {
+            font-size: 14px;
+            color: #000000;
+            text-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+    .section.table {
+        border: 1px solid #fff;
+        background: rgb(255,255,255);
+        background: linear-gradient(249deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 66%);
+    }
+    table tbody tr:nth-child(odd) td {
+        //background: transparent;
+        background: #fdfdfd;
+    }
+    table tr {
+        border-bottom: 1px solid #eaeff1;
+    }
+    table tr:last-child {
+        border-bottom: none;
+    }
+    table tr:first-child {
+        border-top: 1px solid #eaeff1;
+    }
+    table thead tr {
+        border:none;
+    }
+    table th, table td {
+        border-bottom: none;
+        vertical-align: middle;
+    }
+    table thead th {
+        font-size: 12px;
+        color: #ff8f00;
+        text-shadow: none;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        font-weight: 700;
+        margin: 0;
+    }
+    table td p {
+        color: #b1b1b1;
+    }
+    table td[name="name"] p {
+        font-size: 14px;
+        color: #000;
+        font-weight: 700;
+        letter-spacing: -.5px;
+    }
+    table td[name="regularPrice"] p {
+        font-size: 20px;
+        font-weight: 400;
+        color: @color-primary;
+    }
+    .tbl-wrapper {
+        margin: 30px 0 0;
+    }
 }

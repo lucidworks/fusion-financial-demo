@@ -1,0 +1,131 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="clientsPlatform" conf="platforms.fusion.finance.clients"></search:platform>
+<search:query var="clientQuery" parameters="none">
+    <query:filter field="_lw_data_source_s" value="clients"></query:filter>
+    <query:filter field="client_id_s" value="{{params.id}}"></query:filter>
+</search:query>
+<search:response var="clientResponse" platform="clientsPlatform" query="clientQuery"></search:response>
+
+<search:platform var="accountsPlatform" conf="platforms.fusion.finance.accounts"></search:platform>
+<search:query var="accountsQuery" parameters="none">
+    <query:filter field="_lw_data_source_s" value="client-accounts"></query:filter>
+    <query:filter field="client_id_s" value="{{params.id}}"></query:filter>
+</search:query>
+<search:response var="accountsResponse" platform="accountsPlatform" query="accountsQuery"></search:response>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for clients..."
+                action="clients"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="detail-page">
+
+    <!-- Animate page when response received -->
+    <layout:animate animation="animate-fadeInUp" on="clientResponse" layout-grid>
+
+        <lifecycle:required object="clientResponse">
+        <layout:grid>
+
+            <layout:block md="1-2" class="info">
+                <layout:box class="wrapper">
+                    <div id="user" class="section">
+                        <span class="corner-icon fi-uniF10E"></span>
+                        <layout:grid>
+                            <layout:block class="user-name" ng-controller="MainCtrl">
+                                <media:image src="{{mapUrl(clientResponse | result) | trusted}}"></media:image>
+                                <!--<p class="label label-inline">Name</p>-->
+                                <p>
+                                    {{clientResponse | result | field:'full_name_s' | display}}
+                                </p>
+                            </layout:block>
+                            <layout:block>
+                                <p styling="label label-inline"><span class="fi-uniF172"></span> Address</p>
+                                <p>
+                                    {{clientResponse | result | field:'city_s' | display}},&nbsp;
+                                    {{clientResponse | result | field:'state_s' | display}}
+                                </p>
+                            </layout:block>
+                            <layout:block>
+                                <p styling="label label-inline"><span class="fi-uniF16B"></span> Phone</p>
+                                <p>TODO</p>
+                            </layout:block>
+                            <layout:block>
+                                <p styling="label label-inline"><span class="fi-uniF178"></span> E-mail</p>
+                                <p>
+                                    <a href="mailto:{{clientResponse | result | field:'first_name_s' | display}}.{{clientResponse | result | field:'last_name_s' | display}}@f360.com">
+                                        {{clientResponse | result | field:'first_name_s' | display | lowercase }}.{{clientResponse | result | field:'last_name_s' | display | lowercase }}@gmail.com
+                                    </a>
+                                </p>
+                            </layout:block>
+                            <layout:block>
+                                <p styling="label label-inline"><span class="fi-uniF19D"></span> User ID</p>
+                                <p>{{clientResponse | result | field:'client_id_s' | display}} </p>
+                            </layout:block>
+                        </layout:grid>
+                    </div>
+                </layout:box>
+            </layout:block>
+
+            <layout:block md="1-2" class="stats">
+                <layout:box class="wrapper">
+                    <div class="section">
+                        <layout:grid class="box-section">
+                            <layout:block lg="2-3" md="2-3" class="box-wrapper">
+                                <chart:display ng-if="accountsResponse.results" platform="accountsPlatform" query="accountsQuery" height="285" title="AUM by Account">
+                                    <series:result-list response="accountsResponse" label-field="type_s" value-field="value_f" type="pie"></series:result-list>
+                                    <chart:tooltip point-format="<b>{point.percentage:.0f}%<br/>"></chart:tooltip>
+                                </chart:display>
+                            </layout:block>
+                            <layout:block lg="1-3" md="1-3" class="box-wrapper">
+                                <layout:box class="stats-box">
+                                    <p class="subtitle">Total AUM</p>
+                                    <p class="numbers">
+                                        $1234.56
+                                    </p>
+                                </layout:box>
+                            </layout:block>
+                        </layout:grid>
+                    </div>
+                </layout:box>
+
+            </layout:block>
+
+
+            <layout:block>
+                <layout:box class="wrapper">
+                    <div class="section table">
+                        <span class="corner-icon fi-money"></span>
+                        <p class="title">Account Details</p>
+                        <lifecycle:required object="accountsResponse">
+                            <table:result-list response="accountsResponse">
+                                <table:header>
+                                    <table:header-cell label="Account"></table:header-cell>
+                                    <table:header-cell name="Status"></table:header-cell>
+                                    <table:header-cell name="Open Date"></table:header-cell>
+                                    <table:header-cell name="Value"></table:header-cell>
+                                </table:header>
+                                <table:body>
+                                    <table:row>
+                                        <table:cell name="type_s"></table:cell>
+                                        <table:cell name="status_s"></table:cell>
+                                        <table:cell name="open_dt" date-format="yyyy-MM-dd"></table:cell>
+                                        <table:cell name="value_f" prefix="$" number-format="###,###.00"></table:cell>
+                                    </table:row>
+                                </table:body>
+                            </table:result-list>
+                        </lifecycle:required>
+                    </div>
+                </layout:box>
+            </layout:block>
+        </layout:grid>
+        </lifecycle:required>
+    </layout:animate>
+</layout:grid>

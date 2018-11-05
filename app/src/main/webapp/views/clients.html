@@ -2,7 +2,7 @@
 <search:platform var="platformHierarchical" conf="services.hierarchical"></search:platform>
 
 <lifecycle:required object="user.name">
-    <search:query var="clientQuery" sorts="-weight_d" results-per-page="10">
+    <search:query var="clientQuery" sorts="-weight_d" results-per-page="9">
         <query:filter field="_lw_data_source_s" value="clients"></query:filter>
         <query:filter field="advisor_s" value="{{user.name}}"></query:filter>
     </search:query>
@@ -27,8 +27,12 @@
             <layout:sidebar>
                 <search:facet-list response="clientResponse"
                                    styling="facet-list"
-                                   facet-names="-_lw_data_source_s,city_state_s_hier_ss=Location">>
+                                   facet-names="-_lw_data_source_s,total_aum_f=AUM,account_type_ss=Account Type,city_state_s_hier_ss=Location">>
                     <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+                    <search:facet facet-name="total_aum_f" title="AUM">
+                        <chart:histogram facet="$parent.facet" show-content="false" show-count="true" show="99" height="50px"></chart:histogram>
+                        <widget:slider response="clientResponse" facet-name="total_aum_f"></widget:slider>
+                    </search:facet>
                     <search:facet facet-name="city_state_s_hier_ss" show="6" show-more="6">
                         <facet:hierarchical facet-name="city_state_s_hier_ss" platform="platformHierarchical" query="clientQuery"></facet:hierarchical>
                     </search:facet>
@@ -81,19 +85,16 @@
 
                                     <layout:grid>
 
-                                        <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
+                                        <layout:block xs="1-1" md="6-24" ng-controller="MainCtrl">
                                             <media:image src="{{mapUrl(result) | trusted}}"></media:image>
                                         </layout:block>
 
                                         <layout:block xs="1-1" md="18-24" >
                                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                                                 <search:field name="full_address_s" label="" class="address-field"></search:field>
+                                                <search:field name="total_aum_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###.00"></search:field>
                                                 <search:field name="age_s" styling="label-left" label="Age"></search:field>
-                                                <search:result-list results="result.related">
-                                                    <search:result>
-                                                        <search:field name="type_s" styling="label-left" label=""></search:field>
-                                                    </search:result>
-                                                </search:result-list>
+                                                <search:field name="account_type_ss" styling="label-left" label="Account Types"></search:field>
                                             </layout:box>
                                         </layout:block>
 

@@ -15,6 +15,8 @@ angular.module('appkitApp')
 
         var google_api_key = 'AIzaSyDjiHy2i5MiQIJmGuhldVedXLuhi6BUris';
         $scope.mapUrl = function(result) {
+            console.log('city is ' + result.fields.city_s.val);
+            console.log('state is ' + result.fields.state_s.val);
             var query = window.encodeURIComponent(result.fields.city_s.val) + ',' + window.encodeURIComponent(result.fields.state_s.val);
             return "http://maps.googleapis.com/maps/api/staticmap?zoom=10&size=150x150&maptype=roadmap&markers=color:red%7Clabel:''%7C" + query + "&sensor=false&key="+google_api_key;
         };
