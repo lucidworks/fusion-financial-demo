@@ -453,9 +453,11 @@
   <field name="sector_industry_hier_parent" type="text_general"/>
   <field name="state" type="text_general"/>
   <field name="ticker" type="text_general"/>
+  <field name="total_aum" type="pdoubles"/>
   <field name="type" type="text_general"/>
   <field name="unique_bucket_id" type="plongs"/>
   <field name="username" type="text_general"/>
+  <field name="value" type="pdoubles"/>
   <field name="weight" type="plongs"/>
   <dynamicField name="*_txt_en_split_tight" type="text_en_splitting_tight" indexed="true" stored="true"/>
   <dynamicField name="*_descendent_path" type="descendent_path" indexed="true" stored="true"/>

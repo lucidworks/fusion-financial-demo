@@ -15,18 +15,6 @@
       "type" : "DATA",
       "metadata" : { }
     }, {
-      "id" : "Finance",
-      "createdAt" : "2018-10-09T14:45:01.187Z",
-      "searchClusterId" : "default",
-      "commitWithin" : 10000,
-      "solrParams" : {
-        "name" : "Finance",
-        "numShards" : 1,
-        "replicationFactor" : 1
-      },
-      "type" : "DATA",
-      "metadata" : { }
-    }, {
       "id" : "Finance_signals_aggr",
       "createdAt" : "2018-09-18T16:49:49.872Z",
       "searchClusterId" : "default",
@@ -39,85 +27,20 @@
       },
       "type" : "DATA",
       "metadata" : { }
+    }, {
+      "id" : "Finance",
+      "createdAt" : "2018-10-09T14:45:01.187Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
     } ],
     "indexPipelines" : [ {
-      "id" : "sp500",
-      "stages" : [ {
-        "type" : "javascript-index",
-        "id" : "ux",
-        "script" : "function(doc) {\n  if (doc.getId() !== null && doc.hasField('state')) {\n    var state = doc.getFirstFieldValue('state');\n    if (state.indexOf('[') >= 0) {\n  \t\tstate = state.substring(0, state.indexOf('['));\n      \tdoc.setField('state', state);\n    }\n  }\n  return doc;\n}",
-        "type" : "javascript-index",
-        "skip" : false,
-        "label" : "State Field Cleanup",
-        "licensed" : true,
-        "secretSourceStageId" : "ux"
-      }, {
-        "type" : "javascript-index",
-        "id" : "8si",
-        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting URL for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/logo';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var image_url_record = JSON.parse(response);\n\n      doc.addField('image_url_s', image_url_record.url);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
-        "type" : "javascript-index",
-        "skip" : false,
-        "label" : "Add Logo URL",
-        "licensed" : true,
-        "secretSourceStageId" : "8si"
-      }, {
-        "type" : "javascript-index",
-        "id" : "hen",
-        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      doc.addField('marketcap_f', stats_record.marketcap);\n      doc.addField('div_yield_f', stats_record.dividendYield);\n      doc.addField('eps_f', stats_record.latestEPS);\n      doc.addField('eps_date_dt', stats_record.latestEPSDate);\n      doc.addField('eps_fy1_f', stats_record.consensusEPS);\n      doc.addField('ebitda_f', stats_record.EBITDA);\n      doc.addField('revenue_f', stats_record.revenue);\n      doc.addField('price_to_book_f', stats_record.priceToBook);\n      doc.addField('beta_f', stats_record.beta);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
-        "type" : "javascript-index",
-        "skip" : false,
-        "label" : "Add Key Stats",
-        "licensed" : true,
-        "secretSourceStageId" : "hen"
-      }, {
-        "type" : "field-mapping",
-        "id" : "979c08de-b2c9-4347-9683-76b7be15316e",
-        "mappings" : [ {
-          "source" : "source_s",
-          "target" : "Companies",
-          "operation" : "set"
-        } ],
-        "reservedFieldsMappingAllowed" : false,
-        "type" : "field-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "979c08de-b2c9-4347-9683-76b7be15316e"
-      }, {
-        "type" : "solr-dynamic-field-name-mapping",
-        "id" : "d5167606-5dd0-4c00-9131-1ad159a44f1a",
-        "duplicateSingleValuedFields" : false,
-        "fieldsToExclude" : [ ],
-        "advancedTextFieldsIndexing" : true,
-        "maxTextLengthForAdvancedIndexing" : 100,
-        "type" : "solr-dynamic-field-name-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "d5167606-5dd0-4c00-9131-1ad159a44f1a"
-      }, {
-        "type" : "javascript-index",
-        "id" : "08u",
-        "script" : "function (doc) {\n  if (doc.getId() !== null && doc.hasField('sector_s') && doc.hasField('industry_s')) {\n    var sector_industry = doc.getFirstFieldValue('sector_s') + '/' + doc.getFirstFieldValue('industry_s');\n    doc.setField('sector_industry_s', sector_industry);\n        \n    var fieldNames = [\"sector_industry_s\"];\n    if (doc.hasField('city_s') && doc.hasField('state_s')) {\n      var city_state = doc.getFirstFieldValue('state_s') + '/' + doc.getFirstFieldValue('city_s');\n      doc.setField('city_state_s', city_state);\n      fieldNames.push('city_state_s');\n    }\n\n    // Specify the separate between hiearchies.\n    // In this example the 'Category' field contains:\n    // top_level/level_1/level_2/ etc.\n    var SEPARATOR = \"/\"\n\n    // Iterate over the category fields\n    for (var names_i = 0; names_i < fieldNames.length; names_i++){\n\n      // Get the values for each field.\n      var fields = doc.getFields(fieldNames[names_i]);\n\n      // Make sure that the category field actually has values for this doc.\n      if(fields != null){\n\n        // Set the new 'Twigkit' category paths. We set empty at this level so\n        // that we can create a de-duplicatd list\n        var paths = [];\n\n        // Also need to add a parent field to each doc that contains the path to\n        // the parent category.\n        var parents = [];\n\n        // Iterate over the field values.\n        for(var fields_i = 0; fields_i < fields.length; fields_i++){\n          var value = fields[fields_i].getValue();\n\n          // Check if 'SEPARATOR' exists in the value.\n          if (value != null && value.indexOf(SEPARATOR) > -1) {\n\n            // Remove trailing separators\n            if(value.charAt(0) == SEPARATOR){\n             value = value.substr(1);\n            }\n\n            if(value.charAt(value.length - 1) == SEPARATOR){\n             value = value.slice(0,-1);\n            }\n\n            // Split on 'SEPARATOR' to get new array like:\n            // [top_level,level_1,level_2,...]\n            var levels = value.split(SEPARATOR);\n\n            // Now the clever part. Iterate over the levels and use the indices\n            // to prepend the appropriate number for each level\n            // Concatenate into new 'Twigkit' path:\n            // 0/top_level\n            // 1/top_level/level_1\n            // 2/top_level/level_1/level_2 ...\n            for (var levels_i = 0; levels_i < levels.length; levels_i++) {\n              var level_cnt = 0;\n              var hier_val = \"\";\n\n              // At each level you need to prepend the correct indix as well as\n              // the parents for that level.\n              while(level_cnt < levels.length){\n\n                var hier_val = hier_val+\"/\"+levels[level_cnt];\n                var path = level_cnt.toString()+hier_val;\n\n                // De-dupe by checking for existence of path in 'paths'.\n                if(paths.indexOf(path) < 0){\n                 paths.push(path);\n                }\n\n                if(level_cnt < levels.length-1 && parents.indexOf(path) < 0){\n                    parents.push(path);\n                }\n\n                level_cnt += 1;\n              }\n            }\n          }\n        }\n\n        // Add the new Category and Parent fields to the doc.\n        // Make sure these fields are excluded from dynamic field mapping so that\n        // you don't end up with 'Category_hier_ss' and 'Category_hier_parent_ss'\n        // in the Solr index.\n        doc.addFields(fieldNames[names_i]+\"_hier_ss\",paths);\n        doc.addFields(fieldNames[names_i]+\"_hier_ss_parent_ss\",parents);\n      }\n    }\n  }\n  return doc;\n}",
-        "type" : "javascript-index",
-        "skip" : false,
-        "label" : "Hierarchical Facet Setup",
-        "licensed" : true,
-        "secretSourceStageId" : "08u"
-      }, {
-        "type" : "solr-index",
-        "id" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4",
-        "enforceSchema" : true,
-        "dateFormats" : [ ],
-        "params" : [ ],
-        "bufferDocsForSolr" : false,
-        "type" : "solr-index",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "sp500"
-      }
-    }, {
       "id" : "Finance_signals",
       "stages" : [ {
         "type" : "field-mapping",
@@ -155,28 +78,57 @@
         "secretSourcePipelineId" : "Finance_signals"
       }
     }, {
-      "id" : "sp500-key-stats",
+      "id" : "clients",
       "stages" : [ {
         "type" : "javascript-index",
-        "id" : "g2j",
-        "script" : "function(doc) {\n  var docs = [];\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      // reliable ID for recrawl, e.g., to support data correct from IEX\n      var newDoc = new com.lucidworks.apollo.common.pipeline.PipelineDocument('key_stats_' + ticker);\n\n      newDoc.addField('_lw_data_source_s', doc.getFirstFieldValue('_lw_data_source_s'));\n      newDoc.addField('ticker', ticker);\n      newDoc.addField('marketcap_f', stats_record.marketcap);\n      newDoc.addField('div_yield_f', stats_record.dividendYield);\n      newDoc.addField('eps_f', stats_record.latestEPS);\n      newDoc.addField('eps_date_dt', stats_record.latestEPSDate);\n      newDoc.addField('eps_fy1_f', stats_record.consensusEPS);\n      newDoc.addField('ebitda_f', stats_record.EBITDA);\n      newDoc.addField('revenue_f', stats_record.revenue);\n      newDoc.addField('price_to_book_f', stats_record.priceToBook);\n      newDoc.addField('beta_f', stats_record.beta);\n      docs.push(newDoc);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return docs;\n}",
+        "id" : "anh",
+        "script" : "function(doc) {\n  if (doc.getId() !== null) {\n  \tif (doc.hasField('account_types')) {\n      var types = doc.getFirstFieldValue('account_types');\n      var typeArray = types.split(',');\n      for (var i = 0; i < typeArray.length; i++) {\n        doc.addField('account_type_ss', typeArray[i]);\n      }\n    }\n  }\n  return doc;\n}",
         "type" : "javascript-index",
         "skip" : false,
-        "label" : "Get Key Stats",
+        "label" : "Account Types",
         "licensed" : true,
-        "secretSourceStageId" : "g2j"
+        "secretSourceStageId" : "anh"
+      }, {
+        "type" : "javascript-index",
+        "id" : "gan",
+        "script" : "function(doc) {\n  if (doc.getId() !== null) {\n    var street = doc.getFirstFieldValue('street');\n    var city = doc.getFirstFieldValue('city');\n    var state = doc.getFirstFieldValue('state');\n    doc.addField('full_address', street + \"\\r\\n\" + city + ', ' + state);\n  }\n  return doc;\n}   ",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Full address",
+        "licensed" : true,
+        "secretSourceStageId" : "gan"
       }, {
         "type" : "field-mapping",
-        "id" : "50d8535e-b6bb-4753-9009-87d5a61b9d87",
-        "mappings" : [ ],
+        "id" : "3dde5d1c-78b7-4a5c-993c-c84f76744c62",
+        "mappings" : [ {
+          "source" : "city",
+          "target" : "city_s",
+          "operation" : "copy"
+        }, {
+          "source" : "city",
+          "target" : "city_t",
+          "operation" : "copy"
+        }, {
+          "source" : "state",
+          "target" : "state_s",
+          "operation" : "copy"
+        }, {
+          "source" : "state",
+          "target" : "state_t",
+          "operation" : "copy"
+        }, {
+          "source" : "total_aum",
+          "target" : "total_aum_f",
+          "operation" : "copy"
+        } ],
         "reservedFieldsMappingAllowed" : false,
         "type" : "field-mapping",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "50d8535e-b6bb-4753-9009-87d5a61b9d87"
+        "secretSourceStageId" : "3dde5d1c-78b7-4a5c-993c-c84f76744c62"
       }, {
         "type" : "solr-dynamic-field-name-mapping",
-        "id" : "ad5964bc-f418-43c2-8c22-b66229105306",
+        "id" : "df509d62-e280-4bc1-8289-4ea335babbb0",
         "duplicateSingleValuedFields" : false,
         "fieldsToExclude" : [ ],
         "advancedTextFieldsIndexing" : true,
@@ -184,93 +136,19 @@
         "type" : "solr-dynamic-field-name-mapping",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "ad5964bc-f418-43c2-8c22-b66229105306"
+        "secretSourceStageId" : "df509d62-e280-4bc1-8289-4ea335babbb0"
       }, {
-        "type" : "solr-index",
-        "id" : "ba0b3549-a9c9-4da3-8dc9-0b4d5221246c",
-        "enforceSchema" : true,
-        "dateFormats" : [ ],
-        "params" : [ ],
-        "bufferDocsForSolr" : false,
-        "type" : "solr-index",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "ba0b3549-a9c9-4da3-8dc9-0b4d5221246c"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "sp500-key-stats"
-      }
-    }, {
-      "id" : "Finance_signals_aggr",
-      "stages" : [ {
-        "type" : "field-mapping",
-        "id" : "8131c24e-0401-4253-a0fd-cbb5a4bdf646",
-        "mappings" : [ ],
-        "reservedFieldsMappingAllowed" : false,
-        "type" : "field-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "8131c24e-0401-4253-a0fd-cbb5a4bdf646"
-      }, {
-        "type" : "solr-dynamic-field-name-mapping",
-        "id" : "0a306a19-4f15-4a47-829f-b9e7525efc44",
-        "duplicateSingleValuedFields" : false,
-        "fieldsToExclude" : [ ],
-        "advancedTextFieldsIndexing" : true,
-        "maxTextLengthForAdvancedIndexing" : 100,
-        "type" : "solr-dynamic-field-name-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "0a306a19-4f15-4a47-829f-b9e7525efc44"
-      }, {
-        "type" : "solr-index",
-        "id" : "8e965270-c889-4c7c-891e-79b9a2072565",
-        "enforceSchema" : true,
-        "dateFormats" : [ ],
-        "params" : [ ],
-        "bufferDocsForSolr" : false,
-        "type" : "solr-index",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "8e965270-c889-4c7c-891e-79b9a2072565"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "Finance_signals_aggr"
-      }
-    }, {
-      "id" : "sp500-historical",
-      "stages" : [ {
         "type" : "javascript-index",
-        "id" : "7zq",
-        "script" : "function(doc) {\n  var docs = [];\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting price history for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/chart';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var json_response = JSON.parse(response);\n      for (var i = 0; i < json_response.length; i++) {\n        var price_record = json_response[i];\n        \n        // reliable ID for recrawl, e.g., to support data correct from IEX\n        var newDoc = new com.lucidworks.apollo.common.pipeline.PipelineDocument('historical_price_' + ticker + '_' + price_record.date);\n        \n        newDoc.addField('_lw_data_source_s', doc.getFirstFieldValue('_lw_data_source_s'));\n        newDoc.addField('ticker', ticker);\n        newDoc.addField('date', price_record.date);\n        newDoc.addField('open', price_record.open);\n        newDoc.addField('high', price_record.high);\n        newDoc.addField('low', price_record.low);\n        newDoc.addField('close', price_record.close);\n        newDoc.addField('volume', price_record.volume);\n        newDoc.addField('unadjusted_volume', price_record.unadjustedVolume);\n        newDoc.addField('change', price_record.change);\n        newDoc.addField('change_percent', price_record.changePercent);\n        newDoc.addField('vwap', price_record.vwap);\n        docs.push(newDoc);\n      }\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return docs;\n}",
+        "id" : "5q",
+        "script" : "function (doc) {\n  if (doc.getId() !== null && doc.hasField('city_s') && doc.hasField('state_s')) {\n    var fieldNames = [\"city_state_s\"];\n    var city_state = doc.getFirstFieldValue('state_s') + '/' + doc.getFirstFieldValue('city_s');\n    doc.setField('city_state_s', city_state);\n\n    // Specify the separate between hiearchies.\n    // In this example the 'Category' field contains:\n    // top_level/level_1/level_2/ etc.\n    var SEPARATOR = \"/\"\n\n    // Iterate over the category fields\n    for (var names_i = 0; names_i < fieldNames.length; names_i++){\n\n      // Get the values for each field.\n      var fields = doc.getFields(fieldNames[names_i]);\n\n      // Make sure that the category field actually has values for this doc.\n      if(fields != null){\n\n        // Set the new 'Twigkit' category paths. We set empty at this level so\n        // that we can create a de-duplicatd list\n        var paths = [];\n\n        // Also need to add a parent field to each doc that contains the path to\n        // the parent category.\n        var parents = [];\n\n        // Iterate over the field values.\n        for(var fields_i = 0; fields_i < fields.length; fields_i++){\n          var value = fields[fields_i].getValue();\n\n          // Check if 'SEPARATOR' exists in the value.\n          if (value != null && value.indexOf(SEPARATOR) > -1) {\n\n            // Remove trailing separators\n            if(value.charAt(0) == SEPARATOR){\n             value = value.substr(1);\n            }\n\n            if(value.charAt(value.length - 1) == SEPARATOR){\n             value = value.slice(0,-1);\n            }\n\n            // Split on 'SEPARATOR' to get new array like:\n            // [top_level,level_1,level_2,...]\n            var levels = value.split(SEPARATOR);\n\n            // Now the clever part. Iterate over the levels and use the indices\n            // to prepend the appropriate number for each level\n            // Concatenate into new 'Twigkit' path:\n            // 0/top_level\n            // 1/top_level/level_1\n            // 2/top_level/level_1/level_2 ...\n            for (var levels_i = 0; levels_i < levels.length; levels_i++) {\n              var level_cnt = 0;\n              var hier_val = \"\";\n\n              // At each level you need to prepend the correct indix as well as\n              // the parents for that level.\n              while(level_cnt < levels.length){\n\n                var hier_val = hier_val+\"/\"+levels[level_cnt];\n                var path = level_cnt.toString()+hier_val;\n\n                // De-dupe by checking for existence of path in 'paths'.\n                if(paths.indexOf(path) < 0){\n                 paths.push(path);\n                }\n\n                if(level_cnt < levels.length-1 && parents.indexOf(path) < 0){\n                    parents.push(path);\n                }\n\n                level_cnt += 1;\n              }\n            }\n          }\n        }\n\n        // Add the new Category and Parent fields to the doc.\n        // Make sure these fields are excluded from dynamic field mapping so that\n        // you don't end up with 'Category_hier_ss' and 'Category_hier_parent_ss'\n        // in the Solr index.\n        doc.addFields(fieldNames[names_i]+\"_hier_ss\",paths);\n        doc.addFields(fieldNames[names_i]+\"_hier_ss_parent_ss\",parents);\n      }\n    }\n  }\n  return doc;\n}",
         "type" : "javascript-index",
         "skip" : false,
-        "label" : "Get Historical Prices",
+        "label" : "Hierarchical Facet Setup",
         "licensed" : true,
-        "secretSourceStageId" : "7zq"
-      }, {
-        "type" : "field-mapping",
-        "id" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd",
-        "mappings" : [ ],
-        "reservedFieldsMappingAllowed" : false,
-        "type" : "field-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd"
-      }, {
-        "type" : "solr-dynamic-field-name-mapping",
-        "id" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c",
-        "duplicateSingleValuedFields" : false,
-        "fieldsToExclude" : [ ],
-        "advancedTextFieldsIndexing" : true,
-        "maxTextLengthForAdvancedIndexing" : 100,
-        "type" : "solr-dynamic-field-name-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c"
+        "secretSourceStageId" : "5q"
       }, {
         "type" : "solr-index",
-        "id" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd",
+        "id" : "ba895c27-8c0b-4394-bfec-85dd1e75c53f",
         "enforceSchema" : true,
         "dateFormats" : [ ],
         "params" : [ ],
@@ -278,10 +156,10 @@
         "type" : "solr-index",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd"
+        "secretSourceStageId" : "ba895c27-8c0b-4394-bfec-85dd1e75c53f"
       } ],
       "properties" : {
-        "secretSourcePipelineId" : "sp500-historical"
+        "secretSourcePipelineId" : "clients"
       }
     }, {
       "id" : "yahoo-news",
@@ -469,51 +347,6 @@
         "secretSourcePipelineId" : "yahoo-news"
       }
     }, {
-      "id" : "user-prefs",
-      "stages" : [ {
-        "type" : "field-mapping",
-        "id" : "4652c428-1299-448b-b855-fb437eb1293b",
-        "mappings" : [ {
-          "source" : "role",
-          "target" : "role_s",
-          "operation" : "copy"
-        }, {
-          "source" : "username",
-          "target" : "username_s",
-          "operation" : "copy"
-        } ],
-        "reservedFieldsMappingAllowed" : false,
-        "type" : "field-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "4652c428-1299-448b-b855-fb437eb1293b"
-      }, {
-        "type" : "solr-dynamic-field-name-mapping",
-        "id" : "c4e77bbd-92e9-43ec-b2d6-d5c82559a96a",
-        "duplicateSingleValuedFields" : false,
-        "fieldsToExclude" : [ ],
-        "advancedTextFieldsIndexing" : true,
-        "maxTextLengthForAdvancedIndexing" : 100,
-        "type" : "solr-dynamic-field-name-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "c4e77bbd-92e9-43ec-b2d6-d5c82559a96a"
-      }, {
-        "type" : "solr-index",
-        "id" : "7165bef7-2a14-4565-8c47-d08d09071527",
-        "enforceSchema" : true,
-        "dateFormats" : [ ],
-        "params" : [ ],
-        "bufferDocsForSolr" : false,
-        "type" : "solr-index",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "7165bef7-2a14-4565-8c47-d08d09071527"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "user-prefs"
-      }
-    }, {
       "id" : "user_buckets",
       "stages" : [ {
         "type" : "javascript-index",
@@ -653,6 +486,334 @@
       "properties" : {
         "secretSourcePipelineId" : "user_buckets"
       }
+    }, {
+      "id" : "sp500",
+      "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "ux",
+        "script" : "function(doc) {\n  if (doc.getId() !== null && doc.hasField('state')) {\n    var state = doc.getFirstFieldValue('state');\n    if (state.indexOf('[') >= 0) {\n  \t\tstate = state.substring(0, state.indexOf('['));\n      \tdoc.setField('state', state);\n    }\n  }\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "State Field Cleanup",
+        "licensed" : true,
+        "secretSourceStageId" : "ux"
+      }, {
+        "type" : "javascript-index",
+        "id" : "8si",
+        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting URL for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/logo';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var image_url_record = JSON.parse(response);\n\n      doc.addField('image_url_s', image_url_record.url);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Add Logo URL",
+        "licensed" : true,
+        "secretSourceStageId" : "8si"
+      }, {
+        "type" : "javascript-index",
+        "id" : "hen",
+        "script" : "function(doc) {\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      doc.addField('marketcap_f', stats_record.marketcap);\n      doc.addField('div_yield_f', stats_record.dividendYield);\n      doc.addField('eps_f', stats_record.latestEPS);\n      doc.addField('eps_date_dt', stats_record.latestEPSDate);\n      doc.addField('eps_fy1_f', stats_record.consensusEPS);\n      doc.addField('ebitda_f', stats_record.EBITDA);\n      doc.addField('revenue_f', stats_record.revenue);\n      doc.addField('price_to_book_f', stats_record.priceToBook);\n      doc.addField('beta_f', stats_record.beta);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Add Key Stats",
+        "licensed" : true,
+        "secretSourceStageId" : "hen"
+      }, {
+        "type" : "field-mapping",
+        "id" : "979c08de-b2c9-4347-9683-76b7be15316e",
+        "mappings" : [ {
+          "source" : "source_s",
+          "target" : "Companies",
+          "operation" : "set"
+        }, {
+          "source" : "ticker",
+          "target" : "ticker_s",
+          "operation" : "copy"
+        }, {
+          "source" : "city",
+          "target" : "city_s",
+          "operation" : "copy"
+        }, {
+          "source" : "state",
+          "target" : "state_s",
+          "operation" : "copy"
+        }, {
+          "source" : "sector",
+          "target" : "sector_s",
+          "operation" : "copy"
+        }, {
+          "source" : "industry",
+          "target" : "industry_s",
+          "operation" : "copy"
+        }, {
+          "source" : "company_name",
+          "target" : "company_name_s",
+          "operation" : "copy"
+        }, {
+          "source" : "company_name",
+          "target" : "company_name_t",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "979c08de-b2c9-4347-9683-76b7be15316e"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "d5167606-5dd0-4c00-9131-1ad159a44f1a",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d5167606-5dd0-4c00-9131-1ad159a44f1a"
+      }, {
+        "type" : "javascript-index",
+        "id" : "08u",
+        "script" : "function (doc) {\n  if (doc.getId() !== null && doc.hasField('sector_s') && doc.hasField('industry_s')) {\n    var sector_industry = doc.getFirstFieldValue('sector_s') + '/' + doc.getFirstFieldValue('industry_s');\n    doc.setField('sector_industry_s', sector_industry);\n        \n    var fieldNames = [\"sector_industry_s\"];\n    if (doc.hasField('city_s') && doc.hasField('state_s')) {\n      var city_state = doc.getFirstFieldValue('state_s') + '/' + doc.getFirstFieldValue('city_s');\n      doc.setField('city_state_s', city_state);\n      fieldNames.push('city_state_s');\n    }\n\n    // Specify the separate between hiearchies.\n    // In this example the 'Category' field contains:\n    // top_level/level_1/level_2/ etc.\n    var SEPARATOR = \"/\"\n\n    // Iterate over the category fields\n    for (var names_i = 0; names_i < fieldNames.length; names_i++){\n\n      // Get the values for each field.\n      var fields = doc.getFields(fieldNames[names_i]);\n\n      // Make sure that the category field actually has values for this doc.\n      if(fields != null){\n\n        // Set the new 'Twigkit' category paths. We set empty at this level so\n        // that we can create a de-duplicatd list\n        var paths = [];\n\n        // Also need to add a parent field to each doc that contains the path to\n        // the parent category.\n        var parents = [];\n\n        // Iterate over the field values.\n        for(var fields_i = 0; fields_i < fields.length; fields_i++){\n          var value = fields[fields_i].getValue();\n\n          // Check if 'SEPARATOR' exists in the value.\n          if (value != null && value.indexOf(SEPARATOR) > -1) {\n\n            // Remove trailing separators\n            if(value.charAt(0) == SEPARATOR){\n             value = value.substr(1);\n            }\n\n            if(value.charAt(value.length - 1) == SEPARATOR){\n             value = value.slice(0,-1);\n            }\n\n            // Split on 'SEPARATOR' to get new array like:\n            // [top_level,level_1,level_2,...]\n            var levels = value.split(SEPARATOR);\n\n            // Now the clever part. Iterate over the levels and use the indices\n            // to prepend the appropriate number for each level\n            // Concatenate into new 'Twigkit' path:\n            // 0/top_level\n            // 1/top_level/level_1\n            // 2/top_level/level_1/level_2 ...\n            for (var levels_i = 0; levels_i < levels.length; levels_i++) {\n              var level_cnt = 0;\n              var hier_val = \"\";\n\n              // At each level you need to prepend the correct indix as well as\n              // the parents for that level.\n              while(level_cnt < levels.length){\n\n                var hier_val = hier_val+\"/\"+levels[level_cnt];\n                var path = level_cnt.toString()+hier_val;\n\n                // De-dupe by checking for existence of path in 'paths'.\n                if(paths.indexOf(path) < 0){\n                 paths.push(path);\n                }\n\n                if(level_cnt < levels.length-1 && parents.indexOf(path) < 0){\n                    parents.push(path);\n                }\n\n                level_cnt += 1;\n              }\n            }\n          }\n        }\n\n        // Add the new Category and Parent fields to the doc.\n        // Make sure these fields are excluded from dynamic field mapping so that\n        // you don't end up with 'Category_hier_ss' and 'Category_hier_parent_ss'\n        // in the Solr index.\n        doc.addFields(fieldNames[names_i]+\"_hier_ss\",paths);\n        doc.addFields(fieldNames[names_i]+\"_hier_ss_parent_ss\",parents);\n      }\n    }\n  }\n  return doc;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Hierarchical Facet Setup",
+        "licensed" : true,
+        "secretSourceStageId" : "08u"
+      }, {
+        "type" : "solr-index",
+        "id" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "138ec69f-5a04-4909-9b9b-1cfaeea3e2f4"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "sp500"
+      }
+    }, {
+      "id" : "client_accounts",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "51eef0ff-e2f1-4c5b-b384-bb218153609e",
+        "mappings" : [ {
+          "source" : "type",
+          "target" : "type_s",
+          "operation" : "copy"
+        }, {
+          "source" : "value",
+          "target" : "value_f",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "51eef0ff-e2f1-4c5b-b384-bb218153609e"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "c9ae4f01-520a-445b-a2f1-6de23d42e096",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c9ae4f01-520a-445b-a2f1-6de23d42e096"
+      }, {
+        "type" : "solr-index",
+        "id" : "4cae307f-6ab2-4b71-88fb-943b3440329d",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "4cae307f-6ab2-4b71-88fb-943b3440329d"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "client_accounts"
+      }
+    }, {
+      "id" : "sp500-key-stats",
+      "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "g2j",
+        "script" : "function(doc) {\n  var docs = [];\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting key stats for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/stats';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var stats_record = JSON.parse(response);\n\n      // reliable ID for recrawl, e.g., to support data correct from IEX\n      var newDoc = new com.lucidworks.apollo.common.pipeline.PipelineDocument('key_stats_' + ticker);\n\n      newDoc.addField('_lw_data_source_s', doc.getFirstFieldValue('_lw_data_source_s'));\n      newDoc.addField('ticker', ticker);\n      newDoc.addField('marketcap_f', stats_record.marketcap);\n      newDoc.addField('div_yield_f', stats_record.dividendYield);\n      newDoc.addField('eps_f', stats_record.latestEPS);\n      newDoc.addField('eps_date_dt', stats_record.latestEPSDate);\n      newDoc.addField('eps_fy1_f', stats_record.consensusEPS);\n      newDoc.addField('ebitda_f', stats_record.EBITDA);\n      newDoc.addField('revenue_f', stats_record.revenue);\n      newDoc.addField('price_to_book_f', stats_record.priceToBook);\n      newDoc.addField('beta_f', stats_record.beta);\n      docs.push(newDoc);\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return docs;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Get Key Stats",
+        "licensed" : true,
+        "secretSourceStageId" : "g2j"
+      }, {
+        "type" : "field-mapping",
+        "id" : "50d8535e-b6bb-4753-9009-87d5a61b9d87",
+        "mappings" : [ ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "50d8535e-b6bb-4753-9009-87d5a61b9d87"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "ad5964bc-f418-43c2-8c22-b66229105306",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "ad5964bc-f418-43c2-8c22-b66229105306"
+      }, {
+        "type" : "solr-index",
+        "id" : "ba0b3549-a9c9-4da3-8dc9-0b4d5221246c",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "ba0b3549-a9c9-4da3-8dc9-0b4d5221246c"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "sp500-key-stats"
+      }
+    }, {
+      "id" : "Finance_signals_aggr",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "8131c24e-0401-4253-a0fd-cbb5a4bdf646",
+        "mappings" : [ ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8131c24e-0401-4253-a0fd-cbb5a4bdf646"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "0a306a19-4f15-4a47-829f-b9e7525efc44",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0a306a19-4f15-4a47-829f-b9e7525efc44"
+      }, {
+        "type" : "solr-index",
+        "id" : "8e965270-c889-4c7c-891e-79b9a2072565",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8e965270-c889-4c7c-891e-79b9a2072565"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_signals_aggr"
+      }
+    }, {
+      "id" : "sp500-historical",
+      "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "7zq",
+        "script" : "function(doc) {\n  var docs = [];\n\n  if (doc !== null && doc.hasField('ticker')) {\n    var ticker = doc.getFirstFieldValue('ticker');\n    logger.info('Getting price history for ' + ticker);\n    if (ticker !== null) {\n    \n      var entityUtils = Packages.org.apache.http.util.EntityUtils;\n      var httpClient = org.apache.http.impl.client.HttpClients.createDefault();\n      var url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/chart';\n      var httpGet = new org.apache.http.client.methods.HttpGet(url);\n\n      var response = entityUtils.toString(httpClient.execute(httpGet).getEntity());\n      var json_response = JSON.parse(response);\n      for (var i = 0; i < json_response.length; i++) {\n        var price_record = json_response[i];\n        \n        // reliable ID for recrawl, e.g., to support data correct from IEX\n        var newDoc = new com.lucidworks.apollo.common.pipeline.PipelineDocument('historical_price_' + ticker + '_' + price_record.date);\n        \n        newDoc.addField('_lw_data_source_s', doc.getFirstFieldValue('_lw_data_source_s'));\n        newDoc.addField('ticker', ticker);\n        newDoc.addField('date', price_record.date);\n        newDoc.addField('open', price_record.open);\n        newDoc.addField('high', price_record.high);\n        newDoc.addField('low', price_record.low);\n        newDoc.addField('close', price_record.close);\n        newDoc.addField('volume', price_record.volume);\n        newDoc.addField('unadjusted_volume', price_record.unadjustedVolume);\n        newDoc.addField('change', price_record.change);\n        newDoc.addField('change_percent', price_record.changePercent);\n        newDoc.addField('vwap', price_record.vwap);\n        docs.push(newDoc);\n      }\n    }\n  }\n  // IEX doesn't like to be hit hard, sleep for a bit to throttle\n  java.lang.Thread.sleep(200);\n  return docs;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Get Historical Prices",
+        "licensed" : true,
+        "secretSourceStageId" : "7zq"
+      }, {
+        "type" : "field-mapping",
+        "id" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd",
+        "mappings" : [ {
+          "source" : "ticker",
+          "target" : "ticker_s",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "13c12b85-c98f-4df5-a7b2-97d7e5f4e6fd"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "69ac23f6-11d0-4e6c-a73c-ec4a56ef493c"
+      }, {
+        "type" : "solr-index",
+        "id" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8bcf7a20-b917-467e-a7e0-ed389c7c6bdd"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "sp500-historical"
+      }
+    }, {
+      "id" : "user-prefs",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "4652c428-1299-448b-b855-fb437eb1293b",
+        "mappings" : [ {
+          "source" : "role",
+          "target" : "role_s",
+          "operation" : "copy"
+        }, {
+          "source" : "username",
+          "target" : "username_s",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "4652c428-1299-448b-b855-fb437eb1293b"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "c4e77bbd-92e9-43ec-b2d6-d5c82559a96a",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c4e77bbd-92e9-43ec-b2d6-d5c82559a96a"
+      }, {
+        "type" : "solr-index",
+        "id" : "7165bef7-2a14-4565-8c47-d08d09071527",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "7165bef7-2a14-4565-8c47-d08d09071527"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "user-prefs"
+      }
     } ],
     "queryPipelines" : [ {
       "id" : "Finance_signals",
@@ -743,6 +904,536 @@
       } ],
       "properties" : {
         "secretSourcePipelineId" : "Finance_signals"
+      }
+    }, {
+      "id" : "clients",
+      "stages" : [ {
+        "type" : "set-params",
+        "id" : "xgn",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "total_aum_f",
+          "policy" : "append"
+        }, {
+          "key" : "facet.range.start",
+          "value" : "0",
+          "policy" : "append"
+        }, {
+          "key" : "facet.range.end",
+          "value" : "400000",
+          "policy" : "append"
+        }, {
+          "key" : "facet.range.gap",
+          "value" : "50000",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "AUM Facet",
+        "licensed" : true,
+        "secretSourceStageId" : "xgn"
+      }, {
+        "type" : "search-fields",
+        "id" : "kqo",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "kqo"
+      }, {
+        "type" : "facet",
+        "id" : "1784dd15-1e55-43e7-a2c4-66195e3769bb",
+        "fieldFacets" : [ {
+          "field" : "city_state_s_hier_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "city_state_s_hier_ss_parent_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "account_type_ss",
+          "minCount" : 1,
+          "missing" : false
+        } ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "1784dd15-1e55-43e7-a2c4-66195e3769bb"
+      }, {
+        "type" : "solr-query",
+        "id" : "f3e5e3f7-ca78-4bc5-969d-7d1342612c0f",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f3e5e3f7-ca78-4bc5-969d-7d1342612c0f"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "clients"
+      }
+    }, {
+      "id" : "historical",
+      "stages" : [ {
+        "type" : "facet",
+        "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
+        "fieldFacets" : [ {
+          "field" : "_lw_data_source_s",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "ticker_s",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_person_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_company_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "Company_Events_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "industry_tags_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_country_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "city_state_s_hier_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "city_state_s_hier_ss_parent_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "sector_industry_s_hier_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "sector_industry_s_hier_ss_parent_ss",
+          "minCount" : 1,
+          "missing" : false
+        } ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
+        "properties" : {
+          "autoCreated" : true
+        }
+      }, {
+        "type" : "search-fields",
+        "id" : "7v5",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "7v5"
+      }, {
+        "type" : "solr-query",
+        "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "historical"
+      }
+    }, {
+      "id" : "portfolio",
+      "stages" : [ {
+        "type" : "facet",
+        "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
+        "fieldFacets" : [ {
+          "field" : "_lw_data_source_s",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "ticker_s",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_person_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_company_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "Company_Events_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "industry_tags_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "entity_country_hv_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "city_state_s_hier_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "city_state_s_hier_ss_parent_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "sector_industry_s_hier_ss",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "sector_industry_s_hier_ss_parent_ss",
+          "minCount" : 1,
+          "missing" : false
+        } ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
+        "properties" : {
+          "autoCreated" : true
+        }
+      }, {
+        "type" : "search-fields",
+        "id" : "7v5",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "7v5"
+      }, {
+        "type" : "solr-query",
+        "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "portfolio"
+      }
+    }, {
+      "id" : "Finance_signals_aggr",
+      "stages" : [ {
+        "type" : "recommendation",
+        "id" : "b083a011-bfd6-4ba6-9366-9b639ede912a",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "b083a011-bfd6-4ba6-9366-9b639ede912a"
+      }, {
+        "type" : "search-fields",
+        "id" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2"
+      }, {
+        "type" : "facet",
+        "id" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6"
+      }, {
+        "type" : "solr-query",
+        "id" : "74bae31b-e151-4a95-b8cf-5d7f7c467013",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "74bae31b-e151-4a95-b8cf-5d7f7c467013"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_signals_aggr"
+      }
+    }, {
+      "id" : "company-news",
+      "stages" : [ {
+        "type" : "sub-query",
+        "id" : "mm8",
+        "key" : "company-buckets",
+        "collection" : "Finance",
+        "handler" : "select",
+        "method" : "GET",
+        "parentParams" : [ "company-ticker" ],
+        "rollupKeys" : [ ],
+        "params" : [ {
+          "key" : "fq",
+          "value" : "{!field f=ticker_s v=$company-ticker}"
+        }, {
+          "key" : "q",
+          "value" : "*:*"
+        }, {
+          "key" : "fq",
+          "value" : "_lw_data_source_s:sp500"
+        } ],
+        "headers" : [ ],
+        "type" : "sub-query",
+        "skip" : false,
+        "label" : "Get Company",
+        "condition" : "request.hasParam(\"company-ticker\")",
+        "licensed" : true,
+        "secretSourceStageId" : "mm8"
+      }, {
+        "type" : "javascript-query",
+        "id" : "9",
+        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results!');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    var company_disjunction = '(';\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n        logger.info('Company Portfolios: adding boost for ' + company_name);\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:(\" + ticker + \")^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n        if (i > 0) {\n          company_disjunction = company_disjunction + \" OR \";\n        }\n        company_disjunction = company_disjunction + \"ticker_s:\" + ticker + \" OR entity_stock_ticker_mv_ss:\" + ticker + \"* OR title_t:\" + ticker + \" OR title_t:\\\"\" + company_name + \"\\\"\";\n    }\n    company_disjunction = company_disjunction + ')';\n    request.addParam('fq', company_disjunction);\n  }\n}",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "Filter By Company",
+        "condition" : "",
+        "licensed" : true,
+        "secretSourceStageId" : "9"
+      }, {
+        "type" : "recommendation",
+        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
+      }, {
+        "type" : "search-fields",
+        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
+      }, {
+        "type" : "facet",
+        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
+      }, {
+        "type" : "solr-query",
+        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "company-news"
+      }
+    }, {
+      "id" : "finance-default",
+      "stages" : [ {
+        "type" : "recommendation",
+        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
+      }, {
+        "type" : "search-fields",
+        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
+      }, {
+        "type" : "facet",
+        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
+      }, {
+        "type" : "solr-query",
+        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "finance-default"
       }
     }, {
       "id" : "Finance",
@@ -924,112 +1615,6 @@
         "secretSourcePipelineId" : "buckets"
       }
     }, {
-      "id" : "historical",
-      "stages" : [ {
-        "type" : "facet",
-        "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
-        "fieldFacets" : [ {
-          "field" : "_lw_data_source_s",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "ticker_s",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_person_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_company_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "Company_Events_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "industry_tags_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_country_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "city_state_s_hier_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "city_state_s_hier_ss_parent_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "sector_industry_s_hier_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "sector_industry_s_hier_ss_parent_ss",
-          "minCount" : 1,
-          "missing" : false
-        } ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
-        "properties" : {
-          "autoCreated" : true
-        }
-      }, {
-        "type" : "search-fields",
-        "id" : "7v5",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "7v5"
-      }, {
-        "type" : "solr-query",
-        "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "historical"
-      }
-    }, {
-      "id" : "suggest",
-      "stages" : [ {
-        "type" : "facet",
-        "id" : "caa61be2-1a8f-4bee-b60a-097dca25ba55",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "caa61be2-1a8f-4bee-b60a-097dca25ba55"
-      }, {
-        "type" : "solr-query",
-        "id" : "9c452c49-dad6-4af7-af11-bc4ce840f52d",
-        "allowedRequestHandlers" : [ "suggest" ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "9c452c49-dad6-4af7-af11-bc4ce840f52d"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "suggest"
-      }
-    }, {
       "id" : "queries-facets",
       "stages" : [ {
         "type" : "set-params",
@@ -1128,6 +1713,30 @@
       } ],
       "properties" : {
         "secretSourcePipelineId" : "queries-facets"
+      }
+    }, {
+      "id" : "suggest",
+      "stages" : [ {
+        "type" : "facet",
+        "id" : "caa61be2-1a8f-4bee-b60a-097dca25ba55",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "caa61be2-1a8f-4bee-b60a-097dca25ba55"
+      }, {
+        "type" : "solr-query",
+        "id" : "9c452c49-dad6-4af7-af11-bc4ce840f52d",
+        "allowedRequestHandlers" : [ "suggest" ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "9c452c49-dad6-4af7-af11-bc4ce840f52d"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "suggest"
       }
     }, {
       "id" : "latest-news",
@@ -1299,65 +1908,10 @@
         "secretSourcePipelineId" : "latest-news"
       }
     }, {
-      "id" : "portfolio",
+      "id" : "accounts",
       "stages" : [ {
-        "type" : "facet",
-        "id" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
-        "fieldFacets" : [ {
-          "field" : "_lw_data_source_s",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "ticker_s",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_person_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_company_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "Company_Events_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "industry_tags_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "entity_country_hv_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "city_state_s_hier_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "city_state_s_hier_ss_parent_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "sector_industry_s_hier_ss",
-          "minCount" : 1,
-          "missing" : false
-        }, {
-          "field" : "sector_industry_s_hier_ss_parent_ss",
-          "minCount" : 1,
-          "missing" : false
-        } ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "d53dccad-087d-4aa1-bb3f-a3e20b39fa34",
-        "properties" : {
-          "autoCreated" : true
-        }
-      }, {
         "type" : "search-fields",
-        "id" : "7v5",
+        "id" : "32896dc4-96a8-4944-addf-8a1e5d90e501",
         "rows" : 10,
         "start" : 0,
         "queryFields" : [ ],
@@ -1365,314 +1919,28 @@
         "type" : "search-fields",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "7v5"
-      }, {
-        "type" : "solr-query",
-        "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "portfolio"
-      }
-    }, {
-      "id" : "Finance_signals_aggr",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "b083a011-bfd6-4ba6-9366-9b639ede912a",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "b083a011-bfd6-4ba6-9366-9b639ede912a"
-      }, {
-        "type" : "search-fields",
-        "id" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "a11e5076-4494-4e0e-975e-8b95ec1d37c2"
+        "secretSourceStageId" : "32896dc4-96a8-4944-addf-8a1e5d90e501"
       }, {
         "type" : "facet",
-        "id" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6",
+        "id" : "8ad983d2-52a2-479d-834c-947361f5b8a9",
         "fieldFacets" : [ ],
         "type" : "facet",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "69082f6a-25d2-4acc-a5e5-33d5e88ed4b6"
+        "secretSourceStageId" : "8ad983d2-52a2-479d-834c-947361f5b8a9"
       }, {
         "type" : "solr-query",
-        "id" : "74bae31b-e151-4a95-b8cf-5d7f7c467013",
+        "id" : "4528c59e-ffe3-45c0-8f23-97910c87bb6a",
         "allowedRequestHandlers" : [ ],
         "httpMethod" : "POST",
         "allowFederatedSearch" : false,
         "type" : "solr-query",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "74bae31b-e151-4a95-b8cf-5d7f7c467013"
+        "secretSourceStageId" : "4528c59e-ffe3-45c0-8f23-97910c87bb6a"
       } ],
       "properties" : {
-        "secretSourcePipelineId" : "Finance_signals_aggr"
-      }
-    }, {
-      "id" : "finance-default",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
-      }, {
-        "type" : "search-fields",
-        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
-      }, {
-        "type" : "facet",
-        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
-      }, {
-        "type" : "solr-query",
-        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "finance-default"
-      }
-    }, {
-      "id" : "company-news",
-      "stages" : [ {
-        "type" : "sub-query",
-        "id" : "mm8",
-        "key" : "company-buckets",
-        "collection" : "Finance",
-        "handler" : "select",
-        "method" : "GET",
-        "parentParams" : [ "company-ticker" ],
-        "rollupKeys" : [ ],
-        "params" : [ {
-          "key" : "fq",
-          "value" : "{!field f=ticker_s v=$company-ticker}"
-        }, {
-          "key" : "q",
-          "value" : "*:*"
-        }, {
-          "key" : "fq",
-          "value" : "_lw_data_source_s:sp500"
-        } ],
-        "headers" : [ ],
-        "type" : "sub-query",
-        "skip" : false,
-        "label" : "Get Company",
-        "condition" : "request.hasParam(\"company-ticker\")",
-        "licensed" : true,
-        "secretSourceStageId" : "mm8"
-      }, {
-        "type" : "javascript-query",
-        "id" : "9",
-        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results!');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    var company_disjunction = '(';\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n        logger.info('Company Portfolios: adding boost for ' + company_name);\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:(\" + ticker + \")^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n        if (i > 0) {\n          company_disjunction = company_disjunction + \" OR \";\n        }\n        company_disjunction = company_disjunction + \"ticker_s:\" + ticker + \" OR entity_stock_ticker_mv_ss:\" + ticker + \"* OR title_t:\" + ticker + \" OR title_t:\\\"\" + company_name + \"\\\"\";\n    }\n    company_disjunction = company_disjunction + ')';\n    request.addParam('fq', company_disjunction);\n  }\n}",
-        "type" : "javascript-query",
-        "skip" : false,
-        "label" : "Filter By Company",
-        "condition" : "",
-        "licensed" : true,
-        "secretSourceStageId" : "9"
-      }, {
-        "type" : "recommendation",
-        "id" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "f6d1d9b1-3ed6-4f7f-8bbe-1e11ec7bf4c7"
-      }, {
-        "type" : "search-fields",
-        "id" : "c2105f8b-f55f-4114-9468-9d7e6072973e",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "c2105f8b-f55f-4114-9468-9d7e6072973e"
-      }, {
-        "type" : "facet",
-        "id" : "8dd6385a-716a-47e8-aeb6-494934b2ef43",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "8dd6385a-716a-47e8-aeb6-494934b2ef43"
-      }, {
-        "type" : "solr-query",
-        "id" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348",
-        "allowedRequestHandlers" : [ ],
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "814d21e1-f7df-4cdb-bd3d-8e87d906b348"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "company-news"
+        "secretSourcePipelineId" : "accounts"
       }
     }, {
       "id" : "user-prefs",
@@ -1794,15 +2062,15 @@
       } ]
     },
     "indexProfiles" : [ {
-      "id" : "Finance_signals",
-      "indexPipeline" : "Finance_signals",
-      "collection" : "Finance_signals",
-      "params" : [ ]
-    }, {
       "id" : "Finance-cUlP",
       "indexPipeline" : "Finance-SzaC",
       "collection" : "Finance",
       "parser" : "Finance",
+      "params" : [ ]
+    }, {
+      "id" : "Finance_signals",
+      "indexPipeline" : "Finance_signals",
+      "collection" : "Finance_signals",
       "params" : [ ]
     }, {
       "id" : "Finance-bMgT",
@@ -1831,9 +2099,9 @@
       "collection" : "Finance_signals",
       "params" : [ ]
     }, {
-      "id" : "Finance_signals-JUwc",
-      "indexPipeline" : "Finance_signals-NrMM",
-      "collection" : "Finance_signals",
+      "id" : "Finance_signals_aggr-hZD9",
+      "indexPipeline" : "Finance_signals_aggr-QQSI",
+      "collection" : "Finance_signals_aggr",
       "params" : [ ]
     }, {
       "id" : "Finance_signals-Fpkw",
@@ -1841,9 +2109,9 @@
       "collection" : "Finance_signals",
       "params" : [ ]
     }, {
-      "id" : "Finance_signals_aggr-hZD9",
-      "indexPipeline" : "Finance_signals_aggr-QQSI",
-      "collection" : "Finance_signals_aggr",
+      "id" : "Finance_signals-JUwc",
+      "indexPipeline" : "Finance_signals-NrMM",
+      "collection" : "Finance_signals",
       "params" : [ ]
     }, {
       "id" : "Finance_signals-9qAH",
@@ -1884,25 +2152,19 @@
       "parser" : "Finance",
       "params" : [ ]
     }, {
+      "id" : "Finance_signals_aggr-8Hus",
+      "indexPipeline" : "Finance_signals_aggr-gcGI",
+      "collection" : "Finance_signals_aggr",
+      "params" : [ ]
+    }, {
       "id" : "Finance-fgwn",
       "indexPipeline" : "Finance-ltNG",
       "collection" : "Finance",
       "parser" : "Finance",
       "params" : [ ]
     }, {
-      "id" : "Finance_signals_aggr-8Hus",
-      "indexPipeline" : "Finance_signals_aggr-gcGI",
-      "collection" : "Finance_signals_aggr",
-      "params" : [ ]
-    }, {
       "id" : "Finance-fkfw",
       "indexPipeline" : "Finance-yYr1",
-      "collection" : "Finance",
-      "parser" : "Finance",
-      "params" : [ ]
-    }, {
-      "id" : "Finance",
-      "indexPipeline" : "Finance",
       "collection" : "Finance",
       "parser" : "Finance",
       "params" : [ ]
@@ -1913,8 +2175,8 @@
       "parser" : "Finance",
       "params" : [ ]
     }, {
-      "id" : "Finance-uDja",
-      "indexPipeline" : "Finance-pQGM",
+      "id" : "Finance",
+      "indexPipeline" : "Finance",
       "collection" : "Finance",
       "parser" : "Finance",
       "params" : [ ]
@@ -1922,6 +2184,12 @@
       "id" : "Finance_signals-zz8q",
       "indexPipeline" : "Finance_signals-1Clu",
       "collection" : "Finance_signals",
+      "params" : [ ]
+    }, {
+      "id" : "Finance-uDja",
+      "indexPipeline" : "Finance-pQGM",
+      "collection" : "Finance",
+      "parser" : "Finance",
       "params" : [ ]
     }, {
       "id" : "Finance_signals_aggr-TojC",
@@ -1935,14 +2203,14 @@
       "parser" : "Finance",
       "params" : [ ]
     }, {
-      "id" : "Finance_signals-ldyf",
-      "indexPipeline" : "Finance_signals-aifV",
-      "collection" : "Finance_signals",
-      "params" : [ ]
-    }, {
       "id" : "Finance_signals_aggr-SJ92",
       "indexPipeline" : "Finance_signals_aggr-pwtm",
       "collection" : "Finance_signals_aggr",
+      "params" : [ ]
+    }, {
+      "id" : "Finance_signals-ldyf",
+      "indexPipeline" : "Finance_signals-aifV",
+      "collection" : "Finance_signals",
       "params" : [ ]
     }, {
       "id" : "dave_temp",
@@ -1972,13 +2240,38 @@
       "params" : [ ]
     } ],
     "queryProfiles" : [ {
+      "id" : "user-companies",
+      "queryPipeline" : "buckets",
+      "collection" : "Finance",
+      "searchHandler" : "select"
+    }, {
       "id" : "Finance_signals",
       "queryPipeline" : "Finance_signals",
       "collection" : "Finance_signals",
       "searchHandler" : "/select"
     }, {
-      "id" : "user-companies",
-      "queryPipeline" : "buckets",
+      "id" : "clients",
+      "queryPipeline" : "clients",
+      "collection" : "Finance",
+      "searchHandler" : "select"
+    }, {
+      "id" : "Finance",
+      "queryPipeline" : "Finance",
+      "collection" : "Finance",
+      "searchHandler" : "/select"
+    }, {
+      "id" : "historical",
+      "queryPipeline" : "historical",
+      "collection" : "Finance",
+      "searchHandler" : "select"
+    }, {
+      "id" : "suggest",
+      "queryPipeline" : "suggest",
+      "collection" : "Finance",
+      "searchHandler" : "suggest"
+    }, {
+      "id" : "latest-news",
+      "queryPipeline" : "latest-news",
       "collection" : "Finance",
       "searchHandler" : "select"
     }, {
@@ -1992,38 +2285,23 @@
       "collection" : "Finance",
       "searchHandler" : "select"
     }, {
-      "id" : "Finance",
-      "queryPipeline" : "Finance",
-      "collection" : "Finance",
-      "searchHandler" : "/select"
-    }, {
       "id" : "Finance_signals_aggr",
       "queryPipeline" : "Finance_signals_aggr",
       "collection" : "Finance_signals_aggr",
       "searchHandler" : "/select"
-    }, {
-      "id" : "historical",
-      "queryPipeline" : "historical",
-      "collection" : "Finance",
-      "searchHandler" : "select"
     }, {
       "id" : "company-news",
       "queryPipeline" : "company-news",
       "collection" : "Finance",
       "searchHandler" : "select"
     }, {
-      "id" : "user-prefs",
-      "queryPipeline" : "user-prefs",
+      "id" : "accounts",
+      "queryPipeline" : "accounts",
       "collection" : "Finance",
       "searchHandler" : "select"
     }, {
-      "id" : "suggest",
-      "queryPipeline" : "suggest",
-      "collection" : "Finance",
-      "searchHandler" : "suggest"
-    }, {
-      "id" : "latest-news",
-      "queryPipeline" : "latest-news",
+      "id" : "user-prefs",
+      "queryPipeline" : "user-prefs",
       "collection" : "Finance",
       "searchHandler" : "select"
     } ],
@@ -2059,20 +2337,65 @@
         "outputFieldPrefix" : ""
       } ]
     }, {
-      "id" : "trit-response-parser",
+      "id" : "clients",
       "enableMediaTypeDetection" : true,
       "maxParserDepth" : 16,
       "parserStages" : [ {
-        "type" : "json",
+        "type" : "csv",
         "enabled" : true,
         "mediaTypes" : [ ],
-        "pathPatterns" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
         "errorHandling" : "mark",
-        "id" : "eb2537e3-6661-449d-ac1f-d8e18d4f8b2c",
-        "splitArrays" : true,
-        "includePath" : false,
-        "mappings" : [ ],
-        "listHandling" : "multivalued",
+        "id" : "2ca60ebd-9e98-4797-893f-6baefa9b6e6f",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    }, {
+      "id" : "client_accounts",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ {
+          "syntax" : "regex",
+          "pattern" : ".*\\.csv"
+        } ],
+        "errorHandling" : "mark",
+        "id" : "56ac948a-4c85-47f3-b036-e7ba13736e16",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : true,
+        "headers" : [ ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
         "inheritMediaTypes" : true,
         "outputFieldPrefix" : ""
       } ],
@@ -2105,6 +2428,25 @@
         "maxNumColumns" : 1000,
         "maxColumnChars" : 10485760,
         "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    }, {
+      "id" : "trit-response-parser",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "json",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "eb2537e3-6661-449d-ac1f-d8e18d4f8b2c",
+        "splitArrays" : true,
+        "includePath" : false,
+        "mappings" : [ ],
+        "listHandling" : "multivalued",
         "inheritMediaTypes" : true,
         "outputFieldPrefix" : ""
       } ],
@@ -2485,6 +2827,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "index-pipeline:client_accounts",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:portfolio",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -2525,14 +2872,14 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:historical",
-      "object" : "collection:Finance",
+      "subject" : "index-profile:Finance_signals-fIEO",
+      "object" : "collection:Finance_signals",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "index-pipeline:user-prefs",
-      "object" : "app:Finance",
-      "linkType" : "inContextOf",
+      "subject" : "query-profile:historical",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "query-pipeline:finance-default",
@@ -2540,9 +2887,9 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
-      "subject" : "index-profile:Finance_signals-fIEO",
-      "object" : "collection:Finance_signals",
-      "linkType" : "relatesTo",
+      "subject" : "index-pipeline:user-prefs",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "query-profile:user-prefs",
@@ -2555,12 +2902,32 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:clients",
+      "object" : "query-pipeline:clients",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:clients",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:accounts",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "index-profile:Finance-fkfw",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "query-profile:company-news",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:clients",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
@@ -2610,13 +2977,13 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:historical",
-      "object" : "query-pipeline:historical",
+      "subject" : "datasource:sp500",
+      "object" : "collection:Finance",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "datasource:sp500",
-      "object" : "collection:Finance",
+      "subject" : "query-profile:historical",
+      "object" : "query-pipeline:historical",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -2635,13 +3002,13 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:suggest",
-      "object" : "collection:Finance",
+      "subject" : "collection:Finance_signals",
+      "object" : "index-pipeline:Finance_signals",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "collection:Finance_signals",
-      "object" : "index-pipeline:Finance_signals",
+      "subject" : "query-profile:suggest",
+      "object" : "collection:Finance",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -2655,6 +3022,11 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "index-pipeline:clients",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "index-profile:Finance-5jRq",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -2663,6 +3035,11 @@
       "subject" : "datasource:sp500",
       "object" : "index-pipeline:sp500",
       "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:accounts",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance-wdTQ",
@@ -2700,17 +3077,22 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "index-profile:Finance-cUlP",
-      "object" : "collection:Finance",
-      "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
       "subject" : "index-profile:Finance_signals_aggr",
       "object" : "index-pipeline:Finance_signals_aggr",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "index-profile:Finance-cUlP",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "index-profile:Finance-NYdY",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
@@ -2720,19 +3102,14 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "collection:Finance",
-      "object" : "app:Finance",
-      "linkType" : "inContextOf",
+      "subject" : "index-profile:Finance_signals",
+      "object" : "collection:Finance_signals",
+      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance-5jRq",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
-      "originator" : "unspecified"
-    }, {
-      "subject" : "index-profile:Finance_signals",
-      "object" : "collection:Finance_signals",
-      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals_aggr-TojC",
@@ -2745,12 +3122,17 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "parser:trit-response-parser",
+      "subject" : "datasource:clients",
+      "object" : "index-pipeline:clients",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:sp500-historical",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
-      "subject" : "index-pipeline:sp500-historical",
+      "subject" : "parser:trit-response-parser",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
@@ -2760,14 +3142,14 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:Finance_signals_aggr",
-      "object" : "query-pipeline:Finance_signals_aggr",
-      "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
       "subject" : "query-pipeline:company-news",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_signals_aggr",
+      "object" : "query-pipeline:Finance_signals_aggr",
+      "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
@@ -2810,6 +3192,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:clients",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "object" : "collection:Finance_signals",
       "linkType" : "hasPart",
@@ -2828,6 +3215,11 @@
       "subject" : "index-profile:Finance_signals_aggr-Znks",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:client-accounts",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals",
@@ -2850,14 +3242,19 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "index-profile:Finance_signals-Roet",
+      "object" : "collection:Finance_signals",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:default",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
-      "subject" : "index-profile:Finance_signals-Roet",
-      "object" : "collection:Finance_signals",
-      "linkType" : "relatesTo",
+      "subject" : "query-profile:clients",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-profile:Finance_signals_aggr-SJ92",
@@ -2875,6 +3272,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-profile:accounts",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:historical",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
@@ -2888,6 +3290,11 @@
       "subject" : "index-profile:Finance",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:client_accounts",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "app:Finance",
@@ -2917,6 +3324,11 @@
     }, {
       "subject" : "index-profile:Finance_signals_aggr-rXo9",
       "object" : "collection:Finance_signals_aggr",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:accounts",
+      "object" : "query-pipeline:accounts",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -2970,6 +3382,16 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "datasource:client-accounts",
+      "object" : "index-pipeline:client_accounts",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clients",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
       "subject" : "datasource:yahoo-news",
       "object" : "index-pipeline:yahoo-news",
       "linkType" : "dependsOn",
@@ -3005,6 +3427,11 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
+      "subject" : "datasource:clients",
+      "object" : "parser:clients",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-profile:default",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -3023,6 +3450,11 @@
       "subject" : "query-profile:portfolio",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:client-accounts",
+      "object" : "parser:client_accounts",
+      "linkType" : "dependsOn",
       "originator" : "unspecified"
     }, {
       "subject" : "query-profile:latest-news",
@@ -3063,6 +3495,16 @@
       "subject" : "query-profile:Finance",
       "object" : "query-pipeline:Finance",
       "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:client-accounts",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clients",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "datasource:sp500-historical",
@@ -3455,6 +3897,131 @@
         "f.takeScreenshot" : false
       }
     }, {
+      "id" : "clients",
+      "created" : "2018-10-29T19:09:01.045Z",
+      "modified" : "2018-10-29T19:09:01.045Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "pipeline" : "clients",
+      "parserId" : "clients",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "maxItems" : -1,
+        "f.jsAjaxTimeout" : 20000,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "Anda",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://localhost:8780/data/Finance/clients.csv" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
+      }
+    }, {
       "id" : "tempsp500",
       "created" : "2018-10-08T02:50:13.311Z",
       "modified" : "2018-10-08T02:50:13.311Z",
@@ -3466,6 +4033,131 @@
         "mediaType" : "application/octet-stream",
         "collection" : "dave_temp",
         "fileId" : "sp500_new.csv"
+      }
+    }, {
+      "id" : "client-accounts",
+      "created" : "2018-10-29T19:12:30.863Z",
+      "modified" : "2018-10-29T19:12:30.863Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "pipeline" : "client_accounts",
+      "parserId" : "client_accounts",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "maxItems" : -1,
+        "f.jsAjaxTimeout" : 20000,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "Anda",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://localhost:8780/data/Finance/client_accounts.csv" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
       }
     }, {
       "id" : "sp500-historical",
@@ -3721,131 +4413,6 @@
         "f.takeScreenshot" : false
       }
     }, {
-      "id" : "user-prefs",
-      "created" : "2018-10-12T15:50:22.036Z",
-      "modified" : "2018-10-12T15:50:22.036Z",
-      "connector" : "lucid.web",
-      "type" : "web",
-      "pipeline" : "user-prefs",
-      "parserId" : "Finance",
-      "properties" : {
-        "refreshOlderThan" : -1,
-        "f.appendTrailingSlashToLinks" : false,
-        "refreshErrors" : false,
-        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
-        "dedupeSaveSignature" : false,
-        "crawlDBType" : "in-memory",
-        "f.firefoxHeadlessBrowser" : true,
-        "f.discardLinkURLQueries" : false,
-        "fetchDelayMS" : 0,
-        "f.respectMetaEquivRedirects" : false,
-        "refreshAll" : true,
-        "f.defaultMIMEType" : "application/octet-stream",
-        "f.extraLoadTimeMs" : 250,
-        "f.jsPageLoadTimeout" : 20000,
-        "restrictToTreeAllowSubdomains" : false,
-        "f.jsScriptTimeout" : 20000,
-        "f.requestCounterMinWaitMs" : 5000,
-        "maxItems" : -1,
-        "f.jsAjaxTimeout" : 20000,
-        "dedupe" : false,
-        "f.scrapeLinksBeforeFiltering" : false,
-        "trackEmbeddedIDs" : true,
-        "f.allowAllCertificates" : false,
-        "collection" : "Finance",
-        "forceRefresh" : false,
-        "delete404" : true,
-        "f.obeyRobots" : true,
-        "parserRetryCount" : 0,
-        "f.quitTimeoutMs" : 5000,
-        "fetchDelayMSPerHost" : true,
-        "fetchThreads" : 5,
-        "indexCrawlDBToSolr" : false,
-        "f.requestRetryCount" : 0,
-        "retainOutlinks" : false,
-        "restrictToTree" : true,
-        "f.defaultCharSet" : "UTF-8",
-        "f.useRequestCounter" : true,
-        "emitThreads" : 5,
-        "f.headlessBrowser" : true,
-        "f.useFirefox" : false,
-        "f.canonicalTagsRedirectLimit" : 4,
-        "f.requestCounterMaxWaitMs" : 20000,
-        "diagnosticMode" : false,
-        "f.followCanonicalTags" : true,
-        "delete" : true,
-        "initial_mapping" : {
-          "mappings" : [ {
-            "source" : "charSet",
-            "operation" : "move",
-            "target" : "charSet_s"
-          }, {
-            "source" : "fetchedDate",
-            "operation" : "move",
-            "target" : "fetchedDate_dt"
-          }, {
-            "source" : "lastModified",
-            "operation" : "move",
-            "target" : "lastModified_dt"
-          }, {
-            "source" : "signature",
-            "operation" : "move",
-            "target" : "dedupeSignature_s"
-          }, {
-            "source" : "contentSignature",
-            "operation" : "move",
-            "target" : "signature_s"
-          }, {
-            "source" : "length",
-            "operation" : "move",
-            "target" : "length_l"
-          }, {
-            "source" : "mimeType",
-            "operation" : "move",
-            "target" : "mimeType_s"
-          }, {
-            "source" : "parent",
-            "operation" : "move",
-            "target" : "parent_s"
-          }, {
-            "source" : "owner",
-            "operation" : "move",
-            "target" : "owner_s"
-          }, {
-            "source" : "group",
-            "operation" : "move",
-            "target" : "group_s"
-          } ],
-          "reservedFieldsMappingAllowed" : false,
-          "skip" : false,
-          "id" : "FromMap",
-          "type" : "field-mapping"
-        },
-        "f.extraPageLoadDeltaChars" : 0,
-        "restrictToTreeUseHostAndPath" : false,
-        "sitemap_incremental_crawling" : false,
-        "f.screenshotFullscreen" : false,
-        "f.filteringRootTags" : [ "body", "head" ],
-        "startLinks" : [ "http://localhost:8780/data/Finance/user-prefs.csv" ],
-        "failFastOnStartLinkFailure" : true,
-        "f.timeoutMS" : 10000,
-        "f.discardLinkURLAnchors" : true,
-        "chunkSize" : 1,
-        "f.simulateMobile" : false,
-        "f.obeyRobotsDelay" : true,
-        "f.useHighPerfJsEval" : false,
-        "deleteErrorsAfter" : -1,
-        "f.userAgentName" : "Lucidworks-Anda/2.0",
-        "retryEmit" : true,
-        "f.crawlJS" : false,
-        "depth" : -1,
-        "f.cookieSpec" : "browser-compatibility",
-        "refreshStartLinks" : false,
-        "f.maxSizeBytes" : 4194304,
-        "aliasExpiration" : 1,
-        "f.takeScreenshot" : false
-      }
-    }, {
       "id" : "user_buckets",
       "created" : "2018-10-05T11:44:59.621Z",
       "modified" : "2018-10-05T11:44:59.621Z",
@@ -3970,13 +4537,138 @@
         "aliasExpiration" : 1,
         "f.takeScreenshot" : false
       }
+    }, {
+      "id" : "user-prefs",
+      "created" : "2018-10-12T15:50:22.036Z",
+      "modified" : "2018-10-12T15:50:22.036Z",
+      "connector" : "lucid.web",
+      "type" : "web",
+      "pipeline" : "user-prefs",
+      "parserId" : "Finance",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "f.appendTrailingSlashToLinks" : false,
+        "refreshErrors" : false,
+        "restrictToTreeIgnoredHostPrefixes" : [ "www." ],
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "f.firefoxHeadlessBrowser" : true,
+        "f.discardLinkURLQueries" : false,
+        "fetchDelayMS" : 0,
+        "f.respectMetaEquivRedirects" : false,
+        "refreshAll" : true,
+        "f.defaultMIMEType" : "application/octet-stream",
+        "f.extraLoadTimeMs" : 250,
+        "f.jsPageLoadTimeout" : 20000,
+        "restrictToTreeAllowSubdomains" : false,
+        "f.jsScriptTimeout" : 20000,
+        "f.requestCounterMinWaitMs" : 5000,
+        "maxItems" : -1,
+        "f.jsAjaxTimeout" : 20000,
+        "dedupe" : false,
+        "f.scrapeLinksBeforeFiltering" : false,
+        "trackEmbeddedIDs" : true,
+        "f.allowAllCertificates" : false,
+        "collection" : "Finance",
+        "forceRefresh" : false,
+        "delete404" : true,
+        "f.obeyRobots" : true,
+        "parserRetryCount" : 0,
+        "f.quitTimeoutMs" : 5000,
+        "fetchDelayMSPerHost" : true,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "f.requestRetryCount" : 0,
+        "retainOutlinks" : false,
+        "restrictToTree" : true,
+        "f.defaultCharSet" : "UTF-8",
+        "f.useRequestCounter" : true,
+        "emitThreads" : 5,
+        "f.headlessBrowser" : true,
+        "f.useFirefox" : false,
+        "f.canonicalTagsRedirectLimit" : 4,
+        "f.requestCounterMaxWaitMs" : 20000,
+        "diagnosticMode" : false,
+        "f.followCanonicalTags" : true,
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "move",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "move",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "move",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "move",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "move",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "move",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "move",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "move",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "move",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "move",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : false,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "f.extraPageLoadDeltaChars" : 0,
+        "restrictToTreeUseHostAndPath" : false,
+        "sitemap_incremental_crawling" : false,
+        "f.screenshotFullscreen" : false,
+        "f.filteringRootTags" : [ "body", "head" ],
+        "startLinks" : [ "http://localhost:8780/data/Finance/user-prefs.csv" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.timeoutMS" : 10000,
+        "f.discardLinkURLAnchors" : true,
+        "chunkSize" : 1,
+        "f.simulateMobile" : false,
+        "f.obeyRobotsDelay" : true,
+        "f.useHighPerfJsEval" : false,
+        "deleteErrorsAfter" : -1,
+        "f.userAgentName" : "Lucidworks-Anda/2.0",
+        "retryEmit" : true,
+        "f.crawlJS" : false,
+        "depth" : -1,
+        "f.cookieSpec" : "browser-compatibility",
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "aliasExpiration" : 1,
+        "f.takeScreenshot" : false
+      }
     } ]
   },
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2018-10-23T19:14:38.163Z",
+    "exportedDate" : "2018-11-05T21:43:42.835Z",
     "fusionVersion" : "4.1.0",
-    "fusionGuid" : "cccab241-0f3c-45cb-8aa3-ed4ce9a1fb4e"
+    "fusionGuid" : "a8cf6204-a59a-4aa8-8af3-3703bf816678"
   }
 }
