@@ -49,7 +49,7 @@ client_id = 0
 account_id = 0
 
 clients_file = open(CLIENTS_CSV, 'w')
-clients_file_writer = csv.DictWriter(clients_file, ['first_name', 'last_name', 'full_name', 'client_id', 'dob', 'age', 'inception', 'city', 'state', 'street', 'advisor', 'lat', 'lon', 'account_types', 'total_aum'])
+clients_file_writer = csv.DictWriter(clients_file, ['first_name', 'last_name', 'full_name', 'phone', 'client_id', 'dob', 'age', 'inception', 'city', 'state', 'street', 'advisor', 'lat', 'lon', 'account_types', 'total_aum'])
 clients_file_writer.writeheader()
 
 accounts_file = open(CLIENT_ACCOUNTS_CSV, 'w')
@@ -70,6 +70,7 @@ while client_id < num_clients:
     client['first_name'] = first_name
     client['last_name'] = last_name
     client['full_name'] = first_name + ' ' + last_name
+    client['phone'] = str(random.randint(100,700)) + '-' + str(random.randint(100,999)) + '-' + str(random.randint(0,9999)).zfill(4)
 
     # location
     address = random.choice(ADDRESS_LIST)
