@@ -88,7 +88,7 @@
                                 <layout:box class="stats-box">
                                     <p class="subtitle">Total AUM</p>
                                     <p class="numbers">
-                                        $1234.56
+                                        {{clientResponse | result | field:'total_aum_f' | display | currency}}
                                     </p>
                                 </layout:box>
                             </layout:block>

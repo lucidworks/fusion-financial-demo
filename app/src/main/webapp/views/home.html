@@ -196,7 +196,7 @@
                                             <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
                                             <search:field name="ticker_s" label="Top Holdings" styling="label-left" class="inline"></search:field>
                                             <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
-                                            <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
+                                            <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" prefix="$" number-format="###,###,###"></search:field>
                                             <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
                                             <hr class="simple">
                                             <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">

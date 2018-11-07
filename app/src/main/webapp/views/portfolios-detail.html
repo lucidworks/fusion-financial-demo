@@ -35,7 +35,7 @@
         <ol class="result-list">
             <search:result result="companies.results[0].result">
                 <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-inline" number-format="##.0# %"></search:field>
-                <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-inline" number-format="$###,###,###"></search:field>
+                <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-inline" prefix="$" number-format="###,###,###"></search:field>
                 <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-inline"></search:field>
             </search:result>
         </ol>
@@ -94,7 +94,7 @@
                         <layout:block xs="1-1" sm="1-2" md="2-5">
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0" styling="pull-right">
                                 <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
-                                <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" number-format="$###,###.00"></search:field>
+                                <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" prefix="$" number-format="###,###.00"></search:field>
                             </layout:box>
                         </layout:block>
                     </layout:grid>
@@ -108,8 +108,6 @@
                         <layout:block xs="1-1" md="18-24" >
                             <layout:box padding-top="0" padding-right="0" padding-bottom="0">
                                 <search:field name="industry_s" query="query" styling="label-left" label="Industry"></search:field>
-                                <!--<search:field name="state_s" styling="label-left" query="query" label="State"></search:field>-->
-                                <!--<search:field name="city_s" styling="label-left" query="query" label="City"></search:field>-->
                                 <search:field name="marketcap_f" styling="label-left" query="query" label="Market Cap"></search:field>
                                 <search:field name="revenue_f" styling="label-left" query="query" label="Revenue"></search:field>
                             </layout:box>
