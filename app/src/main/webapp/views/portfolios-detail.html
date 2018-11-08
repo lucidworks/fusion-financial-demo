@@ -6,7 +6,7 @@
 <search:response var="response" query="query" platform="platform"></search:response>
 
 <search:platform var="finance" conf="platforms.fusion.finance.historical-portfolio"></search:platform>
-<search:query parameters="*,-f" var="companyQuery" sorts="-weight_d" facets="industry_s,sector_s,ticker_s">
+<search:query parameters="*,-f" var="companyQuery" sorts="-weight_d" results-per-page="30" facets="industry_s,sector_s,ticker_s">
     <query:filter field="unique_bucket_id_s" value="{{params.id}}"></query:filter>
     <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
     <query:custom name="facet.mincount" value="1"></query:custom>
