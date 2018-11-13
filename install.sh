@@ -72,7 +72,7 @@ else
 fi
 # Create the webapp
 cd "$DEMO_HOME"
-curl -H "content-type:application/json" -X POST -d "{\"id\": \"$FUSION_APPLICATION_NAME\",\"name\": \"$FUSION_APPLICATION_NAME\", \"contextPath\": \"/$FUSION_APPLICATION_NAME\"}" "$FUSION_API/webapps"
+curl -H "content-type:application/json" -X POST -d "{\"id\": \"$FUSION_APPLICATION_NAME\",\"name\": \"$FUSION_APPLICATION_NAME\", \"contextPath\": \"/$FUSION_UI_NAME\"}" "$FUSION_API/webapps"
 curl -H 'Content-type: application/zip' -X PUT "$FUSION_API/webapps/$FUSION_APPLICATION_NAME/war" --data-binary "@./app/dist/$FUSION_UI_ARTIFACT_ID.war"
 
 echo ""
