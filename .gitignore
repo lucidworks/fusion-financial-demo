@@ -18,3 +18,4 @@ password_file.json
 myenv.sh
 demo-starter-master.zip
 archive
+app/src/main/resources/conf/app-config-private.conf

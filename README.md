@@ -19,6 +19,7 @@ Help on this Demo is available in Slack in the #finance-demo channel.
 * Maven
 * External web access to Yahoo Finance
 * External web access to the IEX API.  Validate that `https://api.iextrading.com/1.0/stock/AAPL/chart` returns historical prices for Apple.
+* A Google Maps API key that you put in `app/src/main/resources/conf/app-config-private.conf`, with contents `googleMapsKey: <YOUR API KEY>`.
 
 
 # Setup

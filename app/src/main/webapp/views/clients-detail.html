@@ -40,7 +40,7 @@
                         <span class="corner-icon fi-uniF10E"></span>
                         <layout:grid>
                             <layout:block class="user-name" ng-controller="MainCtrl">
-                                <media:image src="{{mapUrl(clientResponse | result) | trusted}}"></media:image>
+                                <media:image src="{{$root.mapUrl(clientResponse | result) | trusted}}"></media:image>
                                 <!--<p class="label label-inline">Name</p>-->
                                 <p>
                                     {{clientResponse | result | field:'full_name_s' | display}}
