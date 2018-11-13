@@ -1,10 +1,10 @@
-# Lucidworks Demo of <FILL ME IN>
+# Lucidworks Fusion Financial Services Demo
 
 This demo is designed to showcase Fusion's <FILL ME IN>.
 
 # Help on this Demo
 
-Help on this Demo is available in Slack in the #<FILL ME IN> channel.
+Help on this Demo is available in Slack in the #finance-demo channel.
 
 # Prerequisites
 
@@ -14,18 +14,20 @@ Help on this Demo is available in Slack in the #<FILL ME IN> channel.
 * Node/NPM (if you want to add new node modules)
 * The zip/unzip utility
 * A valid Fusion license file, probably stored in your home directory
-* Fusion 4.<FILL ME IN>
+* Fusion 4.1.1
 * You must be running Fusion's `webapps` service
 * Maven
+* External web access to Yahoo Finance
+* External web access to the IEX API.  Validate that `https://api.iextrading.com/1.0/stock/AAPL/chart` returns historical prices for Apple.
 
 
 # Setup
 
 
-## Clone the <FILL ME IN> repo
+## Clone the fusion-financial-demo repo
 
 
-  `git clone https://github.com/LucidWorks/<FILL ME IN>.git`
+  `git clone git@github.com:lucidworks/fusion-financial-demo.git`
 
 
 ## One Time Setup Instructions
@@ -37,26 +39,18 @@ Help on this Demo is available in Slack in the #<FILL ME IN> channel.
 
 ### Setup myenv.sh
 
-   If you're using a default Fusion 4.x setup, then you can skip this step and pass the path to Fusion (e.g. `/opt/fusion/4.0.0`) to install.sh, which will create a myenv.sh script with the default settings.
+   If you're using a default Fusion 4.x setup, then you can skip this step and pass the path to Fusion (e.g. `/opt/fusion/4.1.1`) to install.sh, which will create a myenv.sh script with the default settings.
 
    However, if you're using a customized Fusion installation, or are not using the default password, etc, then `cp myenv.sh.tmpl myenv.sh` and then edit `./myenv.sh` to verify all env vars are correct for your environment.
 
 
 ### Run
 
-  1. `./prerequisites.sh` to download any necessary data and/or install connectors.
-  1. <FILL ME IN>
-  1. Setup your passwords/secrets: (<FILL ME IN>: This may not be needed for your application)
-      1. `cp setup/password_file.json.tmpl setup/password_file.json`
-          1. `secret.1.<FILL ME IN>` are for data source <FILL ME IN>
-          1. <FILL ME IN> with any other password details users need to know.
-  1. Open `setup/password_file.json` and fill in.  NEVER CHECK IN THIS FILE!
   1. Run `./install.sh`
-
-That's it.  Browse to:
-
- 1. http://localhost:8780/<FILL ME IN>/ for the end user UI
- 1. http://localhost:8764/ for the Fusion Admin UI
+  1. Run `./redeploy-data.sh`
+  1. Browse to http://localhost:8764/ for the Fusion Admin UI
+  1. Go to the `Datasources` and run all.  Let the `yahoo-news` datasource run for a long time.  The `sp500` and `sp500-historical` datasources take 1-2 minutes, and the rest are quick.
+  1. Browse to http://localhost:8780/MarketResearch/login/ for the end user UI
 
 # Development
 
@@ -65,16 +59,14 @@ or in the Appkit UI, both of which are covered below.
 
 ## Updating the UI
 
-You have two options on the UI for editing:
-
-### Redeploy to Webapps
-1. Make your edits to the source
-1. Run `./redeploy.sh`
-
-### Local Maven Jetty Mode
+Develop the webapp locally:
 
 1. `cd app`
 1. `mvn jetty:run`
+
+And then redeploy as a Fusion webapp:
+
+1. Run `./redeploy.sh`
 
 
 ## Updating the Application
@@ -91,7 +83,7 @@ If you wish to redeploy the backend application, run:
 
 ## Working with Data
 
-1. If you put the data in data/<APP_NAME>, then it will automatically show up at http://localhost:8780/data/ and
+1. If you put the data in `data/Finance`, then it will automatically show up at http://localhost:8780/data/ and
 can easily be accessed via a Web data source.
 1. If the data is less than 100 MB, you can just check it in.
 1. If it is greater than 100 MB, use Nexus or S3 or GDrive.
@@ -117,7 +109,6 @@ to properly point at the collections you want to dump/load.
 
 ##Troubleshooting
 
-<FILL ME IN>
 
 #### Mismatched Fusion Versions
 
