@@ -52,6 +52,14 @@ Help on this Demo is available in Slack in the #finance-demo channel.
   1. Go to the `Datasources` and run all.  Let the `yahoo-news` datasource run for a long time.  The `sp500` and `sp500-historical` datasources take 1-2 minutes, and the rest are quick.
   1. Browse to http://localhost:8780/MarketResearch/login/ for the end user UI
 
+# Application Overview
+
+There are three personas supported in this app:
+
+1. Portfolio Manager (users `Chloe` and `Lawson`).  Manages investment strategy portfolios.  Differentiators: portfolio holdings view
+2. Sellside Analyst (users `Geoffrey` and `Frank`).  Covers companies (writes research, issues guidance and earnings estimates).  Similar to PM, but no notion of portfolios with weighted holdings.
+2. Financial Advisor (users `Robert` and `Cynthia`).  Covers client relationship, aids in asset allocation / product decisions.  Has more client-centric views available, e.g., a `Clients` tab that allows them to view clients and their accounts.
+
 # Development
 
 Most demo development should either be on the Application itself in Fusion (either via the UI or the API)
@@ -82,6 +90,8 @@ If you wish to redeploy the backend application, run:
 1. `./install.sh` (same as above)
 
 ## Working with Data
+
+This app relies on generated data for clients and portolios.  See the Python scripts in `/scripts`.  The scripts will generate these files: `company_buckets.csv` which includes portfolio holdings, `clients.csv`, and `client_accounts.csv`.  The latter two files are used to support the financial advisor persona.
 
 1. If you put the data in `data/Finance`, then it will automatically show up at http://localhost:8780/data/ and
 can easily be accessed via a Web data source.
