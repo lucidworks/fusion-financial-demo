@@ -1,5 +1,5 @@
 <search:platform var="platform" conf="platforms.fusion.finance.company-news"></search:platform>
-<search:query var="query" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+<search:query var="query">
     <query:custom name="portfolio" value="{{params.id}}"></query:custom>
     <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
 </search:query>
@@ -153,17 +153,8 @@
                     <h3>{{response.hits.act[1]}} News stories affecting this Portfolio</h3>
 
                     <layout:grid>
-                        <layout:block md="1-3" lg="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-light">
-                            <layout:sidebar padding-left="0">
-                                <search:facet-list response="response" platform="platform" query="query"
-                                                   styling="facet-list"
-                                                   facet-names="entity_country_hv_ss=Country,entity_company_hv_ss=Company,entity_person_hv_ss=Person,industry_tags_hv_ss=Industry,topics_tags_hv_ss=Topics">
-                                    <search:facet collapsible="true" show="8" show-more="20"></search:facet>
-                                </search:facet-list>
-                            </layout:sidebar>
-                        </layout:block>
 
-                        <layout:block md="2-3" lg="18-24" styling="bg-searchresults">
+                        <layout:block md="1-1" lg="1-1" styling="bg-searchresults">
 
                             <layout:box>
 
@@ -180,22 +171,12 @@
                                             <layout:block md="4-5">
                                                 <search:field name="title_t" styling="title" urlfield="id"></search:field>
                                                 <search:field name="og_description_s" styling="description"></search:field>
-
-                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
-                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
-                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
-                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
                                             </layout:block>
                                         </layout:grid>
                                         <layout:grid ng-if="!(result | field:'og_image_s')">
                                             <layout:block>
                                                 <search:field name="title_t" styling="title" urlfield="id"></search:field>
                                                 <search:field name="og_description_s" styling="description"></search:field>
-
-                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
-                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
-                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
-                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
                                             </layout:block>
                                         </layout:grid>
                                     </search:result>

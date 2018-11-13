@@ -15,41 +15,7 @@
   <layout:block xs="18-24" md="1-2">
     <layout:box>
       <search:box placeholder={{placeholder}} action="{{action}}" social="true">
-
-        <!--<query:suggestions completion-service="services.suggestions.querySuggestionsTerms" action="companies"></query:suggestions>-->
-
         <query:suggestions completion-service="services.suggestions.companySuggester" action="companies"></query:suggestions>
-
-
-        <!--<instant:result-list platform="instantNews">-->
-          <!--<search:result>-->
-            <!--<a ng-href="{{result | field:'Content_Location' | actual}}" class="link">-->
-
-              <!--<layout:grid ng-if="result | field:'og_image_s'">-->
-                <!--<layout:block md="2-24">-->
-                  <!--<media:image field-name="og_image_s" width="75"></media:image>-->
-                <!--</layout:block>-->
-                <!--<layout:block md="16-24">-->
-                  <!--<search:field name="title_t" label="" styling="title" urlfield="Content_Location"></search:field>-->
-                <!--</layout:block>-->
-                <!--<layout:block md="6-24">-->
-                  <!--<search:field name="entity_company_hv_ss" styling="capsules" label=""></search:field>-->
-                <!--</layout:block>-->
-              <!--</layout:grid>-->
-
-              <!--<layout:grid ng-if="!result | field:'og_image_s'">-->
-                <!--<layout:block md="3-4">-->
-                  <!--<search:field name="title_t" label="" styling="title" urlfield="Content_Location"></search:field>-->
-                <!--</layout:block>-->
-                <!--<layout:block md="1-4">-->
-                  <!--<search:field name="entity_company_hv_ss" styling="capsules" label=""></search:field>-->
-                <!--</layout:block>-->
-              <!--</layout:grid>-->
-
-            <!--</a>-->
-          <!--</search:result>-->
-        <!--</instant:result-list>-->
-
       </search:box>
     </layout:box>
   </layout:block>

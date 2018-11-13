@@ -9,7 +9,7 @@
 <search:query var="query" parameters="*"></search:query>
 
 
-<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,entity_company_hv_ss,og_description_s,Content_Location,entity_country_hv_ss,industry_tags_hv_ss">
+<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,og_description_s,Content_Location">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
@@ -115,41 +115,18 @@
                                                     </layout:box>
                                                 </layout:block>
                                                 <layout:block md="3-4">
-                                                    <div class="small-title">
-                                                        <search:field name="entity_company_hv_ss" styling="capsules"
-                                                                  query="query" label="Companies"></search:field>
-                                                    </div>
                                                     <search:field name="title_t" styling="title"
                                                                   urlfield="id"></search:field>
                                                     <search:field name="og_description_s"
                                                                   styling="description"></search:field>
-
-                                                    <search:field name="entity_country_hv_ss" styling="capsules"
-                                                                  query="query" label="Countries"></search:field>
-                                                    <search:field name="entity_person_hv_ss" styling="capsules"
-                                                                  query="query" label="People"></search:field>
-                                                    <search:field name="industry_tags_hv_ss" styling="capsules"
-                                                                  query="query" label="Industry"></search:field>
                                                 </layout:block>
                                             </layout:grid>
                                             <layout:grid ng-if="!(result | field:'og_image_s')">
                                                 <layout:block>
-                                                    <div class="small-title">
-                                                        <search:field name="entity_company_hv_ss" styling="capsules"
-                                                                      query="query" label="Companies"></search:field>
-                                                    </div>
                                                     <search:field name="title_t" styling="title"
                                                                   urlfield="id"></search:field>
                                                     <search:field name="og_description_s"
                                                                   styling="description"></search:field>
-
-                                                    <search:field name="entity_country_hv_ss" styling="capsules"
-                                                                  query="query" label="Countries"></search:field>
-                                                    <search:field name="entity_person_hv_ss" styling="capsules"
-                                                                  query="query" label="People"></search:field>
-                                                    <search:field name="industry_tags_hv_ss" styling="capsules"
-                                                                  query="query" label="Industry"></search:field>
-
                                                 </layout:block>
                                             </layout:grid>
                                         </search:result>

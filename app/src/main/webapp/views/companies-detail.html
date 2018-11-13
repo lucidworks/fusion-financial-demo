@@ -32,7 +32,7 @@
   <widget:spinner></widget:spinner>
 </search:response>
 
-<search:query var="getNews" sorts="-lastModified_dt" facets="entity_country_hv_ss,entity_company_hv_ss,entity_person_hv_ss,industry_tags_hv_ss,topics_tags_hv_ss">
+<search:query var="getNews" sorts="-lastModified_dt">
     <query:custom name="company-ticker" value="{{params.id}}"></query:custom>
     <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
 </search:query>
@@ -146,22 +146,12 @@
                                                             <layout:block md="4-5">
                                                                 <search:field name="title_t" styling="title" urlfield="id"></search:field>
                                                                 <search:field name="og_description_s" styling="description"></search:field>
-
-                                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
-                                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
-                                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
-                                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
                                                             </layout:block>
                                                         </layout:grid>
                                                         <layout:grid ng-if="!(result | field:'og_image_s')">
                                                             <layout:block>
                                                                 <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
                                                                 <search:field name="og_description_s" styling="description"></search:field>
-
-                                                                <search:field name="entity_country_hv_ss" styling="capsules" query="query" label="Countries"></search:field>
-                                                                <search:field name="entity_company_hv_ss" styling="capsules" query="query" label="Companies"></search:field>
-                                                                <search:field name="entity_person_hv_ss" styling="capsules" query="query" label="People"></search:field>
-                                                                <search:field name="industry_tags_hv_ss" styling="capsules" query="query" label="Industry"></search:field>
                                                             </layout:block>
                                                         </layout:grid>
                                                     </search:result>
