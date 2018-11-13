@@ -36,6 +36,7 @@ if [ "$no_build" -eq 0 ]; then
 
 fi
 
+mkdir -p "$DEMO_HOME/app/objects/blobs/webapps"
 cp "$DEMO_HOME/app/dist/$FUSION_UI_ARTIFACT_ID.war" "$DEMO_HOME/app/objects/blobs/webapps/$FUSION_UI_ARTIFACT_ID.war"
 # TODO: download the data, check if it is there, unzip,
 cd "$DEMO_HOME/data"

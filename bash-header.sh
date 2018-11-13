@@ -36,4 +36,4 @@ if [ ! -f "$DEMO_HOME/myenv.sh" ]; then
 fi
 
 
-mkdir "$DEMO_HOME/target"
+mkdir -p "$DEMO_HOME/target"
