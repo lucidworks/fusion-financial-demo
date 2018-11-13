@@ -1,0 +1,212 @@
+<search:platform var="finance" conf="platforms.fusion.finance.portfolios"></search:platform>
+
+<search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
+
+<search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
+
+<search:platform var="topSearches" conf="platforms.fusion.logs.top-user-searches"></search:platform>
+
+<search:query var="query" parameters="*"></search:query>
+
+
+<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,og_description_s,Content_Location">
+    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:query var="companyNewsQuery" results-per-page="0" from="backendQuery">
+    <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:response var="news" platform="latest-news" query="backendQuery">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+<search:response var="press" platform="company-news" query="companyNewsQuery"></search:response>
+
+<lifecycle:required object="user.name">
+    <!-- Top (most frequent) searches by this user -->
+    <search:query var="topSearchesQuery" parameters="-" results-per-page="5">
+        <query:filter field="user_token" value="{{user.name}}"></query:filter>
+    </search:query>
+    <search:response var="topSearchesResponse" platform="topSearches" query="topSearchesQuery"></search:response>
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,type_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i">
+        <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
+        <query:filter field="owner_s" value="{{user.name}}"></query:filter>
+        <query:custom name="group.limit" value="10"></query:custom>
+    </search:query>
+    <search:response var="mycompanies" query="ownerQuery" platform="finance"></search:response>
+
+</lifecycle:required>
+
+<layout:include file="views/partials/header-home.tpl.html"></layout:include>
+
+<!-- Big Search Banner -->
+<layout:grid class="banner">
+    <layout:block>
+        <layout:box>
+            <!--<h1 class="banner-text">{{user.name}}'s Catalyst Portal</h1>-->
+<!--             <h1 class="banner-text">Discover the news affecting your portfolios</h1>
+ -->            <img src="assets/360logowhite.png" width="260px">
+            <div class="banner-search">
+                <layout:box>
+                    <search:box placeholder="Search for symbols or companies..."
+                                action="news">
+                        <layout:grid style="text-align:left;">
+                            <layout:block>
+                                <query:suggestions completion-service="services.suggestions.allSuggester"
+                                                   action="news"></query:suggestions>
+                            </layout:block>
+                        </layout:grid>
+                    </search:box>
+                    <p class="popular-searches" padding-top="05">
+                        <span>You most frequently search for:&nbsp;&nbsp;</span>
+                        <a ng-repeat="q in topSearchesResponse.facets['query'].filters" href="#/search?q={{q | actual}}">{{q | actual}}<span ng-if="!$last">, </span></a>
+                    </p>
+                </layout:box>
+            </div>
+            </div>
+        </layout:box>
+    </layout:block>
+
+</layout:grid>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas centercontent">
+    <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
+
+        <!-- Container -->
+        <layout:grid>
+
+            <!-- BREADCRUMBS -->
+            <layout:grid>
+                <layout:block>
+                    <layout:box padding-bottom="0">
+                        <search:breadcrumbs query="query" exclude="_lw_data_source_pipeline_s"></search:breadcrumbs>
+                    </layout:box>
+                </layout:block>
+            </layout:grid>
+
+            <!-- ANSWER CARD -->
+            <div ng-repeat="message in response.messages "
+                 ng-if="message.type == 'co_answer_card_content'"
+                 ng-bind-html="message.value"
+                 class="answer-card"
+            >
+            </div>
+
+            <!-- NEWS -->
+            <layout:block md="2-3">
+                    <div styling="width-1 stretch-content">
+
+                        <!-- 0 -->
+                        <layout:grid>
+                            <layout:block>
+                                <div class="page-header">
+                                    <h2>Latest Stories</h2>
+                                </div>
+                                <track:clicks query=query type="click">
+                                    <search:result-list response="news">
+                                        <search:result>
+                                            <layout:grid ng-if="result | field:'og_image_s'">
+                                                <layout:block md="1-4">
+                                                    <layout:box padding-top="0" padding-bottom="0" padding-left="0">
+                                                        <media:image field-name="og_image_s" height="100"
+                                                                     fallback-image-url="assets/noimage.svg"></media:image>
+                                                    </layout:box>
+                                                </layout:block>
+                                                <layout:block md="3-4">
+                                                    <search:field name="title_t" styling="title"
+                                                                  urlfield="id"></search:field>
+                                                    <search:field name="og_description_s"
+                                                                  styling="description"></search:field>
+                                                </layout:block>
+                                            </layout:grid>
+                                            <layout:grid ng-if="!(result | field:'og_image_s')">
+                                                <layout:block>
+                                                    <search:field name="title_t" styling="title"
+                                                                  urlfield="id"></search:field>
+                                                    <search:field name="og_description_s"
+                                                                  styling="description"></search:field>
+                                                </layout:block>
+                                            </layout:grid>
+                                        </search:result>
+                                    </search:result-list>
+                                    <!--<search:result-list response="news"></search:result-list>-->
+                                </track:clicks>
+                            </layout:block>
+                            <layout:block>
+                                <a styling="panel panel-block-link" href="#/news">
+                                    <h2><span class="flaticon-search"></span> Find More Stories </h2>
+                                </a>
+                            </layout:block>
+                        </layout:grid>
+                    </div>
+            </layout:block>
+
+            <!-- PORTFOLIOS -->
+            <layout:animate animation="animate-fadeInUp" on="mycompanies" md="1-3" layout-block>
+            <!--<layout:block md="1-3">-->
+
+                    <div class="home-sidebar" styling="width-1" styling="stretch-content">
+
+                        <layout:grid>
+                            <layout:block>
+                                <span ng-if="mycompanies.results && mycompanies.results.length > 0 && mycompanies.results[0].result.fields.type_s.val[0] == 'analyst'">
+                                    <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Companies</h2>
+                                    <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
+                                        <search:result>
+                                            <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                                            <search:field name="ticker_s" label="Tickers" styling="label-left" class="inline"></search:field>
+                                            <layout:block styling="center-content">
+                                                <a href="#/my-companies/{{result | field:'unique_bucket_id_s' | actual}}">
+                                                    <h5> View Companies </h5>
+                                                </a>
+                                            </layout:block>
+                                        </search:result>
+                                    </search:result-list>
+                                </span>
+                                <span ng-if="mycompanies.results && mycompanies.results.length > 0 && mycompanies.results[0].result.fields.type_s.val[0] != 'analyst'">
+                                    <h2><span ng-if="press.results">{{press.hits.act[1]}} Stories affecting</span> Your Portfolios</h2>
+                                    <search:result-list response="mycompanies" styling="cards-xl-1" class="side-results">
+                                        <search:result>
+                                            <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                                            <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
+                                            <search:field name="ticker_s" label="Top Holdings" styling="label-left" class="inline"></search:field>
+                                            <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
+                                            <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" prefix="$" number-format="###,###,###"></search:field>
+                                            <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
+                                            <hr class="simple">
+                                            <div ng-repeat="sector in result.fields.sectors.val | limitTo:1 track by $index" class="field tk-rgrid-g tk-stl-label-above">
+                                                <p class="tk-stl-label">Sector concentration</p>
+                                                <div class="tk-rgrid-u-1 tk-rgrid-u-md-2-3">
+                                                    <p><span class="value">{{sector}}</span></p>
+                                                </div>
+                                                <layout:grid>
+                                                    <layout:block xs="1-2">
+                                                        <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
+                                                    </layout:block>
+                                                    <layout:block xs="1-2">
+                                                        <search:field name="{{sector}}" show="1" label="" styling="label-inline pull-right" suffix="%"></search:field>
+                                                    </layout:block>
+                                                </layout:grid>
+                                            </div>
+                                            <layout:block styling="center-content">
+                                                <a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">
+                                                    <h5> View Portfolio </h5>
+                                                </a>
+                                            </layout:block>
+                                        </search:result>
+                                    </search:result-list>
+                                </span>
+                            </layout:block>
+                        </layout:grid>
+                    </div>
+            <!--</layout:block>-->
+            </layout:animate>
+        </layout:grid>
+
+        <!-- Simple Footer -->
+        <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+    </layout:animate>
+</layout:grid>

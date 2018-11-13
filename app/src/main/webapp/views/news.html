@@ -1,0 +1,176 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="latest-news" conf="platforms.fusion.latest-news"></search:platform>
+
+<search:platform var="company-news" conf="platforms.fusion.finance.company-news"></search:platform>
+
+<search:query var="your-news-query">
+  <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:query var="news-query">
+  <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
+</search:query>
+<track:query query="news-query" path="/news"></track:query>
+
+<search:response var="news" platform="latest-news" query="news-query">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<search:response var="yourNews" platform="company-news" query="your-news-query"></search:response>
+
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<!--<layout:include file="views/partials/header-home.tpl.html"></layout:include>-->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search in the news..." action="news"></layout:include>
+
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="news-page">
+
+  <layout:block md="1-1" lg="1-1">
+
+    <layout:block>
+      <search:message-list response="news" type="co_answer_card_content" class="answer-card"></search:message-list>
+    </layout:block>
+
+      <layout:grid>
+        <layout:block md="3-5">
+          <layout:box padding-bottom="0">
+            <search:breadcrumbs query="news-query" exclude="_lw_data_source_s" group-by-field="true"></search:breadcrumbs>
+          </layout:box>
+        </layout:block>
+        <layout:block md="2-5">
+          <layout:box padding-bottom="0">
+            <toggle:controls labels="News,Your News" panes="panes" styling="pull-right"></toggle:controls>
+          </layout:box>
+        </layout:block>
+      </layout:grid>
+
+    <toggle:panes id="panes">
+      <toggle:pane visible="true">
+
+        <!-- NEWS -->
+        <layout:animate animation="animate-fadeInUp" on="news" layout-grid>
+
+          <!-- CONTENT > RESULTS -->
+          <layout:block class="tk-stl-bg-searchresults">
+            <layout:grid styling="sortoptions-wrapper">
+              <layout:block>
+                <layout:box>
+                  <search:response-statistics response="news"></search:response-statistics>
+                  <!--<layout:controls class="right">-->
+                    <!--<search:sort response="response" fields="date_dt=Date"></search:sort>-->
+                  <!--</layout:controls>-->
+                </layout:box>
+              </layout:block>
+            </layout:grid>
+            <div class="tk-bl-content">
+              <layout:grid>
+                <layout:block>
+                  <track:clicks query=query type="click">
+                    <search:result-list response="news" infinite-scrolling="true" platform="latest-news" query="news-query" class="main-results">
+                      <search:result>
+                        <layout:grid ng-if="result | field:'og_image_s'">
+                          <layout:block md="1-5">
+                            <layout:box>
+                              <media:image field-name="og_image_s" fallback-image-url="assets/noimage.svg"></media:image>
+                            </layout:box>
+                          </layout:block>
+                          <layout:block md="4-5">
+                            <layout:box>
+                              <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                          <layout:block>
+                            <layout:box>
+                              <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                      </search:result>
+                    </search:result-list>
+                    <search:no-results response="news"></search:no-results>
+                  </track:clicks>
+                </layout:block>
+              </layout:grid>
+            </div>
+          </layout:block>
+
+        </layout:animate>
+      </toggle:pane>
+
+      <toggle:pane>
+        <!-- YOUR NEWS -->
+        <layout:animate animation="animate-fadeInUp" on="yourNews" layout-grid>
+
+          <!-- CONTENT > RESULTS -->
+          <layout:block class="tk-stl-bg-searchresults">
+            <layout:grid styling="sortoptions-wrapper">
+              <layout:block>
+                <layout:box>
+                  <search:response-statistics response="yourNews"></search:response-statistics>
+                  <!--<layout:controls class="right">-->
+                    <!--<search:sort response="response" fields="date_dt=Date"></search:sort>-->
+                  <!--</layout:controls>-->
+                </layout:box>
+              </layout:block>
+            </layout:grid>
+            <div class="tk-bl-content">
+              <layout:grid>
+                <layout:block>
+                  <search:result-list response="yourNews" infinite-scrolling="true" platform="company-news" query="your-news-query">
+                      <search:result>
+                        <layout:grid ng-if="result | field:'og_image_s'">
+                          <layout:block md="1-5">
+                            <layout:box>
+                              <media:image field-name="og_image_s" fallback-image-url="assets/noimage.svg"></media:image>
+                            </layout:box>
+                          </layout:block>
+                          <layout:block md="4-5">
+                            <layout:box>
+                              <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                          <layout:block>
+                            <layout:box>
+                              <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                              <search:field name="og_description_s" styling="description"></search:field>
+                            </layout:box>
+                          </layout:block>
+                        </layout:grid>
+                      </search:result>
+                    </search:result-list>
+                    <search:no-results response="yourNews"></search:no-results>
+
+                </layout:block>
+              </layout:grid>
+            </div>
+          </layout:block>
+
+        </layout:animate>
+      </toggle:pane>
+    </toggle:panes>
+  </layout:block>
+
+
+
+
+
+
+</layout:grid>

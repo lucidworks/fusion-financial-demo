@@ -1,0 +1,3025 @@
+{
+  "facets": {
+    "category.untouched": {
+      "display": "category.untouched",
+      "field": "category.untouched",
+      "filters": [
+        {
+          "count": 74,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules"
+        },
+        {
+          "count": 38,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components"
+        },
+        {
+          "count": 27,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling"
+        },
+        {
+          "count": 20,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms"
+        },
+        {
+          "count": 18,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools"
+        },
+        {
+          "count": 16,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes"
+        },
+        {
+          "count": 14,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance"
+        },
+        {
+          "count": 13,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security"
+        },
+        {
+          "count": 13,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS"
+        },
+        {
+          "count": 12,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results"
+        },
+        {
+          "count": 11,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ"
+        },
+        {
+          "count": 11,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives"
+        },
+        {
+          "count": 10,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing"
+        },
+        {
+          "count": 7,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Extending_Twigkit"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Overview"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_controls"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Bookmarking_results"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation/Federation_algorithms"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Topic_pages"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Response_processors"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Generic_Mixins"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Installation"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Saving_queries"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Media"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authenticating_with..."
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Security_providers"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Suggestions"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Bookmarks"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Comments"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Experimental"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authorisation"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Configuration"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Personalisation"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Webservices"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Configuring_the_search_platform"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Filter_syntax"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Formulating_a_query"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Loading_a_single_document"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Search_response"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Accessing_data/Twigkit_execution_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Advanced_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Highlighting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Localisation"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Breadcrumb_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Facet_filter_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Facet_list_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Facet_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Facet_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Filter_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Filter_tabs_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Faceted_navigation/Shared_facet_attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Navigation/Tabs_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Query_suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Conditional_display_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Field_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Result_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Result_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Body_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Cell_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Header_cell_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Header_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Row_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Rendering_search_results/Results_table/Table_result_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_controls/Pagination"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_controls/Response_statistics"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_controls/Results-per-page"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_controls/Sorting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Search_form"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Core_components/Utility_functions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Extending_Twigkit/Developing_platforms"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Extending_Twigkit/Developing_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Extending_Twigkit/Developing_reusable_JSP_custom_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Extending_Twigkit/Developing_services_and_servlets"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Adding_Twitter_and_Youtube_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Changing_the_colour_scheme"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Changing_the_logo"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Deployment_and_installation"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Externalising_configuration_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/How_much_space_do_I_need_for_log_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Removing_security_module"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Routing_and_URL_rules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Setting_up_Kerberos_security_with_Tomcat"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Setting_up_a_mock_platform_response"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "FAQ/Timing_your_code"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Basic_configuration"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Configuration_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Download"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Installation/Building_from_source"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Installation/Deploying_a_WAR_file"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/License_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Getting_started/Web_application_structure"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Glossary"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Alerting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Business_intelligence"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Bookmarking_results/Bookmark_action_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Bookmarking_results/Bookmark_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Bookmarking_results/JSP_functions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Commenting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Configure_a_database_to_persist_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Like_button"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Saving_queries/Saved_query_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Saving_queries/Saved_query_list"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Topic_forms"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Bookmarks/Data_operations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Bookmarks/Search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Comments/Data_operations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Comments/Search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Collaborative_tools/Webservices/Search_for_annotated_documents"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Experimental/Voice_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation/Federation_algorithms/Interleaving"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation/Federation_algorithms/Kullback-Leibler_DivergenceSort"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation/Federation_algorithms/Score_binning"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Federation/Federation_response_parameters"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Linguistics"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Mapping_and_geometry"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Mapping_and_geometry/Mapping"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Media/Export_services"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Media/Image_formatting_and_transcoding"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authenticating_with.../Active_Directory"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authenticating_with.../Integrated_Windows_authentication"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authenticating_with.../LDAP"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authorisation/Add_roles_filter_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Authorisation/Secure_query_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Configuration/Importing_security_certificates"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Configuration/Login_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Personalisation/Secure_conditional_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Personalisation/User_details_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Security_providers/Spring_security_SAML_extension"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Security_providers/Spring_security_configuration"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Security/Security_providers/Tomcat_security_provider"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Topic_pages/Page_breadcrumb_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Topic_pages/Page_filter_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Topic_pages/Page_query_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Date_picker"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Modal"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Popover"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Slider"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Suggestions/Spelling_Suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Suggestions/Suggestion_Services"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/UI_widgets/Toggle_panes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations/Charts"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations/Facet_chart"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations/Highcharts"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations/Histogram"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Visualisations/Tagcloud"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Webservices/Platform"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Query_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Response_processors/Facet_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Response_processors/Field_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Response_processors/Filter_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Response_processors/General_response_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/Workflow_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Modules/Workflow_and_data_processing/using_platform_workflow_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Overview/Middleware"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Overview/Modules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Overview/Twigkit_JSP_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Overview/User_interface_components"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Adding_Custom_Less_Files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/CSS_Support_Attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins/Arrow"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins/Base"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins/Grid"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins/Helpers"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Core_Mixins/Icons"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Generic_Mixins/Button"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Generic_Mixins/Capsules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Generic_Mixins/Tabs"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Generic_Mixins/Toggle"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Search_Mixins"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Search_Mixins/Breadcrumbs"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Advanced_templating_and_CSS/Styling_Result_Lists_As_Grids"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Blocks_and_page_layout"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Breadcrumbs_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Container_block_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Control_block_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Facet_list_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Field_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/General_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Image_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Pagination_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Result_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Style_directives/Tabs_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Page_layout_and_styling/Themes_and_styling"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1.3"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1.6"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.1.7"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.2.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.2.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.2.3"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.2.4"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.5"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.6"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.7"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.8"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Release_notes/2.9"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Autonomy"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Elasticsearch"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/FAST_ESP"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Adding_a_OneBox"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Adding_related_queries"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Configuring_security"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Defining_data_types"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Document_previews"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Expert_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Expert_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Key_matches"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Query-response lifecycle"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Query_clusters"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Query_suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Sliders_and_histograms_with_the_GSA"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Google_Search_Appliance/Translations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Shared_platform_attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category.untouched",
+          "val": "Search_platforms/Solr"
+        }
+      ],
+      "id": "category.untouched",
+      "max-count": 74.0,
+      "min-count": 0.0,
+      "params": {},
+      "sum-of-counts": 593.0
+    },
+    "category_ordered.untouched": {
+      "display": "category_ordered.untouched",
+      "field": "category_ordered.untouched",
+      "filters": [
+        {
+          "count": 74,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules"
+        },
+        {
+          "count": 38,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components"
+        },
+        {
+          "count": 27,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling"
+        },
+        {
+          "count": 20,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms"
+        },
+        {
+          "count": 18,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools"
+        },
+        {
+          "count": 16,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes"
+        },
+        {
+          "count": 14,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance"
+        },
+        {
+          "count": 13,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security"
+        },
+        {
+          "count": 13,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS"
+        },
+        {
+          "count": 12,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results"
+        },
+        {
+          "count": 11,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives"
+        },
+        {
+          "count": 11,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ"
+        },
+        {
+          "count": 10,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing"
+        },
+        {
+          "count": 8,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets"
+        },
+        {
+          "count": 7,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices"
+        },
+        {
+          "count": 6,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "00_Overview"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins"
+        },
+        {
+          "count": 5,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "20_Extending_Twigkit"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/10_Search_controls"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/03_Response_processors"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/10_Bookmarking_results"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation/02_Federation_algorithms"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/40_Topic_pages"
+        },
+        {
+          "count": 4,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/02_Generic_Mixins"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/02_Installation"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/01_Authenticating_with..."
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/04_Security_providers"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/04_Suggestions"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/09_Saving_queries"
+        },
+        {
+          "count": 3,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/06_Media"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/02_Authorisation"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/03_Personalisation"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/05_Configuration"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/03_Bookmarks"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/04_Comments"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/10_Webservices"
+        },
+        {
+          "count": 2,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/99_Experimental"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "00_Overview/00_Middleware"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "00_Overview/01_Modules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "00_Overview/02_User_interface_components"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "00_Overview/04_Twigkit_JSP_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/01_Download"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/02_Installation/02_Building_from_source"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/02_Installation/04_Deploying_a_WAR_file"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/03_Web_application_structure"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/04_Basic_configuration"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/06_Configuration_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "01_Getting_started/07_License_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/00_Twigkit_execution_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/01_Configuring_the_search_platform"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/02_Formulating_a_query"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/03_Search_response"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/04_Loading_a_single_document"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/01_Accessing_data/20_Filter_syntax"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/02_Result_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/03_Result_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/04_Field_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/01_Table_result_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/02_Header_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/03_Header_cell_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/04_Body_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/05_Row_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/08_Results_table/06_Cell_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/02_Rendering_search_results/20_Conditional_display_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/01_Breadcrumb_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/01_Facet_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/02_Facet_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/03_Filter_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/04_Facet_filter_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/05_Filter_tabs_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/06_Facet_list_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/03_Faceted_navigation/Shared_facet_attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/03_Navigation/06_Tabs_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/04_Search_form"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/10_Search_controls/03_Pagination"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/10_Search_controls/04_Response_statistics"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/10_Search_controls/05_Results-per-page"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/10_Search_controls/05_Sorting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/11_Advanced_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/12_Highlighting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/15_Localisation"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/22_Utility_functions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "02_Core_components/30_Query_suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/99_Shared_platform_attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Autonomy"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Elasticsearch"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/FAST_ESP"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/01_Query-response lifecycle"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Adding_a_OneBox"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Adding_related_queries"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Configuring_security"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Defining_data_types"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Document_previews"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Expert_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Expert_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Key_matches"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Query_clusters"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Query_suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Sliders_and_histograms_with_the_GSA"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Google_Search_Appliance/Translations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "03_Search_platforms/Solr"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/01_Authenticating_with.../Active_Directory"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/01_Authenticating_with.../Integrated_Windows_authentication"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/01_Authenticating_with.../LDAP"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/02_Authorisation/Add_roles_filter_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/02_Authorisation/Secure_query_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/03_Personalisation/Secure_conditional_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/03_Personalisation/User_details_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/04_Security_providers/Spring_security_SAML_extension"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/04_Security_providers/Spring_security_configuration"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/04_Security_providers/Tomcat_security_provider"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/05_Configuration/Importing_security_certificates"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/01_Security/05_Configuration/Login_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/02_Query_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/03_Response_processors/01_Field_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/03_Response_processors/02_Filter_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/03_Response_processors/03_Facet_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/03_Response_processors/04_General_response_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/Workflow_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/02_Workflow_and_data_processing/using_platform_workflow_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations/00_Charts"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations/01_Facet_chart"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations/02_Highcharts"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations/03_Tagcloud"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/03_Visualisations/05_Histogram"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/04_Suggestions/01_Suggestion_Services"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/04_Suggestions/02_Spelling_Suggestions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/04_Toggle_panes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/06_Date_picker"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/07_Modal"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/08_Popover"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/04_UI_widgets/10_Slider"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/04_Like_button"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/09_Saving_queries/05_Saved_query_form_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/09_Saving_queries/06_Saved_query_list"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/10_Bookmarking_results/02_Bookmark_action_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/10_Bookmarking_results/03_Bookmark_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/10_Bookmarking_results/03_JSP_functions"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/11_Commenting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/20_Topic_forms"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Configure_a_database_to_persist_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/02_Search_for_annotated_documents"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/03_Bookmarks/01_Data_operations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/03_Bookmarks/02_Search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/04_Comments/01_Data_operations"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/05_Collaborative_tools/Webservices/04_Comments/02_Search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/06_Media/01_Image_formatting_and_transcoding"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/06_Media/02_Export_services"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/07_Mapping_and_geometry"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/07_Mapping_and_geometry/Mapping"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/08_Alerting"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation/02_Federation_algorithms/02_Interleaving"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation/02_Federation_algorithms/03_Kullback-Leibler_DivergenceSort"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation/02_Federation_algorithms/04_Score_binning"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/09_Federation/03_Federation_response_parameters"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/10_Webservices/02_Platform"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/30_Linguistics"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/40_Topic_pages/00_Page_query_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/40_Topic_pages/01_Page_filter_list_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/40_Topic_pages/02_Page_breadcrumb_tag"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/50_Business_intelligence"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "04_Modules/99_Experimental/01_Voice_search"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/00_Blocks_and_page_layout"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/01_General_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Breadcrumbs_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Container_block_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Control_block_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Facet_list_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Field_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Image_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Pagination_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Result_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/01_Style_directives/Tabs_styles"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/05_Themes_and_styling"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins/01_Arrow"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins/02_Base"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins/03_Grid"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins/04_Helpers"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/01_Core_Mixins/05_Icons"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/02_Generic_Mixins/01_Button"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/02_Generic_Mixins/02_Capsules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/02_Generic_Mixins/03_Tabs"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/02_Generic_Mixins/04_Toggle"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/03_Search_Mixins"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/03_Search_Mixins/01_Breadcrumbs"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/04_Adding_Custom_Less_Files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/05_Styling_Result_Lists_As_Grids"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "06_Page_layout_and_styling/21_Advanced_templating_and_CSS/CSS_Support_Attributes"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "20_Extending_Twigkit/01_Developing_reusable_JSP_custom_tags"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "20_Extending_Twigkit/02_Developing_platforms"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "20_Extending_Twigkit/03_Developing_processors"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "20_Extending_Twigkit/04_Developing_services_and_servlets"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Adding_Twitter_and_Youtube_results"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Changing_the_colour_scheme"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Changing_the_logo"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Deployment_and_installation"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Externalising_configuration_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/How_much_space_do_I_need_for_log_files"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Removing_security_module"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Routing_and_URL_rules"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Setting_up_Kerberos_security_with_Tomcat"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Setting_up_a_mock_platform_response"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "30_FAQ/Timing_your_code"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "40_Glossary"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1.3"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1.6"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.1.7"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.2.1"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.2.2"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.2.3"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.2.4"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.5"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.6"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.7"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.8"
+        },
+        {
+          "count": 1,
+          "facts": {},
+          "field": "category_ordered.untouched",
+          "val": "50_Release_notes/2.9"
+        }
+      ],
+      "id": "category_ordered.untouched",
+      "max-count": 74.0,
+      "min-count": 0.0,
+      "params": {},
+      "sum-of-counts": 593.0
+    }
+  },
+  "facts": {},
+  "hits": {
+    "act": [
+      "Long",
+      205
+    ]
+  },
+  "message": [],
+  "page": 1,
+  "query": {
+    "autoCorrected": false,
+    "custom": {},
+    "facets": "category.untouched,category_ordered.untouched",
+    "facets-enabled": true,
+    "fields": "title,category",
+    "filters": [],
+    "max": -1,
+    "other": {},
+    "page": 1,
+    "rpp": 10,
+    "sorts": [],
+    "target": "",
+    "transientParameters": [
+      "fa"
+    ],
+    "type": "any",
+    "user": {
+      "id": "stefan@twigkit.com",
+      "name": "stefan@twigkit.com",
+      "roles": [
+        {
+          "name": "APPS"
+        },
+        {
+          "name": "ADMIN"
+        },
+        {
+          "name": "USER"
+        }
+      ]
+    },
+    "val": "",
+    "view": ""
+  },
+  "results": [
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Navigation",
+              "Core_components/Navigation/Faceted_navigation",
+              "Core_components/Navigation/Faceted_navigation/Facet_tag"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Facet tag"
+            ]
+          }
+        },
+        "id": "Core_components/Navigation/Faceted_navigation/Facet_tag",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Search_controls",
+              "Core_components/Search_controls/Response_statistics"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Response statistics"
+            ]
+          }
+        },
+        "id": "Core_components/Search_controls/Response_statistics",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Search_controls",
+              "Core_components/Search_controls/Results-per-page"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Results-per-page"
+            ]
+          }
+        },
+        "id": "Core_components/Search_controls/Results-per-page",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Search_controls",
+              "Core_components/Search_controls/Sorting"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Sorting"
+            ]
+          }
+        },
+        "id": "Core_components/Search_controls/Sorting",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Search_controls",
+              "Core_components/Search_controls/Pagination"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Pagination"
+            ]
+          }
+        },
+        "id": "Core_components/Search_controls/Pagination",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Rendering_search_results",
+              "Core_components/Rendering_search_results/Results_table",
+              "Core_components/Rendering_search_results/Results_table/Header_cell_tag"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Header cell tag"
+            ]
+          }
+        },
+        "id": "Core_components/Rendering_search_results/Results_table/Header_cell_tag",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Core_components",
+              "Core_components/Rendering_search_results"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Rendering search results"
+            ]
+          }
+        },
+        "id": "Core_components/Rendering_search_results",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Getting_started",
+              "Getting_started/Download"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Download"
+            ]
+          }
+        },
+        "id": "Getting_started/Download",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Getting_started",
+              "Getting_started/License_files"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "License files"
+            ]
+          }
+        },
+        "id": "Getting_started/License_files",
+        "related": [],
+        "score": 0.0
+      }
+    },
+    {
+      "result": {
+        "fields": {
+          "category": {
+            "name": "category",
+            "val": [
+              "Getting_started",
+              "Getting_started/Configuration_files"
+            ]
+          },
+          "title": {
+            "name": "title",
+            "val": [
+              "Configuration files"
+            ]
+          }
+        },
+        "id": "Getting_started/Configuration_files",
+        "related": [],
+        "score": 0.0
+      }
+    }
+  ],
+  "time": 21
+}

@@ -1,0 +1,124 @@
+<search:platform var="finance" conf="platforms.fusion.finance.portfolios"></search:platform>
+
+<lifecycle:required object="user.name">
+    <search:query var="ownerQuery" sorts="-weight_d" results-per-page="100" fields="id,owner_s,ticker_s,company_name_s,sector_s,industry_s,bucket_id_s,unique_bucket_id_s,weight_s,weight_d,bucket_name_s,bucket_ytd_ror_f,bucket_value_f,bucket_value_total_f,bucket_total_clients_i,revenue_f,marketcap_f,div_yield_f">
+        <query:filter field="_lw_data_source_s" value="user_buckets"></query:filter>
+        <query:filter field="owner_s" value="{{user.name}}"></query:filter>
+        <query:custom name="group.limit" value="30"></query:custom>
+    </search:query>
+    <search:response var="mycompanies" query="ownerQuery" platform="finance">
+        <widget:spinner></widget:spinner>
+    </search:response>
+</lifecycle:required>
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search in the news..." action="news"></layout:include>
+
+
+<div styling="centercontent">
+ <div styling="centercontent-inner">
+
+      <layout:grid>
+          <layout:block>
+              <!--<layout:box>-->
+                  <!--<h2>Create a new Portfolio</h2>-->
+                  <!--<collaborate:topic-form namespace="local"></collaborate:topic-form>-->
+              <!--</layout:box>-->
+              <layout:box>
+                  <h3>Your portfolios</h3>
+                  <search:result-list response="mycompanies" styling="cards-xl-3" class="side-results">
+                      <search:result>
+                          <layout:block>
+                              <search:field name="bucket_name_s" styling="title" show="1"></search:field>
+                              <!--<h3>{{result.fields.bucket_name_s.val[0]}}</h3>-->
+                              <search:field name="ticker_s" label="Holdings" styling="label-left" class="inline"></search:field>
+                              <search:field name="bucket_ytd_ror_f" show="1" label="YTD return" styling="label-left" number-format="##.0# %"></search:field>
+                              <search:field name="bucket_value_total_f" show="1" label="Total AUM" styling="label-left" number-format="$###,###,###"></search:field>
+                              <search:field name="bucket_total_clients_i" show="1" label="Total Clients" styling="label-left"></search:field>
+                          </layout:block>
+
+                          <layout:block>
+                              <h4>Allocation by Sector</h4>
+                              <div ng-repeat="sector in result.fields.sectors.val track by $index"
+                                   class="field tk-rgrid-g tk-stl-label-above">
+                                  <p class="tk-stl-label">{{sector}}</p>
+                                  <layout:grid>
+                                      <layout:block xs="1-2">
+                                          <progress:bar percentage="result | field:sector | actual | numberFormat:'#.##'"></progress:bar>
+                                      </layout:block>
+                                      <layout:block xs="1-2">
+                                          <search:field name="{{sector}}" show="1" label=""
+                                                        styling="label-inline pull-right"
+                                                        suffix="%"></search:field>
+                                      </layout:block>
+                                  </layout:grid>
+                              </div>
+                              <hr class="simple">
+                              <h4>Allocation by Industry</h4>
+                              <div ng-repeat="industry in result.fields.industries.val track by $index"
+                                   class="field tk-rgrid-g tk-stl-label-above">
+                                  <p class="tk-stl-label">{{industry}}</p>
+                                  <layout:grid>
+                                      <layout:block xs="1-2">
+                                          <progress:bar percentage="result | field:industry | actual | numberFormat:'#.##'"></progress:bar>
+                                      </layout:block>
+                                      <layout:block xs="1-2">
+                                          <search:field name="{{industry}}" show="1" label=""
+                                                        styling="label-inline pull-right"
+                                                        suffix="%"></search:field>
+                                      </layout:block>
+                                  </layout:grid>
+                              </div>
+                          </layout:block>
+                          <layout:block>
+                              <hr class="simple">
+                              <h2 styling="text-center">{{result.related.length}} Companies</h2>
+                              <h4 styling="text-center"><a href="#/portfolios/{{result | field:'unique_bucket_id_s' | actual}}">See All</a></h4>
+                          </layout:block>
+                      </search:result>
+                  </search:result-list>
+                  <!--<collaborate:topic-list empty-text="You haven't created any portfolios yet">-->
+                      <!--<li ng-repeat="topic in $parent.topics" class="ng-scope" style="">-->
+                          <!--<div class="content">-->
+
+                              <!--<layout:grid>-->
+                                  <!--<layout:block sm="1-4">-->
+                                      <!--<layout:box>-->
+                                          <!--<a styling="title" href="#/portfolios/{{topic.id}}">{{topic.title}}</a>-->
+                                          <!--<a class="right delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</a>-->
+                                      <!--</layout:box>-->
+                                  <!--</layout:block>-->
+                                  <!--<layout:block sm="1-4">-->
+                                      <!--<layout:box>-->
+                                          <!--{{topic.created | date : 'dd MMM yyyy'}}-->
+                                      <!--</layout:box>-->
+                                  <!--</layout:block>-->
+                                  <!--&lt;!&ndash;<layout:block sm="2-4" ng-if="topic.bookmarks.length == 0">&ndash;&gt;-->
+                                      <!--&lt;!&ndash;<p>You haven't added any companies yet.</p>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;</layout:block>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;<layout:block sm="2-4" ng-if="topic.bookmarks.length > 0">&ndash;&gt;-->
+                                      <!--&lt;!&ndash;<p ng-repeat="bookmark in topic.bookmarks">&ndash;&gt;-->
+                                          <!--&lt;!&ndash;<a href="#/comapnies/{{bookmark.target}}">{{bookmark.title}} ({{bookmark.target}})</a>&ndash;&gt;-->
+                                          <!--&lt;!&ndash;<a style="padding-left:10;" ng-click="deleteBookmark(bookmark.id,topic.id)">&times;</a>&ndash;&gt;-->
+                                      <!--&lt;!&ndash;</p>&ndash;&gt;-->
+                                  <!--&lt;!&ndash;</layout:block>&ndash;&gt;-->
+                              <!--</layout:grid>-->
+
+                              <!--&lt;!&ndash;<p><a class="ng-binding" href="#/portfolios/{{topic.id}}">{{topic.title}}</a></p>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<span class="metadata ng-binding">{{topic.created | date : 'HH:mm, dd MMM yyyy'}}</span>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<span class="delete ng-binding" ng-click="deleteCollaboration(topic.id)">×</span>&ndash;&gt;-->
+                          <!--</div>-->
+                      <!--</li>-->
+                  <!--</collaborate:topic-list>-->
+
+              </layout:box>
+          </layout:block>
+
+      </layout:grid>
+
+ </div>
+</div>

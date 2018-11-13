@@ -1,0 +1,142 @@
+{
+  "id" : "Customer360_Customers-default",
+  "stages" : [ {
+    "type" : "field-mapping",
+    "id" : "c352432c-37de-45cf-bb3f-3aaa5e00f32c",
+    "mappings" : [ {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_1",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_2",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_3",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "current_products_0",
+      "target" : "current_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_0",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_1",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_2",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_3",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_4",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_5",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_6",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_7",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_8",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_9",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_11",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "recommended_products_12",
+      "target" : "recommended_products",
+      "operation" : "copy"
+    }, {
+      "source" : "id",
+      "target" : "customer_id",
+      "operation" : "copy"
+    } ],
+    "reservedFieldsMappingAllowed" : false,
+    "type" : "field-mapping",
+    "skip" : false,
+    "label" : "field-mapping",
+    "secretSourceStageId" : "c352432c-37de-45cf-bb3f-3aaa5e00f32c"
+  }, {
+    "type" : "solr-dynamic-field-name-mapping",
+    "id" : "7cc67922-7280-49a5-ac45-762bee38fddd",
+    "duplicateSingleValuedFields" : false,
+    "fieldsToExclude" : [ ],
+    "advancedTextFieldsIndexing" : true,
+    "maxTextLengthForAdvancedIndexing" : 100,
+    "type" : "solr-dynamic-field-name-mapping",
+    "skip" : true,
+    "label" : "solr-dynamic-field-name-mapping",
+    "secretSourceStageId" : "7cc67922-7280-49a5-ac45-762bee38fddd"
+  }, {
+    "type" : "solr-index",
+    "id" : "78d55e41-9fd0-411a-bf7a-dc606d7d4e28",
+    "enforceSchema" : true,
+    "dateFormats" : [ ],
+    "params" : [ ],
+    "bufferDocsForSolr" : false,
+    "type" : "solr-index",
+    "skip" : false,
+    "label" : "solr-index",
+    "secretSourceStageId" : "78d55e41-9fd0-411a-bf7a-dc606d7d4e28"
+  } ],
+  "properties" : {
+    "secretSourcePipelineId" : "Customer360_Customers-default"
+  }
+}

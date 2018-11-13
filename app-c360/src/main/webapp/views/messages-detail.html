@@ -1,0 +1,89 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+<search:twigkit parallel="true" redirectOnError="false">
+    <search:platform var="customerPlatform" conf="platforms.fusion.customers"></search:platform>
+	<search:content var="customer" platform="customerPlatform" load="${param.value}"></search:content>
+
+    <search:platform var="messagesPlatform" conf="platforms.fusion.messages"></search:platform>
+    <search:query var="messagesQuery" parameters="*"  resultsPerPage="20"></search:query>
+    <search:response var="messagesResponse" platform="messagesPlatform" query="messagesQuery"></search:response>
+</search:twigkit>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="{{ $root.application_name }}" ng-if="$root.application_name"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="flex-1">
+
+    <!-- Animate page when response received -->
+    <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+
+	<client:header query="${messagesQuery}" action="/"></client:header>
+
+    <client:customerHeader customer="${customer}"></client:customerHeader>
+
+    <block:sidebar>
+        <search:facetList response="${messagesResponse}" facetNames="from,message_date" style="simple">
+            <search:facet facetName="event_date,amount,risk" showEmpty="true" bundleName="kyc">
+                <h3 class="facet-title">${facet.displayName}</h3>
+                <chart:histogram facet="${facet}" show="20" bundleName="kyc" height="6em"></chart:histogram>
+                <widget:slider query="${messagesQuery}" facet="${facet}" bundleName="kyc"></widget:slider>
+            </search:facet>
+        </search:facetList>
+    </block:sidebar>
+    <block:content>
+        <h2 class="section-title">Customer Messages</h2>
+        
+        <widget:searchForm query="${query}" placeholder="Search messages" addCssClass="transaction-search-form"></widget:searchForm>
+
+        <block:controls style="colored-bar">
+            <%-- <widget:popover title="Sort by" linkText="Sort" align="right">
+                <search:sort query="${messagesQuery}" fields="message_date=Date" defaultLabel="Relevance" style="toggle-menu"></search:sort>
+            </widget:popover> --%>
+            <search:breadcrumbs response="${messagesResponse}" showFieldName="true" dateFormat="dd/MM/yyyy"></search:breadcrumbs>
+            <search:responseStatistics response="${messagesResponse}"></search:responseStatistics>
+        </block:controls>
+
+        <search:resultList response="${messagesResponse}" addCssClass="message-result-list">
+            <search:result>
+                <search:field fieldName="message_date" style="inline" format="dd MMM YYYY" show="1"></search:field>
+                <a class="preview" href="${pageContext.request.contextPath}/customers/${param.value}/messages/${result.fields.id}/">
+                    <search:field fieldName="title" style="title"></search:field>
+                </a>
+
+                <%-- If it's from the Customer, use the customer's actual name --%>
+                <c:choose>
+                    <c:when test="${result.fields.from.value.actual eq 'Customer'}">
+                        <search:field result="${customer}" fieldName="name" label="From" style="email-label-left"></search:field>
+                    </c:when>
+                    <c:otherwise>
+                        <search:field fieldName="from" label="From" style="email-label-left"></search:field>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${result.fields.to.value.actual eq 'Customer'}">
+                        <search:field result="${customer}" fieldName="name" label="To" style="email-label-left"></search:field>
+                    </c:when>
+                    <c:otherwise>
+                        <search:field fieldName="to" label="To" style="email-label-left"></search:field>
+                    </c:otherwise>
+                </c:choose>
+
+                <search:field fieldName="message" addCssClass="message-body"></search:field>
+            </search:result>
+        </search:resultList>
+
+    </block:content>
+
+</block:body>
+
+</layout:animate>
+
+</layout:grid>

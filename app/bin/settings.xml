@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- Credentials for Twigkit repositories -->
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/profile-1.1.0.xsd">
+	<servers>
+		<server>
+			<id>twigkit.com</id>
+			<username>evaluator</username>
+			<password>AP6YhQQWq5cqu85Eu5JwMZnJk48</password>
+		</server>
+		<server>
+			<id>twigkit.com-releases</id>
+			<username>evaluator</username>
+			<password>AP6YhQQWq5cqu85Eu5JwMZnJk48</password>
+		</server>
+		<server>
+			<id>twigkit.com-snapshots</id>
+			<username>evaluator</username>
+			<password>AP6YhQQWq5cqu85Eu5JwMZnJk48</password>
+		</server>
+	</servers>
+	
+	<profiles>
+		<profile>
+			<id>twigkit-default</id>
+			
+			<!-- Artifact repositories -->
+			<repositories>
+		        <repository>
+		            <id>twigkit.com</id>
+		            <name>Twigkit</name>
+		            <url>http://twigkit.jfrog.io/twigkit/repo</url>
+		            <releases>
+		            </releases>
+		            <snapshots>
+		            </snapshots>
+		        </repository>
+		    </repositories>
+			
+		    <!-- Plugin repositories -->
+		    <pluginRepositories>
+		        <pluginRepository>
+		            <id>twigkit.com</id>
+		            <name>Twigkit</name>
+		            <url>http://twigkit.jfrog.io/twigkit/repo/</url>
+		            <releases>
+		                <enabled>true</enabled>
+		                <updatePolicy>never</updatePolicy>
+		                <checksumPolicy>warn</checksumPolicy>
+		            </releases>
+		            <snapshots>
+		                <enabled>true</enabled>
+		                <updatePolicy>always</updatePolicy>
+		                <checksumPolicy>warn</checksumPolicy>
+		            </snapshots>
+		        </pluginRepository>
+		    </pluginRepositories>
+			
+		</profile>
+	</profiles>
+	
+	<activeProfiles>
+		<activeProfile>twigkit-default</activeProfile>
+	</activeProfiles>
+</settings>

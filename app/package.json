@@ -1,0 +1,13 @@
+{
+  "name": "app-studio",
+  "version": "4.1.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "appkit-ui": "http://appkit.lucidworks.com/repo/4.1.0/appkit-ui.tar.gz"
+  },
+  "repository": {},
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

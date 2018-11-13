@@ -1,0 +1,126 @@
+<!-- Retrieving content -->
+<search:platform var="platform" conf="platforms.fusion.latest-news"></search:platform>
+
+<search:query var="query" parameters="*"></search:query>
+
+<search:response var="response" platform="platform" query="query">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<!--{{response.facets}}-->
+
+<!-- Include Page Header -->
+<layout:include file="views/partials/header.tpl.html"></layout:include>
+
+<layout:center-content>
+
+  <!-- Animate contents when response received -->
+  <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+
+    <!-- DASHBOARD PAGE CONTENT -->
+    <layout:grid ng-class="{ 'tk-stl-answer': answer === 'true' }">
+      <layout:block>
+
+        <!-- Intro -->
+        <layout:grid>
+            <layout:block md="1-2">
+                <layout:box>
+                    <h4>Welcome to the Dashboard</h4>
+                    <p>The dashboard displays a visual overview of everything that’s inside the portal. Every chart, graph and statistic below is fully interactive: click anywhere to start drilling down into the data. Click a capsule to remove it.</p>
+                </layout:box>
+            </layout:block>
+            <layout:block md="1-2">
+                <layout:box>
+                    <h4>Jump to a search</h4>
+                    <p>Interacting with the dashboard also narrows down the total number
+                        of matching results. Jump across to the search results page by
+                        following the link at the bottom of the dashboard.</p>
+                </layout:box>
+            </layout:block>
+        </layout:grid>
+
+        <!-- Selected Facets -->
+        <layout:grid>
+          <layout:block>
+            <layout:box styling="text-center" padding-bottom="0">
+              <search:breadcrumbs response="response" group-by-field="true"></search:breadcrumbs>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+        <!-- Dashboard Row A -->
+        <layout:grid>
+          <layout:block>
+            <layout:box>
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 1</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+        <!-- Dashboard Row B -->
+        <layout:grid>
+          <layout:block lg="1-2">
+            <layout:box styling="stretch-content">
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 2</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+          <layout:block lg="1-2">
+            <layout:box styling="stretch-content">
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 3</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+        <!-- Dashboard Row C -->
+        <layout:grid>
+          <layout:block lg="1-3">
+            <layout:box styling="stretch-content">
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 4</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+          <layout:block lg="1-3">
+            <layout:box styling="stretch-content">
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 5</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+          <layout:block lg="1-3">
+            <layout:box styling="stretch-content">
+              <div styling="panel">
+                <h3 styling="title">Dashboard Category 6</h3>
+              </div>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+
+        <!-- Link Over To Search Results Page -->
+        <layout:grid>
+          <layout:block>
+            <layout:box>
+              <a styling="panel panel-block-link">
+                <h2>{{response.hits | actual}} results match the above criteria. <span>View Now.</span></h2>
+              </a>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+
+        <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+      </layout:block>
+    </layout:grid>
+
+
+  </layout:animate>
+
+</layout:center-content>

@@ -1,0 +1,175 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="financials" conf="platforms.fusion.finance.historical"></search:platform>
+<search:platform var="platform" conf="platforms.fusion.finance.single-company"></search:platform>
+
+
+<search:query var="query" parameters="*"></search:query>
+<search:query var="companyQuery" parameters="none">
+    <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
+    <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
+</search:query>
+
+<search:response var="response" platform="financials" query="companyQuery"></search:response>
+
+<!-- Fetch additional company information from Wikipedia -->
+<lifecycle:required object="response">
+    <search:platform var="wikipedia" conf="platforms.wikipedia"></search:platform>
+    <search:query var="wikiQuery" query="{{ response | result:0 | field:'company_name_s' | actual }}"></search:query>
+    <search:response var="wikiResponse" platform="wikipedia" query="wikiQuery">
+        <widget:spinner></widget:spinner>
+    </search:response>
+</lifecycle:required>
+
+<search:query var="getHistoric" fields="close_d,date_dt,volume_i" max-results="90" parameters="none">
+    <query:filter field="_lw_data_source_s" value="sp500-historical"></query:filter>
+    <query:filter field="ticker_s" value="{{params.id}}"></query:filter>
+</search:query>
+
+<search:response var="historic" platform="platform" query="getHistoric">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<search:query var="getNews" sorts="-lastModified_dt">
+    <query:custom name="company-ticker" value="{{params.id}}"></query:custom>
+    <query:filter field="_lw_data_source_s" value="yahoo-news"></query:filter>
+</search:query>
+
+<search:response var="news" platform="platform" query="getNews">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+
+<helper:set var="article" value="response | result:0"></helper:set>
+<helper:set var="financeData" value="article.related[0].result"></helper:set>
+
+<helper:set var="wikiArticle" value="wikiResponse | result:0"></helper:set>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" placeholder="Search for symbols or companies..."
+                action="companies"></layout:include>
+
+<layout:animate animation="animate-fadeInUp" on="wikiResponse" layout-grid>
+    <layout:block>
+        <layout:box>
+
+            <layout:grid styling="centercontent">
+                <layout:block>
+                    <layout:box styling="stretch-content">
+                        <div class="panel" styling="width-1">
+                            <layout:box>
+                                <layout:grid>
+                                    <layout:block>
+                                        <img styling="image medium" ng-src="{{ wikiArticle | field:'infobox.logo' | actual }}" />
+                                        <search:field result="article" name="Company" styling="title" value-element="h1"></search:field>
+
+                                        <search:field result="wikiArticle" name="infobox.website" label="" urlfield="infobox.website" styling="label-inline"></search:field>
+                                        <search:field result="wikiArticle" name="infobox.entity_summary" styling="description"></search:field>
+
+                                        <hr/>
+                                        <layout:grid styling="metadata">
+                                            <layout:block md="3-5">
+                                                <layout:box>
+                                                    <search:field result="article" name="city_s" label="City" styling="label-above"></search:field>
+                                                    <search:field result="article" name="stats_s" label="State" styling="label-above"></search:field>
+                                                    <search:field result="article" name="industry_s" label="Industry" styling="label-above"></search:field>
+                                                    <search:field result="wikiArticle" name="infobox.divisions" label="Divisions" styling="label-above"></search:field>
+                                                </layout:box>
+                                            </layout:block>
+                                            <layout:block md="2-5">
+                                                <layout:box>
+                                                    <search:field result="wikiArticle" name="infobox.key_people" label="Key people" styling="label-above"></search:field>
+                                                    <search:field result="wikiArticle" name="infobox.subsid" label="Subsidiaries" styling="label-above"></search:field>
+                                                </layout:box>
+                                            </layout:block>
+                                        </layout:grid>
+                                    </layout:block>
+                                </layout:grid>
+                            </layout:box>
+                        </div>
+                    </layout:box>
+                </layout:block>
+
+
+                <layout:block ng-if="historic.results && historic.results.length > 0">
+                    <layout:box>
+                        <div class="panel" styling="width-1">
+                            <layout:box>
+                                <h3>Stock Price, Last 30 Days</h3>
+                                <!-- 4 x Info Fields -->
+                                <layout:grid class="exp-stats">
+                                    <layout:block>
+                                        <layout:box>
+                                            <search:field result="financeData" label="Open" name="open_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Close" name="close_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="High" name="high_d" styling="label-inline"></search:field>
+                                            <search:field result="financeData" label="Low" name="low_d" styling="label-inline"></search:field>
+                                        </layout:box>
+                                    </layout:block>
+                                </layout:grid>
+                                <chart:display response="historic" height="300" xlabel-rotation="-45" show-labels="true" ytitle="Closing price" xtitle="Date">
+                                    <series:result-list response="historic" label-field="date_dt" value-field="close_d" type="spline" number-to-show="30"></series:result-list>
+                                </chart:display>
+                            </layout:box>
+                        </div>
+                    </layout:box>
+                </layout:block>
+
+                <layout:block class="related-news" ng-if="news.results && news.results.length > 0">
+                    <layout:box>
+                        <div styling="width-1">
+                                <h3>News affecting {{article | field:'company_name_s' | display}}</h3>
+                                
+                                    <layout:grid>
+
+                                        <layout:block md="1-1" styling="bg-searchresults">
+
+                                            <layout:box padding-left="2">
+
+                                                <search:breadcrumbs query="query" group-by-field="true"></search:breadcrumbs>
+
+                                                <search:result-list response="news" class="main-results">
+                                                    <search:result>
+                                                        <layout:grid ng-if="result | field:'og_image_s'">
+                                                            <layout:block md="1-5">
+                                                                <layout:box>
+                                                                    <media:image field-name="og_image_s" fallback-image-url="assets/noimage.svg"></media:image>
+                                                                </layout:box>
+                                                            </layout:block>
+                                                            <layout:block md="4-5">
+                                                                <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                                                                <search:field name="og_description_s" styling="description"></search:field>
+                                                            </layout:block>
+                                                        </layout:grid>
+                                                        <layout:grid ng-if="!(result | field:'og_image_s')">
+                                                            <layout:block>
+                                                                <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                                                                <search:field name="og_description_s" styling="description"></search:field>
+                                                            </layout:block>
+                                                        </layout:grid>
+                                                    </search:result>
+                                                </search:result-list>
+                                            </layout:box>
+                                        </layout:block>
+                                    </layout:grid>
+                                
+                            </layout:box>
+                    </layout:box>
+                </layout:block>
+
+            </layout:grid>
+        </layout:box>
+    </layout:block>
+
+    <!-- Footer -->
+    <layout:include file="views/partials/footer.tpl.html"></layout:include>
+
+</layout:animate>
+

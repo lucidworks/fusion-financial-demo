@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# You must fill out this value
+FUSION_APPLICATION_NAME=Finance
+FUSION_UI_NAME=Finance
+
+# update these variables to match your environment
+#
+# FUSION_HOME=/path/to/fusion/4.1.0
+FUSION_VERSION=4.1.0
+export FUSION_HOME=<FUSION_HOME>
+FUSION_HOST=localhost
+FUSION_USER=admin
+FUSION_PASS=password123
+FUSION_SOLR_HOST=localhost
+FUSION_SOLR_PORT=8983
+FUSION_SOLR="$FUSION_SOLR_HOST:$FUSION_SOLR_PORT"
+FUSION_API_SECURE_BASE="http://$FUSION_HOST:8764/api"
+FUSION_API_SECURE="http://$FUSION_HOST:8764/api/apollo"
+FUSION_APPSTUDIO_BASE="http://$FUSION_HOST:8764/app-studio"
+FUSION_APPKIT="http://$FUSION_HOST:8764/app-studio/twigkit"
+FUSION_APPKIT_PROJECT="$FUSION_APPKIT/api/project"
+FUSION_API="http://$FUSION_HOST:8765/api/v1"
+FUSION_USERS_API="http://$FUSION_HOST:8764/api/users"
+FUSION_ROLES_API="http://$FUSION_HOST:8764/api/roles"
+FUSION_RAW_API="http://$FUSION_HOST:8780/api/v1"
+FUSION_CONN_CL="http://$FUSION_HOST:8984/v1/connectors"
+FUSION_CONN_SDK="http://$FUSION_HOST:8771/api/v1"
+
+
+if [ "$FUSION_PASS" == "password123" ]; then
+  curl -X POST -H 'Content-type: application/json' -d '{"password":"password123"}' http://$FUSION_HOST:8764/api
+fi
+
+if [ ! -d  "$FUSION_HOME" ]; then
+  echo -e "\nERROR: [$FUSION_HOME] is not a valid Fusion home directory! Verify ./myenv.sh matches your environment.\n"
+  exit 1
+fi

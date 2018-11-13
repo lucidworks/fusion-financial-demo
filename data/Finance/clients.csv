@@ -1,0 +1,1027 @@
+first_name,last_name,full_name,phone,client_id,dob,age,inception,city,state,street,advisor,lat,lon,account_types,total_aum
+Robert,Wigfield,Robert Wigfield,122-582-3321,1,1956-05-10,62,2004-01-13,Fayetteville,AR,3511 Oakland Zion Road,Robert,36.1142691,-94.1027196,Traditional IRA,22729.567654827973
+Vernon,Williams,Vernon Williams,647-616-2653,2,1981-05-23,37,2003-08-15,Savannah,GA,125 Heritage Way,Robert,32.032415,-81.23194099999999,"Roth 401(k),529,Traditional IRA,Brokerage,Roth IRA",276300.8115706318
+Mary,Newton,Mary Newton,237-578-7236,3,1976-12-27,41,2011-03-14,Glendale,AZ,7124 West Morrow Drive,Robert,33.6547986,-112.2129638,529,83681.9001591584
+Brian,Riley,Brian Riley,360-478-1086,4,1964-02-13,54,2000-07-03,Fayetteville,AR,2017 North Hartford Drive,Robert,36.08820499999999,-94.1074905,"Traditional IRA,Brokerage,Roth IRA,529",41952.67735319456
+Kelli,Mcguire,Kelli Mcguire,176-977-5171,5,1982-05-02,36,2002-09-10,Arvada,CO,7650 West 68th Avenue,Cynthia,39.8196765,-105.082837,"Brokerage,529,Traditional IRA,Roth IRA,Roth 401(k)",84765.16826444893
+Ralph,Garcia,Ralph Garcia,290-407-5376,6,1983-07-23,35,2008-09-22,Carson,CA,22618 South Figueroa Street,Cynthia,33.8206152,-118.2855662,"529,Traditional IRA",33002.80598273688
+Jeffery,Hill,Jeffery Hill,131-875-3618,7,1967-05-22,51,2006-10-23,Glendale,AZ,10202 North 51st Drive,Cynthia,33.578507,-112.169809,529,20904.585645990534
+Mildred,Rodocker,Mildred Rodocker,173-338-8198,8,1988-01-11,30,2001-07-27,Pasadena,MD,3440 Brookhaven Road,Robert,39.127619,-76.5278441,"Brokerage,Roth 401(k)",41487.749607131744
+Antonio,Mathers,Antonio Mathers,386-138-9981,9,1985-11-07,33,2015-06-26,Washington,DC,1010 M Street Northwest,Robert,38.9054822,-77.0265494,"Brokerage,Roth 401(k),529,Traditional IRA,Roth IRA",321580.8189626046
+Martha,Long,Martha Long,665-160-9393,10,1982-02-16,36,2013-06-10,Arlington,MA,11 Adams Street,Robert,42.410379,-71.1468411,"Roth IRA,529,Brokerage",295244.66298095597
+Michael,Mullis,Michael Mullis,593-290-0259,11,1956-03-07,62,2011-06-16,Arvada,CO,6069 Jay Street,Robert,39.8067818,-105.0647795,"529,Roth 401(k)",37146.26319195918
+Amanda,Sullivan,Amanda Sullivan,662-195-8297,12,1974-04-03,44,2012-12-06,Nashville,TN,3504 Mount View Ridge Drive,Robert,36.0678178,-86.596313,Traditional IRA,58072.77504021553
+Domingo,Wynne,Domingo Wynne,135-236-4613,13,1977-05-27,41,2014-10-07,Aptos,CA,260 Rio Del Mar Boulevard,Robert,36.967915,-121.902513,"Brokerage,Roth IRA,529",43972.49476772984
+Virginia,Wilkinson,Virginia Wilkinson,691-430-6260,14,1985-08-10,33,2012-01-10,Salem,MA,24 Norman Street,Cynthia,42.520197,-70.896807,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",374777.2274497062
+Pearl,Osman,Pearl Osman,319-190-9999,15,1961-11-03,57,2001-04-04,Annapolis,MD,629 Cutter Court,Cynthia,38.970299,-76.525336,"Brokerage,Traditional IRA,Roth 401(k)",104017.01002655095
+Kerri,Cabezas,Kerri Cabezas,631-422-6740,16,1955-01-06,63,2016-10-04,Bethany,OK,4709 North Willow Avenue,Robert,35.5194368,-97.633618,"Roth IRA,Roth 401(k),529,Brokerage,Traditional IRA",56096.64950619483
+Juanita,Spellacy,Juanita Spellacy,137-620-1898,17,1983-06-15,35,2006-12-25,Savannah,GA,63 Wild Thistle Lane,Robert,32.003593,-81.02607300000001,Roth IRA,218801.8367358219
+Susan,Eisenberg,Susan Eisenberg,603-817-8829,18,1963-03-19,55,2017-08-03,Cambridge,MA,17 Elm Street,Robert,42.367748,-71.098765,Roth IRA,15009.50568353463
+Christopher,Hartman,Christopher Hartman,210-576-6608,19,1990-12-25,27,2010-02-22,Fayetteville,AR,606 National Street,Robert,36.0534454,-94.167263,"Brokerage,Roth 401(k),529,Traditional IRA,Roth IRA",58448.37041793933
+Georgine,Davila,Georgine Davila,528-787-4881,20,1959-08-15,59,2006-12-18,Glendale,AZ,6802 North 67th Avenue,Robert,33.5359555,-112.2043774,"529,Brokerage,Traditional IRA",27953.951555592612
+Ruth,Lundy,Ruth Lundy,249-957-1826,21,1970-01-05,48,2006-09-18,Oklahoma City,OK,3420 Northwest 41st Street,Cynthia,35.513392,-97.57815599999999,"Traditional IRA,Brokerage",23102.19494010639
+Cheryl,Yepez,Cheryl Yepez,683-593-6733,22,1979-10-20,39,2011-01-04,Fairfield,CA,3388 Thomasson Lane,Robert,38.198231,-122.106795,"529,Brokerage,Roth 401(k)",7957.92589457746
+Jacob,Anderson,Jacob Anderson,213-414-3290,23,1970-05-11,48,2016-02-08,Mammoth Lakes,CA,3189 Main Street,Robert,37.6470787,-118.9686523,"Roth 401(k),Roth IRA,Traditional IRA,Brokerage",56695.262884742784
+Richard,Williamson,Richard Williamson,522-236-6049,24,1971-11-18,46,2015-03-07,Fayetteville,AR,424 North Powderhorn Drive,Cynthia,36.07001899999999,-94.2141089,"Roth 401(k),529,Traditional IRA",42323.7604463393
+Rose,Meier,Rose Meier,418-309-0573,25,1982-06-18,36,2010-10-05,Agawam,MA,30 Windermere Drive,Cynthia,42.0700018,-72.65142159999999,"529,Roth 401(k),Traditional IRA",195220.834637969
+Joseph,Ownby,Joseph Ownby,278-629-0491,26,1988-10-18,30,2000-02-10,Fremont,CA,39247 Sundale Drive,Robert,37.5384851,-121.9855489,"Roth IRA,529,Brokerage,Traditional IRA",49342.51084697783
+Louis,Carlstrom,Louis Carlstrom,186-305-7440,27,1970-12-17,47,2016-03-15,Anchorage,AK,880 H Street,Robert,61.2138319,-149.8975861,"529,Roth IRA",246057.9118188926
+Celestine,Riggings,Celestine Riggings,146-341-5616,28,1989-08-28,29,2000-09-03,Manchester,CT,4 Orchard Street,Robert,41.7747,-72.5247351,"529,Roth IRA,Roth 401(k)",48558.93512218425
+Felix,Simpson,Felix Simpson,315-933-2544,29,1953-01-20,65,2006-06-11,Louisville,KY,1601 Algonquin Parkway,Robert,38.2225055,-85.7828486,Roth IRA,4447.382059574786
+Katrina,Winters,Katrina Winters,326-332-5730,30,1989-05-20,29,2012-01-26,Washington,DC,1333 Kenyon Street Northwest,Cynthia,38.930001,-77.0309709,"Roth 401(k),Traditional IRA,Roth IRA,529,Brokerage",104762.87740117821
+Marian,Watts,Marian Watts,181-308-7689,31,1962-02-11,56,2017-04-22,Panama City Beach,FL,13415 Panama City Beach Parkway,Robert,30.2061433,-85.84289439999999,"Traditional IRA,Roth IRA,Brokerage",34186.161536478256
+Albert,Huber,Albert Huber,476-361-9324,32,1966-08-06,52,2011-10-01,Lynn Haven,FL,1501 New Hampshire Avenue,Cynthia,30.2361205,-85.6624582,"529,Traditional IRA,Roth IRA,Roth 401(k)",282399.9295295309
+Kristi,Nunes,Kristi Nunes,202-276-7683,33,1962-05-13,56,2011-03-10,Oklahoma City,OK,4200 Northwest 59th Street,Robert,35.53076,-97.59467099999999,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k),529",42668.40422252065
+Elizabeth,Timinsky,Elizabeth Timinsky,456-735-8985,34,1977-03-25,41,2006-03-11,Dummerston,VT,3 Emery Hill Drive,Cynthia,42.957065,-72.587507,"529,Traditional IRA,Roth IRA",59189.918807415015
+Mary,Johnson,Mary Johnson,661-151-0626,35,1953-05-06,65,2004-03-07,Oklahoma City,OK,6401 Green Meadow Lane,Cynthia,35.5369572,-97.66297139999999,Roth IRA,4954.678607374581
+Michele,Spradlin,Michele Spradlin,242-480-4613,36,1964-11-25,53,2002-06-15,Panama City,FL,2928 Avon Road,Cynthia,30.196279,-85.619315,"Roth IRA,529,Brokerage,Roth 401(k),Traditional IRA",65391.210703219986
+Derrick,Wilson,Derrick Wilson,164-910-3907,37,1978-09-01,40,2009-08-27,Nashville,TN,4728 Rockland Trail,Robert,36.032653,-86.58542399999999,"Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",72415.7254244682
+Ana,Jaramillo,Ana Jaramillo,457-378-7404,38,1986-08-25,32,2010-04-06,Oklahoma City,OK,1311 Northwest 98th Street,Robert,35.5705807,-97.53640229999999,"Brokerage,Roth 401(k)",33401.832539110765
+Jackie,Lawler,Jackie Lawler,540-752-1075,39,1955-11-04,63,2012-06-27,Pooler,GA,5 Winslow Circle,Cynthia,32.1800799,-81.252433,"Roth 401(k),Brokerage,Roth IRA,529,Traditional IRA",164144.66873765772
+Marcia,Gonzalez,Marcia Gonzalez,210-172-3564,40,1988-10-22,30,2000-07-01,Washington,DC,4603 Grant Street Northeast,Cynthia,38.8983173,-76.9364561,"Traditional IRA,Roth IRA,Brokerage,529",74349.28272515394
+Betty,Campbell,Betty Campbell,678-598-5478,41,1971-01-03,47,2008-06-23,Essex,VT,19 Murray Road,Robert,44.501023,-73.124143,"529,Traditional IRA,Roth IRA,Brokerage,Roth 401(k)",65091.04508908145
+Michael,Marshall,Michael Marshall,451-731-8801,42,1965-09-06,53,2008-12-12,Montgomery,AL,8501 Twin Gable Drive,Robert,32.321534,-86.16841099999999,"Brokerage,529,Roth 401(k),Traditional IRA",48405.77991421596
+Hattie,Barnes,Hattie Barnes,161-380-2605,43,1950-09-12,68,2014-08-24,Arvada,CO,7950 West 51st Avenue,Robert,39.7883001,-105.0849404,"529,Brokerage,Traditional IRA",197900.80924072085
+Daniel,Harrison,Daniel Harrison,498-630-2658,44,1971-07-28,47,2009-04-08,Louisville,KY,8801 Rosshire Drive,Robert,38.1216631,-85.7505505,Roth IRA,22766.634894416762
+Ulysses,Quasdorf,Ulysses Quasdorf,405-650-5184,45,1960-05-12,58,2011-07-26,Springfield,MA,95 Central Street,Cynthia,42.098581,-72.57880999999999,"Traditional IRA,Brokerage",17584.109252113416
+Mildred,Rowe,Mildred Rowe,294-594-3641,46,1980-02-19,38,2016-03-28,Manchester,CT,236 Middle Turnpike East,Robert,41.783396,-72.51220599999999,"Traditional IRA,Roth 401(k)",39928.17541173726
+Eugene,Faw,Eugene Faw,355-420-4939,47,1974-08-26,44,2009-07-09,Millersville,MD,316 Sourwood Court,Robert,39.100198,-76.606707,"Traditional IRA,Roth 401(k),Roth IRA,529,Brokerage",55306.00218725302
+Armandina,Trammel,Armandina Trammel,247-132-7286,48,1969-05-06,49,2000-06-07,Conway,AR,1405 Tolkien Drive,Robert,35.0991829,-92.517619,"529,Traditional IRA,Roth IRA",357904.512573076
+Matthew,Brose,Matthew Brose,213-565-8626,49,1962-01-14,56,2009-06-09,Harrah,OK,19091 Northeast 23rd Street,Cynthia,35.493447,-97.193078,Traditional IRA,11175.949338198427
+Brian,Cannon,Brian Cannon,484-778-8257,50,1953-07-16,65,2005-06-16,Dartmouth,MA,32 Country Club Boulevard,Cynthia,41.621102,-70.98676600000002,Roth 401(k),10017.825555564174
+Derek,Nunez,Derek Nunez,590-535-2256,51,1977-01-09,41,2003-01-06,Arvada,CO,6522 Harlan Street,Robert,39.814999,-105.061909,"Traditional IRA,Brokerage,529",39240.270513211595
+Kerry,Yundt,Kerry Yundt,142-972-3307,52,1974-05-28,44,2005-03-03,Panama City,FL,7506 Harvey Street,Cynthia,30.150467,-85.56354800000001,"Roth IRA,Brokerage,529,Roth 401(k),Traditional IRA",69088.46022847506
+Ryan,Johnson,Ryan Johnson,354-144-6687,53,1956-05-04,62,2002-08-09,Montgomery,AL,4604 Virginia Loop Road,Robert,32.314591,-86.24074999999999,"Traditional IRA,529,Brokerage,Roth 401(k),Roth IRA",79389.0625365887
+Kim,Baker,Kim Baker,503-454-5918,54,1970-11-26,47,2008-05-23,Fayetteville,AR,1100 West Bowen Boulevard,Robert,36.105624,-94.00801,"Brokerage,Traditional IRA",30203.040046903305
+James,Sosa,James Sosa,460-578-6866,55,1962-03-08,56,2006-02-12,Washington,DC,836 Lamont Street Northwest,Cynthia,38.9306567,-77.0261289,Roth IRA,13308.807367902256
+Phillip,Hood,Phillip Hood,631-429-6151,56,1971-05-10,47,2012-04-15,Oklahoma City,OK,4200 Northwest 59th Street,Cynthia,35.53076,-97.59467099999999,"Roth 401(k),529",35231.14963963455
+Chelsea,Salvador,Chelsea Salvador,699-982-2985,57,1954-08-25,64,2013-04-11,Washington,DC,1627 Connecticut Avenue Northwest,Cynthia,38.9120258,-77.04440380000001,"529,Traditional IRA,Brokerage",271551.61564458755
+Ronald,Johnson,Ronald Johnson,101-659-4897,58,1968-03-10,50,2004-01-27,Pueblo,CO,1822 North Grand Avenue,Robert,38.284427,-104.611581,"Traditional IRA,Brokerage,Roth IRA",20475.326884054604
+Patrick,Vo,Patrick Vo,548-322-4711,59,1957-07-10,61,2001-03-22,Savannah,GA,2 Ambelwood Way,Robert,31.9138389,-81.07297989999999,"Traditional IRA,Brokerage,Roth 401(k)",28891.188894628634
+Aaron,Johnston,Aaron Johnston,584-610-3335,60,1974-01-01,44,2012-04-06,Fayetteville,AR,2787 West Blackstone Crossing,Cynthia,36.0608984,-94.1993461,"Roth IRA,Brokerage,529,Roth 401(k),Traditional IRA",273878.76347538276
+Judy,Mackenzie,Judy Mackenzie,695-279-0821,61,1959-03-03,59,2011-01-11,Nashville,TN,2732 Rosedale Place,Cynthia,36.1230861,-86.7625204,"529,Brokerage,Roth 401(k),Roth IRA",26866.4147428742
+John,Temple,John Temple,200-406-2277,62,1970-03-22,48,2015-05-23,Montgomery,AL,3436 Lexington Road,Robert,32.342856,-86.298278,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA",269013.3237733461
+Linda,Mcdaniel,Linda Mcdaniel,247-733-4124,63,1965-06-17,53,2004-08-05,Mexico Beach,FL,3203 US Highway 98,Cynthia,29.9491178,-85.41958989999999,"Roth IRA,Roth 401(k)",31096.97816667478
+Mary,Reddick,Mary Reddick,672-974-6805,64,1973-06-01,45,2007-08-04,Nashville,TN,803 18th Avenue South,Robert,36.1500199,-86.79477,"529,Traditional IRA,Roth IRA,Roth 401(k)",95680.45958585228
+Bryan,Lindeman,Bryan Lindeman,600-460-6099,65,1964-04-16,54,2014-10-19,Saint Matthews,KY,903 Mallard Creek Road,Robert,38.2384725,-85.63011589999999,529,20876.78765475178
+Evelyn,Weldon,Evelyn Weldon,579-974-7706,66,1975-05-22,43,2014-01-16,Washington,DC,2032 4th Street Northwest,Robert,38.9176282,-77.0178092,"529,Brokerage",7638.390716800383
+Dustin,Kelly,Dustin Kelly,455-824-6374,67,1982-04-28,36,2000-09-03,Montgomery,AL,6045 Camelot Court,Cynthia,32.3558835,-86.20262180000002,"Roth 401(k),Brokerage,Roth IRA,529",43825.40931696069
+Windy,Easterling,Windy Easterling,130-294-4793,68,1979-08-28,39,2013-04-05,Anchorage,AK,20443 Granite Park Circle,Cynthia,61.3009843,-149.5003959,"Traditional IRA,Roth 401(k)",32794.712226944495
+Kirsten,Smith,Kirsten Smith,641-777-8869,69,1956-07-23,62,2007-09-10,Panama City Beach,FL,150 Manistee Drive,Cynthia,30.235428,-85.89155099999999,Roth 401(k),20372.761398576655
+Chelsea,Viera,Chelsea Viera,567-938-7391,70,1950-06-21,68,2009-06-23,Manchester,CT,115 Maple Street,Robert,41.7687543,-72.51503989999999,Traditional IRA,10692.517410094819
+Elizabeth,Coffman,Elizabeth Coffman,189-631-4733,71,1971-08-06,47,2004-12-07,Nashville,TN,223 Main Street,Cynthia,36.171421,-86.770258,"Roth 401(k),Traditional IRA,Roth IRA",31906.620072862606
+James,Simon,James Simon,315-755-1375,72,1980-03-02,38,2005-12-05,Severna Park,MD,517 Retford Drive,Cynthia,39.086405,-76.580855,"529,Brokerage,Traditional IRA",210749.33624962447
+Catherine,Caraballo,Catherine Caraballo,287-813-5472,73,1951-07-27,67,2015-02-11,Nashville,TN,314 South 17th Street,Robert,36.1719075,-86.740228,"Roth IRA,Traditional IRA,Roth 401(k),529,Brokerage",64865.57236449885
+Kenya,Mcclain,Kenya Mcclain,211-525-7817,74,1953-04-12,65,2006-05-17,Montgomery,AL,4235 Phelan Court,Robert,32.297403,-86.22021500000001,"Roth 401(k),529,Brokerage,Traditional IRA",42160.81223503528
+Patricia,Eppinger,Patricia Eppinger,282-459-3114,75,1959-10-15,59,2013-06-23,Manchester,CT,131 Westerly Street,Cynthia,41.7906813,-72.53559729999999,"Brokerage,529,Roth IRA",450571.97641069634
+Eric,Gloor,Eric Gloor,265-493-3040,76,1974-01-01,44,2013-07-20,Panama City,FL,6818 North Lagoon Drive,Robert,30.159839,-85.76199,"Roth IRA,Brokerage,529,Traditional IRA",57928.93817526354
+Herbert,Rufe,Herbert Rufe,122-213-8719,77,1958-11-16,60,2009-11-09,Edmond,OK,14300 Leesa Lane,Cynthia,35.615266,-97.417683,"Roth IRA,Brokerage,Roth 401(k),529",237120.65142016468
+David,Williams,David Williams,112-146-1196,78,1988-01-14,30,2014-12-23,Panama City,FL,1831 Frankford Avenue,Robert,30.181993,-85.692285,Brokerage,13224.60895511639
+Steven,Norsworthy,Steven Norsworthy,336-730-8522,79,1950-09-16,68,2000-09-12,Brentwood,TN,5545 Saddlewood Lane,Robert,36.026888,-86.7576629,"Roth IRA,Brokerage,529",26679.678071419425
+Terry,Booker,Terry Booker,325-692-8615,80,1950-05-19,68,2004-10-17,Worcester,MA,63 Dorchester Street,Cynthia,42.25189,-71.793182,"Traditional IRA,Brokerage,Roth IRA,529",66716.19018750053
+Thomas,Kemppainen,Thomas Kemppainen,500-270-6211,81,1973-06-03,45,2010-05-08,Savannah,GA,6702 Johnny Mercer Boulevard,Robert,32.0192,-80.975511,"Roth 401(k),529,Brokerage",50531.49334478509
+Jim,Cunningham,Jim Cunningham,204-951-4094,82,1972-04-21,46,2009-11-24,Arvada,CO,6483 West 76th Avenue,Robert,39.834927,-105.069802,"Roth 401(k),529,Traditional IRA,Brokerage",49718.69999784895
+Robert,Walker,Robert Walker,693-444-6616,83,1987-09-26,31,2012-02-22,Guthrie,OK,1500 South Division Street,Robert,35.8626829,-97.425072,"Roth 401(k),Traditional IRA,Brokerage",322461.8623621572
+Bonnie,Morris,Bonnie Morris,660-443-7225,84,1972-06-14,46,2001-08-10,Millersville,MD,1930 Churchview Court,Robert,39.0455029,-76.654788,Roth IRA,14907.704101084953
+Christy,Young,Christy Young,414-266-9082,85,1983-09-19,35,2007-02-02,Fayetteville,AR,6086 Kennedy Drive,Robert,36.103629,-94.24773599999999,529,10166.797720458066
+Elizabeth,Salinas,Elizabeth Salinas,687-514-2555,86,1969-05-16,49,2009-11-20,Savannah,GA,6 Little Country Place,Robert,32.003491,-81.0752801,"Roth IRA,Traditional IRA",29304.07725739137
+Terry,Ervin,Terry Ervin,101-504-8604,87,1974-11-03,44,2000-12-10,Anchorage,AK,435 East 5th Avenue,Cynthia,61.217854,-149.875705,Roth IRA,14197.347366972701
+Howard,Knight,Howard Knight,226-627-4639,88,1989-02-23,29,2013-09-02,Boulder,CO,3040 17th Street,Cynthia,40.0308834,-105.2748855,"Brokerage,Roth 401(k)",33548.240441977956
+Emily,Johnson,Emily Johnson,526-646-4290,89,1967-11-07,51,2005-03-12,Methuen,MA,23 Sable Run Lane,Cynthia,42.759847,-71.157721,Roth IRA,12510.330499046015
+Harvey,Petty,Harvey Petty,327-983-7736,90,1965-09-16,53,2012-07-01,Medford,MA,14 6th Street,Cynthia,42.4074868,-71.07807670000001,Brokerage,15960.325671548333
+Sarah,Edwards,Sarah Edwards,114-739-2575,91,1972-06-18,46,2001-10-12,Arvada,CO,15771 West 64th Avenue,Robert,39.8126444,-105.1768838,"Traditional IRA,Brokerage,529,Roth 401(k),Roth IRA",52987.27367909391
+Mary,Rawson,Mary Rawson,244-498-0660,92,1968-07-04,50,2006-08-09,Louisville,KY,1244 South 4th Street,Cynthia,38.233598,-85.7610867,"Roth IRA,Brokerage",6969.163769982837
+Harold,Ford,Harold Ford,639-895-8593,93,1954-04-22,64,2004-06-12,Milton,MA,30 Curtis Road,Robert,42.2660192,-71.0910829,Roth 401(k),2453.658682535641
+Marie,Durrah,Marie Durrah,299-816-2765,94,1967-02-21,51,2003-08-11,Montgomery,AL,650 Malvern Street,Robert,32.353324,-86.317742,Brokerage,184628.41559722472
+Julia,Fielder,Julia Fielder,179-788-1347,95,1956-12-05,61,2002-09-27,Moore,OK,932 Northwest 20th Street,Robert,35.3563709,-97.5080011,"Traditional IRA,Brokerage,529",33921.209000353956
+Marvin,Bornhorst,Marvin Bornhorst,395-374-3154,96,1969-05-16,49,2005-11-23,Fayetteville,AR,3111 West Ika Lane,Cynthia,36.1101344,-94.20362809999999,"529,Roth IRA,Traditional IRA",53212.45407918339
+Louis,Banter,Louis Banter,142-715-1895,97,1972-05-23,46,2000-10-27,Millersville,MD,316 Sourwood Court,Robert,39.100198,-76.606707,Brokerage,12449.917098396176
+Jonathan,Scarbrough,Jonathan Scarbrough,132-890-8652,98,1959-03-13,59,2006-07-19,Panama City,FL,798 Airport Road,Cynthia,30.186469,-85.67183790000001,"Brokerage,529,Traditional IRA,Roth IRA,Roth 401(k)",310962.5905926058
+Richard,Jones,Richard Jones,264-728-2765,99,1985-06-07,33,2013-02-15,Panama City Beach,FL,22219 Panama City Beach Parkway,Cynthia,30.2620426,-85.96316709999999,"Brokerage,Roth IRA",39478.12920484052
+Audrey,Dubill,Audrey Dubill,688-931-2868,100,1960-10-03,58,2002-03-01,Oklahoma City,OK,1217 Southwest 91st Street,Cynthia,35.3760151,-97.537252,"Roth 401(k),Brokerage,Roth IRA,Traditional IRA",51851.3932990145
+Lori,Fitzgerald,Lori Fitzgerald,159-520-8755,101,1955-05-16,63,2007-12-25,Bethany,OK,4503 North Council Road,Robert,35.5176604,-97.65550879999999,"529,Roth IRA",218467.8345918842
+Frank,Ostermann,Frank Ostermann,237-725-7834,102,1990-07-15,28,2001-06-19,Redlands,CA,129 Grant Street,Robert,34.0529643,-117.1847245,529,4528.134393478826
+Robert,Banter,Robert Banter,116-431-7134,103,1971-05-22,47,2013-10-24,Hayward,CA,26334 Adrian Avenue,Robert,37.636421,-122.102691,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA,529",75045.56319299358
+Johnnie,Paz,Johnnie Paz,528-480-2928,104,1964-07-13,54,2016-02-14,Hayward,CA,23501 Ida Lane,Cynthia,37.660696,-122.100733,"Brokerage,529",39611.302978515436
+Murray,Barr,Murray Barr,567-643-2076,105,1981-09-19,37,2006-06-22,Fremont,CA,38252 Farwell Drive,Cynthia,37.5376257,-122.0104815,"Roth IRA,Brokerage",246377.28221472353
+Mary,Glidden,Mary Glidden,182-675-1250,106,1990-11-21,27,2000-06-22,Arvada,CO,7300 West 74th Place,Robert,39.83103699999999,-105.077096,"529,Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",86715.3481736788
+Lee,Hogan,Lee Hogan,428-921-1266,107,1990-04-03,28,2016-08-01,Montgomery,AL,3522 Whiting Avenue,Cynthia,32.341878,-86.32006299999999,"Traditional IRA,Roth 401(k)",36576.68564580545
+Tricia,Keiss,Tricia Keiss,516-160-7032,108,1984-12-24,33,2007-03-05,Manchester,CT,35 Lakewood Circle South,Robert,41.754591,-72.52192000000001,"Traditional IRA,Roth 401(k),Roth IRA",241673.27425917087
+David,Kampa,David Kampa,606-932-6023,109,1952-09-23,66,2009-04-27,Oakland,CA,2014 Clemens Road,Robert,37.809976,-122.208322,"529,Brokerage",23517.984735527774
+Sonia,Morrison,Sonia Morrison,673-597-0099,110,1963-03-13,55,2007-01-20,Bloomingdale,GA,408 Pine Street,Cynthia,32.123381,-81.300556,"529,Brokerage,Traditional IRA",35809.57051226952
+David,Allison,David Allison,598-509-3539,111,1985-03-27,33,2010-09-08,Louisville,KY,1601 Algonquin Parkway,Cynthia,38.2225055,-85.7828486,"Brokerage,529,Roth 401(k),Roth IRA,Traditional IRA",89354.96203895407
+Kathleen,Lister,Kathleen Lister,252-918-1737,112,1978-03-03,40,2015-04-16,Oklahoma City,OK,8417 Timothy Lane,Robert,35.381694,-97.423171,"Roth IRA,529,Roth 401(k),Traditional IRA",187460.99631199805
+Alex,Monton,Alex Monton,522-709-1907,113,1989-07-20,29,2000-01-14,Manchester,CT,207 High Street,Cynthia,41.7691673,-72.5390458,"Brokerage,Roth IRA",144481.53471245762
+Lucile,Jamison,Lucile Jamison,194-171-6211,114,1981-09-03,37,2010-10-11,Washington,DC,1710 Monroe Street Northeast,Robert,38.933363,-76.98034799999999,"529,Brokerage",18964.622597939087
+Jacob,Williams,Jacob Williams,283-884-6239,115,1982-02-04,36,2016-02-21,Pooler,GA,14 Tranquil Place,Robert,32.08227,-81.26250999999999,Brokerage,3975.24925506342
+Corrine,Butts,Corrine Butts,123-353-7873,116,1960-07-05,58,2000-08-24,Oakland,CA,5397 Wentworth Avenue,Robert,37.769842,-122.200969,"Roth 401(k),Traditional IRA,Roth IRA,529,Brokerage",80643.74076964095
+Barry,Moen,Barry Moen,480-216-3721,117,1956-04-22,62,2011-10-18,Glendale,AZ,23124 North 71st Drive,Robert,33.6940281,-112.2129262,"Roth 401(k),Traditional IRA",6213.464247899455
+Pamela,Gilyard,Pamela Gilyard,461-844-5384,118,1972-06-22,46,2000-09-21,Montgomery,AL,117 South Capitol Parkway,Cynthia,32.3777959,-86.284319,529,22751.436468600787
+Dianne,Bullock,Dianne Bullock,315-691-7310,119,1959-02-02,59,2008-04-20,Alameda,CA,1076 Foster Street,Robert,37.736838,-122.25143,"Roth 401(k),Brokerage",24996.55984493164
+Donald,Patten,Donald Patten,121-149-3001,120,1969-12-14,48,2011-11-14,Panama City,FL,4604 West 19th Court,Cynthia,30.184328,-85.720681,Brokerage,17375.160954266874
+Johnnie,Haris,Johnnie Haris,573-489-1469,121,1960-03-27,58,2008-11-05,Mathews,AL,403 Turkey Creek Road,Cynthia,32.220426,-86.059168,"Brokerage,529,Roth 401(k),Roth IRA,Traditional IRA",254884.5128680077
+Gina,Baptiste,Gina Baptiste,205-876-3796,122,1969-09-03,49,2013-07-22,Arvada,CO,8935 Cole Drive,Robert,39.810298,-105.096769,529,12687.623856300595
+Maggie,Naccarato,Maggie Naccarato,256-987-0871,123,1988-06-23,30,2013-04-03,Oklahoma City,OK,2237 Northwest 18th Street,Cynthia,35.4882133,-97.5513414,Roth IRA,160170.32389886578
+Jessie,Tino,Jessie Tino,483-243-1465,124,1962-10-06,56,2011-06-22,Berkeley,CA,2703 Woolsey Street,Robert,37.854131,-122.252442,Roth 401(k),3635.3054320084707
+Sara,Booth,Sara Booth,123-669-3796,125,1989-09-28,29,2004-05-20,Stowe,VT,2063 Notchbrook Road,Robert,44.518528,-72.762367,"Roth IRA,529",28438.522777774888
+Otto,Berkley,Otto Berkley,454-186-8103,126,1977-11-24,40,2014-12-01,Glen Burnie,MD,303 Addison Drive,Robert,39.138572,-76.580117,529,23218.688312068218
+Eva,Miske,Eva Miske,379-800-9472,127,1974-04-20,44,2014-08-11,Tyngsborough,MA,5 Centercrest Drive,Robert,42.670101,-71.4206892,"529,Traditional IRA,Roth 401(k),Brokerage",74364.38715625377
+Donna,Gallagher,Donna Gallagher,569-246-7001,128,1977-07-10,41,2013-10-12,Norman,OK,1304 Northern Hills Road,Robert,35.251327,-97.421738,"Traditional IRA,529,Brokerage,Roth IRA",54137.324676581295
+Barbara,Cole,Barbara Cole,599-913-2441,129,1952-05-23,66,2014-11-06,Louisville,KY,1822 Dixdale Avenue,Cynthia,38.2220439,-85.79464999999999,"Brokerage,Roth 401(k),529,Traditional IRA,Roth IRA",47599.60595289172
+Dorothy,Miles,Dorothy Miles,285-432-5520,130,1957-03-27,61,2008-11-23,Springfield,MA,435 Porter Lake Drive,Cynthia,42.0712181,-72.5562459,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",90796.04700241916
+John,Bannon,John Bannon,353-880-6081,131,1990-06-04,28,2000-04-17,Fayetteville,AR,3142 North Warwick Drive,Cynthia,36.108083,-94.1208599,"Brokerage,Traditional IRA,Roth IRA,529",54967.65574532812
+Gregory,Fuller,Gregory Fuller,193-795-9722,132,1979-06-04,39,2012-03-13,Newfane,VT,578 Vermont 30,Cynthia,42.9853466,-72.6551727,"Roth 401(k),529,Roth IRA,Traditional IRA",37724.50557665494
+David,Hudnell,David Hudnell,504-713-1078,133,1958-10-22,60,2003-07-09,Norman,OK,996 Ed Noble Parkway,Robert,35.206422,-97.4821307,"529,Roth IRA,Brokerage",30161.434183335194
+Lillian,Armstrong,Lillian Armstrong,515-384-1140,134,1970-06-14,48,2011-11-20,Fayetteville,AR,1 North School Avenue,Robert,36.0632351,-94.1649619,"Traditional IRA,Roth 401(k),529",41861.71613863757
+Franklin,Diaz,Franklin Diaz,211-981-4583,135,1957-09-17,61,2013-09-04,Montgomery,AL,100 Lake Forest Drive,Cynthia,32.383714,-86.16060399999999,"Roth IRA,Brokerage,529,Roth 401(k),Traditional IRA",129838.79331828063
+Mary,Conlin,Mary Conlin,110-408-6145,136,1977-10-15,41,2014-05-14,Athol,MA,7 Oliver Street,Cynthia,42.5895133,-72.22493709999999,Roth 401(k),3637.568302268459
+Carolyn,Nockels,Carolyn Nockels,505-423-6205,137,1967-07-14,51,2008-07-11,Panama City,FL,2729 East 14th Street,Cynthia,30.173293,-85.623364,"Roth IRA,Traditional IRA",25456.348580597187
+Patrica,Colon,Patrica Colon,372-752-9925,138,1988-08-25,30,2005-06-18,Arvada,CO,8380 West 67th Avenue,Cynthia,39.817999,-105.090301,Traditional IRA,18270.645148029776
+Rosemary,Williams,Rosemary Williams,592-873-2939,139,1952-10-19,66,2011-02-08,Montgomery,AL,3340 Woodpark Drive,Cynthia,32.306954,-86.265986,"Brokerage,Roth 401(k)",10408.00457854547
+Josephine,Yerkes,Josephine Yerkes,507-489-4061,140,1964-06-01,54,2011-01-24,Fayetteville,AR,5529 East Saddleridge Drive,Robert,36.113929,-94.080563,"Roth 401(k),Brokerage,529",49600.76331671527
+Calvin,Rogers,Calvin Rogers,210-919-6323,141,1985-04-03,33,2012-12-07,Louisville,KY,642 South 2nd Street,Robert,38.2472593,-85.7549195,Brokerage,19828.786076927656
+Samuel,Dwyer,Samuel Dwyer,117-782-7573,142,1979-07-17,39,2004-07-26,Nashville,TN,3534 Saint Lawrence Road,Robert,36.289224,-86.877681,"Roth IRA,Roth 401(k)",24354.89831311038
+Clarence,Holloway,Clarence Holloway,257-206-5053,143,1982-11-24,35,2016-07-15,Nashville,TN,8300 Highway 100,Cynthia,36.038777,-86.96481,"529,Roth 401(k),Brokerage",47885.79637011014
+Wm,Smith,Wm Smith,169-607-6003,144,1955-04-24,63,2016-11-11,Berkeley,CA,1139 Addison Street,Cynthia,37.8683866,-122.290025,Brokerage,24801.129636772574
+David,Solinski,David Solinski,315-606-8585,145,1984-11-14,33,2001-04-27,Oakland,CA,725 65th Street,Cynthia,37.849964,-122.266668,"Brokerage,Roth IRA",159095.11707701982
+Leslie,Gray,Leslie Gray,528-668-2058,146,1954-07-25,64,2017-02-26,Savannah,GA,1431 King George Boulevard,Cynthia,31.9775273,-81.2259819,529,1080.3180026475977
+Francine,Cerrone,Francine Cerrone,546-424-7031,147,1960-06-01,58,2012-02-02,Fayetteville,AR,4074 North Sunflower Circle,Cynthia,36.125209,-94.1317431,"Brokerage,Roth IRA,Traditional IRA",21147.783410236014
+Jeffrey,Swartwood,Jeffrey Swartwood,161-162-3790,148,1990-12-16,27,2003-07-28,Hayward,CA,24147 Clinton Court,Cynthia,37.648857,-122.112388,"Roth IRA,529,Traditional IRA,Brokerage,Roth 401(k)",257943.03587490757
+Maxine,Holt,Maxine Holt,178-740-7515,149,1990-03-01,28,2004-11-04,Fayetteville,AR,607 North 46th Avenue,Cynthia,36.0741371,-94.22645829999999,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",36067.310034984584
+Michael,Wilson,Michael Wilson,475-613-9457,150,1958-11-17,60,2009-11-22,Nashville,TN,313 Wiley Street,Cynthia,36.269119,-86.706063,"Brokerage,529,Traditional IRA,Roth 401(k)",54822.884572989504
+Alfreda,Attaway,Alfreda Attaway,393-211-8139,151,1975-04-05,43,2016-09-25,Louisville,KY,1046 Dudley Avenue,Robert,38.2416535,-85.7188075,"Brokerage,Roth IRA",26245.720427380646
+William,Holbert,William Holbert,112-721-3388,152,1952-09-28,66,2009-03-27,Edmond,OK,1605 Remington Road,Robert,35.7062389,-97.458961,"Brokerage,Roth 401(k),Roth IRA,529,Traditional IRA",69696.28961213813
+Diane,Macdonald,Diane Macdonald,414-532-1549,153,1978-06-18,40,2012-03-02,Nashville,TN,2205 Lindell Avenue,Cynthia,36.1307367,-86.7746985,"Roth 401(k),Roth IRA,Traditional IRA,Brokerage",55079.78610256934
+Justin,Blanchard,Justin Blanchard,325-460-6338,154,1969-12-25,48,2012-07-08,Montgomery,AL,164 Tensaw Road,Cynthia,32.384424,-86.145425,"Roth IRA,Roth 401(k),Brokerage,Traditional IRA,529",341749.6183759449
+Robert,Stecklein,Robert Stecklein,624-673-6503,155,1973-11-12,45,2013-09-07,Montgomery,AL,311 South Panama Street,Robert,32.376833,-86.27416099999999,529,21634.157061097096
+Leatha,Alford,Leatha Alford,246-238-0791,156,1980-03-19,38,2017-09-22,Cupertino,CA,10881 Northforde Drive,Robert,37.335812,-122.023985,Roth IRA,19973.30561702484
+Nancy,Spencer,Nancy Spencer,618-368-2825,157,1969-08-25,49,2015-09-07,Arvada,CO,16896 West 85th Lane,Cynthia,39.852901,-105.1912382,Roth IRA,2160.2916322822484
+Scott,Murdock,Scott Murdock,258-284-6510,158,1990-09-23,28,2006-04-15,Orange,CA,553 South Arlington Road,Cynthia,33.7794839,-117.820383,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",48669.6730901149
+Bruce,Alas,Bruce Alas,394-137-4081,159,1951-12-05,66,2005-03-26,Nashville,TN,1324 Beddington Park,Cynthia,36.057298,-86.823065,"529,Roth 401(k),Traditional IRA,Brokerage,Roth IRA",151206.3984009631
+Yolanda,Jenkins,Yolanda Jenkins,494-651-9006,160,1988-08-17,30,2014-04-23,Fountain,FL,12610 Webber Road,Cynthia,30.4711,-85.41234899999999,"Brokerage,Roth IRA,Traditional IRA,529,Roth 401(k)",226526.03853998688
+Albert,Brase,Albert Brase,628-286-5048,161,1973-02-28,45,2008-10-26,Fremont,CA,4016 Doane Street,Cynthia,37.514834,-121.95302,"Roth IRA,Roth 401(k),529,Brokerage",48980.26974183393
+Tyler,Avant,Tyler Avant,552-669-7956,162,1984-08-22,34,2001-02-05,Glendale,AZ,6740 West Montebello Avenue,Cynthia,33.5205715,-112.2039219,Brokerage,6737.92097390131
+Catherine,Allain,Catherine Allain,274-580-4357,163,1950-08-01,68,2006-06-22,Nashville,TN,5434 Cedar Ash Crossing,Robert,36.03928,-86.6286669,"Roth 401(k),529",266170.43967680517
+Eva,Bartko,Eva Bartko,528-256-1851,164,1959-04-06,59,2015-12-21,Selma,CA,2409 Park Street,Cynthia,36.55983190000001,-119.6183089,"Roth IRA,Brokerage,529",36691.041330631575
+Connie,Montanez,Connie Montanez,164-631-1900,165,1971-10-20,47,2005-07-24,Savannah,GA,713 East 32nd Street,Robert,32.0579228,-81.0878461,Roth IRA,7377.135677761492
+Thomas,Oreilly,Thomas Oreilly,285-563-0643,166,1986-06-10,32,2000-09-01,Burlington,VT,109 Summit Street,Cynthia,44.4729749,-73.2026566,"Roth 401(k),Brokerage,Roth IRA,529,Traditional IRA",53834.355676495354
+Robin,Hudak,Robin Hudak,286-420-5271,167,1970-06-23,48,2010-03-24,Fayetteville,AR,2787 West Blackstone Crossing,Cynthia,36.0608984,-94.1993461,"Roth 401(k),Traditional IRA",26531.374849081923
+Gloria,Mills,Gloria Mills,555-208-7033,168,1974-04-25,44,2010-07-04,Nashville,TN,95 Claiborne Street,Robert,36.151804,-86.76030899999999,"Roth 401(k),Roth IRA",315963.6808696493
+Michael,Gomez,Michael Gomez,628-784-2232,169,1982-10-06,36,2013-11-25,Farmington,AR,110 Allen Place,Cynthia,36.04627,-94.23044,Traditional IRA,24528.4806481383
+Helen,Kelley,Helen Kelley,371-739-1694,170,1964-06-02,54,2010-12-25,Louisville,KY,4316 Dover Road,Cynthia,38.186788,-85.833439,"Roth IRA,Roth 401(k),529",269347.64775229216
+Abraham,Neal,Abraham Neal,483-746-6408,171,1955-01-28,63,2009-05-28,Montgomery,AL,1631 Madison Avenue,Robert,32.3808099,-86.28537299999999,"Traditional IRA,Roth 401(k),529,Brokerage",31378.412768436705
+Sandi,Henderson,Sandi Henderson,119-747-3263,172,1965-05-06,53,2014-02-09,Soda Springs,CA,51035 Conifer Drive,Cynthia,39.31757899999999,-120.443713,"Roth IRA,Roth 401(k),529,Brokerage,Traditional IRA",481288.1249722049
+Jean,Boggs,Jean Boggs,144-926-6924,173,1958-10-22,60,2001-02-24,Fayetteville,AR,201 North Locust Avenue,Robert,36.0647522,-94.1630174,Roth IRA,19134.36311473394
+Benjamin,King,Benjamin King,129-463-9364,174,1953-09-24,65,2006-03-26,Arvada,CO,5650 West 60th Avenue,Cynthia,39.804868,-105.058319,"Brokerage,Traditional IRA,Roth 401(k)",44572.430723341575
+Lily,Daniels,Lily Daniels,408-699-4818,175,1972-02-16,46,2004-02-08,Savannah,GA,12 Netherclift Way,Cynthia,31.915037,-81.07712599999999,"Traditional IRA,529",9782.143834389153
+Elizabeth,Longley,Elizabeth Longley,544-380-9995,176,1951-05-17,67,2012-10-23,Savannah,GA,1695 Archer Street,Cynthia,32.0475974,-81.13348289999999,"Traditional IRA,Brokerage,Roth IRA",53500.12216972483
+Jonathan,Manchini,Jonathan Manchini,590-675-6401,177,1987-03-19,31,2000-09-21,Washington,DC,1126 Oates Street Northeast,Cynthia,38.90606,-76.9891839,"Brokerage,Traditional IRA,529,Roth 401(k)",389115.6096659059
+Janet,Leggette,Janet Leggette,589-774-9322,178,1969-06-12,49,2009-12-02,Nashville,TN,253 Colt Drive,Robert,36.087114,-86.943151,Roth IRA,18902.373154878693
+Vivian,Martinez,Vivian Martinez,256-935-0391,179,1985-09-25,33,2004-11-05,Annapolis,MD,1709 Vineyard Trail,Cynthia,39.011135,-76.533643,"Brokerage,Traditional IRA,529,Roth IRA,Roth 401(k)",51092.29931083525
+Guadalupe,Yochum,Guadalupe Yochum,605-982-5883,180,1960-02-01,58,2016-12-28,Norman,OK,996 Ed Noble Parkway,Cynthia,35.206422,-97.4821307,"Roth IRA,Traditional IRA,Roth 401(k),529,Brokerage",80330.86768881825
+Timothy,Perez,Timothy Perez,637-802-4413,181,1983-09-22,35,2005-11-05,Fremont,CA,38252 Farwell Drive,Robert,37.5376257,-122.0104815,"529,Traditional IRA,Roth 401(k)",114734.54129434683
+Joe,Anderson,Joe Anderson,156-866-6246,182,1977-10-10,41,2008-05-27,Bakersfield,CA,4409 Star Jasmine Court,Robert,35.314966,-119.027406,"Roth IRA,Traditional IRA,Roth 401(k),529",44490.23158140194
+Cody,Johnson,Cody Johnson,663-388-8726,183,1953-09-10,65,2017-01-15,Washington,DC,1427 South Carolina Avenue Southeast,Cynthia,38.886615,-76.9845349,"529,Traditional IRA",6980.05228896892
+Brett,Moss,Brett Moss,136-655-9302,184,1951-12-07,66,2012-03-08,Manchester,CT,89 Frances Drive,Cynthia,41.761374,-72.537628,"Brokerage,Roth IRA,529,Traditional IRA,Roth 401(k)",252642.44114144926
+Wilbert,Skursky,Wilbert Skursky,175-293-4313,185,1950-02-14,68,2005-07-28,Louisville,KY,3620 Colmar Drive,Cynthia,38.235977,-85.81636,Roth 401(k),10854.10688873761
+Louis,Kruger,Louis Kruger,259-752-5761,186,1953-05-14,65,2017-05-22,Woburn,MA,78 School Street,Robert,42.506877,-71.15299,"Brokerage,Roth 401(k),Roth IRA,Traditional IRA",257142.5027060615
+Matthew,Walt,Matthew Walt,416-350-3616,187,1970-06-20,48,2005-07-20,Beverly Hills,FL,5038 North Cimarron Drive,Cynthia,28.935938,-82.527367,"Traditional IRA,Roth IRA,529",374399.2423891751
+Melvin,Ferguson,Melvin Ferguson,381-277-1750,188,1950-12-07,67,2001-03-18,Washington,DC,534 Hamilton Street Northeast,Cynthia,38.954267,-76.997085,"Roth 401(k),Roth IRA,Brokerage",53898.52785654129
+Larry,Bryce,Larry Bryce,265-744-5910,189,1985-10-09,33,2002-03-24,Arnold,MD,1489 Falcon Nest Court,Cynthia,39.0368629,-76.467516,"Traditional IRA,Roth 401(k),Roth IRA",21791.2068859504
+Courtney,Caberto,Courtney Caberto,335-888-4036,190,1968-05-26,50,2002-01-15,Arvada,CO,5614 Kipling Parkway,Cynthia,39.7994048,-105.1106766,"Traditional IRA,Roth IRA,529",41689.94697044385
+Jeffry,Collingwood,Jeffry Collingwood,680-898-8548,191,1979-11-10,39,2016-08-19,Hyde Park,VT,54 Pine Meadow Drive,Cynthia,44.597069,-72.6195089,"Roth 401(k),529",8756.932899347361
+Barbara,Hall,Barbara Hall,349-730-2364,192,1981-02-10,37,2010-07-06,Louisville,KY,8219 Minor Lane,Cynthia,38.12841,-85.7107249,Roth IRA,10476.155682526258
+Ramona,Florence,Ramona Florence,122-190-7041,193,1976-06-16,42,2010-01-09,Chester,VT,2909 Flamstead Road,Cynthia,43.3024429,-72.560051,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA",59648.36474281612
+Richard,Libby,Richard Libby,547-863-4189,194,1970-10-15,48,2006-10-25,Manchester,CT,110 Castle Hill,Robert,41.7820711,-72.4827912,"529,Roth IRA,Traditional IRA,Brokerage,Roth 401(k)",85957.64436122664
+Kathleen,Taylor,Kathleen Taylor,178-788-0955,195,1985-07-25,33,2014-10-20,Panama City,FL,235 Hugh Thomas Drive,Cynthia,30.146583,-85.553331,Roth 401(k),9794.13223307933
+Bob,Garrett,Bob Garrett,114-737-4416,196,1978-07-21,40,2004-01-11,Barre,VT,110 Elmwood Avenue,Robert,44.2097089,-72.50493600000001,"Traditional IRA,Roth 401(k),529,Roth IRA,Brokerage",535519.4423413386
+Joyce,Trevino,Joyce Trevino,683-753-2382,197,1960-02-22,58,2016-06-14,Glendale,AZ,21007 North 53rd Avenue,Robert,33.67628000000001,-112.174746,"529,Traditional IRA,Roth 401(k),Brokerage,Roth IRA",326171.26676943654
+Henry,Jones,Henry Jones,339-167-7143,198,1977-07-20,41,2005-07-17,Brimfield,MA,61 Cubles Drive,Cynthia,42.1333083,-72.1897627,"Roth 401(k),529,Traditional IRA,Brokerage,Roth IRA",78324.54054001518
+Joseph,Warren,Joseph Warren,353-749-5527,199,1955-11-10,63,2017-06-09,Severna Park,MD,212 Ambleside Drive,Robert,39.097022,-76.55617699999999,"Traditional IRA,Roth 401(k),Brokerage,529",316933.2589062536
+Gina,Mcfadden,Gina Mcfadden,483-187-5887,200,1968-06-25,50,2008-01-10,Saint Albans City,VT,45 Parsons Avenue,Cynthia,44.79305600000001,-73.086777,"Roth 401(k),529",21076.226298344176
+Felix,Reiner,Felix Reiner,198-103-4479,201,1990-11-28,27,2003-03-08,Holbrook,MA,34 Belair Drive,Cynthia,42.1348305,-71.001043,Roth 401(k),20923.36327362513
+Michael,Hall,Michael Hall,264-801-6530,202,1980-07-25,38,2008-07-23,Montgomery,AL,2013 Talbot Terrace,Cynthia,32.346206,-86.239281,"Traditional IRA,Brokerage,Roth 401(k),529,Roth IRA",377566.8846143551
+Roger,Amaral,Roger Amaral,561-110-5768,203,1969-07-16,49,2002-07-04,Manchester,CT,37 Kensington Street,Robert,41.774793,-72.503203,Brokerage,151157.53355075046
+Chad,Lowe,Chad Lowe,458-705-6465,204,1965-08-26,53,2004-07-25,Manchester,CT,80 Homestead Street,Cynthia,41.785401,-72.531238,"Traditional IRA,529,Roth IRA,Brokerage,Roth 401(k)",85023.79024547517
+Thomas,Hawks,Thomas Hawks,144-849-4904,205,1976-08-25,42,2010-04-10,Panama City,FL,2928 Avon Road,Robert,30.196279,-85.619315,Brokerage,19075.61320325364
+Janel,Simonis,Janel Simonis,163-960-7963,206,1975-11-26,42,2012-03-21,Glendale,AZ,6617 North 59th Avenue,Robert,33.5338921,-112.1858285,"Roth IRA,529,Traditional IRA",195775.37102669253
+Steven,Flynn,Steven Flynn,153-429-1832,207,1966-09-14,52,2012-06-17,Anchorage,AK,6740 Dickerson Drive,Robert,61.221587,-149.75383,"Roth IRA,529",45662.27691937112
+Charles,Parsons,Charles Parsons,598-118-8892,208,1971-02-24,47,2001-10-08,Manchester,CT,199 Spencer Street,Robert,41.7673618,-72.5691083,"Roth IRA,529,Roth 401(k)",27273.821103090937
+Emma,Chambers,Emma Chambers,216-691-6665,209,1981-08-07,37,2011-08-17,Annapolis,MD,1433 Bretton View Road,Robert,39.026117,-76.471535,"529,Roth IRA,Traditional IRA",34372.426578816405
+Tanisha,Osborn,Tanisha Osborn,564-298-0948,210,1958-12-27,59,2016-02-13,Savannah,GA,345 Tattnall Street,Robert,32.0737537,-81.0972164,"Roth 401(k),Roth IRA,529,Traditional IRA",84204.74592602014
+Martin,Holt,Martin Holt,238-799-0507,211,1952-03-09,66,2011-03-24,Savannah,GA,711 Tatem Street,Cynthia,32.035775,-81.125465,"Roth 401(k),Brokerage",30294.581834147022
+Daniel,Marrero,Daniel Marrero,617-815-8352,212,1979-12-03,38,2001-04-18,Cambridge,MA,594 Putnam Avenue,Cynthia,42.3568866,-71.10681559999999,"529,Roth IRA,Traditional IRA,Roth 401(k)",31747.22227106686
+Patricia,Wires,Patricia Wires,604-730-7681,213,1973-03-15,45,2012-12-19,Oklahoma City,OK,1304 Southwest 67th Street,Cynthia,35.3978899,-97.53921899999999,Roth 401(k),10005.346303996266
+Christopher,Bertrand,Christopher Bertrand,258-304-3269,214,1962-12-16,55,2000-08-19,Arvada,CO,10763 West 54th Place,Cynthia,39.7956876,-105.118779,"Brokerage,Roth IRA,529,Traditional IRA",137656.82463967966
+Thomas,Vaughn,Thomas Vaughn,680-453-3601,215,1986-10-18,32,2009-09-15,Peabody,MA,19 Keyes Drive,Robert,42.5425539,-70.9493447,"529,Roth IRA,Roth 401(k)",21363.255142462403
+Arturo,Porras,Arturo Porras,367-757-8693,216,1954-12-18,63,2000-07-23,Fayetteville,AR,3142 West Finger Road,Cynthia,36.042837,-94.205309,"529,Brokerage",152482.67947069893
+Bobbie,Holmquist,Bobbie Holmquist,552-643-8986,217,1973-03-13,45,2011-01-24,Salem,MA,24 Norman Street,Robert,42.520197,-70.896807,"Roth IRA,Roth 401(k),Traditional IRA",27554.678925582248
+Wesley,Webster,Wesley Webster,157-491-6398,218,1986-10-05,32,2007-08-19,Savannah,GA,37 East Broad Street,Robert,32.0776278,-81.08469219999999,"Brokerage,529,Roth 401(k),Traditional IRA,Roth IRA",63906.52666587374
+Ryan,Harrison,Ryan Harrison,636-590-2890,219,1987-06-24,31,2007-09-12,Anchorage,AK,11160 Vosikof Place,Cynthia,61.11972100000001,-149.726504,"Roth IRA,Traditional IRA,Brokerage",57685.63810838938
+Craig,Smith,Craig Smith,354-357-6681,220,1963-08-25,55,2010-03-21,Brookline,MA,16 Fuller Street,Cynthia,42.3443251,-71.12841,"Roth 401(k),Roth IRA",19985.34581788199
+Dorthy,Simmons,Dorthy Simmons,122-971-5977,221,1989-04-17,29,2004-08-27,Oakland,CA,441 Merritt Avenue,Cynthia,37.8058663,-122.2493644,"Roth IRA,Roth 401(k),529",30038.524282719103
+Patricia,Williams,Patricia Williams,198-774-2969,222,1970-09-12,48,2001-05-28,Thunderbolt,GA,2803 River Drive,Robert,32.032627,-81.050879,"Brokerage,Traditional IRA,Roth IRA,529,Roth 401(k)",261353.28089863434
+Agnes,Ojeda,Agnes Ojeda,671-942-5685,223,1972-07-23,46,2010-01-25,Arvada,CO,5611 Kendall Court,Cynthia,39.7991311,-105.0667299,Roth IRA,13658.136524892503
+Thomas,Becerra,Thomas Becerra,565-172-8226,224,1983-02-24,35,2001-03-20,Louisville,KY,1117 Everett Avenue,Robert,38.239723,-85.717075,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA,529",256949.4992600009
+Beth,Wright,Beth Wright,171-512-6011,225,1967-09-28,51,2016-09-23,Moore,OK,320 South Ramblin Oaks Drive,Cynthia,35.3353578,-97.4660835,"529,Roth IRA,Traditional IRA,Roth 401(k)",66571.64374599168
+Maria,Mathews,Maria Mathews,668-121-9165,226,1971-01-14,47,2003-08-25,Savannah,GA,4112 Rockdale Street,Cynthia,32.048777,-81.13081199999999,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",276823.3105777336
+Kendrick,Arias,Kendrick Arias,491-441-1438,227,1968-11-26,49,2011-09-03,Louisville,KY,1622 Orchard Avenue,Cynthia,38.198791,-85.709931,"Roth 401(k),Roth IRA,529",60364.983295744
+Glenn,Bowles,Glenn Bowles,684-858-8856,228,1977-11-04,41,2000-11-24,Fayetteville,AR,505 North Washington Avenue,Cynthia,36.070207,-94.15639999999999,"Brokerage,Roth 401(k)",18595.648548927173
+John,Tso,John Tso,676-525-5290,229,1966-06-21,52,2013-10-03,Nashville,TN,5403 Illinois Avenue,Cynthia,36.157077,-86.853827,Traditional IRA,6514.745685534438
+Edward,Alberson,Edward Alberson,418-798-1197,230,1981-07-05,37,2016-12-18,Edmond,OK,2700 Verona Way,Cynthia,35.646889,-97.44485999999999,"Traditional IRA,Brokerage,Roth IRA,529,Roth 401(k)",55908.5204422007
+Edward,Young,Edward Young,367-727-0797,231,1979-01-15,39,2002-02-10,Montgomery,AL,2636 Knollwood Drive,Cynthia,32.3147,-86.25645899999999,"Traditional IRA,Roth 401(k),Roth IRA",122446.64023238621
+Margaret,Mcdonald,Margaret Mcdonald,587-464-1646,232,1951-02-28,67,2009-10-25,Glendale,AZ,7101 West Beardsley Road,Robert,33.6661742,-112.2118385,Roth 401(k),204467.28931711166
+Nicole,Johnson,Nicole Johnson,173-886-6194,233,1956-09-16,62,2011-07-26,Savannah,GA,1431 King George Boulevard,Cynthia,31.9775273,-81.2259819,"529,Roth 401(k),Brokerage,Roth IRA,Traditional IRA",192638.73904551964
+David,Garr,David Garr,575-661-0108,234,1982-11-09,36,2017-11-12,Anchorage,AK,12870 Old Seward Highway,Robert,61.10396369999999,-149.8575515,"Roth 401(k),Roth IRA,Traditional IRA,529",48257.80501448327
+Rana,Martin,Rana Martin,139-750-2420,235,1985-09-25,33,2000-09-17,Guildhall,VT,91 Courthouse Drive,Robert,44.5656291,-71.5609455,"529,Traditional IRA,Roth 401(k),Roth IRA",287566.3737360406
+Eric,Romero,Eric Romero,692-941-9694,236,1953-08-07,65,2012-06-22,Rancho Palos Verdes,CA,6420 Via Baron,Cynthia,33.741162,-118.390767,"529,Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",153961.32347194283
+Morgan,Park,Morgan Park,454-135-1274,237,1954-02-28,64,2012-08-13,Louisville,KY,8007 Kendrick Crossing Lane,Cynthia,38.12356,-85.560345,"Brokerage,Roth 401(k),529,Traditional IRA,Roth IRA",66666.6895878328
+Ashley,Fadel,Ashley Fadel,153-732-3380,238,1964-09-27,54,2014-04-28,Anchorage,AK,2732 West 67th Avenue,Cynthia,61.1599,-149.93596,"Traditional IRA,Roth 401(k),Roth IRA",49713.64028068225
+Heidi,Chavous,Heidi Chavous,403-532-9866,239,1968-07-23,50,2005-01-21,Washington,DC,1345 G Street Southeast,Robert,38.8810733,-76.9861335,"Roth 401(k),Roth IRA,Traditional IRA",22989.223310970177
+Terry,Gleason,Terry Gleason,118-736-1836,240,1988-06-23,30,2016-07-07,Severn,MD,8358 WB&A Road,Robert,39.108962,-76.68668799999999,"Roth IRA,Roth 401(k)",39355.682410527465
+Cecil,Gordon,Cecil Gordon,511-442-6037,241,1959-07-27,59,2004-10-23,Glendale,AZ,6604 North 59th Avenue,Cynthia,33.5340739,-112.186878,"Traditional IRA,529,Roth 401(k),Brokerage,Roth IRA",175797.3714745576
+John,Bond,John Bond,146-199-1560,242,1969-05-13,49,2010-12-02,Washington,DC,1516 Buchanan Street Northwest,Cynthia,38.945858,-77.03528399999999,"Brokerage,Traditional IRA",35718.13132209169
+Carl,Malcomb,Carl Malcomb,387-792-8723,243,1972-01-06,46,2000-08-17,San Leandro,CA,15267 Hesperian Boulevard,Cynthia,37.6949779,-122.1311145,Brokerage,22997.32010149606
+Ramona,Janosek,Ramona Janosek,112-581-9776,244,1950-04-20,68,2017-09-11,Montgomery,AL,142 Ash Drive,Cynthia,32.3629729,-86.0507669,"Brokerage,Roth IRA,529,Roth 401(k),Traditional IRA",57702.259519258885
+Scott,Freehan,Scott Freehan,157-439-4228,245,1977-09-16,41,2010-06-04,Dublin,CA,2348 Cantalise Drive,Robert,37.7203643,-121.8472135,"Traditional IRA,Roth 401(k),Brokerage",33369.546997504905
+Miss,Napolitano,Miss Napolitano,136-275-9987,246,1973-11-09,45,2002-04-15,Lawrence,MA,104 Bennington Street,Cynthia,42.7194856,-71.1678289,"Roth 401(k),Traditional IRA,529,Brokerage",331975.0124374739
+Maricela,Avilla,Maricela Avilla,182-984-7419,247,1950-12-04,67,2013-06-08,Fayetteville,AR,3365 South Cato Springs Road,Robert,36.0224059,-94.198476,"Roth IRA,Traditional IRA",42689.852149583545
+Linda,Spiney,Linda Spiney,503-589-8372,248,1982-03-02,36,2017-03-09,Arvada,CO,10262 West 59th Avenue,Cynthia,39.803718,-105.111974,"Roth 401(k),Traditional IRA,529",185300.8893733385
+Vanessa,Boone,Vanessa Boone,585-579-7426,249,1990-03-09,28,2014-06-03,Savannah,GA,217 West Congress Street,Robert,32.0803282,-81.0943638,"Brokerage,Traditional IRA,Roth IRA,529",330007.69050508057
+Sonia,Moore,Sonia Moore,456-748-8385,250,1973-08-14,45,2015-11-01,Washington,DC,1010 10th Street Northeast,Cynthia,38.902992,-76.992882,"Brokerage,Traditional IRA,Roth IRA,529,Roth 401(k)",76216.23129635026
+Joyce,Brown,Joyce Brown,668-623-2841,251,1958-12-20,59,2015-10-19,Manchester,CT,200 Boulder Road,Cynthia,41.7792079,-72.494963,Brokerage,19870.86200830508
+Willie,Colon,Willie Colon,108-234-2219,252,1985-06-02,33,2009-05-04,Panama City,FL,3114 West 20th Court,Robert,30.185421,-85.70474399999999,"Brokerage,Traditional IRA",14617.558452860605
+Teresa,Hazard,Teresa Hazard,150-492-0868,253,1969-03-13,49,2010-06-04,Berkeley,CA,1219 Carleton Street,Cynthia,37.8591054,-122.285823,"Roth IRA,Roth 401(k),529",37378.64381022151
+Lester,Johnson,Lester Johnson,321-461-1091,254,1967-09-14,51,2014-05-27,Arnold,MD,1102 Spy Glass Drive,Robert,39.054956,-76.488569,"Roth 401(k),Roth IRA,Traditional IRA,529,Brokerage",517778.74865619425
+Valentin,Mckissick,Valentin Mckissick,345-725-2885,255,1953-01-19,65,2009-01-27,Lynn Haven,FL,615 Florida Avenue,Cynthia,30.24879199999999,-85.649453,"Brokerage,529",82568.43657660601
+Gregory,Neal,Gregory Neal,482-653-0250,256,1965-03-08,53,2014-10-14,Easton,MA,120 Depot Street,Cynthia,42.0420508,-71.0786277,"Roth IRA,Roth 401(k)",18781.157649407913
+Sharon,Vanmiddleswor,Sharon Vanmiddleswor,213-851-0025,257,1989-01-20,29,2008-05-06,Manchester,CT,210 Green Road,Robert,41.7909099,-72.51195129999999,"Roth 401(k),Traditional IRA",27423.64425370194
+Michael,Aoki,Michael Aoki,155-976-7379,258,1988-11-26,29,2000-07-17,Savannah,GA,816 East 69th Street,Cynthia,32.027691,-81.094798,"Brokerage,Roth IRA,529,Traditional IRA,Roth 401(k)",78631.42860809651
+Cori,Dennis,Cori Dennis,497-516-3923,259,1968-10-16,50,2016-04-04,Louisville,KY,9401 3rd Street Road,Cynthia,38.115066,-85.823278,"Roth 401(k),529",37384.340388528886
+Amber,Coronado,Amber Coronado,499-393-7670,260,1966-05-14,52,2015-02-01,Bethany,OK,6821 Northwest 25th Street,Cynthia,35.495752,-97.633589,Traditional IRA,19020.648561543825
+Gregg,Lawson,Gregg Lawson,318-340-2505,261,1982-12-25,35,2016-05-24,Nashville,TN,511 Norton Avenue,Robert,36.2076149,-86.756013,529,15180.54308076504
+Clarissa,Williams,Clarissa Williams,456-890-8852,262,1963-09-22,55,2014-11-27,Panama City,FL,103 North East Avenue,Cynthia,30.14617599999999,-85.625518,"Roth IRA,Brokerage,Traditional IRA,Roth 401(k),529",52484.197397769414
+Augustine,Thomas,Augustine Thomas,249-319-2925,263,1968-08-01,50,2008-08-09,Millersville,MD,316 Sourwood Court,Cynthia,39.100198,-76.606707,Roth IRA,23423.829689458595
+Holly,Hardwick,Holly Hardwick,264-184-8415,264,1953-09-06,65,2000-04-28,Moore,OK,2325 Eastridge Circle,Robert,35.358778,-97.4688594,Roth IRA,23774.524290887613
+Catherine,Besson,Catherine Besson,437-409-7789,265,1980-10-05,38,2011-12-12,Washington,DC,519 Roxboro Place Northwest,Robert,38.9656982,-77.0208081,"Traditional IRA,Brokerage",274643.25113861234
+Janice,Jong,Janice Jong,146-942-9463,266,1963-05-20,55,2007-03-25,Arvada,CO,6108 Iris Way,Cynthia,39.8082309,-105.1055592,"Roth IRA,Traditional IRA,529,Roth 401(k)",143483.92205335246
+Mary,Draper,Mary Draper,282-881-8044,267,1972-12-19,45,2015-08-17,Fayetteville,AR,6086 Kennedy Drive,Robert,36.103629,-94.24773599999999,"Roth IRA,Roth 401(k),Brokerage",24206.903878102396
+Marcelina,Lowers,Marcelina Lowers,645-826-4818,268,1967-08-17,51,2015-06-05,Arvada,CO,5055 West 58th Avenue,Cynthia,39.8024171,-105.0505121,"Roth 401(k),529,Brokerage,Roth IRA",80590.23172869522
+Samuel,Murphy,Samuel Murphy,231-725-4748,269,1971-01-23,47,2000-08-21,Savannah,GA,13213 Spanish Moss Road,Robert,31.959828,-81.147904,Traditional IRA,9004.282909341291
+Kristen,Guay,Kristen Guay,628-209-5453,270,1957-05-14,61,2014-05-26,Louisville,KY,406 Stilz Avenue,Robert,38.249288,-85.681572,"Brokerage,Roth IRA,Roth 401(k),529",43874.44897697408
+Tina,Robinson,Tina Robinson,517-220-8134,271,1979-09-04,39,2000-09-16,Louisville,KY,3118 Sora Avenue,Robert,38.208849,-85.724113,"529,Traditional IRA,Roth IRA,Roth 401(k)",47629.74857866741
+Judith,Jimenez,Judith Jimenez,688-460-7322,272,1978-04-05,40,2013-09-27,Hayward,CA,236 Alden Road,Robert,37.682588,-122.112121,"Brokerage,Traditional IRA",13034.65562067407
+Monica,Thomas,Monica Thomas,259-207-6754,273,1986-03-11,32,2006-06-13,Annapolis,MD,110 Carraway Lane,Cynthia,38.9744956,-76.5058135,"Traditional IRA,Roth IRA,529,Roth 401(k),Brokerage",58329.63149431547
+Darcy,Weaver,Darcy Weaver,208-111-0336,274,1978-06-20,40,2008-06-05,Annapolis,MD,1030 Lake Claire Drive,Robert,39.048603,-76.448911,"Brokerage,Traditional IRA,Roth 401(k)",41610.75120010652
+Yvette,Presto,Yvette Presto,509-639-4937,275,1984-03-04,34,2017-04-19,Anchorage,AK,8521 Crystal Street,Robert,61.143426,-149.94665,"Roth IRA,Traditional IRA",30946.608115626186
+Laura,Hall,Laura Hall,589-146-2351,276,1986-12-12,31,2012-11-25,Nashville,TN,1123 Ardee Avenue,Cynthia,36.219121,-86.725616,"Traditional IRA,Roth 401(k)",33427.56289798445
+Whitney,King,Whitney King,581-450-4790,277,1957-08-12,61,2000-09-08,Severn,MD,8358 WB&A Road,Robert,39.108962,-76.68668799999999,"Traditional IRA,Brokerage",77948.21441682949
+William,Nemec,William Nemec,185-147-5493,278,1969-05-04,49,2013-06-19,Davidsonville,MD,707 Harrisburg Drive,Robert,38.935404,-76.616028,"Roth IRA,529,Brokerage",120174.8218523543
+Theodore,Otting,Theodore Otting,217-918-8419,279,1960-09-25,58,2009-04-16,Fayetteville,AR,2076 North Crossover Road,Robert,36.0890802,-94.12149649999999,"Roth 401(k),529",172170.66641542135
+Christina,Velazquez,Christina Velazquez,553-272-7984,280,1984-02-02,34,2017-12-05,Lynn Haven,FL,1213 Michigan Avenue,Cynthia,30.239862,-85.6460929,"Roth IRA,Traditional IRA,Brokerage",30845.11819517148
+Simon,Hanson,Simon Hanson,411-591-1271,281,1979-04-18,39,2008-04-23,Manchester,CT,225 Kennedy Road,Robert,41.805598,-72.495897,"Brokerage,Roth IRA",44460.58051320966
+John,Slivka,John Slivka,251-999-8753,282,1984-03-12,34,2006-12-09,Athol,MA,7 Oliver Street,Cynthia,42.5895133,-72.22493709999999,"Brokerage,Roth IRA,529,Roth 401(k)",78026.44616037069
+John,Green,John Green,407-645-8093,283,1984-10-11,34,2000-08-27,Fayetteville,AR,7 South University Avenue,Cynthia,36.062438,-94.1686409,"Brokerage,529,Roth IRA,Roth 401(k)",45219.47509897612
+Arthur,Bedell,Arthur Bedell,131-220-0300,284,1967-08-21,51,2001-05-08,Montgomery,AL,1230 Stafford Drive,Robert,32.32403,-86.14840099999999,"Brokerage,Roth 401(k),Roth IRA,529,Traditional IRA",57168.18376878914
+Karyn,Mcnear,Karyn Mcnear,611-512-5465,285,1950-07-08,68,2009-01-08,Norman,OK,3313 East Tecumseh Road,Robert,35.264536,-97.392811,Roth IRA,6264.960372738951
+Natalia,Daws,Natalia Daws,642-378-6818,286,1958-05-03,60,2004-03-06,Manchester,CT,20 Dearborn Drive,Robert,41.79968299999999,-72.497528,"Roth 401(k),Brokerage",248591.8560513409
+Jennie,Merriam,Jennie Merriam,258-416-7772,287,1973-05-10,45,2016-10-13,Nashville,TN,1806 Boscobel Street,Robert,36.170799,-86.73835299999999,"Traditional IRA,Roth 401(k),529,Brokerage,Roth IRA",308537.22771803796
+Danielle,Goodwin,Danielle Goodwin,608-171-9898,288,1970-01-06,48,2009-08-21,Louisville,KY,7607 Beulah Church Road,Robert,38.133023,-85.61475840000001,"529,Roth IRA",20997.839940126032
+Kenneth,Winski,Kenneth Winski,645-513-5604,289,1959-03-25,59,2017-08-01,Nashville,TN,416 McIver Street,Robert,36.10436,-86.74411599999999,"Roth IRA,Roth 401(k)",14581.30734179056
+Caroline,Griffin,Caroline Griffin,495-423-7753,290,1961-10-01,57,2009-10-19,Fayetteville,AR,376 North Williams Drive,Cynthia,36.067997,-94.142563,"Brokerage,Roth IRA",19935.16489976738
+Michael,Raley,Michael Raley,119-895-8645,291,1971-01-06,47,2006-12-11,Deale,MD,5926 Sneed Drive,Robert,38.78465,-76.54507799999999,"529,Traditional IRA,Roth 401(k),Brokerage",41417.3172637157
+Shirley,Gerdes,Shirley Gerdes,309-629-9842,292,1950-11-07,68,2004-02-13,Tewksbury,MA,41 Fairway Drive,Robert,42.5941537,-71.20413839999999,"Roth 401(k),Traditional IRA",13667.128411286783
+Maribel,Mckenna,Maribel Mckenna,190-770-3209,293,1959-04-25,59,2011-04-21,Arvada,CO,7025 Queen Street,Cynthia,39.825484,-105.124587,"Brokerage,Traditional IRA,529",205935.0145827166
+Nikita,Guess,Nikita Guess,336-928-8619,294,1968-05-21,50,2008-03-15,Jeffersontown,KY,3013 Sprowl Road,Robert,38.1966913,-85.5693363,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA,529",68792.08270256702
+David,White,David White,204-580-7971,295,1957-03-01,61,2017-06-01,Panama City,FL,5242 Thornton Lane,Robert,30.126486,-85.593897,"529,Traditional IRA,Roth IRA,Roth 401(k),Brokerage",250169.077241686
+Jane,Monath,Jane Monath,247-669-8959,296,1967-02-26,51,2004-10-22,Washington,DC,3728 9th Street Northwest,Cynthia,38.936736,-77.02556,Brokerage,9463.439287630186
+John,Meyer,John Meyer,306-615-8265,297,1971-03-11,47,2006-01-14,Arvada,CO,7912 Depew Street,Cynthia,39.839139,-105.0586469,"Brokerage,529,Traditional IRA,Roth IRA",36822.17238429543
+Mary,Mcginnis,Mary Mcginnis,502-826-1392,298,1988-02-27,30,2004-08-20,Carson,CA,849 East Victoria Street,Cynthia,33.8673562,-118.2597713,"Roth 401(k),Roth IRA,Brokerage",230574.02756946575
+Jerry,Gerwig,Jerry Gerwig,289-472-5783,299,1951-08-28,67,2000-01-15,Manchester,CT,52 Park Street,Robert,41.770035,-72.523426,"Traditional IRA,Roth IRA,Roth 401(k),Brokerage",55458.468699387835
+William,Townsend,William Townsend,149-661-4326,300,1959-05-12,59,2006-04-22,Arvada,CO,7250 Urban Drive,Cynthia,39.827875,-105.133965,"Roth IRA,Roth 401(k),529,Brokerage",50404.84535261321
+Alexander,Rhoda,Alexander Rhoda,114-332-1969,301,1982-05-01,36,2008-06-28,Manchester,CT,30 Tanner Street,Robert,41.789215,-72.515486,"Roth 401(k),Brokerage,529,Roth IRA,Traditional IRA",91909.07245569116
+Marjorie,Lamphier,Marjorie Lamphier,403-230-0230,302,1962-05-10,56,2005-09-11,Fayetteville,AR,2505 North Hampton Court,Robert,36.0959268,-94.1238079,"529,Roth IRA",37056.1754829163
+Richard,Alvarez,Richard Alvarez,333-692-8817,303,1973-02-14,45,2000-07-14,Sacramento,CA,6244 Sun River Drive,Cynthia,38.512894,-121.41258,"Roth 401(k),Roth IRA,529,Traditional IRA",134441.37682195852
+Herbert,Garcia,Herbert Garcia,495-679-2431,304,1960-01-08,58,2001-05-14,Savannah,GA,1938 Arcadian Street,Robert,32.045498,-81.140851,529,52686.79827955187
+Lois,Williamson,Lois Williamson,334-718-3047,305,1988-05-05,30,2017-03-21,Arvada,CO,7966 Chase Circle,Cynthia,39.840388,-105.05578,"Traditional IRA,Brokerage,Roth IRA",34812.40413993162
+Lillian,Ventura,Lillian Ventura,290-643-7967,306,1981-11-05,37,2011-10-02,Manchester,CT,104 Greenwood Drive,Cynthia,41.789222,-72.48995599999999,529,6721.167196235177
+Patricia,Rosado,Patricia Rosado,568-516-4399,307,1952-11-08,66,2016-07-21,Bristol,VT,90 Mountain Street,Robert,44.140656,-73.07712599999999,"Traditional IRA,Roth IRA,529,Brokerage",288325.17195324675
+Linda,Plummer,Linda Plummer,686-773-7611,308,1976-01-26,42,2000-10-11,Manchester,CT,89 High Ledge Circle,Robert,41.7495971,-72.476336,"Roth 401(k),529,Roth IRA,Traditional IRA,Brokerage",63726.27420663682
+Fred,Wilcox,Fred Wilcox,637-863-4237,309,1986-09-02,32,2004-08-15,Anchorage,AK,Muldrow Street,Cynthia,61.3467503,-149.5424284,"529,Roth 401(k),Traditional IRA,Roth IRA,Brokerage",300254.70177023544
+Kathy,Ray,Kathy Ray,346-104-3345,310,1977-04-12,41,2016-01-03,Brentwood,TN,5102 Ander Drive,Robert,36.0025004,-86.6944901,"Traditional IRA,Brokerage,Roth IRA,529,Roth 401(k)",62946.97806260067
+Tricia,Moreau,Tricia Moreau,223-422-5387,311,1987-08-05,31,2008-08-13,Fayetteville,AR,540 East Appleby Road,Cynthia,36.1054754,-94.15089139999999,"Roth 401(k),529,Brokerage,Roth IRA,Traditional IRA",51900.789331011096
+Susan,Perona,Susan Perona,328-774-9706,312,1990-02-10,28,2009-01-07,New Bedford,MA,228 Wood Street,Cynthia,41.678116,-70.92456,Traditional IRA,14891.859068347214
+William,Pinkett,William Pinkett,392-982-5893,313,1960-08-10,58,2003-10-24,Savannah,GA,113 Dove Lane,Robert,31.9852832,-81.065208,"529,Roth IRA,Roth 401(k),Traditional IRA,Brokerage",135823.2738874251
+Nicole,Lassiter,Nicole Lassiter,695-122-5793,314,1953-08-03,65,2005-08-03,Glendale,AZ,5708 West Union Hills Drive,Robert,33.655011,-112.1833113,"Roth 401(k),Brokerage,Traditional IRA",126529.61538517429
+Sunny,Jones,Sunny Jones,580-558-0842,315,1980-05-06,38,2002-11-07,Louisville,KY,10124 Watsonville Road,Cynthia,38.105204,-85.820047,"Brokerage,Roth 401(k)",20243.909634989246
+Patricia,Vanleer,Patricia Vanleer,156-511-9727,316,1972-12-05,45,2000-02-06,Union City,CA,33655 5th Street,Robert,37.601043,-122.019351,Roth 401(k),3741.173542759819
+Brant,Brown,Brant Brown,491-350-3651,317,1973-09-25,45,2005-08-09,Saint Matthews,KY,903 Mallard Creek Road,Robert,38.2384725,-85.63011589999999,"Roth IRA,Brokerage,Traditional IRA",92541.53923495796
+Anna,Hennemann,Anna Hennemann,334-986-9154,318,1984-11-11,34,2012-07-27,Panama City,FL,4712 Cherokee Heights Road,Robert,30.234223,-85.566684,"Brokerage,Traditional IRA,529",296827.6162387504
+Ivan,Perez,Ivan Perez,563-755-8944,319,1984-09-02,34,2004-08-08,Vergennes,VT,1628 Button Bay Road,Cynthia,44.1758105,-73.34809249999999,Roth IRA,17540.09043052776
+Edward,Sauve,Edward Sauve,279-160-2822,320,1965-01-24,53,2009-04-11,Panama City Beach,FL,409 Snook Lane,Cynthia,30.14119699999999,-85.745166,"Roth 401(k),Traditional IRA,Brokerage,529",66390.64743334455
+Billy,Cotton,Billy Cotton,372-653-8667,321,1956-02-18,62,2011-01-16,Panama City,FL,232 Maine Avenue,Cynthia,30.1527033,-85.63207129999999,"Roth 401(k),Traditional IRA,Roth IRA,Brokerage",56123.3858650961
+Jose,Quintero,Jose Quintero,632-606-3038,322,1953-01-21,65,2006-05-23,Berkeley,CA,1040 University Avenue,Cynthia,37.8685768,-122.2934965,"Brokerage,Roth 401(k),Traditional IRA,529,Roth IRA",50713.42548940253
+Ethel,Knox,Ethel Knox,342-749-3638,323,1958-06-18,60,2004-04-16,Panama City,FL,1803 Hickory Avenue,Robert,30.181445,-85.69749999999999,"Traditional IRA,Roth IRA",15610.856634109452
+Stacey,Taylor,Stacey Taylor,572-237-7910,324,1976-06-11,42,2014-02-22,Nashville,TN,314 Lallemand Court,Robert,36.078873,-86.694142,"Roth 401(k),Traditional IRA,529,Roth IRA",38811.5611288183
+Salvador,White,Salvador White,310-569-4788,325,1962-11-14,56,2007-04-25,Arvada,CO,6434 Wright Street,Cynthia,39.813486,-105.140068,"Traditional IRA,Brokerage,529,Roth IRA,Roth 401(k)",48242.97715548621
+Patrick,Schaaf,Patrick Schaaf,521-571-2204,326,1977-04-27,41,2001-01-28,Arvada,CO,13583 West 68th Avenue,Cynthia,39.8220027,-105.1518073,"Brokerage,Roth IRA,Traditional IRA,529,Roth 401(k)",58899.08095978511
+William,Anselm,William Anselm,212-343-5811,327,1959-02-25,59,2009-11-17,Oklahoma City,OK,8800 Northwest 92nd Street,Robert,35.5649656,-97.67169559999999,"Traditional IRA,Roth 401(k),Roth IRA,Brokerage",195298.83955310108
+Caroline,Hess,Caroline Hess,113-334-0795,328,1979-04-02,39,2006-11-18,Arvada,CO,8666 Iris Street,Robert,39.852885,-105.104035,"529,Traditional IRA,Brokerage,Roth 401(k),Roth IRA",42548.67116832077
+Eva,Fantauzzi,Eva Fantauzzi,494-430-7634,329,1959-11-13,59,2013-08-17,Manchester,CT,146 Walnut Street,Robert,41.769463,-72.53650979999999,"Brokerage,Roth IRA",27325.717750299773
+Jessica,Ford,Jessica Ford,385-657-8640,330,1954-09-07,64,2012-03-24,Arvada,CO,11813 West 75th Circle,Cynthia,39.8341751,-105.1322001,"Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",122294.21658788045
+Maria,Wilson,Maria Wilson,286-717-9211,331,1987-09-05,31,2009-09-05,Anchorage,AK,17433 Teklanika Drive,Cynthia,61.317634,-149.55739,"529,Roth 401(k),Traditional IRA",16039.723696982634
+Steven,May,Steven May,199-955-6004,332,1981-11-03,37,2000-03-20,Manchester,CT,200 Redwood Road,Robert,41.748421,-72.562237,"Brokerage,Roth IRA,Traditional IRA,529",289295.65107248246
+Brittany,Young,Brittany Young,349-953-5972,333,1958-07-22,60,2006-12-06,Montgomery,AL,4328 Brewer Road,Cynthia,32.314049,-86.388746,Roth 401(k),19504.133987497324
+Frank,Becker,Frank Becker,673-964-0747,334,1982-02-25,36,2014-01-21,Manchester,CT,82 Queen Court,Robert,41.7666162,-72.56361679999999,"Roth 401(k),Roth IRA",25529.134372686876
+Sue,Clark,Sue Clark,523-292-7042,335,1973-03-06,45,2001-08-24,Litchfield Park,AZ,12420 West Montebello Avenue,Cynthia,33.519491,-112.32613,"Brokerage,Roth IRA,529",15674.11198424142
+Doris,Hilton,Doris Hilton,688-138-2731,336,1961-10-15,57,2013-06-19,Oklahoma City,OK,8800 Northwest 92nd Street,Cynthia,35.5649656,-97.67169559999999,"Brokerage,Roth IRA",7247.409736674965
+David,Massey,David Massey,475-180-5846,337,1951-08-04,67,2003-01-23,Davidsonville,MD,707 Harrisburg Drive,Cynthia,38.935404,-76.616028,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k)",34361.80658152932
+Mary,Fowler,Mary Fowler,295-841-5845,338,1960-11-25,57,2015-08-05,Nashville,TN,846 Allen Road,Robert,36.150104,-86.65712099999999,Traditional IRA,6890.553983302327
+Pansy,Foster,Pansy Foster,252-920-8096,339,1969-02-02,49,2002-07-14,Pooler,GA,112 Aquinnah Drive,Robert,32.0602837,-81.26482469999999,"Traditional IRA,529,Roth 401(k),Roth IRA,Brokerage",43941.97908271834
+Nellie,Marrero,Nellie Marrero,395-544-9092,340,1950-11-07,68,2003-02-17,Manchester,CT,68 Bigelow Street,Cynthia,41.778697,-72.52448,"Traditional IRA,Roth 401(k),529",14004.554053154074
+Amelia,Chung,Amelia Chung,167-947-3833,341,1979-02-19,39,2016-01-17,Newark,CA,5715 Saint Matthew Drive,Robert,37.538738,-122.024679,"529,Brokerage,Roth 401(k),Roth IRA",59455.53252091186
+Margaret,Gavin,Margaret Gavin,435-610-7573,342,1958-08-13,60,2016-12-04,Louisville,KY,3810 Camp Ground Road,Cynthia,38.2132774,-85.8304088,"Roth 401(k),Roth IRA,Brokerage,529",51505.31974222908
+Leona,Hill,Leona Hill,132-702-9457,343,1957-02-28,61,2006-08-16,Panama City,FL,1906 Palmetto Avenue,Robert,30.183646,-85.72276699999999,"Brokerage,Roth 401(k)",26472.72945685499
+Iva,Lowe,Iva Lowe,561-906-5055,344,1977-11-01,41,2012-12-19,Nashville,TN,2505 Shadow Lane,Cynthia,36.201382,-86.701811,"Roth IRA,Roth 401(k),529,Brokerage",71373.00014345144
+Carlos,Bernal,Carlos Bernal,380-805-7210,345,1977-06-08,41,2014-06-13,Farmington,AR,190 Countryside Drive,Robert,36.03632899999999,-94.2494229,"Traditional IRA,Roth IRA,529,Brokerage,Roth 401(k)",45924.24674279926
+Danny,Lewis,Danny Lewis,130-955-6514,346,1965-11-11,53,2000-04-20,Fayetteville,AR,1643 North Jordan Lane,Robert,36.083059,-94.14270499999999,"529,Brokerage,Traditional IRA",366983.02098091965
+Donald,Duey,Donald Duey,229-193-6629,347,1972-06-12,46,2005-01-07,Arvada,CO,6385 Oak Street,Robert,39.8119701,-105.1192906,"Roth 401(k),Brokerage,529,Traditional IRA",220661.24054388804
+Benjamin,Cotto,Benjamin Cotto,139-503-1921,348,1978-05-23,40,2013-09-17,Panama City,FL,2560 Michigan Court,Cynthia,30.195109,-85.707312,"Roth IRA,Traditional IRA,529,Roth 401(k)",34142.27410622293
+Krystal,Washington,Krystal Washington,125-569-4277,349,1955-06-20,63,2014-02-14,Panama City,FL,4125 Cobia Street,Robert,30.16287999999999,-85.78361699999999,529,218550.89087606303
+Irving,Howard,Irving Howard,441-369-4003,350,1951-10-05,67,2015-06-14,Hayward,CA,1061 Sumatra Street,Robert,37.628092,-122.072806,"529,Brokerage,Roth IRA,Roth 401(k)",304541.8367680935
+Patrick,Barton,Patrick Barton,346-277-4397,351,1981-09-10,37,2015-12-24,Montgomery,AL,105 West Wareingwood Drive,Robert,32.386508,-86.256005,"529,Roth IRA,Brokerage,Roth 401(k)",47218.05759277484
+Geraldine,White,Geraldine White,455-345-2660,352,1953-06-19,65,2008-07-10,Washington,DC,125 13th Street Northeast,Cynthia,38.891265,-76.988068,"Traditional IRA,529,Roth 401(k)",65702.04338904376
+Bernadine,Berry,Bernadine Berry,325-278-5475,353,1950-01-24,68,2006-11-12,Nashville,TN,1261 Sioux Terrace,Cynthia,36.247799,-86.670508,"Roth IRA,Roth 401(k),Traditional IRA,529",20963.014044966018
+Cecilia,Barger,Cecilia Barger,671-834-3608,354,1966-03-19,52,2013-05-26,Montgomery,AL,2195 Cantelou Road,Cynthia,32.308832,-86.460094,"Roth IRA,529,Brokerage,Roth 401(k),Traditional IRA",483388.3882863011
+William,Horton,William Horton,699-417-3599,355,1965-03-26,53,2001-01-19,Arvada,CO,11933 West 71st Avenue,Cynthia,39.8247405,-105.1324736,"Roth IRA,529",22540.14979872648
+Steve,Lowery,Steve Lowery,249-227-0035,356,1956-11-01,62,2017-11-20,Manchester,CT,38 Devon Drive,Cynthia,41.7765259,-72.542975,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA,529",171945.79110213387
+Domingo,Richardson,Domingo Richardson,244-358-4484,357,1990-03-18,28,2000-05-17,Oakland,CA,1314 89th Avenue,Robert,37.7497401,-122.1762833,"529,Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",116846.43620302813
+Laverne,Coleman,Laverne Coleman,101-370-3200,358,1952-05-20,66,2001-07-09,Barre,VT,110 Elmwood Avenue,Cynthia,44.2097089,-72.50493600000001,"Traditional IRA,Roth 401(k),Roth IRA,Brokerage",49209.14547878787
+Mary,Dolan,Mary Dolan,333-916-5722,359,1956-06-17,62,2007-01-25,Glendale,AZ,6216 West Bloomfield Road,Robert,33.59866,-112.192737,"Traditional IRA,529",42705.5167426284
+Nancy,Abdullah,Nancy Abdullah,444-936-6816,360,1988-02-13,30,2013-09-13,Arvada,CO,8202 Dudley Way,Robert,39.846117,-105.094914,"Roth 401(k),529,Roth IRA,Brokerage",32113.951721075227
+Alfred,Wagner,Alfred Wagner,646-932-9917,361,1987-04-16,31,2002-07-01,Fayetteville,AR,2849 Quail Drive,Cynthia,36.095294,-94.20036300000001,"Traditional IRA,Roth IRA",23285.456586625907
+Doris,Gionet,Doris Gionet,132-236-7430,362,1953-02-18,65,2009-11-25,Panama City,FL,121 Alpine Way,Cynthia,30.183767,-85.490669,"Roth 401(k),Brokerage,Roth IRA,529,Traditional IRA",89242.28980571985
+Carolina,Payne,Carolina Payne,363-236-1254,363,1952-07-20,66,2013-05-21,Northfield,KY,2347 Glen Eagle Drive,Robert,38.2862836,-85.6299745,"Roth 401(k),Roth IRA,Brokerage,Traditional IRA,529",62925.64109404724
+Stephen,Ridge,Stephen Ridge,249-185-8558,364,1969-06-01,49,2004-01-15,Quincy,MA,15 Taft Street,Robert,42.2470916,-70.9967487,"Brokerage,Traditional IRA,Roth IRA,529,Roth 401(k)",220958.64868446474
+Arturo,Hobbs,Arturo Hobbs,683-669-9105,365,1989-05-04,29,2013-10-01,Anchorage,AK,2307 East 72nd Avenue,Robert,61.155804,-149.8395899,"Roth IRA,Brokerage,529,Roth 401(k),Traditional IRA",69654.37204532068
+William,Salinas,William Salinas,365-430-2983,366,1981-07-07,37,2016-09-01,Union City,CA,31250 Courthouse Drive,Cynthia,37.60187639999999,-122.0648031,"Roth 401(k),Traditional IRA,Roth IRA,Brokerage,529",90773.16601036713
+Kathryn,Muir,Kathryn Muir,659-993-9003,367,1969-07-01,49,2005-05-12,Washington,DC,1641 Kramer Street Northeast,Robert,38.897659,-76.980705,"529,Traditional IRA,Brokerage",30162.772564858515
+Joseph,Doyle,Joseph Doyle,169-613-1967,368,1950-10-10,68,2011-04-25,Burlington,VT,180 Intervale Avenue,Cynthia,44.489187,-73.209839,Traditional IRA,8701.56873076484
+Herbert,Torres,Herbert Torres,389-189-5231,369,1967-03-11,51,2008-03-27,Arvada,CO,5712 Saulsbury Street,Robert,39.8006311,-105.0753746,"529,Roth IRA,Traditional IRA",14401.848486524821
+Henrietta,Phillips,Henrietta Phillips,372-172-4790,370,1951-11-15,67,2004-11-08,Oklahoma City,OK,5112 Southwest 124th Place,Robert,35.343756,-97.608513,"Brokerage,Roth 401(k),529,Traditional IRA",204192.50003515361
+Dorothy,Contreras,Dorothy Contreras,123-680-3192,371,1977-03-13,41,2016-09-27,Edgewater,MD,105 Bear Creek Parkway,Robert,38.901074,-76.524779,"Brokerage,529,Roth IRA,Roth 401(k),Traditional IRA",325270.62513375044
+Catherine,Cowan,Catherine Cowan,396-439-8367,372,1979-12-19,38,2002-04-04,Glen Burnie,MD,6460 Lacrosse Lane,Robert,39.196587,-76.626699,"Traditional IRA,Brokerage,529,Roth IRA,Roth 401(k)",396383.30244758324
+Donald,Varnell,Donald Varnell,361-117-1666,373,1968-01-20,50,2016-10-26,Harwich,MA,25 Wendys Way,Robert,41.698893,-70.07624,"Traditional IRA,Roth IRA",37513.572248737226
+Helen,Cruz,Helen Cruz,142-315-1526,374,1979-01-26,39,2004-08-17,Arvada,CO,8595 West 81st Drive,Cynthia,39.8449341,-105.0937351,"529,Roth IRA,Roth 401(k)",245785.78922665957
+Thomas,Perry,Thomas Perry,468-679-2331,375,1957-09-17,61,2013-04-19,Edmond,OK,2700 Verona Way,Cynthia,35.646889,-97.44485999999999,"529,Brokerage,Traditional IRA,Roth IRA",368994.79586455197
+Veronica,Lewis,Veronica Lewis,135-504-2617,376,1973-12-26,44,2012-02-27,Concord,CA,1238 Roanwood Way,Robert,37.94042,-121.944464,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k),529",326050.33626078727
+Peter,Gonzalez,Peter Gonzalez,290-247-5333,377,1968-05-04,50,2011-09-08,Grand Junction,CO,378 Bonny Street,Robert,39.059697,-108.543777,"Traditional IRA,Roth 401(k),Roth IRA,529",70286.7578997756
+Steven,Garcia,Steven Garcia,293-304-3379,378,1952-03-14,66,2001-06-26,Nashville,TN,312 Shepherd Hills Drive,Cynthia,36.29248,-86.691462,"Roth 401(k),Brokerage,529,Roth IRA,Traditional IRA",55351.389214507
+Orlando,Frisco,Orlando Frisco,437-575-1775,379,1971-06-16,47,2015-04-01,Glendale,AZ,8318 North 57th Drive,Cynthia,33.557537,-112.183238,"Roth 401(k),Roth IRA",14906.852534362439
+Bobby,Nickel,Bobby Nickel,409-794-2631,380,1990-08-17,28,2016-11-17,Warr Acres,OK,4807 North Grove Avenue,Robert,35.5203601,-97.6147122,"Roth IRA,Roth 401(k),Brokerage,529,Traditional IRA",47843.53349196668
+Lacie,Delgado,Lacie Delgado,614-134-1544,381,1978-09-06,40,2000-07-06,Moore,OK,1513 Southeast 9th Street,Robert,35.329431,-97.465397,"529,Roth IRA,Brokerage,Roth 401(k),Traditional IRA",51587.330501385244
+John,Carlisle,John Carlisle,590-226-2200,382,1953-11-15,65,2016-11-17,Fayetteville,AR,4079 North Sunflower Circle,Cynthia,36.125191,-94.132121,Roth 401(k),21836.483726753646
+Edward,Hill,Edward Hill,635-455-9024,383,1979-08-05,39,2010-07-10,Williston,VT,5124 Williston Road,Cynthia,44.454578,-73.123093,"Brokerage,Roth 401(k),529",135435.7269779095
+Michael,Hernandez,Michael Hernandez,604-409-0193,384,1962-02-21,56,2000-02-17,Savannah,GA,115 Falkirk Street,Robert,32.148764,-81.167458,Roth IRA,3777.975067639483
+Gladys,Holland,Gladys Holland,638-592-5374,385,1967-11-13,51,2013-09-10,Colchester,VT,294 East Lakeshore Drive,Cynthia,44.545238,-73.210098,"Roth IRA,Roth 401(k)",26082.01270863307
+Christopher,Handy,Christopher Handy,342-710-3405,386,1956-10-03,62,2008-03-20,Montgomery,AL,8293 Grayson Grove,Cynthia,32.3331541,-86.1546573,Roth 401(k),15705.533875905501
+Tammy,Blasingame,Tammy Blasingame,490-762-9786,387,1953-03-21,65,2007-10-13,Dublin,CA,4936 Sequoia Avenue,Cynthia,37.711885,-121.884051,"Traditional IRA,529,Brokerage,Roth 401(k)",44100.697032776334
+Cristine,Hill,Cristine Hill,183-397-5708,388,1959-07-19,59,2010-03-21,Arvada,CO,7901 West 52nd Avenue,Robert,39.791644,-105.084667,"Brokerage,Roth IRA",42424.51951075004
+Blanche,Bloom,Blanche Bloom,422-340-5317,389,1959-12-14,58,2014-07-10,Glendale,AZ,7416 West Maryland Avenue,Robert,33.5309979,-112.218947,Brokerage,11063.5305539373
+Sonia,Ford,Sonia Ford,365-865-8312,390,1958-06-16,60,2003-11-19,Freetown,MA,Cleveland Park,Robert,41.77750899999999,-70.9551393,"529,Brokerage,Traditional IRA",57301.63713882723
+Andrew,Gold,Andrew Gold,679-535-1154,391,1973-09-13,45,2017-05-27,Arvada,CO,5743 Teller Street,Cynthia,39.80117550000001,-105.0771143,"Brokerage,529",24063.740994163483
+Bryan,Gingerich,Bryan Gingerich,312-836-7529,392,1979-01-16,39,2000-05-25,Louisville,KY,10406 Sunlight Lane,Cynthia,38.1009699,-85.839978,"Roth IRA,529,Traditional IRA",27864.51852961596
+David,Hernandez,David Hernandez,281-595-9242,393,1964-08-19,54,2003-09-24,Washington,DC,1333 Kenyon Street Northwest,Robert,38.930001,-77.0309709,"Brokerage,529",23705.867793077363
+Susan,Pryce,Susan Pryce,367-171-7767,394,1959-03-02,59,2000-06-05,Crownsville,MD,854 Cherry Trail,Cynthia,39.050095,-76.577817,"Roth IRA,529,Traditional IRA,Brokerage,Roth 401(k)",137771.31885644482
+Peter,Mickelson,Peter Mickelson,454-522-8031,395,1962-12-25,55,2011-08-04,Livermore,CA,465 Humboldt Way,Robert,37.6958861,-121.7952093,"Roth 401(k),529,Brokerage,Traditional IRA,Roth IRA",240312.24199764561
+Jeannette,Matten,Jeannette Matten,683-664-1185,396,1955-05-03,63,2007-07-09,Arvada,CO,9605 West 62nd Place,Robert,39.810923,-105.10516,"Traditional IRA,Brokerage,Roth IRA,529,Roth 401(k)",541552.7713335336
+Willie,Cook,Willie Cook,437-207-9795,397,1972-11-25,45,2013-10-02,Fayetteville,AR,3142 North Warwick Drive,Cynthia,36.108083,-94.1208599,"Roth IRA,Traditional IRA,529,Roth 401(k)",63401.51074075912
+Evelyn,Bethea,Evelyn Bethea,530-575-7708,398,1989-05-24,29,2003-08-19,Nashville,TN,2732 Rosedale Place,Robert,36.1230861,-86.7625204,"529,Roth IRA,Traditional IRA",33962.83761330474
+Chris,Brown,Chris Brown,276-858-2016,399,1963-03-05,55,2011-09-05,Panama City,FL,3504 East 5th Street,Robert,30.156461,-85.61573399999999,"529,Traditional IRA,Brokerage,Roth 401(k)",21807.331655809543
+John,Ashland,John Ashland,223-231-3542,400,1961-01-21,57,2002-04-05,Louisville,KY,826 South Hancock Street,Robert,38.2408519,-85.744652,Roth IRA,22067.04567052729
+John,Erickson,John Erickson,298-884-5595,401,1958-12-09,59,2008-08-04,Worcester,MA,864 Main Street,Cynthia,42.25376019999999,-71.8157373,529,24282.77409396564
+Larry,Martin,Larry Martin,101-751-5248,402,1982-09-20,36,2011-09-04,Nashville,TN,314 Lallemand Court,Cynthia,36.078873,-86.694142,"Roth IRA,529",22964.53738865995
+Bradley,Dekany,Bradley Dekany,436-827-6636,403,1954-02-02,64,2009-06-08,Brockton,MA,9 Montello Street,Robert,42.0855398,-71.0173809,"529,Roth 401(k)",45601.444404925845
+Robert,Campbell,Robert Campbell,434-732-5756,404,1958-12-09,59,2002-03-16,Soda Springs,CA,51035 Conifer Drive,Cynthia,39.31757899999999,-120.443713,"Traditional IRA,Roth 401(k),Brokerage",38370.70177128769
+Robert,West,Robert West,649-228-7140,405,1962-04-11,56,2006-05-17,Anchorage,AK,3404 Lakeside Drive,Robert,61.131176,-149.943144,Brokerage,24209.534706647697
+Sara,Ricks,Sara Ricks,237-196-5262,406,1988-10-02,30,2012-06-09,Manchester,CT,40 Strawberry Lane,Cynthia,41.74684500000001,-72.542391,"Roth 401(k),Brokerage,Traditional IRA,529,Roth IRA",44334.01327454415
+Gladys,Arellano,Gladys Arellano,409-960-6909,407,1966-04-25,52,2001-03-03,Annapolis,MD,721 Bay Ridge Avenue,Cynthia,38.9686337,-76.4861383,"Roth 401(k),Roth IRA,Traditional IRA",25526.4749117596
+William,Wilson,William Wilson,468-368-1910,408,1964-02-16,54,2016-04-08,Glendale,AZ,7711 North 51st Avenue,Cynthia,33.5502243,-112.1665731,"529,Roth 401(k),Brokerage,Roth IRA",56538.504028854964
+Louis,Brown,Louis Brown,512-408-3420,409,1965-03-15,53,2015-09-25,Norman,OK,3413 Pheasant Run Road,Cynthia,35.2350656,-97.492398,"Traditional IRA,Brokerage",238153.0580231452
+Leroy,Deloach,Leroy Deloach,491-574-5766,410,1955-07-14,63,2000-06-19,Nashville,TN,261 East Old Hickory Boulevard,Cynthia,36.263073,-86.708197,"529,Roth IRA,Traditional IRA",53035.067526687155
+Peggy,Oguin,Peggy Oguin,225-114-8268,411,1957-09-15,61,2017-05-16,Essex,VT,43 Main Street,Cynthia,44.4921,-73.1074749,Roth IRA,16696.95552694087
+Johnny,Fischer,Johnny Fischer,129-122-3367,412,1985-08-12,33,2005-11-10,Town of Rockingham,VT,6 Oak Street,Cynthia,43.134108,-72.449474,"Roth 401(k),Brokerage,Roth IRA,Traditional IRA",153593.63111772327
+Eric,Stevens,Eric Stevens,145-899-0332,413,1979-07-26,39,2009-12-04,Washington,DC,1420 12th Street Northwest,Robert,38.909211,-77.02838299999999,"Roth 401(k),Roth IRA,529,Brokerage",290477.13403043273
+Mary,Milton,Mary Milton,148-270-6814,414,1957-12-15,60,2006-01-12,Glendale,AZ,15010 North 59th Avenue,Robert,33.6214932,-112.1865942,"529,Roth 401(k),Roth IRA,Traditional IRA",33548.817533281006
+Aaron,Ripley,Aaron Ripley,695-241-0194,415,1977-06-24,41,2004-12-02,Nashville,TN,3901 West End Avenue,Robert,36.130816,-86.83483,"Roth IRA,Brokerage,Roth 401(k)",25328.838316947425
+Carolyn,Smith,Carolyn Smith,639-890-7680,416,1958-12-14,59,2009-10-17,Louisville,KY,1259 Everett Avenue,Robert,38.23790650000001,-85.7139049,"Roth 401(k),Roth IRA,529,Traditional IRA,Brokerage",231220.91883831905
+Katie,Doty,Katie Doty,247-548-6732,417,1990-12-07,27,2006-09-09,Louisville,KY,12002 Vanherr Drive,Cynthia,38.191896,-85.546677,"Traditional IRA,Brokerage,Roth IRA",35142.9074929519
+Gwendolyn,Borgia,Gwendolyn Borgia,485-718-2349,418,1986-09-19,32,2002-03-19,Danville,VT,776 Morrill Road,Cynthia,44.46019,-72.137885,Roth 401(k),11839.430227674418
+Gaylord,Bowles,Gaylord Bowles,369-982-6159,419,1985-09-07,33,2010-04-16,Fayetteville,AR,5529 East Saddleridge Drive,Robert,36.113929,-94.080563,"Traditional IRA,529,Roth 401(k),Brokerage",319275.17433372914
+Ricardo,Kinnison,Ricardo Kinnison,646-356-5836,420,1973-05-04,45,2010-09-17,Montgomery,AL,323 Randolph Street,Robert,32.38349,-86.304215,"Brokerage,Roth IRA",33134.44791869617
+William,Bryant,William Bryant,533-480-5104,421,1964-10-11,54,2006-09-20,Fayetteville,AR,5514 West Wedington Drive,Robert,36.079411,-94.240031,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",70865.53331289704
+Helen,Wright,Helen Wright,451-539-9015,422,1969-01-13,49,2001-07-09,Glendale,AZ,7401 North 61st Drive,Cynthia,33.5450005,-112.191417,Roth IRA,24110.516253900245
+Dave,Chagnon,Dave Chagnon,508-476-6738,423,1966-08-24,52,2003-11-17,Choctaw,OK,17800 Creekwood Lane,Robert,35.473645,-97.216093,"529,Traditional IRA,Brokerage",48421.0558922927
+William,Lombardi,William Lombardi,536-302-6138,424,1987-02-09,31,2003-06-26,Savannah,GA,1425 Claremont Circle,Robert,32.062524,-81.123133,"529,Roth 401(k),Traditional IRA",26504.101165469263
+Bonita,Chung,Bonita Chung,355-758-5482,425,1973-11-06,45,2016-10-17,Panama City,FL,312 North Cove Boulevard,Cynthia,30.1520433,-85.6500713,"Traditional IRA,Roth 401(k)",24723.269778004258
+Kent,Gimbel,Kent Gimbel,261-835-0758,426,1981-05-25,37,2005-05-26,Louisville,KY,14505 Landis Villa Drive,Robert,38.2390052,-85.4969588,"529,Roth 401(k),Brokerage,Roth IRA",262440.6717512171
+John,Hyde,John Hyde,101-162-3608,427,1980-07-14,38,2009-09-21,Ione,CA,468 Raymond Drive,Cynthia,38.356566,-120.935883,"Roth IRA,Roth 401(k),Traditional IRA,Brokerage,529",75210.01650284068
+George,Mensalvas,George Mensalvas,506-613-7824,428,1973-06-08,45,2015-10-02,Berkeley,CA,2414 Parker Street,Cynthia,37.862903,-122.2595092,"Traditional IRA,Roth IRA,529,Roth 401(k),Brokerage",91889.89906313652
+Kevin,Baxter,Kevin Baxter,166-876-4582,429,1958-07-23,60,2005-12-07,Arvada,CO,12064 West 61st Avenue,Robert,39.807439,-105.133524,"Traditional IRA,Brokerage,Roth IRA,529",67995.06995904862
+Nathaniel,Choi,Nathaniel Choi,423-577-3350,430,1967-12-21,50,2017-06-27,Glendale,AZ,9009 West Nicolet Avenue,Cynthia,33.540794,-112.252896,"529,Roth 401(k),Traditional IRA,Brokerage,Roth IRA",51796.9075825202
+Stephanie,Dolejsi,Stephanie Dolejsi,384-337-2272,431,1987-02-24,31,2015-07-26,Goodlettsville,TN,143 Canton Court,Cynthia,36.3184574,-86.6940838,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA",245659.96861942165
+John,Stockton,John Stockton,178-955-7573,432,1951-09-03,67,2015-11-05,Oklahoma City,OK,6120 Southeast 84th Street,Robert,35.380836,-97.41582,"Traditional IRA,Brokerage,Roth 401(k)",25956.983218848167
+Shirley,Reed,Shirley Reed,157-652-3311,433,1985-09-24,33,2005-03-20,Pooler,GA,208 Towne Lake Way,Cynthia,32.137605,-81.25850600000001,"Roth IRA,529,Traditional IRA,Brokerage",79486.4481158506
+Angel,Chipman,Angel Chipman,251-910-4147,434,1965-05-11,53,2002-09-10,Montgomery,AL,5814 Carriage Brook Road,Cynthia,32.3362182,-86.2197506,"Traditional IRA,Roth IRA",30053.59011841396
+Chester,Pace,Chester Pace,671-495-6355,435,1962-02-28,56,2002-10-20,Nashville,TN,270 Tampa Drive,Robert,36.0834724,-86.71200139999999,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k)",187966.70832169245
+Nathan,Bradford,Nathan Bradford,290-188-9610,436,1975-10-24,43,2009-05-19,Arvada,CO,5408 Iris Street,Cynthia,39.795543,-105.105479,"Roth IRA,529,Traditional IRA,Brokerage,Roth 401(k)",130976.88552859418
+Diane,Small,Diane Small,690-370-5976,437,1971-10-04,47,2016-10-26,Washington,DC,1734 Tamarack Street Northwest,Robert,38.993375,-77.04060299999999,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",178845.7351777954
+Cory,Demarino,Cory Demarino,260-611-7909,438,1962-04-23,56,2015-05-20,Panama City Beach,FL,301 Argonaut Street,Robert,30.20514,-85.84755899999999,"Roth 401(k),Brokerage",7865.014410181288
+Miguel,Daugherty,Miguel Daugherty,219-178-7778,439,1986-07-27,32,2012-01-12,Stowe,VT,2063 Notchbrook Road,Cynthia,44.518528,-72.762367,"Roth 401(k),Roth IRA,Brokerage,529,Traditional IRA",60600.611250563255
+Terry,Shaffer,Terry Shaffer,130-382-9389,440,1969-04-07,49,2013-03-15,Fayetteville,AR,600 West North Street,Robert,36.077974,-94.167103,Brokerage,150845.55890601396
+Beverly,Rickard,Beverly Rickard,459-806-5185,441,1960-09-15,58,2000-06-16,Oakland,CA,6100 Bullard Drive,Robert,37.829801,-122.216252,"Brokerage,Traditional IRA,Roth 401(k),Roth IRA,529",68314.66079517553
+Lloyd,Rice,Lloyd Rice,495-511-0892,442,1986-10-07,32,2005-08-19,Arvada,CO,8785 Ellis Court,Robert,39.853725,-105.158861,"Traditional IRA,529,Brokerage",136920.69506627411
+Emilie,Abrams,Emilie Abrams,308-955-6909,443,1979-02-27,39,2007-10-21,Moretown,VT,82 The Commons,Cynthia,44.253658,-72.753642,"529,Roth IRA,Traditional IRA,Brokerage",49887.79938608798
+Jennifer,Orourke,Jennifer Orourke,587-639-9979,444,1965-04-24,53,2012-04-03,Washington,DC,215 9th Street Northeast,Cynthia,38.892406,-76.993409,"Brokerage,Traditional IRA,529",305033.9060145551
+Elmer,Pharr,Elmer Pharr,211-219-5041,445,1957-11-10,61,2009-09-01,Louisville,KY,Doc Hawley Street,Cynthia,38.2331551,-85.5028193,"Brokerage,Roth IRA",8705.956022240673
+Aaron,Ridder,Aaron Ridder,108-643-0490,446,1952-01-26,66,2015-12-02,Mesa,AZ,130 West Brown Road,Cynthia,33.4356918,-111.8348295,"Brokerage,Roth 401(k),Roth IRA,529,Traditional IRA",61408.689888571615
+Nicholas,Osher,Nicholas Osher,345-570-2113,447,1958-07-18,60,2008-09-23,Montgomery,AL,449 Saratoga Lane,Cynthia,32.3749619,-86.19708399999999,"Roth IRA,Brokerage",31114.81301310334
+Eva,Carnegie,Eva Carnegie,616-976-8591,448,1962-09-08,56,2008-08-25,Washington,DC,7003 9th Street Northwest,Cynthia,38.9749667,-77.0253871,"Roth IRA,Roth 401(k),Brokerage,529",130317.62673065964
+Bernice,Whitesell,Bernice Whitesell,410-788-8498,449,1990-02-17,28,2005-12-13,Nashville,TN,5170 Hickory Hollow Parkway,Robert,36.0518069,-86.663692,"Roth 401(k),Roth IRA,529,Brokerage",48431.02438907094
+Brett,Coto,Brett Coto,532-722-3929,450,1951-09-14,67,2005-01-19,Moore,OK,1709 Queensbury Road,Cynthia,35.3546959,-97.507938,"529,Brokerage,Traditional IRA",37631.34274562809
+Antione,Dengler,Antione Dengler,557-428-6079,451,1954-08-10,64,2005-11-11,Anchorage,AK,4516 Old Seward Highway,Robert,61.1796427,-149.8693945,"Brokerage,Traditional IRA,529,Roth 401(k)",134478.1200571009
+Clinton,Vaughan,Clinton Vaughan,137-340-9588,452,1972-11-23,45,2004-03-06,Bethany,OK,3820 North Peniel Avenue,Robert,35.5097004,-97.62759249999999,Brokerage,15464.109994320994
+Gilbert,Lipson,Gilbert Lipson,143-242-7249,453,1979-05-01,39,2008-09-14,Nashville,TN,913 Fallview Trail,Cynthia,36.02419100000001,-86.718305,"Roth IRA,Traditional IRA",77568.99478178174
+Joseph,Hill,Joseph Hill,293-518-0269,454,1985-09-16,33,2006-07-20,Louisville,KY,3408 Bellisima Place,Robert,38.2857023,-85.5023064,"Roth IRA,Brokerage,Roth 401(k),Traditional IRA",80583.3424481886
+Marguerite,Crisson,Marguerite Crisson,494-769-5346,455,1951-01-01,67,2012-10-19,Arvada,CO,6820 West 84th Circle,Robert,39.848841,-105.073978,"Roth IRA,Roth 401(k)",18511.067663372727
+Debra,Tsosie,Debra Tsosie,153-365-6184,456,1953-02-21,65,2005-12-12,Annapolis,MD,1347 Blackwalnut Court,Cynthia,38.936881,-76.475823,"Roth IRA,Roth 401(k),Brokerage,Traditional IRA,529",80205.37965599657
+Jordan,Orr,Jordan Orr,262-129-3522,457,1978-03-28,40,2007-01-09,Litchfield Park,AZ,12546 West Montebello Avenue,Cynthia,33.520215,-112.330507,"529,Roth IRA,Roth 401(k),Traditional IRA,Brokerage",65224.16120260005
+Milton,Miller,Milton Miller,429-564-0211,458,1954-11-12,64,2010-10-11,Peoria,AZ,16020 North 69th Avenue,Cynthia,33.6310638,-112.2071013,"Roth IRA,529,Brokerage,Traditional IRA",25199.997596331385
+Ruby,Martin,Ruby Martin,338-198-6925,459,1962-11-18,56,2005-05-11,Panama City,FL,7000 Hugh Drive,Robert,30.133951,-85.57024799999999,"Roth IRA,Traditional IRA,Brokerage,Roth 401(k),529",98196.76859108041
+Beverly,Freeman,Beverly Freeman,145-992-2879,460,1988-10-13,30,2017-09-17,Southport,FL,325 Joseph Circle,Cynthia,30.407817,-85.684715,"Roth 401(k),Brokerage",33752.759064045655
+Ossie,Pringle,Ossie Pringle,394-827-5084,461,1979-06-21,39,2004-06-28,Nashville,TN,3714 John Mallette Drive,Robert,36.196202,-86.8401389,529,2509.032366848346
+Marci,Piper,Marci Piper,206-644-1028,462,1985-10-26,33,2017-01-02,Washington,DC,923 K Street Northeast,Robert,38.9022441,-76.99292109999999,"529,Roth 401(k)",24942.029064042385
+Carolyn,Echevarria,Carolyn Echevarria,105-493-2882,463,1980-06-08,38,2011-10-13,Alameda,CA,565 Amber Isle,Robert,37.764288,-122.268645,"Roth 401(k),529,Roth IRA,Traditional IRA,Brokerage",80136.7350759795
+Todd,Turner,Todd Turner,405-907-0890,464,1961-11-27,56,2008-07-04,Savannah,GA,1030 Shawnee Street,Robert,31.9851137,-81.16643839999999,"Roth IRA,Brokerage,529,Roth 401(k)",66680.47170219054
+Stacey,Giroux,Stacey Giroux,368-653-9106,465,1983-05-26,35,2005-07-06,Manchester,CT,236 Middle Turnpike East,Robert,41.783396,-72.51220599999999,"Brokerage,Traditional IRA,Roth 401(k),Roth IRA,529",67595.23843365035
+James,Bullock,James Bullock,197-212-1464,466,1989-05-10,29,2008-07-25,Manchester,CT,14 Linden Street,Robert,41.7745222,-72.5234493,"Roth 401(k),Brokerage,Roth IRA,529",88806.95321302745
+Angela,Mullinix,Angela Mullinix,581-361-9369,467,1959-04-11,59,2014-05-10,Anchorage,AK,22649 McManus Drive,Robert,61.418189,-149.460766,"Roth IRA,529,Roth 401(k),Traditional IRA",114068.04184179366
+Lisa,Russell,Lisa Russell,519-168-5165,468,1982-11-21,35,2015-02-09,Mountain View,CA,2685 California Street,Robert,37.4068693,-122.1129728,"Traditional IRA,Roth 401(k)",33705.06246079229
+Corinne,Kenney,Corinne Kenney,244-833-2392,469,1981-11-27,36,2015-08-13,Oklahoma City,OK,901 North Lincoln Boulevard,Robert,35.4766936,-97.50385539999999,"Roth 401(k),Traditional IRA,Roth IRA",25320.658714428926
+Paul,Gunter,Paul Gunter,560-301-0888,470,1966-02-03,52,2008-05-19,Savannah,GA,1101 West 48th Street,Cynthia,32.0519185,-81.1162954,"Brokerage,Traditional IRA,Roth IRA,529,Roth 401(k)",48109.46791011661
+Mark,Conner,Mark Conner,124-740-6864,471,1957-09-28,61,2000-07-11,Arvada,CO,7950 West 51st Avenue,Cynthia,39.7883001,-105.0849404,"Traditional IRA,529,Roth 401(k)",48564.13779306409
+Ruth,Goodwin,Ruth Goodwin,695-835-1127,472,1955-04-01,63,2007-07-12,Nashville,TN,3616 Echo Lane,Robert,36.236713,-86.833956,"Traditional IRA,Roth IRA,Roth 401(k),529,Brokerage",69031.60125731438
+Joe,Lineberger,Joe Lineberger,236-109-2645,473,1969-10-05,49,2008-03-20,Lynn Haven,FL,111 Lakeview Terrace,Robert,30.235297,-85.605544,Traditional IRA,3842.666068290228
+Michael,Ward,Michael Ward,146-949-9602,474,1989-04-12,29,2002-08-24,Montgomery,AL,1044 Stokes Road,Robert,32.439489,-86.247089,"Traditional IRA,Roth IRA,Roth 401(k),529,Brokerage",68625.62002001883
+Frederick,Angles,Frederick Angles,502-466-8780,475,1971-01-21,47,2006-06-04,Arvada,CO,6007 Yarrow Street,Cynthia,39.806211,-105.084446,"529,Roth 401(k),Roth IRA,Traditional IRA",51235.62833599515
+Rosemary,Fields,Rosemary Fields,566-673-4928,476,1971-03-01,47,2006-07-13,Guilford,VT,81 Buck Hill Road,Cynthia,42.815964,-72.580124,"Brokerage,Roth IRA,529,Traditional IRA,Roth 401(k)",289536.3893077409
+Robert,Woods,Robert Woods,606-173-4434,477,1979-12-15,38,2010-09-07,Crofton,MD,1428 Flatwood Court,Robert,39.014438,-76.694666,"Brokerage,Roth 401(k),529,Roth IRA",73901.68335151132
+Jennifer,Strong,Jennifer Strong,298-765-9744,478,1974-11-22,43,2002-02-11,Fayetteville,AR,1100 Cleveland Street,Robert,36.0739432,-94.1755719,Roth 401(k),13836.459751931334
+James,Reed,James Reed,329-381-6776,479,1963-06-05,55,2011-06-08,Manchester,CT,34 Holyoke Road,Robert,41.753855,-72.498972,"Roth IRA,Traditional IRA",17547.32055602999
+William,Garcia,William Garcia,545-851-5082,480,1985-10-23,33,2011-04-12,Washington,DC,1711 8th Street Northwest,Robert,38.9136509,-77.022629,"Brokerage,Roth IRA",25188.471330270244
+Concepcion,Belt,Concepcion Belt,142-724-8586,481,1990-01-09,28,2004-01-12,Manchester,CT,117 Adelaide Road,Cynthia,41.777818,-72.495914,"529,Traditional IRA,Roth 401(k),Brokerage",31992.3008975324
+Thomas,Toti,Thomas Toti,194-229-4512,482,1988-10-26,30,2013-05-08,Glendale,AZ,6741 West Robert E Lee Street,Robert,33.6488749,-112.204666,"529,Brokerage,Roth IRA,Roth 401(k)",50991.13868363586
+James,Pumphrey,James Pumphrey,685-980-2707,483,1983-07-02,35,2004-10-27,Montgomery,AL,5701 East Shirley Lane,Robert,32.3704234,-86.2038984,Roth IRA,14885.428063764044
+Bessie,Mack,Bessie Mack,150-320-9789,484,1976-01-16,42,2014-10-18,Garden City,GA,5118 Augusta Road,Cynthia,32.115334,-81.1650918,"Roth IRA,529,Roth 401(k),Brokerage",35456.239576104934
+Andrea,Patterson,Andrea Patterson,330-380-2776,485,1986-12-26,31,2008-12-17,Nashville,TN,429 Patterson Street,Cynthia,36.102655,-86.744186,"529,Brokerage,Roth 401(k),Roth IRA,Traditional IRA",238759.58351730258
+Johnnie,Davies,Johnnie Davies,648-388-0866,486,1969-04-19,49,2010-11-15,Oklahoma City,OK,6016 Northwest 27th Street,Robert,35.497661,-97.62427079999999,"Roth IRA,Brokerage,Roth 401(k)",190029.61376405397
+Courtney,Loats,Courtney Loats,446-147-5224,487,1969-09-06,49,2005-04-07,Oklahoma City,OK,2237 Northwest 18th Street,Cynthia,35.4882133,-97.5513414,Brokerage,4330.884124952789
+Dennis,Streiff,Dennis Streiff,350-896-7623,488,1973-02-16,45,2007-02-19,Bristol,VT,26 Garfield Street,Cynthia,44.135421,-73.07668699999999,"Brokerage,Roth IRA,Traditional IRA,529,Roth 401(k)",49853.24690363893
+Marjorie,Huckabaa,Marjorie Huckabaa,501-483-9763,489,1951-10-07,67,2017-07-10,Panama City,FL,2936 State Avenue,Cynthia,30.202236,-85.66611499999999,"Brokerage,Traditional IRA,Roth IRA",21994.965435825558
+David,Landis,David Landis,312-485-2006,490,1983-02-15,35,2001-01-04,Montgomery,AL,2013 Talbot Terrace,Robert,32.346206,-86.239281,"Traditional IRA,Roth 401(k),Roth IRA,Brokerage",149653.79314867646
+Andrea,Cooksley,Andrea Cooksley,184-260-1765,491,1978-06-12,40,2012-12-24,Arvada,CO,7950 West 51st Avenue,Cynthia,39.7883001,-105.0849404,Brokerage,13459.101296164587
+Jackie,Schulte,Jackie Schulte,300-781-2485,492,1965-01-23,53,2011-05-28,Carson,CA,2632 Jackson Street East,Cynthia,33.8360282,-118.2202665,Traditional IRA,17122.73154586112
+Bridget,Sol,Bridget Sol,639-932-6595,493,1960-11-08,58,2009-08-01,Fountain,FL,17623 Norma Lane,Robert,30.468398,-85.468452,"Brokerage,Traditional IRA,Roth IRA,Roth 401(k)",61957.20241156712
+Mohammad,Maldonado,Mohammad Maldonado,468-670-9757,494,1954-06-07,64,2001-04-17,Louisville,KY,3301 Nora Lane,Cynthia,38.199844,-85.61509,"529,Roth IRA,Traditional IRA",66742.90915314722
+Edwin,Provencal,Edwin Provencal,435-519-0920,495,1952-11-19,66,2006-04-05,Fremont,CA,36043 Soapberry Commons,Robert,37.555484,-122.012744,"Brokerage,Roth IRA",27527.75837043163
+Hannah,Corso,Hannah Corso,268-556-6915,496,1967-01-25,51,2000-02-12,Panama City Beach,FL,415 Lullwater Drive,Robert,30.22177929999999,-85.8841423,Traditional IRA,16844.838977480562
+Jeffrey,Shuler,Jeffrey Shuler,190-961-0829,497,1980-12-26,37,2005-11-22,Manchester,CT,53 Fairfield Street,Robert,41.7663468,-72.53781099999999,Roth IRA,23850.66213803434
+Susan,Cain,Susan Cain,651-246-1658,498,1973-09-03,45,2007-12-28,Washington,DC,4201 Georgia Avenue Northwest,Robert,38.942041,-77.02531499999999,"Brokerage,Roth IRA,529,Traditional IRA",27602.52859642762
+Micheal,Mchugh,Micheal Mchugh,182-236-9105,499,1960-01-18,58,2017-04-22,Anchorage,AK,24020 Reese Road,Robert,61.42591189999999,-149.434318,Roth IRA,17035.450280143592
+Teresa,Hyun,Teresa Hyun,507-168-8613,500,1958-06-22,60,2014-09-27,Washington,DC,827 10th Street Northeast,Cynthia,38.901021,-76.992391,"529,Roth 401(k),Traditional IRA,Roth IRA",69812.34709643475
+Rickey,Kahle,Rickey Kahle,252-669-9608,501,1969-02-14,49,2003-05-21,Severna Park,MD,337 South Drive,Cynthia,39.0896789,-76.53340299999999,Brokerage,1431.117556507104
+Julia,Ritter,Julia Ritter,613-476-7797,502,1974-11-12,44,2016-05-15,Panama City,FL,702 Plantation Circle,Robert,30.128327,-85.5571499,"529,Brokerage,Traditional IRA,Roth IRA,Roth 401(k)",567084.4820328967
+Robert,Conner,Robert Conner,242-475-8798,503,1959-10-26,59,2006-11-26,Panama City,FL,4313 Bylsma Circle,Robert,30.223822,-85.588877,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",343415.58290808473
+Kevin,Cole,Kevin Cole,480-329-8018,504,1989-02-28,29,2009-12-09,Arvada,CO,7968 Newman Street,Cynthia,39.841688,-105.118186,"Traditional IRA,Brokerage",23369.575436584553
+Robert,Cooper,Robert Cooper,125-396-7727,505,1965-01-07,53,2015-07-01,Nashville,TN,3901 West End Avenue,Cynthia,36.130816,-86.83483,"Brokerage,529,Roth IRA",22293.838865520713
+Mark,Burkhart,Mark Burkhart,608-203-1706,506,1986-10-26,32,2002-04-23,Savannah,GA,2209 Florida Avenue,Cynthia,32.052383,-81.057575,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA",277518.3461115326
+Charles,Bellamy,Charles Bellamy,569-360-0750,507,1981-03-02,37,2010-07-12,Castro Valley,CA,19416 Barclay Road,Cynthia,37.70382,-122.091054,"Traditional IRA,Brokerage,Roth IRA",208736.98963248913
+Ruth,Brown,Ruth Brown,375-998-3307,508,1954-05-23,64,2007-05-27,Fayetteville,AR,906 West Berry Street,Cynthia,36.0760793,-94.1723526,"Roth 401(k),Brokerage,Roth IRA,Traditional IRA,529",61652.161996723386
+Brenda,Bowen,Brenda Bowen,227-896-8603,509,1989-11-20,28,2017-06-11,Fayetteville,AR,2619 North Quality Lane,Robert,36.09925399999999,-94.164274,"Roth 401(k),Roth IRA,529,Traditional IRA,Brokerage",218668.73410174073
+Stewart,Peters,Stewart Peters,501-845-8704,510,1986-01-11,32,2005-08-03,Louisville,KY,305 Becket Avenue,Robert,38.1105293,-85.76877340000001,"Roth IRA,Traditional IRA,529,Brokerage",51882.78439024282
+Laura,Rector,Laura Rector,637-281-3751,511,1989-11-18,28,2012-11-28,Louisville,KY,4401 Virginia Avenue,Cynthia,38.24072,-85.82687899999999,"Traditional IRA,Roth IRA,529,Roth 401(k)",181951.1746105488
+Rebecca,Rowe,Rebecca Rowe,142-583-6780,512,1979-09-24,39,2003-06-02,Brockton,MA,111 Rosemary Street,Cynthia,42.1005558,-70.9965311,"Roth 401(k),Roth IRA,Traditional IRA,529,Brokerage",55460.4868925476
+Anita,Schneider,Anita Schneider,400-262-8192,513,1963-12-15,54,2010-01-20,Glen Burnie,MD,268 Glengary Garth,Robert,39.136251,-76.61665599999999,"Roth IRA,Brokerage,529",35820.31164524115
+Bethany,Tarleton,Bethany Tarleton,379-448-6360,514,1963-07-20,55,2001-04-01,Edmond,OK,1901 North Midwest Boulevard,Cynthia,35.67413,-97.39058399999999,"Traditional IRA,Brokerage,529,Roth IRA,Roth 401(k)",69484.12519738899
+Pedro,Davis,Pedro Davis,642-768-4324,515,1973-02-13,45,2017-04-08,Montgomery,AL,631 North Eastern Boulevard,Cynthia,32.4008301,-86.21373799999999,"529,Roth IRA,Roth 401(k),Traditional IRA",284611.3974007891
+Willena,Peterson,Willena Peterson,574-589-2357,516,1977-10-25,41,2006-05-12,Hayward,CA,654 Laurette Place,Cynthia,37.647646,-122.066458,Brokerage,10887.328049269026
+Kenneth,Buie,Kenneth Buie,420-174-1262,517,1987-12-06,30,2001-05-08,West Windsor,VT,87 Horseshoe Drive,Cynthia,43.4731793,-72.4967532,"Roth IRA,529",32559.081165011834
+William,Hunter,William Hunter,688-138-2551,518,1987-02-02,31,2012-09-17,Manchester,CT,89 Frances Drive,Robert,41.761374,-72.537628,"Traditional IRA,529,Brokerage",85835.24826698852
+Emily,Johnson,Emily Johnson,470-249-3418,519,1969-05-23,49,2014-01-27,Annapolis,MD,394 Hilltop Lane,Robert,38.961294,-76.500136,"Roth 401(k),Roth IRA",22011.81277664214
+Nina,Ruiz,Nina Ruiz,479-501-9063,520,1972-01-05,46,2011-04-28,Oklahoma City,OK,417 West Park Place,Cynthia,35.479318,-97.5200009,Roth 401(k),67603.75070025361
+Robert,Cassidy,Robert Cassidy,305-957-7007,521,1951-09-23,67,2008-05-12,Glendale,AZ,5556 West Northview Avenue,Cynthia,33.5433092,-112.1797889,"Roth 401(k),Roth IRA,Traditional IRA,529",56363.82587883432
+Johnie,Rodriguez,Johnie Rodriguez,352-767-4396,522,1964-05-07,54,2007-08-27,Savannah,GA,12 Netherclift Way,Robert,31.915037,-81.07712599999999,Traditional IRA,63128.93548959335
+Terry,Hodgdon,Terry Hodgdon,482-220-0603,523,1951-05-18,67,2012-01-17,Arvada,CO,12493 West 84th Circle,Cynthia,39.850675,-105.1410626,"Brokerage,Roth 401(k)",30310.35476481237
+Robert,Mcneal,Robert Mcneal,230-744-8848,524,1967-08-15,51,2004-12-21,Hayward,CA,3835 Oakes Drive,Cynthia,37.661345,-122.032784,"Roth IRA,529,Brokerage,Traditional IRA,Roth 401(k)",61438.71406067127
+Eric,Hickey,Eric Hickey,291-379-8689,525,1972-11-26,45,2017-02-25,Anchorage,AK,7450 Wade Circle,Cynthia,61.153018,-149.906705,"Brokerage,Roth IRA",14758.785099475404
+Brenda,Cavender,Brenda Cavender,361-971-3473,526,1967-06-14,51,2008-09-05,Glendale,AZ,8150 North 61st Avenue,Cynthia,33.555668,-112.1926295,"Roth 401(k),529,Roth IRA",312987.3376413801
+Jacqueline,Caldeira,Jacqueline Caldeira,453-399-1338,527,1954-07-15,64,2001-03-09,Grass Valley,CA,560 Penstock Drive,Robert,39.213076,-121.077583,"Brokerage,529",25474.731195892124
+Marsha,Korsmeyer,Marsha Korsmeyer,219-456-8512,528,1958-12-03,59,2002-12-07,Glendale,AZ,21323 North 64th Avenue,Robert,33.6803787,-112.1972274,"Traditional IRA,Roth IRA,529,Roth 401(k)",61705.53547730031
+Marcel,Gill,Marcel Gill,635-827-6049,529,1990-04-05,28,2003-01-26,Louisville,KY,1112 Flat Rock Road,Cynthia,38.251812,-85.43454,Brokerage,17011.20521620012
+Justin,Miles,Justin Miles,690-324-6080,530,1975-02-13,43,2017-01-06,Union City,CA,31770 Alvarado Boulevard,Robert,37.5927298,-122.071967,"Brokerage,Traditional IRA,Roth 401(k),529",361353.79756821325
+Garland,Yates,Garland Yates,666-675-1609,531,1959-06-15,59,2016-01-01,Louisville,KY,208 Kinnaird Lane,Cynthia,38.242112,-85.550184,"Roth 401(k),529,Roth IRA,Brokerage,Traditional IRA",241364.21650827737
+Laure,Rickman,Laure Rickman,116-362-7293,532,1990-10-20,28,2000-09-01,Severna Park,MD,722 Oak Grove Circle,Cynthia,39.069901,-76.52649699999999,Traditional IRA,12516.867008636162
+Ricky,Trevino,Ricky Trevino,602-299-8338,533,1978-03-20,40,2016-01-05,Norman,OK,508 Baker Street,Robert,35.224961,-97.51696299999999,"Brokerage,Traditional IRA,529",59701.399973171894
+Jim,Tucci,Jim Tucci,408-195-2619,534,1985-07-23,33,2007-03-04,Charlotte,VT,31 Hills Point Road,Robert,44.335754,-73.280121,Roth IRA,12861.744959044994
+Donald,Dominquez,Donald Dominquez,138-681-3393,535,1980-05-26,38,2016-03-23,Nashville,TN,4032 Windwood Lane,Cynthia,36.130924,-86.6350269,"529,Brokerage,Traditional IRA,Roth 401(k),Roth IRA",154112.27283852617
+David,Gunderson,David Gunderson,682-313-6715,536,1979-10-04,39,2005-06-27,Fayetteville,AR,3537 West Chevaux Drive,Cynthia,36.0799976,-94.20940689999999,"Brokerage,Roth 401(k)",24712.865575250085
+Daisy,Kurylo,Daisy Kurylo,467-865-1235,537,1977-11-08,41,2005-11-12,Annapolis,MD,919 Windsor Avenue,Cynthia,38.968518,-76.4905689,"Roth IRA,Traditional IRA,Roth 401(k),529,Brokerage",73468.3602732069
+John,Williams,John Williams,373-384-9407,538,1962-08-12,56,2007-11-27,Louisville,KY,1424 Winter Avenue,Robert,38.2369017,-85.72480499999999,"Roth IRA,529,Roth 401(k)",32084.325308347397
+Marjorie,Miles,Marjorie Miles,323-170-3098,539,1980-01-25,38,2000-04-26,Washington,DC,328 Missouri Avenue Northwest,Cynthia,38.957119,-77.017178,"Traditional IRA,Brokerage,529,Roth 401(k),Roth IRA",60316.507492063
+William,Calkins,William Calkins,592-403-2272,540,1957-06-14,61,2015-02-13,Nashville,TN,3534 Saint Lawrence Road,Cynthia,36.289224,-86.877681,"Roth 401(k),Roth IRA",18369.80524921301
+Thomas,Rodriguez,Thomas Rodriguez,596-783-8255,541,1977-10-04,41,2017-07-15,Manchester,CT,249 Progress Drive,Robert,41.802592,-72.500021,"Roth IRA,Traditional IRA,Roth 401(k),Brokerage,529",58900.52382670698
+John,Grubbs,John Grubbs,334-653-7433,542,1982-10-21,36,2015-04-16,Aquinnah,MA,7 Maple Hill Road,Robert,41.33201400000001,-70.8181309,529,3793.9043407472745
+Lawrence,Anderson,Lawrence Anderson,531-523-6009,543,1978-03-21,40,2000-11-10,Savannah,GA,112 Mallard Drive,Robert,31.970414,-81.22593499999999,"Traditional IRA,Brokerage,529",50995.649738864886
+Bessie,Parrish,Bessie Parrish,397-411-5576,544,1975-11-04,43,2015-07-18,Norman,OK,2617 Truffula Circle,Robert,35.2505473,-97.4527748,"Traditional IRA,Roth IRA",33496.83989956541
+Jeannie,Norton,Jeannie Norton,163-268-1617,545,1978-08-09,40,2012-06-13,Oklahoma City,OK,6604 Northwest 130th Street,Cynthia,35.60202,-97.63125000000001,"529,Roth IRA,Roth 401(k)",34342.94870960607
+Scott,Mcconnell,Scott Mcconnell,672-841-6559,546,1976-04-08,42,2006-04-12,Washington,DC,5000 V Street Northwest,Robert,38.917076,-77.09743399999999,Brokerage,6322.109424236502
+Jeanne,Green,Jeanne Green,159-730-1984,547,1963-08-13,55,2005-03-07,Oakland,CA,5430 Brookdale Avenue,Cynthia,37.774636,-122.195447,"529,Traditional IRA,Roth IRA,Roth 401(k)",215835.12384215806
+Paula,Mercado,Paula Mercado,285-560-4031,548,1973-04-27,45,2012-10-17,Savannah,GA,43 Henderson Avenue,Robert,31.97937899999999,-81.06062,"529,Brokerage,Roth 401(k),Roth IRA",586985.4056569912
+Willie,Sayre,Willie Sayre,219-714-3312,549,1984-05-06,34,2008-06-25,Nashville,TN,3901 West End Avenue,Cynthia,36.130816,-86.83483,"Roth IRA,529,Brokerage",45192.656990257994
+Christine,Cash,Christine Cash,214-740-6441,550,1963-10-21,55,2014-12-08,Panama City,FL,1909 Wainwright Avenue,Cynthia,30.183868,-85.722174,"Traditional IRA,Brokerage",25466.353814866456
+Rex,Baugus,Rex Baugus,641-580-9766,551,1959-06-13,59,2008-04-27,Washington,DC,1263 Evarts Street Northeast,Cynthia,38.924278,-76.988248,"529,Traditional IRA,Roth 401(k),Brokerage",33983.52230256426
+William,Jones,William Jones,443-672-5143,552,1972-09-11,46,2000-07-03,Laurel,MD,8142 Mallard Shore Drive,Cynthia,39.112812,-76.80575499999999,Brokerage,15852.126056654792
+James,Munoz,James Munoz,193-956-1620,553,1952-08-28,66,2005-09-10,Norman,OK,405 Flint Ridge Court,Cynthia,35.222486,-97.507916,Traditional IRA,23188.919849986076
+Raul,Mcmahan,Raul Mcmahan,404-518-9034,554,1983-09-05,35,2002-04-19,Louisville,KY,5316 Silver Wing Boulevard,Robert,38.31594,-85.556752,"Roth 401(k),Roth IRA,529,Brokerage,Traditional IRA",48155.08832451243
+Robert,Estey,Robert Estey,216-122-9950,555,1981-12-20,36,2013-11-20,Edmond,OK,19448 Currant Drive,Cynthia,35.6697215,-97.5520796,"Roth IRA,Brokerage,Traditional IRA,529",37293.00943455215
+Howard,Chance,Howard Chance,132-227-5778,556,1970-02-20,48,2010-10-15,Revere,MA,382 Ocean Avenue,Robert,42.411366,-70.991801,"529,Traditional IRA,Brokerage,Roth IRA,Roth 401(k)",458800.2702112905
+Vicenta,Bell,Vicenta Bell,501-665-1285,557,1977-04-17,41,2002-04-07,Savannah,GA,227 West Montgomery Cross Road,Robert,31.998812,-81.134464,"Roth 401(k),Traditional IRA,Roth IRA,529,Brokerage",213829.16156343563
+Ronald,Skelton,Ronald Skelton,171-275-6658,558,1988-04-11,30,2013-02-14,Washington,DC,615 Q Street Northwest,Robert,38.9113118,-77.0206808,"Brokerage,529,Roth 401(k)",220697.0230553308
+Kevin,Brown,Kevin Brown,689-395-7087,559,1989-02-09,29,2007-06-23,Washington,DC,1256 Talbert Street Southeast,Robert,38.8617636,-76.99095559999999,"Brokerage,Roth 401(k),529,Roth IRA,Traditional IRA",272725.4588044757
+Celia,Arnold,Celia Arnold,353-174-9503,560,1983-07-17,35,2017-05-09,Glendale,AZ,5514 West Altadena Avenue,Robert,33.592239,-112.178085,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA,529",44592.32294383138
+Dorothy,Dean,Dorothy Dean,437-799-5104,561,1990-11-22,27,2015-05-19,Washington,DC,1710 Monroe Street Northeast,Cynthia,38.933363,-76.98034799999999,"Brokerage,Roth IRA,Traditional IRA",19395.041422305374
+Francis,Grundy,Francis Grundy,620-401-8079,562,1983-10-14,35,2001-11-18,Louisville,KY,1311 Durrett Lane,Robert,38.19042350000001,-85.71786039999999,"Roth 401(k),Traditional IRA,Brokerage,Roth IRA,529",67401.49119639602
+Kelli,Frazer,Kelli Frazer,167-174-6370,563,1955-04-19,63,2004-07-22,Alameda,CA,72 Salmon Road,Robert,37.739659,-122.255689,"529,Brokerage,Traditional IRA,Roth IRA,Roth 401(k)",68902.43510189537
+Mary,Ruel,Mary Ruel,251-949-2055,564,1988-06-06,30,2012-11-09,Panama City,FL,1416 Ridgewood Avenue,Robert,30.1738197,-85.6007266,"Traditional IRA,Roth IRA,529,Roth 401(k)",43775.741997233294
+Joseph,Harper,Joseph Harper,135-649-3986,565,1978-06-02,40,2009-12-24,Washington,DC,3708 Fort Lincoln Drive Northeast,Robert,38.922628,-76.9529694,Roth 401(k),85257.36781434869
+Nancy,Powers,Nancy Powers,345-763-0055,566,1963-01-12,55,2007-11-11,Oklahoma City,OK,2613 Southeast 50th Street,Robert,35.415036,-97.46544999999999,Traditional IRA,4483.637293928223
+Genevieve,Smith,Genevieve Smith,686-292-8121,567,1953-04-03,65,2005-10-27,Mountain View,CA,369 Ruth Avenue,Cynthia,37.409802,-122.100957,"Roth IRA,Traditional IRA,Roth 401(k),529",76426.04835610163
+Mark,Arango,Mark Arango,688-641-4406,568,1979-03-16,39,2015-10-12,Montgomery,AL,9436 Briarlea Court,Cynthia,32.324039,-86.144651,"Brokerage,Roth 401(k)",35586.96109273495
+Ricky,Best,Ricky Best,230-697-2893,569,1980-09-13,38,2012-04-26,Livermore,CA,1679 Frederick Michael Way,Robert,37.655627,-121.77304,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA",44541.457894280255
+William,Yau,William Yau,307-168-6786,570,1961-02-01,57,2002-02-08,Fayetteville,AR,3147 West Old Farmington Road,Robert,36.0531475,-94.2055113,"Brokerage,Roth IRA",143424.0556571401
+John,Hesse,John Hesse,494-683-9936,571,1963-02-26,55,2004-10-14,Nashville,TN,410 51st Avenue North,Cynthia,36.1527274,-86.84816409999999,"Roth IRA,529",20645.786385963613
+Ernest,Walker,Ernest Walker,532-306-9120,572,1982-02-24,36,2017-04-05,Fountain,FL,17623 Norma Lane,Cynthia,30.468398,-85.468452,"529,Traditional IRA,Brokerage,Roth 401(k),Roth IRA",55875.46982849994
+Lois,Poeppelman,Lois Poeppelman,350-963-8346,573,1971-08-14,47,2016-06-10,Arvada,CO,5327 Pierce Street,Cynthia,39.79299899999999,-105.072757,529,20828.55589005913
+Douglas,Harris,Douglas Harris,384-919-0026,574,1986-08-07,32,2001-02-16,Oklahoma City,OK,1709 Southeast 51st Street,Cynthia,35.414161,-97.48171099999999,"529,Roth 401(k),Brokerage",43253.85214917406
+Larry,Krause,Larry Krause,172-269-1956,575,1956-11-14,62,2000-11-20,Palisade,CO,715 36.1 Road,Robert,39.108376,-108.383924,"Roth IRA,529,Roth 401(k)",25281.429655105603
+Billy,Wofford,Billy Wofford,535-681-9235,576,1975-09-06,43,2010-08-09,Franklin,VT,5348 Main Street,Robert,44.9841611,-72.91668729999999,Traditional IRA,7378.317983569996
+Kymberly,Shelvey,Kymberly Shelvey,421-277-3902,577,1952-10-01,66,2016-10-02,Washington,DC,1333 Kenyon Street Northwest,Robert,38.930001,-77.0309709,"529,Roth IRA,Roth 401(k),Traditional IRA",69823.63421326125
+David,Brown,David Brown,358-627-2084,578,1986-02-11,32,2016-07-14,Manchester,CT,110 Castle Hill,Robert,41.7820711,-72.4827912,Traditional IRA,3083.268708703782
+Gerald,Smith,Gerald Smith,520-605-5065,579,1960-01-11,58,2012-12-10,Oakland,CA,6214 Herzog Street,Robert,37.84557849999999,-122.2825201,"Brokerage,Roth IRA",36717.61830302357
+Mathew,Shiigi,Mathew Shiigi,667-235-4883,580,1979-07-22,39,2017-08-24,Oklahoma City,OK,4408 Northwest 55th Street,Robert,35.526527,-97.59923599999999,"Brokerage,Roth 401(k),529,Roth IRA,Traditional IRA",322704.92425194115
+Kathy,Crandall,Kathy Crandall,113-361-7470,581,1959-07-24,59,2002-08-28,Arvada,CO,8446 Coors Loop,Cynthia,39.849403,-105.1536784,Traditional IRA,13605.17752403361
+John,Riddle,John Riddle,398-135-9218,582,1974-03-07,44,2003-09-12,Tahoe City,CA,3115 North Lake Boulevard,Robert,39.190947,-120.108825,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA",274484.6232904511
+Karen,Lindsey,Karen Lindsey,386-969-9524,583,1962-05-19,56,2013-11-28,Nashville,TN,1261 Sioux Terrace,Cynthia,36.247799,-86.670508,Brokerage,20179.83348886237
+Ian,Ledet,Ian Ledet,345-821-1271,584,1954-08-19,64,2016-11-01,Milford,MA,228 Central Street,Robert,42.13911,-71.5115022,"Roth IRA,Roth 401(k)",25605.600277619993
+Mary,Mckinney,Mary Mckinney,201-653-1015,585,1989-09-10,29,2014-10-09,Nashville,TN,7405 River Park Drive,Robert,36.0581729,-86.974773,"Roth 401(k),Traditional IRA,529,Brokerage",56544.948923796976
+Marie,Hogan,Marie Hogan,691-449-8868,586,1955-06-18,63,2017-04-20,Arvada,CO,5688 Johnson Court,Cynthia,39.798419,-105.109316,"Brokerage,Roth IRA,Roth 401(k),Traditional IRA,529",59274.4030266895
+Stanley,Carpenter,Stanley Carpenter,124-569-1670,587,1953-11-23,64,2005-06-11,Arvada,CO,8935 Cole Drive,Cynthia,39.810298,-105.096769,"Traditional IRA,529,Roth IRA,Roth 401(k),Brokerage",60063.9746187848
+Nita,Wright,Nita Wright,694-452-7366,588,1958-05-24,60,2006-03-04,Savannah,GA,816 East 69th Street,Robert,32.027691,-81.094798,Brokerage,19913.201939822087
+Robert,Cundiff,Robert Cundiff,667-851-6695,589,1964-12-01,53,2015-07-20,Panama City,FL,1025 West 19th Street,Cynthia,30.18252889999999,-85.676771,"529,Brokerage,Roth IRA,Roth 401(k),Traditional IRA",68028.42552687782
+Pamela,Brooks,Pamela Brooks,202-904-8365,590,1979-06-10,39,2006-05-17,Louisville,KY,7431 Candace Way,Robert,38.142768,-85.7717132,"529,Roth IRA,Traditional IRA",23989.500247746662
+Oscar,Cooper,Oscar Cooper,259-663-9388,591,1968-06-17,50,2011-08-07,Baltimore,MD,5306 Ritchie Highway,Robert,39.221978,-76.614183,"Traditional IRA,Roth IRA,Brokerage,Roth 401(k)",65221.13053932931
+Orlando,Barron,Orlando Barron,142-700-3697,592,1968-07-23,50,2017-08-14,Anchorage,AK,25721 Berryhill Road,Cynthia,61.291218,-149.40241,"529,Roth IRA,Traditional IRA,Roth 401(k)",55442.62338748489
+Willie,Kearns,Willie Kearns,327-700-0977,593,1957-09-04,61,2003-12-01,Manchester,CT,210 Green Road,Robert,41.7909099,-72.51195129999999,"Brokerage,Roth IRA,Roth 401(k),529",41288.97212465521
+Joseph,Singleton,Joseph Singleton,150-477-9847,594,1969-03-13,49,2002-01-24,Oklahoma City,OK,6401 Green Meadow Lane,Cynthia,35.5369572,-97.66297139999999,"Brokerage,529,Traditional IRA,Roth IRA,Roth 401(k)",38645.96376663896
+Erwin,Ortiz,Erwin Ortiz,544-593-7700,595,1972-01-06,46,2003-08-24,Arnold,MD,1102 Spy Glass Drive,Robert,39.054956,-76.488569,"Traditional IRA,Roth IRA,Roth 401(k),529,Brokerage",208363.42955345352
+Silvia,Hall,Silvia Hall,503-932-9011,596,1990-04-22,28,2017-04-08,Montgomery,AL,1914 Stratford Downs Drive,Robert,32.3544811,-86.211,"Brokerage,Roth IRA",17256.625190587914
+Delilah,Knight,Delilah Knight,469-616-3072,597,1968-02-07,50,2005-04-13,Southport,FL,9222 Sandra Grace Road,Robert,30.317219,-85.615911,"529,Roth 401(k)",18604.567621241345
+Wendy,Policare,Wendy Policare,406-328-1613,598,1968-02-12,50,2015-11-14,Fremont,CA,43949 South Moray Street,Robert,37.5192549,-121.926948,"Traditional IRA,529,Brokerage,Roth 401(k)",49673.885426465305
+Amy,Reese,Amy Reese,427-264-5574,599,1961-05-26,57,2001-05-15,Anchorage,AK,2314 Marian Bay Circle,Cynthia,61.113332,-149.9217359,"529,Brokerage,Traditional IRA",42091.45330028052
+Michael,Davis,Michael Davis,529-112-3129,600,1977-07-22,41,2000-03-20,Arvada,CO,6391 West 60th Avenue,Cynthia,39.8060295,-105.0667699,"Traditional IRA,Roth IRA,Brokerage",49452.463379363384
+Jeffery,Owen,Jeffery Owen,394-820-9437,601,1975-10-03,43,2002-11-03,Manchester,CT,93 Hamlin Street,Robert,41.7735186,-72.5152106,"Roth 401(k),Traditional IRA,Brokerage,529,Roth IRA",59359.50224431222
+Philip,Roach,Philip Roach,317-457-5921,602,1982-10-20,36,2015-10-18,Anchorage,AK,3815 Williams Street,Robert,61.185711,-149.8443848,"Roth 401(k),Traditional IRA,529,Brokerage",53830.7731870215
+Caroline,Pierre,Caroline Pierre,297-657-2327,603,1957-05-26,61,2017-07-23,Montgomery,AL,8293 Grayson Grove,Robert,32.3331541,-86.1546573,"Brokerage,Roth IRA",31823.75574012455
+Yvette,Meir,Yvette Meir,175-671-3368,604,1950-03-18,68,2000-11-07,Montgomery,AL,8820 Vaughn Road,Robert,32.337777,-86.13765590000001,"Roth IRA,Traditional IRA,529,Brokerage,Roth 401(k)",66324.86111749549
+Michael,Jones,Michael Jones,432-368-0539,605,1950-09-25,68,2005-10-21,Savannah,GA,10714 Abercorn Street,Cynthia,31.9795828,-81.1330018,"Traditional IRA,Roth IRA,Brokerage",36896.553011669654
+Bobbie,Adkins,Bobbie Adkins,643-138-6790,606,1955-08-04,63,2014-07-20,Dummerston,VT,3 Emery Hill Drive,Robert,42.957065,-72.587507,529,8854.524359475017
+Larry,Benson,Larry Benson,441-217-0259,607,1968-09-06,50,2006-05-21,Glen Burnie,MD,268 Glengary Garth,Cynthia,39.136251,-76.61665599999999,Traditional IRA,1171.1007911589695
+Elena,Parker,Elena Parker,194-121-2417,608,1964-01-04,54,2015-07-16,Savannah,GA,1939 Greenwood Street,Cynthia,32.065645,-81.059235,"529,Brokerage,Traditional IRA,Roth IRA",111751.12876447244
+Frances,Kiani,Frances Kiani,656-711-9933,609,1988-09-17,30,2003-03-17,Arvada,CO,6342 Kendall Street,Robert,39.811755,-105.0660879,"Brokerage,Roth 401(k)",28870.217335478505
+Tammie,Fisher,Tammie Fisher,316-777-9895,610,1990-02-08,28,2003-02-09,Panama City,FL,7041 Coe Road,Robert,30.2716997,-85.5325422,"Roth IRA,Roth 401(k),Brokerage,Traditional IRA,529",50475.51463900253
+Felecia,Brown,Felecia Brown,175-858-6666,611,1971-12-04,46,2015-03-18,Nashville,TN,1211 Rock Creek Trce,Robert,36.237989,-86.800055,"529,Roth 401(k),Roth IRA,Brokerage,Traditional IRA",97972.43986072071
+Mary,Speegle,Mary Speegle,630-992-8947,612,1984-11-11,34,2011-01-02,Nashville,TN,1124 Jacobs Court,Robert,36.31671,-86.921248,"Traditional IRA,Roth IRA,529",41670.65200879147
+Chelsea,Hudson,Chelsea Hudson,239-835-7939,613,1986-10-19,32,2005-04-03,Longmeadow,MA,73 Twin Hills Drive,Cynthia,42.0420378,-72.5428872,Traditional IRA,2453.5704878111205
+Loida,Pfost,Loida Pfost,366-733-5007,614,1988-06-23,30,2001-03-07,San Leandro,CA,2399 East 14th Street,Cynthia,37.7159947,-122.1460405,"Roth IRA,Traditional IRA,Brokerage",37001.865843797386
+Monica,Clark,Monica Clark,151-722-4647,615,1964-02-13,54,2015-05-22,Washington,DC,4667 Benning Road Southeast,Robert,38.8847377,-76.9355625,529,14242.547770377518
+Laura,Bala,Laura Bala,416-742-7049,616,1982-09-17,36,2009-08-16,Washington,DC,832 51st Street Northeast,Cynthia,38.9008832,-76.9273381,"529,Traditional IRA,Roth 401(k)",40219.55223881229
+Julie,Cole,Julie Cole,464-301-4441,617,1987-10-10,31,2016-12-28,Grand Junction,CO,2894 Music Avenue,Robert,39.097082,-108.516175,"Traditional IRA,Roth 401(k),529,Roth IRA,Brokerage",76459.46243950215
+Loretta,Faulkner,Loretta Faulkner,520-104-0693,618,1971-04-11,47,2016-10-13,Louisville,KY,12002 Vanherr Drive,Robert,38.191896,-85.546677,Brokerage,14961.425013185779
+Raymond,Harris,Raymond Harris,366-551-6089,619,1971-02-18,47,2010-09-27,Panama City,FL,127 Grand Heron Drive,Cynthia,30.189702,-85.80841099999999,Brokerage,21858.899843982792
+Charles,Horn,Charles Horn,541-330-2814,620,1975-10-18,43,2008-05-23,Louisville,KY,1002 Highland Avenue,Robert,38.2371577,-85.7367362,"Roth 401(k),529,Roth IRA,Brokerage,Traditional IRA",330514.2655150449
+Fermin,Martin,Fermin Martin,644-749-0461,621,1976-06-10,42,2013-11-24,Savannah,GA,415 West 42nd Street,Robert,32.0543472,-81.1064222,"529,Roth IRA,Traditional IRA",153719.93596832285
+Shirley,Kuether,Shirley Kuether,196-791-5655,622,1963-04-01,55,2006-08-26,Louisville,KY,3408 Taylorsville Road,Cynthia,38.2217118,-85.6571735,"Brokerage,Traditional IRA,Roth 401(k),529,Roth IRA",80962.40432210104
+Clyde,Casper,Clyde Casper,185-603-2249,623,1964-09-14,54,2011-06-18,Louisville,KY,1311 Durrett Lane,Robert,38.19042350000001,-85.71786039999999,"Traditional IRA,Roth IRA",16007.60649002436
+Steven,Smith,Steven Smith,457-637-0088,624,1952-10-07,66,2005-09-11,Louisville,KY,6624 Strawberry Lane,Robert,38.160651,-85.761636,"Brokerage,Traditional IRA,529,Roth 401(k),Roth IRA",71195.17730028194
+Ellen,Brickey,Ellen Brickey,683-777-6731,625,1990-06-20,28,2002-09-28,Arvada,CO,11941 West 58th Avenue,Cynthia,39.8020935,-105.1321102,"Roth IRA,529,Brokerage,Roth 401(k),Traditional IRA",150541.3146264255
+Susan,Carey,Susan Carey,606-492-0571,626,1990-11-02,28,2016-11-28,Savannah,GA,7 River Otter Lane,Cynthia,31.938468,-81.06171499999999,"Brokerage,Roth 401(k),Traditional IRA,529,Roth IRA",75191.9330004345
+Deborah,Brown,Deborah Brown,271-759-1262,627,1957-06-07,61,2014-02-22,Castro Valley,CA,6145 East Castro Valley Boulevard,Cynthia,37.6992206,-122.0300502,"Roth 401(k),Traditional IRA",37473.39142246697
+Michael,Reynolds,Michael Reynolds,367-320-1272,628,1952-01-06,66,2004-01-04,Louisville,KY,3620 Colmar Drive,Cynthia,38.235977,-85.81636,Traditional IRA,23472.002125295192
+Judith,Daigle,Judith Daigle,210-231-2757,629,1982-07-07,36,2004-12-11,Manchester,CT,16 Pine Hill Street,Robert,41.791086,-72.52382,"529,Roth 401(k),Traditional IRA,Brokerage",57847.070879199724
+Bertha,Moses,Bertha Moses,345-664-0918,630,1976-03-10,42,2010-11-25,Beverly Hills,FL,5038 North Cimarron Drive,Robert,28.935938,-82.527367,"Brokerage,Traditional IRA,529,Roth 401(k),Roth IRA",52730.18382509669
+William,Compton,William Compton,395-861-1626,631,1982-07-25,36,2016-08-26,Davis,CA,107 Guaymas Place,Robert,38.567048,-121.746046,529,290336.8784840267
+Ludie,Ortiz,Ludie Ortiz,296-120-8432,632,1973-02-22,45,2014-05-01,Savannah,GA,1149 Darwin Street,Cynthia,32.069096,-81.11547,"Brokerage,529,Traditional IRA",98463.23057285638
+Alina,Amerson,Alina Amerson,228-654-8958,633,1987-01-27,31,2007-11-20,Middleborough,MA,222 Plymouth Street,Cynthia,41.928117,-70.9416075,"529,Roth IRA,Brokerage,Traditional IRA",44710.0052031017
+Vesta,Smith,Vesta Smith,255-819-6887,634,1984-12-05,33,2014-08-09,Washington,DC,3138 Banneker Drive Northeast,Cynthia,38.92471099999999,-76.96210769999999,"Brokerage,Traditional IRA,Roth 401(k),529",49657.36951714925
+Marion,Gleason,Marion Gleason,627-157-2601,635,1984-09-05,34,2009-06-21,Everett,MA,88 Shute Street,Robert,42.4192568,-71.0469179,"529,Roth 401(k),Roth IRA,Brokerage,Traditional IRA",381718.62322465266
+Theresa,Bocchi,Theresa Bocchi,320-458-8432,636,1968-12-08,49,2003-04-24,Montgomery,AL,1361 Barret Park Way,Cynthia,32.3073745,-86.14638219999999,"Roth 401(k),529",29479.80888273946
+Tanya,Cone,Tanya Cone,405-484-0500,637,1972-09-02,46,2013-01-08,Manchester,CT,525 Middle Turnpike West,Cynthia,41.7813693,-72.549026,"529,Brokerage,Roth 401(k),Roth IRA",42830.70075268232
+Amanda,Tamulis,Amanda Tamulis,217-284-9309,638,1980-08-07,38,2012-09-21,Glendale,AZ,5024 West Christy Drive,Cynthia,33.584293,-112.167218,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",183650.9873874936
+Sharon,Meyer,Sharon Meyer,203-946-3418,639,1957-06-06,61,2011-11-01,Glendale,AZ,20000 North 57th Avenue,Cynthia,33.665568,-112.18057,"529,Traditional IRA,Roth 401(k),Brokerage,Roth IRA",33848.30847331042
+Faith,Gonzalez,Faith Gonzalez,655-414-2419,640,1960-11-15,58,2002-02-13,Savannah,GA,618 McLaws Street,Robert,32.018382,-81.09913399999999,"Roth 401(k),Traditional IRA,529",28009.764607937566
+Sylvia,Mendoza,Sylvia Mendoza,431-892-0239,641,1954-10-06,64,2017-02-06,Harwich,MA,25 Wendys Way,Robert,41.698893,-70.07624,Brokerage,21635.705279551345
+Frieda,Morris,Frieda Morris,216-301-6939,642,1968-01-10,50,2011-01-01,Manchester,CT,210 Green Road,Cynthia,41.7909099,-72.51195129999999,"529,Brokerage,Traditional IRA,Roth IRA",67979.60044127933
+Mary,Hansen,Mary Hansen,414-794-3006,643,1958-01-17,60,2012-04-05,Fayetteville,AR,3231 North Kings Cross,Cynthia,36.1093059,-94.124859,"Brokerage,Traditional IRA,529",33111.39899268498
+Berta,Pike,Berta Pike,417-200-7311,644,1951-01-25,67,2002-06-19,Manchester,CT,205 Homestead Street,Cynthia,41.7890898,-72.5312538,"Traditional IRA,Roth IRA,Brokerage,Roth 401(k),529",255041.55846400597
+Daniel,Todd,Daniel Todd,523-358-4581,645,1989-07-23,29,2007-05-06,Panama City,FL,414 Tanya Pass,Robert,30.142348,-85.55865299999999,Traditional IRA,19304.910384448165
+Priscilla,Zatorski,Priscilla Zatorski,290-294-2174,646,1968-05-03,50,2011-03-10,Pasadena,MD,243 Kentucky Avenue,Robert,39.09807199999999,-76.477169,"529,Brokerage,Traditional IRA",53376.65324840666
+Stephen,Cross,Stephen Cross,582-326-4489,647,1956-01-04,62,2017-11-01,Louisville,KY,208 Kinnaird Lane,Robert,38.242112,-85.550184,"Brokerage,Traditional IRA,529,Roth 401(k),Roth IRA",330761.2382133107
+Nella,Cochran,Nella Cochran,190-996-1611,648,1952-10-05,66,2000-04-04,Arvada,CO,6434 Wright Street,Cynthia,39.813486,-105.140068,"Roth IRA,Traditional IRA,Brokerage",43796.59541721567
+Bryan,Lettieri,Bryan Lettieri,562-695-3568,649,1955-07-19,63,2017-03-09,Washington,DC,2327 Pomeroy Road Southeast,Cynthia,38.857527,-76.98526,"Traditional IRA,Roth IRA,Roth 401(k),529",68027.6819688343
+Alan,Burgo,Alan Burgo,414-604-5963,650,1965-04-03,53,2011-09-28,Glendale,AZ,5125 North 58th Avenue,Cynthia,33.5125581,-112.1828849,"Brokerage,Roth 401(k),529",34617.74567150161
+Kurt,Green,Kurt Green,418-587-7828,651,1985-02-03,33,2005-10-07,Tyndall Air Force Base,FL,3722 Kisling Loop,Cynthia,30.1048481,-85.65097360000001,"Roth 401(k),Roth IRA,Traditional IRA,Brokerage,529",406781.61409409274
+Rosemary,Mclaughlin,Rosemary Mclaughlin,222-119-6600,652,1967-02-06,51,2010-10-24,Washington,DC,1427 South Carolina Avenue Southeast,Robert,38.886615,-76.9845349,529,21270.691532924397
+Mary,Phelps,Mary Phelps,581-257-8935,653,1987-11-12,31,2007-12-13,Glendale,AZ,19020 North 68th Avenue,Cynthia,33.6574037,-112.2062039,529,8659.894433849975
+Agnes,Bryan,Agnes Bryan,471-871-9738,654,1980-03-10,38,2014-04-23,Anchorage,AK,3311 Wiley Post Loop,Robert,61.18686499999999,-149.946288,Traditional IRA,23466.66819229599
+Lavina,Mcintosh,Lavina Mcintosh,535-518-8356,655,1957-04-11,61,2017-09-03,Manchester,CT,640 Hilliard Street,Cynthia,41.7845772,-72.5510725,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k)",46854.58102059354
+Katherine,Blevins,Katherine Blevins,262-487-9444,656,1953-04-23,65,2008-10-07,Oklahoma City,OK,2835 Southwest 78th Street,Robert,35.3874512,-97.5644501,"Roth IRA,Traditional IRA",28398.520012180303
+Sara,Correira,Sara Correira,429-372-7317,657,1976-10-17,42,2002-12-20,Montgomery,AL,1320 Dunbarton Road,Robert,32.401737,-86.19376799999999,"529,Brokerage",12109.440125674084
+Brandon,Dunn,Brandon Dunn,169-766-6083,658,1978-09-20,40,2014-01-10,Glendale,AZ,5912 North 48th Avenue,Robert,33.5231022,-112.162186,"Roth 401(k),529,Traditional IRA,Roth IRA,Brokerage",57097.51214528384
+Patricia,Price,Patricia Price,483-663-8702,659,1975-10-21,43,2002-01-20,Washington,DC,Mitscher Road,Cynthia,38.85952229999999,-77.00599009999999,"529,Brokerage,Roth 401(k),Traditional IRA",28073.19635226504
+Alvaro,Grice,Alvaro Grice,257-794-5625,660,1990-09-02,28,2006-07-13,Savannah,GA,304 Wilmington Island Road,Robert,32.006931,-80.99043999999999,"Roth 401(k),529,Roth IRA,Traditional IRA,Brokerage",69102.31481233661
+James,Villafana,James Villafana,438-150-1731,661,1960-01-14,58,2007-02-22,Fayetteville,AR,2285 Wold Run Drive,Robert,36.0992725,-94.19149589999999,"Roth IRA,Brokerage,Traditional IRA",37662.756444926716
+Chris,Scott,Chris Scott,126-452-5351,662,1984-10-19,34,2008-07-28,Anchorage,AK,2140 Colony Loop,Cynthia,61.130819,-149.842197,"Traditional IRA,529,Roth IRA,Roth 401(k)",78119.44193232639
+Archie,Atherton,Archie Atherton,467-659-7530,663,1977-09-18,41,2013-04-23,Piedmont,CA,238 La Salle Avenue,Cynthia,37.815231,-122.226949,"Roth 401(k),Roth IRA",18936.639838983167
+Shae,Hallquist,Shae Hallquist,519-573-2385,664,1987-07-15,31,2009-02-06,Louisville,KY,2506 West Madison Street,Cynthia,38.253755,-85.7933322,"Traditional IRA,529,Brokerage",350071.5074201981
+Peggy,Shurley,Peggy Shurley,661-633-1709,665,1961-08-26,57,2003-05-26,Alameda,CA,1818 Bay Street,Robert,37.7774427,-122.2641515,"Roth IRA,Traditional IRA,529",43149.03839792392
+Juanita,Sotelo,Juanita Sotelo,184-280-6276,666,1963-08-10,55,2013-11-25,Arvada,CO,5743 Teller Street,Robert,39.80117550000001,-105.0771143,"529,Roth IRA,Roth 401(k),Brokerage,Traditional IRA",60419.743209234126
+Thomas,Lopez,Thomas Lopez,638-979-3728,667,1968-08-26,50,2003-01-03,Pleasanton,CA,Vista Flores,Robert,37.6681878,-121.8514835,"Brokerage,529,Roth IRA",289411.2468489821
+Kathy,Phelps,Kathy Phelps,332-293-5684,668,1982-07-07,36,2012-01-08,Arvada,CO,5644 Kipling Parkway,Robert,39.7989502,-105.1101977,"529,Roth IRA,Brokerage",31750.178042908265
+Billie,Fine,Billie Fine,452-214-8275,669,1952-07-05,66,2010-03-09,Glen Burnie,MD,706 Seagrove Road,Cynthia,39.163384,-76.609205,"Roth IRA,Brokerage,Roth 401(k),529",51355.281382641995
+Courtney,Miller,Courtney Miller,435-430-2956,670,1964-06-15,54,2012-08-14,Glendale,AZ,13066 North 56th Avenue,Robert,33.602739,-112.177602,"Traditional IRA,Roth 401(k),Roth IRA,Brokerage,529",40920.66620705894
+William,Fales,William Fales,420-199-1722,671,1971-01-05,47,2010-03-09,Louisville,KY,120 North Hurstbourne Parkway,Robert,38.2481391,-85.5788444,"Brokerage,Roth IRA,Roth 401(k)",142178.99992893066
+Stacey,Waldo,Stacey Waldo,223-785-2521,672,1951-03-15,67,2006-04-21,Glendale,AZ,7124 West Morrow Drive,Cynthia,33.6547986,-112.2129638,"Traditional IRA,Brokerage,529,Roth 401(k)",63408.983487541205
+Salina,Winnen,Salina Winnen,139-782-4767,673,1976-02-26,42,2002-03-11,Louisville,KY,15510 Champion Lakes Place,Robert,38.276776,-85.47488,"Roth 401(k),Traditional IRA,Brokerage,Roth IRA",66473.6133761727
+Albert,Turnage,Albert Turnage,373-413-2807,674,1960-12-24,57,2012-09-19,Nashville,TN,270 Tampa Drive,Cynthia,36.0834724,-86.71200139999999,"529,Roth 401(k),Roth IRA,Traditional IRA",236197.91867313973
+William,White,William White,210-843-9696,675,1955-06-16,63,2016-11-22,Sacramento,CA,4920 Quonset Drive,Cynthia,38.530987,-121.417033,"Traditional IRA,Brokerage",7103.31922171311
+Kristen,Schaedler,Kristen Schaedler,230-845-0233,676,1986-05-13,32,2001-04-27,Louisville,KY,8709 Peeble Lane,Robert,38.1221036,-85.7984675,"Roth IRA,Brokerage,529",12965.241918479947
+Robert,Lord,Robert Lord,426-849-5122,677,1967-10-06,51,2012-08-10,Manchester,CT,211 Oak Street,Cynthia,41.77036940000001,-72.5105559,"Roth IRA,529,Roth 401(k),Traditional IRA,Brokerage",284684.7334631393
+Lillian,Tilbury,Lillian Tilbury,551-353-3488,678,1972-10-08,46,2012-04-21,Washington,DC,2741 31st Place Northeast,Cynthia,38.9241962,-76.961047,"Roth IRA,529",34446.77065067969
+Willie,Piper,Willie Piper,359-541-9762,679,1988-09-04,30,2002-03-11,Severn,MD,1583 Elberta Court,Cynthia,39.139112,-76.715386,"529,Brokerage",121866.30467144458
+Edgar,White,Edgar White,442-846-5818,680,1960-06-22,58,2012-05-22,Louisville,KY,128 East Oak Street,Robert,38.2342125,-85.7539867,"Brokerage,Traditional IRA",276336.0447424206
+Helen,Aguilar,Helen Aguilar,409-941-4660,681,1964-09-04,54,2005-01-10,Louisville,KY,4331 Foeburn Lane,Robert,38.26753,-85.634376,"Brokerage,529",155784.85114438206
+John,Peterson,John Peterson,437-246-3639,682,1952-09-28,66,2012-07-19,Washington,DC,1263 Evarts Street Northeast,Cynthia,38.924278,-76.988248,"529,Traditional IRA,Roth 401(k)",46349.774734398845
+Yvonne,Gramby,Yvonne Gramby,667-846-8894,683,1976-04-12,42,2001-10-28,Nashville,TN,718 Dutchmans Court,Robert,36.2048851,-86.5994752,"Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",69475.42801143801
+George,Loker,George Loker,371-215-4898,684,1950-06-06,68,2014-04-16,Fayetteville,AR,3537 West Chevaux Drive,Robert,36.0799976,-94.20940689999999,"Roth 401(k),Brokerage",291939.4702488925
+William,Miller,William Miller,397-789-4425,685,1954-07-21,64,2014-08-16,Fayetteville,AR,3469 North Par Court,Cynthia,36.114024,-94.12243,Roth 401(k),12218.467583813166
+Ruby,Garcia,Ruby Garcia,510-818-9150,686,1986-10-13,32,2000-10-28,Baltimore,MD,5224 Wasena Avenue,Robert,39.223779,-76.60339499999999,"Roth 401(k),Brokerage",38601.03691587721
+Leland,Spears,Leland Spears,565-981-1441,687,1964-03-13,54,2004-12-11,Louisville,KY,908 Lodge Hill Road,Robert,38.259123,-85.55744899999999,"Roth IRA,Roth 401(k),Brokerage,Traditional IRA",51491.404630340556
+Gertrude,Barber,Gertrude Barber,247-528-5357,688,1975-09-01,43,2017-06-15,Fayetteville,AR,3365 South Cato Springs Road,Cynthia,36.0224059,-94.198476,"Roth IRA,529",20333.945178280042
+Joan,Robertson,Joan Robertson,104-459-6827,689,1955-12-20,62,2013-04-05,Foxborough,MA,184 Oak Street,Cynthia,42.06659399999999,-71.215166,"Traditional IRA,Brokerage",19771.58469882416
+Maria,Gomez,Maria Gomez,570-880-7279,690,1967-09-25,51,2015-05-01,Glendale,AZ,5912 North 48th Avenue,Cynthia,33.5231022,-112.162186,"Brokerage,Traditional IRA,529",28894.71502332187
+Gregory,Stephens,Gregory Stephens,278-231-1200,691,1951-10-11,67,2006-10-15,Groton,CT,262 Mitchell Street,Cynthia,41.350027,-72.07563900000001,"Brokerage,529,Roth 401(k),Traditional IRA",38852.67356957989
+Nicholas,Brumaghim,Nicholas Brumaghim,130-183-7905,692,1953-06-26,65,2000-03-17,Brookfield,VT,1992 West Street,Cynthia,44.03152499999999,-72.62063599999999,"529,Brokerage,Roth IRA",18379.17054566598
+Isabel,Johnson,Isabel Johnson,274-515-6569,693,1979-11-17,38,2011-04-20,Glendale,AZ,5556 West Northview Avenue,Cynthia,33.5433092,-112.1797889,"Roth IRA,529,Brokerage,Traditional IRA",58226.307496400026
+Dave,Saucedo,Dave Saucedo,654-700-1806,694,1974-06-17,44,2012-10-04,Berkeley,CA,1725 Oxford Street,Cynthia,37.87633599999999,-122.2662512,"Traditional IRA,Roth IRA,Roth 401(k),529",60165.77570299793
+Linda,Yacko,Linda Yacko,631-893-8029,695,1963-07-15,55,2012-02-28,Manchester,CT,95 Briarwood Drive,Cynthia,41.745751,-72.542544,"Roth IRA,529",35483.586460673425
+Miss,Robinson,Miss Robinson,661-312-8069,696,1962-08-03,56,2006-05-17,Thunderbolt,GA,2803 River Drive,Robert,32.032627,-81.050879,"Roth 401(k),Roth IRA,Brokerage,529,Traditional IRA",57787.76867589995
+Ebony,Thompson,Ebony Thompson,391-880-7745,697,1989-09-22,29,2013-11-07,Pasadena,MD,7802 Titan Court,Robert,39.1322645,-76.5304743,Brokerage,2098.578924449397
+Patrick,Green,Patrick Green,550-648-3435,698,1981-11-09,37,2012-05-20,Nashville,TN,2400 Merry Street,Cynthia,36.159658,-86.81209799999999,"529,Roth IRA",19219.686882634323
+Sandra,Jackson,Sandra Jackson,261-910-3317,699,1980-12-24,37,2013-01-13,Fayetteville,AR,1629 South Razorback Road,Cynthia,36.0468184,-94.1812858,529,13171.09801146808
+Deborah,Bell,Deborah Bell,627-397-3367,700,1974-11-17,43,2008-03-04,Tyndall Air Force Base,FL,3722 Kisling Loop,Cynthia,30.1048481,-85.65097360000001,"Roth 401(k),Roth IRA,Traditional IRA",46652.655293600474
+Karen,Capers,Karen Capers,515-339-0830,701,1987-11-02,31,2009-06-10,Fitchburg,MA,97 Lincoln Street,Robert,42.586477,-71.785057,"Roth 401(k),529,Roth IRA,Traditional IRA",45933.46172894399
+Erin,Taylor,Erin Taylor,634-294-6623,702,1963-01-22,55,2009-03-23,Arvada,CO,7072 Quail Street,Robert,39.826338,-105.12315,"Traditional IRA,Roth 401(k),Brokerage",494566.77939726564
+Gerald,Smith,Gerald Smith,621-753-9276,703,1962-12-16,55,2012-01-20,Glendale,AZ,5615 West Acoma Drive,Robert,33.6166852,-112.1809842,"Roth IRA,Brokerage,529,Roth 401(k)",54985.81646620005
+Bradley,Lamb,Bradley Lamb,619-660-3075,704,1969-11-05,49,2000-09-19,Louisville,KY,6408 Fern Crest Road,Robert,38.154488,-85.612144,"Roth 401(k),Brokerage,Traditional IRA,529",72935.33806302692
+William,Howell,William Howell,472-701-9024,705,1975-11-24,42,2015-04-16,Anchorage,AK,17361 Baronoff Avenue,Robert,61.314642,-149.557618,"529,Roth 401(k),Brokerage",51938.06637514796
+Hope,Whitesides,Hope Whitesides,488-382-3302,706,1976-11-03,42,2014-08-10,Fayetteville,AR,102 East Cydnee Street,Robert,36.10683,-94.155547,Traditional IRA,2109.419921526641
+Mary,Benberry,Mary Benberry,495-654-3375,707,1980-08-14,38,2006-06-17,Anchorage,AK,1711 Lore Road,Robert,61.15195259999999,-149.8511487,"Traditional IRA,Roth IRA,Roth 401(k),Brokerage",300397.2324376918
+Travis,Johnson,Travis Johnson,610-801-0672,708,1968-06-02,50,2004-06-12,Madera,CA,430 Fig Street,Robert,36.96641109999999,-120.0424251,"529,Brokerage,Traditional IRA,Roth IRA",113268.81661772222
+Janice,Broberg,Janice Broberg,355-929-0380,709,1955-05-18,63,2013-10-27,Washington,DC,817 25th Street Northwest,Cynthia,38.900077,-77.053066,"529,Roth 401(k)",136299.18220002847
+Dannie,Daugherty,Dannie Daugherty,493-270-8393,710,1958-05-21,60,2016-09-16,Montgomery,AL,8513 Pipit Court,Cynthia,32.326354,-86.14844599999999,"Roth IRA,Traditional IRA,529,Brokerage",31481.08766570412
+Willie,Brown,Willie Brown,393-276-9446,711,1986-11-09,32,2012-08-16,Washington,DC,3538 Albemarle Street Northwest,Robert,38.947617,-77.06859399999999,Roth IRA,1393.5698009919531
+Sonja,Schenk,Sonja Schenk,467-878-6847,712,1955-01-24,63,2012-04-03,Anchorage,AK,619 West 19th Avenue,Robert,61.2031692,-149.8950954,"Roth 401(k),Traditional IRA",245769.2369826756
+Rose,White,Rose White,488-958-7041,713,1989-04-05,29,2016-11-24,Mexico Beach,FL,111 20th Street,Cynthia,29.94494,-85.41067799999999,"Traditional IRA,Roth IRA,Roth 401(k),529,Brokerage",67764.63985301074
+James,Loftis,James Loftis,455-405-7267,714,1953-08-21,65,2013-04-14,Maidstone,VT,3541 North Road,Cynthia,44.61203,-71.5981599,"Roth IRA,Brokerage",28720.698234655436
+Marcos,Omalley,Marcos Omalley,296-568-0837,715,1975-12-26,42,2017-05-10,Brookfield,VT,1992 West Street,Cynthia,44.03152499999999,-72.62063599999999,"Roth 401(k),Roth IRA,Brokerage",33105.7003930821
+Florence,Ratterree,Florence Ratterree,188-411-5296,716,1987-03-26,31,2001-06-12,Montgomery,AL,449 Saratoga Lane,Cynthia,32.3749619,-86.19708399999999,"Roth IRA,529,Brokerage,Roth 401(k),Traditional IRA",82535.00400581007
+Samuel,Williamson,Samuel Williamson,667-606-7169,717,1977-09-08,41,2010-01-07,Washington,DC,1310 Riggs Street Northwest,Cynthia,38.913148,-77.030147,"529,Roth IRA,Roth 401(k),Traditional IRA",49153.060867577085
+Ethel,Miah,Ethel Miah,618-175-9873,718,1981-09-06,37,2000-05-08,Manchester,CT,768 North Main Street,Robert,41.7955789,-72.54586499999999,"Roth 401(k),Brokerage,Traditional IRA,Roth IRA,529",95700.73182594348
+Alma,Quintero,Alma Quintero,347-621-8179,719,1966-01-08,52,2009-09-28,Revere,MA,98 Lincoln Street,Cynthia,42.418115,-71.027503,Brokerage,17458.769866410752
+Morgan,Gunter,Morgan Gunter,333-642-3983,720,1961-03-09,57,2010-03-20,Manchester,CT,200 West Center Street,Robert,41.77056450000001,-72.54388569999999,"Brokerage,Roth IRA",235386.19578978952
+Elizabeth,Cook,Elizabeth Cook,642-882-0180,721,1969-09-10,49,2016-04-22,Lynn Haven,FL,803 Kay Lane,Cynthia,30.249565,-85.640086,"529,Roth 401(k),Traditional IRA",82874.68767764044
+Brad,Prentice,Brad Prentice,646-342-8272,722,1975-11-19,42,2000-03-14,Washington,DC,7003 9th Street Northwest,Cynthia,38.9749667,-77.0253871,"Brokerage,529",39319.33649624277
+Luciano,Kelly,Luciano Kelly,189-258-4393,723,1951-05-27,67,2013-08-21,Savannah,GA,1513 Cathy Street,Cynthia,32.067416,-81.125331,Traditional IRA,18414.3322302169
+Jonathon,Davenport,Jonathon Davenport,631-493-9998,724,1959-02-19,59,2008-10-11,Washington,DC,1644 New Jersey Avenue Northwest,Cynthia,38.91233,-77.017736,"Traditional IRA,Roth IRA",29167.277952730423
+Wilma,Dowell,Wilma Dowell,670-476-1302,725,1981-01-01,37,2013-04-06,Anchorage,AK,12800 Saunders Road,Cynthia,61.10499799999999,-149.746856,"529,Brokerage",28050.609651475545
+Danny,Thompson,Danny Thompson,560-363-6116,726,1957-06-25,61,2015-10-28,Warr Acres,OK,4807 North Grove Avenue,Robert,35.5203601,-97.6147122,"Roth 401(k),Brokerage,Roth IRA,529,Traditional IRA",74108.77169459185
+Ella,Penney,Ella Penney,130-910-9646,727,1956-09-07,62,2007-11-20,Berkeley,CA,1820 Scenic Avenue,Cynthia,37.875242,-122.262537,"Brokerage,Roth 401(k),Roth IRA,Traditional IRA,529",78076.63062644226
+Evelyn,Adams,Evelyn Adams,330-848-6119,728,1975-03-11,43,2002-06-09,Panama City,FL,939 West Beach Drive,Robert,30.161671,-85.674528,"Roth IRA,529,Brokerage,Traditional IRA",49606.49115125609
+Raymond,Slayton,Raymond Slayton,129-901-3677,729,1970-09-02,48,2002-05-07,Berkeley,CA,619 Colusa Avenue,Robert,37.896256,-122.284523,"529,Roth IRA,Brokerage,Roth 401(k),Traditional IRA",113889.14844692142
+Pamela,Garrison,Pamela Garrison,496-259-9895,730,1957-03-22,61,2015-05-17,Nashville,TN,23 North Hill Street,Cynthia,36.1448942,-86.7608357,"Traditional IRA,Roth IRA",16439.107550303102
+Anne,Stewart,Anne Stewart,677-101-3338,731,1977-09-07,41,2004-04-06,Manchester,CT,40 Strawberry Lane,Robert,41.74684500000001,-72.542391,"Brokerage,Roth 401(k),529",40566.904415937446
+Marcus,Sichler,Marcus Sichler,351-796-9398,732,1972-03-07,46,2015-05-24,Castro Valley,CA,20375 Wisteria Street,Robert,37.696683,-122.085865,"529,Roth IRA,Traditional IRA,Brokerage,Roth 401(k)",292634.1356940157
+Abel,Palmer,Abel Palmer,595-208-7995,733,1958-02-27,60,2003-01-18,Louisville,KY,814 Keswick Boulevard,Robert,38.218157,-85.74302399999999,"Roth 401(k),Traditional IRA,529,Brokerage,Roth IRA",357554.9630004372
+Leonard,Fernandez,Leonard Fernandez,369-657-1019,734,1962-07-16,56,2002-09-17,Glendale,AZ,8404 West Myrtle Avenue,Cynthia,33.5414927,-112.2400905,"Roth IRA,Traditional IRA,Brokerage,Roth 401(k),529",359787.82397724106
+Joellen,Mitchell,Joellen Mitchell,132-638-3852,735,1955-12-09,62,2001-03-15,Panama City Beach,FL,813 Linda Lane,Cynthia,30.200346,-85.750987,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",62509.14206316763
+Adam,King,Adam King,453-199-6111,736,1982-07-12,36,2007-12-18,Fayetteville,AR,4221 East Mission Boulevard,Cynthia,36.0954898,-94.10028220000001,"529,Traditional IRA",44019.11113794644
+Joseph,Hamill,Joseph Hamill,334-859-1156,737,1963-12-18,54,2002-06-08,Washington,DC,802 Madison Street Northwest,Cynthia,38.9582381,-77.0244287,"Roth 401(k),Roth IRA,Brokerage",40781.89228088823
+Phyllis,Saulter,Phyllis Saulter,334-291-3470,738,1978-09-20,40,2016-07-13,Panama City,FL,1416 Ridgewood Avenue,Robert,30.1738197,-85.6007266,"Brokerage,Roth IRA,Traditional IRA",221862.64094355563
+Jon,Potter,Jon Potter,100-420-3310,739,1988-11-19,29,2005-10-05,Savannah,GA,2052 East 42nd Street,Robert,32.0433021,-81.0641667,"529,Roth IRA,Brokerage",55538.44669313061
+Elizabeth,Pires,Elizabeth Pires,498-910-3889,740,1965-04-20,53,2001-03-19,Oklahoma City,OK,1265 Southeast 23rd Terrace,Cynthia,35.4419581,-97.4871617,529,9680.248572546861
+Valerie,Guzman,Valerie Guzman,394-303-7183,741,1979-05-10,39,2012-07-02,Nashville,TN,804 Old Coach Place,Cynthia,36.223864,-86.595253,529,19730.410023769542
+Cornell,Lu,Cornell Lu,149-977-9331,742,1966-02-08,52,2002-08-08,Montgomery,AL,4300 Woodley Square,Cynthia,32.3269015,-86.2695368,"Brokerage,Roth 401(k)",36148.47390796026
+Charles,Smith,Charles Smith,306-377-9857,743,1989-11-16,28,2014-12-22,Glen Burnie,MD,105 Inglewood Drive,Robert,39.174297,-76.601179,"Brokerage,Traditional IRA,529,Roth 401(k),Roth IRA",68303.30151249524
+Sandra,Wilson,Sandra Wilson,492-523-1436,744,1963-02-20,55,2017-08-12,Nashville,TN,1123 Ardee Avenue,Cynthia,36.219121,-86.725616,"Roth 401(k),529,Roth IRA",27656.80635930025
+Warren,Laclair,Warren Laclair,462-872-3842,745,1956-08-20,62,2003-10-07,Arvada,CO,6073 Harlan Street,Robert,39.807061,-105.062959,Traditional IRA,17085.884372352484
+Patricia,Modesto,Patricia Modesto,440-421-9418,746,1956-05-20,62,2017-06-25,Oakland,CA,6630 MacArthur Boulevard,Cynthia,37.7724559,-122.1773575,"Traditional IRA,Roth 401(k),Roth IRA,529,Brokerage",309477.8306479782
+Katherine,Wright,Katherine Wright,221-634-4284,747,1960-11-15,58,2002-12-14,Louisville,KY,1002 Highland Avenue,Robert,38.2371577,-85.7367362,"Brokerage,Roth 401(k),529,Roth IRA,Traditional IRA",72820.2412267546
+Travis,Mclachlan,Travis Mclachlan,144-599-8334,748,1963-08-03,55,2014-10-01,Pooler,GA,182 Regency Circle,Cynthia,32.1464114,-81.2646209,"529,Brokerage,Roth IRA,Roth 401(k)",263724.80264615134
+Michael,Martin,Michael Martin,127-822-9628,749,1960-12-22,57,2006-06-03,Arvada,CO,5712 Saulsbury Street,Robert,39.8006311,-105.0753746,Roth IRA,4866.395860654046
+Frank,Burr,Frank Burr,480-153-4648,750,1969-01-01,49,2005-03-05,Louisville,KY,5801 South Watterson Trail,Robert,38.164425,-85.612599,Roth IRA,16754.112904204
+Michael,Solomon,Michael Solomon,458-382-6087,751,1950-01-12,68,2008-10-07,Oklahoma City,OK,8404 South Villa Avenue,Robert,35.3818163,-97.5570041,"529,Brokerage",19123.505671869625
+Christopher,Bair,Christopher Bair,433-470-3198,752,1982-02-24,36,2002-12-13,Middleton,MA,17 Gregory Street,Robert,42.592382,-70.990967,529,13735.84475222581
+Dean,Ross,Dean Ross,580-217-5096,753,1953-04-11,65,2014-02-02,Severn,MD,1636 Briarview Court,Cynthia,39.12539599999999,-76.704015,"Brokerage,529,Traditional IRA,Roth IRA",60660.61778491814
+Jennifer,Harbour,Jennifer Harbour,344-562-1659,754,1972-08-18,46,2016-12-12,Louisville,KY,James Rees Way,Robert,38.2341314,-85.50269569999999,"529,Roth 401(k)",105927.11181448051
+Iris,Rose,Iris Rose,207-838-1026,755,1959-03-20,59,2006-07-05,Glendale,AZ,9009 West Nicolet Avenue,Robert,33.540794,-112.252896,"Brokerage,Traditional IRA,529",26842.894762044936
+Ebony,Simmons,Ebony Simmons,308-926-3629,756,1974-10-08,44,2013-06-02,Redding,CA,5938 Laguna Honda Street,Robert,40.5283666,-122.3878429,"Brokerage,Roth 401(k)",27883.646089823753
+Daniel,Hoefle,Daniel Hoefle,521-627-7840,757,1984-06-21,34,2003-02-15,Washington,DC,3708 Fort Lincoln Drive Northeast,Cynthia,38.922628,-76.9529694,"Roth IRA,Traditional IRA,Brokerage,Roth 401(k),529",208192.49247014112
+Fletcher,Lavender,Fletcher Lavender,594-929-4637,758,1982-10-22,36,2002-06-14,Montgomery,AL,3437 Sommerville Drive,Cynthia,32.342288,-86.256546,"Roth 401(k),Roth IRA,Brokerage",94428.23426654178
+Katrina,Thompson,Katrina Thompson,214-506-4991,759,1967-02-06,51,2008-11-28,Louisville,KY,32 Royal Drive,Robert,38.1291611,-85.7593052,"529,Roth IRA,Brokerage",20285.544569446065
+James,Morris,James Morris,177-161-5530,760,1976-03-12,42,2000-08-26,Oklahoma City,OK,12013 Blue Moon Avenue,Cynthia,35.5925518,-97.66579689999999,"529,Roth 401(k)",30748.059238493603
+Elizabeth,Whigham,Elizabeth Whigham,383-617-9270,761,1954-01-18,64,2016-06-21,Wilbraham,MA,464 Springfield Street,Robert,42.1196342,-72.4637343,"Traditional IRA,Roth 401(k),529,Roth IRA,Brokerage",39922.229396263814
+Sadie,Cantu,Sadie Cantu,402-764-0559,762,1989-02-15,29,2017-04-23,Barre,VT,445 Industrial Lane,Cynthia,44.2129363,-72.5590169,"Roth 401(k),Brokerage,529",38440.711882460055
+Melba,Allred,Melba Allred,172-191-4024,763,1952-02-05,66,2015-07-04,Pueblo,CO,1822 North Grand Avenue,Robert,38.284427,-104.611581,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA,529",78776.31807503523
+Travis,Grover,Travis Grover,388-293-6579,764,1988-05-19,30,2013-08-06,Washington,DC,836 Lamont Street Northwest,Cynthia,38.9306567,-77.0261289,Roth IRA,5004.49000376193
+Remedios,Dunning,Remedios Dunning,496-155-5388,765,1980-07-05,38,2006-09-07,Louisville,KY,9712 Stream View Trail,Cynthia,38.136731,-85.88158,"Roth IRA,Brokerage,Roth 401(k),529,Traditional IRA",144782.28991380514
+Johnny,Hinkle,Johnny Hinkle,678-737-0403,766,1976-04-16,42,2000-10-04,Fremont,CA,38676 Greenwich Circle,Cynthia,37.562256,-121.976451,Traditional IRA,10783.032358535987
+Jesus,Bogacz,Jesus Bogacz,410-385-9875,767,1955-01-25,63,2010-10-01,Port Wentworth,GA,64 Roseberry Circle,Robert,32.1822872,-81.2220151,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA",139123.09958048584
+Edwina,Spiller,Edwina Spiller,354-529-4482,768,1968-12-02,49,2004-10-12,Nashville,TN,1408 Holly Street,Cynthia,36.1755568,-86.7452113,"Roth 401(k),529,Roth IRA,Traditional IRA,Brokerage",86144.60380580017
+Carl,Groom,Carl Groom,414-646-5868,769,1969-08-10,49,2005-09-09,Montgomery,AL,7010 Fulton Court,Robert,32.3419832,-86.1700772,"Brokerage,Traditional IRA",112900.47262098022
+Walter,Smith,Walter Smith,148-119-1446,770,1975-04-07,43,2017-01-20,Greensboro,VT,529 Barr Hill Road,Cynthia,44.5936859,-72.2881687,"Roth IRA,Traditional IRA",31082.634362385215
+John,Thompson,John Thompson,193-402-5321,771,1957-03-19,61,2001-06-01,Baldwin Park,CA,4438 Maine Avenue,Cynthia,34.093409,-117.959953,Roth IRA,10196.34716604125
+Donald,Blackburn,Donald Blackburn,508-116-0385,772,1961-09-26,57,2008-11-26,Panama City,FL,232 Maine Avenue,Cynthia,30.1527033,-85.63207129999999,"Roth IRA,Brokerage,Traditional IRA",42840.9644904201
+Catherine,Congdon,Catherine Congdon,637-890-4350,773,1967-06-21,51,2016-02-13,Bethany,OK,3820 North Peniel Avenue,Cynthia,35.5097004,-97.62759249999999,Roth IRA,14368.90964712571
+Kenneth,Green,Kenneth Green,233-582-0419,774,1975-07-04,43,2014-01-18,Millersville,MD,8243 Daniels Purchase Way,Robert,39.115888,-76.64139899999999,"Traditional IRA,529,Brokerage,Roth 401(k),Roth IRA",503790.44859350566
+Elizabeth,Studebaker,Elizabeth Studebaker,469-661-7465,775,1964-11-01,54,2006-08-12,Manchester,CT,30 Tanner Street,Cynthia,41.789215,-72.515486,"Traditional IRA,Roth 401(k),Brokerage,Roth IRA,529",84480.99462757626
+Erin,Mcclard,Erin Mcclard,672-369-7170,776,1970-04-10,48,2017-06-28,Savannah,GA,10714 Abercorn Street,Cynthia,31.9795828,-81.1330018,"Traditional IRA,Roth IRA,529,Brokerage",53422.40252118407
+Jamie,Norton,Jamie Norton,644-749-9226,777,1975-08-16,43,2015-10-14,Savannah,GA,205 West Montgomery Cross Road,Robert,31.9976258,-81.1333921,"Roth IRA,Brokerage",11164.369867245985
+Julio,Souza,Julio Souza,692-222-8198,778,1955-10-20,63,2011-12-06,Glendale,AZ,7124 West Morrow Drive,Robert,33.6547986,-112.2129638,529,6952.292572826262
+Andy,Lott,Andy Lott,619-339-7222,779,1956-05-11,62,2003-11-07,Washington,DC,1707 6th Street Northwest,Cynthia,38.913609,-77.01963099999999,Roth IRA,17320.910910756353
+Katherine,Miller,Katherine Miller,688-469-4186,780,1953-01-05,65,2016-12-14,Glendale,AZ,4719 West Cochise Drive,Cynthia,33.580297,-112.161185,529,8005.994427374568
+Mary,Reinhart,Mary Reinhart,655-382-2666,781,1965-10-24,53,2010-07-26,Washington,DC,643 Farragut Street Northwest,Cynthia,38.951281,-77.021523,"Roth IRA,529,Traditional IRA",308696.72761195176
+Carolyn,Higginbotham,Carolyn Higginbotham,214-351-2734,782,1989-03-14,29,2010-03-08,Pasadena,MD,7802 Titan Court,Robert,39.1322645,-76.5304743,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA,529",65826.33784433105
+George,Landrum,George Landrum,437-593-6579,783,1986-06-16,32,2008-08-05,Arvada,CO,5743 Teller Street,Robert,39.80117550000001,-105.0771143,"Traditional IRA,Brokerage,529",118791.09402930026
+Joseph,Potter,Joseph Potter,585-289-5945,784,1950-11-12,68,2003-05-11,Fayetteville,AR,2130 Loren Circle,Robert,36.071889,-94.191613,Roth 401(k),299869.62576011074
+Denise,Olsson,Denise Olsson,521-844-0044,785,1979-10-20,39,2004-02-16,Crofton,MD,2068 Happy Lane,Cynthia,39.013318,-76.6754904,"Brokerage,Roth IRA,Traditional IRA",33697.68919718491
+Ray,Montes,Ray Montes,334-183-6620,786,1966-10-21,52,2015-01-05,Washington,DC,1720 D Street Northeast,Robert,38.895013,-76.97994,"Roth IRA,Traditional IRA,529",25854.90095952902
+Michael,Asher,Michael Asher,583-666-6592,787,1970-12-07,47,2007-04-20,Washington,DC,1816 U Place Southeast,Robert,38.866586,-76.978285,"Roth IRA,Traditional IRA,Roth 401(k),529,Brokerage",45334.36915365261
+Leonard,Goldstein,Leonard Goldstein,385-263-1535,788,1950-09-05,68,2010-09-12,Arvada,CO,8398 West 62nd Place,Cynthia,39.811255,-105.0908198,"Roth IRA,Roth 401(k)",18420.71025504514
+Norma,Jones,Norma Jones,507-203-4770,789,1954-05-10,64,2013-12-11,Fayetteville,AR,376 North Williams Drive,Robert,36.067997,-94.142563,Traditional IRA,18217.3709782003
+Bridget,Schaich,Bridget Schaich,665-811-6207,790,1983-09-24,35,2016-05-15,Norman,OK,814 South Pickard Avenue,Cynthia,35.206961,-97.45494099999999,"Brokerage,529,Traditional IRA,Roth IRA,Roth 401(k)",131995.59338708976
+Melanie,Maldonado,Melanie Maldonado,278-169-4615,791,1989-06-25,29,2007-10-02,Glendale,AZ,6216 West Bloomfield Road,Robert,33.59866,-112.192737,"Roth 401(k),Brokerage,Roth IRA",37156.0177322744
+Shirley,Cameron,Shirley Cameron,550-565-9072,792,1951-02-25,67,2001-08-19,Arvada,CO,7901 West 52nd Avenue,Robert,39.791644,-105.084667,"529,Roth 401(k),Traditional IRA,Roth IRA,Brokerage",53939.75392127011
+Earnestine,Jefferson,Earnestine Jefferson,169-338-9853,793,1984-08-25,34,2007-06-16,Fayetteville,AR,6086 Kennedy Drive,Cynthia,36.103629,-94.24773599999999,"Traditional IRA,Brokerage,Roth IRA,529,Roth 401(k)",69198.59130605616
+Vickie,Petty,Vickie Petty,469-302-9197,794,1982-12-23,35,2000-11-21,Nashville,TN,1311 Elm Hill Pike,Cynthia,36.14337800000001,-86.729514,"529,Brokerage",224995.06988599247
+Christine,Whitney,Christine Whitney,465-598-0366,795,1979-08-08,39,2016-01-08,Fayetteville,AR,3065 East Pebblestone Drive,Robert,36.067528,-94.118146,"Roth 401(k),Traditional IRA,Roth IRA,Brokerage,529",156542.67287260568
+Virginia,Roop,Virginia Roop,508-533-0665,796,1986-01-12,32,2005-01-13,Nashville,TN,819 Beazer Lane,Robert,36.047018,-86.642849,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA,529",59977.26664750169
+Linda,Lipscomb,Linda Lipscomb,564-933-7347,797,1971-10-04,47,2003-06-17,Washington,DC,905 C Street Northeast,Cynthia,38.893361,-76.993438,"Roth IRA,529,Roth 401(k),Traditional IRA,Brokerage",32106.1623615528
+Elsie,Baier,Elsie Baier,417-937-3443,798,1955-11-11,63,2004-07-15,Norwood,MA,756 Neponset Street,Robert,42.180591,-71.18029500000002,"Roth 401(k),Traditional IRA,529,Roth IRA,Brokerage",172160.56192750344
+Sidney,Baysinger,Sidney Baysinger,639-495-8438,799,1964-12-12,53,2006-04-28,Panama City,FL,2527 Lisenby Avenue,Robert,30.19391999999999,-85.684286,"Roth 401(k),529,Roth IRA,Brokerage",63896.01105150736
+Marcy,Wynn,Marcy Wynn,527-612-9375,800,1974-05-28,44,2004-07-01,Oklahoma City,OK,323 Southeast 23rd Street,Robert,35.44171559999999,-97.50572050000001,"Brokerage,529,Roth IRA",48560.06128414466
+Richard,Joy,Richard Joy,502-211-5409,801,1957-03-24,61,2001-01-10,Washington,DC,1729 Frankford Street Southeast,Robert,38.855963,-76.979539,"529,Traditional IRA",31804.778109813044
+Jeanette,Dulle,Jeanette Dulle,376-395-3411,802,1962-08-17,56,2008-03-21,Methuen,MA,23 Sable Run Lane,Robert,42.759847,-71.157721,"Brokerage,529,Traditional IRA",44146.364716892334
+Betsy,Worthington,Betsy Worthington,696-220-3599,803,1963-12-25,54,2002-04-21,Glendale,AZ,4922 West Cholla Street,Robert,33.5894819,-112.166303,"Roth IRA,529,Traditional IRA",60281.70783774091
+Jesse,Wilson,Jesse Wilson,246-180-4622,804,1966-03-22,52,2010-05-23,Anchorage,AK,3720 West 86th Avenue,Cynthia,61.142615,-149.949251,"Traditional IRA,529,Roth IRA,Roth 401(k)",338972.146278629
+Johnnie,Selby,Johnnie Selby,232-163-0245,805,1979-04-15,39,2000-11-01,Manchester,CT,429 Dennison Ridge Drive,Cynthia,41.750419,-72.474013,"Brokerage,529",43393.40770842225
+Michael,Tisby,Michael Tisby,121-347-9811,806,1969-07-12,49,2000-05-15,Manchester,CT,20 Dearborn Drive,Robert,41.79968299999999,-72.497528,"Roth 401(k),Traditional IRA",167563.6832772166
+Susan,Strand,Susan Strand,486-678-1537,807,1979-08-28,39,2016-06-25,Berkeley,CA,1040 University Avenue,Cynthia,37.8685768,-122.2934965,"Roth 401(k),Roth IRA,Traditional IRA,Brokerage",23444.489892133715
+Robin,Mcleod,Robin Mcleod,318-310-2358,808,1979-06-06,39,2013-06-13,Montgomery,AL,2024 Merrily Drive,Cynthia,32.3328739,-86.28072999999999,"Traditional IRA,Roth 401(k),Brokerage,529",41222.63135133313
+Brooke,Bethel,Brooke Bethel,369-568-9506,809,1977-10-25,41,2015-05-06,Brockton,MA,9 Montello Street,Cynthia,42.0855398,-71.0173809,"529,Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",302849.11882589903
+Kristin,Stanley,Kristin Stanley,195-618-5385,810,1959-07-28,59,2006-09-08,Glendale,AZ,7192 West Topeka Drive,Cynthia,33.6583238,-112.2149837,"529,Roth 401(k)",12761.724309793086
+Cornelius,Green,Cornelius Green,475-414-7465,811,1956-03-16,62,2014-12-27,Fayetteville,AR,1931 West Deane Street,Robert,36.085956,-94.18704199999999,Brokerage,9690.488262225454
+Trisha,Frazier,Trisha Frazier,565-352-4671,812,1961-06-26,57,2007-01-27,Pueblo West,CO,11 North Vineyard Drive,Cynthia,38.318953,-104.680591,Roth 401(k),4966.852335796976
+Michelle,Webb,Michelle Webb,403-422-1662,813,1950-09-02,68,2008-12-20,Savannah,GA,5510 Montgomery Street,Cynthia,32.027567,-81.118393,"Roth 401(k),Roth IRA,529",47863.66474786595
+Ramon,Gonzales,Ramon Gonzales,224-950-9076,814,1971-05-12,47,2006-08-26,Louisville,KY,3301 Nora Lane,Cynthia,38.199844,-85.61509,529,7105.19620050172
+Cary,Malloy,Cary Malloy,205-591-1823,815,1978-01-28,40,2006-09-27,Anchorage,AK,3404 Lakeside Drive,Robert,61.131176,-149.943144,"Roth IRA,Roth 401(k),Traditional IRA",41871.02179103062
+Michael,Petty,Michael Petty,344-776-9169,816,1963-08-24,55,2016-09-04,Anchorage,AK,880 H Street,Cynthia,61.2138319,-149.8975861,"Traditional IRA,Brokerage",35457.72680764773
+Donald,Plaisted,Donald Plaisted,290-796-6784,817,1960-07-17,58,2014-05-26,Savannah,GA,10 Dalry Lane,Robert,31.941447,-81.160151,"Roth IRA,Roth 401(k),Traditional IRA,Brokerage",31095.316851640262
+Brianna,Dickman,Brianna Dickman,242-435-4467,818,1968-05-25,50,2010-05-15,Anchorage,AK,10891 Kamishak Bay Circle,Cynthia,61.122221,-149.948331,"Roth IRA,Roth 401(k),529,Traditional IRA",57648.801523823524
+Maxine,Charles,Maxine Charles,197-890-3863,819,1965-06-12,53,2003-11-01,Panama City,FL,104 Lakeridge Drive,Cynthia,30.211429,-85.657557,"Brokerage,529,Traditional IRA,Roth 401(k)",70807.6448963446
+Nicole,Mauney,Nicole Mauney,251-745-5199,820,1954-08-09,64,2000-02-08,Washington,DC,1157 1st Street Northwest,Robert,38.90538280000001,-77.0121662,"Traditional IRA,Roth IRA",241542.38744862986
+Joanne,Gilbert,Joanne Gilbert,557-774-4538,821,1979-03-09,39,2003-10-24,Fayetteville,AR,3511 Oakland Zion Road,Cynthia,36.1142691,-94.1027196,"Roth IRA,529,Roth 401(k),Brokerage",69151.73199359718
+Anthony,Reliford,Anthony Reliford,546-532-6320,822,1989-01-08,29,2001-10-27,Fayetteville,AR,7034 West John Garrison Road,Robert,36.107097,-94.2619139,"Roth IRA,529,Traditional IRA",39210.16046411752
+Eric,Pellerin,Eric Pellerin,185-359-4245,823,1979-07-19,39,2000-11-11,Moretown,VT,82 The Commons,Robert,44.253658,-72.753642,"Traditional IRA,Roth 401(k)",37907.24830608851
+Suzanne,Maize,Suzanne Maize,308-135-9154,824,1957-12-19,60,2017-09-09,Arvada,CO,7187 Holland Court,Cynthia,39.8271442,-105.1034456,"Traditional IRA,Brokerage,529,Roth 401(k)",36282.131570382175
+Edward,Barr,Edward Barr,199-518-7450,825,1956-01-11,62,2016-05-01,Arvada,CO,8442 Everett Way,Robert,39.850942,-105.096599,"Roth 401(k),Brokerage,Roth IRA,Traditional IRA,529",57264.62160672807
+Harold,Jarrett,Harold Jarrett,557-116-4875,826,1961-11-23,56,2013-10-16,Nashville,TN,5029 Montclair Drive,Robert,36.068873,-86.754205,"Traditional IRA,Roth 401(k),529,Roth IRA,Brokerage",284958.81754863187
+Scott,Muniz,Scott Muniz,120-130-0728,827,1966-07-17,52,2002-12-24,Montgomery,AL,7309 Live Oak Court,Cynthia,32.374389,-86.16609,Roth 401(k),14365.007298270897
+Howard,Guptill,Howard Guptill,475-957-1455,828,1986-06-20,32,2012-11-06,Crofton,MD,1630 Eton Way,Cynthia,39.008958,-76.69134199999999,Brokerage,14295.343339863177
+Nicholas,Robinson,Nicholas Robinson,583-572-2184,829,1953-12-08,64,2007-05-08,Anchorage,AK,11330 Elmore Road,Cynthia,61.117906,-149.806908,"Roth 401(k),Traditional IRA",17910.79486092125
+Armando,Keller,Armando Keller,594-287-6652,830,1985-05-06,33,2004-06-09,Marshfield,MA,150 Meadowview Street,Robert,42.1149966,-70.6756703,"Roth IRA,Roth 401(k),Brokerage,529",48663.942554081674
+Shannon,Lively,Shannon Lively,305-183-1536,831,1980-05-18,38,2005-08-12,Nashville,TN,733 Georgetown Drive,Robert,36.119527,-86.89097699999999,"Traditional IRA,Roth 401(k)",280856.19767087523
+James,Moncrief,James Moncrief,203-349-6435,832,1983-08-02,35,2010-05-27,Nashville,TN,7405 River Park Drive,Robert,36.0581729,-86.974773,"Brokerage,Roth IRA",32619.280514211197
+Maxine,Cattaneo,Maxine Cattaneo,297-482-7713,833,1974-01-08,44,2010-06-02,Louisville,KY,6609 Westshire Drive,Robert,38.134527,-85.874535,"Brokerage,Traditional IRA,Roth 401(k),529,Roth IRA",215323.7565453083
+Charles,Ponce,Charles Ponce,202-841-6614,834,1989-07-11,29,2004-03-27,Boulder,CO,275 South 40th Street,Cynthia,39.988864,-105.247011,Traditional IRA,3709.0189876675117
+Shirely,Brunson,Shirely Brunson,475-309-9141,835,1966-12-04,51,2007-10-01,Saugus,MA,53 Great Woods Road,Cynthia,42.4876509,-71.0107549,"Roth 401(k),529",186181.05771071668
+Jay,Sevillano,Jay Sevillano,627-403-1618,836,1952-08-17,66,2017-10-13,Fremont,CA,4511 Sloat Road,Robert,37.5420236,-121.9926731,Roth IRA,2149.5913768159758
+Misti,Arnold,Misti Arnold,130-831-5259,837,1957-04-21,61,2007-05-13,Washington,DC,1427 South Carolina Avenue Southeast,Cynthia,38.886615,-76.9845349,Traditional IRA,6528.8453447027805
+Janet,Langley,Janet Langley,573-690-7601,838,1974-04-03,44,2013-06-18,Arvada,CO,7998 Chase Circle,Cynthia,39.841232,-105.057933,"Traditional IRA,Brokerage,529,Roth 401(k)",40190.90411877936
+Brian,Hughes,Brian Hughes,241-788-5082,839,1969-04-08,49,2000-12-19,Manchester,CT,56 Gardner Street,Cynthia,41.7630186,-72.5033322,"Traditional IRA,Roth IRA,Brokerage",38940.06812244773
+Della,Davila,Della Davila,534-407-6789,840,1990-01-28,28,2011-05-13,Louisville,KY,4303 Ashleycreek Court,Cynthia,38.307481,-85.61106,"529,Roth IRA,Brokerage",28146.356981549245
+Marie,Greene,Marie Greene,278-156-4159,841,1983-03-19,35,2004-11-14,Nashville,TN,6578 Marauder Drive,Robert,36.142929,-86.885521,"Traditional IRA,Brokerage",259886.14926886655
+Timothy,Stadther,Timothy Stadther,114-811-6302,842,1959-11-18,59,2012-09-07,Fayetteville,AR,1643 North Jordan Lane,Cynthia,36.083059,-94.14270499999999,Brokerage,23476.896704069266
+Richard,Grant,Richard Grant,512-360-9271,843,1974-02-01,44,2017-07-10,Pasadena,MD,1990 Poplar Ridge Road,Cynthia,39.130041,-76.457656,Roth 401(k),15467.594751572375
+Lula,Manning,Lula Manning,101-732-5224,844,1967-02-26,51,2001-11-18,Nashville,TN,3031 Casa Drive,Robert,36.143172,-86.643205,"Brokerage,Traditional IRA,529,Roth IRA,Roth 401(k)",67508.44327027077
+David,Noboa,David Noboa,342-335-1523,845,1952-04-02,66,2008-04-03,Glendale,AZ,19259 North 61st Drive,Robert,33.659422,-112.191284,"Brokerage,529,Traditional IRA,Roth 401(k),Roth IRA",488651.2800324865
+Miguel,Suennen,Miguel Suennen,343-982-6919,846,1952-06-08,66,2001-01-09,Brentwood,TN,1021 Heathfield Circle,Robert,36.024992,-86.75297200000001,Brokerage,23132.151186127718
+Earl,Riddle,Earl Riddle,601-536-2655,847,1985-12-03,32,2014-04-28,Tybee Island,GA,26 Battery Drive,Robert,32.015963,-80.87416499999999,Brokerage,23222.00759195865
+Alvin,Hansen,Alvin Hansen,289-914-7064,848,1983-07-16,35,2016-12-27,Arvada,CO,8506 West 54th Avenue,Cynthia,39.7947797,-105.0921168,"Traditional IRA,Brokerage,529,Roth 401(k)",321341.3968993494
+Claire,Berard,Claire Berard,124-284-8714,849,1972-04-16,46,2014-07-12,Melrose,MA,38 Renwick Road,Robert,42.47226209999999,-71.06667329999999,"Roth IRA,Roth 401(k),Traditional IRA,Brokerage",51066.16296225666
+Iris,Delgado,Iris Delgado,686-957-1855,850,1968-05-22,50,2001-07-24,Anchorage,AK,700 Winston Place,Robert,61.215882,-149.737337,"Roth IRA,Roth 401(k),Brokerage,529,Traditional IRA",69147.3961182631
+Gary,Morris,Gary Morris,434-648-5475,851,1986-01-28,32,2010-09-05,Nashville,TN,2732 Rosedale Place,Robert,36.1230861,-86.7625204,529,5813.265879285632
+Mary,Stinnett,Mary Stinnett,268-351-1414,852,1957-05-15,61,2014-09-18,Nashville,TN,8064 Claytie Circle,Cynthia,36.06466899999999,-86.976433,Traditional IRA,9020.511454461472
+Edmund,Davis,Edmund Davis,283-714-2324,853,1966-08-06,52,2003-05-04,Bolton,VT,49 West Street,Robert,44.371346,-72.867516,"529,Roth 401(k),Roth IRA",63009.82277852045
+Paul,Oseguera,Paul Oseguera,187-527-1242,854,1956-11-11,62,2013-05-01,Waterbury Center,VT,1402 Maggies Way,Cynthia,44.410965,-72.71017499999999,"Roth 401(k),Brokerage,Roth IRA",193825.9537620269
+Rebecca,Narcisse,Rebecca Narcisse,381-546-5115,855,1978-10-06,40,2011-06-28,Glendale,AZ,6950 West Nicolet Avenue,Robert,33.5424928,-112.2097769,Brokerage,17108.90045865909
+Jeannette,Warren,Jeannette Warren,480-178-3296,856,1989-11-11,29,2006-09-01,Savannah,GA,206 Blue Marlin Drive,Robert,32.04196,-81.017915,"Brokerage,Roth IRA,Roth 401(k),Traditional IRA",301727.1112831725
+Randy,Weuve,Randy Weuve,549-144-1517,857,1975-06-23,43,2002-02-25,Savannah,GA,21 Longview Bluff Drive East,Robert,31.95754299999999,-81.13848899999999,"529,Roth IRA",36137.48379691236
+Kathy,Smith,Kathy Smith,280-178-8134,858,1950-03-01,68,2002-11-19,Nashville,TN,3505 Albee Drive,Robert,36.181781,-86.611408,Brokerage,22261.62058430568
+Martin,Hanks,Martin Hanks,246-172-2635,859,1951-09-16,67,2001-12-16,Savannah,GA,713 East 32nd Street,Cynthia,32.0579228,-81.0878461,Brokerage,13386.468053740762
+Susan,Willis,Susan Willis,497-817-1569,860,1977-02-08,41,2016-02-17,Oklahoma City,OK,10632 Admiral Court,Cynthia,35.57886200000001,-97.6270728,"Roth 401(k),Traditional IRA,Brokerage,Roth IRA",48575.8185105378
+Chris,Cosby,Chris Cosby,152-231-2360,861,1987-03-09,31,2014-01-21,Farmington,AR,110 Allen Place,Robert,36.04627,-94.23044,"Brokerage,Roth IRA,Roth 401(k),Traditional IRA,529",53180.487318513064
+Carol,Cathey,Carol Cathey,680-185-2462,862,1983-10-10,35,2013-06-21,Savannah,GA,12 Netherclift Way,Cynthia,31.915037,-81.07712599999999,"Roth 401(k),Brokerage,Traditional IRA,529,Roth IRA",49221.23870130488
+Stacy,Hauck,Stacy Hauck,483-467-5422,863,1958-06-10,60,2002-02-26,Panama City,FL,1430 South Gay Avenue,Cynthia,30.120243,-85.587605,"Roth 401(k),Traditional IRA,Roth IRA",41158.61199034591
+Nickolas,Nguyen,Nickolas Nguyen,383-717-1028,864,1958-06-25,60,2006-06-03,Woburn,MA,78 School Street,Cynthia,42.506877,-71.15299,"Roth 401(k),Roth IRA,Traditional IRA,Brokerage",47387.42949448811
+Daniel,Hillier,Daniel Hillier,134-784-1777,865,1969-02-03,49,2011-03-18,Arvada,CO,6687 Xenon Drive,Cynthia,39.817775,-105.141784,"Roth IRA,Traditional IRA,529,Roth 401(k)",116300.8492922515
+Timothy,Jones,Timothy Jones,172-694-6523,866,1966-04-13,52,2017-05-24,Anchorage,AK,2815 Blueridge Place,Cynthia,61.1949009,-149.7213429,"529,Brokerage,Traditional IRA,Roth 401(k)",55980.7675368443
+Soraya,Richardson,Soraya Richardson,537-376-0809,867,1951-10-12,67,2005-10-07,Hanover,MD,1403 Boulder Court,Robert,39.140743,-76.69958,"Roth IRA,Brokerage",24074.11171258003
+Mary,Christensen,Mary Christensen,359-661-7685,868,1967-08-18,51,2007-12-07,Annapolis,MD,1347 Blackwalnut Court,Robert,38.936881,-76.475823,Roth IRA,4810.208562184878
+Lawrence,Inoue,Lawrence Inoue,150-155-3059,869,1979-09-03,39,2017-05-11,Lynn Haven,FL,1501 New Hampshire Avenue,Cynthia,30.2361205,-85.6624582,"Brokerage,Roth 401(k)",115655.9935045003
+Winter,Epperson,Winter Epperson,285-790-3589,870,1965-03-07,53,2008-04-20,Anchorage,AK,1320 Huffman Park Drive,Cynthia,61.10976600000001,-149.858039,"Roth IRA,Brokerage,Roth 401(k)",15998.36402352566
+Travis,Teel,Travis Teel,264-162-8005,871,1955-04-01,63,2003-04-07,Orange,CA,2134 West Mills Drive,Robert,33.786584,-117.875665,"Roth IRA,Brokerage,Roth 401(k),529",62648.70528372334
+Melanie,Pickett,Melanie Pickett,395-998-4386,872,1986-08-06,32,2000-01-04,Fayetteville,AR,2222 Martin Luther King Junior Boulevard,Robert,36.0554972,-94.1910602,"Roth 401(k),529,Traditional IRA,Roth IRA,Brokerage",122871.96140074081
+Grace,Baumann,Grace Baumann,426-880-7313,873,1970-10-10,48,2017-08-11,Washington,DC,4401 Burlington Place Northwest,Cynthia,38.950554,-77.0864351,"529,Roth IRA",42795.02744119421
+Jeffrey,Moore,Jeffrey Moore,127-659-9862,874,1969-10-06,49,2001-07-12,Glen Burnie,MD,1056 Cayer Drive,Cynthia,39.148696,-76.625305,"Traditional IRA,Brokerage,Roth IRA,Roth 401(k),529",60604.77807720296
+Angel,Larkin,Angel Larkin,624-462-4689,875,1987-11-16,30,2017-11-08,Montgomery,AL,5680 Eddins Road,Cynthia,32.3767837,-86.2055239,"529,Traditional IRA",18319.239689282364
+Amanda,Benware,Amanda Benware,300-674-0949,876,1986-08-18,32,2000-08-13,Manchester,CT,152 Bissell Street,Robert,41.7727917,-72.5136789,"Traditional IRA,Roth 401(k)",180625.5522957735
+Andrew,Simmons,Andrew Simmons,568-459-2923,877,1953-12-05,64,2016-01-13,Panama City Beach,FL,301 Argonaut Street,Robert,30.20514,-85.84755899999999,"Brokerage,Traditional IRA",25223.106749091785
+Ellen,Lampley,Ellen Lampley,698-945-0502,878,1987-01-27,31,2013-01-01,Oakland,CA,439 Crestmont Drive,Robert,37.799782,-122.178871,"Roth IRA,Roth 401(k),Traditional IRA,Brokerage",92563.43337878711
+Dannie,Childress,Dannie Childress,219-873-9834,879,1953-10-22,65,2010-12-08,Oklahoma City,OK,1313 Southwest 115th Place,Robert,35.353499,-97.540024,"Brokerage,Traditional IRA,Roth 401(k)",32913.55780037139
+Genevive,Grafton,Genevive Grafton,612-390-3284,880,1985-06-04,33,2007-06-07,Mountain View,CA,928 Wright Avenue,Robert,37.3996523,-122.0796285,"529,Roth 401(k)",16240.878571789543
+Joe,Mcclain,Joe Mcclain,110-528-1833,881,1978-01-07,40,2017-03-10,Oklahoma City,OK,328 South Ranchwood Manor Drive,Robert,35.3685432,-97.5194117,"Roth 401(k),Brokerage",22484.636469851386
+Amos,Nekola,Amos Nekola,612-231-5501,882,1962-01-15,56,2012-07-13,Glendale,AZ,5631 West Colter Street,Cynthia,33.5122246,-112.1805515,Roth 401(k),15687.65128480143
+Toby,Alston,Toby Alston,585-423-7790,883,1963-02-06,55,2011-05-05,Glendale,AZ,7711 North 51st Avenue,Robert,33.5502243,-112.1665731,"Roth IRA,Brokerage,Traditional IRA",33612.07892883978
+Mollie,Bellerose,Mollie Bellerose,626-390-0349,884,1953-07-09,65,2014-08-18,Woodbury,VT,848 Vermont 14,Cynthia,44.407272,-72.411934,"Brokerage,529,Traditional IRA,Roth IRA,Roth 401(k)",139640.5631826354
+Chelsey,Brenner,Chelsey Brenner,286-459-2084,885,1954-11-13,64,2012-01-10,Panama City,FL,121 Alpine Way,Cynthia,30.183767,-85.490669,"Traditional IRA,Brokerage,529,Roth IRA",343511.5544941622
+Emery,Lopes,Emery Lopes,696-954-5453,886,1957-04-02,61,2015-07-01,Cambridge,MA,599 Cambridge Street,Cynthia,42.3720518,-71.08610949999999,"Roth 401(k),Brokerage,Roth IRA",127779.8523556977
+Brandon,Darden,Brandon Darden,191-627-3368,887,1976-08-18,42,2006-04-24,Nashville,TN,606 Spence Enclave Way,Cynthia,36.1534208,-86.7201705,529,5231.17493803483
+Gail,Sears,Gail Sears,688-330-2638,888,1984-08-23,34,2017-01-10,Fayetteville,AR,481 East Redbud Lane,Robert,36.103899,-94.151128,"Roth 401(k),Roth IRA,Brokerage,529",26851.23638107354
+Henry,Painter,Henry Painter,499-327-6588,889,1950-09-21,68,2011-07-24,Oakland,CA,5397 Wentworth Avenue,Robert,37.769842,-122.200969,Brokerage,23473.556353566797
+Beverly,Koester,Beverly Koester,522-467-1172,890,1976-11-14,42,2013-07-16,Groton,CT,13 Riverview Avenue,Robert,41.36573,-72.076115,"Traditional IRA,529,Roth 401(k),Brokerage",125991.748523513
+Sean,Nguyen,Sean Nguyen,586-555-0445,891,1956-04-21,62,2006-09-01,Crownsville,MD,854 Cherry Trail,Cynthia,39.050095,-76.577817,"Roth IRA,Brokerage,529,Roth 401(k)",69143.76638868322
+Patricia,Bass,Patricia Bass,310-982-7956,892,1957-12-07,60,2006-01-09,Louisville,KY,3140 Commander Drive,Cynthia,38.215781,-85.653981,"Roth 401(k),Brokerage,Roth IRA,529,Traditional IRA",309040.82431616774
+Olive,Pinkney,Olive Pinkney,379-214-9271,893,1977-04-10,41,2005-02-20,Anchorage,AK,4800 Huffman Road,Cynthia,61.10827899999999,-149.791977,"Brokerage,Roth IRA,Traditional IRA,529",209685.82672662474
+Jerry,Hurst,Jerry Hurst,663-701-7518,894,1974-11-25,43,2010-04-24,Oklahoma City,OK,7701 Southwest 104th Street,Robert,35.3641983,-97.6475346,"Traditional IRA,Roth 401(k)",18752.760477317308
+Raymond,Winters,Raymond Winters,327-415-8172,895,1960-08-19,58,2016-06-10,Arvada,CO,6293 Braun Circle,Robert,39.810651,-105.148613,"Brokerage,Roth 401(k)",33793.18035170658
+Donald,Roemmich,Donald Roemmich,317-540-7760,896,1968-12-08,49,2011-02-20,Manchester,CT,460 Woodbridge Street,Cynthia,41.7901797,-72.5061049,"Traditional IRA,Roth 401(k)",267276.4644908705
+Brian,Cummings,Brian Cummings,569-104-1293,897,1960-11-18,58,2017-09-20,Washington,DC,422 C Street Northeast,Cynthia,38.8942029,-76.99988809999999,"529,Brokerage,Traditional IRA",56102.6514284004
+Annie,Raines,Annie Raines,159-725-9939,898,1960-10-26,58,2001-04-02,Farmington,AR,110 Allen Place,Cynthia,36.04627,-94.23044,"Brokerage,Roth 401(k),Traditional IRA",62086.374304427874
+Dorothy,Walton,Dorothy Walton,487-801-8127,899,1973-10-03,45,2011-10-26,Tyngsborough,MA,5 Centercrest Drive,Robert,42.670101,-71.4206892,Roth 401(k),13040.243171466895
+Ben,Ison,Ben Ison,267-258-2831,900,1986-02-06,32,2013-06-09,Anchorage,AK,5436 Dorbrandt Street,Robert,61.17090200000001,-149.904782,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA",35578.08955564445
+Michael,Feurtado,Michael Feurtado,354-352-9686,901,1958-01-05,60,2016-05-03,Nashville,TN,407 West Hillwood Drive,Cynthia,36.12585,-86.867256,Roth IRA,7317.718518926115
+Hayley,Field,Hayley Field,489-600-0726,902,1979-02-11,39,2001-08-17,Oklahoma City,OK,5005 North Miller Avenue,Robert,35.5213931,-97.56191270000001,"529,Roth IRA,Roth 401(k),Traditional IRA",263967.9242302341
+Marcella,Sampson,Marcella Sampson,621-595-9460,903,1970-05-16,48,2006-02-07,Panama City,FL,2936 State Avenue,Robert,30.202236,-85.66611499999999,"Roth IRA,Traditional IRA",288529.3607619482
+Heather,Edwards,Heather Edwards,347-284-7184,904,1976-06-10,42,2009-05-24,Montgomery,AL,5706 Worchester Drive,Cynthia,32.340243,-86.218834,"Brokerage,Roth 401(k),Traditional IRA,Roth IRA",61645.581930321634
+Antonio,Gilbert,Antonio Gilbert,258-357-4554,905,1954-02-13,64,2016-01-24,Savannah,GA,13 Breezy Palm Way,Cynthia,31.994747,-81.06653399999999,"Roth IRA,Brokerage,Roth 401(k),529",210568.39248474123
+Terry,Healy,Terry Healy,248-726-6316,906,1965-03-16,53,2006-02-24,Louisville,KY,15510 Champion Lakes Place,Cynthia,38.276776,-85.47488,"Roth IRA,Roth 401(k),529,Brokerage,Traditional IRA",249395.35006993695
+Armand,Pierce,Armand Pierce,351-525-5337,907,1988-06-22,30,2016-11-25,Laurel,MD,3324 Valley Lee South,Robert,39.090502,-76.81145699999999,"Brokerage,Roth IRA",33406.3986828786
+Randall,Fuller,Randall Fuller,402-731-4333,908,1982-04-26,36,2000-03-17,Fayetteville,AR,3111 West Ika Lane,Robert,36.1101344,-94.20362809999999,"Roth 401(k),Brokerage,Traditional IRA,529,Roth IRA",74141.75189707878
+Evelyn,Miller,Evelyn Miller,276-613-3098,909,1966-01-12,52,2002-04-05,Washington,DC,1303 Kearny Street Northeast,Robert,38.9304786,-76.9882106,"Traditional IRA,Roth IRA,Roth 401(k)",51996.672342729216
+Eve,Plazza,Eve Plazza,171-597-0343,910,1952-09-08,66,2011-03-02,Telluride,CO,747 West Pacific Avenue,Cynthia,37.93869100000001,-107.819887,"Roth IRA,529,Roth 401(k),Brokerage,Traditional IRA",78999.86684283041
+Sherry,Crume,Sherry Crume,614-716-0408,911,1976-10-26,42,2012-10-04,Revere,MA,500 Revere Beach Boulevard,Cynthia,42.4282118,-70.9804188,"Traditional IRA,529,Roth IRA,Roth 401(k),Brokerage",72255.54957626016
+James,Crenshaw,James Crenshaw,290-918-0340,912,1970-03-02,48,2012-01-15,Montgomery,AL,521 McGregor Court,Cynthia,32.390155,-86.17670799999999,"Roth IRA,529",291774.96748939547
+Anne,Fars,Anne Fars,179-654-3636,913,1968-11-24,49,2012-05-27,Savannah,GA,23 Cove Drive,Robert,31.980788,-81.212321,Traditional IRA,7407.792960613283
+Evelyn,Bankston,Evelyn Bankston,196-904-8911,914,1973-03-03,45,2017-01-03,Norman,OK,634 Chautauqua Avenue,Cynthia,35.2098299,-97.450526,Roth 401(k),1597.304590774221
+Helen,Helms,Helen Helms,250-119-0194,915,1950-02-17,68,2009-11-16,Washington,DC,534 Hamilton Street Northeast,Cynthia,38.954267,-76.997085,"529,Roth IRA,Traditional IRA",51022.74758439625
+Fay,Beehler,Fay Beehler,253-884-7729,916,1977-06-12,41,2010-06-18,Glendale,AZ,4319 West Claremont Street,Cynthia,33.528782,-112.152664,"Traditional IRA,Roth IRA,Roth 401(k),529,Brokerage",285935.1936849106
+Katy,Simmons,Katy Simmons,216-738-1473,917,1958-07-10,60,2004-10-03,Savannah,GA,707 Leaning Oaks Drive,Cynthia,32.007317,-80.970293,529,138057.81277695415
+Thomas,Belcher,Thomas Belcher,625-430-1577,918,1951-08-10,67,2016-08-19,Baltimore,MD,5224 Wasena Avenue,Cynthia,39.223779,-76.60339499999999,"Roth 401(k),Traditional IRA,Brokerage,529",66315.04579082617
+Benjamin,Golden,Benjamin Golden,696-508-4257,919,1982-05-19,36,2003-03-28,Oklahoma City,OK,1709 Southeast 51st Street,Robert,35.414161,-97.48171099999999,"529,Traditional IRA,Roth IRA,Roth 401(k),Brokerage",331054.6112665934
+Erin,Bray,Erin Bray,233-385-7697,920,1960-11-11,58,2004-02-01,Panama City,FL,1405 Mercedes Avenue,Cynthia,30.1738039,-85.6462091,"Roth IRA,Brokerage",9716.40270193079
+John,Jimenez,John Jimenez,113-445-0805,921,1984-03-23,34,2014-06-13,Montgomery,AL,4216 Park Boulevard,Cynthia,32.336456,-86.237101,"529,Brokerage,Traditional IRA,Roth IRA",42056.77796668527
+Howard,Gregg,Howard Gregg,393-315-3647,922,1985-06-16,33,2005-08-08,Edmond,OK,1709 Travers Court,Robert,35.694913,-97.507218,"529,Traditional IRA,Brokerage",12178.792511294543
+Richard,Kimbrell,Richard Kimbrell,533-883-8607,923,1989-04-20,29,2007-08-16,Braintree,MA,66 Bradford Road,Robert,42.17711,-71.010283,Brokerage,2128.884057836759
+Dorothy,Cosby,Dorothy Cosby,555-603-8625,924,1973-06-12,45,2014-07-03,Newton,MA,83 Oakdale Road,Robert,42.3184962,-71.1985203,"Traditional IRA,Brokerage,Roth 401(k),529",57009.280346799125
+Jessica,Harvey,Jessica Harvey,437-164-1210,925,1980-08-28,38,2015-12-12,Savannah,GA,5108 Franklin Street,Cynthia,32.034987,-81.121928,"Roth 401(k),Roth IRA,529,Traditional IRA",327859.1575998914
+Ann,Grindle,Ann Grindle,470-305-9357,926,1962-04-02,56,2001-09-17,Nashville,TN,5029 Montclair Drive,Cynthia,36.068873,-86.754205,"529,Traditional IRA,Roth 401(k),Roth IRA",68186.8993005465
+Gary,Williams,Gary Williams,398-934-4963,927,1977-03-15,41,2012-02-25,Nashville,TN,3313 Daisy Trail,Robert,36.076186,-86.60113799999999,"Roth 401(k),Roth IRA",30864.66946549386
+George,Rogers,George Rogers,590-317-2796,928,1953-11-19,65,2000-07-24,Savannah,GA,4 Marsh Haven Lane,Robert,31.890955,-81.0497989,"Roth 401(k),Roth IRA,529,Traditional IRA,Brokerage",57998.23476728113
+Shirley,Stubbert,Shirley Stubbert,642-334-3596,929,1954-09-05,64,2013-09-01,Newfane,VT,578 Vermont 30,Robert,42.9853466,-72.6551727,"Traditional IRA,Brokerage",214454.81978339702
+Lori,Perry,Lori Perry,358-433-4190,930,1984-07-03,34,2012-01-14,Arvada,CO,8347 Ames Way,Robert,39.848264,-105.055291,"Roth 401(k),Traditional IRA,529,Brokerage",289238.6110538475
+Kenneth,Saavedra,Kenneth Saavedra,216-301-2696,931,1981-12-03,36,2001-01-17,Montgomery,AL,9457 Winfield Place,Robert,32.341347,-86.14867799999999,"529,Traditional IRA,Brokerage",53219.745994969635
+Jon,Bauman,Jon Bauman,258-345-9107,932,1990-02-14,28,2009-12-27,Panama City,FL,7758 Betty Louise Drive,Cynthia,30.142779,-85.5594799,"Traditional IRA,529,Roth 401(k),Roth IRA,Brokerage",55516.02431008166
+Peter,Wilson,Peter Wilson,237-288-1930,933,1959-03-10,59,2011-02-25,Nashville,TN,606 Spence Enclave Way,Robert,36.1534208,-86.7201705,"Roth 401(k),Traditional IRA,Brokerage,529",228169.1573907951
+Celeste,Bohn,Celeste Bohn,670-891-5639,934,1962-01-23,56,2003-09-01,Arvada,CO,7072 Quail Street,Robert,39.826338,-105.12315,"Traditional IRA,Roth 401(k),529,Brokerage",259774.5784983403
+Cristina,Ventura,Cristina Ventura,291-709-8612,935,1950-07-22,68,2010-09-04,Agawam,MA,74 Springfield Street,Cynthia,42.0894922,-72.6297558,"Roth 401(k),Roth IRA,529,Traditional IRA,Brokerage",74555.43957629417
+Kenneth,Edward,Kenneth Edward,354-655-8842,936,1978-03-06,40,2016-05-20,Arvada,CO,7720 Allison Street,Robert,39.8383411,-105.0855734,"Roth IRA,Brokerage",41546.46073490035
+Kristie,Brown,Kristie Brown,353-752-9571,937,1990-07-21,28,2012-05-06,Eureka,CA,461 Alder Street,Robert,40.76621,-124.164174,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA",33065.592705622286
+Douglas,Dunbar,Douglas Dunbar,453-502-9722,938,1962-07-24,56,2017-12-18,Yucaipa,CA,12283 Thomas Lane,Cynthia,34.030566,-117.089117,"Brokerage,529,Roth IRA",99101.80397909232
+Rafael,James,Rafael James,282-452-7139,939,1957-04-14,61,2005-07-26,Louisville,KY,2506 West Madison Street,Robert,38.253755,-85.7933322,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k),529",435260.66179060435
+Mary,White,Mary White,654-410-2348,940,1963-05-15,55,2001-06-20,Glendale,AZ,4922 West Cholla Street,Cynthia,33.5894819,-112.166303,"529,Brokerage",19883.419552294563
+Melvin,Jackson,Melvin Jackson,592-956-4970,941,1951-07-09,67,2015-01-09,Litchfield Park,AZ,12546 West Montebello Avenue,Robert,33.520215,-112.330507,"Roth 401(k),Roth IRA,Traditional IRA,529",43127.947229240155
+Maria,Taylor,Maria Taylor,228-196-4999,942,1962-09-14,56,2006-05-20,Panama City,FL,1025 West 19th Street,Robert,30.18252889999999,-85.676771,"Traditional IRA,Roth IRA,Brokerage",24037.439954095767
+Debbie,Rivera,Debbie Rivera,454-554-6735,943,1961-04-19,57,2017-03-20,Washington,DC,4418 15th Street Northwest,Robert,38.944698,-77.03482319999999,"Roth 401(k),Roth IRA,Traditional IRA,529",56471.5373063611
+Robert,Kryder,Robert Kryder,415-174-2592,944,1985-01-18,33,2014-11-20,Nashville,TN,913 Fallview Trail,Cynthia,36.02419100000001,-86.718305,"529,Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",324914.9659254805
+April,Lyles,April Lyles,523-665-1209,945,1986-11-01,32,2002-03-09,Union City,CA,31250 Courthouse Drive,Robert,37.60187639999999,-122.0648031,"Brokerage,Roth IRA",39851.869485118106
+Matthew,Hilbert,Matthew Hilbert,190-684-2571,946,1982-10-09,36,2003-06-17,Washington,DC,760 11th Street Southeast,Cynthia,38.879695,-76.99121,"Brokerage,Traditional IRA,Roth IRA",44822.4838244752
+Stan,Colangelo,Stan Colangelo,378-893-5795,947,1974-05-17,44,2000-10-17,Deale,MD,5926 Sneed Drive,Robert,38.78465,-76.54507799999999,"Traditional IRA,529,Brokerage",189913.3991921352
+Lillian,Johnson,Lillian Johnson,466-937-9609,948,1958-09-02,60,2000-02-09,Glen Burnie,MD,105 Gilmore Street,Cynthia,39.176817,-76.630884,"Brokerage,529,Roth 401(k),Traditional IRA",60536.94371409511
+Glenda,Brittain,Glenda Brittain,675-879-4643,949,1956-12-18,61,2013-02-08,Glendale,AZ,5244 West Port Au Prince Lane,Robert,33.622672,-112.17283,"Roth 401(k),Traditional IRA,Brokerage,529,Roth IRA",74538.89314305915
+Robin,Klug,Robin Klug,163-262-7119,950,1954-02-05,64,2012-03-01,Manchester,CT,80 Homestead Street,Cynthia,41.785401,-72.531238,"529,Brokerage,Roth IRA",46259.011826657385
+Loretta,Keeler,Loretta Keeler,531-295-4781,951,1980-02-14,38,2005-09-13,Panama City,FL,1309 Clay Avenue,Robert,30.1729,-85.69342999999999,"Traditional IRA,529,Roth IRA,Roth 401(k)",45194.277180864054
+Eric,Walker,Eric Walker,148-610-8524,952,1957-12-10,60,2003-02-27,Nashville,TN,584 Rural Hill Road,Cynthia,36.089291,-86.621854,"529,Traditional IRA,Roth 401(k),Roth IRA,Brokerage",359761.780389142
+Barbara,Block,Barbara Block,433-871-7904,953,1967-08-05,51,2011-12-14,Oak Bluffs,MA,93 Alpine Avenue,Cynthia,41.4401517,-70.5804332,Roth IRA,3840.624185644541
+James,Destephen,James Destephen,359-580-4181,954,1974-07-05,44,2011-05-07,Grand Junction,CO,491 Arabian Way,Robert,39.07548999999999,-108.474785,"Roth 401(k),Traditional IRA,Brokerage",164345.61690937955
+Mark,Wilson,Mark Wilson,188-506-8313,955,1966-07-06,52,2012-08-26,Glendale,AZ,6116 West Charter Oak Road,Cynthia,33.597866,-112.191085,Brokerage,54749.403265200905
+Tiffany,Hobbs,Tiffany Hobbs,474-255-0317,956,1988-02-15,30,2010-05-05,Brentwood,TN,5526 Thalman Drive,Cynthia,36.044282,-86.748932,"Brokerage,Roth 401(k),Roth IRA",97465.84983959584
+Louis,Satterfield,Louis Satterfield,390-341-7209,957,1985-01-18,33,2004-11-11,Manchester,CT,173 Spruce Street,Robert,41.7705332,-72.51594109999999,Brokerage,19086.739385538753
+Cheryl,Schmidt,Cheryl Schmidt,195-758-4057,958,1954-12-13,63,2007-10-26,Fayetteville,AR,683 North Wilson Avenue,Cynthia,36.073326,-94.166248,"529,Roth 401(k),Traditional IRA",40748.60955285268
+David,Steele,David Steele,583-482-0631,959,1984-07-05,34,2017-07-25,Edmond,OK,2900 North Western Avenue,Robert,35.687568,-97.53227299999999,"Roth IRA,Traditional IRA",14224.28490617605
+Nathaniel,Monte,Nathaniel Monte,274-315-3922,960,1966-06-17,52,2001-09-09,Montgomery,AL,5840 Eagle Circle,Cynthia,32.325512,-86.2287363,"Brokerage,529,Traditional IRA,Roth 401(k)",50980.514847432976
+Hubert,Brown,Hubert Brown,527-200-8398,961,1985-11-16,32,2006-07-28,Millis,MA,22 Eden Street,Robert,42.1775811,-71.3352846,"Traditional IRA,Brokerage,Roth 401(k),Roth IRA",122440.83914711638
+Ryan,Sharr,Ryan Sharr,374-984-2559,962,1980-10-03,38,2017-02-07,Arvada,CO,7250 Urban Drive,Cynthia,39.827875,-105.133965,"Brokerage,Roth 401(k)",40721.41444497115
+Jason,Jones,Jason Jones,651-338-1431,963,1953-11-03,65,2000-05-27,Montgomery,AL,487 Maury Street,Cynthia,32.3607439,-86.300546,"Roth 401(k),Brokerage,Roth IRA",290627.84512796206
+Mary,Katz,Mary Katz,381-571-7720,964,1954-10-03,64,2003-11-15,Oakland,CA,281 MacArthur Boulevard,Robert,37.8147324,-122.25217,"Roth IRA,Brokerage",87636.57009061151
+Danny,Benefiel,Danny Benefiel,158-429-7586,965,1965-09-09,53,2012-12-11,Savannah,GA,13213 Spanish Moss Road,Robert,31.959828,-81.147904,"Brokerage,Roth IRA,Traditional IRA,529,Roth 401(k)",191256.68193110253
+Emanuel,Greene,Emanuel Greene,423-134-0722,966,1962-11-23,55,2012-07-15,Sutter Creek,CA,10841 Sutter Circle,Robert,38.378499,-120.775775,"Roth IRA,Brokerage,Traditional IRA,Roth 401(k)",64225.848044245926
+Kerri,Spears,Kerri Spears,279-530-5042,967,1980-05-14,38,2002-10-10,Berkeley,CA,2414 Parker Street,Robert,37.862903,-122.2595092,"Brokerage,Roth 401(k)",21742.34414969726
+Laurel,Setser,Laurel Setser,261-247-7169,968,1986-04-28,32,2002-02-02,Arvada,CO,6029 Wright Street,Cynthia,39.8063897,-105.1397744,"529,Roth IRA",16599.74676784778
+Ernest,Lewis,Ernest Lewis,589-809-7264,969,1969-06-04,49,2007-10-22,Panama City Beach,FL,420 Cove Villa Street,Robert,30.1931873,-85.761876,"Roth IRA,Roth 401(k),529",33727.396550369165
+Kenneth,Jones,Kenneth Jones,372-380-1296,970,1959-05-07,59,2004-07-26,Walpole,MA,502 Main Street,Robert,42.159379,-71.24192699999999,"Traditional IRA,Roth 401(k)",37096.66652201493
+Andrew,Stephenson,Andrew Stephenson,545-268-1283,971,1972-03-22,46,2017-02-03,Mount Juliet,TN,4927 Alvin Sperry Road,Robert,36.143557,-86.556877,"Roth 401(k),Brokerage,Traditional IRA,Roth IRA,529",39865.37965452925
+James,Whitrock,James Whitrock,609-418-0112,972,1981-05-19,37,2015-10-07,Panama City,FL,2538 East 40th Plaza,Robert,30.221455,-85.626834,"Brokerage,Roth 401(k)",33361.58187511507
+Derek,Wisniewski,Derek Wisniewski,448-751-0018,973,1983-03-13,35,2006-01-08,Fayetteville,AR,1 North School Avenue,Cynthia,36.0632351,-94.1649619,"529,Roth 401(k),Roth IRA,Brokerage,Traditional IRA",61882.361645109
+Melvin,Elliott,Melvin Elliott,462-212-4212,974,1954-12-28,63,2006-06-17,Prospect,KY,9306 Norton Commons Boulevard,Cynthia,38.3232327,-85.5679148,"Traditional IRA,Roth IRA,Brokerage,529",43650.48143764154
+Ronald,Robbins,Ronald Robbins,322-720-8225,975,1958-07-10,60,2000-08-23,Berkeley,CA,169 Avenida Drive,Cynthia,37.884824,-122.249694,"Brokerage,Roth IRA,Traditional IRA,Roth 401(k)",184193.13731222117
+William,Venable,William Venable,415-377-6340,976,1963-05-23,55,2012-09-26,Savannah,GA,1403 Lincoln Street,Cynthia,32.0613716,-81.09482249999999,Brokerage,1676.9533712475368
+Ina,Moore,Ina Moore,417-360-0522,977,1981-06-12,37,2003-12-20,Savannah,GA,2223 North Fernwood Court,Robert,32.029307,-81.06297099999999,"Brokerage,Traditional IRA,529,Roth 401(k)",319486.5080915121
+Janet,Hawkins,Janet Hawkins,227-960-7964,978,1990-11-07,28,2014-09-27,Peabody,MA,11 Proctor Circle,Cynthia,42.535503,-70.953384,"Roth IRA,Brokerage,Roth 401(k)",352052.9787961426
+Lindsey,Maley,Lindsey Maley,275-695-7566,979,1990-07-25,28,2006-03-01,Norman,OK,4012 Heritage Place Drive,Cynthia,35.220543,-97.50166999999999,"Roth 401(k),529,Roth IRA",246736.17425465584
+Anna,Watson,Anna Watson,476-654-1574,980,1952-03-13,66,2009-05-11,Panama City,FL,312 North Cove Boulevard,Robert,30.1520433,-85.6500713,"Brokerage,Traditional IRA,Roth IRA",99359.93502837206
+Kimberly,Schroot,Kimberly Schroot,294-334-8514,981,1956-11-08,62,2015-12-19,Anchorage,AK,1220 Crow Berry Circle,Cynthia,61.127501,-149.859694,"529,Roth IRA,Brokerage,Roth 401(k)",58589.145923349046
+Donald,Walker,Donald Walker,461-849-8363,982,1957-03-19,61,2014-12-28,Newton,MA,65 Clark Street,Robert,42.321396,-71.1995577,"Brokerage,Roth 401(k),Traditional IRA,529",22754.089769547918
+Felix,Martinez,Felix Martinez,477-600-0166,983,1969-09-05,49,2015-09-27,Nashville,TN,115 Colemont Court,Robert,36.0603,-86.698751,"Brokerage,Roth 401(k)",12664.048415882624
+Margaret,Mojica,Margaret Mojica,541-416-2195,984,1958-08-22,60,2009-01-12,Union City,CA,4231 Miramonte Way,Robert,37.591721,-122.075993,Roth IRA,1676.2131771980303
+Anna,Woolwine,Anna Woolwine,483-973-9091,985,1967-02-01,51,2013-03-16,Anchorage,AK,1320 Huffman Park Drive,Cynthia,61.10976600000001,-149.858039,"Roth IRA,Traditional IRA,Roth 401(k)",35977.040698840094
+Viola,Vaughn,Viola Vaughn,221-415-3627,986,1967-11-08,51,2011-08-26,Anchorage,AK,4221 Thompson Avenue,Cynthia,61.2277595,-149.8015005,"Brokerage,Traditional IRA,529,Roth 401(k)",43328.059390833376
+Betty,Clifford,Betty Clifford,375-815-2636,987,1961-11-16,57,2016-06-21,Montgomery,AL,4714 Narrow Lane Road,Robert,32.3140725,-86.2819674,Traditional IRA,12705.357386889544
+James,Stephenson,James Stephenson,135-240-0636,988,1990-07-15,28,2008-11-12,Glendale,AZ,20241 North 67th Avenue,Cynthia,33.670937,-112.2005539,"Roth 401(k),529",19699.84282748805
+Sharon,Ewing,Sharon Ewing,633-938-5809,989,1972-01-03,46,2010-11-01,Glendale,AZ,6741 West Robert E Lee Street,Cynthia,33.6488749,-112.204666,"Roth 401(k),529,Traditional IRA,Roth IRA",41170.44719061574
+Kevin,Bertram,Kevin Bertram,522-218-6383,990,1981-01-07,37,2004-01-06,Pleasanton,CA,8063 Regency Drive,Robert,37.661416,-121.908019,"Roth 401(k),Roth IRA",65695.70553652041
+Roland,Leak,Roland Leak,316-121-9636,991,1972-12-19,45,2013-08-11,Manchester,CT,173 Center Street,Cynthia,41.7742099,-72.5267609,"Traditional IRA,529,Brokerage,Roth 401(k),Roth IRA",91916.4558912157
+Audrey,Garrison,Audrey Garrison,272-706-4438,992,1962-10-26,56,2009-03-14,Washington,DC,1303 Kearny Street Northeast,Robert,38.9304786,-76.9882106,Brokerage,12283.267043117616
+Ethel,Thomas,Ethel Thomas,697-364-6716,993,1968-04-22,50,2003-06-20,Washington,DC,4700 10th Street Northeast,Robert,38.946402,-76.99293999999999,Brokerage,15221.445929227775
+Angela,Rowe,Angela Rowe,170-175-5560,994,1952-09-24,66,2016-12-21,Louisville,KY,109 Cambridge Station Road,Robert,38.244527,-85.56912799999999,Brokerage,7405.824833416464
+Darrel,Taylor,Darrel Taylor,157-535-2260,995,1951-11-16,67,2004-12-09,Fayetteville,AR,2849 Quail Drive,Robert,36.095294,-94.20036300000001,"Brokerage,Roth 401(k),529",189383.24637342108
+Paul,Anderson,Paul Anderson,274-775-9885,996,1958-12-14,59,2017-06-09,Panama City,FL,234 East Beach Drive,Robert,30.1513967,-85.6604158,"Roth IRA,Roth 401(k)",23211.21721349709
+Kyle,Stephens,Kyle Stephens,287-904-3319,997,1976-11-11,42,2007-09-08,Oklahoma City,OK,1245 Southwest 31st Street,Robert,35.4336277,-97.5388728,"Roth IRA,Roth 401(k)",14297.624313060966
+Mary,Mccrory,Mary Mccrory,241-824-0533,998,1987-06-11,31,2011-03-27,Groton,VT,1558 Goodfellow Road,Robert,44.239583,-72.21828599999999,"529,Brokerage,Roth IRA,Roth 401(k)",148090.60338116786
+Wendy,Dennison,Wendy Dennison,224-200-3566,999,1957-05-24,61,2017-12-16,Glendale,AZ,6407 West Monte Cristo Avenue,Cynthia,33.631238,-112.196396,"Roth IRA,Traditional IRA,529,Roth 401(k)",56247.39312859409
+Essie,Whetzel,Essie Whetzel,610-179-9093,1000,1975-12-10,42,2017-01-08,Arvada,CO,7550 Kline Drive,Cynthia,39.8342031,-105.1106565,"Brokerage,Traditional IRA",8132.362370773539
+James,Moore,James Moore,627-487-4296,1001,1962-08-06,56,2008-01-02,Washington,DC,615 Q Street Northwest,Robert,38.9113118,-77.0206808,Roth IRA,13434.028496969313
+Jason,Carillo,Jason Carillo,483-149-0208,1002,1981-03-26,37,2007-02-01,Panama City,FL,2538 East 40th Plaza,Cynthia,30.221455,-85.626834,Roth IRA,5249.354602146427
+Timothy,Owen,Timothy Owen,620-558-9325,1003,1970-06-05,48,2008-03-20,Oklahoma City,OK,1265 Southeast 23rd Terrace,Robert,35.4419581,-97.4871617,"Roth IRA,Roth 401(k),Brokerage,Traditional IRA,529",79219.42005586618
+Angela,Ball,Angela Ball,615-852-7886,1004,1954-12-10,63,2010-12-12,Montgomery,AL,829 Dunbarton Road,Robert,32.397179,-86.205326,Brokerage,24848.677192146675
+Perry,Hulslander,Perry Hulslander,240-252-3807,1005,1988-12-20,29,2005-08-03,Manchester,CT,52 Park Street,Robert,41.770035,-72.523426,"Roth 401(k),Traditional IRA,Brokerage,529",70998.86721716385
+Rosa,Cohen,Rosa Cohen,291-948-4289,1006,1987-10-09,31,2009-02-22,Arvada,CO,10262 West 59th Avenue,Cynthia,39.803718,-105.111974,"529,Roth 401(k)",24143.781596618806
+Lora,Mccormack,Lora Mccormack,542-136-8313,1007,1977-04-15,41,2004-05-04,Arvada,CO,7622 Vance Drive,Robert,39.835974,-105.079238,"Roth IRA,Brokerage,Traditional IRA",92061.84982452543
+Roger,Bell,Roger Bell,214-155-1842,1008,1987-01-09,31,2014-07-10,Nashville,TN,3605 Normandy Place South,Robert,36.1459501,-86.8276312,Brokerage,20068.304667817287
+Frank,Mitchell,Frank Mitchell,477-225-7566,1009,1983-12-18,34,2000-06-28,Panama City Beach,FL,17878 Front Beach Road,Cynthia,30.237658,-85.91577099999999,Roth IRA,10812.988461186455
+Catarina,Morgan,Catarina Morgan,509-629-0003,1010,1954-11-27,63,2005-10-19,Harwich,MA,25 Wendys Way,Cynthia,41.698893,-70.07624,"Traditional IRA,529",22358.453205637605
+William,Credle,William Credle,185-817-4618,1011,1952-08-15,66,2001-10-17,Anchorage,AK,2620 West 33rd Avenue,Cynthia,61.19027800000001,-149.9339819,"Roth 401(k),Brokerage,529",176910.44364749372
+Janette,Tennyson,Janette Tennyson,371-927-3111,1012,1963-02-09,55,2014-06-28,Anchorage,AK,1040 West 27th Avenue,Robert,61.195892,-149.901984,"529,Traditional IRA,Roth 401(k),Roth IRA,Brokerage",69413.55936632697
+David,Aguilar,David Aguilar,624-318-4798,1013,1970-10-03,48,2011-02-02,Colchester,VT,1783 Blakely Road,Cynthia,44.52978,-73.18901,"Brokerage,Traditional IRA,Roth IRA,529",79608.88018322471
+Emily,Montondo,Emily Montondo,353-755-0802,1014,1984-04-24,34,2008-06-15,Vallejo,CA,637 Britannia Drive,Robert,38.10476999999999,-122.193849,"Traditional IRA,529",22078.26036657991
+Don,Dominguez,Don Dominguez,664-452-4617,1015,1977-03-14,41,2007-06-12,Montgomery,AL,507 Castlebrook Drive,Cynthia,32.423795,-86.294595,"Roth IRA,Roth 401(k),Brokerage",279171.3856689407
+Jasmine,Maurer,Jasmine Maurer,416-977-8746,1016,1975-08-04,43,2002-08-24,Attleboro,MA,43 Howarth Avenue,Robert,41.9192015,-71.3554508,"Brokerage,Roth 401(k)",49140.38294764189
+Monica,Mcdole,Monica Mcdole,500-815-7962,1017,1974-02-16,44,2004-04-13,Hayward,CA,24147 Clinton Court,Robert,37.648857,-122.112388,"Roth 401(k),Traditional IRA,Roth IRA,Brokerage,529",62594.60562564385
+Matt,Torres,Matt Torres,521-752-5005,1018,1990-11-22,27,2001-04-03,Oakland,CA,474 Merritt Avenue,Robert,37.8064419,-122.248422,"Brokerage,529",19212.10629781628
+Ernesto,Uvalle,Ernesto Uvalle,479-462-4850,1019,1985-01-28,33,2010-10-13,Manchester,CT,134 Butternut Road,Cynthia,41.771735,-72.48763,Roth IRA,1335.064699980042
+Anthony,Foss,Anthony Foss,172-460-7325,1020,1985-10-19,33,2016-03-26,Anchorage,AK,5630 Silverado Way,Robert,61.1695128,-149.8896842,"Roth 401(k),529,Brokerage",47090.59571408573
+Alex,Primeaux,Alex Primeaux,127-801-3384,1021,1963-03-04,55,2008-02-28,Manchester,CT,182 Irving Street,Robert,41.7886541,-72.5343043,"Roth 401(k),Brokerage",182882.191682032
+Sheila,Desrosiers,Sheila Desrosiers,278-784-5432,1022,1973-05-01,45,2014-01-03,Jeffersontown,KY,10819 Bluegrass Parkway,Cynthia,38.2217085,-85.5551964,"Roth 401(k),Brokerage",318980.80144191696
+Annie,Longerbeam,Annie Longerbeam,436-853-0302,1023,1967-12-06,50,2008-02-06,Louisville,KY,2821 Tyson Place,Robert,38.20344,-85.64027399999999,"Roth IRA,Traditional IRA,Brokerage,529",158452.30573428166
+Debbie,Mace,Debbie Mace,430-792-2971,1024,1989-12-24,28,2012-07-26,Berkeley,CA,1528 Spruce Street,Cynthia,37.879558,-122.266155,"Brokerage,Traditional IRA",46534.6979732927
+Martin,Ruelas,Martin Ruelas,329-229-6373,1025,1986-12-19,31,2011-10-11,Norman,OK,433 Keith Street,Robert,35.216643,-97.435002,"529,Brokerage,Roth 401(k)",48877.73962753819
+James,Volk,James Volk,499-943-1399,1026,1970-01-09,48,2015-01-16,Chico,CA,1797 Pasatiempo Drive,Cynthia,39.6777229,-121.7704692,Brokerage,20655.477693528992

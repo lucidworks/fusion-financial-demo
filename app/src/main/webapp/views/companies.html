@@ -1,0 +1,160 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:platform var="platform" conf="platforms.fusion.finance.related-news"></search:platform>
+
+<search:query var="backendQuery" facets="industry_s,city_s,state_s" fields="id,score,ticker_s,close_d,industry_s,sector_industry_s_hier_ss,sector_industry_s_hier_ss_parent_ss,city_state_s_hier_ss,city_state_s_hier_ss_parent_ss,state_s,city_s,company_name_s,div_yield_f,marketcap_f,revenue_f,image_url_s">
+  <query:filter field="_lw_data_source_s" value="sp500"></query:filter>
+</search:query>
+
+<search:response var="response" platform="platform" query="backendQuery">
+  <widget:spinner></widget:spinner>
+</search:response>
+
+<search:query var="query" parameters="*"></search:query>
+<track:query query="query" path="/companies"></track:query>
+
+<search:platform var="platformHierarchical" conf="services.hierarchical"></search:platform>
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="Finance 360"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header-companies.tpl.html" placeholder="Search for companies ..." action="companies"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="company-page">
+  <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+    <!-- CONTENT > SIDEBAR -->
+    <layout:block md="6-24" drawer="left" id="sidebar" styling="blocksidebar-dark">
+      <layout:sidebar>
+        <search:facet-list response="response"
+                           styling="facet-list"
+                           facet-names="-_lw_data_source_s,sector_industry_s_hier_ss=Industry,city_state_s_hier_ss=Location">
+          <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+          <search:facet facet-name="sector_industry_s_hier_ss" show="6" show-more="6">
+            <facet:hierarchical facet-name="sector_industry_s_hier_ss" platform="platformHierarchical" query="query"></facet:hierarchical>
+          </search:facet>
+          <search:facet facet-name="city_state_s_hier_ss" show="6" show-more="6">
+            <facet:hierarchical facet-name="city_state_s_hier_ss" platform="platformHierarchical" query="query"></facet:hierarchical>
+          </search:facet>
+        </search:facet-list>
+      </layout:sidebar>
+    </layout:block>
+
+    <!-- CONTENT > RESULTS -->
+    <layout:block md="18-24" class="tk-stl-bg-searchresults">
+        <!-- ANSWER CARD -->
+        <layout:block>
+          <search:message-list response="response" type="co_answer_card_content" class="answer-card"></search:message-list>
+        </layout:block>
+
+        <layout:block>
+          <layout:box padding-bottom="0">
+            <search:breadcrumbs query="query" group-by-field="true" exclude="_lw_data_source_s"></search:breadcrumbs>
+          </layout:box>
+        </layout:block>
+
+        <!-- SELECTED FACETS / SORT OPTIONS -->
+        <!--<search:tabs response="response" tabs="" field-name="" all-label="All" styling="tabs" platform="platform" query="query"></search:tabs>-->
+        <layout:grid styling="sortoptions-wrapper">
+          <layout:block>
+            <layout:box>
+              <search:response-statistics response="response"></search:response-statistics>
+              <layout:controls class="right">
+                <search:sort response="response" fields="marketcap_f=Market Cap,revenue_f=Revenue,div_yield_f=Yield"></search:sort>
+              </layout:controls>
+            </layout:box>
+          </layout:block>
+        </layout:grid>
+
+      <!-- ALL RESULTS WRAPPER -->
+
+          <!-- APP RESULTS CARD LIST -->
+          <layout:block>
+            <layout:grid>
+              <layout:block>
+
+                <track:clicks query=query type="click">
+                <search:result-list response="response" infinite-scrolling="false" platform="platform" query="query" styling="cards-xs-1 cards-sm-2 cards-md-2 cards-xl-3" class="main-results">
+                    <search:result class="company-card">
+
+                      <!--title + stock price-->
+                      <layout:grid>
+                        <layout:block xs="1-1" sm="1-2" md="4-5">
+                          <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                            <search:field name="company_name_s" label="" styling="title" url="#/companies/{{result.fields['ticker_s'].val[0] | encodeURIComponent }}"></search:field>
+                          </layout:box>
+                        </layout:block>
+                        <layout:block xs="1-1" sm="1-2" md="1-5">
+                          <layout:box padding-top="0" padding-right="0" padding-bottom="0" styling="pull-right">
+                            <search:field name="ticker_s" label="" class="nowrap sub-title label-inline"></search:field>
+                            <search:field result="result.related[0].result" name="close_d" label="" class="nowrap sub-title label-inline" prefix="$" number-format="###,###.00"></search:field>
+                          </layout:box>
+                        </layout:block>
+                      </layout:grid>
+
+                      <layout:grid>
+
+                        <layout:block xs="1-1" md="6-24"  ng-controller="MainCtrl">
+                          <media:image field-name="image_url_s"></media:image>
+                        </layout:block>
+
+                        <layout:block xs="1-1" md="18-24" >
+                          <layout:box padding-top="0" padding-right="0" padding-bottom="0">
+                            <search:field name="industry_s" query="query" styling="label-left" label="Industry"></search:field>
+                            <!--<search:field name="state_s" styling="label-left" query="query" label="State"></search:field>-->
+                            <!--<search:field name="city_s" styling="label-left" query="query" label="City"></search:field>-->
+                            <search:field name="marketcap_f" styling="label-left" query="query" label="Market Cap"></search:field>
+                            <search:field name="revenue_f" styling="label-left" query="query" label="Revenue"></search:field>
+                          </layout:box>
+                        </layout:block>
+
+                      </layout:grid>
+
+                      <layout:grid ng-if="result | field:'news-articles'">
+                        <layout:block ng-controller="MainCtrl">
+                          <layout:box>
+                            <hr class="simple" >
+                            <span><a href="{{filterQueryUrl(result, 'news-articles', 'news', 'id')}}">{{(result | field:'news-articles').val.length}} News articles for this company</a></span>
+                          </layout:box>
+                          <!--<layout:grid class="portfolio">-->
+                            <!--<layout:block md="6-24">-->
+                              <!--<p styling="title">Portfolios</p>-->
+                            <!--</layout:block>-->
+                            <!--<layout:block md="18-24">-->
+                              <!--<layout:box padding-top="0" padding-right="0" padding-bottom="0">-->
+                                <!--<ol styling="tag-list tag-capsules sm">-->
+                                  <!--<li ng-repeat="portfolio in $parent.$parent.$parent.$parent.portfolioCompanies[result.fields.ticker_s.val[0]]">-->
+                                    <!--<a href="#/portfolios/{{portfolio.id}}">-->
+                                      <!--<span class="value">{{portfolio.title}}</span>-->
+                                    <!--</a>-->
+                                  <!--</li>-->
+                                <!--</ol>-->
+                              <!--</layout:box>-->
+                            <!--</layout:block>-->
+                          <!--</layout:grid>-->
+                          <!--<search:field name="news-articles" styling="capsules capsules-fullwidth" label="" show="10"></search:field>-->
+                        </layout:block>
+                      </layout:grid>
+                    </search:result>
+                  </search:result-list>
+                </track:clicks>
+              </layout:block>
+            </layout:grid>
+            <search:no-results response="response">
+              <h2 class="zero-results" styling="textcenter">Sorry, there are no results that match your search criteria.</h2>
+              <p class="zero-results" styling="textcenter">If you've checked your spelling, try using more general keywords.</p>
+            </search:no-results>
+          </layout:block>
+
+      </div>
+    </layout:block>
+
+
+  </layout:animate>
+</layout:grid>

@@ -1,0 +1,148 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+<search:platform var="platform" conf="platforms.fusion.customers" />
+<search:query var="query" parameters="*" resultsPerPage="15"  />
+<search:response var="response" platform="platform" query="query">
+    <workflow:processor name="twigkit.social.processor.BulkAnnotationProcessor" />
+    <workflow:processor name="twigkit.search.processors.response.CopyFieldProcessor" from="id" to="customer_url" />
+    <workflow:processor name="twigkit.search.processors.response.ReplaceFieldValue" fields="customer_url" replace="^([0-9]*)$" with="${pageContext.request.contextPath}/customers/$1/" />
+    <workflow:processor name="twigkit.search.processors.response.ConcatenateFields" expression="{{state}} USA" target="customer_address" />
+</search:response>
+
+
+<!-- -------------------------------------------- -->
+<!-- Define the view                              -->
+<!-- -------------------------------------------- -->
+
+<helper:title title="{{ $root.application_name }}" ng-if="$root.application_name"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="flex-1">
+
+    <!-- Animate page when response received -->
+    <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+
+        <!-- CONTENT > SIDEBAR -->
+        <layout:block md="1-3" lg="1-4" id="sidebar" styling="blocksidebar-light">
+            <layout:sidebar>
+                <layout:box>
+
+                    <!-- List facets and give them intuitive labels -->
+                    <search:facet-list response="response" facet-names="completeness,customer_since,lifetime_value,credit_score,dob,current_products=Current Products,recommended_products=Recommended Products,state" styling="facet-list">
+
+                        <search:facet facet-name="completeness" title="Account Completeness">
+                            <chart:histogram response="response" facet-name="completeness" height="6em"></chart:histogram>
+                            <widget:slider response="response" facet-name="completeness" suffix="%"></widget:slider>
+                        </search:facet>
+                        
+                        <search:facet facet-name="customer_since" showEmpty="true" title="Customer Since" bundleName="kyc">
+                            <chart:histogram response="response" facet-name="customer_since"  bundleName="kyc" height="6em" query="query"></chart:histogram>
+                            <widget:slider response="response" facet-name="customer_since" bundleName="kyc" format="YYYY"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="lifetime_value" showEmpty="true" title="Lifetime Value" bundleName="kyc">
+                            <chart:histogram response="response" facet-name="lifetime_value" bundleName="kyc" height="6em" query="query"></chart:histogram>
+                            <widget:slider response="response" query="query" facet-name="lifetime_value" bundleName="kyc"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="credit_score" showEmpty="true" title="Credit Score" bundleName="kyc">
+                            <chart:histogram response="response" facet-name="credit_score"  bundleName="kyc" height="6em" query="query"></chart:histogram>
+                            <widget:slider response="response" query="query" facet-name="credit_score" bundleName="kyc"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="dob" showEmpty="fal`e" title="Date of Birth" bundleName="kyc">
+                            <chart:histogram response="response" face`-name="dob" bundleName="kyc" height="6em" query="query"></chart:histogram>
+                            <widget:slider response="response" query=`query" facet-name="dob" bundleName="kyc" format="YYYY"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="current_products" s`ow="20" showEmpty="false"></search:facet>
+
+                        <search:facet facet-name="recommended_product`" show="20" showEmpty="false" bundleName="kyc"></search:facet>
+
+                    </search:facet-list>
+                    <chart:tagcloud response="response" query="query" facet-name="state"></chart:tagcloud>
+
+                </layout:box>
+            </layout:sidebar>
+        </layout:block>
+
+        <!-- CONTENT > RESULTS -->
+        <layout:block md="2-3" lg="3-4" styling="bg-white">
+            <layout:box padding-left="2" padding-right="2">
+
+                <!-- Results Wrapper -->
+                <layout:block>
+                    <layout:grid>
+
+                        <!-- Tabs, View Options, Response Stats, Selected Facets -->
+                        <layout:block padding-top="1">
+
+                            <!--<layout:grid>-->
+                                <!--<layout:block md="3-4">-->
+                                    <!--&lt;!&ndash; Specify a facet to show tabs from &ndash;&gt;-->
+                                    <!--<search:tabs response="response" field-name="data_sourceX_s" all-label="All" platform="platform" query="query"-->
+                                                                                     <!--tabs="Website,Sharepoint,GoogleDrive,People,Q&A"></search:tabs>-->
+                                <!--</layout:block>-->
+                                <!--<layout:block md="1-4" styling="center-content sortoptions-block">-->
+                                    <!--<layout:controls class="right">-->
+                                        <!--<search:sort response="response" fields="field1=Field 1,field2=Field 2"></search:sort>-->
+                                    <!--</layout:controls>-->
+                                <!--</layout:block>-->
+                            <!--</layout:grid>-->
+
+                            <div padding-top="1">
+                                <search:response-statistics response="response"></search:response-statistics>
+                                <p class="response-statistics">(Fusion took {{ response.time }}ms)</p>
+                                <search:breadcrumbs query="query" group-by-field="true" exclude="tabField"></search:breadcrumbs>
+                            </div>
+                        </layout:block>
+
+                        <!-- Results -->
+                        <layout:block>
+                            <track:clicks query="query">
+                            <search:tabs response="response" fieldName="current_products" tabs="Current Account|Savings Account|Premier Account|Health Savings Account (HSA)=Banking,Credit Card|Premier Credit Card=Credit Cards,Home Insurance|Car Insurance|Travel Insurance|Family Insurance=Insurance,Traditional IRA|Roth IRA|IRA for Minors=Investing" allLabel="All Customers"></search:tabs>
+
+                                <!-- Show messages from Fusion -->
+                                <search:message-list response="response" title="You might also want to look at"></search:message-list>
+
+                                <!--toggle:panes id="customers-visualizations">
+                                    <toggle:pane visible="true">
+                                        <geo:map provider="google" response="response" addressField="customer_address"  noMapText="No map available" urlField="customer_url" apiKey="AIzaSyAyy1lv6Etzv5KD81RxNDscjjR_D6FYxJI"/>
+                                    </toggle:pane>
+                                </toggle:panes-->
+
+                                <!--search:result-list response="response" style="col-2" addCssClass="customer-list"-->
+                                <search:result-list response="response" style="col-2" addCssClass="customer-list">
+                                    <search:result>
+                                        <search:field name="name" style="title" url="result.fields.customer_url"></search:field>
+                                        <search:field name="address" label="Address" style="label-above"></search:field>
+                                        <search:field name="city" suffix=", {{result.fields.state.val[0]}} {{result.fields.zip}}"></search:field>
+                                        <search:field name="completeness" label="Account Completeness" suffix="%" style="label-above" show="1"></search:field>
+                                        <search:field name="customer_since" label="Customer Since" format="MMMM dd, y" style="label-above" show="1"></search:field>
+                                        <search:field name="lifetime_value" label="Lifetime Value" prefix="&dollar;" style="label-above" show="1"></search:field>
+                                        <search:field name="credit_score" label="Credit Score" style="label-above" show="1"></search:field>
+                                    </search:result>
+                                    <!--search:noResults>
+                                        <p class="zero-results">There are no results that match your query.<br/>Would you like to <a href="${pageContext.request.contextPath}/">clear your search</a>?</p>
+                                    </search:noResults-->
+                                </search:result-list>
+
+                                <!-- No results message -->
+                                <search:no-results response="response"></search:no-results>
+                            </track:clicks>
+                        </layout:block>
+
+                    </layout:grid>
+                </layout:block>
+            </layout:box>
+        </layout:block>
+        
+    </layout:animate>
+
+</layout:grid>
+
+
