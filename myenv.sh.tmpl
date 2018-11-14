@@ -8,7 +8,7 @@ FUSION_UI_NAME=Finance
 #
 # FUSION_HOME=/path/to/fusion/4.1.0
 FUSION_VERSION=4.1.0
-export FUSION_HOME=<FUSION_HOME>
+export FUSION_HOME=$FUSION_HOME
 FUSION_HOST=localhost
 FUSION_USER=admin
 FUSION_PASS=password123
@@ -26,7 +26,7 @@ FUSION_ROLES_API="http://$FUSION_HOST:8764/api/roles"
 FUSION_RAW_API="http://$FUSION_HOST:8780/api/v1"
 FUSION_CONN_CL="http://$FUSION_HOST:8984/v1/connectors"
 FUSION_CONN_SDK="http://$FUSION_HOST:8771/api/v1"
-
+FUSION_UI_ARTIFACT_ID=fusion-finance-demo
 
 if [ "$FUSION_PASS" == "password123" ]; then
   curl -X POST -H 'Content-type: application/json' -d '{"password":"password123"}' http://$FUSION_HOST:8764/api

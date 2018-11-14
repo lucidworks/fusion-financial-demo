@@ -44,14 +44,13 @@ Help on this Demo is available in Slack in the #finance-demo channel.
 
    However, if you're using a customized Fusion installation, or are not using the default password, etc, then `cp myenv.sh.tmpl myenv.sh` and then edit `./myenv.sh` to verify all env vars are correct for your environment.
 
-
 ### Run
 
   1. Run `./install.sh`
   1. Run `./redeploy-data.sh`
   1. Browse to http://localhost:8764/ for the Fusion Admin UI
   1. Go to the `Datasources` and run all.  Let the `yahoo-news` datasource run for a long time.  The `sp500` and `sp500-historical` datasources take 1-2 minutes, and the rest are quick.
-  1. Browse to http://localhost:8780/MarketResearch/login/ for the end user UI
+  1. Browse to http://localhost:8780/Finance/login/ for the end user UI
 
 # Application Overview
 
