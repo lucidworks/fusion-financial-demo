@@ -1,0 +1,93 @@
+<search:platform var="platform" conf="platforms.fusion.data"></search:platform>
+<search:query var="query" parameters="*" results-per-page="12"></search:query>
+<track:query query="query"></track:query>
+<search:response var="response" platform="platform" query="query">
+    <widget:spinner></widget:spinner>
+</search:response>
+
+<helper:title title="{{ $root.application_name }}" ng-if="$root.application_name"></helper:title>
+
+<layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
+
+<layout:grid styling="row-offcanvas" class="flex-1">
+    <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+        <layout:block md="1-3" lg="1-4" drawer="left" id="sidebar" styling="blocksidebar-light">
+            <layout:sidebar>
+                <layout:box>
+                    <search:facet-list response="response" facet-names="completeness,customer_since,lifetime_value,credit_score,dob,current_products,recommended_products,state">
+                        <search:facet facet-name="completeness" title="Account Completeness" collapsible="true">
+                            <chart:histogram response="response" show-count="false" facet-name="completeness"></chart:histogram>
+                            <widget:slider response="response" facet-name="completeness" suffix="%"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="customer_since" showEmpty="true" title="Customer Since" collapsible="true">
+                            <chart:histogram response="response" facet-name="customer_since"  date-format="yyyy"></chart:histogram>
+                            <widget:slider response="response" facet-name="customer_since" date-format="yyyy"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="lifetime_value" showEmpty="true" title="Lifetime Value" collapsible="true">
+                            <chart:histogram response="response" facet-name="lifetime_value"></chart:histogram>
+                            <widget:slider response="response" facet-name="lifetime_value"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="credit_score" showEmpty="true" title="Credit Score" collapsible="true">
+                            <chart:histogram response="response" facet-name="credit_score"  query="query"></chart:histogram>
+                            <widget:slider response="response" facet-name="credit_score"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="dob" showEmpty="false" title="Date of Birth" collapsible="true">
+                            <chart:histogram response="response" facet-name="dob" date-format="yyyy"></chart:histogram>
+                            <widget:slider response="response" facet-name="dob" date-format="yyyy"></widget:slider>
+                        </search:facet>
+
+                        <search:facet facet-name="current_products" show="20" showEmpty="false" collapsible="true"></search:facet>
+
+                        <search:facet facet-name="recommended_products" title="Recommended Products" show="20" showEmpty="false" collapsible="true"></search:facet>
+
+                        <search:facet facet-name="state" title="State" collapsible="true">
+                            <chart:tagcloud response="$parent.response" facet-name="state"></chart:tagcloud>
+                        </search:facet>
+                    </search:facet-list>
+                </layout:box>
+            </layout:sidebar>
+        </layout:block>
+
+        <layout:block md="2-3" lg="3-4" styling="bg-white">
+            <layout:box padding-left="2" padding-right="2">
+                <layout:block>
+                    <layout:grid>
+                        <layout:block padding-top="1">
+                            <div padding-top="1">
+                                <search:response-statistics response="response"></search:response-statistics>
+                                <p class="response-statistics">Fusion took {{ response.time }} ms</p>
+                                <search:breadcrumbs query="query" group-by-field="true" exclude="tabField"></search:breadcrumbs>
+                            </div>
+                        </layout:block>
+
+                        <layout:block>
+                            <track:clicks query="query">
+                                <search:message-list response="response" title="Additional info"></search:message-list>
+
+                                <geo:map provider="google" response="response" styling="gmap" address-field="address" label-field="name" loading-overlay="true" url-field="id" url-prefix="#/customers/" target="_self"></geo:map>
+
+                                <search:result-list response="response" platform="platform" infinite-scroll="true" styling="cards-sm-1 cards-lg-2 cards-xl-3">
+                                    <search:result>
+                                        <search:field name="name" styling="title" label="" url="#/customers/{{result.fields.id | actual}}"></search:field>
+                                        <search:field name="address" label="Address" styling="label-above"></search:field>
+                                        <search:field name="city" label="City" styling="label-above" suffix=", {{result.fields.state.val[0]}} {{result.fields.zipcode | actual}}"></search:field>
+                                        <search:field name="completeness" label="Account Completeness" styling="label-above" suffix="%"></search:field>
+                                        <search:field name="customer_since" label="Customer Since" styling="label-above" date-format="MMMM dd, y"></search:field>
+                                        <search:field name="lifetime_value" label="Lifetime Value" styling="label-above" prefix="&dollar;"></search:field>
+                                        <search:field name="credit_score" label="Credit Score" styling="label-above"></search:field>
+                                    </search:result>
+                                </search:result-list>
+
+                                <search:no-results response="response"></search:no-results>
+                            </track:clicks>
+                        </layout:block>
+                    </layout:grid>
+                </layout:block>
+            </layout:box>
+        </layout:block>
+    </layout:animate>
+</layout:grid>

@@ -1,0 +1,100 @@
+<!-- -------------------------------------------- -->
+<!-- Build the data model                         -->
+<!-- -------------------------------------------- -->
+
+<search:twigkit parallel="true" redirectOnError="false">
+    <search:platform var="customerPlatform" conf="platforms.fusion.customers" dateFields="customer_since" />
+	<search:content var="customer" platform="${customerPlatform}" load="${param.value}" />
+
+    <search:query var="query" parameters="q,f" />
+
+  <search:platform var="transactionsPlatform" conf="platforms.fusion.transactions" />
+    <search:query var="transactionsQuery" parameters="q,f" >
+        <search:filter field="transaction_customer_id" value="${param.value}"/>
+    </search:query>
+    <search:response var="transactions" platform="${transactionsPlatform}" query="${transactionsQuery}" />
+
+
+
+<%--     <jdbc:platform var="jdbc" type="mysql" host="jdbc:mysql://173.194.249.219:3306/kyc?user=root&password=M0du5Gr0up" />  --%>
+<%--     <jdbc:simpleSQLQuery var="sql" parameters="q,f,s" freeTextOn="description" resultsPerPage="100" sorts="-transaction_date" view="transactions" columns="*" facets="account,type" transaction_customer_id="${param.value}" />  --%>
+<%--      <search:response var="transactions" platform="${jdbc}" query="${sql}" />  --%>
+
+</search:twigkit>
+
+<helper:title title="{{ $root.application_name }}" ng-if="$root.application_name"></helper:title>
+
+<!-- HEADER -->
+<layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
+
+<!-- CONTENT -->
+<layout:grid styling="row-offcanvas" class="flex-1">
+
+    <!-- Animate page when response received -->
+    <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+            <%-- Top Header (shared with other pages) --%>
+            <client:header query="${eventQuery}" action="/" />
+        
+            <%-- Customer Header --%>
+            <client:customerHeader customer="${customer}" />
+        
+            <%-- Transactions --%>
+            <div class="event-history">
+                <block:sidebar>
+                    <search:facetList response="${transactions}" facetNames="account=Account,type=Transaction Type" style="simple">
+                        <search:facet>
+                            <h3 class="facet-title">${facet.displayName}</h3>
+                            <chart:display response="${transactions}" query="${query}" >
+                                <series:facet type="pie"  name="${facet.field}" color="#3d9970,#47b382,#52cc95,#5ce5a8"  numberToShow="10"/>
+                            </chart:display>
+                        </search:facet>
+                    </search:facetList>
+        
+                    <div class="range-facet">
+                        <h3 class="facet-title">Amount</h3>
+                        <lab:rangeBuilder query="${query}" fieldName="amount" />
+                    </div>
+                </block:sidebar>
+                <block:content>
+                    <h2 class="section-title">Customer Transactions</h2>
+                    <%-- <search:tabs action="${pageContext.request.contextPath}/customers/${param.value}/" response="${transactions}" fieldName="account" tabs="Checking,Savings,Credit Card,Mortgage" allLabel="All" countNumber="rounded" /> --%>
+        
+                    <widget:searchForm query="${query}" placeholder="Search transactions" addCssClass="transaction-search-form" />
+        
+                    <block:controls style="colored-bar transaction-controls">
+                        <search:breadcrumbs response="${transactions}" query="${query}" showFieldName="true" dateFormat="dd/MM/yyyy" />
+                        <search:responseStatistics response="${transactions}" />
+                    </block:controls>
+        
+                    <div class="table-container">
+                        <table:resultList response="${transactions}" >
+                            <table:header cssClass="top">
+                                <table:headerCell name="transaction_date" label="Date" cssClass="title" />
+                                <table:headerCell name="title" label="Description" cssClass="title"/>
+                                <table:headerCell name="account" label="Account" cssClass="title" />
+                                <table:headerCell name="type" label="Event Type" cssClass="title" />
+                                <table:headerCell name="amount" label="Amount" cssClass="title" />
+                            </table:header>
+                            <table:body>
+                                <table:row>
+                                    <table:cell name="transaction_date" format="dd MMM YYYY" show="1" />
+                                    <table:cell name="title" />
+                                    <table:cell name="account" />
+                                    <table:cell name="type" />
+                                    <table:cell name="amount" format="#,###.00" />
+                                </table:row>
+                            </table:body>
+                        </table:resultList>
+                    </div>
+        
+                    <search:conditional test="${transactions.hits.actual eq 0}">
+                        <p class="zero-results">There are no matching transactions for this customer.</p>
+                    </search:conditional>
+        
+                </block:content>
+            </div>
+
+    </layout:animate>
+
+</layout:grid>
+    

@@ -1,0 +1,1759 @@
+{
+  "objects" : {
+    "collections" : [ {
+      "id" : "customers_signals",
+      "createdAt" : "2018-10-29T13:47:20.164Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "customers_signals",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2,
+        "configTemplate" : "solr/conf/insights.zip"
+      },
+      "type" : "SIGNALS",
+      "relatedCollectionId" : "customers",
+      "metadata" : { }
+    }, {
+      "id" : "documents",
+      "createdAt" : "2018-10-30T11:27:02.608Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "documents",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "messages",
+      "createdAt" : "2018-10-30T11:57:19.172Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "messages",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "customers_signals_aggr",
+      "createdAt" : "2018-10-29T13:47:24.023Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "customers_signals_aggr",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2
+      },
+      "type" : "SIGNALS_AGGREGATION",
+      "relatedCollectionId" : "customers",
+      "metadata" : { }
+    }, {
+      "id" : "customers",
+      "createdAt" : "2018-10-29T13:47:16.746Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "customers",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "transactions",
+      "createdAt" : "2018-10-30T13:00:36.483Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "transactions",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    } ],
+    "indexPipelines" : [ {
+      "id" : "_system",
+      "stages" : [ {
+        "type" : "solr-index",
+        "id" : "ddb4781f-124c-457f-a65e-598e86323a0e",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "ddb4781f-124c-457f-a65e-598e86323a0e"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "_system"
+      }
+    }, {
+      "id" : "documents",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "d91a5168-760a-4124-ab53-2a42e83fc38f",
+        "mappings" : [ {
+          "source" : "/_lw_parser.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "group_s",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "owner_s",
+          "operation" : "delete"
+        }, {
+          "source" : "parent_s",
+          "operation" : "delete"
+        }, {
+          "source" : "score",
+          "operation" : "delete"
+        }, {
+          "source" : "_lw_batch_id_s",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d91a5168-760a-4124-ab53-2a42e83fc38f"
+      }, {
+        "type" : "solr-index",
+        "id" : "2adeca89-79e3-4813-96e7-f9a643d19b52",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2adeca89-79e3-4813-96e7-f9a643d19b52"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "documents"
+      }
+    }, {
+      "id" : "messages",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "7642da99-caf8-4cc5-83c4-2a0b086d4874",
+        "mappings" : [ {
+          "source" : "/_lw_parser.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "/.+_s/",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "7642da99-caf8-4cc5-83c4-2a0b086d4874"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "465564b2-0d57-4286-b668-107d508b0f86",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "465564b2-0d57-4286-b668-107d508b0f86"
+      }, {
+        "type" : "solr-index",
+        "id" : "a2de0b3b-96a3-49c8-be7d-84e50005ecf0",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a2de0b3b-96a3-49c8-be7d-84e50005ecf0"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "messages"
+      }
+    }, {
+      "id" : "clickstream",
+      "stages" : [ {
+        "type" : "javascript-index",
+        "id" : "xwf",
+        "script" : "function (d) {\n  var fileName = d.getFirstFieldValue('_lw_parser_absolute_resource_name_s');\n  var rowNum = d.getFirstFieldValue('_lw_parser_line_number_l');\n//  if (fileName && rowNum) {\n    d.setField('id', fileName + '#' + rowNum);\n//  }\n//  d.setId(1111);\n  return d;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Set ID",
+        "licensed" : true,
+        "secretSourceStageId" : "xwf"
+      }, {
+        "type" : "field-mapping",
+        "id" : "1efd0ddf-e0e8-42aa-8a61-9cab52e5da1c",
+        "mappings" : [ {
+          "source" : "/_lw_.*/",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "1efd0ddf-e0e8-42aa-8a61-9cab52e5da1c"
+      }, {
+        "type" : "javascript-index",
+        "id" : "cvb",
+        "script" : "function (d) {\n  var raw = d.getFirstFieldValue('raw_event');\n  d.removeFields('raw_event');\n\n  var spl = raw.split(/\\s+/);\n  d.setField('timestamp_tdt', (new Date(parseInt(spl[0]))).toISOString());\n\n  var decodedParams = decodeURIComponent(spl[1]);\n  for each (var pair in decodedParams.split('&')) {\n    var nameValue = pair.split('=');\n    var name = nameValue[0];\n    var value = nameValue[1];\n    d.addField(name, value);\n  }\n  return d;\n}",
+        "type" : "javascript-index",
+        "skip" : false,
+        "label" : "Parse fields",
+        "licensed" : true,
+        "secretSourceStageId" : "cvb"
+      }, {
+        "type" : "solr-index",
+        "id" : "8b6c7be9-5d61-4a8d-9b7b-a3de56c82913",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8b6c7be9-5d61-4a8d-9b7b-a3de56c82913"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "clickstream"
+      }
+    }, {
+      "id" : "customers",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "c08f2b78-596b-419a-bb80-f53e60940734",
+        "mappings" : [ {
+          "source" : "/_lw_parser_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "/recommended_products_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "/current_products_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "group_s",
+          "operation" : "delete"
+        }, {
+          "source" : "owner_s",
+          "operation" : "delete"
+        }, {
+          "source" : "parent_s",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c08f2b78-596b-419a-bb80-f53e60940734"
+      }, {
+        "type" : "solr-index",
+        "id" : "2950e481-a99e-4243-b75a-5dff76b559c5",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2950e481-a99e-4243-b75a-5dff76b559c5"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "customers"
+      }
+    }, {
+      "id" : "transactions",
+      "stages" : [ {
+        "type" : "regex-replacement",
+        "id" : "u3n",
+        "rules" : [ {
+          "source" : [ "amount_in" ],
+          "target" : "amount_in",
+          "writeMode" : "overwrite",
+          "pattern" : "null",
+          "returnIfNoMatch" : "input_string",
+          "replacement" : "0",
+          "replaceWhich" : "all"
+        }, {
+          "source" : [ "amount_out" ],
+          "target" : "amount_out",
+          "writeMode" : "overwrite",
+          "pattern" : "null",
+          "returnIfNoMatch" : "input_string",
+          "replacement" : "0",
+          "replaceWhich" : "all"
+        } ],
+        "type" : "regex-replacement",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "u3n"
+      }, {
+        "type" : "date-parsing",
+        "id" : "gwl",
+        "sourceFields" : [ "transaction_date" ],
+        "dateFormats" : [ ],
+        "requireTimezone" : false,
+        "ignoreInvalid" : false,
+        "splitLocal" : false,
+        "splitUTC" : false,
+        "defaultTimezone" : "UTC",
+        "defaultLocale" : "en",
+        "type" : "date-parsing",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "gwl"
+      }, {
+        "type" : "field-mapping",
+        "id" : "6c9fbb30-9343-4d71-97e4-ef8ef4e6b983",
+        "mappings" : [ {
+          "source" : "/_lw_parser.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "_lw_batch_id_s",
+          "operation" : "delete"
+        }, {
+          "source" : "/transaction_date\\..*/",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "6c9fbb30-9343-4d71-97e4-ef8ef4e6b983"
+      }, {
+        "type" : "solr-dynamic-field-name-mapping",
+        "id" : "e6ef7408-c19a-4a1e-ad6a-4e5f2c30d3c2",
+        "duplicateSingleValuedFields" : false,
+        "fieldsToExclude" : [ ],
+        "advancedTextFieldsIndexing" : true,
+        "maxTextLengthForAdvancedIndexing" : 100,
+        "type" : "solr-dynamic-field-name-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "e6ef7408-c19a-4a1e-ad6a-4e5f2c30d3c2"
+      }, {
+        "type" : "solr-index",
+        "id" : "4276f842-21e9-48ed-81db-510aab485f2e",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "4276f842-21e9-48ed-81db-510aab485f2e"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "transactions"
+      }
+    } ],
+    "queryPipelines" : [ {
+      "id" : "_system",
+      "stages" : [ {
+        "type" : "solr-query",
+        "id" : "ac3641c3-3dfc-4a32-806d-6c528c56d2bb",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "ac3641c3-3dfc-4a32-806d-6c528c56d2bb",
+        "properties" : {
+          "autoCreated" : true
+        }
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "_system"
+      }
+    }, {
+      "id" : "customers",
+      "stages" : [ {
+        "type" : "javascript-query",
+        "id" : "88f34306-9896-4a2f-81a9-8c5997ab196f",
+        "script" : "if (\"Cort\" == request.headers.getFirst('Fusion-User-Name')) {\n  request.addParam('fq', '(state, \"NewJersey\")');\n}\n",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "State NJ for user Cort",
+        "licensed" : true,
+        "secretSourceStageId" : "88f34306-9896-4a2f-81a9-8c5997ab196f"
+      }, {
+        "type" : "search-fields",
+        "id" : "47df5b1b-7d3a-46c0-8745-208ccb0d80a9",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "47df5b1b-7d3a-46c0-8745-208ccb0d80a9"
+      }, {
+        "type" : "facet",
+        "id" : "a48b3db1-66a3-4649-b6f8-6e1f445486b3",
+        "fieldFacets" : [ {
+          "field" : "completeness",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "lifetime_value",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "state",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "current_products",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "recommended_products",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        } ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a48b3db1-66a3-4649-b6f8-6e1f445486b3"
+      }, {
+        "type" : "set-params",
+        "id" : "4201e26b-8532-42d8-8f8a-023c10169149",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "credit_score",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.start",
+          "value" : "0",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.end",
+          "value" : "1000",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.gap",
+          "value" : "100",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Credit Score",
+        "licensed" : true,
+        "secretSourceStageId" : "4201e26b-8532-42d8-8f8a-023c10169149"
+      }, {
+        "type" : "set-params",
+        "id" : "e7e9c44c-3c07-4876-a664-c8dbd71d1e0e",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "customer_since",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.start",
+          "value" : "NOW/YEAR-20YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.end",
+          "value" : "NOW/DAY+20YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.gap",
+          "value" : "+1YEAR",
+          "policy" : "default"
+        }, {
+          "key" : "f.customer_since.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Customer Since",
+        "licensed" : true,
+        "secretSourceStageId" : "e7e9c44c-3c07-4876-a664-c8dbd71d1e0e"
+      }, {
+        "type" : "set-params",
+        "id" : "4b4e79d0-6f3b-482b-a1b8-9fd91674a835",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "dob",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.start",
+          "value" : "NOW/YEAR-90YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.end",
+          "value" : "NOW/YEAR-10YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.gap",
+          "value" : "+1YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Date of Birth",
+        "licensed" : true,
+        "secretSourceStageId" : "4b4e79d0-6f3b-482b-a1b8-9fd91674a835"
+      }, {
+        "type" : "solr-query",
+        "id" : "2122d5b2-3319-40d4-ad9e-e4eee460381b",
+        "allowedRequestHandlers" : [ ],
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2122d5b2-3319-40d4-ad9e-e4eee460381b"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "customers"
+      }
+    } ],
+    "features" : {
+      "customers_signals" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "customers_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "customers_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "customers_signals",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "customers_signals",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "documents" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "documents",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "messages" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "messages",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "customers_signals_aggr" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "customers_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "customers_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "customers_signals_aggr",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "customers_signals_aggr",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "customers" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "customers",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ],
+      "transactions" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "transactions",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      } ]
+    },
+    "queryProfiles" : [ {
+      "id" : "kyc-documents",
+      "queryPipeline" : "_system",
+      "collection" : "documents",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-customers",
+      "queryPipeline" : "customers",
+      "collection" : "customers",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-transactions",
+      "queryPipeline" : "_system",
+      "collection" : "transactions",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-messages",
+      "queryPipeline" : "_system",
+      "collection" : "messages",
+      "searchHandler" : "select"
+    } ],
+    "parsers" : [ {
+      "id" : "file-customers-json",
+      "idField" : "id",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "json",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "ignore",
+        "id" : "faefb140-bba0-4c5c-8fc8-060cb97c3e81",
+        "rootPath" : "/response/docs",
+        "splitArrays" : true,
+        "includePath" : false,
+        "mappings" : [ ],
+        "listHandling" : "multivalued",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    }, {
+      "id" : "clickstream",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "fail",
+        "id" : "d1e53ff1-40ef-4191-bac8-a20f32805998",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : false,
+        "headers" : [ "raw_event" ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    }, {
+      "id" : "clickstream-sample-txt",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "csv",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "mark",
+        "id" : "d1e53ff1-40ef-4191-bac8-a20f32805998",
+        "charset" : "detect",
+        "ignoreBOM" : false,
+        "autoDetect" : true,
+        "hasHeaders" : false,
+        "headers" : [ "raw_event" ],
+        "fillValue" : "<FILL>",
+        "trimWhitespace" : true,
+        "skipEmptyLines" : true,
+        "includeRowNumber" : true,
+        "commentHandling" : "ignore",
+        "maxRowLength" : 10485760,
+        "maxNumColumns" : 1000,
+        "maxColumnChars" : 10485760,
+        "columnHandling" : "default",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    } ],
+    "objectGroups" : [ {
+      "id" : "a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "name" : "signals-customers",
+      "isSystem" : true,
+      "description" : "Collection 'customers' objects for signals support"
+    } ],
+    "links" : [ {
+      "subject" : "collection:transactions",
+      "object" : "index-pipeline:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:clickstream",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-customers-json",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:file-customers-json",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "spark:customers_session_rollup",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-transactions",
+      "object" : "index-pipeline:transactions",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-messages",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "appkit:KYC",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-messages",
+      "object" : "index-pipeline:messages",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clickstream-sample-txt",
+      "object" : "blob:clickstream-sample.txt",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-customers-json",
+      "object" : "index-pipeline:customers",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-documents-json",
+      "object" : "index-pipeline:documents",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:documents",
+      "object" : "index-pipeline:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "appkit:KYC",
+      "object" : "blob:webapps/KYC.war",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-customers-json",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-messages",
+      "object" : "collection:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "collection:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:_system",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "query-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:messages",
+      "object" : "index-pipeline:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:_system",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "collection:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:clickstream-sample-txt",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-customers-json",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:clickstream",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-transactions",
+      "object" : "collection:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "spark:customers_head_tail",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clickstream-sample-txt",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "spark:customers_click_signals_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "spark:customers_user_query_history_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "index-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-documents-json",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-json-transactions",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "spark:customers_user_item_preferences_aggregation",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "collection:customers_signals",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clickstream-sample-txt",
+      "object" : "index-pipeline:clickstream",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "query-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-documents-json",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clickstream-sample-txt",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "collection:customers_signals_aggr",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "collection:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:clickstream-sample-txt",
+      "object" : "parser:clickstream",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:file-documents-json",
+      "object" : "collection:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    } ],
+    "jobs" : [ {
+      "resource" : "spark:customers_head_tail",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-10-30T13:47:28.292Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:customers_click_signals_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 15,
+        "timeUnit" : "minute",
+        "startTime" : "2018-10-29T14:02:28.052Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:customers_user_query_history_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-10-29T14:06:28.229Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:customers_session_rollup",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 15,
+        "timeUnit" : "minute",
+        "startTime" : "2018-10-29T14:02:28.108Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:customers_user_item_preferences_aggregation",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2018-10-29T14:04:28.160Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    } ],
+    "sparkJobs" : [ {
+      "type" : "sql_template",
+      "id" : "customers_click_signals_aggregation",
+      "inputCollection" : "customers_signals",
+      "outputCollection" : "customers_signals_aggr",
+      "sql" : "WITH sigs_with_filters AS (\n   SELECT c.query as query,\n          c.doc_id,\n          q.filters_s as filters,\n          c.type,\n          c.ref_time,\n          c.count_i,\n          c.timestamp_tdt,\n          c.weight_d\n     FROM ${inputCollection} c\n LEFT JOIN (SELECT id, filters_s FROM ${inputCollection} WHERE type='response') q ON q.id = c.fusion_query_id\n    WHERE c.type IN (${signalTypes})\n ), signal_type_groups AS (\n     SELECT SUM(count_i) AS typed_aggr_count_i,\n            query,\n            doc_id,\n            type,\n            filters,\n            time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n       FROM sigs_with_filters\n   GROUP BY doc_id, query, filters, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          query AS query_s,\n          query AS query_t,\n          doc_id AS doc_id_s,\n          filters AS filters_s,\n          SPLIT(filters, ' \\\\$ ') AS filters_ss,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY query, doc_id, filters",
+      "rollupSql" : "SELECT query_s,\n          query_s as query_t,\n          doc_id_s,\n          filters_s,\n          first(aggr_type_s) AS aggr_type_s,\n          SPLIT(filters_s, ' \\\\$ ') AS filters_ss,\n          SUM(weight_d) AS weight_d,\n          SUM(aggr_count_i) AS aggr_count_i\n     FROM customers_signals_aggr\n GROUP BY query_s, doc_id_s, filters_s",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      }, {
+        "key" : "optimizeOutput",
+        "value" : "4"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each query / item combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used to boost documents at query time using the boosting stage."
+    }, {
+      "type" : "sql_template",
+      "id" : "customers_user_item_preferences_aggregation",
+      "inputCollection" : "customers_signals",
+      "outputCollection" : "customers_signals_aggr",
+      "sql" : "WITH signal_type_groups AS (\n    SELECT SUM(count_i) AS typed_aggr_count_i,\n           doc_id,\n           user_id,\n           type,\n           time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n      FROM ${inputCollection}\n     WHERE type IN (${signalTypes})\n  GROUP BY user_id, doc_id, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          doc_id AS doc_id_s,\n          user_id AS user_id_s,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY doc_id, user_id",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each user / item combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used as input to the ALS recommendation job."
+    }, {
+      "type" : "headTailAnalysis",
+      "id" : "customers_head_tail",
+      "randomSeed" : 1234,
+      "trainingCollection" : "customers_signals",
+      "outputCollection" : "customers_signals_aggr",
+      "overwriteOutput" : true,
+      "trainingDataFilterQuery" : "type:click OR type:response",
+      "fieldToVectorize" : "query",
+      "trainingDataFrameConfigOptions" : { },
+      "analyzerConfigQuery" : "{ \"analyzers\": [ { \"name\": \"StdTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"standard\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"englishminimalstem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"StdTokLowerStem\" } ]}",
+      "countField" : "count_i",
+      "mainType" : "click",
+      "filterType" : "response",
+      "signalTypeField" : "type",
+      "minCountMain" : 1,
+      "minCountFilter" : 20,
+      "queryLenThreshold" : 2,
+      "userHead" : -1.0,
+      "userTail" : -1.0,
+      "topQ" : [ 100.0, 0.01 ],
+      "trafficPerc" : [ 0.25, 0.5, 0.75 ],
+      "lastTraffic" : [ 0.01 ],
+      "trafficCount" : [ 5.0 ],
+      "overlapThreshold" : 4,
+      "lenScale" : 6,
+      "overlapNumBoost" : 10.0,
+      "headQueryCntBoost" : 1.0,
+      "tailRewrite" : true,
+      "dataFormat" : "solr",
+      "trainingDataSamplingFraction" : 1.0,
+      "stopwordsList" : [ ]
+    }, {
+      "type" : "sql_template",
+      "id" : "customers_user_query_history_aggregation",
+      "inputCollection" : "customers_signals",
+      "outputCollection" : "customers_signals_aggr",
+      "sql" : "WITH signal_type_groups AS (\n    SELECT SUM(count_i) AS typed_aggr_count_i,\n           user_id,\n           query,\n           type,\n           time_decay(count_i, timestamp_tdt, \"30 days\", ref_time, weight_d) AS typed_weight_d\n      FROM ${inputCollection}\n     WHERE type IN (${signalTypes})\n  GROUP BY query, user_id, type\n ) SELECT SUM(typed_aggr_count_i) AS aggr_count_i,\n          user_id AS user_id_s,\n          query AS query_s,\n          weighted_sum(typed_weight_d, type, '${signalTypeWeights}') AS weight_d\n     FROM signal_type_groups\n GROUP BY user_id, query",
+      "parameters" : [ {
+        "key" : "signalTypeWeights",
+        "value" : "click:1.0,cart:10.0,purchase:25.0"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : true,
+      "outputRollup" : true,
+      "hiddenParameters" : [ {
+        "key" : "signalTypes",
+        "value" : "_regex/signalTypeWeights/([\\w\\-\\.]*):([\\d\\.\\-]*)(,|$)/'$1'$3/g"
+      } ],
+      "skipCheckEnabled" : true,
+      "notes" : "Computes an aggregated weight for each user / query combination found in the signals collection. The weight for each group is computed using an exponential time-decay on signal count (30 day half-life) and a weighted sum based on the signal type. Use the 'signalTypeWeights' parameter to set the correct signal types and weights for your dataset. The results of this job can be used to boost queries for a user based on their past queries."
+    }, {
+      "type" : "sql_template",
+      "id" : "customers_session_rollup",
+      "inputCollection" : "customers_signals",
+      "outputCollection" : "customers_signals",
+      "sql" : "WITH session_agg AS (\n     SELECT COUNT(1) AS activity_count,\n            MIN(timestamp_tdt) AS start,\n            MAX(timestamp_tdt) AS end,\n            timediff(MAX(timestamp_tdt), MIN(timestamp_tdt), \"MINUTES\") AS duration,\n            'session' AS type,\n            first(user_id) AS user,\n            session_keywords(query) AS keywords,\n            session\n       FROM ${inputCollection}\n      WHERE timestamp_tdt IS NOT NULL\n        AND type != 'session'\n        AND session IS NOT NULL\n        AND session NOT IN (SELECT session FROM ${inputCollection} WHERE type = 'session' AND session IS NOT NULL)\n   GROUP BY session\n     HAVING timediff(current_timestamp(), MAX(timestamp_tdt), \"SECONDS\") >= ${elapsedSecsSinceLastActivity} OR timediff(current_timestamp(), MIN(timestamp_tdt), \"SECONDS\") >= ${elapsedSecsSinceSessionStart})\n SELECT activity_count, start, end, duration, type, user, keywords, session FROM session_agg",
+      "parameters" : [ {
+        "key" : "elapsedSecsSinceLastActivity",
+        "value" : "360"
+      }, {
+        "key" : "elapsedSecsSinceSessionStart",
+        "value" : "3600"
+      } ],
+      "selectQuery" : "*:*",
+      "sourceRemove" : false,
+      "sourceCatchup" : false,
+      "outputRollup" : false,
+      "hiddenParameters" : [ {
+        "key" : "outputProjectedFieldsOnly",
+        "value" : "true"
+      } ],
+      "skipCheckEnabled" : false,
+      "notes" : "Aggregate related user activity into a session signal containing activity count, duration, and keywords (based on user search terms). This job is used by the Fusion Insights application to show reports about user sessions. Use the 'elapsedSecsSinceLastActivity' and 'elapsedSecsSinceSessionStart' parameters to determine when a user session is considered to be complete."
+    } ],
+    "blobs" : [ {
+      "id" : "clickstream-sample.txt",
+      "path" : "/clickstream-sample.txt",
+      "dir" : "/",
+      "filename" : "clickstream-sample.txt",
+      "contentType" : "text/plain",
+      "size" : 49020,
+      "modifiedTime" : "2018-11-06T09:35:21.273Z",
+      "version" : 1616376675721805824,
+      "md5" : "3191be25ea76cd3b4c466c6fba42235b",
+      "metadata" : {
+        "resourceType" : "file"
+      }
+    }, {
+      "id" : "webapps/KYC.war",
+      "path" : "/webapps/KYC.war",
+      "dir" : "/webapps",
+      "filename" : "KYC.war",
+      "contentType" : "application/zip",
+      "size" : 85465811,
+      "modifiedTime" : "2018-11-06T09:35:23.000Z",
+      "version" : 1616376678271942656,
+      "md5" : "c3865f8f84fb3eb584ae0ffcc796144a",
+      "metadata" : {
+        "last-modified" : "1540906726740",
+        "type" : "appkit:war"
+      }
+    } ],
+    "appkitApps" : [ {
+      "appkitApp" : {
+        "id" : "KYC",
+        "name" : "KYC",
+        "contextPath" : "/KYC",
+        "enabled" : false,
+        "war" : "webapps/KYC.war"
+      },
+      "editingSessions" : [ ]
+    } ],
+    "fusionApps" : [ {
+      "id" : "kyc",
+      "name" : "kyc",
+      "dataUri" : "/admin/App-Tile-09-460x160.png",
+      "properties" : {
+        "headerImageName" : "headerImage9",
+        "tileColor" : "apps-darkblue",
+        "previousCollectionId" : "customers"
+      }
+    } ],
+    "dataSources" : [ {
+      "id" : "file-documents-json",
+      "created" : "2018-10-30T11:50:22.700Z",
+      "modified" : "2018-10-30T11:50:22.700Z",
+      "connector" : "lucid.file",
+      "type" : "file",
+      "pipeline" : "documents",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "emitThreads" : 5,
+        "diagnosticMode" : false,
+        "refreshErrors" : false,
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "delete",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "delete",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "delete",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "delete",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "delete",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "delete",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "delete",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "delete",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "delete",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "delete",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : true,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "fetchDelayMS" : 0,
+        "refreshAll" : true,
+        "startLinks" : [ "/Users/antonxt/dev/fusion-financial-demo/data/kyc/documents.json" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.minSizeBytes" : 0,
+        "maxItems" : -1,
+        "dedupe" : false,
+        "chunkSize" : 1,
+        "trackEmbeddedIDs" : false,
+        "collection" : "documents",
+        "deleteErrorsAfter" : -1,
+        "forceRefresh" : false,
+        "retryEmit" : true,
+        "depth" : -1,
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "f.addFileMetadata" : true,
+        "aliasExpiration" : 1,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "restrictToTree" : true,
+        "retainOutlinks" : false
+      }
+    }, {
+      "id" : "file-json-messages",
+      "created" : "2018-10-30T12:32:48.944Z",
+      "modified" : "2018-10-30T12:32:48.944Z",
+      "connector" : "lucid.file",
+      "type" : "file",
+      "pipeline" : "messages",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "emitThreads" : 5,
+        "diagnosticMode" : false,
+        "refreshErrors" : false,
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "delete",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "delete",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "delete",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "delete",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "delete",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "delete",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "delete",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "delete",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "delete",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "delete",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : true,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "fetchDelayMS" : 0,
+        "refreshAll" : true,
+        "startLinks" : [ "/Users/antonxt/dev/fusion-financial-demo/data/kyc/messages.json" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.minSizeBytes" : 0,
+        "maxItems" : -1,
+        "dedupe" : false,
+        "chunkSize" : 1,
+        "trackEmbeddedIDs" : true,
+        "collection" : "messages",
+        "deleteErrorsAfter" : -1,
+        "forceRefresh" : false,
+        "retryEmit" : true,
+        "depth" : -1,
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 4194304,
+        "f.addFileMetadata" : true,
+        "aliasExpiration" : 1,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "restrictToTree" : true,
+        "retainOutlinks" : false
+      }
+    }, {
+      "id" : "file-customers-json",
+      "created" : "2018-10-29T15:53:33.496Z",
+      "modified" : "2018-10-29T15:53:33.496Z",
+      "connector" : "lucid.file",
+      "type" : "file",
+      "pipeline" : "customers",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "emitThreads" : 5,
+        "diagnosticMode" : false,
+        "refreshErrors" : false,
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "delete",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "delete",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "delete",
+            "target" : ""
+          }, {
+            "source" : "signature",
+            "operation" : "delete",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "delete",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "delete",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "delete",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "delete",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "delete",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "delete",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : true,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "fetchDelayMS" : 0,
+        "refreshAll" : true,
+        "failFastOnStartLinkFailure" : true,
+        "startLinks" : [ "/Users/antonxt/dev/fusion-financial-demo/data/kyc/customers.json" ],
+        "f.minSizeBytes" : 0,
+        "maxItems" : -1,
+        "dedupe" : false,
+        "chunkSize" : 1,
+        "trackEmbeddedIDs" : false,
+        "collection" : "customers",
+        "deleteErrorsAfter" : -1,
+        "forceRefresh" : false,
+        "retryEmit" : true,
+        "depth" : -1,
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : 9999999,
+        "f.addFileMetadata" : true,
+        "aliasExpiration" : 1,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "restrictToTree" : true,
+        "retainOutlinks" : false
+      }
+    }, {
+      "id" : "file-json-transactions",
+      "created" : "2018-10-30T13:12:35.414Z",
+      "modified" : "2018-10-30T13:12:35.414Z",
+      "connector" : "lucid.file",
+      "type" : "file",
+      "pipeline" : "transactions",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "refreshOlderThan" : -1,
+        "emitThreads" : 5,
+        "diagnosticMode" : false,
+        "refreshErrors" : false,
+        "dedupeSaveSignature" : false,
+        "crawlDBType" : "in-memory",
+        "delete" : true,
+        "initial_mapping" : {
+          "mappings" : [ {
+            "source" : "charSet",
+            "operation" : "delete",
+            "target" : "charSet_s"
+          }, {
+            "source" : "fetchedDate",
+            "operation" : "delete",
+            "target" : "fetchedDate_dt"
+          }, {
+            "source" : "lastModified",
+            "operation" : "delete",
+            "target" : "lastModified_dt"
+          }, {
+            "source" : "signature",
+            "operation" : "delete",
+            "target" : "dedupeSignature_s"
+          }, {
+            "source" : "contentSignature",
+            "operation" : "delete",
+            "target" : "signature_s"
+          }, {
+            "source" : "length",
+            "operation" : "delete",
+            "target" : "length_l"
+          }, {
+            "source" : "mimeType",
+            "operation" : "delete",
+            "target" : "mimeType_s"
+          }, {
+            "source" : "parent",
+            "operation" : "delete",
+            "target" : "parent_s"
+          }, {
+            "source" : "owner",
+            "operation" : "delete",
+            "target" : "owner_s"
+          }, {
+            "source" : "group",
+            "operation" : "delete",
+            "target" : "group_s"
+          } ],
+          "reservedFieldsMappingAllowed" : true,
+          "skip" : false,
+          "id" : "FromMap",
+          "type" : "field-mapping"
+        },
+        "fetchDelayMS" : 0,
+        "refreshAll" : true,
+        "startLinks" : [ "/Users/antonxt/dev/fusion-financial-demo/data/kyc/transactions.json" ],
+        "failFastOnStartLinkFailure" : true,
+        "f.minSizeBytes" : 0,
+        "maxItems" : -1,
+        "dedupe" : false,
+        "chunkSize" : 1,
+        "trackEmbeddedIDs" : false,
+        "collection" : "transactions",
+        "deleteErrorsAfter" : -1,
+        "forceRefresh" : false,
+        "retryEmit" : true,
+        "depth" : -1,
+        "refreshStartLinks" : false,
+        "f.maxSizeBytes" : -1,
+        "f.addFileMetadata" : false,
+        "aliasExpiration" : 1,
+        "fetchThreads" : 5,
+        "indexCrawlDBToSolr" : false,
+        "restrictToTree" : true,
+        "retainOutlinks" : false
+      }
+    }, {
+      "id" : "clickstream-sample-txt",
+      "created" : "2018-11-02T12:01:07.529Z",
+      "modified" : "2018-11-02T12:01:07.529Z",
+      "connector" : "lucid.fileupload",
+      "type" : "fileupload",
+      "pipeline" : "clickstream",
+      "parserId" : "clickstream",
+      "properties" : {
+        "mediaType" : "text/csv",
+        "collection" : "customers",
+        "fileId" : "clickstream-sample.txt"
+      }
+    } ]
+  },
+  "metadata" : {
+    "formatVersion" : "1",
+    "exportedBy" : "039c9bab-5304-49c1-b7a2-5876c93e121a",
+    "exportedDate" : "2018-11-06T09:50:37.483Z",
+    "fusionVersion" : "4.1.0",
+    "fusionGuid" : "f261d1cd-696e-4ee6-9d12-882bbaee2639"
+  }
+}

@@ -1,0 +1,35 @@
+<layout:grid styling="header">
+    <layout:block medium="6-24" styling="hide-sm hide-xs">
+        <layout:box>
+            <layout:logo image="/assets/logo.png"></layout:logo>
+        </layout:box>
+    </layout:block>
+
+    <layout:block tiny="4-24" medium="3-24" styling="hide-md hide-lg hide-xl">
+        <layout:box>
+            <search:offcanvas-toggle target="#sidebar"></search:offcanvas-toggle>
+        </layout:box>
+    </layout:block>
+
+    <layout:block tiny="20-24" medium="1-2">
+        <layout:box>
+            <search:box placeholder="Find documents..." action="{{action}}">
+                <!--<query-suggestions completion-service="services.suggestions.terms" action="/search"></query-suggestions>-->
+
+                <!--<layout:box>-->
+                    <!--<instant:result-list platform="platform">-->
+                        <!--<search:result>-->
+                            <!--<search:field name="title" label="" styling="label-inline" urlfield="url"></search:field>-->
+                        <!--</search:result>-->
+                    <!--</instant:result-list>-->
+                <!--</layout:box>-->
+            </search:box>
+        </layout:box>
+    </layout:block>
+
+    <layout:block medium="6-24"  styling="hide-sm hide-xs">
+        <layout:box class="user-wrapper">
+            <security:user-actions class="right"></security:user-actions>
+        </layout:box>
+    </layout:block>
+</layout:grid>
