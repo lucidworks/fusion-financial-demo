@@ -8,42 +8,31 @@
 
 <layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
 
-<layout:grid styling="row-offcanvas" class="flex-1">
+<layout:grid styling="row-offcanvas" class="detail-page">
     <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
-        <search:result-list response="response" style="col-2" addCssClass="tk-bl-panel">
-            <search:result>
-                <search:field name="name" styling="title" label="q"></search:field>
-                <search:field name="address" label="Address" styling="label-above"></search:field>
-                <search:field name="city" suffix=", {{result.fields.state.val[0]}} {{result.fields.zip}}"></search:field>
-                <search:field name="completeness" label="Account Completeness" suffix="%" styling="label-above"></search:field>
-                <search:field name="customer_since" label="Customer Since" format="MMMM dd, y" styling="label-above"></search:field>
-                <search:field name="lifetime_value" label="Lifetime Value" prefix="&dollar;" styling="label-above"></search:field>
-                <search:field name="credit_score" label="Credit Score" styling="label-above"></search:field>
-
-                    <!--<article class="tk-bl-panel">-->
-                    <!--<section class="tk-bl-gauge health-good">-->
-                        <!--<h3 class="gauge-title">Account Completeness</h3>-->
-                        <!--<p class="gauge-value">${customer.fields.completeness}%</p>-->
-                        <!--<p class="gauge-caption">5/5 required documents</p>-->
-                    <!--</section>-->
-                    <!--<section class="tk-bl-gauge health-good">-->
-                        <!--<h3 class="gauge-title">Customer Since</h3>-->
-                        <!--<p class="gauge-value"><fmt:formatDate value="customer.fields.customer_since.value.actual" type="date" pattern="y" /></p>-->
-                        <!--<p class="gauge-caption"><fmt:formatDate value="customer.fields.customer_since.value.actual" type="date" pattern="MMMM dd, y" /></p>-->
-                    <!--</section>-->
-                    <!--<section class="tk-bl-gauge health-good">-->
-                        <!--<h3 class="gauge-title">Lifetime Value</h3>-->
-                        <!--<p class="gauge-value"><fmt:formatNumber value="customer.fields.lifetime_value.value.actual" type="currency"/></p>-->
-                        <!--<p class="gauge-caption">Since becoming a customer</p>-->
-                    <!--</section>-->
-                    <!--<section class="tk-bl-gauge health-good">-->
-                        <!--<h3 class="gauge-title">Credit Score</h3>-->
-                        <!--<p class="gauge-value">${customer.fields.credit_score}</p>-->
-                        <!--<p class="gauge-caption">Checked <fmt:formatDate value="customer.fields.customer_since.value.actual" type="date" pattern="MMMM dd, y" /></p>-->
-                    <!--</section>-->
-                <!--</article>-->
-            </search:result>
-        </search:result-list>
+        <layout:block md="1-3" lg="1-4" drawer="left" id="sidebar" styling="blocksidebar-light">
+        </layout:block>
+        <layout:block md="2-3" lg="3-4" styling="bg-white">
+            <layout:box padding-left="2" padding-right="2">
+                <layout:block>
+                    <layout:grid>
+                        <layout:block>
+                            <search:result-list response="response" styling="col-2" addCssClass="tk-bl-panel">
+                                <search:result>
+                                    <search:field name="name" styling="title"></search:field>
+                                    <search:field name="address" label="Address" styling="label-above"></search:field>
+                                    <search:field name="city" label="City" styling="label-above" suffix=", {{result.fields.state.val[0]}} {{result.fields.zipcode | actual}}"></search:field>
+                                    <search:field name="completeness" label="Account Completeness" styling="label-above" suffix="%"></search:field>
+                                    <search:field name="customer_since" label="Customer Since" styling="label-above" date-format="MMMM dd, y"></search:field>
+                                    <search:field name="lifetime_value" label="Lifetime Value" styling="label-above" prefix="&dollar;"></search:field>
+                                    <search:field name="credit_score" label="Credit Score" styling="label-above"></search:field>
+                                </search:result>
+                            </search:result-list>
+                        </layout:block>
+                    </layout:grid>
+                </layout:block>
+            </layout:box>
+        </layout:block>
     </layout:animate>
     <!--<header class="tk-bl-overview tk-stl-overview">
         <section class="tk-bl-overview-sidebar">

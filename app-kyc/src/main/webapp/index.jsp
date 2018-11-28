@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.ico?v=3" type="image/x-icon"/>
+    <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="${app:contextPath(pageContext.request)}/wro/css/main.css" />
 </head>
 

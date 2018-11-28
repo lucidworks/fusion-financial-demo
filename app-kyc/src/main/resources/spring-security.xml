@@ -18,7 +18,7 @@
     <http pattern="/javascript/**" security="none"/>
     <http pattern="/wro/**" security="none"/>
     <http pattern="/setup/**" security="none"/>
-    <http pattern="/favicon.ico" security="none"/>
+    <http pattern="/favicon.png" security="none"/>
     <http pattern="/static/**" security="none"/>
 
     <http pattern="/twigkit/api/setup/**" security="none"/>

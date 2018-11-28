@@ -72,7 +72,7 @@
 
                                 <search:result-list response="response" platform="platform" infinite-scroll="true" styling="cards-sm-1 cards-lg-2 cards-xl-3">
                                     <search:result>
-                                        <search:field name="name" styling="title" label="" url="#/customers/{{result.fields.id | actual}}"></search:field>
+                                        <search:field name="name" styling="title" url="#/customers/{{result.fields.id | actual}}"></search:field>
                                         <search:field name="address" label="Address" styling="label-above"></search:field>
                                         <search:field name="city" label="City" styling="label-above" suffix=", {{result.fields.state.val[0]}} {{result.fields.zipcode | actual}}"></search:field>
                                         <search:field name="completeness" label="Account Completeness" styling="label-above" suffix="%"></search:field>

@@ -15,7 +15,7 @@
         <meta name="author" content="Twigkit">
         <meta name="viewport" content="minimal-ui, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=440">
 
-        <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.ico?v=3" type="image/x-icon"/>
+        <link rel="icon" href="${app:contextPath(pageContext.request)}/favicon.png"/>
 
         <%-- === Use WRO4J plugin when you want to switch between pre-compiled and dynamic resources === --%>
         <%-- === when running Jetty or Tomcat Maven plugins or a WAR file                            === --%>
