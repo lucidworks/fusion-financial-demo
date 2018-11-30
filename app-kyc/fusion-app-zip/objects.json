@@ -1,0 +1,1055 @@
+{
+  "objects" : {
+    "collections" : [ {
+      "id" : "customers",
+      "createdAt" : "2018-10-29T13:47:16.746Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "customers",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "documents",
+      "createdAt" : "2018-10-30T11:27:02.608Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "documents",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "messages",
+      "createdAt" : "2018-10-30T11:57:19.172Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "messages",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    }, {
+      "id" : "transactions",
+      "createdAt" : "2018-10-30T13:00:36.483Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "transactions",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "DATA",
+      "metadata" : { }
+    } ],
+    "indexPipelines" : [ {
+      "id" : "_system",
+      "stages" : [ {
+        "type" : "solr-index",
+        "id" : "019fe30e-7549-4855-92e6-1d53cbd4aabf",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "019fe30e-7549-4855-92e6-1d53cbd4aabf"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "_system"
+      }
+    }, {
+      "id" : "customers",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "c08f2b78-596b-419a-bb80-f53e60940734",
+        "mappings" : [ {
+          "source" : "/recommended_products_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "/current_products_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "group_s",
+          "operation" : "delete"
+        }, {
+          "source" : "owner_s",
+          "operation" : "delete"
+        }, {
+          "source" : "parent_s",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        }, {
+          "source" : "_lw_data_source_s",
+          "target" : "tmp",
+          "operation" : "move"
+        }, {
+          "source" : "/_lw_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "tmp",
+          "target" : "_lw_data_source_s",
+          "operation" : "move"
+        }, {
+          "source" : "attr_zipcode_",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "c08f2b78-596b-419a-bb80-f53e60940734"
+      }, {
+        "type" : "solr-index",
+        "id" : "2950e481-a99e-4243-b75a-5dff76b559c5",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2950e481-a99e-4243-b75a-5dff76b559c5"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "customers"
+      }
+    }, {
+      "id" : "documents",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "d91a5168-760a-4124-ab53-2a42e83fc38f",
+        "mappings" : [ {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "group_s",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "owner_s",
+          "operation" : "delete"
+        }, {
+          "source" : "parent_s",
+          "operation" : "delete"
+        }, {
+          "source" : "score",
+          "operation" : "delete"
+        }, {
+          "source" : "_lw_batch_id_s",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        }, {
+          "source" : "/_lw_.*/",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d91a5168-760a-4124-ab53-2a42e83fc38f"
+      }, {
+        "type" : "solr-index",
+        "id" : "2adeca89-79e3-4813-96e7-f9a643d19b52",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "2adeca89-79e3-4813-96e7-f9a643d19b52"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "documents"
+      }
+    }, {
+      "id" : "messages",
+      "stages" : [ {
+        "type" : "field-mapping",
+        "id" : "7642da99-caf8-4cc5-83c4-2a0b086d4874",
+        "mappings" : [ {
+          "source" : "/.+_s/",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "/_lw_.*/",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "7642da99-caf8-4cc5-83c4-2a0b086d4874"
+      }, {
+        "type" : "solr-index",
+        "id" : "a2de0b3b-96a3-49c8-be7d-84e50005ecf0",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a2de0b3b-96a3-49c8-be7d-84e50005ecf0"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "messages"
+      }
+    }, {
+      "id" : "transactions",
+      "stages" : [ {
+        "type" : "regex-replacement",
+        "id" : "u3n",
+        "rules" : [ {
+          "source" : [ "amount_in" ],
+          "target" : "amount_in",
+          "writeMode" : "overwrite",
+          "pattern" : "null",
+          "returnIfNoMatch" : "input_string",
+          "replacement" : "0",
+          "replaceWhich" : "all"
+        }, {
+          "source" : [ "amount_out" ],
+          "target" : "amount_out",
+          "writeMode" : "overwrite",
+          "pattern" : "null",
+          "returnIfNoMatch" : "input_string",
+          "replacement" : "0",
+          "replaceWhich" : "all"
+        } ],
+        "type" : "regex-replacement",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "u3n"
+      }, {
+        "type" : "date-parsing",
+        "id" : "gwl",
+        "sourceFields" : [ "transaction_date" ],
+        "dateFormats" : [ ],
+        "requireTimezone" : false,
+        "ignoreInvalid" : false,
+        "splitLocal" : false,
+        "splitUTC" : false,
+        "defaultTimezone" : "UTC",
+        "defaultLocale" : "en",
+        "type" : "date-parsing",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "gwl"
+      }, {
+        "type" : "field-mapping",
+        "id" : "6c9fbb30-9343-4d71-97e4-ef8ef4e6b983",
+        "mappings" : [ {
+          "source" : "/_lw_.*/",
+          "operation" : "delete"
+        }, {
+          "source" : "/transaction_date\\..*/",
+          "operation" : "delete"
+        }, {
+          "source" : "owner_s",
+          "operation" : "delete"
+        }, {
+          "source" : "parent_s",
+          "operation" : "delete"
+        }, {
+          "source" : "_version_",
+          "operation" : "delete"
+        }, {
+          "source" : "group_s",
+          "operation" : "delete"
+        }, {
+          "source" : "/test\\d+/",
+          "operation" : "delete"
+        }, {
+          "source" : "fetchedDate_dt",
+          "operation" : "delete"
+        }, {
+          "source" : "lastModified_dt",
+          "operation" : "delete"
+        } ],
+        "reservedFieldsMappingAllowed" : true,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "6c9fbb30-9343-4d71-97e4-ef8ef4e6b983"
+      }, {
+        "type" : "solr-index",
+        "id" : "4276f842-21e9-48ed-81db-510aab485f2e",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "4276f842-21e9-48ed-81db-510aab485f2e"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "transactions"
+      }
+    } ],
+    "queryPipelines" : [ {
+      "id" : "_system",
+      "stages" : [ {
+        "type" : "solr-query",
+        "id" : "d1955982-2911-4315-8421-d196ad2ae4ce",
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "responseSignalsEnabled" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "d1955982-2911-4315-8421-d196ad2ae4ce"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "_system"
+      }
+    }, {
+      "id" : "customers",
+      "stages" : [ {
+        "type" : "javascript-query",
+        "id" : "88f34306-9896-4a2f-81a9-8c5997ab196f",
+        "script" : "if (\"Cort\" == request.headers.getFirst('Fusion-User-Name')) {\n  request.addParam('fq', '(state, \"NewJersey\")');\n}\n",
+        "type" : "javascript-query",
+        "skip" : false,
+        "label" : "State NJ for user Cort",
+        "licensed" : true,
+        "secretSourceStageId" : "88f34306-9896-4a2f-81a9-8c5997ab196f"
+      }, {
+        "type" : "search-fields",
+        "id" : "47df5b1b-7d3a-46c0-8745-208ccb0d80a9",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "minimumMatch" : "50%",
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "47df5b1b-7d3a-46c0-8745-208ccb0d80a9"
+      }, {
+        "type" : "facet",
+        "id" : "a48b3db1-66a3-4649-b6f8-6e1f445486b3",
+        "fieldFacets" : [ {
+          "field" : "completeness",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "lifetime_value",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "state",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "current_products",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        }, {
+          "field" : "recommended_products",
+          "sort" : "index",
+          "minCount" : 1,
+          "missing" : false
+        } ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "a48b3db1-66a3-4649-b6f8-6e1f445486b3"
+      }, {
+        "type" : "set-params",
+        "id" : "4201e26b-8532-42d8-8f8a-023c10169149",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "credit_score",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.start",
+          "value" : "0",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.end",
+          "value" : "1000",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.gap",
+          "value" : "100",
+          "policy" : "append"
+        }, {
+          "key" : "f.credit_score.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Credit Score",
+        "licensed" : true,
+        "secretSourceStageId" : "4201e26b-8532-42d8-8f8a-023c10169149"
+      }, {
+        "type" : "set-params",
+        "id" : "e7e9c44c-3c07-4876-a664-c8dbd71d1e0e",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "customer_since",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.start",
+          "value" : "NOW/YEAR-20YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.end",
+          "value" : "NOW/DAY+20YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.customer_since.facet.range.gap",
+          "value" : "+1YEAR",
+          "policy" : "default"
+        }, {
+          "key" : "f.customer_since.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Customer Since",
+        "licensed" : true,
+        "secretSourceStageId" : "e7e9c44c-3c07-4876-a664-c8dbd71d1e0e"
+      }, {
+        "type" : "set-params",
+        "id" : "4b4e79d0-6f3b-482b-a1b8-9fd91674a835",
+        "params" : [ {
+          "key" : "facet.range",
+          "value" : "dob",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.start",
+          "value" : "NOW/YEAR-90YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.end",
+          "value" : "NOW/YEAR-10YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.gap",
+          "value" : "+1YEAR",
+          "policy" : "append"
+        }, {
+          "key" : "f.dob.facet.range.other",
+          "value" : "all",
+          "policy" : "append"
+        }, {
+          "key" : "facet.mincount",
+          "value" : "1",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Facet: Date of Birth",
+        "licensed" : true,
+        "secretSourceStageId" : "4b4e79d0-6f3b-482b-a1b8-9fd91674a835"
+      }, {
+        "type" : "solr-query",
+        "id" : "2122d5b2-3319-40d4-ad9e-e4eee460381b",
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "responseSignalsEnabled" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "2122d5b2-3319-40d4-ad9e-e4eee460381b"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "customers"
+      }
+    } ],
+    "features" : {
+      "customers" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "customers",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "signals",
+        "collectionId" : "customers",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "documents" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "documents",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "signals",
+        "collectionId" : "documents",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "messages" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "messages",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "signals",
+        "collectionId" : "messages",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "transactions" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "transactions",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : true
+      }, {
+        "name" : "signals",
+        "collectionId" : "transactions",
+        "params" : { },
+        "enabled" : false
+      } ]
+    },
+    "queryProfiles" : [ {
+      "id" : "kyc-customers",
+      "queryPipeline" : "customers",
+      "collection" : "customers",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-documents",
+      "queryPipeline" : "_system",
+      "collection" : "documents",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-messages",
+      "queryPipeline" : "_system",
+      "collection" : "messages",
+      "searchHandler" : "select"
+    }, {
+      "id" : "kyc-transactions",
+      "queryPipeline" : "_system",
+      "collection" : "transactions",
+      "searchHandler" : "select"
+    } ],
+    "parsers" : [ {
+      "id" : "file-customers-json",
+      "idField" : "id",
+      "enableMediaTypeDetection" : true,
+      "maxParserDepth" : 16,
+      "parserStages" : [ {
+        "type" : "json",
+        "enabled" : true,
+        "mediaTypes" : [ ],
+        "pathPatterns" : [ ],
+        "errorHandling" : "ignore",
+        "id" : "faefb140-bba0-4c5c-8fc8-060cb97c3e81",
+        "rootPath" : "/response/docs",
+        "splitArrays" : true,
+        "includePath" : false,
+        "mappings" : [ ],
+        "listHandling" : "multivalued",
+        "inheritMediaTypes" : true,
+        "outputFieldPrefix" : ""
+      } ],
+      "editPanel" : { }
+    } ],
+    "objectGroups" : [ {
+      "id" : "a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "name" : "signals-customers",
+      "isSystem" : true,
+      "description" : "Collection 'customers' objects for signals support"
+    } ],
+    "links" : [ {
+      "subject" : "appkit:KYC",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "index-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:customers",
+      "object" : "query-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:documents",
+      "object" : "index-pipeline:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:messages",
+      "object" : "index-pipeline:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:transactions",
+      "object" : "index-pipeline:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:customers",
+      "object" : "blob:customers.json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:customers",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:customers",
+      "object" : "index-pipeline:customers",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:customers",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:documents",
+      "object" : "blob:documents.json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:documents",
+      "object" : "collection:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:documents",
+      "object" : "index-pipeline:documents",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:documents",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:messages",
+      "object" : "blob:messages.json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:messages",
+      "object" : "collection:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:messages",
+      "object" : "index-pipeline:messages",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:messages",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:transactions",
+      "object" : "blob:transactions.json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:transactions",
+      "object" : "collection:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:transactions",
+      "object" : "index-pipeline:transactions",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "datasource:transactions",
+      "object" : "parser:file-customers-json",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:a5c7db61-f738-48d3-b3dc-8a1347a62e3b",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:_system",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "parser:file-customers-json",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:_system",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-pipeline:customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "collection:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-customers",
+      "object" : "query-pipeline:customers",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "collection:documents",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-documents",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "collection:messages",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-messages",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "app:kyc",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "collection:transactions",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:kyc-transactions",
+      "object" : "query-pipeline:_system",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    } ],
+    "blobs" : [ {
+      "id" : "customers.json",
+      "path" : "/customers.json",
+      "dir" : "/",
+      "filename" : "customers.json",
+      "contentType" : "application/json",
+      "size" : 5564108,
+      "modifiedTime" : "2018-11-30T11:07:14.249Z",
+      "version" : 1618556783713845248,
+      "md5" : "19c249c41aea850fe9020d229abdbe50",
+      "metadata" : {
+        "resourceType" : "file"
+      }
+    }, {
+      "id" : "documents.json",
+      "path" : "/documents.json",
+      "dir" : "/",
+      "filename" : "documents.json",
+      "contentType" : "application/json",
+      "size" : 5801,
+      "modifiedTime" : "2018-11-30T12:46:25.569Z",
+      "version" : 1618563024101048320,
+      "md5" : "15a96f26fd14c1f11806a1166b9f51b6",
+      "metadata" : {
+        "resourceType" : "file"
+      }
+    }, {
+      "id" : "messages.json",
+      "path" : "/messages.json",
+      "dir" : "/",
+      "filename" : "messages.json",
+      "contentType" : "application/json",
+      "size" : 10572,
+      "modifiedTime" : "2018-11-30T12:49:05.294Z",
+      "version" : 1618563191584849920,
+      "md5" : "c7defa27980cf48bca0210af977a1097",
+      "metadata" : {
+        "resourceType" : "file"
+      }
+    }, {
+      "id" : "transactions.json",
+      "path" : "/transactions.json",
+      "dir" : "/",
+      "filename" : "transactions.json",
+      "contentType" : "application/json",
+      "size" : 22033683,
+      "modifiedTime" : "2018-11-30T12:53:00.582Z",
+      "version" : 1618563438320025600,
+      "md5" : "eec689866fa83fc387ea5813da455472",
+      "metadata" : {
+        "resourceType" : "file"
+      }
+    } ],
+    "appkitApps" : [ {
+      "appkitApp" : {
+        "id" : "KYC",
+        "name" : "KYC",
+        "contextPath" : "/KYC",
+        "enabled" : false,
+        "war" : "webapps/KYC.war"
+      },
+      "editingSessions" : [ ]
+    } ],
+    "fusionApps" : [ {
+      "id" : "kyc",
+      "name" : "kyc",
+      "dataUri" : "/admin/App-Tile-09-460x160.png",
+      "properties" : {
+        "headerImageName" : "headerImage9",
+        "tileColor" : "apps-darkblue",
+        "previousCollectionId" : "customers"
+      }
+    } ],
+    "dataSources" : [ {
+      "id" : "customers",
+      "created" : "2018-11-30T11:07:16.046Z",
+      "modified" : "2018-11-30T11:07:16.046Z",
+      "connector" : "lucid.fileupload",
+      "type" : "fileupload",
+      "pipeline" : "customers",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "mediaType" : "application/octet-stream",
+        "collection" : "customers",
+        "fileId" : "customers.json"
+      }
+    }, {
+      "id" : "documents",
+      "created" : "2018-11-30T12:46:26.795Z",
+      "modified" : "2018-11-30T12:46:26.795Z",
+      "connector" : "lucid.fileupload",
+      "type" : "fileupload",
+      "pipeline" : "documents",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "mediaType" : "application/json",
+        "collection" : "documents",
+        "fileId" : "documents.json"
+      }
+    }, {
+      "id" : "messages",
+      "created" : "2018-11-30T12:49:06.553Z",
+      "modified" : "2018-11-30T12:49:06.553Z",
+      "connector" : "lucid.fileupload",
+      "type" : "fileupload",
+      "pipeline" : "messages",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "mediaType" : "application/octet-stream",
+        "collection" : "messages",
+        "fileId" : "messages.json"
+      }
+    }, {
+      "id" : "transactions",
+      "created" : "2018-11-30T12:53:09.728Z",
+      "modified" : "2018-11-30T12:53:09.728Z",
+      "connector" : "lucid.fileupload",
+      "type" : "fileupload",
+      "pipeline" : "transactions",
+      "parserId" : "file-customers-json",
+      "properties" : {
+        "mediaType" : "application/octet-stream",
+        "collection" : "transactions",
+        "fileId" : "transactions.json"
+      }
+    } ]
+  },
+  "metadata" : {
+    "formatVersion" : "1",
+    "exportedBy" : "4858f437-a85a-4c7f-8bbf-9752bdaf3456",
+    "exportedDate" : "2018-11-30T15:38:15.773Z",
+    "fusionVersion" : "4.1.1",
+    "fusionGuid" : "d363efe7-31e5-4681-aa18-5491017169a3"
+  }
+}

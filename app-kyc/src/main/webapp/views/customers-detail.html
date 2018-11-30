@@ -1,4 +1,5 @@
 <search:platform var="platform" conf="platforms.fusion.data"></search:platform>
+
 <search:query var="query" parameters="*">
     <search:filter field="id" value="{{params.id}}"/>
 </search:query>
@@ -9,7 +10,7 @@
 <layout:include file="views/partials/header.tpl.html" action="search"></layout:include>
 
 <layout:grid styling="row-offcanvas" class="detail-page">
-    <layout:animate animation="animate-fadeInUp" on="response" layout-grid>
+    <layout:animate animation="animate-fadeInUp" on="response">
         <layout:block md="1-3" lg="1-4" drawer="left" id="sidebar" styling="blocksidebar-light">
         </layout:block>
         <layout:block md="2-3" lg="3-4" styling="bg-white">
@@ -34,120 +35,4 @@
             </layout:box>
         </layout:block>
     </layout:animate>
-    <!--<header class="tk-bl-overview tk-stl-overview">
-        <section class="tk-bl-overview-sidebar">
-        <h2 class="section-title">ID Documents</h2>
-
-        <search:result-list response="docResponse" addCssClass="document-list">
-        <search:result>
-        <a href="${pageContext.request.contextPath}/image-preview/?image=${search:encodeForURL(result.fields.image_url)}&title=${search:encodeForURL(result.fields.title)}" class="preview">
-        <media:image fieldName="image_url" fieldPrefix="http://us-google.twigkit.net/kyc" style="small-thumbnail"></media:image>
-        <search:field fieldName="title"></search:field>
-        <search:field fieldName="upload_date" format="dd MMM YYYY" prefix="Added on " addCssClass="date-added"></search:field>
-        </a>
-        </search:result>
-        </search:result-list>
-
-        </section>
-        <section class="tk-bl-overview-main">
-            <h2 class="section-title">Customer Details</h2>
-            <toggle:controls labels="Personal,Employment,Products" panes="customer-details" style="tabs"></toggle:controls>
-            <toggle:panes id="customer-details" visible="true" allowMultiple="false">
-                <toggle:pane visible="true">
-                    <search:result result="customer" html="false">
-                        <search:field fieldName="name" label="Name" style="label-left"></search:field>
-                        <search:field fieldName="gender" label="Gender" style="label-left"></search:field>
-                        <search:field fieldName="marital_status" label="Marital Status" style="label-left"></search:field>
-                        <search:field fieldName="dob" label="Date of Birth" style="label-left" format="dd MMM YYYY"></search:field>
-                        <search:field fieldName="nationality" label="Nationality" style="label-left"></search:field>
-                        <search:field fieldName="country_of_residence" label="Residence" style="label-left"></search:field>
-                        <search:field fieldName="phone" label="Phone" style="label-left"></search:field>
-                        <search:field fieldName="email" label="Email" style="label-left"></search:field>
-                        <search:field fieldName="address" label="Address" style="label-left"></search:field>
-                        <search:field fieldName="city" label="City" style="label-left"></search:field>
-                        <search:field fieldName="state" label="State" style="label-left"></search:field>
-                        <search:field fieldName="zip" label="Zip" style="label-left"></search:field>
-                    </search:result>
-                </toggle:pane>
-                <toggle:pane>
-                    <search:result result="customer" html="false">
-                        <search:field fieldName="employment_status" label="Employment Status" style="label-left"></search:field>
-                        <search:field fieldName="employer" label="Employer" style="label-left"></search:field>
-                        <search:field fieldName="industry" label="Industry" style="label-left"></search:field>
-                        <search:field fieldName="occupation" label="Occupation" style="label-left"></search:field>
-                        <search:field fieldName="job_title" label="Job Title" style="label-left"></search:field>
-                        <search:field fieldName="employment_start_date" label="Start Date" style="label-left" format="dd MMM YYYY"></search:field>
-                        <search:field fieldName="employer_address" label="Employer Address" style="label-left"></search:field>
-                        <search:field fieldName="payment_frequency" label="Payment Frequency" style="label-left"></search:field>
-                        <search:field fieldName="gross_annual_income" label="Gross Annual" style="label-left"></search:field>
-                        <search:field fieldName="net_monthly_income" label="Net Monthly" style="label-left"></search:field>
-                    </search:result>
-                </toggle:pane>
-                <toggle:pane>
-                <search:result result="customer" html="false">
-                <search:field fieldName="current_products" label="Current" style="label-left"></search:field>
-                <search:field fieldName="recommended_products" label="Recommended" style="label-left"></search:field>
-                </search:result>
-                </toggle:pane>
-            </toggle:panes>
-        </section>
-        <section class="tk-bl-overview-extra">
-        <h2 class="section-title">Notes</h2>
-        <social:commentForm target="${customer.id}" buttonLabel="Post" placeholder="Leave a comment..."></social:commentForm>
-        <social:commentList target="${customer.id}" format="dd MMM yyyy"></social:commentList>
-        </section>
-    </header>
-
-    <search:conditional test="transactions.hits.actual > 0">
-    <div class="recent-transactions">
-
-    <block:content>
-
-    <h2 class="section-title">Recent Transactions</h2>
-    <a href="${pageContext.request.contextPath}/customers/${param.value}/transactions/" class="section-link">View all</a>
-
-    <search:tabs action="${pageContext.request.contextPath}/customers/${param.value}/" response="${transactions}" fieldName="account" tabs="Checking,Savings,Credit Card,Mortgage" allLabel="All" countNumber="rounded" />
-
-    <div class="table-container">
-    <table:resultList response="${transactions}" >
-    <table:header cssClass="top">
-    <table:headerCell name="transaction_date" label="Date" cssClass="title"></table:headerCell>
-    <table:headerCell name="title" label="Description" cssClass="title"></table:headerCell>
-    <table:headerCell name="account" label="Account" cssClass="title"></table:headerCell>
-    <table:headerCell name="type" label="Event Type" cssClass="title"></table:headerCell>
-    <table:headerCell name="amount" label="Amount" cssClass="title"></table:headerCell>
-    </table:header>
-    <table:body>
-    <table:row>
-    <table:cell name="transaction_date" format="dd MMM YYYY" show="1"></table:cell>
-    <table:cell name="title"></table:cell>
-    <table:cell name="account"></table:cell>
-    <table:cell name="type"></table:cell>
-    <table:cell name="amount" format="#,###.00"></table:cell>
-    </table:row>
-    </table:body>
-    </table:resultList>
-    </div>
-
-    </block:content>
-    <block:sidebar>
-
-    <h2 class="section-title">Recent Messages</h2>
-    <a href="${pageContext.request.contextPath}/customers/${param.value}/messages/" class="section-link">View all</a>
-
-    <search:resultList response="${messagesResponse}" addCssClass="message-result-list-concise">
-    <search:result>
-    <search:field fieldName="message_date" style="inline" format="dd MMM YYYY" show="1" />
-    <a class="preview" href="${pageContext.request.contextPath}/customers/${param.value}/messages/${result.fields.id}/">
-    <search:field fieldName="title" style="title" />
-    </a>
-    <search:field fieldName="message" maxCharacters="40" />
-    </search:result>
-    </search:resultList>
-
-    </block:sidebar>
-
-    </div>
-    </search:conditional>-->
-    <!--</layout:animate>-->
 </layout:grid>
