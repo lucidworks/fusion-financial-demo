@@ -925,8 +925,8 @@
       "filename" : "customers.json",
       "contentType" : "application/json",
       "size" : 5564108,
-      "modifiedTime" : "2018-11-30T11:07:14.249Z",
-      "version" : 1618556783713845248,
+      "modifiedTime" : "2018-12-21T15:25:10.429Z",
+      "version" : 1620475547935047680,
       "md5" : "19c249c41aea850fe9020d229abdbe50",
       "metadata" : {
         "resourceType" : "file"
@@ -938,8 +938,8 @@
       "filename" : "documents.json",
       "contentType" : "application/json",
       "size" : 5801,
-      "modifiedTime" : "2018-11-30T12:46:25.569Z",
-      "version" : 1618563024101048320,
+      "modifiedTime" : "2018-12-21T15:25:10.505Z",
+      "version" : 1620475548014739456,
       "md5" : "15a96f26fd14c1f11806a1166b9f51b6",
       "metadata" : {
         "resourceType" : "file"
@@ -951,8 +951,8 @@
       "filename" : "messages.json",
       "contentType" : "application/json",
       "size" : 10572,
-      "modifiedTime" : "2018-11-30T12:49:05.294Z",
-      "version" : 1618563191584849920,
+      "modifiedTime" : "2018-12-21T15:25:10.576Z",
+      "version" : 1620475548089188352,
       "md5" : "c7defa27980cf48bca0210af977a1097",
       "metadata" : {
         "resourceType" : "file"
@@ -964,8 +964,8 @@
       "filename" : "transactions.json",
       "contentType" : "application/json",
       "size" : 22033683,
-      "modifiedTime" : "2018-11-30T12:53:00.582Z",
-      "version" : 1618563438320025600,
+      "modifiedTime" : "2018-12-21T15:25:11.011Z",
+      "version" : 1620475548545318912,
       "md5" : "eec689866fa83fc387ea5813da455472",
       "metadata" : {
         "resourceType" : "file"
@@ -1047,9 +1047,9 @@
   },
   "metadata" : {
     "formatVersion" : "1",
-    "exportedBy" : "4858f437-a85a-4c7f-8bbf-9752bdaf3456",
-    "exportedDate" : "2018-11-30T15:38:15.773Z",
-    "fusionVersion" : "4.1.1",
-    "fusionGuid" : "d363efe7-31e5-4681-aa18-5491017169a3"
+    "exportedBy" : "48910cd7-f4c9-4436-92b3-b5b17e7edfbb",
+    "exportedDate" : "2018-12-27T16:00:50.252Z",
+    "fusionVersion" : "4.1.2",
+    "fusionGuid" : "7fe3ada2-3e1e-4f38-8bec-848e95c98d35"
   }
 }
