@@ -1,6 +1,6 @@
 # Lucidworks Fusion Financial Services Demo
 
-This demo is designed to showcase Fusion's <FILL ME IN>.
+This demo showcases Fusion's capabilities for financial services use cases, particularly for analyst and advisor personas.  The demo intersects news, publicly available historical equity data, and firm-specific portfolio and client data.
 
 # Help on this Demo
 
