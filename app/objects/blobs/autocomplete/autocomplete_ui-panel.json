@@ -1,0 +1,248 @@
+[
+  {
+    "canonicalForm": "urn:x-fusion:ui:indexing:index-workbench",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Index Workbench",
+    "surfaceForm": "Index Workbench",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:indexing:index-profiles",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Index Profiles",
+    "surfaceForm": "Index Profiles",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:indexing:index-pipelines",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Index Pipelines",
+    "surfaceForm": "Index Pipelines",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:indexing:parsers",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Parsers",
+    "surfaceForm": "Parsers",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:indexing:datasources",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Datasources",
+    "surfaceForm": "Datasources",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:querying:query-workbench",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Query Workbench",
+    "surfaceForm": "Query Workbench",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:querying:query-profiles",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Query Profiles",
+    "surfaceForm": "Query Profiles",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:querying:query-pipelines",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Query Pipelines",
+    "surfaceForm": "Query Pipelines",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:collections",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Collections Manager",
+    "surfaceForm": "Collections Manager",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:fields",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Fields",
+    "surfaceForm": "Fields",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:jobs",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Jobs",
+    "surfaceForm": "Jobs",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:recommendations",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Recommendations",
+    "surfaceForm": "Recommendations",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:signals",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Signals",
+    "surfaceForm": "Signals",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:stopwords",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Stopwords",
+    "surfaceForm": "Stopwords",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:collections:synonyms",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Synonyms",
+    "surfaceForm": "Synonyms",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:analytics:dashboards",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Dashboards",
+    "surfaceForm": "Dashboards",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:analytics:experiments",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Experiments",
+    "surfaceForm": "Experiments",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:analytics:insights",
+    "canonicalType": "navigation",
+    "canonicalLabel": "App Insights",
+    "surfaceForm": "App Insights",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:analytics:app-studio",
+    "canonicalType": "navigation",
+    "canonicalLabel": "App Studio",
+    "surfaceForm": "App Studio",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:analytics:app-studio",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Build new UI",
+    "surfaceForm": "Build new UI",
+    "surfacePriority": 1000
+  },
+  
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:object-explorer",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Object Explorer",
+    "surfaceForm": "Object Explorer",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:log-viewer",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Log Viewer",
+    "surfaceForm": "Log Viewer",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:access",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Access Control",
+    "surfaceForm": "Access Control",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:blobs",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Blobs",
+    "surfaceForm": "Blobs",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:import-utility",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Import Fusion Objects",
+    "surfaceForm": "Import Fusion Objects",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:messaging",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Messaging",
+    "surfaceForm": "Messaging",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:scheduler",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Scheduler",
+    "surfaceForm": "Scheduler",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:solr-clusters",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Solr Clusters",
+    "surfaceForm": "Solr Clusters",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:solr-config",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Solr Config",
+    "surfaceForm": "Solr Config",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:system:system",
+    "canonicalType": "navigation",
+    "canonicalLabel": "System",
+    "surfaceForm": "System",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:account:my-profile",
+    "canonicalType": "navigation",
+    "canonicalLabel": "My Profile",
+    "surfaceForm": "My Profile",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:account:license-details",
+    "canonicalType": "navigation",
+    "canonicalLabel": "License Details",
+    "surfaceForm": "License Details",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:account:registration",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Registration",
+    "surfaceForm": "Registration",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:account:about-fusion",
+    "canonicalType": "navigation",
+    "canonicalLabel": "About Fusion",
+    "surfaceForm": "About Fusion",
+    "surfacePriority": 1000
+  },
+  {
+    "canonicalForm": "urn:x-fusion:ui:apps:launcher",
+    "canonicalType": "navigation",
+    "canonicalLabel": "Launcher",
+    "surfaceForm": "Launcher",
+    "surfacePriority": 1000
+  }
+]
