@@ -13,6 +13,88 @@
       "type" : "DATA",
       "metadata" : { }
     }, {
+      "id" : "Finance_items_for_item_recommendations",
+      "createdAt" : "2019-04-10T00:11:58.057Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_items_for_item_recommendations",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2
+      },
+      "type" : "RECOMMENDATIONS",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_items_for_user_recommendations",
+      "createdAt" : "2019-04-10T00:11:53.992Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_items_for_user_recommendations",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2
+      },
+      "type" : "RECOMMENDATIONS",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_job_reports",
+      "createdAt" : "2019-01-17T18:09:16.468Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_job_reports",
+        "numShards" : 1,
+        "replicationFactor" : 1
+      },
+      "type" : "JOB_REPORTS",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_query_rewrite",
+      "createdAt" : "2019-01-17T18:09:16.470Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_query_rewrite",
+        "numShards" : 1,
+        "replicationFactor" : 1,
+        "configTemplate" : "solr/conf/query_rewrite.zip"
+      },
+      "type" : "QUERY_REWRITE",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_query_rewrite_staging",
+      "createdAt" : "2019-01-17T18:09:16.473Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_query_rewrite_staging",
+        "numShards" : 1,
+        "replicationFactor" : 1,
+        "configTemplate" : "solr/conf/query_rewrite.zip"
+      },
+      "type" : "QUERY_REWRITE",
+      "relatedCollectionId" : "Finance",
+      "metadata" : { }
+    }, {
+      "id" : "Finance_recommender_models",
+      "createdAt" : "2019-04-10T00:11:49.532Z",
+      "searchClusterId" : "default",
+      "commitWithin" : 10000,
+      "solrParams" : {
+        "name" : "Finance_recommender_models",
+        "numShards" : 2,
+        "replicationFactor" : 1,
+        "maxShardsPerNode" : 2
+      },
+      "type" : "RECOMMENDATIONS",
+      "metadata" : { }
+    }, {
       "id" : "Finance_signals",
       "createdAt" : "2018-09-18T16:49:45.668Z",
       "searchClusterId" : "default",
@@ -76,6 +158,23 @@
       } ],
       "properties" : {
         "secretSourcePipelineId" : "Finance"
+      }
+    }, {
+      "id" : "Finance_query_rewrite_staging",
+      "stages" : [ {
+        "type" : "solr-index",
+        "id" : "fc9a3b0e-b6a7-4b06-a38b-fb47d4b70b12",
+        "enforceSchema" : true,
+        "dateFormats" : [ ],
+        "params" : [ ],
+        "bufferDocsForSolr" : false,
+        "type" : "solr-index",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "fc9a3b0e-b6a7-4b06-a38b-fb47d4b70b12"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_query_rewrite_staging"
       }
     }, {
       "id" : "Finance_signals",
@@ -902,6 +1001,23 @@
     "queryPipelines" : [ {
       "id" : "Finance",
       "stages" : [ {
+        "type" : "set-params",
+        "id" : "99i",
+        "params" : [ {
+          "key" : "bq",
+          "value" : "description_t:*",
+          "policy" : "append"
+        }, {
+          "key" : "bq",
+          "value" : "og_description_t:*",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Boost News containing description",
+        "licensed" : true,
+        "secretSourceStageId" : "99i"
+      }, {
         "type" : "javascript-query",
         "id" : "n6l",
         "script" : "var display_money = function(num) {\n  if (num > 1000000000) {\n    return '$' + (num / 1000000000).toFixed(2) + 'B';\n  } else if (num > 1000000) {\n    return '$' + (num / 1000000).toFixed(2) + 'M';\n  } else {\n    return '$' + (num / 1).toFixed(2);\n  }\n}\nfunction(request, response, ctx, collection, solrServer, solrServerFactory) {\n  var q = request.getFirstParam('q');\n  if(!q) {\n    return;  // To avoid NPA\n  }\n\n  var firstToken = q;\n  var remainder = '';\n\n  if (q.indexOf(' ') >= 0) {\n  \tfirstToken = q.substring(0, q.indexOf(' ')).replace(/\\(/, '');\n    remainder = q.substring(q.indexOf(' '), q.length);\n    remainder = remainder.trim();\n    remainder = remainder.replace(/\\s+/g, ' ');\n  }\n\n  logger.info('Answer card: first token is ' + firstToken);\n\n  if (!firstToken.match(/\\*/)) {\n    var query = new org.apache.solr.client.solrj.SolrQuery('ticker_s:'+firstToken.toUpperCase());\n    query.addFilterQuery('_lw_data_source_s:sp500');\n    query.setRows(1);\n    var results = solrServerFactory.getSolrServer('Finance').query(query).getResults();\n    if (results.size() > 0) {  // A ticker was found\n      var tickerResult = results.get(0);\n      var ticker  = tickerResult.get('ticker_s');\n      \n      var company_name = ticker;\n      var query_company_name = new org.apache.solr.client.solrj.SolrQuery('ticker_s:'+firstToken.toUpperCase());\n      query_company_name.addFilterQuery('_lw_data_source_s:sp500');\n      query_company_name.setRows(1);\n      var company_name_results = solrServerFactory.getSolrServer('Finance').query(query_company_name).getResults();\n      if (company_name_results.size() > 0) {\n      \tcompany_name  = company_name_results.get(0).get('company_name_t');\n      }\n      // TODO: other patterns\n      if (remainder.match(/ebitda/i)) {\n        var ebitda  = tickerResult.get('ebitda_f').toFixed(2);\n        logger.info('Answer Card: will append EBITDA to result: ' + ebitda);\n\n        ctx.setProperty(\"co_answer_card_company\", company_name);\n        ctx.setProperty(\"co_answer_card_metric_label\", \"EBITDA\");\n        ctx.setProperty(\"co_answer_card_metric_value\", display_money(ebitda));\n      } else if (remainder.match(/dividend/i)) {\n        var dividend  = tickerResult.get('div_yield_f').toFixed(2);\n        logger.info('Answer Card: will append dividend to result: ' + dividend);\n\n        ctx.setProperty(\"co_answer_card_company\", company_name);\n        ctx.setProperty(\"co_answer_card_metric_label\", \"dividend yield\");\n        ctx.setProperty(\"co_answer_card_metric_value\", dividend);\n      } else if (remainder.match(/eps/i) || remainder.match(/earnings/i)) {\n        var eps  = tickerResult.get('eps_fy1_f').toFixed(2);\n        logger.info('Answer Card: will append eps to result: ' + eps);\n\n        ctx.setProperty(\"co_answer_card_company\", company_name);\n        ctx.setProperty(\"co_answer_card_metric_label\", \"earnings per share\");\n        ctx.setProperty(\"co_answer_card_metric_value\", display_money(eps));\n      } else if (remainder.match(/beta/i)) {\n        var beta  = tickerResult.get('beta_f').toFixed(2);\n        logger.info('Answer Card: will append beta to result: ' + beta);\n\n        ctx.setProperty(\"co_answer_card_company\", company_name);\n        ctx.setProperty(\"co_answer_card_metric_label\", \"beta\");\n        ctx.setProperty(\"co_answer_card_metric_value\", beta);\n      }\n    }\n  }\n}\n",
@@ -967,7 +1083,7 @@
       }, {
         "type" : "javascript-query",
         "id" : "2re",
-        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results!');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    var company_disjunction = '(';\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n        logger.info('Company Portfolios: adding boost for ' + company_name);\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:(\" + ticker + \")^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n        if (i > 0) {\n          company_disjunction = company_disjunction + \" OR \";\n        }\n        company_disjunction = company_disjunction + \"ticker_s:\" + ticker + \" OR entity_stock_ticker_mv_ss:\" + ticker + \"* OR title_t:\" + ticker + \" OR title_t:\\\"\" + company_name + \"\\\"\";\n    }\n    company_disjunction = company_disjunction + ')';\n    request.addParam('fq', company_disjunction);\n  }\n}",
+        "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results!');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    var company_disjunction = '(';\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n        logger.info('Company Portfolios: adding boost for ' + company_name);\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:(\" + ticker + \")^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n        if (i > 0) {\n          company_disjunction = company_disjunction + \" OR \";\n        }\n        company_disjunction = company_disjunction + \"ticker_s:\" + ticker + \" OR entity_stock_ticker_mv_ss:\" + ticker + \" OR title_t:\" + ticker + \" OR title_t:\\\"\" + company_name + \"\\\"\";\n    }\n    company_disjunction = company_disjunction + ')';\n    request.addParam('fq', company_disjunction);\n  }\n}",
         "type" : "javascript-query",
         "skip" : false,
         "label" : "User Companies: extract companies and boost",
@@ -1063,10 +1179,352 @@
         "secretSourcePipelineId" : "Finance"
       }
     }, {
-      "id" : "Finance-B2oX",
+      "id" : "Finance_items_for_item_recommendations",
       "stages" : [ {
+        "type" : "item-recommendation",
+        "id" : "item-rec",
+        "numRecommendations" : 10,
+        "modelID" : "Finance_recommender",
+        "collection" : "Finance_items_for_item_recommendations",
+        "itemIdParam" : "item_id",
+        "resultsLocation" : "As Boosts",
+        "itemIdField" : "itemId",
+        "otherItemIdField" : "otherItemId",
+        "similarityScoreField" : "sim",
+        "modelIdField" : "modelId",
+        "scaleRange" : {
+          "scaleMin" : 5.0,
+          "scaleMax" : 15.0
+        },
+        "foldInUpdates" : true,
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "boostFieldName" : "id",
+        "type" : "item-recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "item-rec"
+      }, {
+        "type" : "text-tagger",
+        "id" : "8b0d7803-1faf-47b5-9217-821937c6cf7f",
+        "useEmbeddedSolrServer" : false,
+        "paramToTag" : "q",
+        "spell_corrections_enabled" : true,
+        "phrase_boosting_enabled" : true,
+        "tail_rewrites_enabled" : true,
+        "phraseBoost" : 2.0,
+        "phraseSlop" : 10,
+        "synonymExpansionBoost" : 2.0,
+        "synonym_expansion_enabled" : true,
+        "overlaps" : "ALL",
+        "params" : [ ],
+        "type" : "text-tagger",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8b0d7803-1faf-47b5-9217-821937c6cf7f"
+      }, {
         "type" : "recommendation",
-        "id" : "6ea01d35-370c-4891-bb51-1324f044d7da",
+        "id" : "d513e07f-68c3-4cb7-bad1-9e5dbb33b04c",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "scaleRange" : {
+          "scaleMin" : 1.1,
+          "scaleMax" : 5.0
+        },
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "d513e07f-68c3-4cb7-bad1-9e5dbb33b04c"
+        },
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "d513e07f-68c3-4cb7-bad1-9e5dbb33b04c"
+      }, {
+        "type" : "search-fields",
+        "id" : "f8c2f991-4d21-49f2-95c9-b3b520e57f9b",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "f8c2f991-4d21-49f2-95c9-b3b520e57f9b"
+      }, {
+        "type" : "facet",
+        "id" : "12e55765-ee59-4583-aafe-142d5e1b78d1",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "12e55765-ee59-4583-aafe-142d5e1b78d1"
+      }, {
+        "type" : "query-rules",
+        "id" : "380ee52c-eae2-45d3-bf02-55e165a12170",
+        "useEmbeddedSolrServer" : false,
+        "useOriginalQueryIfNoRulesMatch" : true,
+        "handler" : "select",
+        "method" : "POST",
+        "params" : [ ],
+        "headers" : [ ],
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "380ee52c-eae2-45d3-bf02-55e165a12170"
+        },
+        "type" : "query-rules",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "380ee52c-eae2-45d3-bf02-55e165a12170"
+      }, {
+        "type" : "solr-query",
+        "id" : "202583f8-6922-42b2-81b5-c7f3668c9f35",
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "responseSignalsEnabled" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "202583f8-6922-42b2-81b5-c7f3668c9f35"
+      }, {
+        "type" : "query-rules-augment-response",
+        "id" : "89d248cc-a221-419b-88d9-d03650f546ec",
+        "facetLabelParseDelimiter" : "||",
+        "type" : "query-rules-augment-response",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "89d248cc-a221-419b-88d9-d03650f546ec"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_items_for_item_recommendations"
+      }
+    }, {
+      "id" : "Finance_items_for_user_recommendations",
+      "stages" : [ {
+        "type" : "user-recommendation",
+        "id" : "user-rec",
+        "numRecommendations" : 10,
+        "modelID" : "Finance_recommender",
+        "collection" : "Finance_items_for_user_recommendations",
+        "userIdParam" : "user_id",
+        "resultsLocation" : "As Boosts",
+        "userIdField" : "userId",
+        "itemIdField" : "itemId",
+        "weightField" : "weight",
+        "modelIdField" : "modelId",
+        "scaleRange" : {
+          "scaleMin" : 5.0,
+          "scaleMax" : 15.0
+        },
+        "foldInUpdates" : true,
+        "rawSignalsCollection" : "Finance_signals",
+        "modelCollection" : "Finance_recommender_models",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "boostFieldName" : "id",
+        "type" : "user-recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "user-rec"
+      }, {
+        "type" : "text-tagger",
+        "id" : "e3e9a3fd-f07c-4459-95cf-03fe0fdfcab7",
+        "useEmbeddedSolrServer" : false,
+        "paramToTag" : "q",
+        "spell_corrections_enabled" : true,
+        "phrase_boosting_enabled" : true,
+        "tail_rewrites_enabled" : true,
+        "phraseBoost" : 2.0,
+        "phraseSlop" : 10,
+        "synonymExpansionBoost" : 2.0,
+        "synonym_expansion_enabled" : true,
+        "overlaps" : "ALL",
+        "params" : [ ],
+        "type" : "text-tagger",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "e3e9a3fd-f07c-4459-95cf-03fe0fdfcab7"
+      }, {
+        "type" : "recommendation",
+        "id" : "191da835-4d72-4be6-86cb-2048cc34ae21",
+        "numRecommendations" : 10,
+        "numSignals" : 100,
+        "aggrType" : "click@doc_id,filters,query",
+        "boostId" : "id",
+        "boostingMethod" : "query-param",
+        "boostingParam" : "boost",
+        "scaleRange" : {
+          "scaleMin" : 1.1,
+          "scaleMax" : 5.0
+        },
+        "queryParams" : [ {
+          "key" : "qf",
+          "value" : "query_t"
+        }, {
+          "key" : "pf",
+          "value" : "query_t^50"
+        }, {
+          "key" : "pf",
+          "value" : "query_t~3^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t^20"
+        }, {
+          "key" : "pf2",
+          "value" : "query_t~3^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t^10"
+        }, {
+          "key" : "pf3",
+          "value" : "query_t~3^5"
+        }, {
+          "key" : "boost",
+          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
+        }, {
+          "key" : "mm",
+          "value" : "50%"
+        }, {
+          "key" : "defType",
+          "value" : "edismax"
+        }, {
+          "key" : "sort",
+          "value" : "score desc, weight_d desc"
+        } ],
+        "rollupField" : "doc_id_s",
+        "rollupWeightField" : "weight_d",
+        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
+        "rollupWeightStrategy" : "max",
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "191da835-4d72-4be6-86cb-2048cc34ae21"
+        },
+        "type" : "recommendation",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "191da835-4d72-4be6-86cb-2048cc34ae21"
+      }, {
+        "type" : "search-fields",
+        "id" : "01f82224-7794-4b80-a66d-56287f0679ff",
+        "rows" : 10,
+        "start" : 0,
+        "queryFields" : [ ],
+        "returnFields" : [ "*", "score" ],
+        "type" : "search-fields",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "01f82224-7794-4b80-a66d-56287f0679ff"
+      }, {
+        "type" : "facet",
+        "id" : "8ac68ad8-2251-44cd-8cc1-9a45d4829c4d",
+        "fieldFacets" : [ ],
+        "type" : "facet",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "8ac68ad8-2251-44cd-8cc1-9a45d4829c4d"
+      }, {
+        "type" : "query-rules",
+        "id" : "b2a9b536-69b0-4871-b6e6-4578abd1e46c",
+        "useEmbeddedSolrServer" : false,
+        "useOriginalQueryIfNoRulesMatch" : true,
+        "handler" : "select",
+        "method" : "POST",
+        "params" : [ ],
+        "headers" : [ ],
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "b2a9b536-69b0-4871-b6e6-4578abd1e46c"
+        },
+        "type" : "query-rules",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "b2a9b536-69b0-4871-b6e6-4578abd1e46c"
+      }, {
+        "type" : "solr-query",
+        "id" : "275099c9-c2dd-4b71-8665-6f0570358080",
+        "httpMethod" : "POST",
+        "allowFederatedSearch" : false,
+        "type" : "solr-query",
+        "skip" : false,
+        "responseSignalsEnabled" : true,
+        "licensed" : true,
+        "secretSourceStageId" : "275099c9-c2dd-4b71-8665-6f0570358080"
+      }, {
+        "type" : "query-rules-augment-response",
+        "id" : "02c748eb-8115-4f86-92b7-46c36d297b25",
+        "facetLabelParseDelimiter" : "||",
+        "type" : "query-rules-augment-response",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "02c748eb-8115-4f86-92b7-46c36d297b25"
+      } ],
+      "properties" : {
+        "secretSourcePipelineId" : "Finance_items_for_user_recommendations"
+      }
+    }, {
+      "id" : "Finance_rules",
+      "stages" : [ {
+        "type" : "text-tagger",
+        "id" : "4df4ccfd-8020-4139-8b4a-5174e3ae1880",
+        "useEmbeddedSolrServer" : false,
+        "paramToTag" : "q",
+        "spell_corrections_enabled" : true,
+        "phrase_boosting_enabled" : true,
+        "tail_rewrites_enabled" : true,
+        "phraseBoost" : 2.0,
+        "phraseSlop" : 10,
+        "synonymExpansionBoost" : 2.0,
+        "synonym_expansion_enabled" : true,
+        "overlaps" : "ALL",
+        "params" : [ ],
+        "type" : "text-tagger",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "4df4ccfd-8020-4139-8b4a-5174e3ae1880"
+      }, {
+        "type" : "recommendation",
+        "id" : "6132dbe2-3fd3-4ff8-8b3d-f2eec62dcc30",
         "numRecommendations" : 10,
         "numSignals" : 100,
         "aggrType" : "click@doc_id,filters,query",
@@ -1113,15 +1571,15 @@
         "rollupWeightStrategy" : "max",
         "asyncConfig" : {
           "enabled" : false,
-          "asyncId" : "6ea01d35-370c-4891-bb51-1324f044d7da"
+          "asyncId" : "6132dbe2-3fd3-4ff8-8b3d-f2eec62dcc30"
         },
         "type" : "recommendation",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "6ea01d35-370c-4891-bb51-1324f044d7da"
+        "secretSourceStageId" : "6132dbe2-3fd3-4ff8-8b3d-f2eec62dcc30"
       }, {
         "type" : "search-fields",
-        "id" : "63ba3ce8-d4f8-4e31-93b9-85918f8e4474",
+        "id" : "4592e622-eebb-46b7-b102-bd50694c0a60",
         "rows" : 10,
         "start" : 0,
         "queryFields" : [ ],
@@ -1129,28 +1587,53 @@
         "type" : "search-fields",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "63ba3ce8-d4f8-4e31-93b9-85918f8e4474"
+        "secretSourceStageId" : "4592e622-eebb-46b7-b102-bd50694c0a60"
       }, {
         "type" : "facet",
-        "id" : "5e783808-7b50-4ed9-81cc-e27295596013",
+        "id" : "2f406db4-b008-4b23-9569-b0f7403d106d",
         "fieldFacets" : [ ],
         "type" : "facet",
         "skip" : false,
         "licensed" : true,
-        "secretSourceStageId" : "5e783808-7b50-4ed9-81cc-e27295596013"
+        "secretSourceStageId" : "2f406db4-b008-4b23-9569-b0f7403d106d"
+      }, {
+        "type" : "query-rules",
+        "id" : "0aa2c687-f749-44cc-b20a-d11e560477cf",
+        "useEmbeddedSolrServer" : false,
+        "useOriginalQueryIfNoRulesMatch" : true,
+        "handler" : "select",
+        "method" : "POST",
+        "params" : [ ],
+        "headers" : [ ],
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "0aa2c687-f749-44cc-b20a-d11e560477cf"
+        },
+        "type" : "query-rules",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0aa2c687-f749-44cc-b20a-d11e560477cf"
       }, {
         "type" : "solr-query",
-        "id" : "362cd4ff-5b3e-4cb9-8855-08f508544a8c",
+        "id" : "08340cac-ef01-4b24-b743-615bc70b9c22",
         "httpMethod" : "POST",
         "allowFederatedSearch" : false,
         "type" : "solr-query",
         "skip" : false,
         "responseSignalsEnabled" : true,
         "licensed" : true,
-        "secretSourceStageId" : "362cd4ff-5b3e-4cb9-8855-08f508544a8c"
+        "secretSourceStageId" : "08340cac-ef01-4b24-b743-615bc70b9c22"
+      }, {
+        "type" : "query-rules-augment-response",
+        "id" : "cd18e6d7-a6a5-4b15-93e3-5f8df635481b",
+        "facetLabelParseDelimiter" : "||",
+        "type" : "query-rules-augment-response",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "cd18e6d7-a6a5-4b15-93e3-5f8df635481b"
       } ],
       "properties" : {
-        "secretSourcePipelineId" : "Finance-B2oX"
+        "secretSourcePipelineId" : "Finance_rules"
       }
     }, {
       "id" : "Finance_signals",
@@ -1247,96 +1730,6 @@
         "secretSourcePipelineId" : "Finance_signals"
       }
     }, {
-      "id" : "Finance_signals-9Uno",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "e8e3298c-880f-4c97-b599-aac575c34cf7",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "asyncConfig" : {
-          "enabled" : false,
-          "asyncId" : "e8e3298c-880f-4c97-b599-aac575c34cf7"
-        },
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "e8e3298c-880f-4c97-b599-aac575c34cf7"
-      }, {
-        "type" : "search-fields",
-        "id" : "1fd63a02-6bd6-4647-b130-6d2b133bfe6a",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "1fd63a02-6bd6-4647-b130-6d2b133bfe6a"
-      }, {
-        "type" : "facet",
-        "id" : "40246d9f-6744-4603-a8d8-29b9a89b208f",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "40246d9f-6744-4603-a8d8-29b9a89b208f"
-      }, {
-        "type" : "solr-query",
-        "id" : "d7be33d5-b3e8-4101-a213-652635a48f21",
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "responseSignalsEnabled" : true,
-        "licensed" : true,
-        "secretSourceStageId" : "d7be33d5-b3e8-4101-a213-652635a48f21"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "Finance_signals-9Uno"
-      }
-    }, {
       "id" : "Finance_signals_aggr",
       "stages" : [ {
         "type" : "recommendation",
@@ -1425,96 +1818,6 @@
       } ],
       "properties" : {
         "secretSourcePipelineId" : "Finance_signals_aggr"
-      }
-    }, {
-      "id" : "Finance_signals_aggr-Zg1s",
-      "stages" : [ {
-        "type" : "recommendation",
-        "id" : "0f0b32bc-d58f-4d85-b7dc-14f1eb0c7896",
-        "numRecommendations" : 10,
-        "numSignals" : 100,
-        "aggrType" : "click@doc_id,filters,query",
-        "boostId" : "id",
-        "boostingMethod" : "query-param",
-        "boostingParam" : "boost",
-        "queryParams" : [ {
-          "key" : "qf",
-          "value" : "query_t"
-        }, {
-          "key" : "pf",
-          "value" : "query_t^50"
-        }, {
-          "key" : "pf",
-          "value" : "query_t~3^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t^20"
-        }, {
-          "key" : "pf2",
-          "value" : "query_t~3^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t^10"
-        }, {
-          "key" : "pf3",
-          "value" : "query_t~3^5"
-        }, {
-          "key" : "boost",
-          "value" : "map(query({!field f=query_s v=$q}),0,0,1,20)"
-        }, {
-          "key" : "mm",
-          "value" : "50%"
-        }, {
-          "key" : "defType",
-          "value" : "edismax"
-        }, {
-          "key" : "sort",
-          "value" : "score desc, weight_d desc"
-        } ],
-        "rollupField" : "doc_id_s",
-        "rollupWeightField" : "weight_d",
-        "weightExpression" : "math:log(weight_d + 1) + 10 * math:log(score+1)",
-        "rollupWeightStrategy" : "max",
-        "asyncConfig" : {
-          "enabled" : false,
-          "asyncId" : "0f0b32bc-d58f-4d85-b7dc-14f1eb0c7896"
-        },
-        "type" : "recommendation",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "0f0b32bc-d58f-4d85-b7dc-14f1eb0c7896"
-      }, {
-        "type" : "search-fields",
-        "id" : "e78b27fa-0838-4777-8cbd-e818f074976f",
-        "rows" : 10,
-        "start" : 0,
-        "queryFields" : [ ],
-        "returnFields" : [ "*", "score" ],
-        "type" : "search-fields",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "e78b27fa-0838-4777-8cbd-e818f074976f"
-      }, {
-        "type" : "facet",
-        "id" : "ecf66f54-01a9-43a8-9b06-14cb5c02d32a",
-        "fieldFacets" : [ ],
-        "type" : "facet",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "ecf66f54-01a9-43a8-9b06-14cb5c02d32a"
-      }, {
-        "type" : "solr-query",
-        "id" : "dc542735-3a8d-4c79-ab9e-de708aab0f3a",
-        "httpMethod" : "POST",
-        "allowFederatedSearch" : false,
-        "type" : "solr-query",
-        "skip" : false,
-        "responseSignalsEnabled" : true,
-        "licensed" : true,
-        "secretSourceStageId" : "dc542735-3a8d-4c79-ab9e-de708aab0f3a"
-      } ],
-      "properties" : {
-        "secretSourcePipelineId" : "Finance_signals_aggr-Zg1s"
       }
     }, {
       "id" : "accounts",
@@ -2104,6 +2407,36 @@
         "licensed" : true,
         "secretSourceStageId" : "b68fc543-6dc8-4102-adea-92a969f4feef"
       }, {
+        "type" : "set-params",
+        "id" : "tz",
+        "params" : [ {
+          "key" : "bq",
+          "value" : "description_t:*",
+          "policy" : "append"
+        }, {
+          "key" : "bq",
+          "value" : "og_description_t:* ",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Limit to docs containing description",
+        "licensed" : true,
+        "secretSourceStageId" : "tz"
+      }, {
+        "type" : "set-params",
+        "id" : "uif",
+        "params" : [ {
+          "key" : "bf",
+          "value" : "recip(ms(NOW/HOUR,article_date_dt),3.16e-11,1,1)",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Boost recent docs",
+        "licensed" : true,
+        "secretSourceStageId" : "uif"
+      }, {
         "type" : "solr-query",
         "id" : "e4302c97-4913-4ce5-a384-e52d5f14e33c",
         "httpMethod" : "POST",
@@ -2385,7 +2718,7 @@
           "itemsForItem" : true,
           "queriesForQuery" : false
         },
-        "enabled" : false
+        "enabled" : true
       }, {
         "name" : "searchLogs",
         "collectionId" : "Finance",
@@ -2396,6 +2729,168 @@
         "collectionId" : "Finance",
         "params" : { },
         "enabled" : true
+      } ],
+      "Finance_items_for_item_recommendations" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_items_for_item_recommendations",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_items_for_item_recommendations",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_items_for_item_recommendations",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_items_for_item_recommendations",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "Finance_items_for_user_recommendations" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_items_for_user_recommendations",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_items_for_user_recommendations",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_items_for_user_recommendations",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_items_for_user_recommendations",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "Finance_job_reports" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_job_reports",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_job_reports",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_job_reports",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_job_reports",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "Finance_query_rewrite" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_query_rewrite",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_query_rewrite",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_query_rewrite",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_query_rewrite",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "Finance_query_rewrite_staging" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_query_rewrite_staging",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_query_rewrite_staging",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_query_rewrite_staging",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_query_rewrite_staging",
+        "params" : { },
+        "enabled" : false
+      } ],
+      "Finance_recommender_models" : [ {
+        "name" : "partitionByTime",
+        "collectionId" : "Finance_recommender_models",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "recommendations",
+        "collectionId" : "Finance_recommender_models",
+        "params" : {
+          "idField" : "id",
+          "itemsForUser" : true,
+          "itemsForQuery" : false,
+          "itemsForItem" : true,
+          "queriesForQuery" : false
+        },
+        "enabled" : false
+      }, {
+        "name" : "searchLogs",
+        "collectionId" : "Finance_recommender_models",
+        "params" : { },
+        "enabled" : false
+      }, {
+        "name" : "signals",
+        "collectionId" : "Finance_recommender_models",
+        "params" : { },
+        "enabled" : false
       } ],
       "Finance_signals" : [ {
         "name" : "partitionByTime",
@@ -2495,6 +2990,29 @@
       "queryPipeline" : "Finance-B2oX",
       "collection" : "Finance",
       "searchHandler" : "/select"
+    }, {
+      "id" : "Finance_rules",
+      "queryPipeline" : "Finance_rules",
+      "collection" : "Finance",
+      "searchHandler" : "select"
+    }, {
+      "id" : "Finance_rules_simulator",
+      "queryPipeline" : "Finance_rules",
+      "collection" : "Finance",
+      "searchHandler" : "/select",
+      "params" : [ {
+        "key" : "lw.rules.simulate",
+        "value" : "Finance_query_rewrite_staging",
+        "policy" : "default"
+      }, {
+        "key" : "lw.rules.debug",
+        "value" : "1",
+        "policy" : "default"
+      }, {
+        "key" : "lw.tagger.debug",
+        "value" : "1",
+        "policy" : "default"
+      } ]
     }, {
       "id" : "Finance_signals",
       "queryPipeline" : "Finance_signals",
@@ -2978,7 +3496,12 @@
         "errorHandling" : "mark",
         "id" : "8f055802-9dca-48be-8dfb-a9492626df7a",
         "charset" : "detect",
-        "mappings" : [ ],
+        "mappings" : [ {
+          "selectRule" : "time",
+          "attribute" : "datetime",
+          "field" : "article_date",
+          "multivalued" : false
+        } ],
         "keepParent" : true,
         "extractHtmlLinks" : false,
         "extractBodyText" : true,
@@ -3042,14 +3565,44 @@
       } ]
     } ],
     "objectGroups" : [ {
+      "id" : "4b418c96-ef93-4648-920c-f1310d2812ba",
+      "name" : "recommendations-Finance",
+      "isSystem" : true,
+      "description" : "Recommendations for 'Finance'"
+    }, {
+      "id" : "b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "name" : "items-for-user-recommendations-Finance",
+      "isSystem" : true,
+      "description" : "Objects facilitating items-for-user recommendations for 'Finance'"
+    }, {
       "id" : "d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "name" : "signals-Finance",
       "isSystem" : true,
       "description" : "Collection 'Finance' objects for signals support"
+    }, {
+      "id" : "e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "name" : "items-for-item-recommendations-Finance",
+      "isSystem" : true,
+      "description" : "Objects facilitating items-for-item recommendations for 'Finance'"
     } ],
     "links" : [ {
       "subject" : "app:Finance",
       "object" : "group:_shared",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "app:Finance",
+      "object" : "spark:Finance_phrase_extraction",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "app:Finance",
+      "object" : "spark:Finance_spell_correction",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "app:Finance",
+      "object" : "spark:Finance_synonym_detection",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -3094,12 +3647,42 @@
       "originator" : "unspecified"
     }, {
       "subject" : "collection:Finance",
+      "object" : "collection:Finance_job_reports",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
+      "object" : "collection:Finance_query_rewrite",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
+      "object" : "collection:Finance_query_rewrite_staging",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance",
       "object" : "index-pipeline:Finance",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "collection:Finance",
-      "object" : "query-pipeline:Finance-B2oX",
+      "subject" : "collection:Finance_job_reports",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance_query_rewrite",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance_query_rewrite_staging",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "collection:Finance_query_rewrite_staging",
+      "object" : "index-pipeline:Finance_query_rewrite_staging",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -3118,11 +3701,6 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "collection:Finance_signals",
-      "object" : "query-pipeline:Finance_signals-9Uno",
-      "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
       "subject" : "collection:Finance_signals_aggr",
       "object" : "index-pipeline:Finance_signals_aggr",
       "linkType" : "relatesTo",
@@ -3138,9 +3716,9 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "collection:Finance_signals_aggr",
-      "object" : "query-pipeline:Finance_signals_aggr-Zg1s",
-      "linkType" : "relatesTo",
+      "subject" : "custom-rule-type:some_custom_rule_2",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "datasource:client-accounts",
@@ -3283,6 +3861,46 @@
       "linkType" : "dependsOn",
       "originator" : "unspecified"
     }, {
+      "subject" : "group:4b418c96-ef93-4648-920c-f1310d2812ba",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:4b418c96-ef93-4648-920c-f1310d2812ba",
+      "object" : "collection:Finance_recommender_models",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "collection:Finance_items_for_user_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "collection:Finance_signals",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "collection:Finance_signals_aggr",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "group:4b418c96-ef93-4648-920c-f1310d2812ba",
+      "linkType" : "isPartOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "query-pipeline:Finance_items_for_user_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:b88b4562-56d8-4e63-b236-ff7ede81ae11",
+      "object" : "spark:Finance_item_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "object" : "collection:Finance",
       "linkType" : "relatesTo",
@@ -3321,6 +3939,41 @@
       "subject" : "group:d88c67ab-fa60-44c6-b35a-5ca8b41313c6",
       "object" : "spark:Finance_user_query_history_aggregation",
       "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "collection:Finance_items_for_item_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "collection:Finance_signals",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "collection:Finance_signals_aggr",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "group:4b418c96-ef93-4648-920c-f1310d2812ba",
+      "linkType" : "isPartOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "query-pipeline:Finance_items_for_item_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "group:e6f9a1db-f7c0-4598-8b08-4ed5a6d8cc79",
+      "object" : "spark:Finance_item_recommendations",
+      "linkType" : "hasPart",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "index-pipeline:Finance_query_rewrite_staging",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
       "subject" : "index-pipeline:client_accounts",
@@ -3483,6 +4136,11 @@
       "linkType" : "inContextOf",
       "originator" : "unspecified"
     }, {
+      "subject" : "query-pipeline:Finance_rules",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
       "subject" : "query-pipeline:Finance_signals",
       "object" : "app:Finance",
       "linkType" : "inContextOf",
@@ -3563,8 +4221,33 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:Finance-Ha4Y",
-      "object" : "query-pipeline:Finance-B2oX",
+      "subject" : "query-profile:Finance_rules",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_rules",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_rules",
+      "object" : "query-pipeline:Finance_rules",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_rules_simulator",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_rules_simulator",
+      "object" : "collection:Finance",
+      "linkType" : "relatesTo",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "query-profile:Finance_rules_simulator",
+      "object" : "query-pipeline:Finance_rules",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -3583,11 +4266,6 @@
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
-      "subject" : "query-profile:Finance_signals-HXSj",
-      "object" : "query-pipeline:Finance_signals-9Uno",
-      "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
       "subject" : "query-profile:Finance_signals_aggr",
       "object" : "collection:Finance_signals_aggr",
       "linkType" : "relatesTo",
@@ -3600,11 +4278,6 @@
     }, {
       "subject" : "query-profile:Finance_signals_aggr-JWNj",
       "object" : "collection:Finance_signals_aggr",
-      "linkType" : "relatesTo",
-      "originator" : "unspecified"
-    }, {
-      "subject" : "query-profile:Finance_signals_aggr-JWNj",
-      "object" : "query-pipeline:Finance_signals_aggr-Zg1s",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
     }, {
@@ -3757,6 +4430,36 @@
       "object" : "query-pipeline:user-prefs",
       "linkType" : "relatesTo",
       "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_item_recommendations",
+      "object" : "spark:Finance_user_item_preferences_aggregation",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_phrase_extraction",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_phrase_extraction",
+      "object" : "spark:Finance_spell_correction",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_spell_correction",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_synonym_detection",
+      "object" : "app:Finance",
+      "linkType" : "inContextOf",
+      "originator" : "unspecified"
+    }, {
+      "subject" : "spark:Finance_synonym_detection",
+      "object" : "spark:Finance_phrase_extraction",
+      "linkType" : "dependsOn",
+      "originator" : "unspecified"
     } ],
     "jobs" : [ {
       "resource" : "datasource:sp500-historical",
@@ -3795,6 +4498,28 @@
       } ],
       "default" : false
     }, {
+      "resource" : "spark:Finance_item_recommendations",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "job_completion",
+        "enabled" : true,
+        "triggerType" : "on_success",
+        "otherJob" : "spark:Finance_user_item_preferences_aggregation",
+        "type" : "job_completion"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_phrase_extraction",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "job_completion",
+        "enabled" : true,
+        "triggerType" : "on_success",
+        "otherJob" : "spark:Finance_spell_correction",
+        "type" : "job_completion"
+      } ],
+      "default" : false
+    }, {
       "resource" : "spark:Finance_session_rollup",
       "enabled" : true,
       "triggers" : [ {
@@ -3804,6 +4529,29 @@
         "timeUnit" : "minute",
         "startTime" : "2018-09-18T17:04:55.420Z",
         "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_spell_correction",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 1,
+        "timeUnit" : "day",
+        "startTime" : "2019-01-17T18:24:16.547Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
+      "resource" : "spark:Finance_synonym_detection",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "job_completion",
+        "enabled" : true,
+        "triggerType" : "on_success",
+        "otherJob" : "spark:Finance_phrase_extraction",
+        "type" : "job_completion"
       } ],
       "default" : false
     }, {
@@ -3888,6 +4636,53 @@
       "trainingDataSamplingFraction" : 1.0,
       "stopwordsList" : [ ]
     }, {
+      "type" : "als_recommender",
+      "id" : "Finance_item_recommendations",
+      "modelId" : "Finance_recommender",
+      "modelCollection" : "Finance_recommender_models",
+      "saveModel" : false,
+      "trainingCollection" : "Finance_signals_aggr",
+      "outputCollection" : "Finance_items_for_user_recommendations",
+      "outputItemSimCollection" : "Finance_items_for_item_recommendations",
+      "trainingDataFilterQuery" : "aggr_id_s:Finance_user_item_preferences_aggregation",
+      "popularItemMin" : 2,
+      "trainingSampleFraction" : 1.0,
+      "userIdField" : "user_id_s",
+      "itemIdField" : "doc_id_s",
+      "weightField" : "weight_d",
+      "numRecs" : 10,
+      "numUserRecsPerItem" : 10,
+      "numSims" : 10,
+      "initialRank" : 100,
+      "maxTrainingIterations" : 10,
+      "initialAlpha" : 50.0,
+      "initialLambda" : 0.01,
+      "initialBlocks" : -1,
+      "gridSearchWidth" : 0,
+      "randomSeed" : 13,
+      "implicitRatings" : true,
+      "alwaysTrain" : false,
+      "deleteOldRecs" : true,
+      "itemMetadataJoinField" : "doc_id_s"
+    }, {
+      "type" : "sip",
+      "id" : "Finance_phrase_extraction",
+      "trainingDataFilterQuery" : "*:*",
+      "randomSeed" : 8180,
+      "analyzerConfig" : "{ \"analyzers\": [{ \"name\": \"StdTokLowerStop\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"standard\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"KStem\" },{ \"type\": \"fusionstop\", \"ignoreCase\": \"true\", \"format\": \"snowball\", \"words\": \"org/apache/lucene/analysis/snowball/english_stop.txt\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"StdTokLowerStop\" } ]}",
+      "trainingCollection" : "Finance_signals",
+      "outputCollection" : "Finance_query_rewrite_staging",
+      "overwriteOutput" : true,
+      "fieldToVectorize" : "query",
+      "trainingDataSamplingFraction" : 1.0,
+      "trainingDataFrameConfigOptions" : { },
+      "ngramSize" : 3,
+      "minmatch" : 5,
+      "attachPhrases" : false,
+      "dataFormat" : "solr",
+      "sourceFields" : "query",
+      "stopwordsList" : [ "org/apache/lucene/analysis/snowball/english_stop.txt" ]
+    }, {
       "type" : "sql_template",
       "id" : "Finance_session_rollup",
       "inputCollection" : "Finance_signals",
@@ -3910,6 +4705,63 @@
       } ],
       "skipCheckEnabled" : false,
       "notes" : "Aggregate related user activity into a session signal containing activity count, duration, and keywords (based on user search terms). This job is used by the Fusion Insights application to show reports about user sessions. Use the 'elapsedSecsSinceLastActivity' and 'elapsedSecsSinceSessionStart' parameters to determine when a user session is considered to be complete."
+    }, {
+      "type" : "tokenPhraseSpellCorrection",
+      "id" : "Finance_spell_correction",
+      "trainingDataFilterQuery" : "type:click OR type:response",
+      "trainingCollection" : "Finance_signals",
+      "outputCollection" : "Finance_query_rewrite_staging",
+      "overwriteOutput" : true,
+      "maxDistance" : 2,
+      "analyzerConfigQuery" : "{ \"analyzers\": [ { \"name\": \"LetterTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"letter\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"KStem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"LetterTokLowerStem\" } ]}",
+      "analyzerConfigDictionary" : "{ \"analyzers\": [ { \"name\": \"LetterTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"letter\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"KStem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"LetterTokLowerStem\" } ]}",
+      "lenScale" : 5,
+      "fieldToVectorize" : "query",
+      "mainType" : "click",
+      "filterType" : "response",
+      "signalTypeField" : "type",
+      "minCountMain" : 1,
+      "minCountFilter" : 10,
+      "trainingDataSamplingFraction" : 1.0,
+      "countField" : "count_i",
+      "dictionaryDataFilterQuery" : "*:*",
+      "minPrefix" : 1,
+      "minMispellingLen" : 5,
+      "correctionThreshold" : 0.8,
+      "misspellingThreshold" : 0.8,
+      "lastCharMatchBoost" : 1.0,
+      "soundMatchBoost" : 3.0,
+      "correctCntBoost" : 2.0,
+      "editDistBoost" : 2.0,
+      "corMisRatio" : 3.0,
+      "randomSeed" : 1234,
+      "trainingDataFrameConfigOptions" : { },
+      "signalDataIndicator" : true,
+      "dataFormat" : "solr",
+      "stopwordsList" : [ ]
+    }, {
+      "type" : "synonymDetection",
+      "id" : "Finance_synonym_detection",
+      "trainingDataFilterQuery" : "*:*",
+      "trainingCollection" : "Finance_signals",
+      "outputCollection" : "Finance_query_rewrite_staging",
+      "overwriteOutput" : true,
+      "misspellingCollection" : "Finance_query_rewrite_staging",
+      "misspellingsFilterQuery" : "type:spell",
+      "keyPhraseCollection" : "Finance_query_rewrite_staging",
+      "keyPhraseFilterQuery" : "type:phrase",
+      "countField" : "count_i",
+      "fieldToVectorize" : "query",
+      "docIdField" : "doc_id",
+      "overlapThreshold" : 0.5,
+      "minQueryCount" : 5,
+      "similarityThreshold" : 0.01,
+      "trainingDataSamplingFraction" : 1.0,
+      "analyzerConfigQuery" : "{ \"analyzers\": [ { \"name\": \"LetterTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"letter\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"KStem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"LetterTokLowerStem\" } ]}",
+      "randomSeed" : 1234,
+      "trainingDataFrameConfigOptions" : { },
+      "dataFormat" : "solr",
+      "stopwordsList" : [ ]
     }, {
       "type" : "sql_template",
       "id" : "Finance_user_item_preferences_aggregation",
@@ -4051,6 +4903,26 @@
       "properties" : {
         "tileColor" : "apps-darkblue",
         "previousCollectionId" : "Finance"
+      }
+    } ],
+    "customRules" : [ {
+      "id" : "some_custom_rule_2",
+      "display_type" : "Custom Rule",
+      "pipeline_id" : "customRuleTest",
+      "schema" : {
+        "type" : "object",
+        "properties" : {
+          "custom_param1" : {
+            "type" : "string",
+            "title" : "Custom Param One",
+            "description" : "Some param from the rule creator"
+          },
+          "custom_param2" : {
+            "type" : "string",
+            "title" : "Custom Param 2",
+            "description" : "Some other param the rule creator needs to provide"
+          }
+        }
       }
     } ],
     "dataSources" : [ {
@@ -4958,7 +5830,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2019-04-09T17:16:40.651Z",
+    "exportedDate" : "2019-04-10T00:20:15.577Z",
     "fusionVersion" : "4.2.0",
     "fusionGuid" : "d7a4e30a-b64e-4d63-b3f4-fbf15cf04c16"
   }
