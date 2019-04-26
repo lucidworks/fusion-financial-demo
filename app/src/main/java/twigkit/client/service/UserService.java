@@ -39,7 +39,7 @@ public class UserService implements TwigKitService {
         Query userQuery = new Query();
         userQuery.setResultsPerPage(1);
         userQuery.addFilter(new Filter("_lw_data_source_s", "user-prefs"));
-        userQuery.addFilter(new Filter("username_s", username));
+        userQuery.addFilter(new Filter("username_s", username.toLowerCase()));
 
         twigkit.model.Response response = userPrefsPlatform.search(userQuery);
 
