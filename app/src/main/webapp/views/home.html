@@ -9,7 +9,7 @@
 <search:query var="query" parameters="*"></search:query>
 
 
-<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,og_description_s,Content_Location">
+<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,description_t,Content_Location">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
@@ -117,7 +117,7 @@
                                                 <layout:block md="3-4">
                                                     <search:field name="title_t" styling="title"
                                                                   urlfield="id"></search:field>
-                                                    <search:field name="og_description_s"
+                                                    <search:field name="description_t"
                                                                   styling="description"></search:field>
                                                 </layout:block>
                                             </layout:grid>
@@ -125,7 +125,7 @@
                                                 <layout:block>
                                                     <search:field name="title_t" styling="title"
                                                                   urlfield="id"></search:field>
-                                                    <search:field name="og_description_s"
+                                                    <search:field name="description_t"
                                                                   styling="description"></search:field>
                                                 </layout:block>
                                             </layout:grid>
