@@ -36,7 +36,18 @@
 <!-- CONTENT -->
 <layout:grid styling="row-offcanvas" class="news-page">
 
-  <layout:block md="1-1" lg="1-1">
+  <!-- CONTENT > SIDEBAR -->
+  <layout:block md="1-3" lg="6-24" drawer="left" id="sidebar" styling="bg-sidebar blocksidebar-dark">
+    <layout:sidebar>
+      <search:facet-list response="news" platform="company-news" query="news-query"
+                         styling="facet-list"
+                         facet-names="-_lw_data_source_s,entity_company_hv_ss=Company,Company_Events_ss=Event,industry_tags_hv_ss=Industry,entity_person_hv_ss=Person,entity_country_hv_ss=Country">
+        <search:facet collapsible="true" show="8" show-more="20"></search:facet>
+      </search:facet-list>
+    </layout:sidebar>
+  </layout:block>
+
+  <layout:block md="2-3" lg="18-24">
 
     <layout:block>
       <search:message-list response="news" type="co_answer_card_content" class="answer-card"></search:message-list>
