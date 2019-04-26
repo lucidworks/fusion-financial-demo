@@ -23,18 +23,18 @@ CSV_FIELDS = []
 
 BUCKETS = [
     {'type':'analyst','people':[
-        'Frank',
-        'Geoffrey',
-        'Carla',
-        'Sophie'
+        'frank',
+        'geoffrey',
+        'carla',
+        'sophie'
     ]},
     {'type':'advisor','people':[
-        'Robert',
-        'Cynthia'
+        'robert',
+        'cynthia'
     ]},
     {'type':'manager','people':[
-        'Lawson',
-        'Chloe'
+        'lawson',
+        'chloe'
     ]}
 ]
 
@@ -78,7 +78,7 @@ for type in BUCKETS:
             if type_name == 'analyst':
                 num_companies = random.randint(8,10)
             else:
-                num_companies = random.randint(15,30)
+                num_companies = random.randint(12,18)
             random_weights = [random.random() for c in range(0,num_companies)] # generate some random weights
             random_company_ids = random.sample(range(500), num_companies) # take a random sample from company ids (0-499)
             weight_sum = sum(random_weights)
