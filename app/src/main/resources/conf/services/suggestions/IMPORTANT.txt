@@ -14,7 +14,7 @@ https:cwiki.apache.org/confluence/display/solr/Suggester
     <str name="name">eventsSuggester</str>
     <str name="lookupImpl">FuzzyLookupFactory</str>
     <str name="dictionaryImpl">DocumentDictionaryFactory</str>
-    <str name="field">Company_Events_ss</str>
+    <str name="field">event_hv_ss</str>
     <str name="suggestAnalyzerFieldType">text_general</str>
     <str name="buildOnStartup">false</str>
     <str name="exactMatchFirst">true</str>
