@@ -56,7 +56,7 @@ public class HeaderPreAuthenticationFilter extends AbstractPreAuthenticatedProce
         }
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return authentication != null && authentication instanceof FusionAuthentication ?
+        return authentication != null && authentication instanceof FusionAuthentication && !authentication.getName().equals("admin") ?
                 authentication.getName() : null;
     }
 

@@ -446,6 +446,7 @@
   <field name="company_name" type="text_general"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
   <field name="industry" type="text_general"/>
+  <field name="og_description" type="text_general"/>
   <field name="role" type="text_general"/>
   <field name="sector" type="text_general"/>
   <field name="sector_industry" type="text_general"/>
@@ -544,4 +545,5 @@
   <copyField source="sector" dest="sector_str" maxChars="256"/>
   <copyField source="role" dest="role_str" maxChars="256"/>
   <copyField source="username" dest="username_str" maxChars="256"/>
+  <copyField source="og_description" dest="og_description_str" maxChars="256"/>
 </schema>

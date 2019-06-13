@@ -39,17 +39,19 @@ with open(COMPANY_INPUT_CSV,'r') as companiesfile:
     for company_dict in companies_reader:
         COMPANIES_LIST.append(company_dict)
 
-num_queries = 100
+num_queries = 100000
 query_id = 0
 
 time_now = int(calendar.timegm(time.gmtime()))
 
 with open(SIGNALS_JSON, 'w') as json_outfile:
     json_outfile.write('[\n')
-    days_ago = random.randint(1,90)
-    timestamp = time_now - (days_ago * 86400)
-    timestamp *= 1000
+
+
     while query_id < num_queries:
+        days_ago = random.randint(1, 90)
+        timestamp = time_now - (days_ago * 86400)
+        timestamp *= 1000
         session_id = str(uuid.uuid4())
         user_id = random.choice(USER_IDS)
         query_id += 1
@@ -121,7 +123,7 @@ with open(SIGNALS_JSON, 'w') as json_outfile:
         click_signal = dict()
         click_signal['id'] = str(uuid.uuid4())
         click_signal['type'] = 'click'
-        response_signal['timestamp'] = timestamp + random.randint(4, 10)
+        click_signal['timestamp'] = timestamp + random.randint(4, 10)
         click_signal['params'] = dict()
         click_signal['params']['fusion_query_id'] = query_id
         click_signal['params']['user_id'] = user_id

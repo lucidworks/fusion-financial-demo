@@ -9,7 +9,7 @@
 <search:query var="query" parameters="*"></search:query>
 
 
-<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,og_description_s,Content_Location">
+<search:query var="backendQuery" results-per-page="5" fields="id,score,title_t,description_t,Content_Location">
     <query:filter field="_lw_data_source_pipeline_s" value="yahoo-news"></query:filter>
 </search:query>
 
@@ -60,7 +60,7 @@
                     </search:box>
                     <p class="popular-searches" padding-top="05">
                         <span>You most frequently search for:&nbsp;&nbsp;</span>
-                        <a ng-repeat="q in topSearchesResponse.facets['query'].filters" href="#/search?q={{q | actual}}">{{q | actual}}<span ng-if="!$last">, </span></a>
+                        <a ng-repeat="q in topSearchesResponse.facets['query'].filters" href="#/news?q={{q | actual}}">{{q | actual}}<span ng-if="!$last">, </span></a>
                     </p>
                 </layout:box>
             </div>
@@ -116,16 +116,16 @@
                                                 </layout:block>
                                                 <layout:block md="3-4">
                                                     <search:field name="title_t" styling="title"
-                                                                  urlfield="id"></search:field>
-                                                    <search:field name="og_description_s"
+                                                                  urlfield="id" target="_blank"></search:field>
+                                                    <search:field name="description_t"
                                                                   styling="description"></search:field>
                                                 </layout:block>
                                             </layout:grid>
                                             <layout:grid ng-if="!(result | field:'og_image_s')">
                                                 <layout:block>
                                                     <search:field name="title_t" styling="title"
-                                                                  urlfield="id"></search:field>
-                                                    <search:field name="og_description_s"
+                                                                  urlfield="id" target="_blank"></search:field>
+                                                    <search:field name="description_t"
                                                                   styling="description"></search:field>
                                                 </layout:block>
                                             </layout:grid>
