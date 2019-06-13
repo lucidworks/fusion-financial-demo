@@ -1424,6 +1424,23 @@
     "queryPipelines" : [ {
       "id" : "Finance",
       "stages" : [ {
+        "type" : "set-params",
+        "id" : "obk",
+        "params" : [ {
+          "key" : "hl",
+          "value" : "true",
+          "policy" : "append"
+        }, {
+          "key" : "hl.fl",
+          "value" : "title_t,description_t,body",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Highlighting",
+        "licensed" : true,
+        "secretSourceStageId" : "obk"
+      }, {
         "type" : "text-tagger",
         "id" : "l3",
         "useEmbeddedSolrServer" : false,
@@ -2423,6 +2440,23 @@
     }, {
       "id" : "company-news",
       "stages" : [ {
+        "type" : "set-params",
+        "id" : "run",
+        "params" : [ {
+          "key" : "hl",
+          "value" : "true",
+          "policy" : "append"
+        }, {
+          "key" : "hl.fl",
+          "value" : "body,title_t,description_t",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Highlighting",
+        "licensed" : true,
+        "secretSourceStageId" : "run"
+      }, {
         "type" : "sub-query",
         "id" : "mm8",
         "key" : "company-buckets",
@@ -2725,6 +2759,23 @@
     }, {
       "id" : "latest-news",
       "stages" : [ {
+        "type" : "set-params",
+        "id" : "qgr",
+        "params" : [ {
+          "key" : "hl",
+          "value" : "true",
+          "policy" : "append"
+        }, {
+          "key" : "hl.fl",
+          "value" : "title_t,description_t,body",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Highlighting",
+        "licensed" : true,
+        "secretSourceStageId" : "qgr"
+      }, {
         "type" : "text-tagger",
         "id" : "bym",
         "useEmbeddedSolrServer" : false,
@@ -6800,7 +6851,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2019-06-13T18:24:23.775Z",
+    "exportedDate" : "2019-06-13T19:33:21.696Z",
     "fusionVersion" : "4.2.0",
     "fusionGuid" : "d7a4e30a-b64e-4d63-b3f4-fbf15cf04c16"
   }
