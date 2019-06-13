@@ -70,7 +70,7 @@
                                         <img styling="image medium" ng-src="{{ wikiArticle | field:'infobox.logo' | actual }}" />
                                         <search:field result="article" name="Company" styling="title" value-element="h1"></search:field>
 
-                                        <search:field result="wikiArticle" name="infobox.website" label="" urlfield="infobox.website" styling="label-inline"></search:field>
+                                        <search:field result="wikiArticle" name="infobox.website" label="" urlfield="infobox.website" styling="label-inline" target="_blank"></search:field>
                                         <search:field result="wikiArticle" name="infobox.entity_summary" styling="description"></search:field>
 
                                         <hr/>
@@ -144,13 +144,13 @@
                                                                 </layout:box>
                                                             </layout:block>
                                                             <layout:block md="4-5">
-                                                                <search:field name="title_t" styling="title" urlfield="id"></search:field>
+                                                                <search:field name="title_t" styling="title" urlfield="id" target="_blank"></search:field>
                                                                 <search:field name="description_t" styling="description"></search:field>
                                                             </layout:block>
                                                         </layout:grid>
                                                         <layout:grid ng-if="!(result | field:'og_image_s')">
                                                             <layout:block>
-                                                                <search:field name="title_t" styling="title" urlfield="Content_Location"></search:field>
+                                                                <search:field name="title_t" styling="title" urlfield="id" target="_blank"></search:field>
                                                                 <search:field name="description_t" styling="description"></search:field>
                                                             </layout:block>
                                                         </layout:grid>

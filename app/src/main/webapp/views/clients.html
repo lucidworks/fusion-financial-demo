@@ -4,7 +4,7 @@
 <lifecycle:required object="user.name">
     <search:query var="clientQuery" sorts="-weight_d" results-per-page="9">
         <query:filter field="_lw_data_source_s" value="clients"></query:filter>
-        <query:filter field="advisor_s" value="{{user.name}}"></query:filter>
+        <query:filter field="advisor_t" value="{{user.name}}"></query:filter>
     </search:query>
     <search:response var="clientResponse" query="clientQuery" platform="clients">
         <widget:spinner></widget:spinner>
