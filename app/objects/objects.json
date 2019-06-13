@@ -1269,7 +1269,7 @@
       }, {
         "type" : "javascript-index",
         "id" : "as",
-        "script" : "function(doc) {\n    //varibale contating the original news item\\\n    if (doc.getId() !== null && doc.getFirstFieldValue(\"Content-Type\") != \"application/pdf\") {\n\n\n        logger.info(\"why is this not being run\");\n        var news_bodies = doc.getFieldValues('body');\n\n        // if no new body - do nothing\\\\\\\n        if (news_bodies == null || news_bodies.size() < 1) {\n            logger.info(\"this document had no content in the content field\");\n            return null;\n        }\n\n        var description = doc.getFirstFieldValue('title_txt');\n\n        var news_body = \"\";\n        for (i = 0; i < news_bodies.size(); i++) {\n            news_body = news_body.concat(news_bodies.get(i) + '\\\\n');\n        }\n\n\n        // news_body = news_body.split(\"\\n\").join(\" \");\n        //news_body1= news_body.replace(/GRPN/g, 'USA');\n        //  str = str.replace(\" \", \"_\");\n\n        var pattern = /\\n/g; // notice \"g\" here now!\n\n        news_body = news_body.replace(pattern, \" \");\n        //doc.addField('news_body_txt', news_body);\n\n        // Unique Identifier to connec tot calais\\\\\\\n        //var uniqueAccessKey='7KIwwT7p85yGM7Ag8h94YfXS5KNcbtur';\n        var uniqueAccessKey = '3e7c22df-a19d-44e3-a7cd-ee15256a700b';\n\n        // base url for open calais\\\\\\\n        //var CALAIS_URL = \"https://api.thomsonreuters.com/permid/calais\";\n        var CALAIS_URL = \"http://52.39.161.141/tag/rs/enrich\";\n        // http://52.204.66.106:8080/\n        //post method\\\\\\\n        var method = new org.apache.commons.httpclient.methods.PostMethod(CALAIS_URL);\n\n        // Set mandatory parameters\\\\\\\n        method.setRequestHeader(\"X-AG-Access-Token\", uniqueAccessKey);\n        // Set input content type\\\\\\\n        method.setRequestHeader(\"Content-Type\", \"text/raw\");\n        // Set response/output format\\\\\\\n        method.setRequestHeader(\"outputformat\", \"application/json\");\n\n        method.setRequestBody(news_body);\n\n        var client = new org.apache.commons.httpclient.HttpClient;\n\n        var returnCode = client.executeMethod(method);\n\n        var responseValue = \"\";\n\n      logger.warn(\"FOOOOO Return code is :\" + returnCode);\n        if (returnCode == org.apache.commons.httpclient.HttpStatus.SC_NOT_IMPLEMENTED) {\n          //  Do Something to capture response code\\\\\\\n          logger.warn(\"this is not working\");\n          doc.addField('version', 'untagged');\n        } else if (returnCode == org.apache.commons.httpclient.HttpStatus.SC_OK) {\n          responseValue = method.getResponseBodyAsString();\n       \t  doc.addField('version', 'v1');\n        } else {\n            //  Do Something to capture response code\\\\\\\n        \tlogger.warn(\"this is not working\");\n        \tdoc.addField('version', 'untagged');\n        }\n\n        // remove single new bodies fields to sum them up in one \\\\\\\n        //doc.removeFields('news_body');\n        // doc.addField('news_body', news_body);\n\n        doc.addField('returnCode', returnCode);\n        doc.addField('responseValue', responseValue);\n\n    }\n    return doc;\n}\n",
+        "script" : "function(doc) {\n    if (doc.getId() !== null && doc.getFirstFieldValue(\"Content-Type\") != \"application/pdf\") {\n\n        var news_bodies = doc.getFieldValues('body');\n\n        // if no new body - do nothing\\\\\\\n        if (news_bodies == null || news_bodies.size() < 1) {\n            logger.info(\"this document had no content in the content field\");\n            return null;\n        }\n\n        var description = doc.getFirstFieldValue('title_txt');\n\n        var news_body = \"\";\n        for (i = 0; i < news_bodies.size(); i++) {\n            news_body = news_body.concat(news_bodies.get(i) + '\\\\n');\n        }\n\n\n        var pattern = /\\n/g;\n\n        news_body = news_body.replace(pattern, \" \");\n\n        // Unique Identifier to connec tot calais\n        var uniqueAccessKey = '3e7c22df-a19d-44e3-a7cd-ee15256a700b';\n        var CALAIS_URL = \"http://trit.lucidworks.io/tag/rs/enrich\";\n        var method = new org.apache.commons.httpclient.methods.PostMethod(CALAIS_URL);\n\n        // Set mandatory parameters\\\\\\\n        method.setRequestHeader(\"X-AG-Access-Token\", uniqueAccessKey);\n        // Set input content type\\\\\\\n        method.setRequestHeader(\"Content-Type\", \"text/raw\");\n        // Set response/output format\\\\\\\n        method.setRequestHeader(\"outputformat\", \"application/json\");\n\n        method.setRequestBody(news_body);\n\n        var client = new org.apache.commons.httpclient.HttpClient;\n\n        var returnCode = client.executeMethod(method);\n\n        var responseValue = \"\";\n\n        if (returnCode == org.apache.commons.httpclient.HttpStatus.SC_NOT_IMPLEMENTED) {\n          doc.addField('version', 'untagged');\n        } else if (returnCode == org.apache.commons.httpclient.HttpStatus.SC_OK) {\n          responseValue = method.getResponseBodyAsString();\n       \t  doc.addField('version', 'v1');\n        } else {\n        \tdoc.addField('version', 'untagged');\n        }\n\n        doc.addField('returnCode', returnCode);\n        doc.addField('responseValue', responseValue);\n    }\n    return doc;\n}\n",
         "type" : "javascript-index",
         "skip" : false,
         "label" : "Entity Extraction (TRIT): API call",
@@ -1287,7 +1287,7 @@
       }, {
         "type" : "javascript-index",
         "id" : "kb",
-        "script" : "function(doc) {\n\n    var responseValue = doc.getFieldValues('responseValue');\n\n   var obj;\n    try {\n      obj = JSON.parse(responseValue);\n    } catch(err) {\n      doc.setField(\"version\", \"untagged\");\n      return doc;\n    }\n\n    if (obj == null || (typeof obj == 'undefined') || (typeof obj[0] == 'undefined'))\n        return doc;\n\n    // array to store the name of companies\\\n    var companies = [];\n    // array to store the name of thier respective permids\\\n    var comp_permids = \"\";\n\n    // Get all the Key in the response\\\n    var allKeys = Object.keys(obj[0]);\n\n    // doc.addField('Field Val', Object.keys(obj[0]));\\\n\n    if (allKeys != null) {\n\n        for (i = 0; i < allKeys.length; ++i) {\n\n            tag = obj[0][allKeys[i]]._typeGroup;\n            type = obj[0][allKeys[i]]._type;\n            //logger.warn('test1234');\n            //if social tags\\\n\n            ////////////////////////////\n            //Extract Entity Types\n            ////////////////////////////\n\n            if (type != null && tag != null && tag.equals(\"relations\")) {\n                //Reject -, , , , , CompanyAffiliates, ,,,,,,, , ,, ,,, , , CompanyTicker,, , , , ,,, , ,,, , , , , , FDAPhase, , ,,, ,, , , , ,,, , , , , , , , , , , , ,,,, Quotation, ,,\n                if (!obj[0][allKeys[i]]._type.equals(\"Quotation\") && !obj[0][allKeys[i]]._type.equals(\"Company Affiliates\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTicker\") && !obj[0][allKeys[i]]._type.equals(\"CompanyLocation\") && !obj[0][allKeys[i]]._type.equals(\"FDAPhase\") && !obj[0][allKeys[i]]._type.equals(\"PersonCareer\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTicker\") && !obj[0][allKeys[i]]._type.equals(\"ArmedAttack\") && !obj[0][allKeys[i]]._type.equals(\"ArmsPurchaseSale\") && !obj[0][allKeys[i]]._type.equals(\"Arrest\") && !obj[0][allKeys[i]]._type.equals(\"CandidatePosition\") && !obj[0][allKeys[i]]._type.equals(\"CompanyAccountingChange\") && !obj[0][allKeys[i]]._type.equals(\"CompanyEmployeesNumber\") && !obj[0][allKeys[i]]._type.equals(\"CompanyListingChange\") && !obj[0][allKeys[i]]._type.equals(\"CompanyFounded\") && !obj[0][allKeys[i]]._type.equals(\"CompanyFounded\") && !obj[0][allKeys[i]]._type.equals(\"CompanyLocation\") && !obj[0][allKeys[i]]._type.equals(\"CompanyRestatement\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTechnology\") && !obj[0][allKeys[i]]._type.equals(\"ContactDetails\") && !obj[0][allKeys[i]]._type.equals(\"Conviction\") && !obj[0][allKeys[i]]._type.equals(\"CreditRating\") && !obj[0][allKeys[i]]._type.equals(\"DelayedFiling\") && !obj[0][allKeys[i]]._type.equals(\"DiplomaticRelations\") && !obj[0][allKeys[i]]._type.equals(\"EmploymentRelation\") && !obj[0][allKeys[i]]._type.equals(\"EnvironmentalIssue\") && !obj[0][allKeys[i]]._type.equals(\"Extinction\") && !obj[0][allKeys[i]]._type.equals(\"FamilyRelation\") && !obj[0][allKeys[i]]._type.equals(\"IndicesChanges\") && !obj[0][allKeys[i]]._type.equals(\"Indictment\") && !obj[0][allKeys[i]]._type.equals(\"ManMadeDisaster\") && !obj[0][allKeys[i]]._type.equals(\"MilitaryAction\") && !obj[0][allKeys[i]]._type.equals(\"MovieRelease\") && !obj[0][allKeys[i]]._type.equals(\"MusicAlbumRelease\") && !obj[0][allKeys[i]]._type.equals(\"NaturalDisaster\") && !obj[0][allKeys[i]]._type.equals(\"PersonAttributes\") && !obj[0][allKeys[i]]._type.equals(\"PersonCareer\") && !obj[0][allKeys[i]]._type.equals(\"PersonCommunication\") && !obj[0][allKeys[i]]._type.equals(\"PersonEducation\") && !obj[0][allKeys[i]]._type.equals(\"PersonEmailAddress\") && !obj[0][allKeys[i]]._type.equals(\"PersonLocation\") && !obj[0][allKeys[i]]._type.equals(\"PersonParty\") && !obj[0][allKeys[i]]._type.equals(\"PersonRelation\") && !obj[0][allKeys[i]]._type.equals(\"PersonTravel\") && !obj[0][allKeys[i]]._type.equals(\"PoliticalEndorsement\") && !obj[0][allKeys[i]]._type.equals(\"PoliticalRelationship\") && !obj[0][allKeys[i]]._type.equals(\"PollsResult\") && !obj[0][allKeys[i]]._type.equals(\"SecondaryIssuance\") && !obj[0][allKeys[i]]._type.equals(\"Trial\") && !obj[0][allKeys[i]]._type.equals(\"VotingResult\")) {\n                    doc.addField('relation_event_ss', obj[0][allKeys[i]]._type);\n                    var ref = \"\"\n                    var ref1 = \"\"\n                    var double_take = false;\n                    ref = obj[0][allKeys[i]].company\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].company_rated\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].acquirer\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].company_investigated\n                    if ((typeof ref == 'undefined')) {\n                        ref = obj[0][allKeys[i]].company_acquirer\n                        if (obj[0][allKeys[i]].company_beingacquired != null) {\n                            ref1 = obj[0][allKeys[i]].company_beingacquired\n                            double_take = true;\n                        }\n                    }\n\n                    if (typeof ref !== 'undefined' && ref != null && obj[0][ref] != null) {\n                        // doc.addField('entity_first_ss', Array.isArray(ref))\n                        if (Array.isArray(ref) == true) {\n                            for (k = 0; k < ref.length; ++k) {\n                                doc.addField('company_events_payloads', obj[0][allKeys[i]].name + '|' + obj[0][allKeys[i]].relevance);\n                                doc.addField('entity_all_payloads', obj[0][allKeys[i]].name + '|' + obj[0][allKeys[i]].relevance);\n\n                                var refKScores = parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance);\n\n                                if ((parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance) >= .6)) {\n\n                                    var event_string = obj[0][allKeys[i]]._type.replace(/([A-Z])/g, ' $1').trim(); // add whitespace between words\n                                    doc.addField('entity_all_hv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('company_event_hv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('event_hv_ss', event_string);\n                                    // if the company can be resolved add its url,and perm id for the typeahead and confidence ranking\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n                                        doc.addField('entity_all_hv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('entity_all_hv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + obj[0][allKeys[i]]._type + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + obj[0][allKeys[i]]._type + '|' + refKScores);\n                                    }\n\n                                } else if ((parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance) >= .4)) {\n                                    var event_string = obj[0][allKeys[i]]._type.replace(/([A-Z])/g, ' $1').trim(); // add whitespace between words\n                                    doc.addField('entity_all_mv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('company_event_mv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('event_mv_ss', event_string);\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n                                        doc.addField('entity_all_mv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('entity_all_mv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n\n\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string + '|' + refKScores);\n\n                                    }\n\n                                } else {\n                                    var event_string = obj[0][allKeys[i]]._type.replace(/([A-Z])/g, ' $1').trim(); // add whitespace between words\n                                    doc.addField('entity_all_lv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('company_event_lv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('event_lv_ss', event_string);\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n                                        doc.addField('entity_all_lv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string);\n                                        doc.addField('entity_all_lv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string);\n\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        // doc.addField('event_support_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + obj[0][allKeys[i]]._type + '|' + obj[0][ref[k]].relevance);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + event_string + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + event_string + '|' + refKScores);\n\n                                    }\n                                }\n                            }\n\n\n                        } else {\n\n                          \tvar event_string = obj[0][allKeys[i]]._type.replace(/([A-Z])/g, ' $1').trim(); // add whitespace between words\n                            doc.addField('event_support_ss', obj[0][ref].name + \" \" + event_string);\n                            var refScore = parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance);\n\n                            if ((parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance) >= .6)) {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + event_string);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + event_string + '|' + refScore);\n                                doc.addField('company_event_hv_ss', obj[0][ref].name + \" \" + event_string);\n                                doc.addField('event_hv_ss', event_string);\n\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                    doc.addField('company_event_hv_ss', obj[0][ref1].name + \" \" + event_string);\n                                    doc.addField('event_hv_ss', event_string);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref1].name + \" \" + event_string);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + event_string + '|' + refScore);\n\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + event_string + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + event_string + '|' + refScore);\n\n                                }\n                            } else if ((parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance) >= .4)) {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + event_string);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + event_string + '|' + refScore);\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                  \tdoc.addField('company_event_mv_ss', obj[0][ref1].name + \" \" + event_string);\n                                \tdoc.addField('event_mv_ss', event_string);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref1].name + \" \" + event_string);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + event_string + '|' + refScore);\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + event_string + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + event_string + '|' + refScore);\n\n                                }\n                            } else {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + event_string);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + event_string + '|' + refScore);\n\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                  \tdoc.addField('company_event_lv_ss', obj[0][ref1].name + \" \" + event_string);\n                                \tdoc.addField('event_lv_ss', event_string);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref1].name + \" \" + event_string);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + event_string + '|' + refScore);\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + event_string);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref].resolutions[0].permid + \" \" + event_string);\n\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + event_string + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + event_string + '|' + refScore);\n                                }\n                            }\n\n                        }\n                    }\n                }\n            }\n        }\n\n\n    }\n    // doc.removeFields(\"responseValue\");\n\n    return doc;\n}\n",
+        "script" : "function(doc) {\n\n    var responseValue = doc.getFieldValues('responseValue');\n\n   var obj;\n    try {\n      obj = JSON.parse(responseValue);\n    } catch(err) {\n      doc.setField(\"version\", \"untagged\");\n      return doc;\n    }\n\n    if (obj == null || (typeof obj == 'undefined') || (typeof obj[0] == 'undefined'))\n        return doc;\n\n    // array to store the name of companies\\\n    var companies = [];\n    // array to store the name of thier respective permids\\\n    var comp_permids = \"\";\n\n    // Get all the Key in the response\\\n    var allKeys = Object.keys(obj[0]);\n\n    if (allKeys != null) {\n\n        for (i = 0; i < allKeys.length; ++i) {\n\n            tag = obj[0][allKeys[i]]._typeGroup;\n            type = obj[0][allKeys[i]]._type;\n\n            ////////////////////////////\n            //Extract Entity Types\n            ////////////////////////////\n\n            if (type != null && tag != null && tag.equals(\"relations\")) {\n                if (!obj[0][allKeys[i]]._type.equals(\"Quotation\") && !obj[0][allKeys[i]]._type.equals(\"Company Affiliates\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTicker\") && !obj[0][allKeys[i]]._type.equals(\"CompanyLocation\") && !obj[0][allKeys[i]]._type.equals(\"FDAPhase\") && !obj[0][allKeys[i]]._type.equals(\"PersonCareer\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTicker\") && !obj[0][allKeys[i]]._type.equals(\"ArmedAttack\") && !obj[0][allKeys[i]]._type.equals(\"ArmsPurchaseSale\") && !obj[0][allKeys[i]]._type.equals(\"Arrest\") && !obj[0][allKeys[i]]._type.equals(\"CandidatePosition\") && !obj[0][allKeys[i]]._type.equals(\"CompanyAccountingChange\") && !obj[0][allKeys[i]]._type.equals(\"CompanyEmployeesNumber\") && !obj[0][allKeys[i]]._type.equals(\"CompanyListingChange\") && !obj[0][allKeys[i]]._type.equals(\"CompanyFounded\") && !obj[0][allKeys[i]]._type.equals(\"CompanyFounded\") && !obj[0][allKeys[i]]._type.equals(\"CompanyLocation\") && !obj[0][allKeys[i]]._type.equals(\"CompanyRestatement\") && !obj[0][allKeys[i]]._type.equals(\"CompanyTechnology\") && !obj[0][allKeys[i]]._type.equals(\"ContactDetails\") && !obj[0][allKeys[i]]._type.equals(\"Conviction\") && !obj[0][allKeys[i]]._type.equals(\"CreditRating\") && !obj[0][allKeys[i]]._type.equals(\"DelayedFiling\") && !obj[0][allKeys[i]]._type.equals(\"DiplomaticRelations\") && !obj[0][allKeys[i]]._type.equals(\"EmploymentRelation\") && !obj[0][allKeys[i]]._type.equals(\"EnvironmentalIssue\") && !obj[0][allKeys[i]]._type.equals(\"Extinction\") && !obj[0][allKeys[i]]._type.equals(\"FamilyRelation\") && !obj[0][allKeys[i]]._type.equals(\"IndicesChanges\") && !obj[0][allKeys[i]]._type.equals(\"Indictment\") && !obj[0][allKeys[i]]._type.equals(\"ManMadeDisaster\") && !obj[0][allKeys[i]]._type.equals(\"MilitaryAction\") && !obj[0][allKeys[i]]._type.equals(\"MovieRelease\") && !obj[0][allKeys[i]]._type.equals(\"MusicAlbumRelease\") && !obj[0][allKeys[i]]._type.equals(\"NaturalDisaster\") && !obj[0][allKeys[i]]._type.equals(\"PersonAttributes\") && !obj[0][allKeys[i]]._type.equals(\"PersonCareer\") && !obj[0][allKeys[i]]._type.equals(\"PersonCommunication\") && !obj[0][allKeys[i]]._type.equals(\"PersonEducation\") && !obj[0][allKeys[i]]._type.equals(\"PersonEmailAddress\") && !obj[0][allKeys[i]]._type.equals(\"PersonLocation\") && !obj[0][allKeys[i]]._type.equals(\"PersonParty\") && !obj[0][allKeys[i]]._type.equals(\"PersonRelation\") && !obj[0][allKeys[i]]._type.equals(\"PersonTravel\") && !obj[0][allKeys[i]]._type.equals(\"PoliticalEndorsement\") && !obj[0][allKeys[i]]._type.equals(\"PoliticalRelationship\") && !obj[0][allKeys[i]]._type.equals(\"PollsResult\") && !obj[0][allKeys[i]]._type.equals(\"SecondaryIssuance\") && !obj[0][allKeys[i]]._type.equals(\"Trial\") && !obj[0][allKeys[i]]._type.equals(\"VotingResult\")) {\n                    var display_event_type = type.replace(/([A-Z][a-z])/g, ' $1').trim();\n                    doc.addField('relation_event_ss', display_event_type);\n                    var ref = \"\"\n                    var ref1 = \"\"\n                    var double_take = false;\n                    ref = obj[0][allKeys[i]].company\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].company_rated\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].acquirer\n                    if ((typeof ref == 'undefined'))\n                        ref = obj[0][allKeys[i]].company_investigated\n                    if ((typeof ref == 'undefined')) {\n                        ref = obj[0][allKeys[i]].company_acquirer\n                        if (obj[0][allKeys[i]].company_beingacquired != null) {\n                            ref1 = obj[0][allKeys[i]].company_beingacquired\n                            double_take = true;\n                        }\n                    }\n\n                    if (typeof ref !== 'undefined' && ref != null && obj[0][ref] != null) {\n                        if (Array.isArray(ref) == true) {\n                            for (k = 0; k < ref.length; ++k) {\n                                doc.addField('company_events_payloads', obj[0][allKeys[i]].name + '|' + obj[0][allKeys[i]].relevance);\n                                doc.addField('entity_all_payloads', obj[0][allKeys[i]].name + '|' + obj[0][allKeys[i]].relevance);\n\n                                var refKScores = parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance);\n\n                                if ((parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance) >= .6)) {\n                                    doc.addField('entity_all_hv_ss', obj[0][ref[k]].name + \" \" + display_event_type);\n                                  \tdoc.addField('company_event_hv_ss', obj[0][ref[k]].name + \" \" + display_event_type);\n                                  \tdoc.addField('event_hv_ss', display_event_type);\n                                    // if the company can be resolved add its url,and perm id for the typeahead and confidence ranking\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_hv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('entity_all_hv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type + '|' + refKScores);\n                                    }\n\n                                } else if ((parseFloat(obj[0][ref[k]].confidencelevel) * parseFloat(obj[0][ref[k]].relevance) >= .4)) {\n                                    doc.addField('entity_all_mv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('company_event_mv_ss', obj[0][ref[k]].name + \" \" + event_string);\n                                  \tdoc.addField('event_mv_ss', display_event_type);\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_mv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('entity_all_mv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type + '|' + refKScores);\n                                    }\n                                } else {\n                                    doc.addField('entity_all_lv_ss', obj[0][ref[k]].name + \" \" + display_event_type);\n                                  \tdoc.addField('company_event_lv_ss', obj[0][ref[k]].name + \" \" + display_event_type);\n                                  \tdoc.addField('event_lv_ss', display_event_type);\n                                    if (obj[0][ref[k]].resolutions != null) {\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('event_support_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_lv_ss', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type);\n                                        doc.addField('entity_all_lv_ss', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].permid + \" \" + display_event_type + '|' + refKScores);\n                                        doc.addField('entity_all_payloads', obj[0][ref[k]].resolutions[0].primaryric + \" \" + display_event_type + '|' + refKScores);\n                                    }\n                                }\n                            }\n\n\n                        } else {\n                            doc.addField('event_support_ss', obj[0][ref].name + \" \" + display_event_type);\n                            var refScore = parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance);\n\n                            if ((parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance) >= .6)) {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + display_event_type);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + display_event_type + '|' + refScore);\n                                doc.addField('company_event_hv_ss', obj[0][ref].name + \" \" + display_event_type);\n                                doc.addField('event_hv_ss', display_event_type);\n\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                    doc.addField('company_event_hv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                    doc.addField('event_hv_ss', display_event_type);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + display_event_type + '|' + refScore);\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('entity_all_hv_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + display_event_type + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type + '|' + refScore);\n                                }\n                            } else if ((parseFloat(obj[0][ref].confidencelevel) * parseFloat(obj[0][ref].relevance) >= .4)) {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + display_event_type);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + display_event_type + '|' + refScore);\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                  \tdoc.addField('company_event_mv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                \tdoc.addField('event_mv_ss', display_event_type);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + display_event_type + '|' + refScore);\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('entity_all_mv_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + display_event_type + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type + '|' + refScore);\n                                }\n                            } else {\n                                doc.addField('entity_all_hv_ss', obj[0][ref].name + \" \" + display_event_type);\n                                doc.addField('entity_all_payloads', obj[0][ref].name + \" \" + display_event_type + '|' + refScore);\n\n                                if (double_take) {\n                                    // add the company even if the display is off\n                                  \tdoc.addField('company_event_lv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                \tdoc.addField('event_lv_ss', display_event_type);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref1].name + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref1].name + \" \" + display_event_type + '|' + refScore);\n                                }\n                                if (obj[0][ref].resolutions != null) {\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('event_support_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type);\n                                    doc.addField('entity_all_lv_ss', obj[0][ref].resolutions[0].permid + \" \" + display_event_type);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].permid + \" \" + display_event_type + '|' + refScore);\n                                    doc.addField('entity_all_payloads', obj[0][ref].resolutions[0].primaryric + \" \" + display_event_type + '|' + refScore);\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }\n\n    return doc;\n}\n",
         "type" : "javascript-index",
         "skip" : false,
         "label" : "Entity Extraction (TRIT): Parse Events",
@@ -1382,15 +1382,6 @@
         "licensed" : true,
         "secretSourceStageId" : "md"
       }, {
-        "type" : "field-mapping",
-        "id" : "95c06938-6bfe-471c-bbfa-4d56c6fbc1de",
-        "mappings" : [ ],
-        "reservedFieldsMappingAllowed" : false,
-        "type" : "field-mapping",
-        "skip" : false,
-        "licensed" : true,
-        "secretSourceStageId" : "95c06938-6bfe-471c-bbfa-4d56c6fbc1de"
-      }, {
         "type" : "solr-dynamic-field-name-mapping",
         "id" : "4694c155-01b8-4197-9b6b-e49eefc4b144",
         "duplicateSingleValuedFields" : false,
@@ -1401,6 +1392,19 @@
         "skip" : false,
         "licensed" : true,
         "secretSourceStageId" : "4694c155-01b8-4197-9b6b-e49eefc4b144"
+      }, {
+        "type" : "field-mapping",
+        "id" : "95c06938-6bfe-471c-bbfa-4d56c6fbc1de",
+        "mappings" : [ {
+          "source" : "twitter_image_src_s",
+          "target" : "og_image_s",
+          "operation" : "copy"
+        } ],
+        "reservedFieldsMappingAllowed" : false,
+        "type" : "field-mapping",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "95c06938-6bfe-471c-bbfa-4d56c6fbc1de"
       }, {
         "type" : "solr-index",
         "id" : "a2841923-69dd-4c1b-b649-cb3f68976017",
@@ -1420,6 +1424,24 @@
     "queryPipelines" : [ {
       "id" : "Finance",
       "stages" : [ {
+        "type" : "text-tagger",
+        "id" : "l3",
+        "useEmbeddedSolrServer" : false,
+        "paramToTag" : "q",
+        "spell_corrections_enabled" : true,
+        "phrase_boosting_enabled" : false,
+        "tail_rewrites_enabled" : false,
+        "phraseBoost" : 2.0,
+        "phraseSlop" : 10,
+        "synonymExpansionBoost" : 2.0,
+        "synonym_expansion_enabled" : false,
+        "overlaps" : "ALL",
+        "params" : [ ],
+        "type" : "text-tagger",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "l3"
+      }, {
         "type" : "set-params",
         "id" : "99i",
         "params" : [ {
@@ -1579,6 +1601,23 @@
         "licensed" : true,
         "secretSourceStageId" : "7v5"
       }, {
+        "type" : "query-rules",
+        "id" : "rhs",
+        "useEmbeddedSolrServer" : false,
+        "useOriginalQueryIfNoRulesMatch" : true,
+        "handler" : "select",
+        "method" : "POST",
+        "params" : [ ],
+        "headers" : [ ],
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "rhs"
+        },
+        "type" : "query-rules",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "rhs"
+      }, {
         "type" : "solr-query",
         "id" : "0028257e-a5f6-4697-ab45-3f12e6e366e6",
         "httpMethod" : "POST",
@@ -1588,6 +1627,14 @@
         "responseSignalsEnabled" : true,
         "licensed" : true,
         "secretSourceStageId" : "0028257e-a5f6-4697-ab45-3f12e6e366e6"
+      }, {
+        "type" : "query-rules-augment-response",
+        "id" : "chf",
+        "facetLabelParseDelimiter" : "||",
+        "type" : "query-rules-augment-response",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "chf"
       }, {
         "type" : "javascript-query",
         "id" : "efp",
@@ -2678,6 +2725,24 @@
     }, {
       "id" : "latest-news",
       "stages" : [ {
+        "type" : "text-tagger",
+        "id" : "bym",
+        "useEmbeddedSolrServer" : false,
+        "paramToTag" : "q",
+        "spell_corrections_enabled" : true,
+        "phrase_boosting_enabled" : false,
+        "tail_rewrites_enabled" : false,
+        "phraseBoost" : 2.0,
+        "phraseSlop" : 10,
+        "synonymExpansionBoost" : 2.0,
+        "synonym_expansion_enabled" : false,
+        "overlaps" : "ALL",
+        "params" : [ ],
+        "type" : "text-tagger",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "bym"
+      }, {
         "type" : "javascript-query",
         "id" : "79f",
         "script" : "if (ctx.hasProperty('company-buckets')) {\n  var company_buckets = ctx.getProperty('company-buckets');\n  logger.info('Company Portfolios: has results');\n  if (company_buckets.response !== null\n        && company_buckets.response.docs !== null\n        && company_buckets.response.docs.length > 0) {\n    var bucket_docs = company_buckets.response.docs;\n    for (var i = 0; i < bucket_docs.length; i++) {\n    \tvar ticker = bucket_docs[i].ticker_s;\n      \tvar company_name = bucket_docs[i].company_name_s;\n\t\tvar weight = bucket_docs[i].weight_d;\n      \trequest.addParam('bq', \"entity_stock_ticker_mv_ss:\" + ticker + \"*^10\");\n      \trequest.addParam('bq', \"ticker_s:\" + ticker + \"^10\");\n      \trequest.addParam('bq', \"title_t:\" + company_name + \"^20\");\n      \trequest.addParam('bq', \"title_t:\" + ticker + \"^100\");\n    }\n  }\n}",
@@ -2860,6 +2925,36 @@
         "licensed" : true,
         "secretSourceStageId" : "uif"
       }, {
+        "type" : "query-rules",
+        "id" : "327",
+        "useEmbeddedSolrServer" : false,
+        "useOriginalQueryIfNoRulesMatch" : true,
+        "handler" : "select",
+        "method" : "POST",
+        "params" : [ ],
+        "headers" : [ ],
+        "asyncConfig" : {
+          "enabled" : false,
+          "asyncId" : "327"
+        },
+        "type" : "query-rules",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "327"
+      }, {
+        "type" : "set-params",
+        "id" : "m5g",
+        "params" : [ {
+          "key" : "sort",
+          "value" : "article_date_dt DESC",
+          "policy" : "append"
+        } ],
+        "type" : "set-params",
+        "skip" : false,
+        "label" : "Sort by recency",
+        "licensed" : true,
+        "secretSourceStageId" : "m5g"
+      }, {
         "type" : "solr-query",
         "id" : "e4302c97-4913-4ce5-a384-e52d5f14e33c",
         "httpMethod" : "POST",
@@ -2869,6 +2964,14 @@
         "responseSignalsEnabled" : true,
         "licensed" : true,
         "secretSourceStageId" : "e4302c97-4913-4ce5-a384-e52d5f14e33c"
+      }, {
+        "type" : "query-rules-augment-response",
+        "id" : "0l",
+        "facetLabelParseDelimiter" : "||",
+        "type" : "query-rules-augment-response",
+        "skip" : false,
+        "licensed" : true,
+        "secretSourceStageId" : "0l"
       }, {
         "type" : "javascript-query",
         "id" : "jh",
@@ -5016,6 +5119,18 @@
       } ],
       "default" : false
     }, {
+      "resource" : "datasource:yahoo-news",
+      "enabled" : true,
+      "triggers" : [ {
+        "type" : "interval",
+        "enabled" : true,
+        "interval" : 12,
+        "timeUnit" : "hour",
+        "startTime" : "2019-05-13T21:00:00.000Z",
+        "type" : "interval"
+      } ],
+      "default" : false
+    }, {
       "resource" : "spark:Finance_click_signals_aggregation",
       "enabled" : true,
       "triggers" : [ {
@@ -5474,9 +5589,9 @@
       "countField" : "count_i",
       "fieldToVectorize" : "query",
       "docIdField" : "doc_id",
-      "overlapThreshold" : 0.5,
-      "minQueryCount" : 5,
-      "similarityThreshold" : 0.01,
+      "overlapThreshold" : 0.005,
+      "minQueryCount" : 1,
+      "similarityThreshold" : 0.001,
       "trainingDataSamplingFraction" : 1.0,
       "analyzerConfigQuery" : "{ \"analyzers\": [ { \"name\": \"LetterTokLowerStem\",\"charFilters\": [ { \"type\": \"htmlstrip\" } ],\"tokenizer\": { \"type\": \"letter\" },\"filters\": [{ \"type\": \"lowercase\" },{ \"type\": \"KStem\" }] }],\"fields\": [{ \"regex\": \".+\", \"analyzer\": \"LetterTokLowerStem\" } ]}",
       "randomSeed" : 1234,
@@ -5530,12 +5645,12 @@
       "dir" : "/autocomplete",
       "filename" : "autocomplete_documentation.json",
       "contentType" : "application/json",
-      "size" : 5625712,
-      "modifiedTime" : "2019-04-25T13:00:00.510Z",
-      "version" : 1631791035753431040,
-      "md5" : "1ee1b11f9e810122138e3908c81c939c",
+      "size" : 5690968,
+      "modifiedTime" : "2019-06-06T13:00:01.254Z",
+      "version" : 1635596109098254336,
+      "md5" : "a87c443e2beba785d9de90e97e82d0d1",
       "metadata" : {
-        "BlobDownloadTask.Last-Modified" : "Wed, 17 Apr 2019 01:06:33 GMT",
+        "BlobDownloadTask.Last-Modified" : "Thu, 06 Jun 2019 03:20:39 GMT",
         "resourceType" : "file"
       }
     }, {
@@ -6588,16 +6703,16 @@
         "f.quitTimeoutMs" : 5000,
         "f.index_items_discarded" : false,
         "fetchDelayMSPerHost" : false,
-        "fetchThreads" : 1,
+        "fetchThreads" : 5,
         "indexCrawlDBToSolr" : false,
         "f.requestRetryCount" : 0,
         "f.jsEnabledAuth" : false,
-        "restrictToTree" : false,
+        "restrictToTree" : true,
         "retainOutlinks" : false,
         "f.defaultCharSet" : "UTF-8",
         "f.useIpAddressForSslConnections" : false,
         "f.useRequestCounter" : true,
-        "emitThreads" : 1,
+        "emitThreads" : 5,
         "f.headlessBrowser" : true,
         "f.useFirefox" : false,
         "f.canonicalTagsRedirectLimit" : 4,
@@ -6659,11 +6774,11 @@
         "sitemap_incremental_crawling" : false,
         "f.screenshotFullscreen" : false,
         "f.filteringRootTags" : [ "body", "head" ],
-        "startLinks" : [ "https://finance.yahoo.com/" ],
+        "startLinks" : [ "https://finance.yahoo.com" ],
         "failFastOnStartLinkFailure" : true,
         "f.timeoutMS" : 10000,
         "f.discardLinkURLAnchors" : true,
-        "includeRegexes" : [ ],
+        "includeRegexes" : [ ".*yahoo.com.*" ],
         "chunkSize" : 1,
         "f.simulateMobile" : false,
         "f.obeyRobotsDelay" : true,
@@ -6685,7 +6800,7 @@
   "metadata" : {
     "formatVersion" : "1",
     "exportedBy" : "default-subject",
-    "exportedDate" : "2019-05-02T18:52:17.702Z",
+    "exportedDate" : "2019-06-13T18:24:23.775Z",
     "fusionVersion" : "4.2.0",
     "fusionGuid" : "d7a4e30a-b64e-4d63-b3f4-fbf15cf04c16"
   }
