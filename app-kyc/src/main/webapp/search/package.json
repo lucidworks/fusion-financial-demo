@@ -13,7 +13,7 @@
     "angular-ui-router": "0.4.2",
     "appkit-ui": "http://appkit.lucidworks.com/repo/4.1.0/appkit-ui.tar.gz",
     "glob-to-regexp": "^0.4.0",
-    "lodash": "4.17.10",
+    "lodash": "4.17.15",
     "telemark": "2.0.0",
     "ws": "^0.8.1"
   },
