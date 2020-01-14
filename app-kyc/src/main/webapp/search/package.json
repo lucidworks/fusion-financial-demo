@@ -15,7 +15,7 @@
     "glob-to-regexp": "^0.4.0",
     "lodash": "4.17.11",
     "telemark": "2.0.0",
-    "ws": "1.1.1"
+    "ws": "7.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
