@@ -4,18 +4,18 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "angular": "~1.6.4",
-    "angular-animate": "~1.6.4",
-    "angular-cookies": "~1.6.4",
-    "angular-resizable": "^1.2.0",
-    "angular-sanitize": "~1.6.4",
-    "angular-touch": "~1.6.4",
-    "angular-ui-router": "0.4.2",
+    "angular": "~1.7.9",
+    "angular-animate": "1.7.9",
+    "angular-cookies": "1.7.9",
+    "angular-resizable": "1.2.0",
+    "angular-sanitize": "1.7.9",
+    "angular-touch": "1.7.9",
+    "angular-ui-router": "1.0.24",
     "appkit-ui": "http://appkit.lucidworks.com/repo/4.1.0/appkit-ui.tar.gz",
     "glob-to-regexp": "^0.4.0",
-    "lodash": "4.17.10",
-    "telemark": "2.0.0",
-    "ws": "^0.8.1"
+    "lodash": "4.17.15",
+    "telemark": "2.1.1",
+    "ws": "7.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
